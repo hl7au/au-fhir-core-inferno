@@ -1,0 +1,107 @@
+require 'inferno/dsl/oauth_credentials'
+require_relative '../../version'
+require_relative '<%= capability_statement_file_name %>'
+require_relative '<%= clinical_notes_guidance_file_name %>'
+require_relative '../../custom_groups/data_absent_reason_group'
+require_relative '../../custom_groups/smart_app_launch_group'
+require_relative '../../provenance_validator'
+require_relative '../../us_core_options'
+
+<% group_file_list.each do |file_name| %>require_relative '<%= file_name %>'
+<% end %>
+module USCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::TestSuite
+      title '<%= title %>'
+      description %(
+        The US Core Test Kit tests systems for their conformance to the [US Core
+        Implementation Guide](<%=ig_link %>).
+
+        HL7® FHIR® resources are validated with the Java validator using
+        `tx.fhir.org` as the terminology server. Users should note that the
+        although the ONC Certification (g)(10) Standardized API Test Suite
+        includes tests from this suite, [it uses a different method to perform
+        terminology
+        validation](https://github.com/onc-healthit/onc-certification-g10-test-kit/wiki/FAQ#q-why-do-some-resources-fail-in-us-core-test-kit-with-terminology-validation-errors).
+        As a result, resource validation results may not be consistent between
+        the US Core Test Suite and the ONC Certification (g)(10) Standardized
+        API Test Suite.
+      )
+      version VERSION
+
+      VALIDATION_MESSAGE_FILTERS = [
+        %r{Sub-extension url 'introspect' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
+        %r{Sub-extension url 'revoke' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
+        /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
+        /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in US Core v3.1.1
+        /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in US Core v5.0.1
+        %r{Unknown Code System 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags'}, # Validator has an issue with this US Core 5 code system in US Core 6 resource
+        %r{URL value 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags' does not resolve} # Validator has an issue with this US Core 5 code system in US Core 6 resource
+      ].freeze
+
+      VERSION_SPECIFIC_MESSAGE_FILTERS = <%=version_specific_message_filters%>.freeze
+
+      def self.metadata
+        @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
+            Generator::GroupMetadata.new(raw_metadata)
+          end
+      end
+
+      validator do
+        url ENV.fetch('<%= validator_env_name %>', 'http://validator_service:4567')
+        message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
+
+        exclude_message do |message|
+
+          message_filters.any? { |filter| filter.match? message.message }
+        end
+
+        perform_additional_validation do |resource, profile_url|
+          ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
+        end
+      end
+
+      id :<%= suite_id %>
+
+      input :url,
+        title: 'FHIR Endpoint',
+        description: 'URL of the FHIR endpoint'
+      input :smart_credentials,
+        title: 'OAuth Credentials',
+        type: :oauth_credentials,
+        optional: true
+
+      fhir_client do
+        url :url
+        oauth_credentials :smart_credentials
+      end
+
+
+      suite_option :smart_app_launch_version,
+        title: 'SMART App Launch Version',
+        list_options: [
+          {
+            label: 'SMART App Launch 1.0.0',
+            value: USCoreOptions::SMART_1
+          },
+          {
+            label: 'SMART App Launch 2.0.0',
+            value: USCoreOptions::SMART_2
+          }
+        ]
+
+      group from: :us_core_smart_app_launch
+
+      group do
+        title 'US Core FHIR API'
+        id :<%= fhir_api_group_id %>
+
+        group from: :<%= capability_statement_group_id %>
+      <% group_id_list.each do |id| %>
+        group from: :<%= id %><% end %>
+        group from: :<%= clinical_notes_guidance_group_id %>
+        group from: :us_core_311_data_absent_reason
+      end
+    end
+  end
+end
