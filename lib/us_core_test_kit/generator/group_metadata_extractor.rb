@@ -68,7 +68,6 @@ module USCoreTestKit
               end
             end
 
-            puts "must_supports[:slices] #{must_supports[:slices]}"
             # TODO: Remove compact
             any_must_support_slices = must_supports[:slices].compact.any? do |slice|
               # only handle type slices because that is all we need for now

@@ -415,4 +415,9 @@
   :file_name: au_core_bmi_reference_resolution_test.rb
 :id: us_core_v030_au_core_bmi
 :file_name: au_core_bmi_group.rb
-:delayed_references: []
+:delayed_references:
+- :path: performer
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization

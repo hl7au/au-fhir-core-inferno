@@ -7,6 +7,7 @@ require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../provenance_validator'
 require_relative '../../us_core_options'
 
+require_relative 'patient_group'
 require_relative 'au_core_bmi_group'
 require_relative 'au_core_bodyweight_group'
 require_relative 'au_core_oxygensat_group'
@@ -24,7 +25,22 @@ require_relative 'au_core_diagnosticresult_imag_group'
 require_relative 'au_core_diagnosticresult_group'
 require_relative 'au_core_sexassignedatbirth_group'
 require_relative 'au_core_smokingstatus_group'
+require_relative 'allergy_intolerance_group'
+require_relative 'au_core_condition_group'
+require_relative 'au_core_diagnostic_report_group'
+require_relative 'document_reference_group'
+require_relative 'encounter_group'
+require_relative 'immunization_group'
+require_relative 'medication_request_group'
+require_relative 'medication_statement_group'
+require_relative 'au_core_observation_group'
 require_relative 'patient_group'
+require_relative 'procedure_group'
+require_relative 'service_request_group'
+require_relative 'healthcare_service_group'
+require_relative 'organization_group'
+require_relative 'practitioner_group'
+require_relative 'provenance_group'
 
 module USCoreTestKit
   module USCoreV030
@@ -114,6 +130,7 @@ module USCoreTestKit
         id :us_core_v030_fhir_api
 
         group from: :us_core_v030_capability_statement
+      
         group from: :us_core_v030_patient
         group from: :us_core_v030_au_core_bmi
         group from: :us_core_v030_au_core_bodyweight
@@ -132,6 +149,22 @@ module USCoreTestKit
         group from: :us_core_v030_au_core_diagnosticresult
         group from: :us_core_v030_au_core_sexassignedatbirth
         group from: :us_core_v030_au_core_smokingstatus
+        group from: :us_core_v030_allergy_intolerance
+        group from: :us_core_v030_au_core_condition
+        group from: :us_core_v030_au_core_diagnostic_report
+        group from: :us_core_v030_document_reference
+        group from: :us_core_v030_encounter
+        group from: :us_core_v030_immunization
+        group from: :us_core_v030_medication_request
+        group from: :us_core_v030_medication_statement
+        group from: :us_core_v030_au_core_observation
+        group from: :us_core_v030_patient
+        group from: :us_core_v030_procedure
+        group from: :us_core_v030_service_request
+        group from: :us_core_v030_healthcare_service
+        group from: :us_core_v030_organization
+        group from: :us_core_v030_practitioner
+        group from: :us_core_v030_provenance
         group from: :us_core_v400_clinical_notes_guidance
         group from: :us_core_311_data_absent_reason
       end

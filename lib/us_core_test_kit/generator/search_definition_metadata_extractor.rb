@@ -189,10 +189,6 @@ module USCoreTestKit
       end
 
       def values_from_must_support_slices(profile_element, short_path, mandatory_slice_only)
-        puts "profile_element #{profile_element}"
-        puts "short_path #{short_path}"
-        puts "mandatory_slice_only #{mandatory_slice_only}"
-        puts "group_metadata #{group_metadata[:must_supports]}"
         if group_metadata[:must_supports][:slices].compact.length > 0
           group_metadata[:must_supports][:slices]
             .select { |slice| [short_path, "#{short_path}.coding"].include?(slice[:path]) }

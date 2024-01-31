@@ -392,7 +392,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_bodyweight
   :class_name: AuCoreBodyweightSequence
   :version: v0.3.0
@@ -785,7 +790,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_oxygensat
   :class_name: AuCoreOxygensatSequence
   :version: v0.3.0
@@ -1175,7 +1185,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_bloodpressure
   :class_name: AuCoreBloodpressureSequence
   :version: v0.3.0
@@ -1599,7 +1614,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_bodyheight
   :class_name: AuCoreBodyheightSequence
   :version: v0.3.0
@@ -1992,7 +2012,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_diagnosticresult_path
   :class_name: AuCoreDiagnosticresultPathSequence
   :version: v0.3.0
@@ -2357,7 +2382,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_lipid_result
   :class_name: AuCoreLipidResultSequence
   :version: v0.3.0
@@ -2738,7 +2768,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_headcircum
   :class_name: AuCoreHeadcircumSequence
   :version: v0.3.0
@@ -3131,7 +3166,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_bodytemp
   :class_name: AuCoreBodytempSequence
   :version: v0.3.0
@@ -3524,7 +3564,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_heartrate
   :class_name: AuCoreHeartrateSequence
   :version: v0.3.0
@@ -3914,7 +3959,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_waistcircum
   :class_name: AuCoreWaistcircumSequence
   :version: v0.3.0
@@ -4299,7 +4349,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_vitalspanel
   :class_name: AuCoreVitalspanelSequence
   :version: v0.3.0
@@ -4673,7 +4728,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_resprate
   :class_name: AuCoreResprateSequence
   :version: v0.3.0
@@ -5063,7 +5123,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
     - http://hl7.org/fhir/StructureDefinition/vitalsigns
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_diagnosticresult_imag
   :class_name: AuCoreDiagnosticresultImagSequence
   :version: v0.3.0
@@ -5424,7 +5489,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_diagnosticresult
   :class_name: AuCoreDiagnosticresultSequence
   :version: v0.3.0
@@ -5780,7 +5850,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_sexassignedatbirth
   :class_name: AuCoreSexassignedatbirthSequence
   :version: v0.3.0
@@ -6117,7 +6192,12 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
-  :delayed_references: []
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
 - :name: au_core_smokingstatus
   :class_name: AuCoreSmokingstatusSequence
   :version: v0.3.0
@@ -6461,4 +6541,5101 @@
     - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_patient
+  :class_name: AuCorePatientSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Patient
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :profile_name: AU Core Patient
+  :profile_version: 0.3.0
+  :title: AU Core Patient
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Patient.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - family
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - family
+    :must_support_or_mandatory: false
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - name
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :expectation: SHOULD
+    :names:
+    - birthdate
+    - family
+    :names_not_must_support_or_mandatory:
+    - birthdate
+    - family
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - birthdate
+    - name
+    :names_not_must_support_or_mandatory:
+    - birthdate
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - family
+    - gender
+    :names_not_must_support_or_mandatory:
+    - family
+    - gender
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - gender
+    - name
+    :names_not_must_support_or_mandatory:
+    - gender
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :family:
+      :paths:
+      - 'name.family '
+      - " Practitioner.name.family"
+      :full_paths:
+      - 'Patient.name.family '
+      - " Practitioner.name.family"
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - identifier
+      :full_paths:
+      - Patient.identifier
+      :comparators: {}
+      :values: []
+      :type: Identifier
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :name:
+      :paths:
+      - name
+      :full_paths:
+      - Patient.name
+      :comparators: {}
+      :values: []
+      :type: HumanName
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :birthdate:
+      :paths:
+      - 'birthDate '
+      - " Person.birthDate "
+      - " RelatedPerson.birthDate"
+      :full_paths:
+      - 'Patient.birthDate '
+      - " Person.birthDate "
+      - " RelatedPerson.birthDate"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :gender:
+      :paths:
+      - 'gender '
+      - " Person.gender "
+      - " Practitioner.gender "
+      - " RelatedPerson.gender"
+      :full_paths:
+      - 'Patient.gender '
+      - " Person.gender "
+      - " Practitioner.gender "
+      - " RelatedPerson.gender"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: &3 []
+  :revincludes: &4
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions:
+    - :id: Patient.extension:birthPlace
+      :url: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
+    - :id: Patient.extension:indigenousStatus
+      :url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+    - :id: Patient.extension:interpreterRequired
+      :url: http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
+    - :id: Patient.birthDate.extension:accuracyIndicator
+      :url: http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator
+    - :id: Patient.birthDate.extension:birthTime
+      :url: http://hl7.org/fhir/StructureDefinition/patient-birthTime
+    :slices:
+    -
+    -
+    -
+    :elements:
+    - :path: identifier
+    - :path: name
+    - :path: telecom
+    - :path: gender
+    - :path: birthDate
+    - :path: address
+    - :path: communication
+    - :path: communication.language
+    - :path: communication.preferred
+  :mandatory_elements:
+  - Patient.identifier
+  - Patient.name
+  - Patient.gender
+  - Patient.birthDate
+  - Patient.communication.language
+  - Patient.link.other
+  - Patient.link.type
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: contact.gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/link-type
+    :path: link.type
+  :references:
+  - :path: Patient.contact.organization
+    :profiles: &5
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Patient.generalPractitioner
+    :profiles: &6
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - :path: Patient.managingOrganization
+    :profiles: &7
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Patient.link.other
+    :profiles: &8
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
   :delayed_references: []
+- :name: au_core_allergyintolerance
+  :class_name: AuCoreAllergyintoleranceSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: AllergyIntolerance
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+  :profile_name: AU Core AllergyIntolerance
+  :profile_version: 0.3.0
+  :title: AU Core AllergyIntolerance
+  :short_description: Verify support for the server capabilities required by the AU
+    Core AllergyIntolerance.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - clinical-status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :clinical-status:
+      :paths:
+      - clinicalStatus
+      :full_paths:
+      - AllergyIntolerance.clinicalStatus
+      :comparators: {}
+      :values:
+      - active
+      - inactive
+      - resolved
+      :type: CodeableConcept
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts:
+  - clinicalStatus
+  - verificationStatus
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: clinicalStatus
+    - :path: verificationStatus
+    - :path: type
+    - :path: category
+    - :path: code
+    - :path: patient
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: onset[x]
+    - :path: recorder
+      :types:
+      - Reference
+    - :path: asserter
+      :types:
+      - Reference
+    - :path: note
+    - :path: reaction
+    - :path: reaction.substance
+    - :path: reaction.manifestation
+    - :path: reaction.severity
+  :mandatory_elements:
+  - AllergyIntolerance.code
+  - AllergyIntolerance.patient
+  - AllergyIntolerance.reaction.manifestation
+  :bindings:
+  - :type: CodeableConcept
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/allergyintolerance-clinical
+    :path: clinicalStatus
+  - :type: CodeableConcept
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/allergyintolerance-verification
+    :path: verificationStatus
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-type
+    :path: type
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-category
+    :path: category
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality
+    :path: criticality
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/reaction-event-severity
+    :path: reaction.severity
+  :references:
+  - :path: AllergyIntolerance.patient
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: AllergyIntolerance.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: AllergyIntolerance.recorder
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - :path: AllergyIntolerance.asserter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  :delayed_references:
+  - :path: recorder
+    :resources:
+    - Practitioner
+    - PractitionerRole
+  - :path: asserter
+    :resources:
+    - Practitioner
+    - PractitionerRole
+- :name: au_core_condition
+  :class_name: AuCoreConditionSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Condition
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+  :profile_name: AU Core Condition
+  :profile_version: 0.3.0
+  :title: Condition AU Core
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Condition.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - clinical-status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - category
+    - clinical-status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - onset-date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - onset-date
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :category:
+      :paths:
+      - category
+      :full_paths:
+      - Condition.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :clinical-status:
+      :paths:
+      - clinicalStatus
+      :full_paths:
+      - Condition.clinicalStatus
+      :comparators: {}
+      :values:
+      - active
+      - recurrence
+      - relapse
+      - inactive
+      - remission
+      - resolved
+      :type: CodeableConcept
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :code:
+      :paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :full_paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :onset-date:
+      :paths:
+      - 'onset.ofType(dateTime) '
+      - " onset.ofType(Period)"
+      :full_paths:
+      - 'Condition.onset.ofType(dateTime) '
+      - " Condition.onset.ofType(Period)"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts:
+  - clinicalStatus
+  - verificationStatus
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: clinicalStatus
+    - :path: verificationStatus
+    - :path: category
+    - :path: severity
+    - :path: code
+    - :path: bodySite
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: onset[x]
+    - :path: abatement[x]
+    - :path: recorder
+      :types:
+      - Reference
+    - :path: asserter
+      :types:
+      - Reference
+    - :path: note
+  :mandatory_elements:
+  - Condition.category
+  - Condition.code
+  - Condition.subject
+  :bindings:
+  - :type: CodeableConcept
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/condition-clinical
+    :path: clinicalStatus
+  - :type: CodeableConcept
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/condition-ver-status
+    :path: verificationStatus
+  :references:
+  - :path: Condition.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: Condition.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: Condition.recorder
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Condition.asserter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Condition.stage.assessment
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/ClinicalImpression
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+    - http://hl7.org/fhir/StructureDefinition/Observation
+  - :path: Condition.evidence.detail
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  :delayed_references:
+  - :path: recorder
+    :resources:
+    - Practitioner
+    - PractitionerRole
+  - :path: asserter
+    :resources:
+    - Practitioner
+    - PractitionerRole
+- :name: au_core_diagnosticreport
+  :class_name: AuCoreDiagnosticreportSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: DiagnosticReport
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
+  :profile_name: AU Core DiagnosticReport
+  :profile_version: 0.3.0
+  :title: DiagnosticReport AU Core
+  :short_description: Verify support for the server capabilities required by the AU
+    Core DiagnosticReport.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - category
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :full_paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :category:
+      :paths:
+      - category
+      :full_paths:
+      - DiagnosticReport.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " effective.ofType(dateTime) "
+      - " effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - DiagnosticReport.status
+      :comparators: {}
+      :values:
+      - registered
+      - partial
+      - preliminary
+      - final
+      - amended
+      - corrected
+      - appended
+      - cancelled
+      - entered-in-error
+      - unknown
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :code:
+      :paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :full_paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: basedOn
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
+    - :path: status
+    - :path: category
+    - :path: code
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: effective[x]
+    - :path: issued
+    - :path: performer
+      :types:
+      - Reference
+    - :path: result
+      :types:
+      - Reference
+    - :path: media
+    - :path: media.link
+      :types:
+      - Reference
+    - :path: conclusion
+    - :path: conclusionCode
+    - :path: presentedForm
+  :mandatory_elements:
+  - DiagnosticReport.identifier
+  - DiagnosticReport.status
+  - DiagnosticReport.category
+  - DiagnosticReport.code
+  - DiagnosticReport.subject
+  - DiagnosticReport.effective[x]
+  - DiagnosticReport.issued
+  - DiagnosticReport.performer
+  - DiagnosticReport.result.reference
+  - DiagnosticReport.media.link
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: https://healthterminologies.gov.au/fhir/ValueSet/diagnosticreportstatus-report-available-1
+    :path: status
+  :references:
+  - :path: DiagnosticReport.basedOn
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
+  - :path: DiagnosticReport.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: DiagnosticReport.encounter
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+  - :path: DiagnosticReport.performer
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: DiagnosticReport.resultsInterpreter
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - :path: DiagnosticReport.specimen
+    :profiles:
+    - http://hl7.org.au/fhir/StructureDefinition/au-specimen
+  - :path: DiagnosticReport.result
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+  - :path: DiagnosticReport.imagingStudy
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+  - :path: DiagnosticReport.media.link
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Media
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_documentreference
+  :class_name: AuCoreDocumentreferenceSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: DocumentReference
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
+  :profile_name: AU Core DocumentReference
+  :profile_version: 0.3.0
+  :title: AU Core DocumentReference
+  :short_description: Verify support for the server capabilities required by the AU
+    Core DocumentReference.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - category
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - contenttype
+    :names_not_must_support_or_mandatory:
+    - patient
+    - contenttype
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - type
+    :names_not_must_support_or_mandatory:
+    - patient
+    - type
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - type
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - type
+    - date
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :full_paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :category:
+      :paths:
+      - category
+      :full_paths:
+      - DocumentReference.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - DocumentReference.status
+      :comparators: {}
+      :values:
+      - current
+      - superseded
+      - entered-in-error
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :contenttype:
+      :paths:
+      - content.attachment.contentType
+      :full_paths:
+      - DocumentReference.content.attachment.contentType
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :type:
+      :paths:
+      - 'Account.type '
+      - " AllergyIntolerance.type "
+      - " Composition.type "
+      - " Coverage.type "
+      - " type "
+      - " Encounter.type "
+      - " EpisodeOfCare.type "
+      - " Invoice.type "
+      - " MedicationDispense.type "
+      - " MolecularSequence.type "
+      - " Specimen.type"
+      :full_paths:
+      - 'Account.type '
+      - " AllergyIntolerance.type "
+      - " Composition.type "
+      - " Coverage.type "
+      - " DocumentReference.type "
+      - " Encounter.type "
+      - " EpisodeOfCare.type "
+      - " Invoice.type "
+      - " MedicationDispense.type "
+      - " MolecularSequence.type "
+      - " Specimen.type"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: status
+    - :path: docStatus
+    - :path: type
+    - :path: category
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: date
+    - :path: author
+      :types:
+      - Reference
+    - :path: authenticator
+      :types:
+      - Reference
+    - :path: custodian
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - :path: description
+    - :path: content
+    - :path: content.attachment
+    - :path: content.format
+    - :path: context
+    - :path: context.encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  :mandatory_elements:
+  - DocumentReference.identifier
+  - DocumentReference.status
+  - DocumentReference.type
+  - DocumentReference.category
+  - DocumentReference.subject
+  - DocumentReference.date
+  - DocumentReference.author
+  - DocumentReference.relatesTo.code
+  - DocumentReference.relatesTo.target
+  - DocumentReference.content
+  - DocumentReference.content.attachment
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/document-reference-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/composition-status
+    :path: docStatus
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/document-relationship-type
+    :path: relatesTo.code
+  :references:
+  - :path: DocumentReference.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: DocumentReference.author
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: DocumentReference.authenticator
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: DocumentReference.custodian
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: DocumentReference.relatesTo.target
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  - :path: DocumentReference.context.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: DocumentReference.context.sourcePatientInfo
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient
+  - :path: DocumentReference.context.related
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  :delayed_references:
+  - :path: author
+    :resources:
+    - PractitionerRole
+    - Organization
+  - :path: authenticator
+    :resources:
+    - PractitionerRole
+    - Organization
+  - :path: custodian
+    :resources:
+    - Organization
+- :name: au_core_encounter
+  :class_name: AuCoreEncounterSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Encounter
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  :profile_name: AU Core Encounter
+  :profile_version: 0.3.0
+  :title: AU Core Encounter
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Encounter.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - date
+    - patient
+    :names_not_must_support_or_mandatory:
+    - date
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - class
+    - patient
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - location
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - type
+    :names_not_must_support_or_mandatory:
+    - patient
+    - type
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :class:
+      :paths:
+      - class
+      :full_paths:
+      - Encounter.class
+      :comparators: {}
+      :values: []
+      :type: Coding
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :location:
+      :paths:
+      - location.location
+      :full_paths:
+      - Encounter.location.location
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - Encounter.status
+      :comparators: {}
+      :values:
+      - planned
+      - arrived
+      - triaged
+      - in-progress
+      - onleave
+      - finished
+      - cancelled
+      - entered-in-error
+      - unknown
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :type:
+      :paths:
+      - 'Account.type '
+      - " AllergyIntolerance.type "
+      - " Composition.type "
+      - " Coverage.type "
+      - " DocumentReference.type "
+      - " type "
+      - " EpisodeOfCare.type "
+      - " Invoice.type "
+      - " MedicationDispense.type "
+      - " MolecularSequence.type "
+      - " Specimen.type"
+      :full_paths:
+      - 'Account.type '
+      - " AllergyIntolerance.type "
+      - " Composition.type "
+      - " Coverage.type "
+      - " DocumentReference.type "
+      - " Encounter.type "
+      - " EpisodeOfCare.type "
+      - " Invoice.type "
+      - " MedicationDispense.type "
+      - " MolecularSequence.type "
+      - " Specimen.type"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions:
+    - :id: Encounter.extension:encounterDescription
+      :url: http://hl7.org.au/fhir/StructureDefinition/encounter-description
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: status
+    - :path: class
+    - :path: type
+    - :path: serviceType
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: participant
+    - :path: participant.type
+    - :path: participant.individual
+      :types:
+      - Reference
+    - :path: period
+    - :path: reasonCode
+    - :path: reasonReference
+      :types:
+      - Reference
+    - :path: hospitalization
+    - :path: hospitalization.dischargeDisposition
+    - :path: location
+    - :path: location.location
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    - :path: serviceProvider
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :mandatory_elements:
+  - Encounter.status
+  - Encounter.statusHistory.status
+  - Encounter.statusHistory.period
+  - Encounter.class
+  - Encounter.classHistory.class
+  - Encounter.classHistory.period
+  - Encounter.subject
+  - Encounter.period
+  - Encounter.diagnosis.condition
+  - Encounter.location.location
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/encounter-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/encounter-status
+    :path: statusHistory.status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/encounter-location-status
+    :path: location.status
+  :references:
+  - :path: Encounter.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: Encounter.episodeOfCare
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+  - :path: Encounter.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - :path: Encounter.participant.individual
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Encounter.appointment
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Appointment
+  - :path: Encounter.reasonReference
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+  - :path: Encounter.diagnosis.condition
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Procedure
+  - :path: Encounter.account
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Account
+  - :path: Encounter.hospitalization.origin
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Encounter.hospitalization.destination
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Encounter.location.location
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  - :path: Encounter.serviceProvider
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: Encounter.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+  :delayed_references:
+  - :path: participant.individual
+    :resources:
+    - Practitioner
+    - PractitionerRole
+  - :path: location.location
+    :resources:
+    - Location
+  - :path: serviceProvider
+    :resources:
+    - Organization
+- :name: au_core_healthcareservice
+  :class_name: AuCoreHealthcareserviceSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: HealthcareService
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+  :profile_name: AU Core HealthcareService
+  :profile_version: 0.3.0
+  :title: AU Core HealthcareService
+  :short_description: Verify support for the server capabilities required by the AU
+    Core HealthcareService.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - name
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - service-category
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - location
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - organization
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - specialty
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - service-type
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  :search_definitions:
+    :name:
+      :paths:
+      - name
+      :full_paths:
+      - HealthcareService.name
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :service-category:
+      :paths:
+      - category
+      :full_paths:
+      - HealthcareService.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - identifier
+      :full_paths:
+      - HealthcareService.identifier
+      :comparators: {}
+      :values: []
+      :type: Identifier
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :location:
+      :paths:
+      - location
+      :full_paths:
+      - HealthcareService.location
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :organization:
+      :paths:
+      - providedBy
+      :full_paths:
+      - HealthcareService.providedBy
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :specialty:
+      :paths:
+      - specialty
+      :full_paths:
+      - HealthcareService.specialty
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :service-type:
+      :paths:
+      - type
+      :full_paths:
+      - HealthcareService.type
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    -
+    :elements:
+    - :path: identifier
+    - :path: providedBy
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - :path: category
+    - :path: type
+    - :path: specialty
+    - :path: location
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    - :path: name
+    - :path: serviceProvisionCode
+  :mandatory_elements:
+  - HealthcareService.name
+  - HealthcareService.notAvailable.description
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/days-of-week
+    :path: availableTime.daysOfWeek
+  :references:
+  - :path: HealthcareService.providedBy
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: HealthcareService.location
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  - :path: HealthcareService.coverageArea
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: HealthcareService.endpoint
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Endpoint
+  :delayed_references:
+  - :path: providedBy
+    :resources:
+    - Organization
+  - :path: location
+    :resources:
+    - Location
+- :name: au_core_immunization
+  :class_name: AuCoreImmunizationSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Immunization
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+  :profile_name: AU Core Immunization
+  :profile_version: 0.3.0
+  :title: AU Core Immunization
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Immunization.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - date
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - Immunization.status
+      :comparators: {}
+      :values:
+      - completed
+      - entered-in-error
+      - not-done
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions:
+    - :id: Immunization.extension:vaccine-serial-number
+      :url: http://hl7.org.au/fhir/StructureDefinition/vaccine-serial-number
+    :slices:
+    - :slice_id: Immunization.vaccineCode.coding:amtVaccineCode
+      :slice_name: amtVaccineCode
+      :path: vaccineCode.coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://snomed.info/sct
+    - :slice_id: Immunization.vaccineCode.coding:airVaccineCode
+      :slice_name: airVaccineCode
+      :path: vaccineCode.coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
+    :elements:
+    - :path: identifier
+    - :path: status
+    - :path: statusReason
+    - :path: vaccineCode
+    - :path: patient
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: occurrence[x]
+    - :path: performer
+    - :path: performer.function
+    - :path: performer.actor
+      :types:
+      - Reference
+    - :path: note
+    - :path: reasonCode
+    - :path: protocolApplied
+    - :path: protocolApplied.series
+    - :path: protocolApplied.targetDisease
+    - :path: protocolApplied.doseNumber[x]
+  :mandatory_elements:
+  - Immunization.status
+  - Immunization.vaccineCode
+  - Immunization.vaccineCode.coding.system
+  - Immunization.patient
+  - Immunization.occurrence[x]
+  - Immunization.performer.actor
+  - Immunization.performer.function
+  - Immunization.protocolApplied.doseNumber[x]
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/immunization-status
+    :path: status
+  :references:
+  - :path: Immunization.patient
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: Immunization.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: Immunization.location
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: Immunization.manufacturer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Immunization.performer.actor
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: Immunization.performer.actor
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Immunization.performer.actor
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Immunization.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - :path: Immunization.reaction.detail
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Observation
+  - :path: Immunization.protocolApplied.authority
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  :delayed_references:
+  - :path: performer.actor
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_location
+  :class_name: AuCoreLocationSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Location
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  :profile_name: AU Core Location
+  :profile_version: 0.3.0
+  :title: AU Core Location
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Location.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - address
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - name
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - name
+    :must_support_or_mandatory: false
+  - :names:
+    - address-city
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - address-city
+    :must_support_or_mandatory: false
+  - :names:
+    - address-state
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - address-state
+    :must_support_or_mandatory: false
+  - :names:
+    - address-postalcode
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - address-postalcode
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :address:
+      :paths:
+      - address
+      :full_paths:
+      - Location.address
+      :comparators: {}
+      :values: []
+      :type: Address
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :name:
+      :paths:
+      - 'name '
+      - " alias"
+      :full_paths:
+      - 'Location.name '
+      - " Location.alias"
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :address-city:
+      :paths:
+      - address.city
+      :full_paths:
+      - Location.address.city
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :address-state:
+      :paths:
+      - address.state
+      :full_paths:
+      - Location.address.state
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :address-postalcode:
+      :paths:
+      - address.postalCode
+      :full_paths:
+      - Location.address.postalCode
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: name
+    - :path: description
+    - :path: mode
+    - :path: type
+    - :path: address
+    - :path: physicalType
+    - :path: managingOrganization
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :mandatory_elements:
+  - Location.position.longitude
+  - Location.position.latitude
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/location-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/location-mode
+    :path: mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/days-of-week
+    :path: hoursOfOperation.daysOfWeek
+  :references:
+  - :path: Location.managingOrganization
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: Location.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: Location.endpoint
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Endpoint
+  :delayed_references:
+  - :path: managingOrganization
+    :resources:
+    - Organization
+- :name: au_core_medication
+  :class_name: AuCoreMedicationSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Medication
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+  :profile_name: AU Core Medication
+  :profile_version: 0.3.0
+  :title: AU Core Medication
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Medication.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: Medication.code.coding:pbs
+      :slice_name: pbs
+      :path: code.coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://pbs.gov.au/code/item
+    - :slice_id: Medication.code.coding:amt
+      :slice_name: amt
+      :path: code.coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://snomed.info/sct
+    :elements:
+    - :path: code
+    - :path: manufacturer
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - :path: form
+    - :path: amount
+    - :path: ingredient
+    - :path: ingredient.item[x]
+      :types:
+      - Reference
+    - :path: ingredient.isActive
+    - :path: ingredient.strength
+  :mandatory_elements:
+  - Medication.code
+  - Medication.code.coding.system
+  - Medication.ingredient.item[x]
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medication-status
+    :path: status
+  :references:
+  - :path: Medication.manufacturer
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :delayed_references:
+  - :path: manufacturer
+    :resources:
+    - Organization
+- :name: au_core_medicationrequest
+  :class_name: AuCoreMedicationrequestSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: MedicationRequest
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+  :profile_name: AU Core MedicationRequest
+  :profile_version: 0.3.0
+  :title: AU Core MedicationRequest
+  :short_description: Verify support for the server capabilities required by the AU
+    Core MedicationRequest.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :expectation: SHALL
+    :names:
+    - patient
+    - intent
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - intent
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    - status
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - intent
+    - authoredon
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :full_paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :intent:
+      :paths:
+      - intent
+      :full_paths:
+      - MedicationRequest.intent
+      :comparators: {}
+      :values: []
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - 'MedicationAdministration.status '
+      - " MedicationDispense.status "
+      - " status "
+      - " MedicationStatement.status"
+      :full_paths:
+      - 'MedicationAdministration.status '
+      - " MedicationDispense.status "
+      - " MedicationRequest.status "
+      - " MedicationStatement.status"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :authoredon:
+      :paths:
+      - authoredOn
+      :full_paths:
+      - MedicationRequest.authoredOn
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: dateTime
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params:
+  - MedicationRequest:medication
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
+      :slice_name: pbs
+      :path: medication[x].coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://pbs.gov.au/code/item
+    - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
+      :slice_name: amt
+      :path: medication[x].coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://snomed.info/sct
+    :elements:
+    - :path: identifier
+    - :path: status
+    - :path: intent
+    - :path: category
+    - :path: medication[x]
+      :types:
+      - Reference
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: authoredOn
+    - :path: requester
+      :types:
+      - Reference
+    - :path: reasonCode
+    - :path: note
+    - :path: dosageInstruction
+    - :path: dispenseRequest
+    - :path: dispenseRequest.validityPeriod
+    - :path: dispenseRequest.numberOfRepeatsAllowed
+    - :path: dispenseRequest.quantity
+    - :path: substitution
+    - :path: substitution.allowed[x]
+  :mandatory_elements:
+  - MedicationRequest.status
+  - MedicationRequest.intent
+  - MedicationRequest.medication[x]
+  - MedicationRequest.medication[x].coding.system
+  - MedicationRequest.subject
+  - MedicationRequest.authoredOn
+  - MedicationRequest.requester
+  - MedicationRequest.substitution.allowed[x]
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medicationrequest-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medicationrequest-intent
+    :path: intent
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-priority
+    :path: priority
+  :references:
+  - :path: MedicationRequest.medication[x]
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+  - :path: MedicationRequest.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: MedicationRequest.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: MedicationRequest.supportingInformation
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: MedicationRequest.supportingInformation
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/bodyheight
+  - :path: MedicationRequest.supportingInformation
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/bodyweight
+  - :path: MedicationRequest.requester
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: MedicationRequest.performer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - :path: MedicationRequest.recorder
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - :path: MedicationRequest.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+  - :path: MedicationRequest.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+    - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+  - :path: MedicationRequest.insurance
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Coverage
+    - http://hl7.org/fhir/StructureDefinition/ClaimResponse
+  - :path: MedicationRequest.dispenseRequest.performer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: MedicationRequest.priorPrescription
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - :path: MedicationRequest.detectedIssue
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/DetectedIssue
+  - :path: MedicationRequest.eventHistory
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Provenance
+  :delayed_references:
+  - :path: medication[x]
+    :resources:
+    - Medication
+  - :path: requester
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_medicationstatement
+  :class_name: AuCoreMedicationstatementSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: MedicationStatement
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+  :profile_name: AU Core MedicationStatement
+  :profile_version: 0.3.0
+  :title: AU Core MedicationStatement
+  :short_description: Verify support for the server capabilities required by the AU
+    Core MedicationStatement.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    - status
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - effective
+    :names_not_must_support_or_mandatory:
+    - patient
+    - effective
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :status:
+      :paths:
+      - 'MedicationAdministration.status '
+      - " MedicationDispense.status "
+      - " MedicationRequest.status "
+      - " status"
+      :full_paths:
+      - 'MedicationAdministration.status '
+      - " MedicationDispense.status "
+      - " MedicationRequest.status "
+      - " MedicationStatement.status"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :effective:
+      :paths:
+      - 'effective.ofType(dateTime) '
+      - " effective.ofType(Period)"
+      :full_paths:
+      - 'MedicationStatement.effective.ofType(dateTime) '
+      - " MedicationStatement.effective.ofType(Period)"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params:
+  - MedicationStatement:medication
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: MedicationStatement.medication[x]:medicationCodeableConcept.coding:pbs
+      :slice_name: pbs
+      :path: medication[x].coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://pbs.gov.au/code/item
+    - :slice_id: MedicationStatement.medication[x]:medicationCodeableConcept.coding:amt
+      :slice_name: amt
+      :path: medication[x].coding
+      :discriminator:
+        :type: value
+        :values:
+        - :path: system
+          :value: http://snomed.info/sct
+    :elements:
+    - :path: basedOn
+      :types:
+      - Reference
+    - :path: status
+    - :path: statusReason
+    - :path: category
+    - :path: medication[x]
+      :types:
+      - Reference
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: context
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: effective[x]
+    - :path: dateAsserted
+    - :path: informationSource
+      :types:
+      - Reference
+    - :path: reasonCode
+    - :path: note
+    - :path: dosage
+  :mandatory_elements:
+  - MedicationStatement.status
+  - MedicationStatement.medication[x]
+  - MedicationStatement.medication[x].coding.system
+  - MedicationStatement.subject
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medication-statement-status
+    :path: status
+  :references:
+  - :path: MedicationStatement.basedOn
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
+  - :path: MedicationStatement.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+    - http://hl7.org/fhir/StructureDefinition/MedicationDispense
+    - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+    - http://hl7.org/fhir/StructureDefinition/Procedure
+    - http://hl7.org/fhir/StructureDefinition/Observation
+  - :path: MedicationStatement.medication[x]
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+  - :path: MedicationStatement.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: MedicationStatement.context
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: MedicationStatement.informationSource
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: MedicationStatement.derivedFrom
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: MedicationStatement.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  :delayed_references:
+  - :path: medication[x]
+    :resources:
+    - Medication
+  - :path: informationSource
+    :resources:
+    - Practitioner
+    - PractitionerRole
+- :name: au_core_observation
+  :class_name: AuCoreObservationSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Observation
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
+  :profile_name: AU Core Observation
+  :profile_version: 0.3.0
+  :title: Observation AU Core
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Observation.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :expectation: SHALL
+    :names:
+    - patient
+    - code
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    :must_support_or_mandatory: false
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    - date
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :category:
+      :paths:
+      - category
+      :full_paths:
+      - Observation.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " effective.ofType(dateTime) "
+      - " effective.ofType(Period) "
+      - " effective.ofType(Timing) "
+      - " effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :code:
+      :paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :full_paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - Observation.status
+      :comparators: {}
+      :values:
+      - registered
+      - preliminary
+      - final
+      - amended
+      - corrected
+      - cancelled
+      - entered-in-error
+      - unknown
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: *1
+  :revincludes: *2
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: status
+    - :path: category
+    - :path: code
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: effective[x]
+    - :path: performer
+      :types:
+      - Reference
+    - :path: value[x]
+    - :path: note
+  :mandatory_elements:
+  - Observation.status
+  - Observation.category
+  - Observation.code
+  - Observation.subject
+  - Observation.effective[x]
+  - Observation.component.code
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/observation-status
+    :path: status
+  :references:
+  - :path: Observation.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+    - http://hl7.org/fhir/StructureDefinition/DeviceRequest
+    - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+    - http://hl7.org/fhir/StructureDefinition/NutritionOrder
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - :path: Observation.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+    - http://hl7.org/fhir/StructureDefinition/MedicationDispense
+    - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+    - http://hl7.org/fhir/StructureDefinition/Procedure
+    - http://hl7.org/fhir/StructureDefinition/Immunization
+    - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+  - :path: Observation.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: Observation.focus
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: Observation.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: Observation.performer
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Observation.specimen
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Specimen
+  - :path: Observation.device
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org/fhir/StructureDefinition/DeviceMetric
+  - :path: Observation.hasMember
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+    - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  - :path: Observation.derivedFrom
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/DocumentReference
+    - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+    - http://hl7.org/fhir/StructureDefinition/Media
+    - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  :delayed_references:
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_organization
+  :class_name: AuCoreOrganizationSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Organization
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :profile_name: AU Core Organization
+  :profile_version: 0.3.0
+  :title: AU Core Organization
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Organization.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - address
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - address
+    :must_support_or_mandatory: false
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :names:
+    - name
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - name
+    :must_support_or_mandatory: false
+  - :names:
+    - _id
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  :search_definitions:
+    :address:
+      :paths:
+      - contact.address
+      :full_paths:
+      - Organization.contact.address
+      :comparators: {}
+      :values: []
+      :type: Address
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'identifier '
+      - " qualification.identifier"
+      :full_paths:
+      - 'Organization.identifier '
+      - " Organization.qualification.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :name:
+      :paths:
+      - 'name '
+      - " alias"
+      :full_paths:
+      - 'Organization.name '
+      - " Organization.alias"
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    -
+    -
+    :elements:
+    - :path: identifier
+    - :path: type
+    - :path: name
+    - :path: alias
+    - :path: telecom
+    - :path: address
+  :mandatory_elements:
+  - Organization.name
+  :bindings: []
+  :references:
+  - :path: Organization.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Organization.endpoint
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Endpoint
+  :delayed_references: []
+- :name: au_core_patient
+  :class_name: AuCorePatientSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Patient
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :profile_name: AU Core Patient
+  :profile_version: 0.3.0
+  :title: AU Core Patient
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Patient.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - family
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - family
+    :must_support_or_mandatory: false
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - name
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :expectation: SHOULD
+    :names:
+    - birthdate
+    - family
+    :names_not_must_support_or_mandatory:
+    - birthdate
+    - family
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - birthdate
+    - name
+    :names_not_must_support_or_mandatory:
+    - birthdate
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - family
+    - gender
+    :names_not_must_support_or_mandatory:
+    - family
+    - gender
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - gender
+    - name
+    :names_not_must_support_or_mandatory:
+    - gender
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :family:
+      :paths:
+      - 'name.family '
+      - " Practitioner.name.family"
+      :full_paths:
+      - 'Patient.name.family '
+      - " Practitioner.name.family"
+      :comparators: {}
+      :values: []
+      :type: string
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - identifier
+      :full_paths:
+      - Patient.identifier
+      :comparators: {}
+      :values: []
+      :type: Identifier
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :name:
+      :paths:
+      - name
+      :full_paths:
+      - Patient.name
+      :comparators: {}
+      :values: []
+      :type: HumanName
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :birthdate:
+      :paths:
+      - 'birthDate '
+      - " Person.birthDate "
+      - " RelatedPerson.birthDate"
+      :full_paths:
+      - 'Patient.birthDate '
+      - " Person.birthDate "
+      - " RelatedPerson.birthDate"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :gender:
+      :paths:
+      - 'gender '
+      - " Person.gender "
+      - " Practitioner.gender "
+      - " RelatedPerson.gender"
+      :full_paths:
+      - 'Patient.gender '
+      - " Person.gender "
+      - " Practitioner.gender "
+      - " RelatedPerson.gender"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: *3
+  :revincludes: *4
+  :required_concepts: []
+  :must_supports:
+    :extensions:
+    - :id: Patient.extension:birthPlace
+      :url: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
+    - :id: Patient.extension:indigenousStatus
+      :url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+    - :id: Patient.extension:interpreterRequired
+      :url: http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
+    - :id: Patient.birthDate.extension:accuracyIndicator
+      :url: http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator
+    - :id: Patient.birthDate.extension:birthTime
+      :url: http://hl7.org/fhir/StructureDefinition/patient-birthTime
+    :slices:
+    -
+    -
+    -
+    :elements:
+    - :path: identifier
+    - :path: name
+    - :path: telecom
+    - :path: gender
+    - :path: birthDate
+    - :path: address
+    - :path: communication
+    - :path: communication.language
+    - :path: communication.preferred
+  :mandatory_elements:
+  - Patient.identifier
+  - Patient.name
+  - Patient.gender
+  - Patient.birthDate
+  - Patient.communication.language
+  - Patient.link.other
+  - Patient.link.type
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: contact.gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/link-type
+    :path: link.type
+  :references:
+  - :path: Patient.contact.organization
+    :profiles: *5
+  - :path: Patient.generalPractitioner
+    :profiles: *6
+  - :path: Patient.managingOrganization
+    :profiles: *7
+  - :path: Patient.link.other
+    :profiles: *8
+  :delayed_references: []
+- :name: au_core_practitioner
+  :class_name: AuCorePractitionerSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Practitioner
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  :profile_name: AU Core Practitioner
+  :profile_version: 0.3.0
+  :title: AU Core Practitioner
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Practitioner.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :names:
+    - name
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'identifier '
+      - " qualification.identifier"
+      :full_paths:
+      - 'Practitioner.identifier '
+      - " Practitioner.qualification.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :name:
+      :paths:
+      - name
+      :full_paths:
+      - Practitioner.name
+      :comparators: {}
+      :values: []
+      :type: HumanName
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    -
+    :elements:
+    - :path: identifier
+    - :path: name
+    - :path: telecom
+    - :path: address
+    - :path: qualification
+    - :path: qualification.identifier
+    - :path: qualification.code
+    - :path: qualification.period
+    - :path: qualification.issuer
+      :types:
+      - Reference
+    - :path: communication
+  :mandatory_elements:
+  - Practitioner.name
+  - Practitioner.qualification.code
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: gender
+  :references:
+  - :path: Practitioner.qualification.issuer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  :delayed_references: []
+- :name: au_core_practitionerrole
+  :class_name: AuCorePractitionerroleSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: PractitionerRole
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  :profile_name: AU Core PractitionerRole
+  :profile_version: 0.3.0
+  :title: AU Core PractitionerRole
+  :short_description: Verify support for the server capabilities required by the AU
+    Core PractitionerRole.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - practitioner
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - specialty
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - identifier
+      :full_paths:
+      - PractitionerRole.identifier
+      :comparators: {}
+      :values: []
+      :type: Identifier
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :practitioner:
+      :paths:
+      - practitioner
+      :full_paths:
+      - PractitionerRole.practitioner
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :specialty:
+      :paths:
+      - specialty
+      :full_paths:
+      - PractitionerRole.specialty
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+  :include_params:
+  - PractitionerRole:practitioner
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices:
+    -
+    :elements:
+    - :path: identifier
+    - :path: practitioner
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - :path: organization
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - :path: code
+    - :path: specialty
+    - :path: location
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    - :path: telecom
+  :mandatory_elements:
+  - PractitionerRole.practitioner
+  - PractitionerRole.notAvailable.description
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/days-of-week
+    :path: availableTime.daysOfWeek
+  :references:
+  - :path: PractitionerRole.practitioner
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - :path: PractitionerRole.organization
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: PractitionerRole.location
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  - :path: PractitionerRole.healthcareService
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/HealthcareService
+  - :path: PractitionerRole.endpoint
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Endpoint
+  :delayed_references:
+  - :path: practitioner
+    :resources:
+    - Practitioner
+  - :path: organization
+    :resources:
+    - Organization
+  - :path: location
+    :resources:
+    - Location
+- :name: au_core_procedure
+  :class_name: AuCoreProcedureSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Procedure
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+  :profile_name: AU Core Procedure
+  :profile_version: 0.3.0
+  :title: AU Core Procedure
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Procedure.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    - date
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    - date
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :date:
+      :paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " occurrence.ofType(dateTime) "
+      - " occurrence.ofType(Period) "
+      - " occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :full_paths:
+      - 'AdverseEvent.occurrence.ofType(dateTime) '
+      - " AdverseEvent.occurrence.ofType(Period) "
+      - " AdverseEvent.occurrence.ofType(Timing) "
+      - " AllergyIntolerance.recordedDate "
+      - " (start "
+      - " requestedPeriod.start).first() "
+      - " AuditEvent.recorded "
+      - " CarePlan.period "
+      - " ClinicalImpression.date "
+      - " Composition.date "
+      - " Consent.date "
+      - " DiagnosticReport.effective.ofType(dateTime) "
+      - " DiagnosticReport.effective.ofType(Period) "
+      - " DocumentReference.date "
+      - " Encounter.actualPeriod "
+      - " EpisodeOfCare.period "
+      - " FamilyMemberHistory.date "
+      - " Flag.period "
+      - " (Immunization.occurrence.ofType(dateTime)) "
+      - " ImmunizationEvaluation.date "
+      - " ImmunizationRecommendation.date "
+      - " Invoice.date "
+      - " List.date "
+      - " MeasureReport.date "
+      - " NutritionIntake.occurrence.ofType(dateTime) "
+      - " NutritionIntake.occurrence.ofType(Period) "
+      - " Observation.effective.ofType(dateTime) "
+      - " Observation.effective.ofType(Period) "
+      - " Observation.effective.ofType(Timing) "
+      - " Observation.effective.ofType(instant) "
+      - " Procedure.occurrence.ofType(dateTime) "
+      - " Procedure.occurrence.ofType(Period) "
+      - " Procedure.occurrence.ofType(Timing) "
+      - " ResearchSubject.period "
+      - " (RiskAssessment.occurrence.ofType(dateTime)) "
+      - " SupplyRequest.authoredOn"
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: date
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :code:
+      :paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :full_paths:
+      - 'AdverseEvent.code '
+      - " AllergyIntolerance.code "
+      - " AllergyIntolerance.reaction.substance "
+      - " AuditEvent.code "
+      - " Basic.code "
+      - " ChargeItem.code "
+      - " Condition.code "
+      - " DetectedIssue.code "
+      - " DeviceRequest.code.concept "
+      - " DiagnosticReport.code "
+      - " FamilyMemberHistory.condition.code "
+      - " ImagingSelection.status "
+      - " List.code "
+      - " Medication.code "
+      - " MedicationAdministration.medication.concept "
+      - " MedicationDispense.medication.concept "
+      - " MedicationRequest.medication.concept "
+      - " MedicationStatement.medication.concept "
+      - " NutritionIntake.code "
+      - " Observation.code "
+      - " Procedure.code "
+      - " RequestOrchestration.code "
+      - " Task.code"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - Procedure.status
+      :comparators: {}
+      :values:
+      - preparation
+      - in-progress
+      - not-done
+      - on-hold
+      - stopped
+      - completed
+      - entered-in-error
+      - unknown
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: status
+    - :path: statusReason
+    - :path: category
+    - :path: code
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: performed[x]
+    - :path: recorder
+      :types:
+      - Reference
+    - :path: asserter
+      :types:
+      - Reference
+    - :path: reasonCode
+    - :path: reasonReference
+      :types:
+      - Reference
+    - :path: bodySite
+    - :path: note
+  :mandatory_elements:
+  - Procedure.status
+  - Procedure.code
+  - Procedure.subject
+  - Procedure.performed[x]
+  - Procedure.performer.actor
+  - Procedure.focalDevice.manipulated
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/event-status
+    :path: status
+  :references:
+  - :path: Procedure.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - :path: Procedure.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Procedure
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+  - :path: Procedure.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: Procedure.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: Procedure.recorder
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Procedure.asserter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: Procedure.performer.actor
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/Device
+  - :path: Procedure.performer.onBehalfOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Procedure.location
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: Procedure.reasonReference
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
+  - :path: Procedure.report
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+    - http://hl7.org/fhir/StructureDefinition/DocumentReference
+    - http://hl7.org/fhir/StructureDefinition/Composition
+  - :path: Procedure.complicationDetail
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+  - :path: Procedure.focalDevice.manipulated
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Device
+  - :path: Procedure.usedReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org/fhir/StructureDefinition/Medication
+    - http://hl7.org/fhir/StructureDefinition/Substance
+  :delayed_references:
+  - :path: recorder
+    :resources:
+    - Practitioner
+    - PractitionerRole
+  - :path: asserter
+    :resources:
+    - Practitioner
+    - PractitionerRole
+- :name: au_core_provenance
+  :class_name: AuCoreProvenanceSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: Provenance
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
+  :profile_name: AU Core Provenance
+  :profile_version: 0.3.0
+  :title: AU Core Provenance
+  :short_description: Verify support for the server capabilities required by the AU
+    Core Provenance.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: target
+      :types:
+      - Reference
+    - :path: occurred[x]
+    - :path: recorded
+    - :path: activity
+    - :path: agent
+    - :path: agent.who
+      :types:
+      - Reference
+    - :path: agent.onBehalfOf
+      :types:
+      - Reference
+  :mandatory_elements:
+  - Provenance.target
+  - Provenance.recorded
+  - Provenance.agent
+  - Provenance.agent.who
+  - Provenance.entity.role
+  - Provenance.entity.what
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/provenance-entity-role
+    :path: entity.role
+  :references:
+  - :path: Provenance.target
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: Provenance.location
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: Provenance.agent.who
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: Provenance.agent.onBehalfOf
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: Provenance.entity.what
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  :delayed_references:
+  - :path: agent.who
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+  - :path: agent.onBehalfOf
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+- :name: au_core_servicerequest
+  :class_name: AuCoreServicerequestSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: ServiceRequest
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
+  :profile_name: AU Core ServiceRequest
+  :profile_version: 0.3.0
+  :title: AU Core ServiceRequest
+  :short_description: Verify support for the server capabilities required by the AU
+    Core ServiceRequest.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :names:
+    - _id
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - identifier
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - category
+    - authored
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHALL
+    :names:
+    - patient
+    - code
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - category
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - code
+    - authored
+    :names_not_must_support_or_mandatory:
+    - patient
+    - code
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - status
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - Resource.id
+      :full_paths:
+      - Resource.id
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :identifier:
+      :paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :full_paths:
+      - 'Account.identifier '
+      - " AdverseEvent.identifier "
+      - " AllergyIntolerance.identifier "
+      - " Appointment.identifier "
+      - " AppointmentResponse.identifier "
+      - " Basic.identifier "
+      - " BodyStructure.identifier "
+      - " CarePlan.identifier "
+      - " CareTeam.identifier "
+      - " ChargeItem.identifier "
+      - " Claim.identifier "
+      - " ClaimResponse.identifier "
+      - " ClinicalImpression.identifier "
+      - " Communication.identifier "
+      - " CommunicationRequest.identifier "
+      - " Composition.identifier "
+      - " Condition.identifier "
+      - " Consent.identifier "
+      - " Contract.identifier "
+      - " Coverage.identifier "
+      - " CoverageEligibilityRequest.identifier "
+      - " CoverageEligibilityResponse.identifier "
+      - " DetectedIssue.identifier "
+      - " DeviceRequest.identifier "
+      - " DeviceUsage.identifier "
+      - " DiagnosticReport.identifier "
+      - " DocumentReference.identifier "
+      - " Encounter.identifier "
+      - " EnrollmentRequest.identifier "
+      - " EpisodeOfCare.identifier "
+      - " ExplanationOfBenefit.identifier "
+      - " FamilyMemberHistory.identifier "
+      - " Flag.identifier "
+      - " Goal.identifier "
+      - " GuidanceResponse.identifier "
+      - " ImagingSelection.identifier "
+      - " ImagingStudy.identifier "
+      - " Immunization.identifier "
+      - " ImmunizationEvaluation.identifier "
+      - " ImmunizationRecommendation.identifier "
+      - " Invoice.identifier "
+      - " List.identifier "
+      - " MeasureReport.identifier "
+      - " Medication.identifier "
+      - " MedicationAdministration.identifier "
+      - " MedicationDispense.identifier "
+      - " MedicationRequest.identifier "
+      - " MedicationStatement.identifier "
+      - " MolecularSequence.identifier "
+      - " NutritionIntake.identifier "
+      - " NutritionOrder.identifier "
+      - " Observation.identifier "
+      - " Person.identifier "
+      - " Procedure.identifier "
+      - " QuestionnaireResponse.identifier "
+      - " RelatedPerson.identifier "
+      - " RequestOrchestration.identifier "
+      - " ResearchSubject.identifier "
+      - " RiskAssessment.identifier "
+      - " ServiceRequest.identifier "
+      - " Specimen.identifier "
+      - " SupplyDelivery.identifier "
+      - " SupplyRequest.identifier "
+      - " Task.identifier "
+      - " VisionPrescription.identifier"
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :patient:
+      :paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :full_paths:
+      - 'AllergyIntolerance.patient '
+      - " CarePlan.subject"
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+      :chain:
+      - :chain: identifier
+        :expectation: SHOULD
+    :category:
+      :paths:
+      - category
+      :full_paths:
+      - ServiceRequest.category
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: SHOULD-NOT
+    :authored:
+      :paths:
+      - authoredOn
+      :full_paths:
+      - ServiceRequest.authoredOn
+      :comparators:
+        :eq: MAY
+        :ne: MAY
+        :gt: MAY
+        :ge: MAY
+        :lt: MAY
+        :le: MAY
+        :sa: MAY
+        :eb: MAY
+        :ap: MAY
+      :values: []
+      :type: dateTime
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :code:
+      :paths:
+      - code.concept
+      :full_paths:
+      - ServiceRequest.code.concept
+      :comparators: {}
+      :values: []
+      :type: token
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+    :status:
+      :paths:
+      - status
+      :full_paths:
+      - ServiceRequest.status
+      :comparators: {}
+      :values:
+      - draft
+      - active
+      - on-hold
+      - revoked
+      - completed
+      - entered-in-error
+      - unknown
+      :type: code
+      :contains_multiple: false
+      :multiple_or: SHOULD-NOT
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: basedOn
+      :types:
+      - Reference
+    - :path: status
+    - :path: intent
+    - :path: category
+    - :path: code
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    - :path: authoredOn
+    - :path: requester
+      :types:
+      - Reference
+    - :path: performerType
+    - :path: performer
+      :types:
+      - Reference
+    - :path: reasonCode
+    - :path: reasonReference
+      :types:
+      - Reference
+    - :path: supportingInfo
+      :types:
+      - Reference
+  :mandatory_elements:
+  - ServiceRequest.status
+  - ServiceRequest.intent
+  - ServiceRequest.code
+  - ServiceRequest.subject
+  - ServiceRequest.requester
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-intent
+    :path: intent
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-priority
+    :path: priority
+  :references:
+  - :path: ServiceRequest.basedOn
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
+  - :path: ServiceRequest.replaces
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - :path: ServiceRequest.subject
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: ServiceRequest.encounter
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: ServiceRequest.requester
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/Device
+  - :path: ServiceRequest.performer
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - :path: ServiceRequest.locationReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: ServiceRequest.reasonReference
+    :profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
+  - :path: ServiceRequest.insurance
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Coverage
+    - http://hl7.org/fhir/StructureDefinition/ClaimResponse
+  - :path: ServiceRequest.supportingInfo
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: ServiceRequest.specimen
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Specimen
+  - :path: ServiceRequest.relevantHistory
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Provenance
+  :delayed_references:
+  - :path: requester
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+  - :path: performer
+    :resources:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+    - HealthcareService

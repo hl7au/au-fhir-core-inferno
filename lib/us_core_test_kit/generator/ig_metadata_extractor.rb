@@ -61,18 +61,24 @@ module USCoreTestKit
       end
 
       def add_metadata_from_resources
-        metadata.groups =
-          resources_in_capability_statement.flat_map do |resource|
-            resource.supportedProfile&.map do |supported_profile|
-              supported_profile = supported_profile.split('|').first
-              profile_arr_to_skip = [
-                'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire',
-                "http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding",
-              ]
-              next if profile_arr_to_skip.include?(supported_profile)
-              GroupMetadataExtractor.new(resource, supported_profile, metadata, ig_resources).group_metadata
-            end
-          end.compact
+        profile_arr_to_skip = [
+          'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire',
+          "http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding",
+        ]
+
+        supported_profile_groups = resources_in_capability_statement.flat_map do |resource|
+          resource.supportedProfile&.map do |supported_profile|
+            supported_profile = supported_profile.split('|').first
+            next if profile_arr_to_skip.include?(supported_profile)
+            GroupMetadataExtractor.new(resource, supported_profile, metadata, ig_resources).group_metadata
+          end
+        end.compact
+
+        profile_groups = resources_in_capability_statement.flat_map do |resource|
+          GroupMetadataExtractor.new(resource, resource.profile, metadata, ig_resources).group_metadata
+        end.compact
+
+        metadata.groups = supported_profile_groups + profile_groups
 
         metadata.postprocess_groups(ig_resources)
       end

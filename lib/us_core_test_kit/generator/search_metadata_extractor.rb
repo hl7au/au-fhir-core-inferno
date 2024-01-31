@@ -65,7 +65,6 @@ module USCoreTestKit
 
       def search_definitions
         search_param_names.each_with_object({}) do |name, definitions|
-          puts "name #{name} definitions #{definitions}"
           definitions[name.to_sym] =
             SearchDefinitionMetadataExtractor.new(name, ig_resources, profile_elements, group_metadata).search_definition
         end

@@ -409,4 +409,9 @@
   :file_name: au_core_waistcircum_reference_resolution_test.rb
 :id: us_core_v030_au_core_waistcircum
 :file_name: au_core_waistcircum_group.rb
-:delayed_references: []
+:delayed_references:
+- :path: performer
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization

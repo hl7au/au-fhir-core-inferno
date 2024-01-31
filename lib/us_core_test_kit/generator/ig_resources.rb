@@ -58,16 +58,30 @@ module USCoreTestKit
           .find { |param| param.base.include?("Resource") && param.code == code}
       end
 
+      def search_param_by_specific_cases(resource, code)
+        case "#{resource}-#{code}"
+        when "ServiceRequest-code"
+          search_params = resources_by_type['SearchParameter']
+            .find { |param| param.id == "ServiceRequest-code-concept"}
+        end
+      end
+
       def search_param_by_resource_and_code(resource, code)
         exact_resource = search_param_by_exact_resource_and_code(resource, code)
         if exact_resource.present?
-          return exact_resource
+          exact_resource
         else
-          search_param_by_general_resource_and_code(code)
+          general_resource = search_param_by_general_resource_and_code(code)
+          if general_resource.present?
+            general_resource
+          else
+            search_param_by_specific_cases(resource, code)
+          end
         end
       end
 
       def search_param_by_resource_and_name(resource, name)
+        puts "search_param_by_resource_and_name #{resource} #{name}"
         # remove '_' from search parameter name, such as _id or _tag
         normalized_name = normalized_name = name.to_s.delete_prefix('_')
 

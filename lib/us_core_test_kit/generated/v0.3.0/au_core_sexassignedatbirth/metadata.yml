@@ -361,4 +361,9 @@
   :file_name: au_core_sexassignedatbirth_reference_resolution_test.rb
 :id: us_core_v030_au_core_sexassignedatbirth
 :file_name: au_core_sexassignedatbirth_group.rb
-:delayed_references: []
+:delayed_references:
+- :path: performer
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization

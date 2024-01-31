@@ -1,0 +1,447 @@
+---
+:name: au_core_medicationrequest
+:class_name: AuCoreMedicationrequestSequence
+:version: v0.3.0
+:reformatted_version: v030
+:resource: MedicationRequest
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+:profile_name: AU Core MedicationRequest
+:profile_version: 0.3.0
+:title: AU Core MedicationRequest
+:short_description: Verify support for the server capabilities required by the AU
+  Core MedicationRequest.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :expectation: SHALL
+  :names:
+  - patient
+  - intent
+  :names_not_must_support_or_mandatory:
+  - patient
+  :must_support_or_mandatory: false
+- :names:
+  - _id
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - identifier
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory:
+  - identifier
+  :must_support_or_mandatory: false
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory:
+  - patient
+  :must_support_or_mandatory: false
+- :expectation: SHALL
+  :names:
+  - patient
+  - intent
+  - status
+  :names_not_must_support_or_mandatory:
+  - patient
+  - status
+  :must_support_or_mandatory: false
+- :expectation: SHALL
+  :names:
+  - patient
+  - intent
+  - authoredon
+  :names_not_must_support_or_mandatory:
+  - patient
+  :must_support_or_mandatory: false
+:search_definitions:
+  :_id:
+    :paths:
+    - Resource.id
+    :full_paths:
+    - Resource.id
+    :comparators: {}
+    :values: []
+    :type: token
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+  :identifier:
+    :paths:
+    - 'Account.identifier '
+    - " AdverseEvent.identifier "
+    - " AllergyIntolerance.identifier "
+    - " Appointment.identifier "
+    - " AppointmentResponse.identifier "
+    - " Basic.identifier "
+    - " BodyStructure.identifier "
+    - " CarePlan.identifier "
+    - " CareTeam.identifier "
+    - " ChargeItem.identifier "
+    - " Claim.identifier "
+    - " ClaimResponse.identifier "
+    - " ClinicalImpression.identifier "
+    - " Communication.identifier "
+    - " CommunicationRequest.identifier "
+    - " Composition.identifier "
+    - " Condition.identifier "
+    - " Consent.identifier "
+    - " Contract.identifier "
+    - " Coverage.identifier "
+    - " CoverageEligibilityRequest.identifier "
+    - " CoverageEligibilityResponse.identifier "
+    - " DetectedIssue.identifier "
+    - " DeviceRequest.identifier "
+    - " DeviceUsage.identifier "
+    - " DiagnosticReport.identifier "
+    - " DocumentReference.identifier "
+    - " Encounter.identifier "
+    - " EnrollmentRequest.identifier "
+    - " EpisodeOfCare.identifier "
+    - " ExplanationOfBenefit.identifier "
+    - " FamilyMemberHistory.identifier "
+    - " Flag.identifier "
+    - " Goal.identifier "
+    - " GuidanceResponse.identifier "
+    - " ImagingSelection.identifier "
+    - " ImagingStudy.identifier "
+    - " Immunization.identifier "
+    - " ImmunizationEvaluation.identifier "
+    - " ImmunizationRecommendation.identifier "
+    - " Invoice.identifier "
+    - " List.identifier "
+    - " MeasureReport.identifier "
+    - " Medication.identifier "
+    - " MedicationAdministration.identifier "
+    - " MedicationDispense.identifier "
+    - " identifier "
+    - " MedicationStatement.identifier "
+    - " MolecularSequence.identifier "
+    - " NutritionIntake.identifier "
+    - " NutritionOrder.identifier "
+    - " Observation.identifier "
+    - " Person.identifier "
+    - " Procedure.identifier "
+    - " QuestionnaireResponse.identifier "
+    - " RelatedPerson.identifier "
+    - " RequestOrchestration.identifier "
+    - " ResearchSubject.identifier "
+    - " RiskAssessment.identifier "
+    - " ServiceRequest.identifier "
+    - " Specimen.identifier "
+    - " SupplyDelivery.identifier "
+    - " SupplyRequest.identifier "
+    - " Task.identifier "
+    - " VisionPrescription.identifier"
+    :full_paths:
+    - 'Account.identifier '
+    - " AdverseEvent.identifier "
+    - " AllergyIntolerance.identifier "
+    - " Appointment.identifier "
+    - " AppointmentResponse.identifier "
+    - " Basic.identifier "
+    - " BodyStructure.identifier "
+    - " CarePlan.identifier "
+    - " CareTeam.identifier "
+    - " ChargeItem.identifier "
+    - " Claim.identifier "
+    - " ClaimResponse.identifier "
+    - " ClinicalImpression.identifier "
+    - " Communication.identifier "
+    - " CommunicationRequest.identifier "
+    - " Composition.identifier "
+    - " Condition.identifier "
+    - " Consent.identifier "
+    - " Contract.identifier "
+    - " Coverage.identifier "
+    - " CoverageEligibilityRequest.identifier "
+    - " CoverageEligibilityResponse.identifier "
+    - " DetectedIssue.identifier "
+    - " DeviceRequest.identifier "
+    - " DeviceUsage.identifier "
+    - " DiagnosticReport.identifier "
+    - " DocumentReference.identifier "
+    - " Encounter.identifier "
+    - " EnrollmentRequest.identifier "
+    - " EpisodeOfCare.identifier "
+    - " ExplanationOfBenefit.identifier "
+    - " FamilyMemberHistory.identifier "
+    - " Flag.identifier "
+    - " Goal.identifier "
+    - " GuidanceResponse.identifier "
+    - " ImagingSelection.identifier "
+    - " ImagingStudy.identifier "
+    - " Immunization.identifier "
+    - " ImmunizationEvaluation.identifier "
+    - " ImmunizationRecommendation.identifier "
+    - " Invoice.identifier "
+    - " List.identifier "
+    - " MeasureReport.identifier "
+    - " Medication.identifier "
+    - " MedicationAdministration.identifier "
+    - " MedicationDispense.identifier "
+    - " MedicationRequest.identifier "
+    - " MedicationStatement.identifier "
+    - " MolecularSequence.identifier "
+    - " NutritionIntake.identifier "
+    - " NutritionOrder.identifier "
+    - " Observation.identifier "
+    - " Person.identifier "
+    - " Procedure.identifier "
+    - " QuestionnaireResponse.identifier "
+    - " RelatedPerson.identifier "
+    - " RequestOrchestration.identifier "
+    - " ResearchSubject.identifier "
+    - " RiskAssessment.identifier "
+    - " ServiceRequest.identifier "
+    - " Specimen.identifier "
+    - " SupplyDelivery.identifier "
+    - " SupplyRequest.identifier "
+    - " Task.identifier "
+    - " VisionPrescription.identifier"
+    :comparators: {}
+    :values: []
+    :type: token
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+  :patient:
+    :paths:
+    - 'AllergyIntolerance.patient '
+    - " CarePlan.subject"
+    :full_paths:
+    - 'AllergyIntolerance.patient '
+    - " CarePlan.subject"
+    :comparators: {}
+    :values: []
+    :type: reference
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+  :intent:
+    :paths:
+    - intent
+    :full_paths:
+    - MedicationRequest.intent
+    :comparators: {}
+    :values: []
+    :type: code
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+  :status:
+    :paths:
+    - 'MedicationAdministration.status '
+    - " MedicationDispense.status "
+    - " status "
+    - " MedicationStatement.status"
+    :full_paths:
+    - 'MedicationAdministration.status '
+    - " MedicationDispense.status "
+    - " MedicationRequest.status "
+    - " MedicationStatement.status"
+    :comparators: {}
+    :values: []
+    :type: token
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+  :authoredon:
+    :paths:
+    - authoredOn
+    :full_paths:
+    - MedicationRequest.authoredOn
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: dateTime
+    :contains_multiple: false
+    :multiple_or: SHOULD-NOT
+:include_params:
+- MedicationRequest:medication
+:revincludes:
+- Provenance:target
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices:
+  - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
+    :slice_name: pbs
+    :path: medication[x].coding
+    :discriminator:
+      :type: value
+      :values:
+      - :path: system
+        :value: http://pbs.gov.au/code/item
+  - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
+    :slice_name: amt
+    :path: medication[x].coding
+    :discriminator:
+      :type: value
+      :values:
+      - :path: system
+        :value: http://snomed.info/sct
+  :elements:
+  - :path: identifier
+  - :path: status
+  - :path: intent
+  - :path: category
+  - :path: medication[x]
+    :types:
+    - Reference
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: encounter
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: authoredOn
+  - :path: requester
+    :types:
+    - Reference
+  - :path: reasonCode
+  - :path: note
+  - :path: dosageInstruction
+  - :path: dispenseRequest
+  - :path: dispenseRequest.validityPeriod
+  - :path: dispenseRequest.numberOfRepeatsAllowed
+  - :path: dispenseRequest.quantity
+  - :path: substitution
+  - :path: substitution.allowed[x]
+:mandatory_elements:
+- MedicationRequest.status
+- MedicationRequest.intent
+- MedicationRequest.medication[x]
+- MedicationRequest.medication[x].coding.system
+- MedicationRequest.subject
+- MedicationRequest.authoredOn
+- MedicationRequest.requester
+- MedicationRequest.substitution.allowed[x]
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/medicationrequest-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/medicationrequest-intent
+  :path: intent
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/request-priority
+  :path: priority
+:references:
+- :path: MedicationRequest.medication[x]
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+- :path: MedicationRequest.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: MedicationRequest.encounter
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+- :path: MedicationRequest.supportingInformation
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource
+- :path: MedicationRequest.supportingInformation
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/bodyheight
+- :path: MedicationRequest.supportingInformation
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/bodyweight
+- :path: MedicationRequest.requester
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :path: MedicationRequest.performer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/Device
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org/fhir/StructureDefinition/CareTeam
+- :path: MedicationRequest.recorder
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+- :path: MedicationRequest.reasonReference
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  - http://hl7.org/fhir/StructureDefinition/Observation
+- :path: MedicationRequest.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+- :path: MedicationRequest.insurance
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Coverage
+  - http://hl7.org/fhir/StructureDefinition/ClaimResponse
+- :path: MedicationRequest.dispenseRequest.performer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: MedicationRequest.priorPrescription
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+- :path: MedicationRequest.detectedIssue
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/DetectedIssue
+- :path: MedicationRequest.eventHistory
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Provenance
+:tests:
+- :id: us_core_v030_medication_request_patient_intent_search_test
+  :file_name: medication_request_patient_intent_search_test.rb
+- :id: us_core_v030_medication_request__id_search_test
+  :file_name: medication_request_id_search_test.rb
+- :id: us_core_v030_medication_request_identifier_search_test
+  :file_name: medication_request_identifier_search_test.rb
+- :id: us_core_v030_medication_request_patient_search_test
+  :file_name: medication_request_patient_search_test.rb
+- :id: us_core_v030_medication_request_patient_intent_status_search_test
+  :file_name: medication_request_patient_intent_status_search_test.rb
+- :id: us_core_v030_medication_request_patient_intent_authoredon_search_test
+  :file_name: medication_request_patient_intent_authoredon_search_test.rb
+- :id: us_core_v030_medication_request_read_test
+  :file_name: medication_request_read_test.rb
+- :id: us_core_v030_medication_request_provenance_revinclude_search_test
+  :file_name: medication_request_provenance_revinclude_search_test.rb
+- :id: us_core_v030_medication_request_validation_test
+  :file_name: medication_request_validation_test.rb
+- :id: us_core_v030_medication_validation_test
+  :file_name: medication_validation_test.rb
+- :id: us_core_v030_medication_request_must_support_test
+  :file_name: medication_request_must_support_test.rb
+- :id: us_core_v030_medication_request_reference_resolution_test
+  :file_name: medication_request_reference_resolution_test.rb
+:id: us_core_v030_medication_request
+:file_name: medication_request_group.rb
+:delayed_references:
+- :path: medication[x]
+  :resources:
+  - Medication
+- :path: requester
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization

@@ -380,4 +380,9 @@
   :file_name: au_core_diagnosticresult_reference_resolution_test.rb
 :id: us_core_v030_au_core_diagnosticresult
 :file_name: au_core_diagnosticresult_group.rb
-:delayed_references: []
+:delayed_references:
+- :path: performer
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization
