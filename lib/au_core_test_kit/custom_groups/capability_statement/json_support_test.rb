@@ -1,14 +1,14 @@
-module USCoreTestKit
+module AUCoreTestKit
   class JSONSupportTest < Inferno::Test
-    id :us_core_json_support
+    id :au_core_json_support
     title 'FHIR server capability states JSON support'
     description %(
       FHIR provides multiple [representation
       formats](https://www.hl7.org/fhir/formats.html) for resources, including
-      JSON and XML. US Core profiles require servers to use the [JSON
+      JSON and XML. AU Core profiles require servers to use the [JSON
       representation](https://www.hl7.org/fhir/json.html):
 
-      [```The US Core Server **SHALL** Support json source formats for all US
+      [```The AU Core Server **SHALL** Support json source formats for all US
       Core
       interactions.```](http://hl7.org/fhir/us/core/CapabilityStatement-us-core-server.html#behavior)
 

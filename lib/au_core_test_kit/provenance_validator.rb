@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class ProvenanceValidator
     include FHIRResourceNavigation
 
@@ -14,7 +14,7 @@ module USCoreTestKit
     end
 
     def validate
-      # Invariant provenance-1 in US Core 5 causes validation error. See FHIR-39518
+      # Invariant provenance-1 in AU Core 5 causes validation error. See FHIR-39518
       return validation_messages unless resource.instance_of?(FHIR::Provenance)
 
       failed_provenance =

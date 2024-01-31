@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class TerminologyBindingMetadataExtractor
       attr_accessor :profile_elements, :ig_resources, :resource
@@ -73,7 +73,7 @@ module USCoreTestKit
             url = extension_profile_url(extension_profile_element)
             extension = ig_resources.profile_by_url(url)
 
-            # TODO: Temporaray fix for extension defined out of US Core. FI-1623
+            # TODO: Temporaray fix for extension defined out of AU Core. FI-1623
             next if extension.nil?
 
             elements = extension.snapshot.element

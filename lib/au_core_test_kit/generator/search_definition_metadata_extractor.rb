@@ -1,6 +1,6 @@
 require_relative 'value_extractor'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class SearchDefinitionMetadataExtractor
       attr_accessor :ig_resources, :name, :profile_elements, :group_metadata
@@ -49,7 +49,7 @@ module USCoreTestKit
 
             full_paths = path.split('|')
 
-            # There is a bug in US Core 5 asserted-date search parameter. See FHIR-40573
+            # There is a bug in AU Core 5 asserted-date search parameter. See FHIR-40573
             if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
               remove_additional_extension_from_asserted_date(full_paths)
             end
@@ -132,7 +132,7 @@ module USCoreTestKit
       def contains_multiple?
         if profile_element.present?
           if profile_element.id.start_with?('Extension') && extension_definition.present?
-            # Find the extension instance in a US Core profile
+            # Find the extension instance in a AU Core profile
             target_element = profile_elements.find do |element|
               element.type.any? { |type| type.code == "Extension" && type.profile.include?(extension_definition.url) }
             end

@@ -1,9 +1,9 @@
 require_relative '../../../read_test'
 
-module USCoreTestKit
+module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include USCoreTestKit::ReadTest
+      include AUCoreTestKit::ReadTest
 
       title 'Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
       description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'

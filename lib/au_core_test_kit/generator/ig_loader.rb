@@ -6,7 +6,7 @@ require 'zlib'
 require 'json'
 require_relative 'ig_resources'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class IGLoader
       attr_accessor :ig_file_name

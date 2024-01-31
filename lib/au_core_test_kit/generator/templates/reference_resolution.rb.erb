@@ -1,9 +1,9 @@
 require_relative '../../../reference_resolution_test'
 
-module USCoreTestKit
+module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include USCoreTestKit::ReferenceResolutionTest
+      include AUCoreTestKit::ReferenceResolutionTest
 
       title 'MustSupport references within <%= resource_type %> resources are valid'
       description %(
@@ -11,7 +11,7 @@ module USCoreTestKit
         marked as 'MustSupport', if any are available.
 
         It verifies that at least one external reference for each MustSupport Reference element
-        can be accessed by the test client, and conforms to corresponding US Core profile.
+        can be accessed by the test client, and conforms to corresponding AU Core profile.
 
         Elements which may provide external references include:
 

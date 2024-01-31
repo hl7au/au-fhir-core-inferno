@@ -1,6 +1,6 @@
 require_relative 'fhir_resource_navigation'
 
-module USCoreTestKit
+module AUCoreTestKit
   module MustSupportTest
     extend Forwardable
     include FHIRResourceNavigation

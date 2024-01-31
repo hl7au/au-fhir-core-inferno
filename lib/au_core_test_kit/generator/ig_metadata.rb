@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class IGMetadata
       attr_accessor :ig_version, :groups

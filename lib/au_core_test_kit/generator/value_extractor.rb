@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class ValueExactor
       attr_accessor :ig_resources, :resource, :profile_elements

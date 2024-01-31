@@ -1,7 +1,7 @@
 require_relative 'naming'
 require_relative 'special_cases'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class ProvenanceRevincludeSearchTestGenerator
       class << self
@@ -46,7 +46,7 @@ module USCoreTestKit
       end
 
       def test_id
-        "us_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_search_test"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_search_test"
       end
 
       def search_identifier
@@ -62,7 +62,7 @@ module USCoreTestKit
       end
 
       def module_name
-        "USCore#{group_metadata.reformatted_version.upcase}"
+        "AUCore#{group_metadata.reformatted_version.upcase}"
       end
 
       def resource_type

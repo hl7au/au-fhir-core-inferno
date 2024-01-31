@@ -1,7 +1,7 @@
 require_relative 'naming'
 require_relative 'special_cases'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class GroupGenerator
       class << self
@@ -41,7 +41,7 @@ module USCoreTestKit
       end
 
       def module_name
-        "USCore#{group_metadata.reformatted_version.upcase}"
+        "AUCore#{group_metadata.reformatted_version.upcase}"
       end
 
       def title
@@ -65,7 +65,7 @@ module USCoreTestKit
       end
 
       def group_id
-        "us_core_#{group_metadata.reformatted_version}_#{profile_identifier}"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}"
       end
 
       def resource_type
@@ -114,7 +114,7 @@ module USCoreTestKit
         case group_metadata.resource
         when 'DocumentReference'
           group_metadata.add_test(
-            id: 'us_core_v400_document_reference_custodian_test',
+            id: 'au_core_v400_document_reference_custodian_test',
             file_name: '../../custom_groups/v4.0.0/document_reference_custodian_test.rb'
           )
         end
@@ -178,10 +178,10 @@ module USCoreTestKit
         <<~DESCRIPTION
         # Background
 
-        The US Core #{title} sequence verifies that the system under test is
+        The AU Core #{title} sequence verifies that the system under test is
         able to provide correct responses for #{resource_type} queries. These queries
         must contain resources conforming to the #{profile_name} as
-        specified in the US Core #{group_metadata.version} Implementation Guide.
+        specified in the AU Core #{group_metadata.version} Implementation Guide.
 
         # Testing Methodology
         #{search_description}

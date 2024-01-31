@@ -5,16 +5,16 @@ require_relative '<%= clinical_notes_guidance_file_name %>'
 require_relative '../../custom_groups/data_absent_reason_group'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../provenance_validator'
-require_relative '../../us_core_options'
+require_relative '../../au_core_options'
 
 <% group_file_list.each do |file_name| %>require_relative '<%= file_name %>'
 <% end %>
-module USCoreTestKit
+module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::TestSuite
       title '<%= title %>'
       description %(
-        The US Core Test Kit tests systems for their conformance to the [US Core
+        The AU Core Test Kit tests systems for their conformance to the [AU Core
         Implementation Guide](<%=ig_link %>).
 
         HL7® FHIR® resources are validated with the Java validator using
@@ -24,7 +24,7 @@ module USCoreTestKit
         terminology
         validation](https://github.com/onc-healthit/onc-certification-g10-test-kit/wiki/FAQ#q-why-do-some-resources-fail-in-us-core-test-kit-with-terminology-validation-errors).
         As a result, resource validation results may not be consistent between
-        the US Core Test Suite and the ONC Certification (g)(10) Standardized
+        the AU Core Test Suite and the ONC Certification (g)(10) Standardized
         API Test Suite.
       )
       version VERSION
@@ -33,10 +33,10 @@ module USCoreTestKit
         %r{Sub-extension url 'introspect' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
         %r{Sub-extension url 'revoke' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
         /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
-        /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in US Core v3.1.1
-        /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in US Core v5.0.1
-        %r{Unknown Code System 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags'}, # Validator has an issue with this US Core 5 code system in US Core 6 resource
-        %r{URL value 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags' does not resolve} # Validator has an issue with this US Core 5 code system in US Core 6 resource
+        /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
+        /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in AU Core v5.0.1
+        %r{Unknown Code System 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags'}, # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
+        %r{URL value 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags' does not resolve} # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
       ].freeze
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = <%=version_specific_message_filters%>.freeze
@@ -82,25 +82,25 @@ module USCoreTestKit
         list_options: [
           {
             label: 'SMART App Launch 1.0.0',
-            value: USCoreOptions::SMART_1
+            value: AUCoreOptions::SMART_1
           },
           {
             label: 'SMART App Launch 2.0.0',
-            value: USCoreOptions::SMART_2
+            value: AUCoreOptions::SMART_2
           }
         ]
 
-      group from: :us_core_smart_app_launch
+      group from: :au_core_smart_app_launch
 
       group do
-        title 'US Core FHIR API'
+        title 'AU Core FHIR API'
         id :<%= fhir_api_group_id %>
 
         group from: :<%= capability_statement_group_id %>
       <% group_id_list.each do |id| %>
         group from: :<%= id %><% end %>
         group from: :<%= clinical_notes_guidance_group_id %>
-        group from: :us_core_311_data_absent_reason
+        group from: :au_core_311_data_absent_reason
       end
     end
   end

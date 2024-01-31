@@ -1,14 +1,14 @@
 require 'smart_app_launch_test_kit'
-require_relative '../us_core_options'
+require_relative '../au_core_options'
 
-module USCoreTestKit
+module AUCoreTestKit
   class SmartAppLaunchGroup < Inferno::TestGroup
-    id :us_core_smart_app_launch
+    id :au_core_smart_app_launch
     title 'SMART App Launch'
 
     group do
-      required_suite_options USCoreOptions::SMART_1_REQUIREMENT
-      id :us_core_smart_standalone_launch_stu1
+      required_suite_options AUCoreOptions::SMART_1_REQUIREMENT
+      id :au_core_smart_standalone_launch_stu1
       title 'Standalone Launch'
       optional
 
@@ -46,8 +46,8 @@ module USCoreTestKit
     end
 
     group do
-      required_suite_options USCoreOptions::SMART_1_REQUIREMENT
-      id :us_core_smart_ehr_launch_stu1
+      required_suite_options AUCoreOptions::SMART_1_REQUIREMENT
+      id :au_core_smart_ehr_launch_stu1
       title 'EHR Launch'
       optional
 
@@ -85,8 +85,8 @@ module USCoreTestKit
     end
 
     group do
-      required_suite_options USCoreOptions::SMART_2_REQUIREMENT
-      id :us_core_smart_standalone_launch_stu2
+      required_suite_options AUCoreOptions::SMART_2_REQUIREMENT
+      id :au_core_smart_standalone_launch_stu2
       title 'Standalone Launch'
       optional
 
@@ -124,8 +124,8 @@ module USCoreTestKit
     end
 
     group do
-      required_suite_options USCoreOptions::SMART_2_REQUIREMENT
-      id :us_core_smart_ehr_launch_stu2
+      required_suite_options AUCoreOptions::SMART_2_REQUIREMENT
+      id :au_core_smart_ehr_launch_stu2
       title 'EHR Launch'
       optional
 

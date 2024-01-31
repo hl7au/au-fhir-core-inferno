@@ -17,11 +17,11 @@ namespace :db do
   end
 end
 
-namespace :us_core do
+namespace :au_core do
   desc 'Generate tests'
   task :generate do
     require_relative 'lib/au_core_test_kit/generator'
 
-    USCoreTestKit::Generator.generate
+    AUCoreTestKit::Generator.generate
   end
 end

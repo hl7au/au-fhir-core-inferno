@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class SearchTestProperties
     ATTRIBUTES = [
       :resource_type,

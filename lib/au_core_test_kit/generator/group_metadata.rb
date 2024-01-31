@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class GroupMetadata
       ATTRIBUTES = [

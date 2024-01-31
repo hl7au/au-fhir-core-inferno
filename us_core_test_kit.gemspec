@@ -2,11 +2,11 @@ require_relative 'lib/au_core_test_kit/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'au_core_test_kit'
-  spec.version       = USCoreTestKit::VERSION
+  spec.version       = AUCoreTestKit::VERSION
   spec.authors       = ['Stephen MacVicar']
   spec.email         = ['inferno@groups.mitre.org']
-  spec.summary       = 'US Core Inferno tests'
-  spec.description   = 'US Core Inferno tests'
+  spec.summary       = 'AU Core Inferno tests'
+  spec.description   = 'AU Core Inferno tests'
   spec.homepage      = 'https://github.com/inferno_framework/us-core-test-kit'
   spec.license       = 'Apache-2.0'
   spec.add_runtime_dependency 'inferno_core', '>= 0.4.2'

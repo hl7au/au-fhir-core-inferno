@@ -1,14 +1,14 @@
 require_relative '../../../must_support_test'
 
-module USCoreTestKit
+module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include USCoreTestKit::MustSupportTest
+      include AUCoreTestKit::MustSupportTest
 
       title 'All must support elements are provided in the <%= resource_type %> resources returned'
       description %(
-        US Core Responders SHALL be capable of populating all data elements as
-        part of the query results as specified by the US Core Server Capability
+        AU Core Responders SHALL be capable of populating all data elements as
+        part of the query results as specified by the AU Core Server Capability
         Statement. This test will look through the <%= resource_type %> resources
         found previously for the following must support elements:
 

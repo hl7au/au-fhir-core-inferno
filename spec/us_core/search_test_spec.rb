@@ -1,5 +1,5 @@
-RSpec.describe USCoreTestKit::SearchTest do
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('us_core_v311') }
+RSpec.describe AUCoreTestKit::SearchTest do
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v311') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:url) { 'http://example.com/fhir' }
@@ -22,10 +22,10 @@ RSpec.describe USCoreTestKit::SearchTest do
   describe 'search requiring status' do
     let(:status_search_test) do
       Class.new(Inferno::Test) do
-        include USCoreTestKit::SearchTest
+        include AUCoreTestKit::SearchTest
 
         def properties
-          @properties ||= USCoreTestKit::SearchTestProperties.new(
+          @properties ||= AUCoreTestKit::SearchTestProperties.new(
             resource_type: 'Observation',
             search_param_names: ['patient'],
             possible_status_search: true
@@ -34,7 +34,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
         def self.metadata
           @metadata ||=
-            USCoreTestKit::Generator::GroupMetadata.new(
+            AUCoreTestKit::Generator::GroupMetadata.new(
               YAML.load_file(
                 File.join(
                   __dir__,
@@ -134,7 +134,7 @@ RSpec.describe USCoreTestKit::SearchTest do
   describe 'search with Encounter status with optional multiple-or requirement' do
     let(:patient_id) { '123' }
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV400::EncounterDatePatientSearchTest) do
+      Class.new(AUCoreTestKit::AUCoreV400::EncounterDatePatientSearchTest) do
         fhir_client { url :url }
         input :url, :patient_ids
       end
@@ -216,10 +216,10 @@ RSpec.describe USCoreTestKit::SearchTest do
       end
       let(:medication_request_search_test) do
         Class.new(Inferno::Test) do
-          include USCoreTestKit::SearchTest
+          include AUCoreTestKit::SearchTest
 
           def properties
-            @properties ||= USCoreTestKit::SearchTestProperties.new(
+            @properties ||= AUCoreTestKit::SearchTestProperties.new(
               resource_type: 'MedicationRequest',
               search_param_names: ['patient'],
               possible_status_search: true,
@@ -229,7 +229,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
           def self.metadata
             @metadata ||=
-              USCoreTestKit::Generator::GroupMetadata.new(
+              AUCoreTestKit::Generator::GroupMetadata.new(
                 YAML.load_file(
                   File.join(
                     __dir__,
@@ -299,7 +299,7 @@ RSpec.describe USCoreTestKit::SearchTest do
         end
       end
       let(:test_class) do
-        Class.new(USCoreTestKit::USCoreV311::DevicePatientSearchTest) do
+        Class.new(AUCoreTestKit::AUCoreV311::DevicePatientSearchTest) do
           fhir_client { url :url }
           input :url, :patient_ids, :implantable_device_codes
         end
@@ -349,10 +349,10 @@ RSpec.describe USCoreTestKit::SearchTest do
   describe 'search multiple-or' do
     let(:multiple_or_search_test) do
       Class.new(Inferno::Test) do
-        include USCoreTestKit::SearchTest
+        include AUCoreTestKit::SearchTest
 
         def properties
-          @properties ||= USCoreTestKit::SearchTestProperties.new(
+          @properties ||= AUCoreTestKit::SearchTestProperties.new(
             resource_type: 'MedicationRequest',
             search_param_names: ['patient', 'intent'],
             multiple_or_search_params: ['intent']
@@ -361,7 +361,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
         def self.metadata
           @metadata ||=
-            USCoreTestKit::Generator::GroupMetadata.new(
+            AUCoreTestKit::Generator::GroupMetadata.new(
               YAML.load_file(
                 File.join(
                   __dir__,
@@ -440,7 +440,7 @@ RSpec.describe USCoreTestKit::SearchTest do
     let(:patient_id) { '123' }
     context 'with date precision' do
       let(:test_class) do
-        Class.new(USCoreTestKit::USCoreV400::GoalPatientTargetDateSearchTest) do
+        Class.new(AUCoreTestKit::AUCoreV400::GoalPatientTargetDateSearchTest) do
           fhir_client { url :url }
           input :url
         end
@@ -564,7 +564,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
     context 'with dateTime precision' do
       let(:test_class) do
-        Class.new(USCoreTestKit::USCoreV400::ImmunizationPatientDateSearchTest) do
+        Class.new(AUCoreTestKit::AUCoreV400::ImmunizationPatientDateSearchTest) do
           fhir_client { url :url }
           input :url
         end
@@ -682,7 +682,7 @@ RSpec.describe USCoreTestKit::SearchTest do
   end
 
   describe '#all_search_params' do
-    let(:test_class) { USCoreTestKit::USCoreV311::DocumentReferencePatientCategoryDateSearchTest }
+    let(:test_class) { AUCoreTestKit::AUCoreV311::DocumentReferencePatientCategoryDateSearchTest }
     let(:test) { test_class.new }
     let(:patient_id) {'123'}
     let(:patient_no_resource) {'no-resource'}
@@ -728,7 +728,7 @@ RSpec.describe USCoreTestKit::SearchTest do
   end
 
   describe '#search_params_with_values' do
-    let(:test_class) { USCoreTestKit::USCoreV311::DocumentReferencePatientCategoryDateSearchTest }
+    let(:test_class) { AUCoreTestKit::AUCoreV311::DocumentReferencePatientCategoryDateSearchTest }
     let(:test) { test_class.new }
     let(:patient_id) {'123'}
     let(:patient_no_resource) {'456'}
@@ -800,7 +800,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
   describe '#search_param_value' do
     context 'Array element having DAR extension' do
-      let(:test_class) { USCoreTestKit::USCoreV311::PatientNameSearchTest }
+      let(:test_class) { AUCoreTestKit::AUCoreV311::PatientNameSearchTest }
       let(:test) { test_class.new }
       let(:search_value) {'family_name'}
       let(:patient) {
@@ -832,7 +832,7 @@ RSpec.describe USCoreTestKit::SearchTest do
     end
 
     context 'CodeablcConcept with text only' do
-      let(:test_class) { USCoreTestKit::USCoreV311::DiagnosticReportLabPatientCategorySearchTest }
+      let(:test_class) { AUCoreTestKit::AUCoreV311::DiagnosticReportLabPatientCategorySearchTest }
       let(:test) { test_class.new }
 
       it 'returns nil if category has text only' do
@@ -880,7 +880,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
   describe '#perform_comparator_searches' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV311::ImmunizationPatientDateSearchTest) do
+      Class.new(AUCoreTestKit::AUCoreV311::ImmunizationPatientDateSearchTest) do
         fhir_client { url :url }
         input :url
       end
@@ -928,7 +928,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
   describe 'search_value contains comma' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV311::DiagnosticReportNotePatientCategoryDateSearchTest) do
+      Class.new(AUCoreTestKit::AUCoreV311::DiagnosticReportNotePatientCategoryDateSearchTest) do
         fhir_client { url :url }
         input :url
       end
@@ -988,7 +988,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
   describe 'search extension' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV501::ConditionEncounterDiagnosisPatientAssertedDateSearchTest) do
+      Class.new(AUCoreTestKit::AUCoreV501::ConditionEncounterDiagnosisPatientAssertedDateSearchTest) do
         fhir_client { url :url }
         input :url
       end
@@ -1050,7 +1050,7 @@ RSpec.describe USCoreTestKit::SearchTest do
 
   describe '#test_medication_inclusion' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV311::MedicationRequestPatientIntentSearchTest) do
+      Class.new(AUCoreTestKit::AUCoreV311::MedicationRequestPatientIntentSearchTest) do
         fhir_client { url :url }
         input :url
       end
@@ -1172,7 +1172,7 @@ RSpec.describe USCoreTestKit::SearchTest do
   end
 
   describe '#is_reference_match' do
-    let(:test_class) { USCoreTestKit::USCoreV311::MedicationRequestPatientIntentSearchTest }
+    let(:test_class) { AUCoreTestKit::AUCoreV311::MedicationRequestPatientIntentSearchTest }
     let(:test) { test_class.new }
     let(:pattern_reference) {'Medication/1'}
 

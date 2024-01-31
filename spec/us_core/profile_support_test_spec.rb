@@ -1,6 +1,6 @@
 require_relative '../../lib/au_core_test_kit/custom_groups/capability_statement/profile_support_test'
 
-RSpec.describe USCoreTestKit::ProfileSupportTest do
+RSpec.describe AUCoreTestKit::ProfileSupportTest do
   def run(runnable, inputs = {})
     test_run_params = { test_session_id: test_session.id }.merge(runnable.reference_hash)
     test_run = Inferno::Repositories::TestRuns.new.create(test_run_params)
@@ -17,7 +17,7 @@ RSpec.describe USCoreTestKit::ProfileSupportTest do
 
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('us_core_v400') }
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v400') }
   let(:test) { described_class }
   let(:url) { 'http://example.com/fhir' }
 
@@ -26,7 +26,7 @@ RSpec.describe USCoreTestKit::ProfileSupportTest do
       allow_any_instance_of(test).to receive(:config).and_return(
                                        OpenStruct.new(
                                          options: {
-                                           us_core_profiles: [
+                                           au_core_profiles: [
                                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient',
                                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition',
                                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus'
@@ -55,7 +55,7 @@ RSpec.describe USCoreTestKit::ProfileSupportTest do
       result = run(test, url:)
 
       expect(result.result).to eq('fail')
-      expect(result.result_message).to eq('US Core Patient profile not supported')
+      expect(result.result_message).to eq('AU Core Patient profile not supported')
     end
 
     it 'fails if only the Patient resource is supported' do
@@ -77,7 +77,7 @@ RSpec.describe USCoreTestKit::ProfileSupportTest do
       result = run(test, url:)
 
       expect(result.result).to eq('fail')
-      expect(result.result_message).to eq('No US Core profiles other than Patient are supported')
+      expect(result.result_message).to eq('No AU Core profiles other than Patient are supported')
     end
 
     it 'passes if Patient and one other resource are supported' do
@@ -114,7 +114,7 @@ RSpec.describe USCoreTestKit::ProfileSupportTest do
       allow_any_instance_of(test).to receive(:config).and_return(
                                        OpenStruct.new(
                                          options: {
-                                           us_core_profiles: [
+                                           au_core_profiles: [
                                              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient',
                                              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition',
                                              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus'

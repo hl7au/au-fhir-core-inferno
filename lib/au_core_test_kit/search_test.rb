@@ -2,7 +2,7 @@ require_relative 'date_search_validation'
 require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
 
-module USCoreTestKit
+module AUCoreTestKit
   module SearchTest
     extend Forwardable
     include DateSearchValidation
@@ -161,7 +161,7 @@ module USCoreTestKit
     end
 
     def filter_conditions(resources)
-      # HL7 JIRA FHIR-37917. US Core v5.0.1 does not required patient+category.
+      # HL7 JIRA FHIR-37917. AU Core v5.0.1 does not required patient+category.
       # In order to distinguish which resources matches the current profile, Inferno has to manually filter
       # the result of first search, which is searching by patient.
       resources.select! do |resource|

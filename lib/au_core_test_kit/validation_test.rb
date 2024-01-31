@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   module ValidationTest
     DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'.freeze
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'.freeze

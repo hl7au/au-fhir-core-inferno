@@ -1,7 +1,7 @@
 require_relative 'ig_metadata'
 require_relative 'group_metadata_extractor'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class IGMetadataExtractor
       attr_accessor :ig_resources, :metadata
@@ -30,7 +30,7 @@ module USCoreTestKit
       def add_missing_supported_profiles
         case ig_resources.ig.version
         when '3.1.1'
-          # The US Core v3.1.1 Server Capability Statement does not list support for the
+          # The AU Core v3.1.1 Server Capability Statement does not list support for the
           # required vital signs profiles, so they need to be added
           ig_resources.capability_statement.rest.first.resource
             .find { |resource| resource.type == 'Observation' }
@@ -43,7 +43,7 @@ module USCoreTestKit
               'http://hl7.org/fhir/StructureDefinition/resprate'
             ]
         when '5.0.1'
-          # The US Core v5.0.1 Server Capability Statement does not have supported-profile for Encounter
+          # The AU Core v5.0.1 Server Capability Statement does not have supported-profile for Encounter
           ig_resources.capability_statement.rest.first.resource
             .find { |resource| resource.type == 'Encounter' }
             .supportedProfile.concat [

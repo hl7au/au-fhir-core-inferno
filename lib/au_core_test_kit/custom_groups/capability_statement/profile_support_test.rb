@@ -1,13 +1,13 @@
-module USCoreTestKit
+module AUCoreTestKit
   class ProfileSupportTest < Inferno::Test
-    id :us_core_profile_support
-    title 'Capability Statement lists support for required US Core Profiles'
+    id :au_core_profile_support
+    title 'Capability Statement lists support for required AU Core Profiles'
     description %(
-      The US Core Implementation Guide states:
+      The AU Core Implementation Guide states:
 
       ```
-      The US Core Server SHALL:
-      1. Support the US Core Patient resource profile.
+      The AU Core Server SHALL:
+      1. Support the AU Core Patient resource profile.
       2. Support at least one additional resource profile from the list of US
          Core Profiles.
 
@@ -26,13 +26,13 @@ module USCoreTestKit
             rest.resource.each { |resource| profiles.concat(resource.supportedProfile) }
           end.uniq
 
-      assert supported_profiles.include?('http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'), 'US Core Patient profile not supported'
+      assert supported_profiles.include?('http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'), 'AU Core Patient profile not supported'
 
-      us_core_profiles = config.options[:us_core_profiles]
+      au_core_profiles = config.options[:au_core_profiles]
 
-      other_profiles = us_core_profiles.reject { |resource_type| resource_type == 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient' }
+      other_profiles = au_core_profiles.reject { |resource_type| resource_type == 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient' }
       other_profiles_supported = other_profiles.any? { |profile| supported_profiles.include? profile }
-      assert other_profiles_supported, 'No US Core profiles other than Patient are supported'
+      assert other_profiles_supported, 'No AU Core profiles other than Patient are supported'
 
       if config.options[:required_profiles].present?
         required_profiles = config.options[:required_profiles]

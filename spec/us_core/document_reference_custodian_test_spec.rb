@@ -1,8 +1,8 @@
 require_relative '../../lib/au_core_test_kit/custom_groups/v4.0.0/document_reference_custodian_test'
 
-RSpec.describe USCoreTestKit::USCoreV400::DocumentReferenceCustodianTest do
-  let(:document_reference_custodian_test) { Inferno::Repositories::Tests.new.find('us_core_v400_document_reference_custodian_test') }
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('us_core_v400') }
+RSpec.describe AUCoreTestKit::AUCoreV400::DocumentReferenceCustodianTest do
+  let(:document_reference_custodian_test) { Inferno::Repositories::Tests.new.find('au_core_v400_document_reference_custodian_test') }
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v400') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:documentreference) { FHIR::DocumentReference.new(id: '1') }

@@ -1,6 +1,6 @@
-module USCoreTestKit
+module AUCoreTestKit
   class ClinicalNoteAttachmentTest < Inferno::Test
-    id :us_core_clinical_note_attachments
+    id :au_core_clinical_note_attachments
     title 'DiagnosticReport and DocumentReference reference the same attachment'
     description %(
       All presentedForms urls referenced in DiagnosticReports shall have
@@ -14,7 +14,7 @@ module USCoreTestKit
       all the information for a patient is potentially dangerous if a client
       doesn’t understand or follow this requirement.
 
-      To simplify the requirement, US Core IG requires servers implement the
+      To simplify the requirement, AU Core IG requires servers implement the
       duplicate reference to allow a client to find a Pathology report, or
       other Diagnostic Reports, in either Resource.
     )

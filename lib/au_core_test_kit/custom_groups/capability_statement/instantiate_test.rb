@@ -1,7 +1,7 @@
-module USCoreTestKit
+module AUCoreTestKit
   class InstantiateTest < Inferno::Test
-    id :us_core_instantiate
-    title 'Server instantiates US Core Server'
+    id :au_core_instantiate
+    title 'Server instantiates AU Core Server'
     description %(
         This test inspects the CapabilityStatement returned by the server to
         verify that the server instantiates http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server

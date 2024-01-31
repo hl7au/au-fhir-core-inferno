@@ -1,10 +1,10 @@
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
-module USCoreTestKit
+module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include USCoreTestKit::SearchTest
+      include AUCoreTestKit::SearchTest
 
       title 'Server returns Provenance resources from <%= resource_type %> search by <%= search_param_name_string %>'
       description %(

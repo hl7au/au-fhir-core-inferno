@@ -12,7 +12,7 @@ require_relative 'generator/search_test_generator'
 require_relative 'generator/suite_generator'
 require_relative 'generator/validation_test_generator'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     def self.generate
       ig_packages = Dir.glob(File.join(Dir.pwd, 'lib', 'au_core_test_kit', 'igs', '*.tgz'))

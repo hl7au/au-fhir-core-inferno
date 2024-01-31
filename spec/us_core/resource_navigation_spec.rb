@@ -1,12 +1,12 @@
 require_relative '../../lib/au_core_test_kit/fhir_resource_navigation'
 
-RSpec.describe USCoreTestKit::FHIRResourceNavigation do
+RSpec.describe AUCoreTestKit::FHIRResourceNavigation do
   # Using a must_support_test instance to perform navigation in order to have access to metadata.
   let (:must_support_coverage_test) {
-    USCoreTestKit::USCoreV610::CoverageMustSupportTest.new
+    AUCoreTestKit::AUCoreV610::CoverageMustSupportTest.new
   }
   let (:must_support_heartrate_test) {
-    USCoreTestKit::USCoreV610::HeartRateMustSupportTest.new
+    AUCoreTestKit::AUCoreV610::HeartRateMustSupportTest.new
   }
   let (:coverage_with_two_classes) {
     FHIR::Coverage.new.tap{ |cov|

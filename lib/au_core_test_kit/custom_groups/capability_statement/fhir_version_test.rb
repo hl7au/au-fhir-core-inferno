@@ -1,6 +1,6 @@
-module USCoreTestKit
+module AUCoreTestKit
   class FHIRVersionTest < Inferno::Test
-    id :us_core_fhir_version
+    id :au_core_fhir_version
     title 'Server is using FHIR R4'
     description %(
         This test inspects the CapabilityStatement returned by the server to

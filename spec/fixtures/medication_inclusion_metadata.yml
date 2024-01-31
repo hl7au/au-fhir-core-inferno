@@ -1,11 +1,11 @@
 ---
-:name: us_core_medicationrequest
-:class_name: USCorev311MedicationrequestSequence
+:name: au_core_medicationrequest
+:class_name: AUCorev311MedicationrequestSequence
 :version: v3.1.1
 :reformatted_version: v311
 :resource: MedicationRequest
 :profile_url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
-:profile_name: US Core MedicationRequest Profile
+:profile_name: AU Core MedicationRequest Profile
 :title: MedicationRequest
 :short_description: Verify support for the server capabilities required by the US
   Core MedicationRequest Profile.
@@ -298,27 +298,27 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Provenance
 :tests:
-- :id: us_core_v311_medication_request_patient_intent_search_test
+- :id: au_core_v311_medication_request_patient_intent_search_test
   :file_name: medication_request_patient_intent_search_test.rb
-- :id: us_core_v311_medication_request_patient_intent_encounter_search_test
+- :id: au_core_v311_medication_request_patient_intent_encounter_search_test
   :file_name: medication_request_patient_intent_encounter_search_test.rb
-- :id: us_core_v311_medication_request_patient_intent_authoredon_search_test
+- :id: au_core_v311_medication_request_patient_intent_authoredon_search_test
   :file_name: medication_request_patient_intent_authoredon_search_test.rb
-- :id: us_core_v311_medication_request_patient_intent_status_search_test
+- :id: au_core_v311_medication_request_patient_intent_status_search_test
   :file_name: medication_request_patient_intent_status_search_test.rb
-- :id: us_core_v311_medication_request_read_test
+- :id: au_core_v311_medication_request_read_test
   :file_name: medication_request_read_test.rb
-- :id: us_core_v311_medication_request_provenance_revinclude_search_test
+- :id: au_core_v311_medication_request_provenance_revinclude_search_test
   :file_name: medication_request_provenance_revinclude_search_test.rb
-- :id: us_core_v311_medication_request_validation_test
+- :id: au_core_v311_medication_request_validation_test
   :file_name: medication_request_validation_test.rb
-- :id: us_core_v311_medication_validation_test
+- :id: au_core_v311_medication_validation_test
   :file_name: medication_validation_test.rb
-- :id: us_core_v311_medication_request_must_support_test
+- :id: au_core_v311_medication_request_must_support_test
   :file_name: medication_request_must_support_test.rb
-- :id: us_core_v311_medication_request_reference_resolution_test
+- :id: au_core_v311_medication_request_reference_resolution_test
   :file_name: medication_request_reference_resolution_test.rb
-:id: us_core_v311_medication_request
+:id: au_core_v311_medication_request
 :file_name: medication_request_group.rb
 :delayed_references:
 - :path: requester

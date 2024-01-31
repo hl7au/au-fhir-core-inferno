@@ -1,5 +1,5 @@
 class DateSearchValidationClass
-  include USCoreTestKit::DateSearchValidation
+  include AUCoreTestKit::DateSearchValidation
 end
 
 RSpec.describe DateSearchValidationClass do

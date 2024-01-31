@@ -1,7 +1,7 @@
 require_relative 'naming'
 require_relative 'special_cases'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class SearchTestGenerator
       class << self
@@ -48,7 +48,7 @@ module USCoreTestKit
       end
 
       def test_id
-        "us_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_search_test"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_search_test"
       end
 
       def search_identifier
@@ -64,7 +64,7 @@ module USCoreTestKit
       end
 
       def module_name
-        "USCore#{group_metadata.reformatted_version.upcase}"
+        "AUCore#{group_metadata.reformatted_version.upcase}"
       end
 
       def resource_type
@@ -240,7 +240,7 @@ module USCoreTestKit
         This test verifies that the server supports searching by reference using
         the form `patient=[id]` as well as `patient=Patient/[id]`. The two
         different forms are expected to return the same number of results. US
-        Core requires that both forms are supported by US Core responders.
+        Core requires that both forms are supported by AU Core responders.
         REFERENCE_SEARCH_DESCRIPTION
       end
 
@@ -270,7 +270,7 @@ module USCoreTestKit
         Additionally, this test will check that GET and POST search methods
         return the same number of results. Search by POST is required by the
         FHIR R4 specification, and these tests interpret search by GET as a
-        requirement of US Core #{group_metadata.version}.
+        requirement of AU Core #{group_metadata.version}.
         POST_SEARCH_DESCRIPTION
       end
 
@@ -286,7 +286,7 @@ module USCoreTestKit
         #{first_search_description}
         #{post_search_description}
 
-        [US Core Server CapabilityStatement](http://hl7.org/fhir/us/core/#{url_version}/CapabilityStatement-us-core-server.html)
+        [AU Core Server CapabilityStatement](http://hl7.org/fhir/us/core/#{url_version}/CapabilityStatement-us-core-server.html)
         DESCRIPTION
       end
     end

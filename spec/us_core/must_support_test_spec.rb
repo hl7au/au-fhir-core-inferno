@@ -1,5 +1,5 @@
-RSpec.describe USCoreTestKit::MustSupportTest do
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('us_core_v400') }
+RSpec.describe AUCoreTestKit::MustSupportTest do
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v400') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:patient_ref) { 'Patient/85' }
@@ -19,7 +19,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
   end
 
   describe 'must support test for choice elements and regular elements' do
-    let(:device_must_support_test) { Inferno::Repositories::Tests.new.find('us_core_v311_device_must_support_test')}
+    let(:device_must_support_test) { Inferno::Repositories::Tests.new.find('au_core_v311_device_must_support_test')}
     let(:device) do
       FHIR::Device.new(
         udiCarrier: [{ deviceIdentifier: '43069338026389', carrierHRF: 'carrierHRF' }],
@@ -79,7 +79,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
   end
 
   describe 'must support test for extensions' do
-    let(:patient_must_support_test) { Inferno::Repositories::Tests.new.find('us_core_v311_patient_must_support_test')}
+    let(:patient_must_support_test) { Inferno::Repositories::Tests.new.find('au_core_v311_patient_must_support_test')}
     let(:patient) do
       FHIR::Patient.new(
         identifier: [{system: 'system', value: 'value'}],
@@ -144,7 +144,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
 
   describe 'must support test for slices' do
     context 'slicing with pattern' do
-      let(:care_plan_must_support_test) { Inferno::Repositories::Tests.new.find('us_core_v311_care_plan_must_support_test')}
+      let(:care_plan_must_support_test) { Inferno::Repositories::Tests.new.find('au_core_v311_care_plan_must_support_test')}
       let(:careplan) do
         FHIR::CarePlan.new(
           text: { status: 'status' },
@@ -197,7 +197,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
     end
 
     context 'slicing with type' do
-      let(:test_class) { USCoreTestKit::USCoreV400::SmokingstatusMustSupportTest }
+      let(:test_class) { AUCoreTestKit::AUCoreV400::SmokingstatusMustSupportTest }
       let(:observation) {
         FHIR::Observation.new(
           status: 'final',
@@ -268,7 +268,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
 
     context 'slicing with requiredBinding' do
       context 'Condition ProblemsHealthConcerns' do
-        let(:test_class) { USCoreTestKit::USCoreV501::ConditionProblemsHealthConcernsMustSupportTest }
+        let(:test_class) { AUCoreTestKit::AUCoreV501::ConditionProblemsHealthConcernsMustSupportTest }
         let(:condition) {
           FHIR::Condition.new(
             extension: [
@@ -357,7 +357,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
       end
 
       context 'MedicationRequest' do
-        let(:test_class) { USCoreTestKit::USCoreV501::MedicationRequestMustSupportTest }
+        let(:test_class) { AUCoreTestKit::AUCoreV501::MedicationRequestMustSupportTest }
         let(:medication_request_1) {
           FHIR::MedicationRequest.new(
             status: 'active',
@@ -409,7 +409,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
   end
 
   describe 'must support test for choices' do
-    let(:test_class) { USCoreTestKit::USCoreV501::ConditionProblemsHealthConcernsMustSupportTest }
+    let(:test_class) { AUCoreTestKit::AUCoreV501::ConditionProblemsHealthConcernsMustSupportTest }
     let(:condition) {
       FHIR::Condition.new(
         extension: [
@@ -517,7 +517,7 @@ RSpec.describe USCoreTestKit::MustSupportTest do
 
   describe 'must support tests for sub elements of slices' do
     let (:test_class) {
-      USCoreTestKit::USCoreV610::CoverageMustSupportTest
+      AUCoreTestKit::AUCoreV610::CoverageMustSupportTest
     }
     let (:group_class) {
       FHIR::Coverage::Class.new.tap{ |loc_class|

@@ -1,15 +1,15 @@
-module USCoreTestKit
-  module USCoreV311
+module AUCoreTestKit
+  module AUCoreV311
     class ProfileSupportTest < Inferno::Test
-      id :us_core_profile_support
-      title 'Capability Statement lists support for required US Core Resoruce Types'
+      id :au_core_profile_support
+      title 'Capability Statement lists support for required AU Core Resoruce Types'
       description %(
-        The US Core Implementation Guide states:
+        The AU Core Implementation Guide states:
 
         ```
-        The US Core Server SHALL:
-        1. Support the US Core Patient resource.
-        2. Support at least one additional US Core resources.
+        The AU Core Server SHALL:
+        1. Support the AU Core Patient resource.
+        2. Support at least one additional AU Core resources.
 
         In order to support USCDI, servers must support all USCDI resources.
         ```
@@ -26,13 +26,13 @@ module USCoreTestKit
               rest.resource.each { |resource| resources << resource.type }
             end.uniq
 
-        assert supported_resources.include?('Patient'), 'US Core Patient profile not supported'
+        assert supported_resources.include?('Patient'), 'AU Core Patient profile not supported'
 
-        us_core_resources = config.options[:us_core_resources]
+        au_core_resources = config.options[:au_core_resources]
 
-        other_resources = us_core_resources.reject { |resource_type| resource_type == 'Patient' }
+        other_resources = au_core_resources.reject { |resource_type| resource_type == 'Patient' }
         other_resources_supported = other_resources.any? { |resource| supported_resources.include? resource }
-        assert other_resources_supported, 'No US Core resources other than Patient are supported'
+        assert other_resources_supported, 'No AU Core resources other than Patient are supported'
 
         if config.options[:required_resources].present?
           missing_resources = config.options[:required_resources] - supported_resources

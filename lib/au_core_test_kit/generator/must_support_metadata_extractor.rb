@@ -1,11 +1,11 @@
 require_relative 'value_extractor'
-require_relative 'must_support_metadata_extractor_us_core_3'
-require_relative 'must_support_metadata_extractor_us_core_4'
-require_relative 'must_support_metadata_extractor_us_core_5'
-require_relative 'must_support_metadata_extractor_us_core_6'
-require_relative 'must_support_metadata_extractor_us_core_7'
+require_relative 'must_support_metadata_extractor_au_core_3'
+require_relative 'must_support_metadata_extractor_au_core_4'
+require_relative 'must_support_metadata_extractor_au_core_5'
+require_relative 'must_support_metadata_extractor_au_core_6'
+require_relative 'must_support_metadata_extractor_au_core_7'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class MustSupportMetadataExtractor
       attr_accessor :profile_elements, :profile, :resource, :ig_resources
@@ -263,8 +263,8 @@ module USCoreTestKit
       end
 
       def handle_type_must_support_target_profiles(type, metadata)
-        # US Core 3.1.1 profiles do not have US Core target profiles.
-        # Vital Sign proifles from FHIR R4 (version 4.0.1) do not have US Core target profiles either.
+        # AU Core 3.1.1 profiles do not have AU Core target profiles.
+        # Vital Sign proifles from FHIR R4 (version 4.0.1) do not have AU Core target profiles either.
         return if ['3.1.1', '4.0.1'].include?(profile.version)
 
         target_profiles = []
@@ -339,15 +339,15 @@ module USCoreTestKit
 
         case profile.version
         when '3.1.1'
-          MustSupportMetadataExtractorUsCore3.new(profile, @must_supports).handle_special_cases
+          MustSupportMetadataExtractorAUCore3.new(profile, @must_supports).handle_special_cases
         when '4.0.0'
-          MustSupportMetadataExtractorUsCore4.new(profile, @must_supports).handle_special_cases
+          MustSupportMetadataExtractorAUCore4.new(profile, @must_supports).handle_special_cases
         when '5.0.1'
-          MustSupportMetadataExtractorUsCore5.new(profile, @must_supports).handle_special_cases
+          MustSupportMetadataExtractorAUCore5.new(profile, @must_supports).handle_special_cases
         when '6.1.0'
-          MustSupportMetadataExtractorUsCore6.new(profile, @must_supports).handle_special_cases
+          MustSupportMetadataExtractorAUCore6.new(profile, @must_supports).handle_special_cases
         when '7.0.0-ballot'
-          MustSupportMetadataExtractorUsCore7.new(profile, @must_supports).handle_special_cases
+          MustSupportMetadataExtractorAUCore7.new(profile, @must_supports).handle_special_cases
         end
       end
 
@@ -364,7 +364,7 @@ module USCoreTestKit
 
       # Exclude Observation.component from vital sign profiles except observation-bp and observation-pulse-ox
       def remove_vital_sign_component
-        return if is_blood_pressure? || profile.name == 'USCorePulseOximetryProfile'
+        return if is_blood_pressure? || profile.name == 'AUCorePulseOximetryProfile'
 
         if is_vital_sign?
           @must_supports[:elements].delete_if do |element|
@@ -393,11 +393,11 @@ module USCoreTestKit
         end
       end
 
-      # ONC and US Core 4.0.0 both clarified that health IT developers that always provide HL7 FHIR "observation" values
+      # ONC and AU Core 4.0.0 both clarified that health IT developers that always provide HL7 FHIR "observation" values
       # are not required to demonstrate Health IT Module support for "dataAbsentReason" elements.
       # Remove MS check for dataAbsentReason and component.dataAbsentReason from vital sign profiles and observation lab profile
       # Smoking status profile does not have MS on dataAbsentReason. It is safe to use profile.type == 'Observation'
-      # Since US Core 5.0.1, Blood Pressure profile restores component.dataAbsentReason as MustSupport.
+      # Since AU Core 5.0.1, Blood Pressure profile restores component.dataAbsentReason as MustSupport.
       def remove_observation_data_absent_reason
         return if is_blood_pressure?
 

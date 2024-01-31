@@ -1,5 +1,5 @@
-RSpec.describe USCoreTestKit::ReferenceResolutionTest do
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('us_core_v400') }
+RSpec.describe AUCoreTestKit::ReferenceResolutionTest do
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v400') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:url) { 'http://example.com/fhir' }
@@ -22,7 +22,7 @@ RSpec.describe USCoreTestKit::ReferenceResolutionTest do
   describe '#validate_reference_resolution' do
     let(:test_class) do
       Class.new(Inferno::Entities::Test) do
-        include USCoreTestKit::ReferenceResolutionTest
+        include AUCoreTestKit::ReferenceResolutionTest
 
         fhir_client { url 'https://example.com/fhir' }
       end
@@ -217,7 +217,7 @@ RSpec.describe USCoreTestKit::ReferenceResolutionTest do
 
   describe 'reference validation with target profiles' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV400::DiagnosticReportNoteReferenceResolutionTest) do
+      Class.new(AUCoreTestKit::AUCoreV400::DiagnosticReportNoteReferenceResolutionTest) do
         fhir_client { url :url }
         input :url
       end
@@ -321,7 +321,7 @@ RSpec.describe USCoreTestKit::ReferenceResolutionTest do
 
   describe 'reference validation without target profile' do
     let(:test_class) do
-      Class.new(USCoreTestKit::USCoreV311::DocumentReferenceReferenceResolutionTest) do
+      Class.new(AUCoreTestKit::AUCoreV311::DocumentReferenceReferenceResolutionTest) do
         fhir_client { url :url }
         input :url
       end

@@ -1,7 +1,7 @@
 require_relative 'naming'
 require_relative 'special_cases'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class SuiteGenerator
       class << self
@@ -30,15 +30,15 @@ module USCoreTestKit
       end
 
       def base_output_file_name
-        "us_core_test_suite.rb"
+        "au_core_test_suite.rb"
       end
 
       def class_name
-        "USCoreTestSuite"
+        "AUCoreTestSuite"
       end
 
       def module_name
-        "USCore#{ig_metadata.reformatted_version.upcase}"
+        "AUCore#{ig_metadata.reformatted_version.upcase}"
       end
 
       def output_file_name
@@ -46,15 +46,15 @@ module USCoreTestKit
       end
 
       def suite_id
-        "us_core_#{ig_metadata.reformatted_version}"
+        "au_core_#{ig_metadata.reformatted_version}"
       end
 
       def fhir_api_group_id
-        "us_core_#{ig_metadata.reformatted_version}_fhir_api"
+        "au_core_#{ig_metadata.reformatted_version}_fhir_api"
       end
 
       def title
-        "US Core #{ig_metadata.ig_version}"
+        "AU Core #{ig_metadata.ig_version}"
       end
 
       def validator_env_name
@@ -96,7 +96,7 @@ module USCoreTestKit
       end
 
       def capability_statement_group_id
-        "us_core_#{ig_metadata.reformatted_version}_capability_statement"
+        "au_core_#{ig_metadata.reformatted_version}_capability_statement"
       end
 
       def clinical_notes_guidance_file_name
@@ -109,9 +109,9 @@ module USCoreTestKit
 
       def clinical_notes_guidance_group_id
         if ig_metadata.reformatted_version == 'v311'
-          "us_core_#{ig_metadata.reformatted_version}_clinical_notes_guidance"
+          "au_core_#{ig_metadata.reformatted_version}_clinical_notes_guidance"
         else
-          'us_core_v400_clinical_notes_guidance'
+          'au_core_v400_clinical_notes_guidance'
         end
       end
     end

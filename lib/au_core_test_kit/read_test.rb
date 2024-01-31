@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   module ReadTest
     def all_scratch_resources
       scratch_resources[:all] ||= []

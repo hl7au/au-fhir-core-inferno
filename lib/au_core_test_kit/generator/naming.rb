@@ -1,4 +1,4 @@
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     module Naming
       ALLERGY_INTOLERANCE = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
@@ -46,7 +46,7 @@ module USCoreTestKit
           end
 
           group_metadata.name
-            .delete_prefix('us_core_')
+            .delete_prefix('au_core_')
             .gsub('diagnosticreport', 'diagnostic_report')
             .underscore
         end

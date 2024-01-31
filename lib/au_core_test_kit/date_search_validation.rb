@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module USCoreTestKit
+module AUCoreTestKit
   module DateSearchValidation
     def get_fhir_datetime_range(datetime)
       range = { start: DateTime.xmlschema(datetime), end: nil }

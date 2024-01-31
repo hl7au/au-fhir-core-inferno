@@ -2,16 +2,16 @@
 require_relative '../clinical_note_attachment_test'
 require_relative '../clinical_note_type_test'
 
-module USCoreTestKit
-  module USCoreV400
+module AUCoreTestKit
+  module AUCoreV400
     class ClinicalNotesGuidanceGroup < Inferno::TestGroup
-      id :us_core_v400_clinical_notes_guidance
+      id :au_core_v400_clinical_notes_guidance
       title 'Clinical Notes Guidance'
-      short_description 'Verify DiagnosticReport and DocumentReference resources support the US Core Clinical Notes Guidance.'
+      short_description 'Verify DiagnosticReport and DocumentReference resources support the AU Core Clinical Notes Guidance.'
       description %(
         The #{title} Sequence tests DiagnosticReport and DocumentReference
         resources associated with the provided patient. The resources returned
-        will be checked for consistency against the [US Core Clinical Notes
+        will be checked for consistency against the [AU Core Clinical Notes
         Guidance](https://hl7.org/fhir/us/core/STU4/clinical-notes-guidance.html)
 
         In this set of tests, Inferno serves as a FHIR client that attempts to
@@ -36,19 +36,19 @@ module USCoreTestKit
         * Radiology (LP29684-5)
 
         In order to enable consistent access to scanned narrative-only clinical
-        reports, the US Core server shall expose these reports through both
+        reports, the AU Core server shall expose these reports through both
         DiagnosticReport and DocumentReference by representing the same attachment
         url.
       )
       run_as_group
 
-      test from: :us_core_clinical_note_types do
+      test from: :au_core_clinical_note_types do
        config(
         options: { required_types: ['11488-4', '18842-5', '34117-2', '28570-0', '11506-3', '18748-4', '11502-2', '11526-1'].freeze }
        )
       end
 
-      test from: :us_core_clinical_note_attachments
+      test from: :au_core_clinical_note_attachments
     end
   end
 end

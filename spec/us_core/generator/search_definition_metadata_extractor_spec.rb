@@ -1,6 +1,6 @@
 require_relative '../../../lib/au_core_test_kit/generator/search_metadata_extractor.rb'
 
-RSpec.describe USCoreTestKit::Generator::SearchDefinitionMetadataExtractor do
+RSpec.describe AUCoreTestKit::Generator::SearchDefinitionMetadataExtractor do
 
   # really slime the subject here because we don't care about interactions
   # if this test file grows, this will likely break and more stubbing and setup will be required

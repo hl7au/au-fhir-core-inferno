@@ -1,7 +1,7 @@
-module USCoreTestKit
-  module USCoreV400
+module AUCoreTestKit
+  module AUCoreV400
     class DocumentReferenceCustodianTest < Inferno::Test
-      id :us_core_v400_document_reference_custodian_test
+      id :au_core_v400_document_reference_custodian_test
       title 'DocumentReference resources returned during previous tests have custodian'
       description %(
         This test verifies the organization responsible for the DocumentReference is present either in DocumentReference.custodian

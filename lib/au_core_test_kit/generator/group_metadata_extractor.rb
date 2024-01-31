@@ -4,7 +4,7 @@ require_relative 'must_support_metadata_extractor'
 require_relative 'search_metadata_extractor'
 require_relative 'terminology_binding_metadata_extractor'
 
-module USCoreTestKit
+module AUCoreTestKit
   class Generator
     class GroupMetadataExtractor
       attr_accessor :resource_capabilities, :profile_url, :ig_metadata, :ig_resources
@@ -171,7 +171,7 @@ module USCoreTestKit
           .split('-')
           .map(&:capitalize)
           .join
-          .gsub('UsCore', "USCore#{ig_metadata.reformatted_version}")
+          .gsub('AUCore', "AUCore#{ig_metadata.reformatted_version}")
           .concat('Sequence')
       end
 

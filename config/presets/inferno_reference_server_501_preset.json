@@ -1,7 +1,7 @@
 {
   "title": "Inferno Reference Server",
   "id": null,
-  "test_suite_id": "us_core_v501",
+  "test_suite_id": "au_core_v501",
   "inputs": [
     {
       "name": "url",

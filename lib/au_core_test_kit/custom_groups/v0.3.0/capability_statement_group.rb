@@ -4,10 +4,10 @@ require_relative '../capability_statement/fhir_version_test'
 require_relative '../capability_statement/json_support_test'
 require_relative './profile_support_test'
 
-module USCoreTestKit
-  module USCoreV311
+module AUCoreTestKit
+  module AUCoreV311
     class CapabilityStatementGroup < Inferno::TestGroup
-      id :us_core_v030_capability_statement
+      id :au_core_v030_capability_statement
       title 'Capability Statement'
       short_description 'Retrieve information about supported server functionality using the FHIR capabilties interaction.'
       description %(
@@ -16,15 +16,15 @@ module USCoreTestKit
         features supported by the API by using the [Capability
         Statement](https://www.hl7.org/fhir/capabilitystatement.html) resource.
         The features described in the Capability Statement must be consistent with
-        the required capabilities of a US Core server. The Capability Statement
+        the required capabilities of a AU Core server. The Capability Statement
         must also advertise the location of the required SMART on FHIR endpoints
         that enable authenticated access to the FHIR server resources.
 
         The Capability Statement resource allows clients to determine which
         resources are supported by a FHIR Server. Not all servers are expected to
-        implement all possible queries and data elements described in the US Core
-        API. For example, the US Core Implementation Guide requires that the
-        Patient resource and only one additional resource profile from the US Core
+        implement all possible queries and data elements described in the AU Core
+        API. For example, the AU Core Implementation Guide requires that the
+        Patient resource and only one additional resource profile from the AU Core
         Profiles.
 
         # Test Methodology
@@ -96,13 +96,13 @@ module USCoreTestKit
           config: {
             options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
           }
-      test from: :us_core_conformance_support
-      test from: :us_core_fhir_version
-      test from: :us_core_json_support
+      test from: :au_core_conformance_support
+      test from: :au_core_fhir_version
+      test from: :au_core_json_support
 
-      test from: :us_core_profile_support do
+      test from: :au_core_profile_support do
         config(
-          options: { us_core_resources: PROFILES.keys }
+          options: { au_core_resources: PROFILES.keys }
         )
       end
     end

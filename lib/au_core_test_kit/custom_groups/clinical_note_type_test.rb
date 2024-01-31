@@ -1,10 +1,10 @@
 require_relative '../search_test'
 
-module USCoreTestKit
+module AUCoreTestKit
   class ClinicalNoteTypeTest < Inferno::Test
     include SearchTest
 
-    id :us_core_clinical_note_types
+    id :au_core_clinical_note_types
     title 'Server demonstrates support for the required DocumentReference types and DiagnosticReport categories.'
 
     input :patient_ids,
