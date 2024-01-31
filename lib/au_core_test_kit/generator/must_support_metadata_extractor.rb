@@ -1,9 +1,5 @@
 require_relative 'value_extractor'
 require_relative 'must_support_metadata_extractor_au_core_3'
-require_relative 'must_support_metadata_extractor_au_core_4'
-require_relative 'must_support_metadata_extractor_au_core_5'
-require_relative 'must_support_metadata_extractor_au_core_6'
-require_relative 'must_support_metadata_extractor_au_core_7'
 
 module AUCoreTestKit
   class Generator
