@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/fhir_resource_navigation'
+require_relative '../../lib/au_core_test_kit/fhir_resource_navigation'
 
 RSpec.describe USCoreTestKit::FHIRResourceNavigation do
   # Using a must_support_test instance to perform navigation in order to have access to metadata.

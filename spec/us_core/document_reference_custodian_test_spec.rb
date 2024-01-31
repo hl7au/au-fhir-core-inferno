@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/custom_groups/v4.0.0/document_reference_custodian_test'
+require_relative '../../lib/au_core_test_kit/custom_groups/v4.0.0/document_reference_custodian_test'
 
 RSpec.describe USCoreTestKit::USCoreV400::DocumentReferenceCustodianTest do
   let(:document_reference_custodian_test) { Inferno::Repositories::Tests.new.find('us_core_v400_document_reference_custodian_test') }

@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/provenance_validator'
+require_relative '../../lib/au_core_test_kit/provenance_validator'
 
 RSpec.describe USCoreTestKit::ProvenanceValidator do
   let(:provenance_id){'123'}

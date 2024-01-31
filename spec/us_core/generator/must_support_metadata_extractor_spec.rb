@@ -1,4 +1,4 @@
-require_relative '../../../lib/us_core_test_kit/generator/must_support_metadata_extractor.rb'
+require_relative '../../../lib/au_core_test_kit/generator/must_support_metadata_extractor.rb'
 
 RSpec.describe USCoreTestKit::Generator::MustSupportMetadataExtractor do
   let(:profile) do

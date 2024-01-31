@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/custom_groups/clinical_note_attachment_test'
+require_relative '../../lib/au_core_test_kit/custom_groups/clinical_note_attachment_test'
 
 RSpec.describe USCoreTestKit::ClinicalNoteAttachmentTest do
   let(:clinical_note_attachment_test) { Inferno::Repositories::Tests.new.find('us_core_clinical_note_attachments') }

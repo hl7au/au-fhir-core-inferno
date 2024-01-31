@@ -15,7 +15,7 @@ require_relative 'generator/validation_test_generator'
 module USCoreTestKit
   class Generator
     def self.generate
-      ig_packages = Dir.glob(File.join(Dir.pwd, 'lib', 'us_core_test_kit', 'igs', '*.tgz'))
+      ig_packages = Dir.glob(File.join(Dir.pwd, 'lib', 'au_core_test_kit', 'igs', '*.tgz'))
 
       ig_packages.each do |ig_package|
         new(ig_package).generate

@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/custom_groups/capability_statement/profile_support_test'
+require_relative '../../lib/au_core_test_kit/custom_groups/capability_statement/profile_support_test'
 
 RSpec.describe USCoreTestKit::ProfileSupportTest do
   def run(runnable, inputs = {})

@@ -50,7 +50,7 @@ module USCoreTestKit
 
           ig_resources.add(resource)
         end
-        json_files = Dir.glob(File.join(Dir.pwd, 'lib', 'us_core_test_kit', 'igs', '*.json'))
+        json_files = Dir.glob(File.join(Dir.pwd, 'lib', 'au_core_test_kit', 'igs', '*.json'))
         json_files.each do |file_path|
           file_content = File.read(file_path)
           bundle = FHIR.from_contents(file_content)

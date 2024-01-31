@@ -1,4 +1,4 @@
-require_relative '../../lib/us_core_test_kit/custom_groups/clinical_note_type_test'
+require_relative '../../lib/au_core_test_kit/custom_groups/clinical_note_type_test'
 
 RSpec.describe USCoreTestKit::ClinicalNoteTypeTest do
   let(:url) { 'http://example.com/fhir' }

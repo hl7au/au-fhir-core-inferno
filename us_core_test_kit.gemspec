@@ -1,7 +1,7 @@
-require_relative 'lib/us_core_test_kit/version'
+require_relative 'lib/au_core_test_kit/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'us_core_test_kit'
+  spec.name          = 'au_core_test_kit'
   spec.version       = USCoreTestKit::VERSION
   spec.authors       = ['Stephen MacVicar']
   spec.email         = ['inferno@groups.mitre.org']
