@@ -1,7 +1,7 @@
 # Capabilities by Resource/Profile
 
 
-## 1.Observation AU Core BMI
+## 1 Observation AU Core BMI
 
 **Resource:** Observation
 
@@ -123,7 +123,7 @@ Accept: application/fhir+json
 ```
 
 
-## 2.Observation AU Core Body Weight
+## 2 Observation AU Core Body Weight
 
 **Resource:** Observation
 
@@ -245,7 +245,7 @@ Accept: application/fhir+json
 ```
 
 
-## 3.Observation AU Core Oxygen Saturation
+## 3 Observation AU Core Oxygen Saturation
 
 **Resource:** Observation
 
@@ -367,7 +367,7 @@ Accept: application/fhir+json
 ```
 
 
-## 4.Observation AU Core Blood Pressure
+## 4 Observation AU Core Blood Pressure
 
 **Resource:** Observation
 
@@ -489,7 +489,7 @@ Accept: application/fhir+json
 ```
 
 
-## 5.Observation AU Core Body Height
+## 5 Observation AU Core Body Height
 
 **Resource:** Observation
 
@@ -611,7 +611,7 @@ Accept: application/fhir+json
 ```
 
 
-## 6.Observation AU Core Pathology Result
+## 6 Observation AU Core Pathology Result
 
 **Resource:** Observation
 
@@ -733,7 +733,7 @@ Accept: application/fhir+json
 ```
 
 
-## 7.Observation AU Core Lipid Result
+## 7 Observation AU Core Lipid Result
 
 **Resource:** Observation
 
@@ -855,7 +855,7 @@ Accept: application/fhir+json
 ```
 
 
-## 8.Observation AU Core Head Circumference
+## 8 Observation AU Core Head Circumference
 
 **Resource:** Observation
 
@@ -977,7 +977,7 @@ Accept: application/fhir+json
 ```
 
 
-## 9.Observation AU Core Body Temperature
+## 9 Observation AU Core Body Temperature
 
 **Resource:** Observation
 
@@ -1099,7 +1099,7 @@ Accept: application/fhir+json
 ```
 
 
-## 10.Observation AU Core Heart Rate
+## 10 Observation AU Core Heart Rate
 
 **Resource:** Observation
 
@@ -1221,7 +1221,7 @@ Accept: application/fhir+json
 ```
 
 
-## 11.Observation AU Core Waist Circumference
+## 11 Observation AU Core Waist Circumference
 
 **Resource:** Observation
 
@@ -1343,7 +1343,7 @@ Accept: application/fhir+json
 ```
 
 
-## 12.Observation AU Core Vitals Panel
+## 12 Observation AU Core Vitals Panel
 
 **Resource:** Observation
 
@@ -1465,7 +1465,7 @@ Accept: application/fhir+json
 ```
 
 
-## 13.Observation AU Core Respiration Rate
+## 13 Observation AU Core Respiration Rate
 
 **Resource:** Observation
 
@@ -1587,7 +1587,7 @@ Accept: application/fhir+json
 ```
 
 
-## 14.Observation AU Core Diagnostic Imaging Result
+## 14 Observation AU Core Diagnostic Imaging Result
 
 **Resource:** Observation
 
@@ -1709,7 +1709,7 @@ Accept: application/fhir+json
 ```
 
 
-## 15.Observation AU Core Diagnostic Result
+## 15 Observation AU Core Diagnostic Result
 
 **Resource:** Observation
 
@@ -1831,7 +1831,7 @@ Accept: application/fhir+json
 ```
 
 
-## 16.Observation AU Core Biological Sex Assigned at Birth
+## 16 Observation AU Core Biological Sex Assigned at Birth
 
 **Resource:** Observation
 
@@ -1953,7 +1953,7 @@ Accept: application/fhir+json
 ```
 
 
-## 17.Observation AU Core Smoking Status
+## 17 Observation AU Core Smoking Status
 
 **Resource:** Observation
 
@@ -2075,7 +2075,7 @@ Accept: application/fhir+json
 ```
 
 
-## 18.AU Core Patient
+## 18 AU Core Patient
 
 **Resource:** Patient
 
@@ -2231,7 +2231,7 @@ Accept: application/fhir+json
 ```
 
 
-## 19.AU Core AllergyIntolerance
+## 19 AU Core AllergyIntolerance
 
 **Resource:** AllergyIntolerance
 
@@ -2285,7 +2285,7 @@ Accept: application/fhir+json
 ```
 
 
-## 20.Condition AU Core
+## 20 Condition AU Core
 
 **Resource:** Condition
 
@@ -2407,7 +2407,7 @@ Accept: application/fhir+json
 ```
 
 
-## 21.DiagnosticReport AU Core
+## 21 DiagnosticReport AU Core
 
 **Resource:** DiagnosticReport
 
@@ -2580,7 +2580,7 @@ Accept: application/fhir+json
 ```
 
 
-## 22.AU Core DocumentReference
+## 22 AU Core DocumentReference
 
 **Resource:** DocumentReference
 
@@ -2770,7 +2770,7 @@ Accept: application/fhir+json
 ```
 
 
-## 23.AU Core Encounter
+## 23 AU Core Encounter
 
 **Resource:** Encounter
 
@@ -2892,7 +2892,7 @@ Accept: application/fhir+json
 ```
 
 
-## 24.AU Core HealthcareService
+## 24 AU Core HealthcareService
 
 **Resource:** HealthcareService
 
@@ -3031,7 +3031,7 @@ Accept: application/fhir+json
 ```
 
 
-## 25.AU Core Immunization
+## 25 AU Core Immunization
 
 **Resource:** Immunization
 
@@ -3102,7 +3102,7 @@ Accept: application/fhir+json
 ```
 
 
-## 26.AU Core Location
+## 26 AU Core Location
 
 **Resource:** Location
 
@@ -3207,7 +3207,7 @@ Accept: application/fhir+json
 ```
 
 
-## 27.AU Core Medication
+## 27 AU Core Medication
 
 **Resource:** Medication
 
@@ -3227,7 +3227,7 @@ Accept: application/fhir+json
 
 
 
-## 28.AU Core MedicationRequest
+## 28 AU Core MedicationRequest
 
 **Resource:** MedicationRequest
 
@@ -3349,7 +3349,7 @@ Accept: application/fhir+json
 ```
 
 
-## 29.AU Core MedicationStatement
+## 29 AU Core MedicationStatement
 
 **Resource:** MedicationStatement
 
@@ -3420,7 +3420,7 @@ Accept: application/fhir+json
 ```
 
 
-## 30.Observation AU Core
+## 30 Observation AU Core
 
 **Resource:** Observation
 
@@ -3542,7 +3542,7 @@ Accept: application/fhir+json
 ```
 
 
-## 31.AU Core Organization
+## 31 AU Core Organization
 
 **Resource:** Organization
 
@@ -3630,7 +3630,7 @@ Accept: application/fhir+json
 ```
 
 
-## 32.AU Core Patient
+## 32 AU Core Patient
 
 **Resource:** Patient
 
@@ -3786,7 +3786,7 @@ Accept: application/fhir+json
 ```
 
 
-## 33.AU Core Practitioner
+## 33 AU Core Practitioner
 
 **Resource:** Practitioner
 
@@ -3857,7 +3857,7 @@ Accept: application/fhir+json
 ```
 
 
-## 34.AU Core PractitionerRole
+## 34 AU Core PractitionerRole
 
 **Resource:** PractitionerRole
 
@@ -3945,7 +3945,7 @@ Accept: application/fhir+json
 ```
 
 
-## 35.AU Core Procedure
+## 35 AU Core Procedure
 
 **Resource:** Procedure
 
@@ -4033,7 +4033,7 @@ Accept: application/fhir+json
 ```
 
 
-## 36.AU Core Provenance
+## 36 AU Core Provenance
 
 **Resource:** Provenance
 
@@ -4053,7 +4053,7 @@ Accept: application/fhir+json
 
 
 
-## 37.AU Core ServiceRequest
+## 37 AU Core ServiceRequest
 
 **Resource:** ServiceRequest
 
