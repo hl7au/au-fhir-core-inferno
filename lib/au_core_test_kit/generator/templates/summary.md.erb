@@ -1,23 +1,34 @@
 # Capabilities by Resource/Profile
+
 <% resource_list.each do |resource_data| %>
-## <%= resource_data["resource"] %>
+## <%= resource_data["position"] %>.<%= resource_data["resource"] %>
+
 [Profile](<%= resource_data["profile_url"] %>)
+
 **Description:** <%= resource_data["description"] %>
+
 ### Interactions
+
 <% resource_data["interactions"].each do |interaction| %>
 * <%= interaction["code"] %> (<%= interaction["expectation"] %>)
 <% end %>
+
 ### Test scenarios
+
 <% resource_data["searches"].each do |search_data| %>
-* <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
+#### <%= resource_data["position"] %>.<%= search_data["position"] %> Search: <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
+
 **HTTP GET**
+
 ```bash
 GET <%= search_data["search_string"] %> HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}<%= search_data["search_string"] %>
 ```

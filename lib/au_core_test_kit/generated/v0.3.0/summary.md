@@ -1,3109 +1,4152 @@
 # Capabilities by Resource/Profile
 
-## Observation
+
+## 1.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
+
 **Description:** Verify support for the server capabilities required by the AU Core BMI.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 1.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 1.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 1.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 1.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 1.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 1.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 2.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
+
 **Description:** Verify support for the server capabilities required by the AU Core Body Weight.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 2.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 2.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 2.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 2.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 2.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 2.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 3.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
+
 **Description:** Verify support for the server capabilities required by the AU Core Oxygen Saturation.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 3.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 3.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 3.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 3.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 3.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 3.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 4.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
+
 **Description:** Verify support for the server capabilities required by the AU Core Blood Pressure.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 4.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 4.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 4.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 4.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 4.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 4.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 5.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
+
 **Description:** Verify support for the server capabilities required by the AU Core Body Height.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 5.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 5.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 5.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 5.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 5.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 5.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 6.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
+
 **Description:** Verify support for the server capabilities required by the AU Core Pathology Result Observation.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 6.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 6.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 6.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 6.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 6.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 6.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 7.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
+
 **Description:** Verify support for the server capabilities required by the AU Core Lipid Result.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 7.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 7.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 7.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 7.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 7.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 7.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 8.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
+
 **Description:** Verify support for the server capabilities required by the AU Core Head Circumference.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 8.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 8.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 8.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 8.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 8.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 8.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 9.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
+
 **Description:** Verify support for the server capabilities required by the AU Core Body Temperature.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 9.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 9.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 9.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 9.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 9.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 9.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 10.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
+
 **Description:** Verify support for the server capabilities required by the AU Core Heart Rate.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 10.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 10.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 10.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 10.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 10.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 10.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 11.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
+
 **Description:** Verify support for the server capabilities required by the AU Core Waist Circumference.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 11.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 11.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 11.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 11.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 11.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 11.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 12.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
+
 **Description:** Verify support for the server capabilities required by the AU Core Vitals Panel.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 12.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 12.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 12.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 12.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 12.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 12.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 13.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
+
 **Description:** Verify support for the server capabilities required by the AU Core Respiration Rate.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 13.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 13.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 13.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 13.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 13.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 13.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 14.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
+
 **Description:** Verify support for the server capabilities required by the AU Core Diagnostic Imaging Result Observation.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 14.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 14.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 14.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 14.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 14.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 14.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 15.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
+
 **Description:** Verify support for the server capabilities required by the AU Core Diagnostic Result Observation.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 15.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 15.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 15.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 15.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 15.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 15.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 16.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
+
 **Description:** Verify support for the server capabilities required by the AU Core Biological Sex Assigned at Birth.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 16.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 16.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 16.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 16.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 16.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 16.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Observation
+## 17.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
+
 **Description:** Verify support for the server capabilities required by the AU Core Smoking Status.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 17.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 17.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 17.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 17.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 17.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 17.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Patient
+## 18.Patient
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
+
 **Description:** Verify support for the server capabilities required by the AU Core Patient.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* _id (SHALL)
+
+#### 18.1 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?_id={_id}
 ```
 
-* family (SHOULD)
+#### 18.2 Search: family (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?family={family} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?family={family}
 ```
 
-* identifier (SHALL)
+#### 18.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?identifier={identifier}
 ```
 
-* name (SHOULD)
+#### 18.4 Search: name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?name={name}
 ```
 
-* birthdate+family (SHOULD)
+#### 18.5 Search: birthdate+family (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?birthdate={birthdate}&family={family} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?birthdate={birthdate}&family={family}
 ```
 
-* birthdate+name (SHOULD)
+#### 18.6 Search: birthdate+name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?birthdate={birthdate}&name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?birthdate={birthdate}&name={name}
 ```
 
-* family+gender (SHOULD)
+#### 18.7 Search: family+gender (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?family={family}&gender={gender} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?family={family}&gender={gender}
 ```
 
-* gender+name (SHOULD)
+#### 18.8 Search: gender+name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?gender={gender}&name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?gender={gender}&name={name}
 ```
 
 
-## AllergyIntolerance
+## 19.AllergyIntolerance
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
+
 **Description:** Verify support for the server capabilities required by the AU Core AllergyIntolerance.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 19.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /AllergyIntolerance?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/AllergyIntolerance?patient={patient}
 ```
 
-* patient+clinical-status (SHOULD)
+#### 19.2 Search: patient+clinical-status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /AllergyIntolerance?patient={patient}&clinical-status={clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/AllergyIntolerance?patient={patient}&clinical-status={clinical-status}
 ```
 
 
-## Condition
+## 20.Condition
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
+
 **Description:** Verify support for the server capabilities required by the AU Core Condition.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 20.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 20.2 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}&category={category}
 ```
 
-* patient+clinical-status (SHALL)
+#### 20.3 Search: patient+clinical-status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient}&clinical-status={clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
 ```
 
-* patient+category+clinical-status (SHOULD)
+#### 20.4 Search: patient+category+clinical-status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient}&category={category}&clinical-status={clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
 ```
 
-* patient+code (SHOULD)
+#### 20.5 Search: patient+code (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}&code={code}
 ```
 
-* patient+onset-date (SHOULD)
+#### 20.6 Search: patient+onset-date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Condition?patient={patient}&onset-date={onset-date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Condition?patient={patient}&onset-date={onset-date}
 ```
 
 
-## DiagnosticReport
+## 21.DiagnosticReport
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
+
 **Description:** Verify support for the server capabilities required by the AU Core DiagnosticReport.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 21.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}
 ```
 
-* _id (SHALL)
+#### 21.2 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 21.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?identifier={identifier}
 ```
 
-* patient+category (SHALL)
+#### 21.4 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 21.5 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHOULD)
+#### 21.6 Search: patient+category+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code (SHOULD)
+#### 21.7 Search: patient+code (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&code={code}
 ```
 
-* patient+code+date (SHOULD)
+#### 21.8 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&code={code}&date={date}
 ```
 
-* patient+status (SHOULD)
+#### 21.9 Search: patient+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DiagnosticReport?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DiagnosticReport?patient={patient}&status={status}
 ```
 
 
-## DocumentReference
+## 22.DocumentReference
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
+
 **Description:** Verify support for the server capabilities required by the AU Core DocumentReference.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 22.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}
 ```
 
-* _id (SHALL)
+#### 22.2 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 22.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?identifier={identifier}
 ```
 
-* patient+category (SHALL)
+#### 22.4 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 22.5 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHOULD)
+#### 22.6 Search: patient+category+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&category={category}&status={status}
 ```
 
-* patient+contenttype (SHOULD)
+#### 22.7 Search: patient+contenttype (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&contenttype={contenttype} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&contenttype={contenttype}
 ```
 
-* patient+status (SHOULD)
+#### 22.8 Search: patient+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&status={status}
 ```
 
-* patient+type (SHOULD)
+#### 22.9 Search: patient+type (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&type={type} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&type={type}
 ```
 
-* patient+type+date (SHOULD)
+#### 22.10 Search: patient+type+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /DocumentReference?patient={patient}&type={type}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/DocumentReference?patient={patient}&type={type}&date={date}
 ```
 
 
-## Encounter
+## 23.Encounter
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
+
 **Description:** Verify support for the server capabilities required by the AU Core Encounter.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 23.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?patient={patient}
 ```
 
-* date+patient (SHALL)
+#### 23.2 Search: date+patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?date={date}&patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?date={date}&patient={patient}
 ```
 
-* class+patient (SHOULD)
+#### 23.3 Search: class+patient (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?class={class}&patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?class={class}&patient={patient}
 ```
 
-* patient+location (SHOULD)
+#### 23.4 Search: patient+location (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?patient={patient}&location={location} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?patient={patient}&location={location}
 ```
 
-* patient+status (SHOULD)
+#### 23.5 Search: patient+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?patient={patient}&status={status}
 ```
 
-* patient+type (SHOULD)
+#### 23.6 Search: patient+type (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Encounter?patient={patient}&type={type} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Encounter?patient={patient}&type={type}
 ```
 
 
-## HealthcareService
+## 24.HealthcareService
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
+
 **Description:** Verify support for the server capabilities required by the AU Core HealthcareService.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* name (SHALL)
+
+#### 24.1 Search: name (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?name={name}
 ```
 
-* service-category (SHOULD)
+#### 24.2 Search: service-category (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?service-category={service-category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?service-category={service-category}
 ```
 
-* identifier (SHOULD)
+#### 24.3 Search: identifier (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?identifier={identifier}
 ```
 
-* location (SHOULD)
+#### 24.4 Search: location (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?location={location} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?location={location}
 ```
 
-* organization (SHOULD)
+#### 24.5 Search: organization (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?organization={organization} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?organization={organization}
 ```
 
-* specialty (SHOULD)
+#### 24.6 Search: specialty (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?specialty={specialty} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?specialty={specialty}
 ```
 
-* service-type (SHOULD)
+#### 24.7 Search: service-type (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /HealthcareService?service-type={service-type} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/HealthcareService?service-type={service-type}
 ```
 
 
-## Immunization
+## 25.Immunization
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
+
 **Description:** Verify support for the server capabilities required by the AU Core Immunization.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 25.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Immunization?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Immunization?patient={patient}
 ```
 
-* patient+status (SHALL)
+#### 25.2 Search: patient+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Immunization?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Immunization?patient={patient}&status={status}
 ```
 
-* patient+date (SHOULD)
+#### 25.3 Search: patient+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Immunization?patient={patient}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Immunization?patient={patient}&date={date}
 ```
 
 
-## Location
+## 26.Location
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
+
 **Description:** Verify support for the server capabilities required by the AU Core Location.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* address (SHALL)
+
+#### 26.1 Search: address (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Location?address={address} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Location?address={address}
 ```
 
-* name (SHALL)
+#### 26.2 Search: name (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Location?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Location?name={name}
 ```
 
-* address-city (SHOULD)
+#### 26.3 Search: address-city (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Location?address-city={address-city} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Location?address-city={address-city}
 ```
 
-* address-state (SHOULD)
+#### 26.4 Search: address-state (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Location?address-state={address-state} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Location?address-state={address-state}
 ```
 
-* address-postalcode (SHOULD)
+#### 26.5 Search: address-postalcode (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Location?address-postalcode={address-postalcode} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Location?address-postalcode={address-postalcode}
 ```
 
 
-## Medication
+## 27.Medication
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
+
 **Description:** Verify support for the server capabilities required by the AU Core Medication.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (MAY)
 
+
 ### Test scenarios
 
 
-## MedicationRequest
+
+## 28.MedicationRequest
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
+
 **Description:** Verify support for the server capabilities required by the AU Core MedicationRequest.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+intent (SHALL)
+
+#### 28.1 Search: patient+intent (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?patient={patient}&intent={intent} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}
 ```
 
-* _id (SHALL)
+#### 28.2 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 28.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?identifier={identifier}
 ```
 
-* patient (SHALL)
+#### 28.4 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?patient={patient}
 ```
 
-* patient+intent+status (SHALL)
+#### 28.5 Search: patient+intent+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?patient={patient}&intent={intent}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
 ```
 
-* patient+intent+authoredon (SHALL)
+#### 28.6 Search: patient+intent+authoredon (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon}
 ```
 
 
-## MedicationStatement
+## 29.MedicationStatement
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
+
 **Description:** Verify support for the server capabilities required by the AU Core MedicationStatement.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 29.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationStatement?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationStatement?patient={patient}
 ```
 
-* patient+status (SHALL)
+#### 29.2 Search: patient+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationStatement?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationStatement?patient={patient}&status={status}
 ```
 
-* patient+effective (SHOULD)
+#### 29.3 Search: patient+effective (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /MedicationStatement?patient={patient}&effective={effective} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/MedicationStatement?patient={patient}&effective={effective}
 ```
 
 
-## Observation
+## 30.Observation
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
+
 **Description:** Verify support for the server capabilities required by the AU Core Observation.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient+code (SHALL)
+
+#### 30.1 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-* patient (SHALL)
+#### 30.2 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}
 ```
 
-* patient+category (SHALL)
+#### 30.3 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-* patient+category+date (SHALL)
+#### 30.4 Search: patient+category+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-* patient+category+status (SHALL)
+#### 30.5 Search: patient+category+status (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+date (SHOULD)
+#### 30.6 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
 
-## Organization
+## 31.Organization
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
+
 **Description:** Verify support for the server capabilities required by the AU Core Organization.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* address (SHALL)
+
+#### 31.1 Search: address (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Organization?address={address} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Organization?address={address}
 ```
 
-* identifier (SHALL)
+#### 31.2 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Organization?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Organization?identifier={identifier}
 ```
 
-* name (SHALL)
+#### 31.3 Search: name (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Organization?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Organization?name={name}
 ```
 
-* _id (SHOULD)
+#### 31.4 Search: _id (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Organization?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Organization?_id={_id}
 ```
 
 
-## Patient
+## 32.Patient
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
+
 **Description:** Verify support for the server capabilities required by the AU Core Patient.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* _id (SHALL)
+
+#### 32.1 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?_id={_id}
 ```
 
-* family (SHOULD)
+#### 32.2 Search: family (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?family={family} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?family={family}
 ```
 
-* identifier (SHALL)
+#### 32.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?identifier={identifier}
 ```
 
-* name (SHOULD)
+#### 32.4 Search: name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?name={name}
 ```
 
-* birthdate+family (SHOULD)
+#### 32.5 Search: birthdate+family (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?birthdate={birthdate}&family={family} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?birthdate={birthdate}&family={family}
 ```
 
-* birthdate+name (SHOULD)
+#### 32.6 Search: birthdate+name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?birthdate={birthdate}&name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?birthdate={birthdate}&name={name}
 ```
 
-* family+gender (SHOULD)
+#### 32.7 Search: family+gender (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?family={family}&gender={gender} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?family={family}&gender={gender}
 ```
 
-* gender+name (SHOULD)
+#### 32.8 Search: gender+name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Patient?gender={gender}&name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Patient?gender={gender}&name={name}
 ```
 
 
-## Practitioner
+## 33.Practitioner
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
+
 **Description:** Verify support for the server capabilities required by the AU Core Practitioner.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* _id (SHALL)
+
+#### 33.1 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Practitioner?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Practitioner?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 33.2 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Practitioner?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Practitioner?identifier={identifier}
 ```
 
-* name (SHOULD)
+#### 33.3 Search: name (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Practitioner?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Practitioner?name={name}
 ```
 
 
-## PractitionerRole
+## 34.PractitionerRole
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
+
 **Description:** Verify support for the server capabilities required by the AU Core PractitionerRole.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* _id (SHALL)
+
+#### 34.1 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /PractitionerRole?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/PractitionerRole?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 34.2 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /PractitionerRole?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/PractitionerRole?identifier={identifier}
 ```
 
-* practitioner (SHALL)
+#### 34.3 Search: practitioner (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/PractitionerRole?practitioner={practitioner}
 ```
 
-* specialty (SHOULD)
+#### 34.4 Search: specialty (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /PractitionerRole?specialty={specialty} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/PractitionerRole?specialty={specialty}
 ```
 
 
-## Procedure
+## 35.Procedure
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
+
 **Description:** Verify support for the server capabilities required by the AU Core Procedure.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 35.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Procedure?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Procedure?patient={patient}
 ```
 
-* patient+date (SHALL)
+#### 35.2 Search: patient+date (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /Procedure?patient={patient}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Procedure?patient={patient}&date={date}
 ```
 
-* patient+code+date (SHOULD)
+#### 35.3 Search: patient+code+date (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Procedure?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Procedure?patient={patient}&code={code}&date={date}
 ```
 
-* patient+status (SHOULD)
+#### 35.4 Search: patient+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /Procedure?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/Procedure?patient={patient}&status={status}
 ```
 
 
-## Provenance
+## 36.Provenance
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
+
 **Description:** Verify support for the server capabilities required by the AU Core Provenance.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (MAY)
 
+
 ### Test scenarios
 
 
-## ServiceRequest
+
+## 37.ServiceRequest
+
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
+
 **Description:** Verify support for the server capabilities required by the AU Core ServiceRequest.
+
 ### Interactions
+
 
 * read (SHALL)
 
 * search-type (SHALL)
 
+
 ### Test scenarios
 
-* patient (SHALL)
+
+#### 37.1 Search: patient (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}
 ```
 
-* _id (SHALL)
+#### 37.2 Search: _id (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?_id={_id}
 ```
 
-* identifier (SHALL)
+#### 37.3 Search: identifier (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?identifier={identifier}
 ```
 
-* patient+category (SHALL)
+#### 37.4 Search: patient+category (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&category={category}
 ```
 
-* patient+category+authored (SHALL)
+#### 37.5 Search: patient+category+authored (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&category={category}&authored={authored} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&category={category}&authored={authored}
 ```
 
-* patient+code (SHALL)
+#### 37.6 Search: patient+code (SHALL)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&code={code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&code={code}
 ```
 
-* patient+category+status (SHOULD)
+#### 37.7 Search: patient+category+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&category={category}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&category={category}&status={status}
 ```
 
-* patient+code+authored (SHOULD)
+#### 37.8 Search: patient+code+authored (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&code={code}&authored={authored} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&code={code}&authored={authored}
 ```
 
-* patient+status (SHOULD)
+#### 37.9 Search: patient+status (SHOULD)
+
 **HTTP GET**
+
 ```bash
 GET /ServiceRequest?patient={patient}&status={status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
 ```
+
 **For browser based calls:**
+
 ```bash
 {test endpoint}/ServiceRequest?patient={patient}&status={status}
 ```

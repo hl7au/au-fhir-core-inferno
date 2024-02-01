@@ -40,19 +40,21 @@ module AUCoreTestKit
       end
 
       def resource_list
-        result = ig_metadata.groups.map { |group|
+        result = ig_metadata.groups.map.with_index { |group, group_index|
             {
                 'resource' => group.resource,
+                'position' => group_index + 1,
                 'profile_url' => group.profile_url,
                 'description' => group.short_description,
                 'interactions' => group.interactions.map { |interaction| {
                     'code' => interaction[:code],
                     'expectation' => interaction[:expectation],
                 }},
-                'searches' => group.searches.map {|search| {
+                'searches' => group.searches.map.with_index {|search, search_index| {
                     'names' => search[:names],
                     'expectation' => search[:expectation],
-                    'search_string' => make_search_string(group.resource, search[:names])
+                    'search_string' => make_search_string(group.resource, search[:names]),
+                    'position' => search_index + 1
                 }}
             }
         }
