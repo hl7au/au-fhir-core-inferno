@@ -42,6 +42,7 @@ module AUCoreTestKit
       def resource_list
         result = ig_metadata.groups.map.with_index { |group, group_index|
             {
+                'title' => group.title,
                 'resource' => group.resource,
                 'position' => group_index + 1,
                 'profile_url' => group.profile_url,

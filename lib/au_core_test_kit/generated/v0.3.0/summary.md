@@ -1,8 +1,8 @@
 # Capabilities by Resource/Profile
 
 
-## 1.Observation
-
+## 1.Observation AU Core BMI
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
 
 **Description:** Verify support for the server capabilities required by the AU Core BMI.
@@ -121,8 +121,8 @@ Accept: application/fhir+json
 ```
 
 
-## 2.Observation
-
+## 2.Observation AU Core Body Weight
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
 
 **Description:** Verify support for the server capabilities required by the AU Core Body Weight.
@@ -241,8 +241,8 @@ Accept: application/fhir+json
 ```
 
 
-## 3.Observation
-
+## 3.Observation AU Core Oxygen Saturation
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
 
 **Description:** Verify support for the server capabilities required by the AU Core Oxygen Saturation.
@@ -361,8 +361,8 @@ Accept: application/fhir+json
 ```
 
 
-## 4.Observation
-
+## 4.Observation AU Core Blood Pressure
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
 
 **Description:** Verify support for the server capabilities required by the AU Core Blood Pressure.
@@ -481,8 +481,8 @@ Accept: application/fhir+json
 ```
 
 
-## 5.Observation
-
+## 5.Observation AU Core Body Height
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
 
 **Description:** Verify support for the server capabilities required by the AU Core Body Height.
@@ -601,8 +601,8 @@ Accept: application/fhir+json
 ```
 
 
-## 6.Observation
-
+## 6.Observation AU Core Pathology Result
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
 
 **Description:** Verify support for the server capabilities required by the AU Core Pathology Result Observation.
@@ -721,8 +721,8 @@ Accept: application/fhir+json
 ```
 
 
-## 7.Observation
-
+## 7.Observation AU Core Lipid Result
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
 
 **Description:** Verify support for the server capabilities required by the AU Core Lipid Result.
@@ -841,8 +841,8 @@ Accept: application/fhir+json
 ```
 
 
-## 8.Observation
-
+## 8.Observation AU Core Head Circumference
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
 
 **Description:** Verify support for the server capabilities required by the AU Core Head Circumference.
@@ -961,8 +961,8 @@ Accept: application/fhir+json
 ```
 
 
-## 9.Observation
-
+## 9.Observation AU Core Body Temperature
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
 
 **Description:** Verify support for the server capabilities required by the AU Core Body Temperature.
@@ -1081,8 +1081,8 @@ Accept: application/fhir+json
 ```
 
 
-## 10.Observation
-
+## 10.Observation AU Core Heart Rate
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
 
 **Description:** Verify support for the server capabilities required by the AU Core Heart Rate.
@@ -1201,8 +1201,8 @@ Accept: application/fhir+json
 ```
 
 
-## 11.Observation
-
+## 11.Observation AU Core Waist Circumference
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
 
 **Description:** Verify support for the server capabilities required by the AU Core Waist Circumference.
@@ -1321,8 +1321,8 @@ Accept: application/fhir+json
 ```
 
 
-## 12.Observation
-
+## 12.Observation AU Core Vitals Panel
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
 
 **Description:** Verify support for the server capabilities required by the AU Core Vitals Panel.
@@ -1441,8 +1441,8 @@ Accept: application/fhir+json
 ```
 
 
-## 13.Observation
-
+## 13.Observation AU Core Respiration Rate
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
 
 **Description:** Verify support for the server capabilities required by the AU Core Respiration Rate.
@@ -1561,8 +1561,8 @@ Accept: application/fhir+json
 ```
 
 
-## 14.Observation
-
+## 14.Observation AU Core Diagnostic Imaging Result
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
 
 **Description:** Verify support for the server capabilities required by the AU Core Diagnostic Imaging Result Observation.
@@ -1681,8 +1681,8 @@ Accept: application/fhir+json
 ```
 
 
-## 15.Observation
-
+## 15.Observation AU Core Diagnostic Result
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
 
 **Description:** Verify support for the server capabilities required by the AU Core Diagnostic Result Observation.
@@ -1801,8 +1801,8 @@ Accept: application/fhir+json
 ```
 
 
-## 16.Observation
-
+## 16.Observation AU Core Biological Sex Assigned at Birth
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
 
 **Description:** Verify support for the server capabilities required by the AU Core Biological Sex Assigned at Birth.
@@ -1921,8 +1921,8 @@ Accept: application/fhir+json
 ```
 
 
-## 17.Observation
-
+## 17.Observation AU Core Smoking Status
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
 
 **Description:** Verify support for the server capabilities required by the AU Core Smoking Status.
@@ -2041,8 +2041,8 @@ Accept: application/fhir+json
 ```
 
 
-## 18.Patient
-
+## 18.AU Core Patient
+**Resource:** Patient
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
 
 **Description:** Verify support for the server capabilities required by the AU Core Patient.
@@ -2195,8 +2195,8 @@ Accept: application/fhir+json
 ```
 
 
-## 19.AllergyIntolerance
-
+## 19.AU Core AllergyIntolerance
+**Resource:** AllergyIntolerance
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
 
 **Description:** Verify support for the server capabilities required by the AU Core AllergyIntolerance.
@@ -2247,8 +2247,8 @@ Accept: application/fhir+json
 ```
 
 
-## 20.Condition
-
+## 20.Condition AU Core
+**Resource:** Condition
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
 
 **Description:** Verify support for the server capabilities required by the AU Core Condition.
@@ -2367,8 +2367,8 @@ Accept: application/fhir+json
 ```
 
 
-## 21.DiagnosticReport
-
+## 21.DiagnosticReport AU Core
+**Resource:** DiagnosticReport
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
 
 **Description:** Verify support for the server capabilities required by the AU Core DiagnosticReport.
@@ -2538,8 +2538,8 @@ Accept: application/fhir+json
 ```
 
 
-## 22.DocumentReference
-
+## 22.AU Core DocumentReference
+**Resource:** DocumentReference
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
 
 **Description:** Verify support for the server capabilities required by the AU Core DocumentReference.
@@ -2726,8 +2726,8 @@ Accept: application/fhir+json
 ```
 
 
-## 23.Encounter
-
+## 23.AU Core Encounter
+**Resource:** Encounter
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
 
 **Description:** Verify support for the server capabilities required by the AU Core Encounter.
@@ -2846,8 +2846,8 @@ Accept: application/fhir+json
 ```
 
 
-## 24.HealthcareService
-
+## 24.AU Core HealthcareService
+**Resource:** HealthcareService
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
 
 **Description:** Verify support for the server capabilities required by the AU Core HealthcareService.
@@ -2983,8 +2983,8 @@ Accept: application/fhir+json
 ```
 
 
-## 25.Immunization
-
+## 25.AU Core Immunization
+**Resource:** Immunization
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
 
 **Description:** Verify support for the server capabilities required by the AU Core Immunization.
@@ -3052,8 +3052,8 @@ Accept: application/fhir+json
 ```
 
 
-## 26.Location
-
+## 26.AU Core Location
+**Resource:** Location
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
 
 **Description:** Verify support for the server capabilities required by the AU Core Location.
@@ -3155,8 +3155,8 @@ Accept: application/fhir+json
 ```
 
 
-## 27.Medication
-
+## 27.AU Core Medication
+**Resource:** Medication
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
 
 **Description:** Verify support for the server capabilities required by the AU Core Medication.
@@ -3173,8 +3173,8 @@ Accept: application/fhir+json
 
 
 
-## 28.MedicationRequest
-
+## 28.AU Core MedicationRequest
+**Resource:** MedicationRequest
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
 
 **Description:** Verify support for the server capabilities required by the AU Core MedicationRequest.
@@ -3293,8 +3293,8 @@ Accept: application/fhir+json
 ```
 
 
-## 29.MedicationStatement
-
+## 29.AU Core MedicationStatement
+**Resource:** MedicationStatement
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
 
 **Description:** Verify support for the server capabilities required by the AU Core MedicationStatement.
@@ -3362,8 +3362,8 @@ Accept: application/fhir+json
 ```
 
 
-## 30.Observation
-
+## 30.Observation AU Core
+**Resource:** Observation
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
 
 **Description:** Verify support for the server capabilities required by the AU Core Observation.
@@ -3482,8 +3482,8 @@ Accept: application/fhir+json
 ```
 
 
-## 31.Organization
-
+## 31.AU Core Organization
+**Resource:** Organization
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
 
 **Description:** Verify support for the server capabilities required by the AU Core Organization.
@@ -3568,8 +3568,8 @@ Accept: application/fhir+json
 ```
 
 
-## 32.Patient
-
+## 32.AU Core Patient
+**Resource:** Patient
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
 
 **Description:** Verify support for the server capabilities required by the AU Core Patient.
@@ -3722,8 +3722,8 @@ Accept: application/fhir+json
 ```
 
 
-## 33.Practitioner
-
+## 33.AU Core Practitioner
+**Resource:** Practitioner
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
 
 **Description:** Verify support for the server capabilities required by the AU Core Practitioner.
@@ -3791,8 +3791,8 @@ Accept: application/fhir+json
 ```
 
 
-## 34.PractitionerRole
-
+## 34.AU Core PractitionerRole
+**Resource:** PractitionerRole
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
 
 **Description:** Verify support for the server capabilities required by the AU Core PractitionerRole.
@@ -3877,8 +3877,8 @@ Accept: application/fhir+json
 ```
 
 
-## 35.Procedure
-
+## 35.AU Core Procedure
+**Resource:** Procedure
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
 
 **Description:** Verify support for the server capabilities required by the AU Core Procedure.
@@ -3963,8 +3963,8 @@ Accept: application/fhir+json
 ```
 
 
-## 36.Provenance
-
+## 36.AU Core Provenance
+**Resource:** Provenance
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
 
 **Description:** Verify support for the server capabilities required by the AU Core Provenance.
@@ -3981,8 +3981,8 @@ Accept: application/fhir+json
 
 
 
-## 37.ServiceRequest
-
+## 37.AU Core ServiceRequest
+**Resource:** ServiceRequest
 [Profile](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
 
 **Description:** Verify support for the server capabilities required by the AU Core ServiceRequest.

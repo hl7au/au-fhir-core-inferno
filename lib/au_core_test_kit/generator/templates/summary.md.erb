@@ -1,8 +1,8 @@
 # Capabilities by Resource/Profile
 
 <% resource_list.each do |resource_data| %>
-## <%= resource_data["position"] %>.<%= resource_data["resource"] %>
-
+## <%= resource_data["position"] %>.<%= resource_data["title"] %>
+**Resource:** <%= resource_data["resource"] %>
 [Profile](<%= resource_data["profile_url"] %>)
 
 **Description:** <%= resource_data["description"] %>
