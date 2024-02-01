@@ -18,12 +18,10 @@ module AUCoreTestKit
       end
 
       def template
-        puts "template"
         @template ||= File.read(File.join(__dir__, 'templates', 'summary.md.erb'))
       end
 
       def output
-        puts "output"
         @output ||= ERB.new(template).result(binding)
       end
 
