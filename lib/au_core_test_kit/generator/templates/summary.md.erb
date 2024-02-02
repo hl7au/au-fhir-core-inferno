@@ -1,13 +1,16 @@
 # Capabilities by Resource/Profile
 
 <% resource_list.each do |resource_data| %>
-## <%= resource_data["position"] %> <%= resource_data["title"] %>
+## <%= resource_data["position"] %> <%= resource_data["resource"] %>
 
 **Resource:** <%= resource_data["resource"] %>
 
-[Profile](<%= resource_data["profile_url"] %>)
+### Profiles
 
-**Description:** <%= resource_data["description"] %>
+<% resource_data["groups"].each do |group| %>
+* [<%= group["title"] %> ](<%= group["profile_url"] %>)
+<% end %>
+
 
 ### Interactions
 
