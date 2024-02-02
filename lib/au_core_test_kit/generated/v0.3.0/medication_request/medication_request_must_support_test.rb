@@ -12,7 +12,26 @@ module AUCoreTestKit
         Statement. This test will look through the MedicationRequest resources
         found previously for the following must support elements:
 
-false
+        * MedicationRequest.authoredOn
+        * MedicationRequest.category
+        * MedicationRequest.dispenseRequest
+        * MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
+        * MedicationRequest.dispenseRequest.quantity
+        * MedicationRequest.dispenseRequest.validityPeriod
+        * MedicationRequest.dosageInstruction
+        * MedicationRequest.encounter
+        * MedicationRequest.identifier
+        * MedicationRequest.intent
+        * MedicationRequest.medication[x]
+        * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
+        * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
+        * MedicationRequest.note
+        * MedicationRequest.reasonCode
+        * MedicationRequest.requester
+        * MedicationRequest.status
+        * MedicationRequest.subject
+        * MedicationRequest.substitution
+        * MedicationRequest.substitution.allowed[x]
       )
 
       id :au_core_v030_medication_request_must_support_test

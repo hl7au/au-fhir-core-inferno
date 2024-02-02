@@ -10,6 +10,9 @@
 
 * [AU Core Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
 
+* [AU Core Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
+
+
 
 ### Interactions
 

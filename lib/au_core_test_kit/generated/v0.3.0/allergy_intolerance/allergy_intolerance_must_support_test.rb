@@ -12,7 +12,21 @@ module AUCoreTestKit
         Statement. This test will look through the AllergyIntolerance resources
         found previously for the following must support elements:
 
-false
+        * AllergyIntolerance.asserter
+        * AllergyIntolerance.category
+        * AllergyIntolerance.clinicalStatus
+        * AllergyIntolerance.code
+        * AllergyIntolerance.encounter
+        * AllergyIntolerance.note
+        * AllergyIntolerance.onset[x]
+        * AllergyIntolerance.patient
+        * AllergyIntolerance.reaction
+        * AllergyIntolerance.reaction.manifestation
+        * AllergyIntolerance.reaction.severity
+        * AllergyIntolerance.reaction.substance
+        * AllergyIntolerance.recorder
+        * AllergyIntolerance.type
+        * AllergyIntolerance.verificationStatus
       )
 
       id :au_core_v030_allergy_intolerance_must_support_test

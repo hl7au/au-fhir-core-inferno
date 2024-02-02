@@ -68,19 +68,17 @@ module AUCoreTestKit
       end
 
       def must_support_list_string
-        # TODO: FIX
-        false
-        # build_must_support_list_string(false)
+        build_must_support_list_string(false)
       end
 
       def uscdi_list_string
-        # TODO: FIX
-        false
-        # build_must_support_list_string(true)
+        build_must_support_list_string(true)
       end
 
       def build_must_support_list_string(uscdi_only)
+        # TODO: Remove compact
         slice_names = group_metadata.must_supports[:slices]
+          .compact
           .select { |slice| slice[:uscdi_only].presence == uscdi_only.presence }
           .map { |slice| slice[:slice_id] }
 

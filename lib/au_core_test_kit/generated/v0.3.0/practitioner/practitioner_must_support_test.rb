@@ -12,7 +12,16 @@ module AUCoreTestKit
         Statement. This test will look through the Practitioner resources
         found previously for the following must support elements:
 
-false
+        * Practitioner.address
+        * Practitioner.communication
+        * Practitioner.identifier
+        * Practitioner.name
+        * Practitioner.qualification
+        * Practitioner.qualification.code
+        * Practitioner.qualification.identifier
+        * Practitioner.qualification.issuer
+        * Practitioner.qualification.period
+        * Practitioner.telecom
       )
 
       id :au_core_v030_practitioner_must_support_test

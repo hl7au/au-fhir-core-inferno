@@ -12,7 +12,15 @@ module AUCoreTestKit
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-false
+        * Observation.category
+        * Observation.code
+        * Observation.effective[x]
+        * Observation.encounter
+        * Observation.note
+        * Observation.performer
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
       )
 
       id :au_core_v030_observation_must_support_test

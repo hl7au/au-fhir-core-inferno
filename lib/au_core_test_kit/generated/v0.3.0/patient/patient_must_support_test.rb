@@ -12,7 +12,20 @@ module AUCoreTestKit
         Statement. This test will look through the Patient resources
         found previously for the following must support elements:
 
-false
+        * Patient.address
+        * Patient.birthDate
+        * Patient.birthDate.extension:accuracyIndicator
+        * Patient.birthDate.extension:birthTime
+        * Patient.communication
+        * Patient.communication.language
+        * Patient.communication.preferred
+        * Patient.extension:birthPlace
+        * Patient.extension:indigenousStatus
+        * Patient.extension:interpreterRequired
+        * Patient.gender
+        * Patient.identifier
+        * Patient.name
+        * Patient.telecom
       )
 
       id :au_core_v030_patient_must_support_test

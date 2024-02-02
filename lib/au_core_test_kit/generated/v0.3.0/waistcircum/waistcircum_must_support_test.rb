@@ -12,7 +12,19 @@ module AUCoreTestKit
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-false
+        * Observation.category
+        * Observation.category:VSCat
+        * Observation.category:VSCat.coding
+        * Observation.category:VSCat.coding.code
+        * Observation.category:VSCat.coding.system
+        * Observation.code
+        * Observation.effective[x]
+        * Observation.encounter
+        * Observation.performer
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
       )
 
       id :au_core_v030_waistcircum_must_support_test

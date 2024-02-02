@@ -12,7 +12,21 @@ module AUCoreTestKit
         Statement. This test will look through the DiagnosticReport resources
         found previously for the following must support elements:
 
-false
+        * DiagnosticReport.basedOn
+        * DiagnosticReport.category
+        * DiagnosticReport.code
+        * DiagnosticReport.conclusion
+        * DiagnosticReport.conclusionCode
+        * DiagnosticReport.effective[x]
+        * DiagnosticReport.identifier
+        * DiagnosticReport.issued
+        * DiagnosticReport.media
+        * DiagnosticReport.media.link
+        * DiagnosticReport.performer
+        * DiagnosticReport.presentedForm
+        * DiagnosticReport.result
+        * DiagnosticReport.status
+        * DiagnosticReport.subject
       )
 
       id :au_core_v030_diagnostic_report_must_support_test

@@ -12,7 +12,19 @@ module AUCoreTestKit
         Statement. This test will look through the Condition resources
         found previously for the following must support elements:
 
-false
+        * Condition.abatement[x]
+        * Condition.asserter
+        * Condition.bodySite
+        * Condition.category
+        * Condition.clinicalStatus
+        * Condition.code
+        * Condition.encounter
+        * Condition.note
+        * Condition.onset[x]
+        * Condition.recorder
+        * Condition.severity
+        * Condition.subject
+        * Condition.verificationStatus
       )
 
       id :au_core_v030_condition_must_support_test

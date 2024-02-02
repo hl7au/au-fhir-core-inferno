@@ -12,7 +12,21 @@ module AUCoreTestKit
         Statement. This test will look through the MedicationStatement resources
         found previously for the following must support elements:
 
-false
+        * MedicationStatement.basedOn
+        * MedicationStatement.category
+        * MedicationStatement.context
+        * MedicationStatement.dateAsserted
+        * MedicationStatement.dosage
+        * MedicationStatement.effective[x]
+        * MedicationStatement.informationSource
+        * MedicationStatement.medication[x]
+        * MedicationStatement.medication[x]:medicationCodeableConcept.coding:amt
+        * MedicationStatement.medication[x]:medicationCodeableConcept.coding:pbs
+        * MedicationStatement.note
+        * MedicationStatement.reasonCode
+        * MedicationStatement.status
+        * MedicationStatement.statusReason
+        * MedicationStatement.subject
       )
 
       id :au_core_v030_medication_statement_must_support_test

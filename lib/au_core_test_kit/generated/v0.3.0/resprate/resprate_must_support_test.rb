@@ -12,7 +12,26 @@ module AUCoreTestKit
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-false
+        * Observation.category
+        * Observation.category:VSCat
+        * Observation.category:VSCat.coding
+        * Observation.category:VSCat.coding.code
+        * Observation.category:VSCat.coding.system
+        * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.value[x]
+        * Observation.effective[x]
+        * Observation.encounter
+        * Observation.performer
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueQuantity.code
+        * Observation.value[x]:valueQuantity.system
+        * Observation.value[x]:valueQuantity.unit
+        * Observation.value[x]:valueQuantity.value
       )
 
       id :au_core_v030_resprate_must_support_test

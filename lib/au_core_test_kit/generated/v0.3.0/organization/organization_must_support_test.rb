@@ -12,7 +12,12 @@ module AUCoreTestKit
         Statement. This test will look through the Organization resources
         found previously for the following must support elements:
 
-false
+        * Organization.address
+        * Organization.alias
+        * Organization.identifier
+        * Organization.name
+        * Organization.telecom
+        * Organization.type
       )
 
       id :au_core_v030_organization_must_support_test

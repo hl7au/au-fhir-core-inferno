@@ -12,7 +12,24 @@ module AUCoreTestKit
         Statement. This test will look through the Encounter resources
         found previously for the following must support elements:
 
-false
+        * Encounter.class
+        * Encounter.extension:encounterDescription
+        * Encounter.hospitalization
+        * Encounter.hospitalization.dischargeDisposition
+        * Encounter.identifier
+        * Encounter.location
+        * Encounter.location.location
+        * Encounter.participant
+        * Encounter.participant.individual
+        * Encounter.participant.type
+        * Encounter.period
+        * Encounter.reasonCode
+        * Encounter.reasonReference
+        * Encounter.serviceProvider
+        * Encounter.serviceType
+        * Encounter.status
+        * Encounter.subject
+        * Encounter.type
       )
 
       id :au_core_v030_encounter_must_support_test

@@ -12,7 +12,13 @@ module AUCoreTestKit
         Statement. This test will look through the Provenance resources
         found previously for the following must support elements:
 
-false
+        * Provenance.activity
+        * Provenance.agent
+        * Provenance.agent.onBehalfOf
+        * Provenance.agent.who
+        * Provenance.occurred[x]
+        * Provenance.recorded
+        * Provenance.target
       )
 
       id :au_core_v030_provenance_must_support_test

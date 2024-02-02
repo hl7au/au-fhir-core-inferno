@@ -12,7 +12,25 @@ module AUCoreTestKit
         Statement. This test will look through the Immunization resources
         found previously for the following must support elements:
 
-false
+        * Immunization.encounter
+        * Immunization.extension:vaccine-serial-number
+        * Immunization.identifier
+        * Immunization.note
+        * Immunization.occurrence[x]
+        * Immunization.patient
+        * Immunization.performer
+        * Immunization.performer.actor
+        * Immunization.performer.function
+        * Immunization.protocolApplied
+        * Immunization.protocolApplied.doseNumber[x]
+        * Immunization.protocolApplied.series
+        * Immunization.protocolApplied.targetDisease
+        * Immunization.reasonCode
+        * Immunization.status
+        * Immunization.statusReason
+        * Immunization.vaccineCode
+        * Immunization.vaccineCode.coding:airVaccineCode
+        * Immunization.vaccineCode.coding:amtVaccineCode
       )
 
       id :au_core_v030_immunization_must_support_test

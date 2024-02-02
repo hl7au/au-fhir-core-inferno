@@ -12,7 +12,36 @@ module AUCoreTestKit
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-false
+        * Observation.category
+        * Observation.category:VSCat
+        * Observation.category:VSCat.coding
+        * Observation.category:VSCat.coding.code
+        * Observation.category:VSCat.coding.system
+        * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.value[x]
+        * Observation.component:DiastolicBP
+        * Observation.component:DiastolicBP.code
+        * Observation.component:DiastolicBP.value[x]
+        * Observation.component:DiastolicBP.value[x].code
+        * Observation.component:DiastolicBP.value[x].system
+        * Observation.component:DiastolicBP.value[x].unit
+        * Observation.component:DiastolicBP.value[x].value
+        * Observation.component:SystolicBP
+        * Observation.component:SystolicBP.code
+        * Observation.component:SystolicBP.value[x]
+        * Observation.component:SystolicBP.value[x].code
+        * Observation.component:SystolicBP.value[x].system
+        * Observation.component:SystolicBP.value[x].unit
+        * Observation.component:SystolicBP.value[x].value
+        * Observation.effective[x]
+        * Observation.encounter
+        * Observation.performer
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
       )
 
       id :au_core_v030_bloodpressure_must_support_test

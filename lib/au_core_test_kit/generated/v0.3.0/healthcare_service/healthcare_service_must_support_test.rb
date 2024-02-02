@@ -12,7 +12,14 @@ module AUCoreTestKit
         Statement. This test will look through the HealthcareService resources
         found previously for the following must support elements:
 
-false
+        * HealthcareService.category
+        * HealthcareService.identifier
+        * HealthcareService.location
+        * HealthcareService.name
+        * HealthcareService.providedBy
+        * HealthcareService.serviceProvisionCode
+        * HealthcareService.specialty
+        * HealthcareService.type
       )
 
       id :au_core_v030_healthcare_service_must_support_test

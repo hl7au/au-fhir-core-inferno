@@ -12,7 +12,21 @@ module AUCoreTestKit
         Statement. This test will look through the ServiceRequest resources
         found previously for the following must support elements:
 
-false
+        * ServiceRequest.authoredOn
+        * ServiceRequest.basedOn
+        * ServiceRequest.category
+        * ServiceRequest.code
+        * ServiceRequest.encounter
+        * ServiceRequest.identifier
+        * ServiceRequest.intent
+        * ServiceRequest.performer
+        * ServiceRequest.performerType
+        * ServiceRequest.reasonCode
+        * ServiceRequest.reasonReference
+        * ServiceRequest.requester
+        * ServiceRequest.status
+        * ServiceRequest.subject
+        * ServiceRequest.supportingInfo
       )
 
       id :au_core_v030_service_request_must_support_test

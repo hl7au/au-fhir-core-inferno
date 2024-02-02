@@ -12,7 +12,28 @@ module AUCoreTestKit
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-false
+        * Observation.category
+        * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.value[x]
+        * Observation.effective[x]
+        * Observation.hasMember
+        * Observation.identifier
+        * Observation.interpretation
+        * Observation.method
+        * Observation.note
+        * Observation.performer
+        * Observation.referenceRange
+        * Observation.referenceRange.high
+        * Observation.referenceRange.low
+        * Observation.referenceRange.text
+        * Observation.referenceRange.type
+        * Observation.specimen
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
       )
 
       id :au_core_v030_lipid_result_must_support_test

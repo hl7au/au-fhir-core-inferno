@@ -12,7 +12,22 @@ module AUCoreTestKit
         Statement. This test will look through the DocumentReference resources
         found previously for the following must support elements:
 
-false
+        * DocumentReference.authenticator
+        * DocumentReference.author
+        * DocumentReference.category
+        * DocumentReference.content
+        * DocumentReference.content.attachment
+        * DocumentReference.content.format
+        * DocumentReference.context
+        * DocumentReference.context.encounter
+        * DocumentReference.custodian
+        * DocumentReference.date
+        * DocumentReference.description
+        * DocumentReference.docStatus
+        * DocumentReference.identifier
+        * DocumentReference.status
+        * DocumentReference.subject
+        * DocumentReference.type
       )
 
       id :au_core_v030_document_reference_must_support_test

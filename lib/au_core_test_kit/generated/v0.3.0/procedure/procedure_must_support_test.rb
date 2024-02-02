@@ -12,7 +12,19 @@ module AUCoreTestKit
         Statement. This test will look through the Procedure resources
         found previously for the following must support elements:
 
-false
+        * Procedure.asserter
+        * Procedure.bodySite
+        * Procedure.category
+        * Procedure.code
+        * Procedure.encounter
+        * Procedure.note
+        * Procedure.performed[x]
+        * Procedure.reasonCode
+        * Procedure.reasonReference
+        * Procedure.recorder
+        * Procedure.status
+        * Procedure.statusReason
+        * Procedure.subject
       )
 
       id :au_core_v030_procedure_must_support_test
