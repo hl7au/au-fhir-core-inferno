@@ -68,8 +68,7 @@ module AUCoreTestKit
               end
             end
 
-            # TODO: Remove compact
-            any_must_support_slices = must_supports[:slices].compact.any? do |slice|
+            any_must_support_slices = must_supports[:slices].any? do |slice|
               # only handle type slices because that is all we need for now
               # for a slice like Observation.effective[x]:effectiveDateTime, the search parameter's expression could be
               # either Observation.effective or Observation.effectiveDateTime.

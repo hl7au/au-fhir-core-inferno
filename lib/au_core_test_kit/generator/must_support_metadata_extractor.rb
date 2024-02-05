@@ -130,7 +130,7 @@ module AUCoreTestKit
               metadata[:uscdi_only] = true
             end
           end
-        end
+        end.compact
       end
 
       def must_support_type_slice_elements

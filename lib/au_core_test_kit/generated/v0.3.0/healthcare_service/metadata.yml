@@ -129,8 +129,7 @@
 :required_concepts: []
 :must_supports:
   :extensions: []
-  :slices:
-  -
+  :slices: []
   :elements:
   - :path: identifier
   - :path: providedBy
