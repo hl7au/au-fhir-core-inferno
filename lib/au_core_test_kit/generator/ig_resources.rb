@@ -53,9 +53,20 @@ module AUCoreTestKit
         end
       end
 
-      def search_param_by_general_resource_and_code(code)
-        search_params = resources_by_type['SearchParameter']
+      def search_param_by_general_resource_and_code(resource, code)
+        # For all base search params (eg: _id) which not defined in separate files, we get details from the base Resource.
+        search_param = resources_by_type['SearchParameter']
           .find { |param| param.base.include?("Resource") && param.code == code}
+
+        search_param_dup = search_param.dup
+
+        if search_param_dup.present?
+          search_param_dup.id = search_param_dup.id.gsub('Resource', resource)
+          search_param_dup.base = resource
+          search_param_dup.expression = search_param_dup.expression.gsub('Resource', resource)
+        end
+
+        search_param_dup
       end
 
       def search_param_by_specific_cases(resource, code)
@@ -71,7 +82,7 @@ module AUCoreTestKit
         if exact_resource.present?
           exact_resource
         else
-          general_resource = search_param_by_general_resource_and_code(code)
+          general_resource = search_param_by_general_resource_and_code(resource, code)
           if general_resource.present?
             general_resource
           else

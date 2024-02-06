@@ -75,12 +75,12 @@
     :multiple_or: MAY
   :_id:
     :paths:
-    - Resource.id
+    - id
     :full_paths:
-    - Resource.id
+    - Organization.id
     :comparators: {}
     :values: []
-    :type: token
+    :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
     :multiple_or: MAY
 :include_params: []
