@@ -20,29 +20,27 @@
 - :names:
   - patient
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - clinical-status
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :patient:
     :paths:
-    - 'patient '
-    - " CarePlan.subject"
+    - patient
+    - CarePlan.subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :comparators: {}
     :values: []
-    :type: reference
+    :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
@@ -58,7 +56,7 @@
     - resolved
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

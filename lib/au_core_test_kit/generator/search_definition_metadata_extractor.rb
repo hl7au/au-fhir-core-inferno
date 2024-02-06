@@ -48,6 +48,8 @@ module AUCoreTestKit
             end
 
             full_paths = path.split('|')
+            # There is a problem with whitespaces in paths
+            full_paths = full_paths.map(&:strip)
 
             # There is a bug in AU Core 5 asserted-date search parameter. See FHIR-40573
             if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
@@ -165,7 +167,8 @@ module AUCoreTestKit
         if param_hash['_multipleOr']
           param_hash['_multipleOr']['extension'].first['valueCode']
         end
-        "SHOULD-NOT"
+        # TODO: Fix it
+        "MAY"
       end
 
       def values

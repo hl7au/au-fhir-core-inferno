@@ -23,7 +23,6 @@
   - code
   :names_not_must_support_or_mandatory:
   - patient
-  - code
   :must_support_or_mandatory: false
 - :names:
   - patient
@@ -62,22 +61,21 @@
   - date
   :names_not_must_support_or_mandatory:
   - patient
-  - code
   - date
   :must_support_or_mandatory: false
 :search_definitions:
   :patient:
     :paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :comparators: {}
     :values: []
     :type: reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
@@ -91,82 +89,82 @@
     - vital-signs
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :date:
     :paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " DocumentReference.date "
-    - " Encounter.actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " effective.ofType(dateTime) "
-    - " effective.ofType(Period) "
-    - " effective.ofType(Timing) "
-    - " effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - AdverseEvent.occurrence.ofType(dateTime)
+    - AdverseEvent.occurrence.ofType(Period)
+    - AdverseEvent.occurrence.ofType(Timing)
+    - AllergyIntolerance.recordedDate
+    - "(start"
+    - requestedPeriod.start).first()
+    - AuditEvent.recorded
+    - CarePlan.period
+    - ClinicalImpression.date
+    - Composition.date
+    - Consent.date
+    - DiagnosticReport.effective.ofType(dateTime)
+    - DiagnosticReport.effective.ofType(Period)
+    - DocumentReference.date
+    - Encounter.actualPeriod
+    - EpisodeOfCare.period
+    - FamilyMemberHistory.date
+    - Flag.period
+    - "(Immunization.occurrence.ofType(dateTime))"
+    - ImmunizationEvaluation.date
+    - ImmunizationRecommendation.date
+    - Invoice.date
+    - List.date
+    - MeasureReport.date
+    - NutritionIntake.occurrence.ofType(dateTime)
+    - NutritionIntake.occurrence.ofType(Period)
+    - effective.ofType(dateTime)
+    - effective.ofType(Period)
+    - effective.ofType(Timing)
+    - effective.ofType(instant)
+    - Procedure.occurrence.ofType(dateTime)
+    - Procedure.occurrence.ofType(Period)
+    - Procedure.occurrence.ofType(Timing)
+    - ResearchSubject.period
+    - "(RiskAssessment.occurrence.ofType(dateTime))"
+    - SupplyRequest.authoredOn
     :full_paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " DocumentReference.date "
-    - " Encounter.actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " Observation.effective.ofType(dateTime) "
-    - " Observation.effective.ofType(Period) "
-    - " Observation.effective.ofType(Timing) "
-    - " Observation.effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - AdverseEvent.occurrence.ofType(dateTime)
+    - AdverseEvent.occurrence.ofType(Period)
+    - AdverseEvent.occurrence.ofType(Timing)
+    - AllergyIntolerance.recordedDate
+    - "(start"
+    - requestedPeriod.start).first()
+    - AuditEvent.recorded
+    - CarePlan.period
+    - ClinicalImpression.date
+    - Composition.date
+    - Consent.date
+    - DiagnosticReport.effective.ofType(dateTime)
+    - DiagnosticReport.effective.ofType(Period)
+    - DocumentReference.date
+    - Encounter.actualPeriod
+    - EpisodeOfCare.period
+    - FamilyMemberHistory.date
+    - Flag.period
+    - "(Immunization.occurrence.ofType(dateTime))"
+    - ImmunizationEvaluation.date
+    - ImmunizationRecommendation.date
+    - Invoice.date
+    - List.date
+    - MeasureReport.date
+    - NutritionIntake.occurrence.ofType(dateTime)
+    - NutritionIntake.occurrence.ofType(Period)
+    - Observation.effective.ofType(dateTime)
+    - Observation.effective.ofType(Period)
+    - Observation.effective.ofType(Timing)
+    - Observation.effective.ofType(instant)
+    - Procedure.occurrence.ofType(dateTime)
+    - Procedure.occurrence.ofType(Period)
+    - Procedure.occurrence.ofType(Timing)
+    - ResearchSubject.period
+    - "(RiskAssessment.occurrence.ofType(dateTime))"
+    - SupplyRequest.authoredOn
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -180,61 +178,63 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :code:
     :paths:
-    - 'AdverseEvent.code '
-    - " AllergyIntolerance.code "
-    - " AllergyIntolerance.reaction.substance "
-    - " AuditEvent.code "
-    - " Basic.code "
-    - " ChargeItem.code "
-    - " Condition.code "
-    - " DetectedIssue.code "
-    - " DeviceRequest.code.concept "
-    - " DiagnosticReport.code "
-    - " FamilyMemberHistory.condition.code "
-    - " ImagingSelection.status "
-    - " List.code "
-    - " Medication.code "
-    - " MedicationAdministration.medication.concept "
-    - " MedicationDispense.medication.concept "
-    - " MedicationRequest.medication.concept "
-    - " MedicationStatement.medication.concept "
-    - " NutritionIntake.code "
-    - " code "
-    - " Procedure.code "
-    - " RequestOrchestration.code "
-    - " Task.code"
+    - AdverseEvent.code
+    - AllergyIntolerance.code
+    - AllergyIntolerance.reaction.substance
+    - AuditEvent.code
+    - Basic.code
+    - ChargeItem.code
+    - Condition.code
+    - DetectedIssue.code
+    - DeviceRequest.code.concept
+    - DiagnosticReport.code
+    - FamilyMemberHistory.condition.code
+    - ImagingSelection.status
+    - List.code
+    - Medication.code
+    - MedicationAdministration.medication.concept
+    - MedicationDispense.medication.concept
+    - MedicationRequest.medication.concept
+    - MedicationStatement.medication.concept
+    - NutritionIntake.code
+    - code
+    - Procedure.code
+    - RequestOrchestration.code
+    - Task.code
     :full_paths:
-    - 'AdverseEvent.code '
-    - " AllergyIntolerance.code "
-    - " AllergyIntolerance.reaction.substance "
-    - " AuditEvent.code "
-    - " Basic.code "
-    - " ChargeItem.code "
-    - " Condition.code "
-    - " DetectedIssue.code "
-    - " DeviceRequest.code.concept "
-    - " DiagnosticReport.code "
-    - " FamilyMemberHistory.condition.code "
-    - " ImagingSelection.status "
-    - " List.code "
-    - " Medication.code "
-    - " MedicationAdministration.medication.concept "
-    - " MedicationDispense.medication.concept "
-    - " MedicationRequest.medication.concept "
-    - " MedicationStatement.medication.concept "
-    - " NutritionIntake.code "
-    - " Observation.code "
-    - " Procedure.code "
-    - " RequestOrchestration.code "
-    - " Task.code"
+    - AdverseEvent.code
+    - AllergyIntolerance.code
+    - AllergyIntolerance.reaction.substance
+    - AuditEvent.code
+    - Basic.code
+    - ChargeItem.code
+    - Condition.code
+    - DetectedIssue.code
+    - DeviceRequest.code.concept
+    - DiagnosticReport.code
+    - FamilyMemberHistory.condition.code
+    - ImagingSelection.status
+    - List.code
+    - Medication.code
+    - MedicationAdministration.medication.concept
+    - MedicationDispense.medication.concept
+    - MedicationRequest.medication.concept
+    - MedicationStatement.medication.concept
+    - NutritionIntake.code
+    - Observation.code
+    - Procedure.code
+    - RequestOrchestration.code
+    - Task.code
     :comparators: {}
-    :values: []
-    :type: token
+    :values:
+    - 8280-0
+    - '276361009'
+    :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -252,7 +252,7 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

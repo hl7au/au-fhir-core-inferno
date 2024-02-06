@@ -31,9 +31,8 @@
 - :names:
   - identifier
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -91,157 +90,157 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
-    - 'Account.identifier '
-    - " AdverseEvent.identifier "
-    - " AllergyIntolerance.identifier "
-    - " Appointment.identifier "
-    - " AppointmentResponse.identifier "
-    - " Basic.identifier "
-    - " BodyStructure.identifier "
-    - " CarePlan.identifier "
-    - " CareTeam.identifier "
-    - " ChargeItem.identifier "
-    - " Claim.identifier "
-    - " ClaimResponse.identifier "
-    - " ClinicalImpression.identifier "
-    - " Communication.identifier "
-    - " CommunicationRequest.identifier "
-    - " Composition.identifier "
-    - " Condition.identifier "
-    - " Consent.identifier "
-    - " Contract.identifier "
-    - " Coverage.identifier "
-    - " CoverageEligibilityRequest.identifier "
-    - " CoverageEligibilityResponse.identifier "
-    - " DetectedIssue.identifier "
-    - " DeviceRequest.identifier "
-    - " DeviceUsage.identifier "
-    - " DiagnosticReport.identifier "
-    - " DocumentReference.identifier "
-    - " Encounter.identifier "
-    - " EnrollmentRequest.identifier "
-    - " EpisodeOfCare.identifier "
-    - " ExplanationOfBenefit.identifier "
-    - " FamilyMemberHistory.identifier "
-    - " Flag.identifier "
-    - " Goal.identifier "
-    - " GuidanceResponse.identifier "
-    - " ImagingSelection.identifier "
-    - " ImagingStudy.identifier "
-    - " Immunization.identifier "
-    - " ImmunizationEvaluation.identifier "
-    - " ImmunizationRecommendation.identifier "
-    - " Invoice.identifier "
-    - " List.identifier "
-    - " MeasureReport.identifier "
-    - " Medication.identifier "
-    - " MedicationAdministration.identifier "
-    - " MedicationDispense.identifier "
-    - " MedicationRequest.identifier "
-    - " MedicationStatement.identifier "
-    - " MolecularSequence.identifier "
-    - " NutritionIntake.identifier "
-    - " NutritionOrder.identifier "
-    - " Observation.identifier "
-    - " Person.identifier "
-    - " Procedure.identifier "
-    - " QuestionnaireResponse.identifier "
-    - " RelatedPerson.identifier "
-    - " RequestOrchestration.identifier "
-    - " ResearchSubject.identifier "
-    - " RiskAssessment.identifier "
-    - " identifier "
-    - " Specimen.identifier "
-    - " SupplyDelivery.identifier "
-    - " SupplyRequest.identifier "
-    - " Task.identifier "
-    - " VisionPrescription.identifier"
+    - Account.identifier
+    - AdverseEvent.identifier
+    - AllergyIntolerance.identifier
+    - Appointment.identifier
+    - AppointmentResponse.identifier
+    - Basic.identifier
+    - BodyStructure.identifier
+    - CarePlan.identifier
+    - CareTeam.identifier
+    - ChargeItem.identifier
+    - Claim.identifier
+    - ClaimResponse.identifier
+    - ClinicalImpression.identifier
+    - Communication.identifier
+    - CommunicationRequest.identifier
+    - Composition.identifier
+    - Condition.identifier
+    - Consent.identifier
+    - Contract.identifier
+    - Coverage.identifier
+    - CoverageEligibilityRequest.identifier
+    - CoverageEligibilityResponse.identifier
+    - DetectedIssue.identifier
+    - DeviceRequest.identifier
+    - DeviceUsage.identifier
+    - DiagnosticReport.identifier
+    - DocumentReference.identifier
+    - Encounter.identifier
+    - EnrollmentRequest.identifier
+    - EpisodeOfCare.identifier
+    - ExplanationOfBenefit.identifier
+    - FamilyMemberHistory.identifier
+    - Flag.identifier
+    - Goal.identifier
+    - GuidanceResponse.identifier
+    - ImagingSelection.identifier
+    - ImagingStudy.identifier
+    - Immunization.identifier
+    - ImmunizationEvaluation.identifier
+    - ImmunizationRecommendation.identifier
+    - Invoice.identifier
+    - List.identifier
+    - MeasureReport.identifier
+    - Medication.identifier
+    - MedicationAdministration.identifier
+    - MedicationDispense.identifier
+    - MedicationRequest.identifier
+    - MedicationStatement.identifier
+    - MolecularSequence.identifier
+    - NutritionIntake.identifier
+    - NutritionOrder.identifier
+    - Observation.identifier
+    - Person.identifier
+    - Procedure.identifier
+    - QuestionnaireResponse.identifier
+    - RelatedPerson.identifier
+    - RequestOrchestration.identifier
+    - ResearchSubject.identifier
+    - RiskAssessment.identifier
+    - identifier
+    - Specimen.identifier
+    - SupplyDelivery.identifier
+    - SupplyRequest.identifier
+    - Task.identifier
+    - VisionPrescription.identifier
     :full_paths:
-    - 'Account.identifier '
-    - " AdverseEvent.identifier "
-    - " AllergyIntolerance.identifier "
-    - " Appointment.identifier "
-    - " AppointmentResponse.identifier "
-    - " Basic.identifier "
-    - " BodyStructure.identifier "
-    - " CarePlan.identifier "
-    - " CareTeam.identifier "
-    - " ChargeItem.identifier "
-    - " Claim.identifier "
-    - " ClaimResponse.identifier "
-    - " ClinicalImpression.identifier "
-    - " Communication.identifier "
-    - " CommunicationRequest.identifier "
-    - " Composition.identifier "
-    - " Condition.identifier "
-    - " Consent.identifier "
-    - " Contract.identifier "
-    - " Coverage.identifier "
-    - " CoverageEligibilityRequest.identifier "
-    - " CoverageEligibilityResponse.identifier "
-    - " DetectedIssue.identifier "
-    - " DeviceRequest.identifier "
-    - " DeviceUsage.identifier "
-    - " DiagnosticReport.identifier "
-    - " DocumentReference.identifier "
-    - " Encounter.identifier "
-    - " EnrollmentRequest.identifier "
-    - " EpisodeOfCare.identifier "
-    - " ExplanationOfBenefit.identifier "
-    - " FamilyMemberHistory.identifier "
-    - " Flag.identifier "
-    - " Goal.identifier "
-    - " GuidanceResponse.identifier "
-    - " ImagingSelection.identifier "
-    - " ImagingStudy.identifier "
-    - " Immunization.identifier "
-    - " ImmunizationEvaluation.identifier "
-    - " ImmunizationRecommendation.identifier "
-    - " Invoice.identifier "
-    - " List.identifier "
-    - " MeasureReport.identifier "
-    - " Medication.identifier "
-    - " MedicationAdministration.identifier "
-    - " MedicationDispense.identifier "
-    - " MedicationRequest.identifier "
-    - " MedicationStatement.identifier "
-    - " MolecularSequence.identifier "
-    - " NutritionIntake.identifier "
-    - " NutritionOrder.identifier "
-    - " Observation.identifier "
-    - " Person.identifier "
-    - " Procedure.identifier "
-    - " QuestionnaireResponse.identifier "
-    - " RelatedPerson.identifier "
-    - " RequestOrchestration.identifier "
-    - " ResearchSubject.identifier "
-    - " RiskAssessment.identifier "
-    - " ServiceRequest.identifier "
-    - " Specimen.identifier "
-    - " SupplyDelivery.identifier "
-    - " SupplyRequest.identifier "
-    - " Task.identifier "
-    - " VisionPrescription.identifier"
+    - Account.identifier
+    - AdverseEvent.identifier
+    - AllergyIntolerance.identifier
+    - Appointment.identifier
+    - AppointmentResponse.identifier
+    - Basic.identifier
+    - BodyStructure.identifier
+    - CarePlan.identifier
+    - CareTeam.identifier
+    - ChargeItem.identifier
+    - Claim.identifier
+    - ClaimResponse.identifier
+    - ClinicalImpression.identifier
+    - Communication.identifier
+    - CommunicationRequest.identifier
+    - Composition.identifier
+    - Condition.identifier
+    - Consent.identifier
+    - Contract.identifier
+    - Coverage.identifier
+    - CoverageEligibilityRequest.identifier
+    - CoverageEligibilityResponse.identifier
+    - DetectedIssue.identifier
+    - DeviceRequest.identifier
+    - DeviceUsage.identifier
+    - DiagnosticReport.identifier
+    - DocumentReference.identifier
+    - Encounter.identifier
+    - EnrollmentRequest.identifier
+    - EpisodeOfCare.identifier
+    - ExplanationOfBenefit.identifier
+    - FamilyMemberHistory.identifier
+    - Flag.identifier
+    - Goal.identifier
+    - GuidanceResponse.identifier
+    - ImagingSelection.identifier
+    - ImagingStudy.identifier
+    - Immunization.identifier
+    - ImmunizationEvaluation.identifier
+    - ImmunizationRecommendation.identifier
+    - Invoice.identifier
+    - List.identifier
+    - MeasureReport.identifier
+    - Medication.identifier
+    - MedicationAdministration.identifier
+    - MedicationDispense.identifier
+    - MedicationRequest.identifier
+    - MedicationStatement.identifier
+    - MolecularSequence.identifier
+    - NutritionIntake.identifier
+    - NutritionOrder.identifier
+    - Observation.identifier
+    - Person.identifier
+    - Procedure.identifier
+    - QuestionnaireResponse.identifier
+    - RelatedPerson.identifier
+    - RequestOrchestration.identifier
+    - ResearchSubject.identifier
+    - RiskAssessment.identifier
+    - ServiceRequest.identifier
+    - Specimen.identifier
+    - SupplyDelivery.identifier
+    - SupplyRequest.identifier
+    - Task.identifier
+    - VisionPrescription.identifier
     :comparators: {}
     :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :type: Identifier
+    :contains_multiple: true
+    :multiple_or: MAY
   :patient:
     :paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :comparators: {}
     :values: []
     :type: reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
@@ -254,7 +253,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :authored:
     :paths:
     - authoredOn
@@ -273,7 +272,7 @@
     :values: []
     :type: dateTime
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :code:
     :paths:
     - code.concept
@@ -283,7 +282,7 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -300,7 +299,7 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

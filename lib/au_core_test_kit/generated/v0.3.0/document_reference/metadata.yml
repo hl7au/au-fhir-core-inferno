@@ -31,9 +31,8 @@
 - :names:
   - identifier
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -48,7 +47,6 @@
   - date
   :names_not_must_support_or_mandatory:
   - patient
-  - date
   :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
@@ -79,7 +77,6 @@
   - type
   :names_not_must_support_or_mandatory:
   - patient
-  - type
   :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
@@ -88,8 +85,6 @@
   - date
   :names_not_must_support_or_mandatory:
   - patient
-  - type
-  - date
   :must_support_or_mandatory: false
 :search_definitions:
   :_id:
@@ -101,157 +96,157 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
-    - 'Account.identifier '
-    - " AdverseEvent.identifier "
-    - " AllergyIntolerance.identifier "
-    - " Appointment.identifier "
-    - " AppointmentResponse.identifier "
-    - " Basic.identifier "
-    - " BodyStructure.identifier "
-    - " CarePlan.identifier "
-    - " CareTeam.identifier "
-    - " ChargeItem.identifier "
-    - " Claim.identifier "
-    - " ClaimResponse.identifier "
-    - " ClinicalImpression.identifier "
-    - " Communication.identifier "
-    - " CommunicationRequest.identifier "
-    - " Composition.identifier "
-    - " Condition.identifier "
-    - " Consent.identifier "
-    - " Contract.identifier "
-    - " Coverage.identifier "
-    - " CoverageEligibilityRequest.identifier "
-    - " CoverageEligibilityResponse.identifier "
-    - " DetectedIssue.identifier "
-    - " DeviceRequest.identifier "
-    - " DeviceUsage.identifier "
-    - " DiagnosticReport.identifier "
-    - " identifier "
-    - " Encounter.identifier "
-    - " EnrollmentRequest.identifier "
-    - " EpisodeOfCare.identifier "
-    - " ExplanationOfBenefit.identifier "
-    - " FamilyMemberHistory.identifier "
-    - " Flag.identifier "
-    - " Goal.identifier "
-    - " GuidanceResponse.identifier "
-    - " ImagingSelection.identifier "
-    - " ImagingStudy.identifier "
-    - " Immunization.identifier "
-    - " ImmunizationEvaluation.identifier "
-    - " ImmunizationRecommendation.identifier "
-    - " Invoice.identifier "
-    - " List.identifier "
-    - " MeasureReport.identifier "
-    - " Medication.identifier "
-    - " MedicationAdministration.identifier "
-    - " MedicationDispense.identifier "
-    - " MedicationRequest.identifier "
-    - " MedicationStatement.identifier "
-    - " MolecularSequence.identifier "
-    - " NutritionIntake.identifier "
-    - " NutritionOrder.identifier "
-    - " Observation.identifier "
-    - " Person.identifier "
-    - " Procedure.identifier "
-    - " QuestionnaireResponse.identifier "
-    - " RelatedPerson.identifier "
-    - " RequestOrchestration.identifier "
-    - " ResearchSubject.identifier "
-    - " RiskAssessment.identifier "
-    - " ServiceRequest.identifier "
-    - " Specimen.identifier "
-    - " SupplyDelivery.identifier "
-    - " SupplyRequest.identifier "
-    - " Task.identifier "
-    - " VisionPrescription.identifier"
+    - Account.identifier
+    - AdverseEvent.identifier
+    - AllergyIntolerance.identifier
+    - Appointment.identifier
+    - AppointmentResponse.identifier
+    - Basic.identifier
+    - BodyStructure.identifier
+    - CarePlan.identifier
+    - CareTeam.identifier
+    - ChargeItem.identifier
+    - Claim.identifier
+    - ClaimResponse.identifier
+    - ClinicalImpression.identifier
+    - Communication.identifier
+    - CommunicationRequest.identifier
+    - Composition.identifier
+    - Condition.identifier
+    - Consent.identifier
+    - Contract.identifier
+    - Coverage.identifier
+    - CoverageEligibilityRequest.identifier
+    - CoverageEligibilityResponse.identifier
+    - DetectedIssue.identifier
+    - DeviceRequest.identifier
+    - DeviceUsage.identifier
+    - DiagnosticReport.identifier
+    - identifier
+    - Encounter.identifier
+    - EnrollmentRequest.identifier
+    - EpisodeOfCare.identifier
+    - ExplanationOfBenefit.identifier
+    - FamilyMemberHistory.identifier
+    - Flag.identifier
+    - Goal.identifier
+    - GuidanceResponse.identifier
+    - ImagingSelection.identifier
+    - ImagingStudy.identifier
+    - Immunization.identifier
+    - ImmunizationEvaluation.identifier
+    - ImmunizationRecommendation.identifier
+    - Invoice.identifier
+    - List.identifier
+    - MeasureReport.identifier
+    - Medication.identifier
+    - MedicationAdministration.identifier
+    - MedicationDispense.identifier
+    - MedicationRequest.identifier
+    - MedicationStatement.identifier
+    - MolecularSequence.identifier
+    - NutritionIntake.identifier
+    - NutritionOrder.identifier
+    - Observation.identifier
+    - Person.identifier
+    - Procedure.identifier
+    - QuestionnaireResponse.identifier
+    - RelatedPerson.identifier
+    - RequestOrchestration.identifier
+    - ResearchSubject.identifier
+    - RiskAssessment.identifier
+    - ServiceRequest.identifier
+    - Specimen.identifier
+    - SupplyDelivery.identifier
+    - SupplyRequest.identifier
+    - Task.identifier
+    - VisionPrescription.identifier
     :full_paths:
-    - 'Account.identifier '
-    - " AdverseEvent.identifier "
-    - " AllergyIntolerance.identifier "
-    - " Appointment.identifier "
-    - " AppointmentResponse.identifier "
-    - " Basic.identifier "
-    - " BodyStructure.identifier "
-    - " CarePlan.identifier "
-    - " CareTeam.identifier "
-    - " ChargeItem.identifier "
-    - " Claim.identifier "
-    - " ClaimResponse.identifier "
-    - " ClinicalImpression.identifier "
-    - " Communication.identifier "
-    - " CommunicationRequest.identifier "
-    - " Composition.identifier "
-    - " Condition.identifier "
-    - " Consent.identifier "
-    - " Contract.identifier "
-    - " Coverage.identifier "
-    - " CoverageEligibilityRequest.identifier "
-    - " CoverageEligibilityResponse.identifier "
-    - " DetectedIssue.identifier "
-    - " DeviceRequest.identifier "
-    - " DeviceUsage.identifier "
-    - " DiagnosticReport.identifier "
-    - " DocumentReference.identifier "
-    - " Encounter.identifier "
-    - " EnrollmentRequest.identifier "
-    - " EpisodeOfCare.identifier "
-    - " ExplanationOfBenefit.identifier "
-    - " FamilyMemberHistory.identifier "
-    - " Flag.identifier "
-    - " Goal.identifier "
-    - " GuidanceResponse.identifier "
-    - " ImagingSelection.identifier "
-    - " ImagingStudy.identifier "
-    - " Immunization.identifier "
-    - " ImmunizationEvaluation.identifier "
-    - " ImmunizationRecommendation.identifier "
-    - " Invoice.identifier "
-    - " List.identifier "
-    - " MeasureReport.identifier "
-    - " Medication.identifier "
-    - " MedicationAdministration.identifier "
-    - " MedicationDispense.identifier "
-    - " MedicationRequest.identifier "
-    - " MedicationStatement.identifier "
-    - " MolecularSequence.identifier "
-    - " NutritionIntake.identifier "
-    - " NutritionOrder.identifier "
-    - " Observation.identifier "
-    - " Person.identifier "
-    - " Procedure.identifier "
-    - " QuestionnaireResponse.identifier "
-    - " RelatedPerson.identifier "
-    - " RequestOrchestration.identifier "
-    - " ResearchSubject.identifier "
-    - " RiskAssessment.identifier "
-    - " ServiceRequest.identifier "
-    - " Specimen.identifier "
-    - " SupplyDelivery.identifier "
-    - " SupplyRequest.identifier "
-    - " Task.identifier "
-    - " VisionPrescription.identifier"
+    - Account.identifier
+    - AdverseEvent.identifier
+    - AllergyIntolerance.identifier
+    - Appointment.identifier
+    - AppointmentResponse.identifier
+    - Basic.identifier
+    - BodyStructure.identifier
+    - CarePlan.identifier
+    - CareTeam.identifier
+    - ChargeItem.identifier
+    - Claim.identifier
+    - ClaimResponse.identifier
+    - ClinicalImpression.identifier
+    - Communication.identifier
+    - CommunicationRequest.identifier
+    - Composition.identifier
+    - Condition.identifier
+    - Consent.identifier
+    - Contract.identifier
+    - Coverage.identifier
+    - CoverageEligibilityRequest.identifier
+    - CoverageEligibilityResponse.identifier
+    - DetectedIssue.identifier
+    - DeviceRequest.identifier
+    - DeviceUsage.identifier
+    - DiagnosticReport.identifier
+    - DocumentReference.identifier
+    - Encounter.identifier
+    - EnrollmentRequest.identifier
+    - EpisodeOfCare.identifier
+    - ExplanationOfBenefit.identifier
+    - FamilyMemberHistory.identifier
+    - Flag.identifier
+    - Goal.identifier
+    - GuidanceResponse.identifier
+    - ImagingSelection.identifier
+    - ImagingStudy.identifier
+    - Immunization.identifier
+    - ImmunizationEvaluation.identifier
+    - ImmunizationRecommendation.identifier
+    - Invoice.identifier
+    - List.identifier
+    - MeasureReport.identifier
+    - Medication.identifier
+    - MedicationAdministration.identifier
+    - MedicationDispense.identifier
+    - MedicationRequest.identifier
+    - MedicationStatement.identifier
+    - MolecularSequence.identifier
+    - NutritionIntake.identifier
+    - NutritionOrder.identifier
+    - Observation.identifier
+    - Person.identifier
+    - Procedure.identifier
+    - QuestionnaireResponse.identifier
+    - RelatedPerson.identifier
+    - RequestOrchestration.identifier
+    - ResearchSubject.identifier
+    - RiskAssessment.identifier
+    - ServiceRequest.identifier
+    - Specimen.identifier
+    - SupplyDelivery.identifier
+    - SupplyRequest.identifier
+    - Task.identifier
+    - VisionPrescription.identifier
     :comparators: {}
     :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :type: Identifier
+    :contains_multiple: true
+    :multiple_or: MAY
   :patient:
     :paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - AllergyIntolerance.patient
+    - CarePlan.subject
     :comparators: {}
     :values: []
     :type: reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
@@ -264,82 +259,82 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :date:
     :paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " date "
-    - " Encounter.actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " Observation.effective.ofType(dateTime) "
-    - " Observation.effective.ofType(Period) "
-    - " Observation.effective.ofType(Timing) "
-    - " Observation.effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - AdverseEvent.occurrence.ofType(dateTime)
+    - AdverseEvent.occurrence.ofType(Period)
+    - AdverseEvent.occurrence.ofType(Timing)
+    - AllergyIntolerance.recordedDate
+    - "(start"
+    - requestedPeriod.start).first()
+    - AuditEvent.recorded
+    - CarePlan.period
+    - ClinicalImpression.date
+    - Composition.date
+    - Consent.date
+    - DiagnosticReport.effective.ofType(dateTime)
+    - DiagnosticReport.effective.ofType(Period)
+    - date
+    - Encounter.actualPeriod
+    - EpisodeOfCare.period
+    - FamilyMemberHistory.date
+    - Flag.period
+    - "(Immunization.occurrence.ofType(dateTime))"
+    - ImmunizationEvaluation.date
+    - ImmunizationRecommendation.date
+    - Invoice.date
+    - List.date
+    - MeasureReport.date
+    - NutritionIntake.occurrence.ofType(dateTime)
+    - NutritionIntake.occurrence.ofType(Period)
+    - Observation.effective.ofType(dateTime)
+    - Observation.effective.ofType(Period)
+    - Observation.effective.ofType(Timing)
+    - Observation.effective.ofType(instant)
+    - Procedure.occurrence.ofType(dateTime)
+    - Procedure.occurrence.ofType(Period)
+    - Procedure.occurrence.ofType(Timing)
+    - ResearchSubject.period
+    - "(RiskAssessment.occurrence.ofType(dateTime))"
+    - SupplyRequest.authoredOn
     :full_paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " DocumentReference.date "
-    - " Encounter.actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " Observation.effective.ofType(dateTime) "
-    - " Observation.effective.ofType(Period) "
-    - " Observation.effective.ofType(Timing) "
-    - " Observation.effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - AdverseEvent.occurrence.ofType(dateTime)
+    - AdverseEvent.occurrence.ofType(Period)
+    - AdverseEvent.occurrence.ofType(Timing)
+    - AllergyIntolerance.recordedDate
+    - "(start"
+    - requestedPeriod.start).first()
+    - AuditEvent.recorded
+    - CarePlan.period
+    - ClinicalImpression.date
+    - Composition.date
+    - Consent.date
+    - DiagnosticReport.effective.ofType(dateTime)
+    - DiagnosticReport.effective.ofType(Period)
+    - DocumentReference.date
+    - Encounter.actualPeriod
+    - EpisodeOfCare.period
+    - FamilyMemberHistory.date
+    - Flag.period
+    - "(Immunization.occurrence.ofType(dateTime))"
+    - ImmunizationEvaluation.date
+    - ImmunizationRecommendation.date
+    - Invoice.date
+    - List.date
+    - MeasureReport.date
+    - NutritionIntake.occurrence.ofType(dateTime)
+    - NutritionIntake.occurrence.ofType(Period)
+    - Observation.effective.ofType(dateTime)
+    - Observation.effective.ofType(Period)
+    - Observation.effective.ofType(Timing)
+    - Observation.effective.ofType(instant)
+    - Procedure.occurrence.ofType(dateTime)
+    - Procedure.occurrence.ofType(Period)
+    - Procedure.occurrence.ofType(Timing)
+    - ResearchSubject.period
+    - "(RiskAssessment.occurrence.ofType(dateTime))"
+    - SupplyRequest.authoredOn
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -351,9 +346,9 @@
       :eb: MAY
       :ap: MAY
     :values: []
-    :type: date
+    :type: instant
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -366,7 +361,7 @@
     - entered-in-error
     :type: code
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :contenttype:
     :paths:
     - content.attachment.contentType
@@ -376,37 +371,37 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :type:
     :paths:
-    - 'Account.type '
-    - " AllergyIntolerance.type "
-    - " Composition.type "
-    - " Coverage.type "
-    - " type "
-    - " Encounter.type "
-    - " EpisodeOfCare.type "
-    - " Invoice.type "
-    - " MedicationDispense.type "
-    - " MolecularSequence.type "
-    - " Specimen.type"
+    - Account.type
+    - AllergyIntolerance.type
+    - Composition.type
+    - Coverage.type
+    - type
+    - Encounter.type
+    - EpisodeOfCare.type
+    - Invoice.type
+    - MedicationDispense.type
+    - MolecularSequence.type
+    - Specimen.type
     :full_paths:
-    - 'Account.type '
-    - " AllergyIntolerance.type "
-    - " Composition.type "
-    - " Coverage.type "
-    - " DocumentReference.type "
-    - " Encounter.type "
-    - " EpisodeOfCare.type "
-    - " Invoice.type "
-    - " MedicationDispense.type "
-    - " MolecularSequence.type "
-    - " Specimen.type"
+    - Account.type
+    - AllergyIntolerance.type
+    - Composition.type
+    - Coverage.type
+    - DocumentReference.type
+    - Encounter.type
+    - EpisodeOfCare.type
+    - Invoice.type
+    - MedicationDispense.type
+    - MolecularSequence.type
+    - Specimen.type
     :comparators: {}
     :values: []
-    :type: token
+    :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

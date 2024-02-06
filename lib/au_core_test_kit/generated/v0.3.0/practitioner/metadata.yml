@@ -25,9 +25,8 @@
 - :names:
   - identifier
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - name
   :expectation: SHOULD
@@ -43,19 +42,19 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
-    - 'identifier '
-    - " qualification.identifier"
+    - identifier
+    - qualification.identifier
     :full_paths:
-    - 'Practitioner.identifier '
-    - " Practitioner.qualification.identifier"
+    - Practitioner.identifier
+    - Practitioner.qualification.identifier
     :comparators: {}
     :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :type: Identifier
+    :contains_multiple: true
+    :multiple_or: MAY
   :name:
     :paths:
     - name
@@ -65,7 +64,7 @@
     :values: []
     :type: HumanName
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes: []
 :required_concepts: []

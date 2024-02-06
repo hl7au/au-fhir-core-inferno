@@ -18,13 +18,12 @@ none are returned, the test is skipped.
       )
 
       id :au_core_v030_document_reference_identifier_search_test
-      optional
-  
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'DocumentReference',
         search_param_names: ['identifier'],
-        possible_status_search: true
+        possible_status_search: true,
+        token_search_params: ['identifier']
         )
       end
 

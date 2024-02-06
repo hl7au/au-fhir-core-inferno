@@ -18,12 +18,11 @@ none are returned, the test is skipped.
       )
 
       id :au_core_v030_practitioner_identifier_search_test
-      optional
-  
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Practitioner',
-        search_param_names: ['identifier']
+        search_param_names: ['identifier'],
+        token_search_params: ['identifier']
         )
       end
 

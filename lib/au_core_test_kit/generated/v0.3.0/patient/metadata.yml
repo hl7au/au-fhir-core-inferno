@@ -43,31 +43,27 @@
   - birthdate
   - family
   :names_not_must_support_or_mandatory:
-  - birthdate
   - family
   :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - birthdate
   - name
-  :names_not_must_support_or_mandatory:
-  - birthdate
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - family
   - gender
   :names_not_must_support_or_mandatory:
   - family
-  - gender
   :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - gender
   - name
-  :names_not_must_support_or_mandatory:
-  - gender
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :_id:
     :paths:
@@ -78,19 +74,19 @@
     :values: []
     :type: token
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :family:
     :paths:
-    - 'name.family '
-    - " Practitioner.name.family"
+    - name.family
+    - Practitioner.name.family
     :full_paths:
-    - 'Patient.name.family '
-    - " Practitioner.name.family"
+    - Patient.name.family
+    - Practitioner.name.family
     :comparators: {}
     :values: []
     :type: string
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
     - identifier
@@ -100,7 +96,7 @@
     :values: []
     :type: Identifier
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :name:
     :paths:
     - name
@@ -110,16 +106,16 @@
     :values: []
     :type: HumanName
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :birthdate:
     :paths:
-    - 'birthDate '
-    - " Person.birthDate "
-    - " RelatedPerson.birthDate"
+    - birthDate
+    - Person.birthDate
+    - RelatedPerson.birthDate
     :full_paths:
-    - 'Patient.birthDate '
-    - " Person.birthDate "
-    - " RelatedPerson.birthDate"
+    - Patient.birthDate
+    - Person.birthDate
+    - RelatedPerson.birthDate
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -133,23 +129,23 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :gender:
     :paths:
-    - 'gender '
-    - " Person.gender "
-    - " Practitioner.gender "
-    - " RelatedPerson.gender"
+    - gender
+    - Person.gender
+    - Practitioner.gender
+    - RelatedPerson.gender
     :full_paths:
-    - 'Patient.gender '
-    - " Person.gender "
-    - " Practitioner.gender "
-    - " RelatedPerson.gender"
+    - Patient.gender
+    - Person.gender
+    - Practitioner.gender
+    - RelatedPerson.gender
     :comparators: {}
     :values: []
-    :type: token
+    :type: code
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target
