@@ -32,10 +32,8 @@
   :patient:
     :paths:
     - patient
-    - CarePlan.subject
     :full_paths:
     - AllergyIntolerance.patient
-    - CarePlan.subject
     :comparators: {}
     :values: []
     :type: Reference

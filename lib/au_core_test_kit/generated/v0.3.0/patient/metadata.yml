@@ -78,10 +78,8 @@
   :family:
     :paths:
     - name.family
-    - Practitioner.name.family
     :full_paths:
     - Patient.name.family
-    - Practitioner.name.family
     :comparators: {}
     :values: []
     :type: string
@@ -110,12 +108,8 @@
   :birthdate:
     :paths:
     - birthDate
-    - Person.birthDate
-    - RelatedPerson.birthDate
     :full_paths:
     - Patient.birthDate
-    - Person.birthDate
-    - RelatedPerson.birthDate
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -133,14 +127,8 @@
   :gender:
     :paths:
     - gender
-    - Person.gender
-    - Practitioner.gender
-    - RelatedPerson.gender
     :full_paths:
     - Patient.gender
-    - Person.gender
-    - Practitioner.gender
-    - RelatedPerson.gender
     :comparators: {}
     :values: []
     :type: code

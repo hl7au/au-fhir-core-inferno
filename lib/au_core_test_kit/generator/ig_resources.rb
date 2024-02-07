@@ -92,9 +92,6 @@ module AUCoreTestKit
       end
 
       def search_param_by_resource_and_name(resource, name)
-        # remove '_' from search parameter name, such as _id or _tag
-        normalized_name = normalized_name = name.to_s.delete_prefix('_')
-
         search_param_by_resource_and_code(resource, name)
       end
 
