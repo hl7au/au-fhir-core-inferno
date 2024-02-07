@@ -84,15 +84,15 @@
     :multiple_or: MAY
   :date:
     :paths:
-    - effective.ofType(dateTime)
-    - effective.ofType(Period)
-    - effective.ofType(Timing)
-    - effective.ofType(instant)
+    - effectiveDateTime
+    - effectivePeriod
+    - effectiveTiming
+    - effectiveInstant
     :full_paths:
-    - Observation.effective.ofType(dateTime)
-    - Observation.effective.ofType(Period)
-    - Observation.effective.ofType(Timing)
-    - Observation.effective.ofType(instant)
+    - Observation.effectiveDateTime
+    - Observation.effectivePeriod
+    - Observation.effectiveTiming
+    - Observation.effectiveInstant
     :comparators:
       :eq: MAY
       :ne: MAY

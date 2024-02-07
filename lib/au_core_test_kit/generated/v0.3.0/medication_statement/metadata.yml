@@ -69,11 +69,11 @@
     :multiple_or: MAY
   :effective:
     :paths:
-    - effective.ofType(dateTime)
-    - effective.ofType(Period)
+    - effectiveDateTime
+    - effectivePeriod
     :full_paths:
-    - MedicationStatement.effective.ofType(dateTime)
-    - MedicationStatement.effective.ofType(Period)
+    - MedicationStatement.effectiveDateTime
+    - MedicationStatement.effectivePeriod
     :comparators:
       :eq: MAY
       :ne: MAY

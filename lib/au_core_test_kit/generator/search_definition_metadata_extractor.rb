@@ -42,7 +42,10 @@ module AUCoreTestKit
         @full_paths ||=
           begin
             full_paths = param.expression.split('|').map do |expr|
-              expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
+              expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'').gsub(/\.ofType\(([^)]+)\)/) do |match|
+                type_name = $1
+                "#{type_name[0].upcase}#{type_name[1..-1]}"
+              end
             end.filter { |path| path.split('.').first == resource }
             # path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
             # path = path[1..-2] if path.start_with?('(') && path.end_with?(')')

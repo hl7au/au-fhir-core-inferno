@@ -86,15 +86,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -367,15 +367,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -649,15 +649,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -928,15 +928,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1241,15 +1241,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1523,15 +1523,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1776,15 +1776,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2049,15 +2049,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2331,15 +2331,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2613,15 +2613,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2892,15 +2892,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3166,15 +3166,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3428,15 +3428,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3707,15 +3707,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3954,15 +3954,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -4197,15 +4197,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -4421,15 +4421,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -5026,11 +5026,11 @@
       :multiple_or: MAY
     :onset-date:
       :paths:
-      - onset.ofType(dateTime)
-      - onset.ofType(Period)
+      - onsetDateTime
+      - onsetPeriod
       :full_paths:
-      - Condition.onset.ofType(dateTime)
-      - Condition.onset.ofType(Period)
+      - Condition.onsetDateTime
+      - Condition.onsetPeriod
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -5249,11 +5249,11 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
+      - effectiveDateTime
+      - effectivePeriod
       :full_paths:
-      - DiagnosticReport.effective.ofType(dateTime)
-      - DiagnosticReport.effective.ofType(Period)
+      - DiagnosticReport.effectiveDateTime
+      - DiagnosticReport.effectivePeriod
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -6879,11 +6879,11 @@
       :multiple_or: MAY
     :effective:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
+      - effectiveDateTime
+      - effectivePeriod
       :full_paths:
-      - MedicationStatement.effective.ofType(dateTime)
-      - MedicationStatement.effective.ofType(Period)
+      - MedicationStatement.effectiveDateTime
+      - MedicationStatement.effectivePeriod
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -7088,15 +7088,15 @@
       :multiple_or: MAY
     :date:
       :paths:
-      - effective.ofType(dateTime)
-      - effective.ofType(Period)
-      - effective.ofType(Timing)
-      - effective.ofType(instant)
+      - effectiveDateTime
+      - effectivePeriod
+      - effectiveTiming
+      - effectiveInstant
       :full_paths:
-      - Observation.effective.ofType(dateTime)
-      - Observation.effective.ofType(Period)
-      - Observation.effective.ofType(Timing)
-      - Observation.effective.ofType(instant)
+      - Observation.effectiveDateTime
+      - Observation.effectivePeriod
+      - Observation.effectiveTiming
+      - Observation.effectiveInstant
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -7839,13 +7839,13 @@
         :expectation: SHOULD
     :date:
       :paths:
-      - occurrence.ofType(dateTime)
-      - occurrence.ofType(Period)
-      - occurrence.ofType(Timing)
+      - occurrenceDateTime
+      - occurrencePeriod
+      - occurrenceTiming
       :full_paths:
-      - Procedure.occurrence.ofType(dateTime)
-      - Procedure.occurrence.ofType(Period)
-      - Procedure.occurrence.ofType(Timing)
+      - Procedure.occurrenceDateTime
+      - Procedure.occurrencePeriod
+      - Procedure.occurrenceTiming
       :comparators:
         :eq: MAY
         :ne: MAY

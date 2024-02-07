@@ -59,13 +59,13 @@
       :expectation: SHOULD
   :date:
     :paths:
-    - occurrence.ofType(dateTime)
-    - occurrence.ofType(Period)
-    - occurrence.ofType(Timing)
+    - occurrenceDateTime
+    - occurrencePeriod
+    - occurrenceTiming
     :full_paths:
-    - Procedure.occurrence.ofType(dateTime)
-    - Procedure.occurrence.ofType(Period)
-    - Procedure.occurrence.ofType(Timing)
+    - Procedure.occurrenceDateTime
+    - Procedure.occurrencePeriod
+    - Procedure.occurrenceTiming
     :comparators:
       :eq: MAY
       :ne: MAY

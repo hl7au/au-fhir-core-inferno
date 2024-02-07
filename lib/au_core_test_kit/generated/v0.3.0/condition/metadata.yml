@@ -106,11 +106,11 @@
     :multiple_or: MAY
   :onset-date:
     :paths:
-    - onset.ofType(dateTime)
-    - onset.ofType(Period)
+    - onsetDateTime
+    - onsetPeriod
     :full_paths:
-    - Condition.onset.ofType(dateTime)
-    - Condition.onset.ofType(Period)
+    - Condition.onsetDateTime
+    - Condition.onsetPeriod
     :comparators:
       :eq: MAY
       :ne: MAY
