@@ -51,14 +51,7 @@ module AUCoreTestKit
         Implementation Guide]().
 
         HL7® FHIR® resources are validated with the Java validator using
-        `tx.fhir.org` as the terminology server. Users should note that the
-        although the ONC Certification (g)(10) Standardized API Test Suite
-        includes tests from this suite, [it uses a different method to perform
-        terminology
-        validation](https://github.com/onc-healthit/onc-certification-g10-test-kit/wiki/FAQ#q-why-do-some-resources-fail-in-us-core-test-kit-with-terminology-validation-errors).
-        As a result, resource validation results may not be consistent between
-        the AU Core Test Suite and the ONC Certification (g)(10) Standardized
-        API Test Suite.
+        `tx.fhir.org` as the terminology server.
       )
       version VERSION
 
