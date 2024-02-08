@@ -109,21 +109,10 @@ module AUCoreTestKit
         oauth_credentials :smart_credentials
       end
 
+      
+      
 
-      suite_option :smart_app_launch_version,
-        title: 'SMART App Launch Version',
-        list_options: [
-          {
-            label: 'SMART App Launch 1.0.0',
-            value: AUCoreOptions::SMART_1
-          },
-          {
-            label: 'SMART App Launch 2.0.0',
-            value: AUCoreOptions::SMART_2
-          }
-        ]
-
-      group from: :au_core_smart_app_launch
+      
 
       group do
         title 'AU Core FHIR API'
