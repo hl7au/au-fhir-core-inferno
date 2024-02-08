@@ -2,6 +2,9 @@
 
 Fork from https://github.com/inferno-framework/us-core-test-kit
 
+## Dev version
+Please try dev version here http://au-inferno.beda.software/
+
 ## Generate tests
 
 1. Put your IG in the folder
