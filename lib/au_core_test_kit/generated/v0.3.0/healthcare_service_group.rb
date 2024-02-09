@@ -14,12 +14,12 @@ require_relative 'healthcare_service/healthcare_service_reference_resolution_tes
 module AUCoreTestKit
   module AUCoreV030
     class HealthcareServiceGroup < Inferno::TestGroup
-      title 'AU Core HealthcareService Tests'
+      title 'HealthcareService Tests'
       short_description 'Verify support for the server capabilities required by the AU Core HealthcareService.'
       description %(
   # Background
 
-The AU Core AU Core HealthcareService sequence verifies that the system under test is
+The AU Core HealthcareService sequence verifies that the system under test is
 able to provide correct responses for HealthcareService queries. These queries
 must contain resources conforming to the AU Core HealthcareService as
 specified in the AU Core v0.3.0 Implementation Guide.

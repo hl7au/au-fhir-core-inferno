@@ -59,7 +59,8 @@ module AUCoreTestKit
           "Location" => 16,
           "DocumentReference" => 17,
           "ServiceRequest" => 18,
-          "Provenance" => 19
+          "Provenance" => 19,
+          "RelatedPerson" => 20,
         }
 
         resource_positions[resource]

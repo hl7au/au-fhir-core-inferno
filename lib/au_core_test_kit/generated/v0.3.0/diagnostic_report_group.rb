@@ -16,12 +16,12 @@ require_relative 'diagnostic_report/diagnostic_report_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class DiagnosticReportGroup < Inferno::TestGroup
-      title 'DiagnosticReport AU Core Tests'
+      title 'DiagnosticReport Tests'
       short_description 'Verify support for the server capabilities required by the AU Core DiagnosticReport.'
       description %(
   # Background
 
-The AU Core DiagnosticReport AU Core sequence verifies that the system under test is
+The AU Core DiagnosticReport sequence verifies that the system under test is
 able to provide correct responses for DiagnosticReport queries. These queries
 must contain resources conforming to the AU Core DiagnosticReport as
 specified in the AU Core v0.3.0 Implementation Guide.

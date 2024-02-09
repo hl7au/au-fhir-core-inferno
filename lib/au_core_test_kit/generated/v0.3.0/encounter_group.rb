@@ -1,6 +1,7 @@
 require_relative 'encounter/encounter_patient_search_test'
 require_relative 'encounter/encounter_date_patient_search_test'
 require_relative 'encounter/encounter_class_patient_search_test'
+require_relative 'encounter/encounter_patient_discharge_disposition_search_test'
 require_relative 'encounter/encounter_patient_location_search_test'
 require_relative 'encounter/encounter_patient_status_search_test'
 require_relative 'encounter/encounter_patient_type_search_test'
@@ -13,12 +14,12 @@ require_relative 'encounter/encounter_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class EncounterGroup < Inferno::TestGroup
-      title 'AU Core Encounter Tests'
+      title 'Encounter Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Encounter.'
       description %(
   # Background
 
-The AU Core AU Core Encounter sequence verifies that the system under test is
+The AU Core Encounter sequence verifies that the system under test is
 able to provide correct responses for Encounter queries. These queries
 must contain resources conforming to the AU Core Encounter as
 specified in the AU Core v0.3.0 Implementation Guide.
@@ -84,6 +85,7 @@ read succeeds.
       test from: :au_core_v030_encounter_patient_search_test
       test from: :au_core_v030_encounter_date_patient_search_test
       test from: :au_core_v030_encounter_class_patient_search_test
+      test from: :au_core_v030_encounter_patient_discharge_disposition_search_test
       test from: :au_core_v030_encounter_patient_location_search_test
       test from: :au_core_v030_encounter_patient_status_search_test
       test from: :au_core_v030_encounter_patient_type_search_test

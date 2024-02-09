@@ -13,12 +13,12 @@ require_relative 'bodyweight/bodyweight_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class BodyweightGroup < Inferno::TestGroup
-      title 'Observation AU Core Body Weight Tests'
+      title 'Observation Body Weight Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Body Weight.'
       description %(
   # Background
 
-The AU Core Observation AU Core Body Weight sequence verifies that the system under test is
+The AU Core Observation Body Weight sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Weight as
 specified in the AU Core v0.3.0 Implementation Guide.

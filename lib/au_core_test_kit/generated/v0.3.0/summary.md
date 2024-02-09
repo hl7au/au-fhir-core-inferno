@@ -8,9 +8,7 @@
 ### Profiles
 
 
-* [AU Core Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
-
-* [AU Core Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
+* [Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
 
 
 
@@ -169,41 +167,41 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [Observation AU Core BMI ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
+* [Observation BMI ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
 
-* [Observation AU Core Body Weight ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
+* [Observation Body Weight ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
 
-* [Observation AU Core Oxygen Saturation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
+* [Observation Oxygen Saturation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
 
-* [Observation AU Core Blood Pressure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
+* [Observation Blood Pressure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
 
-* [Observation AU Core Body Height ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
+* [Observation Body Height ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
 
-* [Observation AU Core Pathology Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
+* [Observation Pathology Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
 
-* [Observation AU Core Lipid Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
+* [Observation Lipid Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
 
-* [Observation AU Core Head Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
+* [Observation Head Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
 
-* [Observation AU Core Body Temperature ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
+* [Observation Body Temperature ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
 
-* [Observation AU Core Heart Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
+* [Observation Heart Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
 
-* [Observation AU Core Waist Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
+* [Observation Waist Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
 
-* [Observation AU Core Vitals Panel ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
+* [Observation Vitals Panel ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
 
-* [Observation AU Core Respiration Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
+* [Observation Respiration Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
 
-* [Observation AU Core Diagnostic Imaging Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
+* [Observation Diagnostic Imaging Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
 
-* [Observation AU Core Diagnostic Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
+* [Observation Diagnostic Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
 
-* [Observation AU Core Biological Sex Assigned at Birth ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
+* [Observation Biological Sex Assigned at Birth ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
 
-* [Observation AU Core Smoking Status ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
+* [Observation Smoking Status ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
 
-* [Observation AU Core ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
+* [Observation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
 
 
 
@@ -328,7 +326,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core MedicationRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
+* [MedicationRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
 
 
 
@@ -453,7 +451,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Encounter ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
+* [Encounter ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
 
 
 
@@ -519,7 +517,24 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?class={class}&patient={patient}
 ```
 
-#### 4.4 Search: patient+location (SHOULD)
+#### 4.4 Search: patient+discharge-disposition (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient}&discharge-disposition={discharge-disposition} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
+```
+
+#### 4.5 Search: patient+location (SHOULD)
 
 **HTTP GET**
 
@@ -536,7 +551,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&location={location}
 ```
 
-#### 4.5 Search: patient+status (SHOULD)
+#### 4.6 Search: patient+status (SHOULD)
 
 **HTTP GET**
 
@@ -553,7 +568,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&status={status}
 ```
 
-#### 4.6 Search: patient+type (SHOULD)
+#### 4.7 Search: patient+type (SHOULD)
 
 **HTTP GET**
 
@@ -578,7 +593,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [Condition AU Core ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
+* [Condition ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
 
 
 
@@ -703,7 +718,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Procedure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
+* [Procedure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
 
 
 
@@ -794,7 +809,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [DiagnosticReport AU Core ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
+* [DiagnosticReport ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
 
 
 
@@ -970,7 +985,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Immunization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
+* [Immunization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
 
 
 
@@ -1044,7 +1059,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core AllergyIntolerance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
+* [AllergyIntolerance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
 
 
 
@@ -1101,7 +1116,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Medication ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
+* [Medication ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
 
 
 
@@ -1124,7 +1139,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core MedicationStatement ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
+* [MedicationStatement ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
 
 
 
@@ -1198,7 +1213,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Practitioner ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
+* [Practitioner ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
 
 
 
@@ -1272,7 +1287,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Organization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
+* [Organization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
 
 
 
@@ -1363,7 +1378,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core PractitionerRole ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
+* [PractitionerRole ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
 
 
 
@@ -1454,7 +1469,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core HealthcareService ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
+* [HealthcareService ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
 
 
 
@@ -1596,7 +1611,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Location ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
+* [Location ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
 
 
 
@@ -1704,7 +1719,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core DocumentReference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
+* [DocumentReference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
 
 
 
@@ -1897,7 +1912,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core ServiceRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
+* [ServiceRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
 
 
 
@@ -2073,7 +2088,7 @@ Accept: application/fhir+json
 ### Profiles
 
 
-* [AU Core Provenance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
+* [Provenance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
 
 
 
@@ -2087,4 +2102,112 @@ Accept: application/fhir+json
 
 ### Test scenarios
 
+
+
+## 20 RelatedPerson
+
+**Resource:** RelatedPerson
+
+### Profiles
+
+
+* [AU Base Related Person ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson)
+
+
+
+### Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+### Test scenarios
+
+
+#### 20.1 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /RelatedPerson?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/RelatedPerson?patient={patient}
+```
+
+#### 20.2 Search: _id (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /RelatedPerson?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/RelatedPerson?_id={_id}
+```
+
+#### 20.3 Search: identifier (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /RelatedPerson?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/RelatedPerson?identifier={identifier}
+```
+
+#### 20.4 Search: name (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /RelatedPerson?name={name} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/RelatedPerson?name={name}
+```
+
+#### 20.5 Search: patient+relationship (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /RelatedPerson?patient={patient}&relationship={relationship} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/RelatedPerson?patient={patient}&relationship={relationship}
+```
 

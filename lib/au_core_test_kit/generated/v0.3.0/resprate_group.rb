@@ -13,12 +13,12 @@ require_relative 'resprate/resprate_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ResprateGroup < Inferno::TestGroup
-      title 'Observation AU Core Respiration Rate Tests'
+      title 'Observation Respiration Rate Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Respiration Rate.'
       description %(
   # Background
 
-The AU Core Observation AU Core Respiration Rate sequence verifies that the system under test is
+The AU Core Observation Respiration Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Respiration Rate as
 specified in the AU Core v0.3.0 Implementation Guide.

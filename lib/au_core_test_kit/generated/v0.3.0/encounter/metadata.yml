@@ -7,7 +7,7 @@
 :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
 :profile_name: AU Core Encounter
 :profile_version: 0.3.0
-:title: AU Core Encounter
+:title: Encounter
 :short_description: Verify support for the server capabilities required by the AU
   Core Encounter.
 :interactions:
@@ -33,6 +33,12 @@
   :names:
   - class
   - patient
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - discharge-disposition
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :expectation: SHOULD
@@ -94,6 +100,16 @@
     :comparators: {}
     :values: []
     :type: Coding
+    :contains_multiple: false
+    :multiple_or: MAY
+  :discharge-disposition:
+    :paths:
+    - hospitalization.dischargeDisposition
+    :full_paths:
+    - Encounter.hospitalization.dischargeDisposition
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
   :location:
@@ -256,6 +272,8 @@
   :file_name: encounter_date_patient_search_test.rb
 - :id: au_core_v030_encounter_class_patient_search_test
   :file_name: encounter_class_patient_search_test.rb
+- :id: au_core_v030_encounter_patient_discharge_disposition_search_test
+  :file_name: encounter_patient_discharge_disposition_search_test.rb
 - :id: au_core_v030_encounter_patient_location_search_test
   :file_name: encounter_patient_location_search_test.rb
 - :id: au_core_v030_encounter_patient_status_search_test

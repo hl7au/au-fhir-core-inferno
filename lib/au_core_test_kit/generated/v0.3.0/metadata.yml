@@ -9,7 +9,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi
   :profile_name: AU Core BMI
   :profile_version: 0.3.0
-  :title: Observation AU Core BMI
+  :title: Observation BMI
   :short_description: Verify support for the server capabilities required by the AU
     Core BMI.
   :interactions:
@@ -290,7 +290,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
   :profile_name: AU Core Body Weight
   :profile_version: 0.3.0
-  :title: Observation AU Core Body Weight
+  :title: Observation Body Weight
   :short_description: Verify support for the server capabilities required by the AU
     Core Body Weight.
   :interactions:
@@ -572,7 +572,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat
   :profile_name: AU Core Oxygen Saturation
   :profile_version: 0.3.0
-  :title: Observation AU Core Oxygen Saturation
+  :title: Observation Oxygen Saturation
   :short_description: Verify support for the server capabilities required by the AU
     Core Oxygen Saturation.
   :interactions:
@@ -851,7 +851,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
   :profile_name: AU Core Blood Pressure
   :profile_version: 0.3.0
-  :title: Observation AU Core Blood Pressure
+  :title: Observation Blood Pressure
   :short_description: Verify support for the server capabilities required by the AU
     Core Blood Pressure.
   :interactions:
@@ -1164,7 +1164,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
   :profile_name: AU Core Body Height
   :profile_version: 0.3.0
-  :title: Observation AU Core Body Height
+  :title: Observation Body Height
   :short_description: Verify support for the server capabilities required by the AU
     Core Body Height.
   :interactions:
@@ -1446,7 +1446,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
   :profile_name: AU Core Pathology Result Observation
   :profile_version: 0.3.0
-  :title: Observation AU Core Pathology Result
+  :title: Observation Pathology Result
   :short_description: Verify support for the server capabilities required by the AU
     Core Pathology Result Observation.
   :interactions:
@@ -1698,7 +1698,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result
   :profile_name: AU Core Lipid Result
   :profile_version: 0.3.0
-  :title: Observation AU Core Lipid Result
+  :title: Observation Lipid Result
   :short_description: Verify support for the server capabilities required by the AU
     Core Lipid Result.
   :interactions:
@@ -1972,7 +1972,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum
   :profile_name: AU Core Head Circumference
   :profile_version: 0.3.0
-  :title: Observation AU Core Head Circumference
+  :title: Observation Head Circumference
   :short_description: Verify support for the server capabilities required by the AU
     Core Head Circumference.
   :interactions:
@@ -2254,7 +2254,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
   :profile_name: AU Core Body Temperature
   :profile_version: 0.3.0
-  :title: Observation AU Core Body Temperature
+  :title: Observation Body Temperature
   :short_description: Verify support for the server capabilities required by the AU
     Core Body Temperature.
   :interactions:
@@ -2536,7 +2536,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
   :profile_name: AU Core Heart Rate
   :profile_version: 0.3.0
-  :title: Observation AU Core Heart Rate
+  :title: Observation Heart Rate
   :short_description: Verify support for the server capabilities required by the AU
     Core Heart Rate.
   :interactions:
@@ -2815,7 +2815,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
   :profile_name: AU Core Waist Circumference
   :profile_version: 0.3.0
-  :title: Observation AU Core Waist Circumference
+  :title: Observation Waist Circumference
   :short_description: Verify support for the server capabilities required by the AU
     Core Waist Circumference.
   :interactions:
@@ -3089,7 +3089,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel
   :profile_name: AU Core Vitals Panel
   :profile_version: 0.3.0
-  :title: Observation AU Core Vitals Panel
+  :title: Observation Vitals Panel
   :short_description: Verify support for the server capabilities required by the AU
     Core Vitals Panel.
   :interactions:
@@ -3351,7 +3351,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
   :profile_name: AU Core Respiration Rate
   :profile_version: 0.3.0
-  :title: Observation AU Core Respiration Rate
+  :title: Observation Respiration Rate
   :short_description: Verify support for the server capabilities required by the AU
     Core Respiration Rate.
   :interactions:
@@ -3630,7 +3630,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag
   :profile_name: AU Core Diagnostic Imaging Result Observation
   :profile_version: 0.3.0
-  :title: Observation AU Core Diagnostic Imaging Result
+  :title: Observation Diagnostic Imaging Result
   :short_description: Verify support for the server capabilities required by the AU
     Core Diagnostic Imaging Result Observation.
   :interactions:
@@ -3878,7 +3878,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
   :profile_name: AU Core Diagnostic Result Observation
   :profile_version: 0.3.0
-  :title: Observation AU Core Diagnostic Result
+  :title: Observation Diagnostic Result
   :short_description: Verify support for the server capabilities required by the AU
     Core Diagnostic Result Observation.
   :interactions:
@@ -4121,7 +4121,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth
   :profile_name: AU Core Biological Sex Assigned at Birth
   :profile_version: 0.3.0
-  :title: Observation AU Core Biological Sex Assigned at Birth
+  :title: Observation Biological Sex Assigned at Birth
   :short_description: Verify support for the server capabilities required by the AU
     Core Biological Sex Assigned at Birth.
   :interactions:
@@ -4345,7 +4345,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus
   :profile_name: AU Core Smoking Status
   :profile_version: 0.3.0
-  :title: Observation AU Core Smoking Status
+  :title: Observation Smoking Status
   :short_description: Verify support for the server capabilities required by the AU
     Core Smoking Status.
   :interactions:
@@ -4569,206 +4569,6 @@
     - Practitioner
     - PractitionerRole
     - Organization
-- :name: au_core_patient
-  :class_name: AuCorePatientSequence
-  :version: v0.3.0
-  :reformatted_version: v030
-  :resource: Patient
-  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
-  :profile_name: AU Core Patient
-  :profile_version: 0.3.0
-  :title: AU Core Patient
-  :short_description: Verify support for the server capabilities required by the AU
-    Core Patient.
-  :interactions:
-  - :code: read
-    :expectation: SHALL
-  - :code: search-type
-    :expectation: SHALL
-  :operations: []
-  :searches:
-  - :names:
-    - _id
-    :expectation: SHALL
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :names:
-    - family
-    :expectation: SHOULD
-    :names_not_must_support_or_mandatory:
-    - family
-    :must_support_or_mandatory: false
-  - :names:
-    - identifier
-    :expectation: SHALL
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :names:
-    - name
-    :expectation: SHOULD
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :expectation: SHOULD
-    :names:
-    - birthdate
-    - family
-    :names_not_must_support_or_mandatory:
-    - family
-    :must_support_or_mandatory: false
-  - :expectation: SHOULD
-    :names:
-    - birthdate
-    - name
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :expectation: SHOULD
-    :names:
-    - family
-    - gender
-    :names_not_must_support_or_mandatory:
-    - family
-    :must_support_or_mandatory: false
-  - :expectation: SHOULD
-    :names:
-    - gender
-    - name
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  :search_definitions:
-    :_id:
-      :paths:
-      - id
-      :full_paths:
-      - Patient.id
-      :comparators: {}
-      :values: []
-      :type: http://hl7.org/fhirpath/System.String
-      :contains_multiple: false
-      :multiple_or: MAY
-    :family:
-      :paths:
-      - name.family
-      :full_paths:
-      - Patient.name.family
-      :comparators: {}
-      :values: []
-      :type: string
-      :contains_multiple: false
-      :multiple_or: MAY
-    :identifier:
-      :paths:
-      - identifier
-      :full_paths:
-      - Patient.identifier
-      :comparators: {}
-      :values: []
-      :type: Identifier
-      :contains_multiple: true
-      :multiple_or: MAY
-    :name:
-      :paths:
-      - name
-      :full_paths:
-      - Patient.name
-      :comparators: {}
-      :values: []
-      :type: HumanName
-      :contains_multiple: true
-      :multiple_or: MAY
-    :birthdate:
-      :paths:
-      - birthDate
-      :full_paths:
-      - Patient.birthDate
-      :comparators:
-        :eq: MAY
-        :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
-        :sa: MAY
-        :eb: MAY
-        :ap: MAY
-      :values: []
-      :type: date
-      :contains_multiple: false
-      :multiple_or: MAY
-    :gender:
-      :paths:
-      - gender
-      :full_paths:
-      - Patient.gender
-      :comparators: {}
-      :values: []
-      :type: code
-      :contains_multiple: false
-      :multiple_or: MAY
-  :include_params: &3 []
-  :revincludes: &4
-  - Provenance:target
-  :required_concepts: []
-  :must_supports:
-    :extensions:
-    - :id: Patient.extension:birthPlace
-      :url: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
-    - :id: Patient.extension:indigenousStatus
-      :url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
-    - :id: Patient.extension:interpreterRequired
-      :url: http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
-    - :id: Patient.birthDate.extension:accuracyIndicator
-      :url: http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator
-    - :id: Patient.birthDate.extension:birthTime
-      :url: http://hl7.org/fhir/StructureDefinition/patient-birthTime
-    :slices: []
-    :elements:
-    - :path: identifier
-    - :path: name
-    - :path: telecom
-    - :path: gender
-    - :path: birthDate
-    - :path: address
-    - :path: communication
-    - :path: communication.language
-    - :path: communication.preferred
-  :mandatory_elements:
-  - Patient.identifier
-  - Patient.name
-  - Patient.gender
-  - Patient.birthDate
-  - Patient.communication.language
-  - Patient.link.other
-  - Patient.link.type
-  :bindings:
-  - :type: code
-    :strength: required
-    :system: http://hl7.org/fhir/ValueSet/administrative-gender
-    :path: gender
-  - :type: code
-    :strength: required
-    :system: http://hl7.org/fhir/ValueSet/administrative-gender
-    :path: contact.gender
-  - :type: code
-    :strength: required
-    :system: http://hl7.org/fhir/ValueSet/link-type
-    :path: link.type
-  :references:
-  - :path: Patient.contact.organization
-    :profiles: &5
-    - http://hl7.org/fhir/StructureDefinition/Organization
-  - :path: Patient.generalPractitioner
-    :profiles: &6
-    - http://hl7.org/fhir/StructureDefinition/Organization
-    - http://hl7.org/fhir/StructureDefinition/Practitioner
-    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
-  - :path: Patient.managingOrganization
-    :profiles: &7
-    - http://hl7.org/fhir/StructureDefinition/Organization
-  - :path: Patient.link.other
-    :profiles: &8
-    - http://hl7.org/fhir/StructureDefinition/Patient
-    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
-  :delayed_references: []
 - :name: au_core_allergyintolerance
   :class_name: AuCoreAllergyintoleranceSequence
   :version: v0.3.0
@@ -4777,7 +4577,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
   :profile_name: AU Core AllergyIntolerance
   :profile_version: 0.3.0
-  :title: AU Core AllergyIntolerance
+  :title: AllergyIntolerance
   :short_description: Verify support for the server capabilities required by the AU
     Core AllergyIntolerance.
   :interactions:
@@ -4927,7 +4727,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   :profile_name: AU Core Condition
   :profile_version: 0.3.0
-  :title: Condition AU Core
+  :title: Condition
   :short_description: Verify support for the server capabilities required by the AU
     Core Condition.
   :interactions:
@@ -5137,7 +4937,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
   :profile_name: AU Core DiagnosticReport
   :profile_version: 0.3.0
-  :title: DiagnosticReport AU Core
+  :title: DiagnosticReport
   :short_description: Verify support for the server capabilities required by the AU
     Core DiagnosticReport.
   :interactions:
@@ -5400,7 +5200,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
   :profile_name: AU Core DocumentReference
   :profile_version: 0.3.0
-  :title: AU Core DocumentReference
+  :title: DocumentReference
   :short_description: Verify support for the server capabilities required by the AU
     Core DocumentReference.
   :interactions:
@@ -5682,7 +5482,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
   :profile_name: AU Core Encounter
   :profile_version: 0.3.0
-  :title: AU Core Encounter
+  :title: Encounter
   :short_description: Verify support for the server capabilities required by the AU
     Core Encounter.
   :interactions:
@@ -5708,6 +5508,12 @@
     :names:
     - class
     - patient
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - discharge-disposition
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :expectation: SHOULD
@@ -5769,6 +5575,16 @@
       :comparators: {}
       :values: []
       :type: Coding
+      :contains_multiple: false
+      :multiple_or: MAY
+    :discharge-disposition:
+      :paths:
+      - hospitalization.dischargeDisposition
+      :full_paths:
+      - Encounter.hospitalization.dischargeDisposition
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
       :contains_multiple: false
       :multiple_or: MAY
     :location:
@@ -5943,7 +5759,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
   :profile_name: AU Core HealthcareService
   :profile_version: 0.3.0
-  :title: AU Core HealthcareService
+  :title: HealthcareService
   :short_description: Verify support for the server capabilities required by the AU
     Core HealthcareService.
   :interactions:
@@ -6119,7 +5935,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
   :profile_name: AU Core Immunization
   :profile_version: 0.3.0
-  :title: AU Core Immunization
+  :title: Immunization
   :short_description: Verify support for the server capabilities required by the AU
     Core Immunization.
   :interactions:
@@ -6310,7 +6126,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
   :profile_name: AU Core Location
   :profile_version: 0.3.0
-  :title: AU Core Location
+  :title: Location
   :short_description: Verify support for the server capabilities required by the AU
     Core Location.
   :interactions:
@@ -6459,7 +6275,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
   :profile_name: AU Core Medication
   :profile_version: 0.3.0
-  :title: AU Core Medication
+  :title: Medication
   :short_description: Verify support for the server capabilities required by the AU
     Core Medication.
   :interactions:
@@ -6532,7 +6348,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
   :profile_name: AU Core MedicationRequest
   :profile_version: 0.3.0
-  :title: AU Core MedicationRequest
+  :title: MedicationRequest
   :short_description: Verify support for the server capabilities required by the AU
     Core MedicationRequest.
   :interactions:
@@ -6817,7 +6633,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
   :profile_name: AU Core MedicationStatement
   :profile_version: 0.3.0
-  :title: AU Core MedicationStatement
+  :title: MedicationStatement
   :short_description: Verify support for the server capabilities required by the AU
     Core MedicationStatement.
   :interactions:
@@ -7012,7 +6828,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
   :profile_name: AU Core Observation
   :profile_version: 0.3.0
-  :title: Observation AU Core
+  :title: Observation
   :short_description: Verify support for the server capabilities required by the AU
     Core Observation.
   :interactions:
@@ -7244,7 +7060,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
   :profile_name: AU Core Organization
   :profile_version: 0.3.0
-  :title: AU Core Organization
+  :title: Organization
   :short_description: Verify support for the server capabilities required by the AU
     Core Organization.
   :interactions:
@@ -7353,7 +7169,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   :profile_name: AU Core Patient
   :profile_version: 0.3.0
-  :title: AU Core Patient
+  :title: Patient
   :short_description: Verify support for the server capabilities required by the AU
     Core Patient.
   :interactions:
@@ -7480,8 +7296,9 @@
       :type: code
       :contains_multiple: false
       :multiple_or: MAY
-  :include_params: *3
-  :revincludes: *4
+  :include_params: []
+  :revincludes:
+  - Provenance:target
   :required_concepts: []
   :must_supports:
     :extensions:
@@ -7529,13 +7346,20 @@
     :path: link.type
   :references:
   - :path: Patient.contact.organization
-    :profiles: *5
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
   - :path: Patient.generalPractitioner
-    :profiles: *6
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
   - :path: Patient.managingOrganization
-    :profiles: *7
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
   - :path: Patient.link.other
-    :profiles: *8
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
   :delayed_references: []
 - :name: au_core_practitioner
   :class_name: AuCorePractitionerSequence
@@ -7545,7 +7369,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
   :profile_name: AU Core Practitioner
   :profile_version: 0.3.0
-  :title: AU Core Practitioner
+  :title: Practitioner
   :short_description: Verify support for the server capabilities required by the AU
     Core Practitioner.
   :interactions:
@@ -7643,7 +7467,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
   :profile_name: AU Core PractitionerRole
   :profile_version: 0.3.0
-  :title: AU Core PractitionerRole
+  :title: PractitionerRole
   :short_description: Verify support for the server capabilities required by the AU
     Core PractitionerRole.
   :interactions:
@@ -7787,7 +7611,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
   :profile_name: AU Core Procedure
   :profile_version: 0.3.0
-  :title: AU Core Procedure
+  :title: Procedure
   :short_description: Verify support for the server capabilities required by the AU
     Core Procedure.
   :interactions:
@@ -8016,7 +7840,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
   :profile_name: AU Core Provenance
   :profile_version: 0.3.0
-  :title: AU Core Provenance
+  :title: Provenance
   :short_description: Verify support for the server capabilities required by the AU
     Core Provenance.
   :interactions:
@@ -8096,6 +7920,126 @@
     - Practitioner
     - PractitionerRole
     - Organization
+- :name: au_core_relatedperson
+  :class_name: AuCoreRelatedpersonSequence
+  :version: v0.3.0
+  :reformatted_version: v030
+  :resource: RelatedPerson
+  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  :profile_name: AU Base Related Person
+  :profile_version: 4.1.3
+  :title: AU Base Related Person
+  :short_description: Verify support for the server capabilities required by the AU
+    Base Related Person.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: search-type
+    :expectation: SHALL
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
+    - _id
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - _id
+    :must_support_or_mandatory: false
+  - :names:
+    - identifier
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - identifier
+    :must_support_or_mandatory: false
+  - :names:
+    - name
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory:
+    - name
+    :must_support_or_mandatory: false
+  - :expectation: SHOULD
+    :names:
+    - patient
+    - relationship
+    :names_not_must_support_or_mandatory:
+    - relationship
+    :must_support_or_mandatory: false
+  :search_definitions:
+    :_id:
+      :paths:
+      - id
+      :full_paths:
+      - RelatedPerson.id
+      :comparators: {}
+      :values: []
+      :type: http://hl7.org/fhirpath/System.String
+      :contains_multiple: false
+      :multiple_or: MAY
+    :identifier:
+      :paths:
+      - identifier
+      :full_paths:
+      - RelatedPerson.identifier
+      :comparators: {}
+      :values: []
+      :type: Identifier
+      :contains_multiple: true
+      :multiple_or: MAY
+    :name:
+      :paths:
+      - name
+      :full_paths:
+      - RelatedPerson.name
+      :comparators: {}
+      :values: []
+      :type: HumanName
+      :contains_multiple: true
+      :multiple_or: MAY
+    :patient:
+      :paths:
+      - patient
+      :full_paths:
+      - RelatedPerson.patient
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
+    :relationship:
+      :paths:
+      - relationship
+      :full_paths:
+      - RelatedPerson.relationship
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: true
+      :multiple_or: MAY
+  :include_params: []
+  :revincludes:
+  - Provenance:target
+  :required_concepts: []
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements: []
+  :mandatory_elements:
+  - RelatedPerson.patient
+  - RelatedPerson.communication.language
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: gender
+  :references:
+  - :path: RelatedPerson.patient
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient
+  :delayed_references: []
 - :name: au_core_servicerequest
   :class_name: AuCoreServicerequestSequence
   :version: v0.3.0
@@ -8104,7 +8048,7 @@
   :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest
   :profile_name: AU Core ServiceRequest
   :profile_version: 0.3.0
-  :title: AU Core ServiceRequest
+  :title: ServiceRequest
   :short_description: Verify support for the server capabilities required by the AU
     Core ServiceRequest.
   :interactions:

@@ -13,12 +13,12 @@ require_relative 'sexassignedatbirth/sexassignedatbirth_reference_resolution_tes
 module AUCoreTestKit
   module AUCoreV030
     class SexassignedatbirthGroup < Inferno::TestGroup
-      title 'Observation AU Core Biological Sex Assigned at Birth Tests'
+      title 'Observation Biological Sex Assigned at Birth Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Biological Sex Assigned at Birth.'
       description %(
   # Background
 
-The AU Core Observation AU Core Biological Sex Assigned at Birth sequence verifies that the system under test is
+The AU Core Observation Biological Sex Assigned at Birth sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Biological Sex Assigned at Birth as
 specified in the AU Core v0.3.0 Implementation Guide.

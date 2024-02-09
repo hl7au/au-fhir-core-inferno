@@ -10,12 +10,12 @@ require_relative 'immunization/immunization_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ImmunizationGroup < Inferno::TestGroup
-      title 'AU Core Immunization Tests'
+      title 'Immunization Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Immunization.'
       description %(
   # Background
 
-The AU Core AU Core Immunization sequence verifies that the system under test is
+The AU Core Immunization sequence verifies that the system under test is
 able to provide correct responses for Immunization queries. These queries
 must contain resources conforming to the AU Core Immunization as
 specified in the AU Core v0.3.0 Implementation Guide.

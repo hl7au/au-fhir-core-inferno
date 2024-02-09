@@ -9,12 +9,12 @@ require_relative 'practitioner/practitioner_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class PractitionerGroup < Inferno::TestGroup
-      title 'AU Core Practitioner Tests'
+      title 'Practitioner Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Practitioner.'
       description %(
   # Background
 
-The AU Core AU Core Practitioner sequence verifies that the system under test is
+The AU Core Practitioner sequence verifies that the system under test is
 able to provide correct responses for Practitioner queries. These queries
 must contain resources conforming to the AU Core Practitioner as
 specified in the AU Core v0.3.0 Implementation Guide.

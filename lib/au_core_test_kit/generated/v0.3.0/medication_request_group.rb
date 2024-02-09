@@ -14,12 +14,12 @@ require_relative 'medication_request/medication_request_reference_resolution_tes
 module AUCoreTestKit
   module AUCoreV030
     class MedicationRequestGroup < Inferno::TestGroup
-      title 'AU Core MedicationRequest Tests'
+      title 'MedicationRequest Tests'
       short_description 'Verify support for the server capabilities required by the AU Core MedicationRequest.'
       description %(
   # Background
 
-The AU Core AU Core MedicationRequest sequence verifies that the system under test is
+The AU Core MedicationRequest sequence verifies that the system under test is
 able to provide correct responses for MedicationRequest queries. These queries
 must contain resources conforming to the AU Core MedicationRequest as
 specified in the AU Core v0.3.0 Implementation Guide.

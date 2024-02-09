@@ -7,7 +7,7 @@
 :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
 :profile_name: AU Core DiagnosticReport
 :profile_version: 0.3.0
-:title: DiagnosticReport AU Core
+:title: DiagnosticReport
 :short_description: Verify support for the server capabilities required by the AU
   Core DiagnosticReport.
 :interactions:

@@ -150,7 +150,9 @@ module AUCoreTestKit
       ### END SPECIAL CASES ###
 
       def profile
-        @profile ||= ig_resources.profile_by_url(profile_url)
+        # It's a temporary solution. Discuss it with the team
+        new_profile_url = profile_url == "http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson" ? "http://hl7.org.au/fhir/StructureDefinition/au-relatedperson" : profile_url
+        @profile ||= ig_resources.profile_by_url(new_profile_url)
       end
 
       def profile_elements
@@ -195,7 +197,7 @@ module AUCoreTestKit
       end
 
       def title
-        title = profile.title.gsub(/US\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
+        title = profile.title.gsub(/AU\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
 
         if (Naming.resources_with_multiple_profiles.include?(resource)) && !title.start_with?(resource) && version != 'v3.1.1'
           title = resource + ' ' + title.split(resource).map(&:strip).join(' ')

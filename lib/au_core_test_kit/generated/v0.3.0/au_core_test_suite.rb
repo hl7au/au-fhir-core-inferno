@@ -34,8 +34,8 @@ require_relative 'immunization_group'
 require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
 require_relative 'observation_group'
-require_relative 'patient_group'
 require_relative 'procedure_group'
+require_relative 'related_person_group'
 require_relative 'service_request_group'
 require_relative 'healthcare_service_group'
 require_relative 'organization_group'
@@ -140,8 +140,8 @@ module AUCoreTestKit
         group from: :au_core_v030_medication_request
         group from: :au_core_v030_medication_statement
         group from: :au_core_v030_observation
-        group from: :au_core_v030_patient
         group from: :au_core_v030_procedure
+        group from: :au_core_v030_related_person
         group from: :au_core_v030_service_request
         group from: :au_core_v030_healthcare_service
         group from: :au_core_v030_organization

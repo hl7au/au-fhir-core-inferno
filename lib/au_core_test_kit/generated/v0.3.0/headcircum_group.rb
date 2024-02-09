@@ -13,12 +13,12 @@ require_relative 'headcircum/headcircum_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class HeadcircumGroup < Inferno::TestGroup
-      title 'Observation AU Core Head Circumference Tests'
+      title 'Observation Head Circumference Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Head Circumference.'
       description %(
   # Background
 
-The AU Core Observation AU Core Head Circumference sequence verifies that the system under test is
+The AU Core Observation Head Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Head Circumference as
 specified in the AU Core v0.3.0 Implementation Guide.

@@ -10,12 +10,12 @@ require_relative 'medication_statement/medication_statement_reference_resolution
 module AUCoreTestKit
   module AUCoreV030
     class MedicationStatementGroup < Inferno::TestGroup
-      title 'AU Core MedicationStatement Tests'
+      title 'MedicationStatement Tests'
       short_description 'Verify support for the server capabilities required by the AU Core MedicationStatement.'
       description %(
   # Background
 
-The AU Core AU Core MedicationStatement sequence verifies that the system under test is
+The AU Core MedicationStatement sequence verifies that the system under test is
 able to provide correct responses for MedicationStatement queries. These queries
 must contain resources conforming to the AU Core MedicationStatement as
 specified in the AU Core v0.3.0 Implementation Guide.

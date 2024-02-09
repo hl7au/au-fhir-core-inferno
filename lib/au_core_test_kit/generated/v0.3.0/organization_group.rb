@@ -10,12 +10,12 @@ require_relative 'organization/organization_must_support_test'
 module AUCoreTestKit
   module AUCoreV030
     class OrganizationGroup < Inferno::TestGroup
-      title 'AU Core Organization Tests'
+      title 'Organization Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Organization.'
       description %(
   # Background
 
-The AU Core AU Core Organization sequence verifies that the system under test is
+The AU Core Organization sequence verifies that the system under test is
 able to provide correct responses for Organization queries. These queries
 must contain resources conforming to the AU Core Organization as
 specified in the AU Core v0.3.0 Implementation Guide.

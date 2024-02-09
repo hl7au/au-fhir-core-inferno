@@ -6,12 +6,12 @@ require_relative 'provenance/provenance_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ProvenanceGroup < Inferno::TestGroup
-      title 'AU Core Provenance Tests'
+      title 'Provenance Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Provenance.'
       description %(
   # Background
 
-The AU Core AU Core Provenance sequence verifies that the system under test is
+The AU Core Provenance sequence verifies that the system under test is
 able to provide correct responses for Provenance queries. These queries
 must contain resources conforming to the AU Core Provenance as
 specified in the AU Core v0.3.0 Implementation Guide.

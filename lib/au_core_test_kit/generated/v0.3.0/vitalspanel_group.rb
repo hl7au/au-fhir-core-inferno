@@ -13,12 +13,12 @@ require_relative 'vitalspanel/vitalspanel_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class VitalspanelGroup < Inferno::TestGroup
-      title 'Observation AU Core Vitals Panel Tests'
+      title 'Observation Vitals Panel Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Vitals Panel.'
       description %(
   # Background
 
-The AU Core Observation AU Core Vitals Panel sequence verifies that the system under test is
+The AU Core Observation Vitals Panel sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Vitals Panel as
 specified in the AU Core v0.3.0 Implementation Guide.

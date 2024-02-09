@@ -9,12 +9,12 @@ require_relative 'allergy_intolerance/allergy_intolerance_reference_resolution_t
 module AUCoreTestKit
   module AUCoreV030
     class AllergyIntoleranceGroup < Inferno::TestGroup
-      title 'AU Core AllergyIntolerance Tests'
+      title 'AllergyIntolerance Tests'
       short_description 'Verify support for the server capabilities required by the AU Core AllergyIntolerance.'
       description %(
   # Background
 
-The AU Core AU Core AllergyIntolerance sequence verifies that the system under test is
+The AU Core AllergyIntolerance sequence verifies that the system under test is
 able to provide correct responses for AllergyIntolerance queries. These queries
 must contain resources conforming to the AU Core AllergyIntolerance as
 specified in the AU Core v0.3.0 Implementation Guide.
