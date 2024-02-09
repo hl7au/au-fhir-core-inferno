@@ -131,22 +131,22 @@ module AUCoreTestKit
         group from: :au_core_v030_diagnosticresult
         group from: :au_core_v030_sexassignedatbirth
         group from: :au_core_v030_smokingstatus
-        group from: :au_core_v030_allergy_intolerance
-        group from: :au_core_v030_condition
-        group from: :au_core_v030_diagnostic_report
-        group from: :au_core_v030_document_reference
-        group from: :au_core_v030_encounter
-        group from: :au_core_v030_immunization
-        group from: :au_core_v030_medication_request
-        group from: :au_core_v030_medication_statement
         group from: :au_core_v030_observation
+        group from: :au_core_v030_medication_request
+        group from: :au_core_v030_encounter
+        group from: :au_core_v030_condition
         group from: :au_core_v030_procedure
-        group from: :au_core_v030_related_person
-        group from: :au_core_v030_service_request
-        group from: :au_core_v030_healthcare_service
-        group from: :au_core_v030_organization
+        group from: :au_core_v030_diagnostic_report
+        group from: :au_core_v030_immunization
+        group from: :au_core_v030_allergy_intolerance
+        group from: :au_core_v030_medication_statement
         group from: :au_core_v030_practitioner
+        group from: :au_core_v030_organization
+        group from: :au_core_v030_healthcare_service
+        group from: :au_core_v030_document_reference
+        group from: :au_core_v030_service_request
         group from: :au_core_v030_provenance
+        group from: :au_core_v030_related_person
         group from: :au_core_v400_clinical_notes_guidance
         group from: :au_core_311_data_absent_reason
       end
