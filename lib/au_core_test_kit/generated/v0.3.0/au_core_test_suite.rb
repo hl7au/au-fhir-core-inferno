@@ -91,7 +91,8 @@ module AUCoreTestKit
 
       input :url,
         title: 'FHIR Endpoint',
-        description: 'URL of the FHIR endpoint'
+        description: 'URL of the FHIR endpoint',
+        default: 'https://hl7auconnectathon.salessbx.smiledigitalhealth.com/fhir-request'
       input :smart_credentials,
         title: 'OAuth Credentials',
         type: :oauth_credentials,
