@@ -1,4 +1,5 @@
 require_relative 'fhir_resource_navigation'
+require_relative 'helpers'
 
 module AUCoreTestKit
   module MustSupportTest
@@ -83,7 +84,8 @@ module AUCoreTestKit
       @missing_extensions ||=
         must_support_extensions.select do |extension_definition|
           resources.none? do |resource|
-            resource.extension.any? { |extension| extension.url == extension_definition[:url] }
+            resource_extensions_url_arr = Helpers.extract_extensions_from_resource(resource).map { |ext| ext["url"] }
+            resource_extensions_url_arr.include? extension_definition[:url]
           end
         end
     end
