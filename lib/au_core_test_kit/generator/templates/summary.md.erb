@@ -1,27 +1,26 @@
 # Capabilities by Resource/Profile
 
 <% resource_list.each do |resource_data| %>
-## <%= resource_data["position"] %> <%= resource_data["resource"] %>
+# <%= resource_data["position"] %> <%= resource_data["resource"] %>
 
-**Resource:** <%= resource_data["resource"] %>
-
-### Profiles
+# Profiles
 
 <% resource_data["groups"].each do |group| %>
-* [<%= group["title"] %> ](<%= group["profile_url"] %>)
+## [<%= group["title"] %> ](<%= group["profile_url"] %>)
+<%= group["description"] %>
 <% end %>
 
 
-### Interactions
+## Interactions
 
 <% resource_data["interactions"].each do |interaction| %>
 * <%= interaction["code"] %> (<%= interaction["expectation"] %>)
 <% end %>
 
-### Test scenarios
+## Test scenarios
 
 <% resource_data["searches"].each do |search_data| %>
-#### <%= resource_data["position"] %>.<%= search_data["position"] %> Search: <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
+### <%= resource_data["position"] %>.<%= search_data["position"] %> Search: <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
 
 **HTTP GET**
 
