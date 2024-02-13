@@ -9,7 +9,7 @@ module Helpers
 
   def self.convert_resource_to_hash(resource)
     if defined?(FHIR) && resource.is_a?(FHIR::Model)
-      resource.to_hash
+      resource.source_hash.deep_stringify_keys
     else
       resource
     end

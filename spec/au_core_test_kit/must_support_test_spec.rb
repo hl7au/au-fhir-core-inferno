@@ -154,9 +154,9 @@ RSpec.describe 'AUCoreTestKit::MustSupportTest' do
         gender: "male",
       }
     )
-
     result = Helpers.extract_extensions_from_resource(test_resource)
     expected_result = [
+      {:url=>"http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator", :valueCoding=>{:code=>"AAA", :system=>"https://healthterminologies.gov.au/fhir/CodeSystem/date-accuracy-indicator-1", :display=>"Day, month and year are accurate"}},
       {"url"=>"ex:createdAt", "valueInstant"=>"2023-11-17T16:09:49.949207Z"},
       {"url"=>"http://hl7.org.au/fhir/StructureDefinition/date-of-arrival", "valueDate"=>"2015"},
       {"url"=>"http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired", "valueBoolean"=>true},
