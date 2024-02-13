@@ -8,11 +8,11 @@ module Helpers
   def self.get_group_description_text(title, resource_type, profile_name, group_version, profile_url,
                                       required_searches, search_param_name_string, search_validation_resource_type,
                                       for_group_description=true)
-    background_title = for_group_description ? "# Background" : "## Background"
-    testing_methodology_title = for_group_description ? "# Testing Methodology" : "## Testing Methodology"
-    must_support_title = for_group_description ? "## Must Support" : "### Must Support"
-    profile_validation_title = for_group_description ? "## Profile Validation" : "### Profile Validation"
-    reference_validation_title = for_group_description ? "## Reference Validation" : "### Reference Validation"
+    background_title = for_group_description ? "# Background" : "#### Background"
+    testing_methodology_title = for_group_description ? "# Testing Methodology" : "#### Testing Methodology"
+    must_support_title = for_group_description ? "## Must Support" : "##### Must Support"
+    profile_validation_title = for_group_description ? "## Profile Validation" : "##### Profile Validation"
+    reference_validation_title = for_group_description ? "## Reference Validation" : "##### Reference Validation"
 
     <<~DESCRIPTION
     #{background_title}
@@ -54,9 +54,9 @@ module Helpers
   def self.search_description(required_searches, search_param_name_string, search_validation_resource_type, for_group_description)
     return '' if required_searches.blank?
 
-    searching_title = for_group_description ? "## Searching" : "### Searching"
-    search_parameters_title = for_group_description ? "### Search Parameters" : "#### Search Parameters"
-    search_validation_title = for_group_description ? "### Search Validation" : "#### Search Validation"
+    searching_title = for_group_description ? "## Searching" : "##### Searching"
+    search_parameters_title = for_group_description ? "### Search Parameters" : "###### Search Parameters"
+    search_validation_title = for_group_description ? "### Search Validation" : "###### Search Validation"
 
     <<~SEARCH_DESCRIPTION
     #{searching_title}

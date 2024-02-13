@@ -3,19 +3,19 @@
 
 # 1 Patient
 
-# Profiles
+## Profiles
 
 
-## [Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
-## Background
+### [Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
+#### Background
 
 The AU Core Patient sequence verifies that the system under test is
 able to provide correct responses for Patient queries. These queries
 must contain resources conforming to the AU Core Patient as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -23,7 +23,7 @@ following parameters:
 * _id
 * identifier
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -31,7 +31,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Patient resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -41,14 +41,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Patient resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient). Each element is checked against
 teminology binding and cardinality requirements.
@@ -57,7 +57,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -216,19 +216,19 @@ Accept: application/fhir+json
 
 # 2 Observation
 
-# Profiles
+## Profiles
 
 
-## [Observation BMI ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
-## Background
+### [Observation BMI ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi)
+#### Background
 
 The AU Core Observation BMI sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core BMI as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -239,7 +239,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -247,7 +247,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -257,14 +257,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core BMI](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bmi). Each element is checked against
 teminology binding and cardinality requirements.
@@ -273,23 +273,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Body Weight ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
-## Background
+### [Observation Body Weight ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
+#### Background
 
 The AU Core Observation Body Weight sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Weight as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -300,7 +300,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -308,7 +308,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -318,14 +318,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight). Each element is checked against
 teminology binding and cardinality requirements.
@@ -334,23 +334,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Oxygen Saturation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
-## Background
+### [Observation Oxygen Saturation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat)
+#### Background
 
 The AU Core Observation Oxygen Saturation sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Oxygen Saturation as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -361,7 +361,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -369,7 +369,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -379,14 +379,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Oxygen Saturation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-oxygensat). Each element is checked against
 teminology binding and cardinality requirements.
@@ -395,23 +395,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Blood Pressure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
-## Background
+### [Observation Blood Pressure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
+#### Background
 
 The AU Core Observation Blood Pressure sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Blood Pressure as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -422,7 +422,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -430,7 +430,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -440,14 +440,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure). Each element is checked against
 teminology binding and cardinality requirements.
@@ -456,23 +456,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Body Height ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
-## Background
+### [Observation Body Height ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
+#### Background
 
 The AU Core Observation Body Height sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Height as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -483,7 +483,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -491,7 +491,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -501,14 +501,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight). Each element is checked against
 teminology binding and cardinality requirements.
@@ -517,23 +517,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Pathology Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
-## Background
+### [Observation Pathology Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
+#### Background
 
 The AU Core Observation Pathology Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Pathology Result Observation as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -544,7 +544,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -552,7 +552,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -562,14 +562,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path). Each element is checked against
 teminology binding and cardinality requirements.
@@ -578,23 +578,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Lipid Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
-## Background
+### [Observation Lipid Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result)
+#### Background
 
 The AU Core Observation Lipid Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Lipid Result as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -605,7 +605,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -613,7 +613,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -623,14 +623,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Lipid Result](http://hl7.org.au/fhir/core/StructureDefinition/au-core-lipid-result). Each element is checked against
 teminology binding and cardinality requirements.
@@ -639,23 +639,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Head Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
-## Background
+### [Observation Head Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum)
+#### Background
 
 The AU Core Observation Head Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Head Circumference as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -666,7 +666,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -674,7 +674,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -684,14 +684,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Head Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-headcircum). Each element is checked against
 teminology binding and cardinality requirements.
@@ -700,23 +700,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Body Temperature ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
-## Background
+### [Observation Body Temperature ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
+#### Background
 
 The AU Core Observation Body Temperature sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Temperature as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -727,7 +727,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -735,7 +735,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -745,14 +745,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp). Each element is checked against
 teminology binding and cardinality requirements.
@@ -761,23 +761,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Heart Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
-## Background
+### [Observation Heart Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
+#### Background
 
 The AU Core Observation Heart Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Heart Rate as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -788,7 +788,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -796,7 +796,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -806,14 +806,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate). Each element is checked against
 teminology binding and cardinality requirements.
@@ -822,23 +822,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Waist Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
-## Background
+### [Observation Waist Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
+#### Background
 
 The AU Core Observation Waist Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Waist Circumference as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -849,7 +849,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -857,7 +857,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -867,14 +867,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum). Each element is checked against
 teminology binding and cardinality requirements.
@@ -883,23 +883,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Vitals Panel ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
-## Background
+### [Observation Vitals Panel ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel)
+#### Background
 
 The AU Core Observation Vitals Panel sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Vitals Panel as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -910,7 +910,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -918,7 +918,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -928,14 +928,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Vitals Panel](http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel). Each element is checked against
 teminology binding and cardinality requirements.
@@ -944,23 +944,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Respiration Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
-## Background
+### [Observation Respiration Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
+#### Background
 
 The AU Core Observation Respiration Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Respiration Rate as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -971,7 +971,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -979,7 +979,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -989,14 +989,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1005,23 +1005,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Diagnostic Imaging Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
-## Background
+### [Observation Diagnostic Imaging Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag)
+#### Background
 
 The AU Core Observation Diagnostic Imaging Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Diagnostic Imaging Result Observation as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1032,7 +1032,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1040,7 +1040,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1050,14 +1050,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Diagnostic Imaging Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1066,23 +1066,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Diagnostic Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
-## Background
+### [Observation Diagnostic Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
+#### Background
 
 The AU Core Observation Diagnostic Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Diagnostic Result Observation as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1093,7 +1093,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1101,7 +1101,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1111,14 +1111,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1127,23 +1127,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Biological Sex Assigned at Birth ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
-## Background
+### [Observation Biological Sex Assigned at Birth ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth)
+#### Background
 
 The AU Core Observation Biological Sex Assigned at Birth sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Biological Sex Assigned at Birth as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1154,7 +1154,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1162,7 +1162,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1172,14 +1172,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Biological Sex Assigned at Birth](http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1188,23 +1188,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation Smoking Status ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
-## Background
+### [Observation Smoking Status ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
+#### Background
 
 The AU Core Observation Smoking Status sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Smoking Status as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1215,7 +1215,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1223,7 +1223,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1233,14 +1233,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1249,23 +1249,23 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## [Observation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
-## Background
+### [Observation ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation)
+#### Background
 
 The AU Core Observation sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Observation as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1276,7 +1276,7 @@ following parameters:
 * patient + category + date
 * patient + category + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1284,7 +1284,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Observation resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1294,14 +1294,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Observation resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1310,7 +1310,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -1435,19 +1435,19 @@ Accept: application/fhir+json
 
 # 3 MedicationRequest
 
-# Profiles
+## Profiles
 
 
-## [MedicationRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
-## Background
+### [MedicationRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
+#### Background
 
 The AU Core MedicationRequest sequence verifies that the system under test is
 able to provide correct responses for MedicationRequest queries. These queries
 must contain resources conforming to the AU Core MedicationRequest as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1459,7 +1459,7 @@ following parameters:
 * patient + intent + status
 * patient + intent + authoredon
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1467,7 +1467,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 MedicationRequest resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1477,14 +1477,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the MedicationRequest resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1493,7 +1493,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -1618,19 +1618,19 @@ Accept: application/fhir+json
 
 # 4 Encounter
 
-# Profiles
+## Profiles
 
 
-## [Encounter ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
-## Background
+### [Encounter ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
+#### Background
 
 The AU Core Encounter sequence verifies that the system under test is
 able to provide correct responses for Encounter queries. These queries
 must contain resources conforming to the AU Core Encounter as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1638,7 +1638,7 @@ following parameters:
 * patient
 * date + patient
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1646,7 +1646,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Encounter resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1656,14 +1656,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Encounter resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1672,7 +1672,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -1814,19 +1814,19 @@ Accept: application/fhir+json
 
 # 5 Condition
 
-# Profiles
+## Profiles
 
 
-## [Condition ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
-## Background
+### [Condition ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
+#### Background
 
 The AU Core Condition sequence verifies that the system under test is
 able to provide correct responses for Condition queries. These queries
 must contain resources conforming to the AU Core Condition as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -1835,7 +1835,7 @@ following parameters:
 * patient + category
 * patient + clinical-status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -1843,7 +1843,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Condition resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -1853,14 +1853,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Condition resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition). Each element is checked against
 teminology binding and cardinality requirements.
@@ -1869,7 +1869,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -1994,19 +1994,19 @@ Accept: application/fhir+json
 
 # 6 Procedure
 
-# Profiles
+## Profiles
 
 
-## [Procedure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
-## Background
+### [Procedure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
+#### Background
 
 The AU Core Procedure sequence verifies that the system under test is
 able to provide correct responses for Procedure queries. These queries
 must contain resources conforming to the AU Core Procedure as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2014,7 +2014,7 @@ following parameters:
 * patient
 * patient + date
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2022,7 +2022,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Procedure resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2032,14 +2032,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Procedure resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2048,7 +2048,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2139,19 +2139,19 @@ Accept: application/fhir+json
 
 # 7 DiagnosticReport
 
-# Profiles
+## Profiles
 
 
-## [DiagnosticReport ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
-## Background
+### [DiagnosticReport ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport)
+#### Background
 
 The AU Core DiagnosticReport sequence verifies that the system under test is
 able to provide correct responses for DiagnosticReport queries. These queries
 must contain resources conforming to the AU Core DiagnosticReport as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2162,7 +2162,7 @@ following parameters:
 * patient + category
 * patient + category + date
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2170,7 +2170,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 DiagnosticReport resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2180,14 +2180,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the DiagnosticReport resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core DiagnosticReport](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2196,7 +2196,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2372,19 +2372,19 @@ Accept: application/fhir+json
 
 # 8 Immunization
 
-# Profiles
+## Profiles
 
 
-## [Immunization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
-## Background
+### [Immunization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
+#### Background
 
 The AU Core Immunization sequence verifies that the system under test is
 able to provide correct responses for Immunization queries. These queries
 must contain resources conforming to the AU Core Immunization as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2392,7 +2392,7 @@ following parameters:
 * patient
 * patient + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2400,7 +2400,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Immunization resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2410,14 +2410,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Immunization resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2426,7 +2426,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2500,26 +2500,26 @@ Accept: application/fhir+json
 
 # 9 AllergyIntolerance
 
-# Profiles
+## Profiles
 
 
-## [AllergyIntolerance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
-## Background
+### [AllergyIntolerance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
+#### Background
 
 The AU Core AllergyIntolerance sequence verifies that the system under test is
 able to provide correct responses for AllergyIntolerance queries. These queries
 must contain resources conforming to the AU Core AllergyIntolerance as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
 * patient
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2527,7 +2527,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 AllergyIntolerance resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2537,14 +2537,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the AllergyIntolerance resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2553,7 +2553,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2610,28 +2610,28 @@ Accept: application/fhir+json
 
 # 10 Medication
 
-# Profiles
+## Profiles
 
 
-## [Medication ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
-## Background
+### [Medication ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
+#### Background
 
 The AU Core Medication sequence verifies that the system under test is
 able to provide correct responses for Medication queries. These queries
 must contain resources conforming to the AU Core Medication as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
+#### Testing Methodology
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Medication resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2640,7 +2640,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2663,19 +2663,19 @@ read succeeds.
 
 # 11 MedicationStatement
 
-# Profiles
+## Profiles
 
 
-## [MedicationStatement ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
-## Background
+### [MedicationStatement ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
+#### Background
 
 The AU Core MedicationStatement sequence verifies that the system under test is
 able to provide correct responses for MedicationStatement queries. These queries
 must contain resources conforming to the AU Core MedicationStatement as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2683,7 +2683,7 @@ following parameters:
 * patient
 * patient + status
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2691,7 +2691,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 MedicationStatement resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2701,14 +2701,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the MedicationStatement resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core MedicationStatement](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2717,7 +2717,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2791,19 +2791,19 @@ Accept: application/fhir+json
 
 # 12 Practitioner
 
-# Profiles
+## Profiles
 
 
-## [Practitioner ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
-## Background
+### [Practitioner ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
+#### Background
 
 The AU Core Practitioner sequence verifies that the system under test is
 able to provide correct responses for Practitioner queries. These queries
 must contain resources conforming to the AU Core Practitioner as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2811,7 +2811,7 @@ following parameters:
 * _id
 * identifier
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2819,7 +2819,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Practitioner resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2829,14 +2829,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Practitioner resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2845,7 +2845,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -2919,19 +2919,19 @@ Accept: application/fhir+json
 
 # 13 Organization
 
-# Profiles
+## Profiles
 
 
-## [Organization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
-## Background
+### [Organization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
+#### Background
 
 The AU Core Organization sequence verifies that the system under test is
 able to provide correct responses for Organization queries. These queries
 must contain resources conforming to the AU Core Organization as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -2940,7 +2940,7 @@ following parameters:
 * identifier
 * name
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -2948,7 +2948,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Organization resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -2958,14 +2958,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Organization resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Organization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization). Each element is checked against
 teminology binding and cardinality requirements.
@@ -2974,7 +2974,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -3065,19 +3065,19 @@ Accept: application/fhir+json
 
 # 14 PractitionerRole
 
-# Profiles
+## Profiles
 
 
-## [PractitionerRole ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
-## Background
+### [PractitionerRole ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
+#### Background
 
 The AU Core PractitionerRole sequence verifies that the system under test is
 able to provide correct responses for PractitionerRole queries. These queries
 must contain resources conforming to the AU Core PractitionerRole as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -3086,7 +3086,7 @@ following parameters:
 * identifier
 * practitioner
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -3094,7 +3094,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 PractitionerRole resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -3104,14 +3104,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the PractitionerRole resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole). Each element is checked against
 teminology binding and cardinality requirements.
@@ -3120,7 +3120,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -3211,26 +3211,26 @@ Accept: application/fhir+json
 
 # 15 HealthcareService
 
-# Profiles
+## Profiles
 
 
-## [HealthcareService ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
-## Background
+### [HealthcareService ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice)
+#### Background
 
 The AU Core HealthcareService sequence verifies that the system under test is
 able to provide correct responses for HealthcareService queries. These queries
 must contain resources conforming to the AU Core HealthcareService as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
 * name
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -3238,7 +3238,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 HealthcareService resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -3248,14 +3248,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the HealthcareService resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core HealthcareService](http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice). Each element is checked against
 teminology binding and cardinality requirements.
@@ -3264,7 +3264,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -3406,19 +3406,19 @@ Accept: application/fhir+json
 
 # 16 Location
 
-# Profiles
+## Profiles
 
 
-## [Location ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
-## Background
+### [Location ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
+#### Background
 
 The AU Core Location sequence verifies that the system under test is
 able to provide correct responses for Location queries. These queries
 must contain resources conforming to the AU Core Location as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -3426,7 +3426,7 @@ following parameters:
 * address
 * name
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -3434,7 +3434,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 Location resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -3444,14 +3444,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Location resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Location](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location). Each element is checked against
 teminology binding and cardinality requirements.
@@ -3460,7 +3460,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -3568,19 +3568,19 @@ Accept: application/fhir+json
 
 # 17 DocumentReference
 
-# Profiles
+## Profiles
 
 
-## [DocumentReference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
-## Background
+### [DocumentReference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference)
+#### Background
 
 The AU Core DocumentReference sequence verifies that the system under test is
 able to provide correct responses for DocumentReference queries. These queries
 must contain resources conforming to the AU Core DocumentReference as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -3591,7 +3591,7 @@ following parameters:
 * patient + category
 * patient + category + date
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -3599,7 +3599,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 DocumentReference resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -3609,14 +3609,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the DocumentReference resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core DocumentReference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference). Each element is checked against
 teminology binding and cardinality requirements.
@@ -3625,7 +3625,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -3818,19 +3818,19 @@ Accept: application/fhir+json
 
 # 18 ServiceRequest
 
-# Profiles
+## Profiles
 
 
-## [ServiceRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
-## Background
+### [ServiceRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest)
+#### Background
 
 The AU Core ServiceRequest sequence verifies that the system under test is
 able to provide correct responses for ServiceRequest queries. These queries
 must contain resources conforming to the AU Core ServiceRequest as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
@@ -3842,7 +3842,7 @@ following parameters:
 * patient + category + authored
 * patient + code
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -3850,7 +3850,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 ServiceRequest resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -3860,14 +3860,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the ServiceRequest resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core ServiceRequest](http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest). Each element is checked against
 teminology binding and cardinality requirements.
@@ -3876,7 +3876,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -4052,28 +4052,28 @@ Accept: application/fhir+json
 
 # 19 Provenance
 
-# Profiles
+## Profiles
 
 
-## [Provenance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
-## Background
+### [Provenance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
+#### Background
 
 The AU Core Provenance sequence verifies that the system under test is
 able to provide correct responses for Provenance queries. These queries
 must contain resources conforming to the AU Core Provenance as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
+#### Testing Methodology
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the Provenance resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance). Each element is checked against
 teminology binding and cardinality requirements.
@@ -4082,7 +4082,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
@@ -4105,26 +4105,26 @@ read succeeds.
 
 # 20 RelatedPerson
 
-# Profiles
+## Profiles
 
 
-## [AU Base Related Person ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson)
-## Background
+### [AU Base Related Person ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson)
+#### Background
 
 The AU Core AU Base Related Person sequence verifies that the system under test is
 able to provide correct responses for RelatedPerson queries. These queries
 must contain resources conforming to the AU Base Related Person as
 specified in the AU Core v0.3.0 Implementation Guide.
 
-## Testing Methodology
-### Searching
+#### Testing Methodology
+##### Searching
 This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
 * patient
 
-#### Search Parameters
+###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
 sequence. Any subsequent searches will look for its parameter values
 from the results of the first search. For example, the `identifier`
@@ -4132,7 +4132,7 @@ search in the patient sequence is performed by looking for an existing
 `Patient.identifier` from any of the resources returned in the `_id`
 search. If a value cannot be found this way, the search is skipped.
 
-#### Search Validation
+###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
 RelatedPerson resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
@@ -4142,14 +4142,14 @@ for example, if a Patient search for `gender=male` returns a `female`
 patient.
 
 
-### Must Support
+##### Must Support
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
 through the RelatedPerson resources found in the first test for these
 elements.
 
-### Profile Validation
+##### Profile Validation
 Each resource returned from the first search is expected to conform to
 the [AU Base Related Person](http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson). Each element is checked against
 teminology binding and cardinality requirements.
@@ -4158,7 +4158,7 @@ Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
 then the test will fail.
 
-### Reference Validation
+##### Reference Validation
 At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no

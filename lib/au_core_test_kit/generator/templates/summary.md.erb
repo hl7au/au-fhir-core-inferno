@@ -3,10 +3,10 @@
 <% resource_list.each do |resource_data| %>
 # <%= resource_data["position"] %> <%= resource_data["resource"] %>
 
-# Profiles
+## Profiles
 
 <% resource_data["groups"].each do |group| %>
-## [<%= group["title"] %> ](<%= group["profile_url"] %>)
+### [<%= group["title"] %> ](<%= group["profile_url"] %>)
 <%= group["description"] %>
 <% end %>
 
