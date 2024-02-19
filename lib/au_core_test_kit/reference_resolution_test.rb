@@ -80,6 +80,9 @@ module AUCoreTestKit
         must_support_references_with_target_profile.select do |reference_path_profile_pair|
           path = reference_path_profile_pair[:path]
           target_profile = reference_path_profile_pair[:target_profile]
+          puts "reference_path_profile_pair #{reference_path_profile_pair}"
+          puts "path #{path}"
+          puts "target_profile #{target_profile}"
 
           found_one_reference = false
 

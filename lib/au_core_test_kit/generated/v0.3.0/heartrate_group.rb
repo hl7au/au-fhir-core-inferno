@@ -13,12 +13,12 @@ require_relative 'heartrate/heartrate_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class HeartrateGroup < Inferno::TestGroup
-      title 'Observation AU Core Heart Rate Tests'
+      title 'Observation Heart Rate Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Heart Rate.'
       description %(
   # Background
 
-The AU Core Observation AU Core Heart Rate sequence verifies that the system under test is
+The AU Core Observation Heart Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Heart Rate as
 specified in the AU Core v0.3.0 Implementation Guide.

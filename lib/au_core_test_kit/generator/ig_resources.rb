@@ -20,8 +20,7 @@ module AUCoreTestKit
       end
 
       def profile_by_url(url)
-        result = resources_by_type['StructureDefinition'].find { |profile| profile.url == url }
-        result
+        resources_by_type['StructureDefinition'].find { |profile| profile.url == url }
       end
 
       def resource_for_profile(url)

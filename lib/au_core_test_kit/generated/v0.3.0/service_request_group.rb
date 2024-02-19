@@ -16,12 +16,12 @@ require_relative 'service_request/service_request_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ServiceRequestGroup < Inferno::TestGroup
-      title 'AU Core ServiceRequest Tests'
+      title 'ServiceRequest Tests'
       short_description 'Verify support for the server capabilities required by the AU Core ServiceRequest.'
       description %(
   # Background
 
-The AU Core AU Core ServiceRequest sequence verifies that the system under test is
+The AU Core ServiceRequest sequence verifies that the system under test is
 able to provide correct responses for ServiceRequest queries. These queries
 must contain resources conforming to the AU Core ServiceRequest as
 specified in the AU Core v0.3.0 Implementation Guide.

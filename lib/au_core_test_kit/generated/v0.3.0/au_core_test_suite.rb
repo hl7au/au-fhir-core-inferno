@@ -34,8 +34,8 @@ require_relative 'immunization_group'
 require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
 require_relative 'observation_group'
-require_relative 'patient_group'
 require_relative 'procedure_group'
+require_relative 'related_person_group'
 require_relative 'service_request_group'
 require_relative 'healthcare_service_group'
 require_relative 'organization_group'
@@ -51,14 +51,7 @@ module AUCoreTestKit
         Implementation Guide]().
 
         HL7® FHIR® resources are validated with the Java validator using
-        `tx.fhir.org` as the terminology server. Users should note that the
-        although the ONC Certification (g)(10) Standardized API Test Suite
-        includes tests from this suite, [it uses a different method to perform
-        terminology
-        validation](https://github.com/onc-healthit/onc-certification-g10-test-kit/wiki/FAQ#q-why-do-some-resources-fail-in-us-core-test-kit-with-terminology-validation-errors).
-        As a result, resource validation results may not be consistent between
-        the AU Core Test Suite and the ONC Certification (g)(10) Standardized
-        API Test Suite.
+        `tx.fhir.org` as the terminology server.
       )
       version VERSION
 
@@ -98,7 +91,8 @@ module AUCoreTestKit
 
       input :url,
         title: 'FHIR Endpoint',
-        description: 'URL of the FHIR endpoint'
+        description: 'URL of the FHIR endpoint',
+        default: 'https://hl7auconnectathon.salessbx.smiledigitalhealth.com/fhir-request'
       input :smart_credentials,
         title: 'OAuth Credentials',
         type: :oauth_credentials,
@@ -109,21 +103,10 @@ module AUCoreTestKit
         oauth_credentials :smart_credentials
       end
 
+      
+      
 
-      suite_option :smart_app_launch_version,
-        title: 'SMART App Launch Version',
-        list_options: [
-          {
-            label: 'SMART App Launch 1.0.0',
-            value: AUCoreOptions::SMART_1
-          },
-          {
-            label: 'SMART App Launch 2.0.0',
-            value: AUCoreOptions::SMART_2
-          }
-        ]
-
-      group from: :au_core_smart_app_launch
+      
 
       group do
         title 'AU Core FHIR API'
@@ -149,22 +132,22 @@ module AUCoreTestKit
         group from: :au_core_v030_diagnosticresult
         group from: :au_core_v030_sexassignedatbirth
         group from: :au_core_v030_smokingstatus
-        group from: :au_core_v030_allergy_intolerance
-        group from: :au_core_v030_condition
-        group from: :au_core_v030_diagnostic_report
-        group from: :au_core_v030_document_reference
-        group from: :au_core_v030_encounter
-        group from: :au_core_v030_immunization
-        group from: :au_core_v030_medication_request
-        group from: :au_core_v030_medication_statement
         group from: :au_core_v030_observation
-        group from: :au_core_v030_patient
+        group from: :au_core_v030_medication_request
+        group from: :au_core_v030_encounter
+        group from: :au_core_v030_condition
         group from: :au_core_v030_procedure
-        group from: :au_core_v030_service_request
-        group from: :au_core_v030_healthcare_service
-        group from: :au_core_v030_organization
+        group from: :au_core_v030_diagnostic_report
+        group from: :au_core_v030_immunization
+        group from: :au_core_v030_allergy_intolerance
+        group from: :au_core_v030_medication_statement
         group from: :au_core_v030_practitioner
+        group from: :au_core_v030_organization
+        group from: :au_core_v030_healthcare_service
+        group from: :au_core_v030_document_reference
+        group from: :au_core_v030_service_request
         group from: :au_core_v030_provenance
+        group from: :au_core_v030_related_person
         group from: :au_core_v400_clinical_notes_guidance
         group from: :au_core_311_data_absent_reason
       end

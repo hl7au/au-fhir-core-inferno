@@ -13,12 +13,12 @@ require_relative 'waistcircum/waistcircum_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class WaistcircumGroup < Inferno::TestGroup
-      title 'Observation AU Core Waist Circumference Tests'
+      title 'Observation Waist Circumference Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Waist Circumference.'
       description %(
   # Background
 
-The AU Core Observation AU Core Waist Circumference sequence verifies that the system under test is
+The AU Core Observation Waist Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Waist Circumference as
 specified in the AU Core v0.3.0 Implementation Guide.

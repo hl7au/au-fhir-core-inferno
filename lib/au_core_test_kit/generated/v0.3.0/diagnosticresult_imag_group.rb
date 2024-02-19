@@ -13,12 +13,12 @@ require_relative 'diagnosticresult_imag/diagnosticresult_imag_reference_resoluti
 module AUCoreTestKit
   module AUCoreV030
     class DiagnosticresultImagGroup < Inferno::TestGroup
-      title 'Observation AU Core Diagnostic Imaging Result Tests'
+      title 'Observation Diagnostic Imaging Result Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Diagnostic Imaging Result Observation.'
       description %(
   # Background
 
-The AU Core Observation AU Core Diagnostic Imaging Result sequence verifies that the system under test is
+The AU Core Observation Diagnostic Imaging Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Diagnostic Imaging Result Observation as
 specified in the AU Core v0.3.0 Implementation Guide.

@@ -18,12 +18,12 @@ require_relative '../../custom_groups/v4.0.0/document_reference_custodian_test'
 module AUCoreTestKit
   module AUCoreV030
     class DocumentReferenceGroup < Inferno::TestGroup
-      title 'AU Core DocumentReference Tests'
+      title 'DocumentReference Tests'
       short_description 'Verify support for the server capabilities required by the AU Core DocumentReference.'
       description %(
   # Background
 
-The AU Core AU Core DocumentReference sequence verifies that the system under test is
+The AU Core DocumentReference sequence verifies that the system under test is
 able to provide correct responses for DocumentReference queries. These queries
 must contain resources conforming to the AU Core DocumentReference as
 specified in the AU Core v0.3.0 Implementation Guide.

@@ -18,7 +18,8 @@ module AUCoreTestKit
   <% if needs_patient_id? %>
       input :patient_ids,
         title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
+        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
   <% end %>
       def properties
         @properties ||= SearchTestProperties.new(

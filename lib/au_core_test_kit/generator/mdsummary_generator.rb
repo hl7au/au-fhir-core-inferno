@@ -1,5 +1,6 @@
 require_relative 'naming'
 require_relative 'special_cases'
+require_relative '../helpers'
 
 module AUCoreTestKit
   class Generator
@@ -59,7 +60,8 @@ module AUCoreTestKit
           "Location" => 16,
           "DocumentReference" => 17,
           "ServiceRequest" => 18,
-          "Provenance" => 19
+          "Provenance" => 19,
+          "RelatedPerson" => 20,
         }
 
         resource_positions[resource]
@@ -67,11 +69,30 @@ module AUCoreTestKit
 
       def resource_list
         mapped_groups = ig_metadata.groups.map do |group|
+          title = group.title
+          resource_type = group.resource
+          profile_name = group.profile_name
+          profile_url = group.profile_url
+          required_searches = group.searches.select { |search| search[:expectation] == 'SHALL' }
+          search_param_name_string = required_searches
+                                       .map { |search| search[:names].join(' + ') }
+                                       .map { |names| "* #{names}" }
+                                       .join("\n")
+          search_validation_resource_type = "#{resource_type} resources"
+          group_description = Helpers.get_group_description_text(title,
+                                                                 resource_type,
+                                                                 profile_name,
+                                                                 group.version,
+                                                                 profile_url,
+                                                                 required_searches,
+                                                                 search_param_name_string,
+                                                                 search_validation_resource_type,
+                                                                 false)
           {
-            'title' => group.title,
-            'resource' => group.resource,
-            'profile_url' => group.profile_url,
-            'description' => group.short_description,
+            'title' => title,
+            'resource' => resource_type,
+            'profile_url' => profile_url,
+            'description' => group_description,
             'interactions' => group.interactions.map do |interaction|
               {
                 'code' => interaction[:code],
@@ -89,7 +110,7 @@ module AUCoreTestKit
           }
         end
 
-        result = mapped_groups.group_by { |group| group['resource'] }.map do |resource, groups|
+        mapped_groups.group_by { |group| group['resource'] }.map do |resource, groups|
           combined_interactions = groups.flat_map { |group| group['interactions'] }.uniq
           combined_searches = groups.flat_map { |group| group['searches'] }.uniq
 
@@ -107,8 +128,6 @@ module AUCoreTestKit
             end
           }
         end.sort_by { |data| data["position"] }
-
-        result
       end
 
       def make_search_string(resource_name, search_names)

@@ -13,12 +13,12 @@ require_relative 'bmi/bmi_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class BmiGroup < Inferno::TestGroup
-      title 'Observation AU Core BMI Tests'
+      title 'Observation BMI Tests'
       short_description 'Verify support for the server capabilities required by the AU Core BMI.'
       description %(
   # Background
 
-The AU Core Observation AU Core BMI sequence verifies that the system under test is
+The AU Core Observation BMI sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core BMI as
 specified in the AU Core v0.3.0 Implementation Guide.

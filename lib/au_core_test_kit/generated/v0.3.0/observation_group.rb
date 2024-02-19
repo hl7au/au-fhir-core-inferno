@@ -13,12 +13,12 @@ require_relative 'observation/observation_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ObservationGroup < Inferno::TestGroup
-      title 'Observation AU Core Tests'
+      title 'Observation Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Observation.'
       description %(
   # Background
 
-The AU Core Observation AU Core sequence verifies that the system under test is
+The AU Core Observation sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Observation as
 specified in the AU Core v0.3.0 Implementation Guide.

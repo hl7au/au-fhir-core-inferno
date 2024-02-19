@@ -13,12 +13,12 @@ require_relative 'condition/condition_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ConditionGroup < Inferno::TestGroup
-      title 'Condition AU Core Tests'
+      title 'Condition Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Condition.'
       description %(
   # Background
 
-The AU Core Condition AU Core sequence verifies that the system under test is
+The AU Core Condition sequence verifies that the system under test is
 able to provide correct responses for Condition queries. These queries
 must contain resources conforming to the AU Core Condition as
 specified in the AU Core v0.3.0 Implementation Guide.

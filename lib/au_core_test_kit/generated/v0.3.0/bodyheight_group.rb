@@ -13,12 +13,12 @@ require_relative 'bodyheight/bodyheight_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class BodyheightGroup < Inferno::TestGroup
-      title 'Observation AU Core Body Height Tests'
+      title 'Observation Body Height Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Body Height.'
       description %(
   # Background
 
-The AU Core Observation AU Core Body Height sequence verifies that the system under test is
+The AU Core Observation Body Height sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Height as
 specified in the AU Core v0.3.0 Implementation Guide.

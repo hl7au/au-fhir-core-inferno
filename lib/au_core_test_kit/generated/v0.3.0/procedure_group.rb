@@ -11,12 +11,12 @@ require_relative 'procedure/procedure_reference_resolution_test'
 module AUCoreTestKit
   module AUCoreV030
     class ProcedureGroup < Inferno::TestGroup
-      title 'AU Core Procedure Tests'
+      title 'Procedure Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Procedure.'
       description %(
   # Background
 
-The AU Core AU Core Procedure sequence verifies that the system under test is
+The AU Core Procedure sequence verifies that the system under test is
 able to provide correct responses for Procedure queries. These queries
 must contain resources conforming to the AU Core Procedure as
 specified in the AU Core v0.3.0 Implementation Guide.

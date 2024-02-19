@@ -13,12 +13,12 @@ require_relative 'diagnosticresult_path/diagnosticresult_path_reference_resoluti
 module AUCoreTestKit
   module AUCoreV030
     class DiagnosticresultPathGroup < Inferno::TestGroup
-      title 'Observation AU Core Pathology Result Tests'
+      title 'Observation Pathology Result Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Pathology Result Observation.'
       description %(
   # Background
 
-The AU Core Observation AU Core Pathology Result sequence verifies that the system under test is
+The AU Core Observation Pathology Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Pathology Result Observation as
 specified in the AU Core v0.3.0 Implementation Guide.

@@ -14,12 +14,12 @@ require_relative 'patient/patient_must_support_test'
 module AUCoreTestKit
   module AUCoreV030
     class PatientGroup < Inferno::TestGroup
-      title 'AU Core Patient Tests'
+      title 'Patient Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Patient.'
       description %(
   # Background
 
-The AU Core AU Core Patient sequence verifies that the system under test is
+The AU Core Patient sequence verifies that the system under test is
 able to provide correct responses for Patient queries. These queries
 must contain resources conforming to the AU Core Patient as
 specified in the AU Core v0.3.0 Implementation Guide.
