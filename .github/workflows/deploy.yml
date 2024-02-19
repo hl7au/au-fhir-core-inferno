@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  jobs:
+    deploy:
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: au-inferno.beda.software
+        username: root
+        key: ${{ secrets.SSH_PRIVTAE_KEY }}
+        port: 22
+        script: |
+          cd inferno-au-core/
+          git pull
+          docker compose stop
+          ./setup.sh
+          docker compose build
+          docker compose up -d
