@@ -20,137 +20,58 @@
 - :names:
   - patient
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - date
   - patient
   :names_not_must_support_or_mandatory:
   - date
-  - patient
   :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - class
   - patient
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - location
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - status
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - type
-  :names_not_must_support_or_mandatory:
-  - patient
-  - type
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :patient:
     :paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - Encounter.subject
     :comparators: {}
     :values: []
-    :type: reference
+    :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
   :date:
     :paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " DocumentReference.date "
-    - " actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " Observation.effective.ofType(dateTime) "
-    - " Observation.effective.ofType(Period) "
-    - " Observation.effective.ofType(Timing) "
-    - " Observation.effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - actualPeriod
     :full_paths:
-    - 'AdverseEvent.occurrence.ofType(dateTime) '
-    - " AdverseEvent.occurrence.ofType(Period) "
-    - " AdverseEvent.occurrence.ofType(Timing) "
-    - " AllergyIntolerance.recordedDate "
-    - " (start "
-    - " requestedPeriod.start).first() "
-    - " AuditEvent.recorded "
-    - " CarePlan.period "
-    - " ClinicalImpression.date "
-    - " Composition.date "
-    - " Consent.date "
-    - " DiagnosticReport.effective.ofType(dateTime) "
-    - " DiagnosticReport.effective.ofType(Period) "
-    - " DocumentReference.date "
-    - " Encounter.actualPeriod "
-    - " EpisodeOfCare.period "
-    - " FamilyMemberHistory.date "
-    - " Flag.period "
-    - " (Immunization.occurrence.ofType(dateTime)) "
-    - " ImmunizationEvaluation.date "
-    - " ImmunizationRecommendation.date "
-    - " Invoice.date "
-    - " List.date "
-    - " MeasureReport.date "
-    - " NutritionIntake.occurrence.ofType(dateTime) "
-    - " NutritionIntake.occurrence.ofType(Period) "
-    - " Observation.effective.ofType(dateTime) "
-    - " Observation.effective.ofType(Period) "
-    - " Observation.effective.ofType(Timing) "
-    - " Observation.effective.ofType(instant) "
-    - " Procedure.occurrence.ofType(dateTime) "
-    - " Procedure.occurrence.ofType(Period) "
-    - " Procedure.occurrence.ofType(Timing) "
-    - " ResearchSubject.period "
-    - " (RiskAssessment.occurrence.ofType(dateTime)) "
-    - " SupplyRequest.authoredOn"
+    - Encounter.actualPeriod
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -164,7 +85,7 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :class:
     :paths:
     - class
@@ -174,7 +95,7 @@
     :values: []
     :type: Coding
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :location:
     :paths:
     - location.location
@@ -184,7 +105,7 @@
     :values: []
     :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -203,37 +124,17 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :type:
     :paths:
-    - 'Account.type '
-    - " AllergyIntolerance.type "
-    - " Composition.type "
-    - " Coverage.type "
-    - " DocumentReference.type "
-    - " type "
-    - " EpisodeOfCare.type "
-    - " Invoice.type "
-    - " MedicationDispense.type "
-    - " MolecularSequence.type "
-    - " Specimen.type"
+    - type
     :full_paths:
-    - 'Account.type '
-    - " AllergyIntolerance.type "
-    - " Composition.type "
-    - " Coverage.type "
-    - " DocumentReference.type "
-    - " Encounter.type "
-    - " EpisodeOfCare.type "
-    - " Invoice.type "
-    - " MedicationDispense.type "
-    - " MolecularSequence.type "
-    - " Specimen.type"
+    - Encounter.type
     :comparators: {}
     :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :type: CodeableConcept
+    :contains_multiple: true
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

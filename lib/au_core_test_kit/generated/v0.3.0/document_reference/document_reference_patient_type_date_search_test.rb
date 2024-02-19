@@ -28,7 +28,8 @@ none are returned, the test is skipped.
         @properties ||= SearchTestProperties.new(
           resource_type: 'DocumentReference',
         search_param_names: ['patient', 'type', 'date'],
-        possible_status_search: true
+        possible_status_search: true,
+        token_search_params: ['type']
         )
       end
 

@@ -20,60 +20,51 @@
 - :names:
   - patient
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
   - category
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
   - clinical-status
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - category
   - clinical-status
-  :names_not_must_support_or_mandatory:
-  - patient
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - code
-  :names_not_must_support_or_mandatory:
-  - patient
-  - code
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - onset-date
   :names_not_must_support_or_mandatory:
-  - patient
   - onset-date
   :must_support_or_mandatory: false
 :search_definitions:
   :patient:
     :paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - subject
     :full_paths:
-    - 'AllergyIntolerance.patient '
-    - " CarePlan.subject"
+    - Condition.subject
     :comparators: {}
     :values: []
-    :type: reference
+    :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
@@ -86,7 +77,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :clinical-status:
     :paths:
     - clinicalStatus
@@ -102,68 +93,24 @@
     - resolved
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :code:
     :paths:
-    - 'AdverseEvent.code '
-    - " AllergyIntolerance.code "
-    - " AllergyIntolerance.reaction.substance "
-    - " AuditEvent.code "
-    - " Basic.code "
-    - " ChargeItem.code "
-    - " code "
-    - " DetectedIssue.code "
-    - " DeviceRequest.code.concept "
-    - " DiagnosticReport.code "
-    - " FamilyMemberHistory.condition.code "
-    - " ImagingSelection.status "
-    - " List.code "
-    - " Medication.code "
-    - " MedicationAdministration.medication.concept "
-    - " MedicationDispense.medication.concept "
-    - " MedicationRequest.medication.concept "
-    - " MedicationStatement.medication.concept "
-    - " NutritionIntake.code "
-    - " Observation.code "
-    - " Procedure.code "
-    - " RequestOrchestration.code "
-    - " Task.code"
+    - code
     :full_paths:
-    - 'AdverseEvent.code '
-    - " AllergyIntolerance.code "
-    - " AllergyIntolerance.reaction.substance "
-    - " AuditEvent.code "
-    - " Basic.code "
-    - " ChargeItem.code "
-    - " Condition.code "
-    - " DetectedIssue.code "
-    - " DeviceRequest.code.concept "
-    - " DiagnosticReport.code "
-    - " FamilyMemberHistory.condition.code "
-    - " ImagingSelection.status "
-    - " List.code "
-    - " Medication.code "
-    - " MedicationAdministration.medication.concept "
-    - " MedicationDispense.medication.concept "
-    - " MedicationRequest.medication.concept "
-    - " MedicationStatement.medication.concept "
-    - " NutritionIntake.code "
-    - " Observation.code "
-    - " Procedure.code "
-    - " RequestOrchestration.code "
-    - " Task.code"
+    - Condition.code
     :comparators: {}
     :values: []
-    :type: token
+    :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :onset-date:
     :paths:
-    - 'onset.ofType(dateTime) '
-    - " onset.ofType(Period)"
+    - onsetDateTime
+    - onsetPeriod
     :full_paths:
-    - 'Condition.onset.ofType(dateTime) '
-    - " Condition.onset.ofType(Period)"
+    - Condition.onsetDateTime
+    - Condition.onsetPeriod
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -177,7 +124,7 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

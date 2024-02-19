@@ -26,15 +26,13 @@
 - :names:
   - identifier
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - name
   :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - name
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - _id
   :expectation: SHOULD
@@ -50,41 +48,41 @@
     :values: []
     :type: Address
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
-    - 'identifier '
-    - " qualification.identifier"
+    - identifier
+    - qualification.identifier
     :full_paths:
-    - 'Organization.identifier '
-    - " Organization.qualification.identifier"
+    - Organization.identifier
+    - Organization.qualification.identifier
     :comparators: {}
     :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :type: Identifier
+    :contains_multiple: true
+    :multiple_or: MAY
   :name:
     :paths:
-    - 'name '
-    - " alias"
+    - name
+    - alias
     :full_paths:
-    - 'Organization.name '
-    - " Organization.alias"
+    - Organization.name
+    - Organization.alias
     :comparators: {}
     :values: []
     :type: string
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :_id:
     :paths:
-    - Resource.id
+    - id
     :full_paths:
-    - Resource.id
+    - Organization.id
     :comparators: {}
     :values: []
-    :type: token
+    :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

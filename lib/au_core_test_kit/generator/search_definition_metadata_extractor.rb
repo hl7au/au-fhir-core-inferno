@@ -41,13 +41,21 @@ module AUCoreTestKit
       def full_paths
         @full_paths ||=
           begin
-            path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
-            path = path[1..-2] if path.start_with?('(') && path.end_with?(')')
-            path.scan(/[. ]as[( ]([^)]*)[)]?/).flatten.map do |as_type|
-              path.gsub!(/[. ]as[( ](#{as_type}[^)]*)[)]?/, as_type.upcase_first) if as_type.present?
-            end
+            full_paths = param.expression.split('|').map do |expr|
+              expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'').gsub(/\.ofType\(([^)]+)\)/) do |match|
+                type_name = $1
+                "#{type_name[0].upcase}#{type_name[1..-1]}"
+              end
+            end.filter { |path| path.split('.').first == resource }
+            # path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
+            # path = path[1..-2] if path.start_with?('(') && path.end_with?(')')
+            # path.scan(/[. ]as[( ]([^)]*)[)]?/).flatten.map do |as_type|
+            #   path.gsub!(/[. ]as[( ](#{as_type}[^)]*)[)]?/, as_type.upcase_first) if as_type.present?
+            # end
 
-            full_paths = path.split('|')
+            # full_paths = path.split('|')
+            # # There is a problem with whitespaces in paths
+            # full_paths = full_paths.map(&:strip)
 
             # There is a bug in AU Core 5 asserted-date search parameter. See FHIR-40573
             if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
@@ -165,7 +173,8 @@ module AUCoreTestKit
         if param_hash['_multipleOr']
           param_hash['_multipleOr']['extension'].first['valueCode']
         end
-        "SHOULD-NOT"
+        # TODO: Fix it
+        "MAY"
       end
 
       def values

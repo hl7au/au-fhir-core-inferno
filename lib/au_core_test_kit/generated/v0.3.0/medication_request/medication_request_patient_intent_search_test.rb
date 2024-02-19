@@ -35,8 +35,6 @@ requirement of AU Core v0.3.0.
       )
 
       id :au_core_v030_medication_request_patient_intent_search_test
-      optional
-  
       input :patient_ids,
         title: 'Patient IDs',
         description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'

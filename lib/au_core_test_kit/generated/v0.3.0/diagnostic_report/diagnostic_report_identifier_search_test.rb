@@ -18,13 +18,12 @@ none are returned, the test is skipped.
       )
 
       id :au_core_v030_diagnostic_report_identifier_search_test
-      optional
-  
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'DiagnosticReport',
         search_param_names: ['identifier'],
-        possible_status_search: true
+        possible_status_search: true,
+        token_search_params: ['identifier']
         )
       end
 

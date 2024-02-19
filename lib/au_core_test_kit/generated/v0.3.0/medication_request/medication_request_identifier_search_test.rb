@@ -22,14 +22,13 @@ Medications, the search will be repeated with
       )
 
       id :au_core_v030_medication_request_identifier_search_test
-      optional
-  
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationRequest',
         search_param_names: ['identifier'],
         possible_status_search: true,
-        test_medication_inclusion: true
+        test_medication_inclusion: true,
+        token_search_params: ['identifier']
         )
       end
 

@@ -31,8 +31,6 @@ requirement of AU Core v0.3.0.
       )
 
       id :au_core_v030_bloodpressure_patient_code_search_test
-      optional
-  
       input :patient_ids,
         title: 'Patient IDs',
         description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
@@ -45,6 +43,7 @@ requirement of AU Core v0.3.0.
         search_param_names: ['patient', 'code'],
         saves_delayed_references: true,
         possible_status_search: true,
+        token_search_params: ['code'],
         test_reference_variants: true,
         test_post_search: true
         )

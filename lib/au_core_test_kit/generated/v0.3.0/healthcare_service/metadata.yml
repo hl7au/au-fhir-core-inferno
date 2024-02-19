@@ -62,7 +62,7 @@
     :values: []
     :type: string
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :service-category:
     :paths:
     - category
@@ -72,7 +72,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :identifier:
     :paths:
     - identifier
@@ -82,7 +82,7 @@
     :values: []
     :type: Identifier
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :location:
     :paths:
     - location
@@ -92,7 +92,7 @@
     :values: []
     :type: Reference
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :organization:
     :paths:
     - providedBy
@@ -102,7 +102,7 @@
     :values: []
     :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :specialty:
     :paths:
     - specialty
@@ -112,7 +112,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
   :service-type:
     :paths:
     - type
@@ -122,7 +122,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: SHOULD-NOT
+    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target
