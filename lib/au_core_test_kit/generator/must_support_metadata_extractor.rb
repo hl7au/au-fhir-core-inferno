@@ -354,15 +354,28 @@ module AUCoreTestKit
         ].include?(profile.baseDefinition)
       end
 
+      def is_observation_without_component?
+        [
+          'au-core-bmi',
+          'au-core-bodyweight',
+          'au-core-oxygensat',
+          'au-core-bodyheight',
+          'au-core-headcircum',
+          'au-core-bodytemp',
+          'au-core-heartrate',
+          'au-core-resprate',
+        ].include?(profile.id)
+      end
+
       def is_blood_pressure?
-        ['bp', 'us-core-blood-pressure', 'us-core-average-blood-pressure'].include?(profile.id)
+        ['au-core-bloodpressure'].include?(profile.id)
       end
 
       # Exclude Observation.component from vital sign profiles except observation-bp and observation-pulse-ox
       def remove_vital_sign_component
         return if is_blood_pressure? || profile.name == 'AUCorePulseOximetryProfile'
 
-        if is_vital_sign?
+        if is_vital_sign? || is_observation_without_component?
           @must_supports[:elements].delete_if do |element|
             element[:path].start_with?('component')
           end

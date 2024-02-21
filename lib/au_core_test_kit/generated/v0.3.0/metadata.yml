@@ -193,9 +193,6 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
       :fixed_value: kg/m2
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -472,9 +469,6 @@
     - :path: value[x]:valueQuantity.system
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -755,9 +749,6 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
       :fixed_value: "%"
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -987,12 +978,6 @@
   :must_supports:
     :extensions: []
     :slices:
-    - :slice_id: Observation.value[x]:valueQuantity
-      :slice_name: valueQuantity
-      :path: value[x]
-      :discriminator:
-        :type: type
-        :code: Quantity
     - :slice_id: Observation.category:VSCat
       :slice_name: VSCat
       :path: category
@@ -1047,10 +1032,10 @@
     - :path: performer
       :types:
       - Reference
-    - :path: value[x]
     - :path: component
     - :path: component.code
     - :path: component.value[x]
+    - :path: component.dataAbsentReason
     - :path: component:SystolicBP.code
     - :path: component:SystolicBP.value[x]
     - :path: component:SystolicBP.value[x].value
@@ -1059,6 +1044,7 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: component:SystolicBP.value[x].code
       :fixed_value: mm[Hg]
+    - :path: component:SystolicBP.dataAbsentReason
     - :path: component:DiastolicBP.code
     - :path: component:DiastolicBP.value[x]
     - :path: component:DiastolicBP.value[x].value
@@ -1067,6 +1053,7 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: component:DiastolicBP.value[x].code
       :fixed_value: mm[Hg]
+    - :path: component:DiastolicBP.dataAbsentReason
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -1346,9 +1333,6 @@
     - :path: value[x]:valueQuantity.system
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -2154,9 +2138,6 @@
     - :path: value[x]:valueQuantity.system
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -2436,9 +2417,6 @@
     - :path: value[x]:valueQuantity.system
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -2719,9 +2697,6 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
       :fixed_value: "/min"
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
@@ -3534,9 +3509,6 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: value[x]:valueQuantity.code
       :fixed_value: "/min"
-    - :path: component
-    - :path: component.code
-    - :path: component.value[x]
   :mandatory_elements:
   - Observation.status
   - Observation.category
