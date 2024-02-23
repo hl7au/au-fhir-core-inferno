@@ -178,8 +178,11 @@ module AUCoreTestKit
       end
 
       def values
-        values_from_must_supports(profile_element).presence ||
-        value_extractor.values_from_fixed_codes(profile_element, type).presence ||
+        values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
+        values_from_pattern_coding = value_extractor.values_from_pattern_coding(profile_element, type).presence
+        merged_values = Array(values_from_fixed_codes) + Array(values_from_pattern_coding)
+
+        values_from_must_supports(profile_element).presence || merged_values.presence ||
         #value_extractor.values_from_required_binding(profile_element).presence ||
         value_extractor.values_from_value_set_binding(profile_element).presence ||
         values_from_resource_metadata(paths).presence ||

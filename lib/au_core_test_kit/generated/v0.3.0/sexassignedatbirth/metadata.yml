@@ -112,7 +112,9 @@
     :full_paths:
     - Observation.code
     :comparators: {}
-    :values: []
+    :values:
+    - '1515311000168102'
+    - 76689-9
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
