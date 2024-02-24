@@ -1,7 +1,7 @@
-require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_date_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_status_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_code_date_search_test'
 require_relative 'diagnosticresult/diagnosticresult_read_test'
@@ -29,10 +29,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
 * patient
 * patient + category
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ### Search Parameters
@@ -84,10 +84,10 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult', 'metadata.yml'), aliases: true))
       end
   
-      test from: :au_core_v030_diagnosticresult_patient_code_search_test
       test from: :au_core_v030_diagnosticresult_patient_search_test
       test from: :au_core_v030_diagnosticresult_patient_category_search_test
       test from: :au_core_v030_diagnosticresult_patient_category_date_search_test
+      test from: :au_core_v030_diagnosticresult_patient_code_search_test
       test from: :au_core_v030_diagnosticresult_patient_category_status_search_test
       test from: :au_core_v030_diagnosticresult_patient_code_date_search_test
       test from: :au_core_v030_diagnosticresult_read_test

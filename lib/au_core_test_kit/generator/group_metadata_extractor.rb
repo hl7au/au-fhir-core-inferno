@@ -96,18 +96,13 @@ module AUCoreTestKit
       ### BEGIN SPECIAL CASES ###
 
       ALL_VERSION_CATEGORY_FIRST_PROFILES = [
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-test',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-imaging',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sdoh-assessment',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-social-history',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-survey',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation'
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path',
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag',
+      ]
+
+      ALL_VERSION_PATIENT_FIRST_PROFILES = [
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation',
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult',
       ]
 
       VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES = {
@@ -120,14 +115,20 @@ module AUCoreTestKit
         VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES[profile_url]&.include?(reformatted_version)
       end
 
+      def patient_first_profile?
+        ALL_VERSION_PATIENT_FIRST_PROFILES.include?(profile_url)
+      end
+
       def first_search_params
         @first_search_params ||=
         if category_first_profile?
           ['patient', 'category']
+        elsif patient_first_profile?
+          ['patient']
         elsif resource == 'Observation'
           ['patient', 'code']
         elsif resource == 'MedicationRequest'
-          ['patient', 'intent']
+          ['patient']
         elsif resource == 'CareTeam'
           ['patient', 'status']
         else

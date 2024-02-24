@@ -538,10 +538,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
-* patient
 * patient + category
+* patient
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ###### Search Parameters
@@ -1026,10 +1026,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
-* patient
 * patient + category
+* patient
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ###### Search Parameters
@@ -1087,10 +1087,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
 * patient
 * patient + category
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ###### Search Parameters
@@ -1270,10 +1270,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
 * patient
 * patient + category
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ###### Search Parameters
@@ -1432,6 +1432,91 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
+### 2.1 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 2.3 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 2.4 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 2.1 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 2.2 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
 
 # 3 MedicationRequest
 
@@ -1452,10 +1537,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + intent
+* patient
 * _id
 * identifier
-* patient
+* patient + intent
 * patient + intent + status
 * patient + intent + authoredon
 
@@ -1513,12 +1598,12 @@ read succeeds.
 ## Test scenarios
 
 
-### 3.1 Search: patient+intent (SHALL)
+### 3.1 Search: patient (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /MedicationRequest?patient={patient}&intent={intent} HTTP/1.1
+GET /MedicationRequest?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1527,7 +1612,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationRequest?patient={patient}&intent={intent}
+{test endpoint}/MedicationRequest?patient={patient}
 ```
 
 ### 3.2 Search: _id (SHALL)
@@ -1564,12 +1649,12 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?identifier={identifier}
 ```
 
-### 3.4 Search: patient (SHALL)
+### 3.4 Search: patient+intent (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /MedicationRequest?patient={patient} HTTP/1.1
+GET /MedicationRequest?patient={patient}&intent={intent} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1578,7 +1663,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationRequest?patient={patient}
+{test endpoint}/MedicationRequest?patient={patient}&intent={intent}
 ```
 
 ### 3.5 Search: patient+intent+status (SHALL)

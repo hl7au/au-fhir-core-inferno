@@ -17,12 +17,6 @@
   :expectation: SHALL
 :operations: []
 :searches:
-- :expectation: SHALL
-  :names:
-  - patient
-  - code
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
 - :names:
   - patient
   :expectation: SHALL
@@ -42,6 +36,12 @@
   :names_not_must_support_or_mandatory:
   - date
   :must_support_or_mandatory: false
+- :expectation: SHALL
+  :names:
+  - patient
+  - code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -238,14 +238,14 @@
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence
 :tests:
-- :id: au_core_v030_diagnosticresult_patient_code_search_test
-  :file_name: diagnosticresult_patient_code_search_test.rb
 - :id: au_core_v030_diagnosticresult_patient_search_test
   :file_name: diagnosticresult_patient_search_test.rb
 - :id: au_core_v030_diagnosticresult_patient_category_search_test
   :file_name: diagnosticresult_patient_category_search_test.rb
 - :id: au_core_v030_diagnosticresult_patient_category_date_search_test
   :file_name: diagnosticresult_patient_category_date_search_test.rb
+- :id: au_core_v030_diagnosticresult_patient_code_search_test
+  :file_name: diagnosticresult_patient_code_search_test.rb
 - :id: au_core_v030_diagnosticresult_patient_category_status_search_test
   :file_name: diagnosticresult_patient_category_status_search_test.rb
 - :id: au_core_v030_diagnosticresult_patient_code_date_search_test

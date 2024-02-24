@@ -1,7 +1,7 @@
-require_relative 'medication_request/medication_request_patient_intent_search_test'
+require_relative 'medication_request/medication_request_patient_search_test'
 require_relative 'medication_request/medication_request_id_search_test'
 require_relative 'medication_request/medication_request_identifier_search_test'
-require_relative 'medication_request/medication_request_patient_search_test'
+require_relative 'medication_request/medication_request_patient_intent_search_test'
 require_relative 'medication_request/medication_request_patient_intent_status_search_test'
 require_relative 'medication_request/medication_request_patient_intent_authoredon_search_test'
 require_relative 'medication_request/medication_request_read_test'
@@ -30,10 +30,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + intent
+* patient
 * _id
 * identifier
-* patient
+* patient + intent
 * patient + intent + status
 * patient + intent + authoredon
 
@@ -86,10 +86,10 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_request', 'metadata.yml'), aliases: true))
       end
   
-      test from: :au_core_v030_medication_request_patient_intent_search_test
+      test from: :au_core_v030_medication_request_patient_search_test
       test from: :au_core_v030_medication_request__id_search_test
       test from: :au_core_v030_medication_request_identifier_search_test
-      test from: :au_core_v030_medication_request_patient_search_test
+      test from: :au_core_v030_medication_request_patient_intent_search_test
       test from: :au_core_v030_medication_request_patient_intent_status_search_test
       test from: :au_core_v030_medication_request_patient_intent_authoredon_search_test
       test from: :au_core_v030_medication_request_read_test

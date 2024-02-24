@@ -17,10 +17,9 @@
   :expectation: SHALL
 :operations: []
 :searches:
-- :expectation: SHALL
-  :names:
+- :names:
   - patient
-  - intent
+  :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
@@ -33,9 +32,10 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
+- :expectation: SHALL
+  :names:
   - patient
-  :expectation: SHALL
+  - intent
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :expectation: SHALL
@@ -276,14 +276,14 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Provenance
 :tests:
-- :id: au_core_v030_medication_request_patient_intent_search_test
-  :file_name: medication_request_patient_intent_search_test.rb
+- :id: au_core_v030_medication_request_patient_search_test
+  :file_name: medication_request_patient_search_test.rb
 - :id: au_core_v030_medication_request__id_search_test
   :file_name: medication_request_id_search_test.rb
 - :id: au_core_v030_medication_request_identifier_search_test
   :file_name: medication_request_identifier_search_test.rb
-- :id: au_core_v030_medication_request_patient_search_test
-  :file_name: medication_request_patient_search_test.rb
+- :id: au_core_v030_medication_request_patient_intent_search_test
+  :file_name: medication_request_patient_intent_search_test.rb
 - :id: au_core_v030_medication_request_patient_intent_status_search_test
   :file_name: medication_request_patient_intent_status_search_test.rb
 - :id: au_core_v030_medication_request_patient_intent_authoredon_search_test

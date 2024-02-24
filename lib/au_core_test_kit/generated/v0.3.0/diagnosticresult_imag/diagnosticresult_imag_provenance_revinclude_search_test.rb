@@ -6,11 +6,11 @@ module AUCoreTestKit
     class DiagnosticresultImagProvenanceRevincludeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target'
+      title 'Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target'
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
-        This test will perform a search by patient + code + revInclude:Provenance:target and
+        This test will perform a search by patient + category + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %)
 
@@ -25,7 +25,7 @@ module AUCoreTestKit
         @properties ||= SearchTestProperties.new(
           fixed_value_search: true,
         resource_type: 'Observation',
-        search_param_names: ['patient', 'code'],
+        search_param_names: ['patient', 'category'],
         possible_status_search: true
         )
       end
