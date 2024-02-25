@@ -332,6 +332,7 @@ module AUCoreTestKit
         remove_vital_sign_component
         remove_blood_pressure_value_data_absent_reason
         remove_observation_data_absent_reason
+        remove_observation_method_attribute
 
         case profile.version
         when '3.1.1'
@@ -346,6 +347,15 @@ module AUCoreTestKit
           MustSupportMetadataExtractorAUCore7.new(profile, @must_supports).handle_special_cases
         end
       end
+
+    def remove_observation_method_attribute
+      # TODO: Discuss with the team the problem related to the method attribute.
+      if ["AUCorePathologyResult", "AUCoreLipidResult", "AUCoreDiagnosticImagingResult", "AUCoreDiagnosticResult"].include? profile.name
+        @must_supports[:elements].delete_if do |element|
+          element[:path] == "method"
+        end
+      end
+    end
 
       def is_vital_sign?
         [

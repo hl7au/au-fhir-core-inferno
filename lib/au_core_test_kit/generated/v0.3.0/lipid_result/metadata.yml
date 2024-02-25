@@ -172,7 +172,6 @@
   - :path: value[x]
   - :path: interpretation
   - :path: note
-  - :path: method
   - :path: specimen
     :types:
     - Reference

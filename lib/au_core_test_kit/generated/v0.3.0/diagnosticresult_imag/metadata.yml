@@ -160,7 +160,6 @@
   - :path: interpretation
   - :path: note
   - :path: bodySite
-  - :path: method
   - :path: referenceRange
   - :path: referenceRange.low
   - :path: referenceRange.high
