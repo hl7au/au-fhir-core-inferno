@@ -107,6 +107,14 @@ module AUCoreTestKit
           (resource_type == 'Patient' && search_metadata[:names].include?('_id'))
       end
 
+      def needs_organization_id?
+        resource_type == 'Organization' && search_metadata[:names].include?('_id')
+      end
+
+      def needs_practitioner_id?
+        resource_type == 'Practitioner' && search_metadata[:names].include?('_id')
+      end
+
       def search_param_names
         search_params.map { |param| param[:name] }
       end

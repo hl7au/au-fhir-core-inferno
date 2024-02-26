@@ -26,6 +26,11 @@ requirement of AU Core v0.3.0.
       )
 
       id :au_core_v030_practitioner__id_search_test
+      input :practitioner_ids,
+        title: 'Practitioner IDs',
+        description: 'Comma separated list of practitioner IDs that in sum contain all MUST SUPPORT elements',
+        default: 'bradley-jill, surgeon-david, nurse-nancy, pharmacist, cardy-igist, levin-henry, sandyson-sandy, bobrester-bob, primary-peter'
+  
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,

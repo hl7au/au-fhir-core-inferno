@@ -3079,7 +3079,24 @@ read succeeds.
 ## Test scenarios
 
 
-### 13.1 Search: address (SHALL)
+### 13.1 Search: _id (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Organization?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Organization?_id={_id}
+```
+
+### 13.2 Search: address (SHALL)
 
 **HTTP GET**
 
@@ -3096,7 +3113,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?address={address}
 ```
 
-### 13.2 Search: identifier (SHALL)
+### 13.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -3113,7 +3130,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?identifier={identifier}
 ```
 
-### 13.3 Search: name (SHALL)
+### 13.4 Search: name (SHALL)
 
 **HTTP GET**
 
@@ -3128,23 +3145,6 @@ Accept: application/fhir+json
 
 ```bash
 {test endpoint}/Organization?name={name}
-```
-
-### 13.4 Search: _id (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Organization?_id={_id} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Organization?_id={_id}
 ```
 
 

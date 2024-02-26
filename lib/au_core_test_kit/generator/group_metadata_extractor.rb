@@ -105,10 +105,19 @@ module AUCoreTestKit
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult',
       ]
 
+      ALL_VERSION_ID_FIRST_PROFILES = [
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization',
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner',
+      ]
+
       VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES = {
         'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis' => ['v610', 'v700_ballot'],
         'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns' => ['v610', 'v700_ballot']
       }
+
+      def id_first_profile?
+        ALL_VERSION_ID_FIRST_PROFILES.include? profile_url
+      end
 
       def category_first_profile?
         ALL_VERSION_CATEGORY_FIRST_PROFILES.include?(profile_url) ||
@@ -125,6 +134,8 @@ module AUCoreTestKit
           ['patient', 'category']
         elsif patient_first_profile?
           ['patient']
+        elsif id_first_profile?
+          ['_id']
         elsif resource == 'Observation'
           ['patient', 'code']
         elsif resource == 'MedicationRequest'
