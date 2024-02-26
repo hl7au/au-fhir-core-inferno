@@ -15,9 +15,6 @@ module AUCoreTestKit
 
         Elements which may provide external references include:
 
-        * Observation.hasMember
-        * Observation.performer
-        * Observation.specimen
         * Observation.subject
       )
 

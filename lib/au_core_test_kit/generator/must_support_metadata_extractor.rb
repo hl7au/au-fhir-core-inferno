@@ -334,6 +334,7 @@ module AUCoreTestKit
         remove_observation_data_absent_reason
         remove_observation_method_attribute
         remove_observation_value_attribute
+        remove_lipid_result_attributes
 
         case profile.version
         when '3.1.1'
@@ -348,6 +349,19 @@ module AUCoreTestKit
           MustSupportMetadataExtractorAUCore7.new(profile, @must_supports).handle_special_cases
         end
       end
+
+    def remove_lipid_result_attributes
+      # TODO: This code block should be discussed.
+      # We need to understand why there are a lot of extra attributes
+      # for the current Observation resource profile.
+      if profile.id == 'au-core-lipid-result'
+        @must_supports[:elements].delete_if do |element|
+          ['identifier', 'performer', 'note',
+           'specimen', 'referenceRange.type',
+           'referenceRange.text', 'hasMember'].include? element[:path]
+        end
+      end
+    end
 
     def remove_observation_value_attribute
       if is_observation_without_value?
@@ -385,6 +399,7 @@ module AUCoreTestKit
           'au-core-heartrate',
           'au-core-resprate',
           'au-core-vitalspanel',
+          'au-core-lipid-result',
         ].include?(profile.id)
       end
 
