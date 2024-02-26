@@ -25,17 +25,7 @@ module AUCoreTestKit
 
     def all_search_params
       @all_search_params ||=
-        resources_id_list = patient_id_list
-        case resource_type
-        when "Organization"
-          resources_id_list = organization_id_list
-        when "Practitioner"
-          resources_id_list = practitioner_id_list
-        when "HealthcareService"
-          resources_id_list = healthcare_service_name_list
-        end
-
-        resources_id_list.each_with_object({}) do |patient_id, params|
+        patient_id_list.each_with_object({}) do |patient_id, params|
           params[patient_id] ||= []
           new_params =
             if fixed_value_search?
@@ -478,17 +468,21 @@ module AUCoreTestKit
       resources = scratch_resources_for_patient(patient_id)
 
       if resources.empty?
-        search_param_names.each_with_object({}) do |name, params|
-          value = patient_id_param?(name) ? patient_id : nil
+        return search_param_names.each_with_object({}) do |name, params|
           case resource_type
           when "Organization"
             value = organization_id_param?(name) ? patient_id : nil
+            params[name] = value
           when "Practitioner"
             value = practitioner_id_param?(name) ? patient_id : nil
+            params[name] = value
           when "HealthcareService"
             value = healthcare_service_name_param?(name) ? patient_id : nil
+            params[name] = value
+          else
+            value = patient_id_param?(name) ? patient_id : nil
+            params[name] = value
           end
-          params[name] = value
         end
       end
 
@@ -508,9 +502,20 @@ module AUCoreTestKit
     end
 
     def patient_id_list
-      return [nil] unless respond_to? :patient_ids
-
-      patient_ids.split(',').map(&:strip)
+      case resource_type
+      when "Organization"
+        return [nil] unless respond_to? :organization_ids
+        organization_ids.split(',').map(&:strip)
+      when "Practitioner"
+        return [nil] unless respond_to? :practitioner_ids
+        practitioner_ids.split(',').map(&:strip)
+      when "HealthcareService"
+        return [nil] unless respond_to? :healthcare_service_names
+        healthcare_service_names.split(',').map(&:strip)
+      else
+        return [nil] unless respond_to? :patient_ids
+        patient_ids.split(',').map(&:strip)
+      end
     end
 
     def organization_id_list
