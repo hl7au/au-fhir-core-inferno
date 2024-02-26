@@ -177,13 +177,9 @@
   - :path: performer
     :types:
     - Reference
-  - :path: value[x]
   - :path: hasMember
     :types:
     - Reference
-  - :path: component
-  - :path: component.code
-  - :path: component.value[x]
 :mandatory_elements:
 - Observation.status
 - Observation.category

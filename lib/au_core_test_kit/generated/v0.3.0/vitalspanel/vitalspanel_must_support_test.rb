@@ -18,16 +18,12 @@ module AUCoreTestKit
         * Observation.category:VSCat.coding.code
         * Observation.category:VSCat.coding.system
         * Observation.code
-        * Observation.component
-        * Observation.component.code
-        * Observation.component.value[x]
         * Observation.effective[x]
         * Observation.encounter
         * Observation.hasMember
         * Observation.performer
         * Observation.status
         * Observation.subject
-        * Observation.value[x]
       )
 
       id :au_core_v030_vitalspanel_must_support_test
