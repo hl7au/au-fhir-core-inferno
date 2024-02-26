@@ -28,6 +28,11 @@ module AUCoreTestKit
         title: 'Practitioner IDs',
         description: 'Comma separated list of practitioner IDs that in sum contain all MUST SUPPORT elements',
         default: 'bradley-jill, surgeon-david, nurse-nancy, pharmacist, cardy-igist, levin-henry, sandyson-sandy, bobrester-bob, primary-peter'
+  <% end %><% if needs_healthcare_service_name? %>
+      input :healthcare_service_names,
+        title: 'HealthcareService Names',
+        description: 'Comma separated list of healthcare service names that in sum contain all MUST SUPPORT elements',
+        default: 'Large Private X-RAY, Bobrester Medical Centre'
   <% end %><% if resource_type == 'Device' %>
       input :implantable_device_codes,
         title: 'Implantable Device Type Code',

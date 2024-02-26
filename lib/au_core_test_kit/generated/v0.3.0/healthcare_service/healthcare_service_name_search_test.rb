@@ -26,6 +26,11 @@ requirement of AU Core v0.3.0.
       )
 
       id :au_core_v030_healthcare_service_name_search_test
+      input :healthcare_service_names,
+        title: 'HealthcareService Names',
+        description: 'Comma separated list of healthcare service names that in sum contain all MUST SUPPORT elements',
+        default: 'Large Private X-RAY, Bobrester Medical Centre'
+  
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
