@@ -99,8 +99,8 @@ read succeeds.
       test from: :au_core_v030_document_reference_patient_status_search_test
       test from: :au_core_v030_document_reference_patient_type_search_test
       test from: :au_core_v030_document_reference_patient_type_date_search_test
-      test from: :au_core_v030_document_reference_read_test
       test from: :au_core_v030_document_reference_provenance_revinclude_search_test
+      test from: :au_core_v030_document_reference_read_test
       test from: :au_core_v030_document_reference_validation_test
       test from: :au_core_v030_document_reference_must_support_test
       test from: :au_core_v030_document_reference_reference_resolution_test

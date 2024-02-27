@@ -97,8 +97,8 @@ read succeeds.
       test from: :au_core_v030_service_request_patient_category_status_search_test
       test from: :au_core_v030_service_request_patient_code_authored_search_test
       test from: :au_core_v030_service_request_patient_status_search_test
-      test from: :au_core_v030_service_request_read_test
       test from: :au_core_v030_service_request_provenance_revinclude_search_test
+      test from: :au_core_v030_service_request_read_test
       test from: :au_core_v030_service_request_validation_test
       test from: :au_core_v030_service_request_must_support_test
       test from: :au_core_v030_service_request_reference_resolution_test

@@ -81,7 +81,6 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'healthcare_service', 'metadata.yml'), aliases: true))
       end
   
-      test from: :au_core_v030_healthcare_service_read_test
       test from: :au_core_v030_healthcare_service_name_search_test
       test from: :au_core_v030_healthcare_service_service_category_search_test
       test from: :au_core_v030_healthcare_service_identifier_search_test
@@ -90,6 +89,7 @@ read succeeds.
       test from: :au_core_v030_healthcare_service_specialty_search_test
       test from: :au_core_v030_healthcare_service_service_type_search_test
       test from: :au_core_v030_healthcare_service_provenance_revinclude_search_test
+      test from: :au_core_v030_healthcare_service_read_test
       test from: :au_core_v030_healthcare_service_validation_test
       test from: :au_core_v030_healthcare_service_must_support_test
       test from: :au_core_v030_healthcare_service_reference_resolution_test

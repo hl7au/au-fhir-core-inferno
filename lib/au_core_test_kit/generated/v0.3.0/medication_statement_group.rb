@@ -81,8 +81,8 @@ read succeeds.
       test from: :au_core_v030_medication_statement_patient_search_test
       test from: :au_core_v030_medication_statement_patient_status_search_test
       test from: :au_core_v030_medication_statement_patient_effective_search_test
-      test from: :au_core_v030_medication_statement_read_test
       test from: :au_core_v030_medication_statement_provenance_revinclude_search_test
+      test from: :au_core_v030_medication_statement_read_test
       test from: :au_core_v030_medication_statement_validation_test
       test from: :au_core_v030_medication_statement_must_support_test
       test from: :au_core_v030_medication_statement_reference_resolution_test

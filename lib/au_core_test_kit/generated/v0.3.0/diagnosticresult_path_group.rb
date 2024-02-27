@@ -90,8 +90,8 @@ read succeeds.
       test from: :au_core_v030_diagnosticresult_path_patient_code_search_test
       test from: :au_core_v030_diagnosticresult_path_patient_category_status_search_test
       test from: :au_core_v030_diagnosticresult_path_patient_code_date_search_test
-      test from: :au_core_v030_diagnosticresult_path_read_test
       test from: :au_core_v030_diagnosticresult_path_provenance_revinclude_search_test
+      test from: :au_core_v030_diagnosticresult_path_read_test
       test from: :au_core_v030_diagnosticresult_path_validation_test
       test from: :au_core_v030_diagnosticresult_path_must_support_test
       test from: :au_core_v030_diagnosticresult_path_reference_resolution_test

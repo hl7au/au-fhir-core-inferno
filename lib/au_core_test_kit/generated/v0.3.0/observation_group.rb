@@ -90,8 +90,8 @@ read succeeds.
       test from: :au_core_v030_observation_patient_code_search_test
       test from: :au_core_v030_observation_patient_category_status_search_test
       test from: :au_core_v030_observation_patient_code_date_search_test
-      test from: :au_core_v030_observation_read_test
       test from: :au_core_v030_observation_provenance_revinclude_search_test
+      test from: :au_core_v030_observation_read_test
       test from: :au_core_v030_observation_validation_test
       test from: :au_core_v030_observation_must_support_test
       test from: :au_core_v030_observation_reference_resolution_test

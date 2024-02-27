@@ -88,8 +88,8 @@ read succeeds.
       test from: :au_core_v030_condition_patient_category_clinical_status_search_test
       test from: :au_core_v030_condition_patient_code_search_test
       test from: :au_core_v030_condition_patient_onset_date_search_test
-      test from: :au_core_v030_condition_read_test
       test from: :au_core_v030_condition_provenance_revinclude_search_test
+      test from: :au_core_v030_condition_read_test
       test from: :au_core_v030_condition_validation_test
       test from: :au_core_v030_condition_must_support_test
       test from: :au_core_v030_condition_reference_resolution_test

@@ -83,8 +83,8 @@ read succeeds.
       test from: :au_core_v030_related_person_identifier_search_test
       test from: :au_core_v030_related_person_name_search_test
       test from: :au_core_v030_related_person_patient_relationship_search_test
-      test from: :au_core_v030_related_person_read_test
       test from: :au_core_v030_related_person_provenance_revinclude_search_test
+      test from: :au_core_v030_related_person_read_test
       test from: :au_core_v030_related_person_validation_test
       test from: :au_core_v030_related_person_must_support_test
     end

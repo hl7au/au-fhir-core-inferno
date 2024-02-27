@@ -89,8 +89,8 @@ read succeeds.
       test from: :au_core_v030_encounter_patient_location_search_test
       test from: :au_core_v030_encounter_patient_status_search_test
       test from: :au_core_v030_encounter_patient_type_search_test
-      test from: :au_core_v030_encounter_read_test
       test from: :au_core_v030_encounter_provenance_revinclude_search_test
+      test from: :au_core_v030_encounter_read_test
       test from: :au_core_v030_encounter_validation_test
       test from: :au_core_v030_encounter_must_support_test
       test from: :au_core_v030_encounter_reference_resolution_test

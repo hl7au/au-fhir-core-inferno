@@ -92,8 +92,8 @@ read succeeds.
       test from: :au_core_v030_medication_request_patient_intent_search_test
       test from: :au_core_v030_medication_request_patient_intent_status_search_test
       test from: :au_core_v030_medication_request_patient_intent_authoredon_search_test
-      test from: :au_core_v030_medication_request_read_test
       test from: :au_core_v030_medication_request_provenance_revinclude_search_test
+      test from: :au_core_v030_medication_request_read_test
       test from: :au_core_v030_medication_request_validation_test
       test from: :au_core_v030_medication_validation_test
       test from: :au_core_v030_medication_request_must_support_test
