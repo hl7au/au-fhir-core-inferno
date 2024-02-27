@@ -92,9 +92,8 @@ module AUCoreTestKit
 
         group from: :<%= capability_statement_group_id %>
       <% group_id_list.each do |id| %>
-        group from: :<%= id %><% end %>
-        group from: :<%= clinical_notes_guidance_group_id %>
-        group from: :au_core_311_data_absent_reason
+        group from: :<%= id %>
+      <% end %>
       end
     end
   end

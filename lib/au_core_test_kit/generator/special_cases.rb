@@ -4,7 +4,8 @@ module AUCoreTestKit
       RESOURCES_TO_EXCLUDE = [
         'Location',
         'Medication',
-        'PractitionerRole'
+        'PractitionerRole',
+        'RelatedPerson',
       ].freeze
 
       PROFILES_TO_EXCLUDE = [
