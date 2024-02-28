@@ -156,9 +156,7 @@
 - Provenance:target
 :required_concepts: []
 :must_supports:
-  :extensions:
-  - :id: Encounter.extension:encounterDescription
-    :url: http://hl7.org.au/fhir/StructureDefinition/encounter-description
+  :extensions: []
   :slices: []
   :elements:
   - :path: identifier
@@ -202,7 +200,6 @@
 - Encounter.classHistory.class
 - Encounter.classHistory.period
 - Encounter.subject
-- Encounter.period
 - Encounter.diagnosis.condition
 - Encounter.location.location
 :bindings:
@@ -239,7 +236,7 @@
 - :path: Encounter.reasonReference
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
-  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation
+  - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
 - :path: Encounter.diagnosis.condition
   :profiles:

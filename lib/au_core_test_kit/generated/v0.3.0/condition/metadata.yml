@@ -140,7 +140,6 @@
   - :path: category
   - :path: severity
   - :path: code
-  - :path: bodySite
   - :path: subject
     :types:
     - Reference

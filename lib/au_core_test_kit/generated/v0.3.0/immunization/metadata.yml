@@ -84,9 +84,7 @@
 - Provenance:target
 :required_concepts: []
 :must_supports:
-  :extensions:
-  - :id: Immunization.extension:vaccine-serial-number
-    :url: http://hl7.org.au/fhir/StructureDefinition/vaccine-serial-number
+  :extensions: []
   :slices:
   - :slice_id: Immunization.vaccineCode.coding:amtVaccineCode
     :slice_name: amtVaccineCode
@@ -105,9 +103,7 @@
       - :path: system
         :value: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
   :elements:
-  - :path: identifier
   - :path: status
-  - :path: statusReason
   - :path: vaccineCode
   - :path: patient
     :types:
