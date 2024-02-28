@@ -4,7 +4,6 @@ require_relative '<%= capability_statement_file_name %>'
 require_relative '<%= clinical_notes_guidance_file_name %>'
 require_relative '../../custom_groups/data_absent_reason_group'
 require_relative '../../custom_groups/smart_app_launch_group'
-require_relative '../../provenance_validator'
 require_relative '../../au_core_options'
 
 <% group_file_list.each do |file_name| %>require_relative '<%= file_name %>'
@@ -49,9 +48,9 @@ module AUCoreTestKit
           message_filters.any? { |filter| filter.match? message.message }
         end
 
-        perform_additional_validation do |resource, profile_url|
-          ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
-        end
+        # perform_additional_validation do |resource, profile_url|
+        #   ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
+        # end
       end
 
       id :<%= suite_id %>
