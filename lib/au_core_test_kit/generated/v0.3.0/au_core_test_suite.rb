@@ -122,23 +122,23 @@ module AUCoreTestKit
       
         group from: :au_core_v030_smokingstatus
       
-        group from: :au_core_v030_medication_request
-      
-        group from: :au_core_v030_encounter
+        group from: :au_core_v030_allergy_intolerance
       
         group from: :au_core_v030_condition
       
-        group from: :au_core_v030_procedure
+        group from: :au_core_v030_encounter
       
         group from: :au_core_v030_immunization
       
-        group from: :au_core_v030_allergy_intolerance
+        group from: :au_core_v030_medication_request
       
         group from: :au_core_v030_medication_statement
       
-        group from: :au_core_v030_practitioner
+        group from: :au_core_v030_procedure
       
         group from: :au_core_v030_organization
+      
+        group from: :au_core_v030_practitioner
       
         group from: :au_core_v030_provenance
       
