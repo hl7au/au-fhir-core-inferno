@@ -1,0 +1,168 @@
+---
+:name: au_core_allergyintolerance
+:class_name: AuCoreAllergyintoleranceSequence
+:version: v0.3.0
+:reformatted_version: v030
+:resource: AllergyIntolerance
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+:profile_name: AU Core AllergyIntolerance
+:profile_version: 0.3.0
+:title: AllergyIntolerance
+:short_description: Verify support for the server capabilities required by the AU
+  Core AllergyIntolerance.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - clinical-status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :patient:
+    :paths:
+    - patient
+    :full_paths:
+    - AllergyIntolerance.patient
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+  :clinical-status:
+    :paths:
+    - clinicalStatus
+    :full_paths:
+    - AllergyIntolerance.clinicalStatus
+    :comparators: {}
+    :values:
+    - active
+    - inactive
+    - resolved
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: MAY
+:include_params: []
+:revincludes:
+- Provenance:target
+:required_concepts:
+- clinicalStatus
+- verificationStatus
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: clinicalStatus
+  - :path: verificationStatus
+  - :path: type
+  - :path: category
+  - :path: code
+  - :path: patient
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: encounter
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: onset[x]
+  - :path: recorder
+    :types:
+    - Reference
+  - :path: asserter
+    :types:
+    - Reference
+  - :path: note
+  - :path: reaction
+  - :path: reaction.substance
+  - :path: reaction.manifestation
+  - :path: reaction.severity
+:mandatory_elements:
+- AllergyIntolerance.code
+- AllergyIntolerance.patient
+- AllergyIntolerance.reaction.manifestation
+:bindings:
+- :type: CodeableConcept
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/allergyintolerance-clinical
+  :path: clinicalStatus
+- :type: CodeableConcept
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/allergyintolerance-verification
+  :path: verificationStatus
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-type
+  :path: type
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-category
+  :path: category
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality
+  :path: criticality
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/reaction-event-severity
+  :path: reaction.severity
+:references:
+- :path: AllergyIntolerance.patient
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: AllergyIntolerance.encounter
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+- :path: AllergyIntolerance.recorder
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+- :path: AllergyIntolerance.asserter
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+:tests:
+- :id: au_core_v030_allergy_intolerance_patient_search_test
+  :file_name: allergy_intolerance_patient_search_test.rb
+- :id: au_core_v030_allergy_intolerance_patient_clinical_status_search_test
+  :file_name: allergy_intolerance_patient_clinical_status_search_test.rb
+- :id: au_core_v030_allergy_intolerance_read_test
+  :file_name: allergy_intolerance_read_test.rb
+- :id: au_core_v030_allergy_intolerance_provenance_revinclude_search_test
+  :file_name: allergy_intolerance_provenance_revinclude_search_test.rb
+- :id: au_core_v030_allergy_intolerance_validation_test
+  :file_name: allergy_intolerance_validation_test.rb
+- :id: au_core_v030_allergy_intolerance_must_support_test
+  :file_name: allergy_intolerance_must_support_test.rb
+- :id: au_core_v030_allergy_intolerance_reference_resolution_test
+  :file_name: allergy_intolerance_reference_resolution_test.rb
+:id: au_core_v030_allergy_intolerance
+:file_name: allergy_intolerance_group.rb
+:delayed_references:
+- :path: recorder
+  :resources:
+  - Practitioner
+  - PractitionerRole
+- :path: asserter
+  :resources:
+  - Practitioner
+  - PractitionerRole

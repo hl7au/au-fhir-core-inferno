@@ -1,0 +1,24 @@
+<% test_file_list.each do |file_name| %>require_relative '<%= file_name %>'
+<% end %>
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::TestGroup
+      title '<%= title %> Tests'
+      short_description '<%= short_description %>'
+      description %(
+  <%= description %>
+      )
+
+      id :<%= group_id %>
+      run_as_group<% if optional? %>
+      optional
+      <% end %>
+
+      def self.metadata
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, '<%= profile_identifier %>', 'metadata.yml'), aliases: true))
+      end
+  <% test_id_list.each do |id| %>
+      test from: :<%= id %><% end %>
+    end
+  end
+end

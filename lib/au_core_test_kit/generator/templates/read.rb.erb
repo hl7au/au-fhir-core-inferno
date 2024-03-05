@@ -1,0 +1,26 @@
+require_relative '../../../read_test'
+
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::Test
+      include AUCoreTestKit::ReadTest
+
+      title 'Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
+      description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'
+
+      id :<%= test_id %>
+
+      def resource_type
+        '<%= resource_type %>'
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      run do
+        perform_read_test(<%= resource_collection_string %>)
+      end
+    end
+  end
+end

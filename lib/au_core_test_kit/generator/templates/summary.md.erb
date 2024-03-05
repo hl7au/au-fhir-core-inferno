@@ -1,0 +1,40 @@
+# Capabilities by Resource/Profile
+
+<% resource_list.each do |resource_data| %>
+# <%= resource_data["position"] %> <%= resource_data["resource"] %>
+
+## Profiles
+
+<% resource_data["groups"].each do |group| %>
+### [<%= group["title"] %> ](<%= group["profile_url"] %>)
+<%= group["description"] %>
+<% end %>
+
+
+## Interactions
+
+<% resource_data["interactions"].each do |interaction| %>
+* <%= interaction["code"] %> (<%= interaction["expectation"] %>)
+<% end %>
+
+## Test scenarios
+
+<% resource_data["searches"].each do |search_data| %>
+### <%= resource_data["position"] %>.<%= search_data["position"] %> Search: <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
+
+**HTTP GET**
+
+```bash
+GET <%= search_data["search_string"] %> HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}<%= search_data["search_string"] %>
+```
+<% end %>
+<% end %>

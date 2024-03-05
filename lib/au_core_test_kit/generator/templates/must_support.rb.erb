@@ -1,0 +1,41 @@
+require_relative '../../../must_support_test'
+
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::Test
+      include AUCoreTestKit::MustSupportTest
+
+      title 'All must support elements are provided in the <%= resource_type %> resources returned'
+      description %(
+        AU Core Responders SHALL be capable of populating all data elements as
+        part of the query results as specified by the AU Core Server Capability
+        Statement. This test will look through the <%= resource_type %> resources
+        found previously for the following must support elements:
+
+<%= must_support_list_string %><% if uscdi_list_string.present? %>
+
+        For ONC USCDI requirements, each <%= resource_type %> must support the following additional elements:
+
+<%= uscdi_list_string %><% end %>
+      )
+
+      id :<%= test_id %>
+
+      def resource_type
+        '<%= resource_type %>'
+      end
+
+      def self.metadata
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      run do
+        perform_must_support_test(<%= resource_collection_string %>)
+      end
+    end
+  end
+end
