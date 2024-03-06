@@ -90,8 +90,8 @@ read succeeds.
       test from: :au_core_v030_resprate_patient_category_date_search_test
       test from: :au_core_v030_resprate_patient_category_status_search_test
       test from: :au_core_v030_resprate_patient_code_date_search_test
-      test from: :au_core_v030_resprate_provenance_revinclude_search_test
       test from: :au_core_v030_resprate_read_test
+      test from: :au_core_v030_resprate_provenance_revinclude_search_test
       test from: :au_core_v030_resprate_validation_test
       test from: :au_core_v030_resprate_must_support_test
       test from: :au_core_v030_resprate_reference_resolution_test

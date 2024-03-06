@@ -28,11 +28,6 @@ requirement of AU Core v0.3.0.
       id :au_core_v030_organization__id_search_test
       optional
   
-      input :organization_ids,
-        title: 'Organization IDs',
-        description: 'Comma separated list of organization IDs that in sum contain all MUST SUPPORT elements',
-        default: 'hospital-int, aaaaaia-insurer, health-au, adv-hearing-care, bobrester-medical-center, services-au, dva-au, pharmacy, hospital-au'
-  
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,

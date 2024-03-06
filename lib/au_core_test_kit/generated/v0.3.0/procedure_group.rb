@@ -83,8 +83,8 @@ read succeeds.
       test from: :au_core_v030_procedure_patient_date_search_test
       test from: :au_core_v030_procedure_patient_code_date_search_test
       test from: :au_core_v030_procedure_patient_status_search_test
-      test from: :au_core_v030_procedure_provenance_revinclude_search_test
       test from: :au_core_v030_procedure_read_test
+      test from: :au_core_v030_procedure_provenance_revinclude_search_test
       test from: :au_core_v030_procedure_validation_test
       test from: :au_core_v030_procedure_must_support_test
       test from: :au_core_v030_procedure_reference_resolution_test

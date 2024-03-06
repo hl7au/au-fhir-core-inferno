@@ -18,11 +18,6 @@ module AUCoreTestKit
         title: 'Patient IDs',
         description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
         default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-  <% end %><% if needs_organization_id? %>
-      input :organization_ids,
-        title: 'Organization IDs',
-        description: 'Comma separated list of organization IDs that in sum contain all MUST SUPPORT elements',
-        default: 'hospital-int, aaaaaia-insurer, health-au, adv-hearing-care, bobrester-medical-center, services-au, dva-au, pharmacy, hospital-au'
   <% end %><% if needs_practitioner_id? %>
       input :practitioner_ids,
         title: 'Practitioner IDs',

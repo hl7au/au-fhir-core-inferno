@@ -78,8 +78,8 @@ read succeeds.
   
       test from: :au_core_v030_allergy_intolerance_patient_search_test
       test from: :au_core_v030_allergy_intolerance_patient_clinical_status_search_test
-      test from: :au_core_v030_allergy_intolerance_provenance_revinclude_search_test
       test from: :au_core_v030_allergy_intolerance_read_test
+      test from: :au_core_v030_allergy_intolerance_provenance_revinclude_search_test
       test from: :au_core_v030_allergy_intolerance_validation_test
       test from: :au_core_v030_allergy_intolerance_must_support_test
       test from: :au_core_v030_allergy_intolerance_reference_resolution_test

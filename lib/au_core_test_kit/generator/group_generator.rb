@@ -122,11 +122,7 @@ module AUCoreTestKit
       end
 
       def test_id_list
-        all_test_ids = group_metadata.tests.map { |test| test[:id] }
-        search_tests, others = all_test_ids.partition { |s| s.include?("search_test") }
-        read_tests, remaining = others.partition { |s| s.include?("_read_test") }
-        result = search_tests + read_tests + remaining
-        @test_id_list ||= result
+        @test_id_list ||= group_metadata.tests.map { |test| test[:id] }
       end
 
       def test_file_list
