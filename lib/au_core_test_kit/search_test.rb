@@ -469,14 +469,8 @@ module AUCoreTestKit
 
       if resources.empty?
         return search_param_names.each_with_object({}) do |name, params|
-          case resource_type
-          when "Practitioner"
-            value = practitioner_id_param?(name) ? patient_id : nil
-            params[name] = value
-          else
-            value = patient_id_param?(name) ? patient_id : nil
-            params[name] = value
-          end
+          value = patient_id_param?(name) ? patient_id : nil
+          params[name] = value
         end
       end
 
@@ -496,20 +490,8 @@ module AUCoreTestKit
     end
 
     def patient_id_list
-      case resource_type
-      when "Practitioner"
-        return [nil] unless respond_to? :practitioner_ids
-        practitioner_ids.split(',').map(&:strip)
-      else
-        return [nil] unless respond_to? :patient_ids
-        patient_ids.split(',').map(&:strip)
-      end
-    end
-
-    def practitioner_id_list
-      return [nil] unless respond_to? :practitioner_ids
-
-      practitioner_ids.split(',').map(&:strip)
+      return [nil] unless respond_to? :patient_ids
+      patient_ids.split(',').map(&:strip)
     end
 
     def patient_search?
@@ -518,10 +500,6 @@ module AUCoreTestKit
 
     def patient_id_param?(name)
       name == 'patient' || (name == '_id' && resource_type == 'Patient')
-    end
-
-    def practitioner_id_param?(name)
-      name == '_id' && resource_type == 'Practitioner'
     end
 
     def search_param_paths(name)
