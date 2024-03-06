@@ -476,9 +476,6 @@ module AUCoreTestKit
           when "Practitioner"
             value = practitioner_id_param?(name) ? patient_id : nil
             params[name] = value
-          when "HealthcareService"
-            value = healthcare_service_name_param?(name) ? patient_id : nil
-            params[name] = value
           else
             value = patient_id_param?(name) ? patient_id : nil
             params[name] = value
@@ -509,9 +506,6 @@ module AUCoreTestKit
       when "Practitioner"
         return [nil] unless respond_to? :practitioner_ids
         practitioner_ids.split(',').map(&:strip)
-      when "HealthcareService"
-        return [nil] unless respond_to? :healthcare_service_names
-        healthcare_service_names.split(',').map(&:strip)
       else
         return [nil] unless respond_to? :patient_ids
         patient_ids.split(',').map(&:strip)
@@ -530,12 +524,6 @@ module AUCoreTestKit
       practitioner_ids.split(',').map(&:strip)
     end
 
-    def healthcare_service_name_list
-      return [nil] unless respond_to? :healthcare_service_names
-
-      healthcare_service_names.split(',').map(&:strip)
-    end
-
     def patient_search?
       search_param_names.any? { |name| patient_id_param? name }
     end
@@ -550,10 +538,6 @@ module AUCoreTestKit
 
     def practitioner_id_param?(name)
       name == '_id' && resource_type == 'Practitioner'
-    end
-
-    def healthcare_service_name_param?(name)
-      name == 'name' && resource_type == 'HealthcareService'
     end
 
     def search_param_paths(name)
