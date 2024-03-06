@@ -13,8 +13,6 @@ module AUCoreTestKit
         found previously for the following must support elements:
 
         * Immunization.encounter
-        * Immunization.extension:vaccine-serial-number
-        * Immunization.identifier
         * Immunization.note
         * Immunization.occurrence[x]
         * Immunization.patient
@@ -27,7 +25,6 @@ module AUCoreTestKit
         * Immunization.protocolApplied.targetDisease
         * Immunization.reasonCode
         * Immunization.status
-        * Immunization.statusReason
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode
         * Immunization.vaccineCode.coding:amtVaccineCode

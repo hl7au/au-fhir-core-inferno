@@ -69,6 +69,7 @@ module AUCoreTestKit
       end
 
       def resource_collection_string
+        return 'all_scratch_resources' if ['Organization', 'Practitioner', 'HealthcareService'].include? resource_type
         if group_metadata.delayed? && resource_type != 'Provenance'
           "scratch.dig(:references, '#{resource_type}')"
         else

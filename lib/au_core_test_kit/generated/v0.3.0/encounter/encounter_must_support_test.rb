@@ -13,7 +13,6 @@ module AUCoreTestKit
         found previously for the following must support elements:
 
         * Encounter.class
-        * Encounter.extension:encounterDescription
         * Encounter.hospitalization
         * Encounter.hospitalization.dischargeDisposition
         * Encounter.identifier

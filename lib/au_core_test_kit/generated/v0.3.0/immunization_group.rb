@@ -81,8 +81,8 @@ read succeeds.
       test from: :au_core_v030_immunization_patient_search_test
       test from: :au_core_v030_immunization_patient_status_search_test
       test from: :au_core_v030_immunization_patient_date_search_test
-      test from: :au_core_v030_immunization_read_test
       test from: :au_core_v030_immunization_provenance_revinclude_search_test
+      test from: :au_core_v030_immunization_read_test
       test from: :au_core_v030_immunization_validation_test
       test from: :au_core_v030_immunization_must_support_test
       test from: :au_core_v030_immunization_reference_resolution_test

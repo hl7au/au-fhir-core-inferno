@@ -77,10 +77,10 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner', 'metadata.yml'), aliases: true))
       end
   
-      test from: :au_core_v030_practitioner_read_test
       test from: :au_core_v030_practitioner__id_search_test
       test from: :au_core_v030_practitioner_identifier_search_test
       test from: :au_core_v030_practitioner_name_search_test
+      test from: :au_core_v030_practitioner_read_test
       test from: :au_core_v030_practitioner_validation_test
       test from: :au_core_v030_practitioner_must_support_test
       test from: :au_core_v030_practitioner_reference_resolution_test

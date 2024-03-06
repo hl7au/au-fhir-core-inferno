@@ -75,6 +75,7 @@ module AUCoreTestKit
         end.compact
 
         profile_groups = resources_in_capability_statement.flat_map do |resource|
+          next if !resource.profile.present?
           GroupMetadataExtractor.new(resource, resource.profile, metadata, ig_resources).group_metadata
         end.compact
 

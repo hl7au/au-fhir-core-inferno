@@ -82,47 +82,8 @@ module AUCoreTestKit
       end
 
       def group_id_list
-        # This hash with resource positions is built on a subjective view and can be changed.
-        # Used for sorting resources in the test suite.
-        positions = {
-          "patient" => 1,
-          "observation" => 2,
-          "bmi" => 2,
-          "bodyweight" => 2,
-          "oxygensat" => 2,
-          "bloodpressure" => 2,
-          "bodyheight" => 2,
-          "diagnosticresult_path" => 2,
-          "lipid_result" => 2,
-          "headcircum" => 2,
-          "bodytemp" => 2,
-          "heartrate" => 2,
-          "waistcircum" => 2,
-          "vitalspanel" => 2,
-          "resprate" => 2,
-          "diagnosticresult_imag" => 2,
-          "diagnosticresult" => 2,
-          "sexassignedatbirth" => 2,
-          "smokingstatus" => 2,
-          "medication_request" => 3,
-          "encounter" => 4,
-          "condition" => 5,
-          "procedure" => 6,
-          "diagnostic_report" => 7,
-          "immunization" => 8,
-          "allergy_intolerance" => 9,
-          "medication_statement" => 11,
-          "practitioner" => 12,
-          "organization" => 13,
-          "healthcare_service" => 15,
-          "document_reference" => 17,
-          "service_request" => 18,
-          "provenance" => 19,
-          "related_person" => 20,
-        }
-
         @group_id_list ||=
-          groups.map(&:id).sort_by { |type| positions[type.split("au_core_#{ig_metadata.reformatted_version}_").last] }
+          groups.map(&:id)
       end
 
       def group_file_list

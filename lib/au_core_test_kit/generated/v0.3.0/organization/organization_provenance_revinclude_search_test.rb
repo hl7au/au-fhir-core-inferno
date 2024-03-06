@@ -6,11 +6,11 @@ module AUCoreTestKit
     class OrganizationProvenanceRevincludeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns Provenance resources from Organization search by address + revInclude:Provenance:target'
+      title 'Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target'
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
-        This test will perform a search by address + revInclude:Provenance:target and
+        This test will perform a search by _id + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %)
 
@@ -19,7 +19,7 @@ module AUCoreTestKit
       def properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Organization',
-        search_param_names: ['address']
+        search_param_names: ['_id']
         )
       end
 

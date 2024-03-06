@@ -469,8 +469,20 @@ module AUCoreTestKit
 
       if resources.empty?
         return search_param_names.each_with_object({}) do |name, params|
-          value = patient_id_param?(name) ? patient_id : nil
-          params[name] = value
+          case resource_type
+          when "Organization"
+            value = organization_id_param?(name) ? patient_id : nil
+            params[name] = value
+          when "Practitioner"
+            value = practitioner_id_param?(name) ? patient_id : nil
+            params[name] = value
+          when "HealthcareService"
+            value = healthcare_service_name_param?(name) ? patient_id : nil
+            params[name] = value
+          else
+            value = patient_id_param?(name) ? patient_id : nil
+            params[name] = value
+          end
         end
       end
 
@@ -490,9 +502,38 @@ module AUCoreTestKit
     end
 
     def patient_id_list
-      return [nil] unless respond_to? :patient_ids
+      case resource_type
+      when "Organization"
+        return [nil] unless respond_to? :organization_ids
+        organization_ids.split(',').map(&:strip)
+      when "Practitioner"
+        return [nil] unless respond_to? :practitioner_ids
+        practitioner_ids.split(',').map(&:strip)
+      when "HealthcareService"
+        return [nil] unless respond_to? :healthcare_service_names
+        healthcare_service_names.split(',').map(&:strip)
+      else
+        return [nil] unless respond_to? :patient_ids
+        patient_ids.split(',').map(&:strip)
+      end
+    end
 
-      patient_ids.split(',').map(&:strip)
+    def organization_id_list
+      return [nil] unless respond_to? :organization_ids
+
+      organization_ids.split(',').map(&:strip)
+    end
+
+    def practitioner_id_list
+      return [nil] unless respond_to? :practitioner_ids
+
+      practitioner_ids.split(',').map(&:strip)
+    end
+
+    def healthcare_service_name_list
+      return [nil] unless respond_to? :healthcare_service_names
+
+      healthcare_service_names.split(',').map(&:strip)
     end
 
     def patient_search?
@@ -501,6 +542,18 @@ module AUCoreTestKit
 
     def patient_id_param?(name)
       name == 'patient' || (name == '_id' && resource_type == 'Patient')
+    end
+
+    def organization_id_param?(name)
+      name == '_id' && resource_type == 'Organization'
+    end
+
+    def practitioner_id_param?(name)
+      name == '_id' && resource_type == 'Practitioner'
+    end
+
+    def healthcare_service_name_param?(name)
+      name == 'name' && resource_type == 'HealthcareService'
     end
 
     def search_param_paths(name)

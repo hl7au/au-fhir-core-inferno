@@ -1,8 +1,8 @@
 require_relative 'organization/organization_read_test'
+require_relative 'organization/organization_id_search_test'
 require_relative 'organization/organization_address_search_test'
 require_relative 'organization/organization_identifier_search_test'
 require_relative 'organization/organization_name_search_test'
-require_relative 'organization/organization_id_search_test'
 require_relative 'organization/organization_provenance_revinclude_search_test'
 require_relative 'organization/organization_validation_test'
 require_relative 'organization/organization_must_support_test'
@@ -79,12 +79,12 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'organization', 'metadata.yml'), aliases: true))
       end
   
-      test from: :au_core_v030_organization_read_test
+      test from: :au_core_v030_organization__id_search_test
       test from: :au_core_v030_organization_address_search_test
       test from: :au_core_v030_organization_identifier_search_test
       test from: :au_core_v030_organization_name_search_test
-      test from: :au_core_v030_organization__id_search_test
       test from: :au_core_v030_organization_provenance_revinclude_search_test
+      test from: :au_core_v030_organization_read_test
       test from: :au_core_v030_organization_validation_test
       test from: :au_core_v030_organization_must_support_test
     end

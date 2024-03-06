@@ -25,6 +25,7 @@ module AUCoreTestKit
         * Patient.gender
         * Patient.identifier
         * Patient.name
+        * Patient.name.use
         * Patient.telecom
       )
 

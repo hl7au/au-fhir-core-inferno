@@ -154,6 +154,7 @@
   :elements:
   - :path: identifier
   - :path: name
+  - :path: name.use
   - :path: telecom
   - :path: gender
   - :path: birthDate
@@ -170,6 +171,10 @@
 - Patient.link.other
 - Patient.link.type
 :bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/name-use
+  :path: name.use
 - :type: code
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/administrative-gender

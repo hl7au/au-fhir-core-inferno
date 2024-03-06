@@ -90,8 +90,8 @@ read succeeds.
       test from: :au_core_v030_bodytemp_patient_category_date_search_test
       test from: :au_core_v030_bodytemp_patient_category_status_search_test
       test from: :au_core_v030_bodytemp_patient_code_date_search_test
-      test from: :au_core_v030_bodytemp_read_test
       test from: :au_core_v030_bodytemp_provenance_revinclude_search_test
+      test from: :au_core_v030_bodytemp_read_test
       test from: :au_core_v030_bodytemp_validation_test
       test from: :au_core_v030_bodytemp_must_support_test
       test from: :au_core_v030_bodytemp_reference_resolution_test

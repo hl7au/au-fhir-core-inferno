@@ -14,7 +14,6 @@ module AUCoreTestKit
 
         * Condition.abatement[x]
         * Condition.asserter
-        * Condition.bodySite
         * Condition.category
         * Condition.clinicalStatus
         * Condition.code

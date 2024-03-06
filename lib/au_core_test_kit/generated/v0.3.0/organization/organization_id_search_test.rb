@@ -13,6 +13,14 @@ _id on the Organization resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
+Because this is the first search of the sequence, resources in the
+response will be used for subsequent tests.
+
+Additionally, this test will check that GET and POST search methods
+return the same number of results. Search by POST is required by the
+FHIR R4 specification, and these tests interpret search by GET as a
+requirement of AU Core v0.3.0.
+
 [AU Core Server CapabilityStatement](http://hl7.org/fhir/us/core//CapabilityStatement-us-core-server.html)
 
       )
@@ -20,10 +28,17 @@ none are returned, the test is skipped.
       id :au_core_v030_organization__id_search_test
       optional
   
+      input :organization_ids,
+        title: 'Organization IDs',
+        description: 'Comma separated list of organization IDs that in sum contain all MUST SUPPORT elements',
+        default: 'hospital-int, aaaaaia-insurer, health-au, adv-hearing-care, bobrester-medical-center, services-au, dva-au, pharmacy, hospital-au'
+  
       def self.properties
         @properties ||= SearchTestProperties.new(
-          resource_type: 'Organization',
-        search_param_names: ['_id']
+          first_search: true,
+        resource_type: 'Organization',
+        search_param_names: ['_id'],
+        test_post_search: true
         )
       end
 

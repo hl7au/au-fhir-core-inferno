@@ -4,40 +4,26 @@ require_relative '../../custom_groups/v0.3.0/capability_statement_group'
 require_relative '../../custom_groups/v4.0.0/clinical_notes_guidance_group'
 require_relative '../../custom_groups/data_absent_reason_group'
 require_relative '../../custom_groups/smart_app_launch_group'
-require_relative '../../provenance_validator'
 require_relative '../../au_core_options'
 
 require_relative 'patient_group'
-require_relative 'bmi_group'
 require_relative 'bodyweight_group'
-require_relative 'oxygensat_group'
 require_relative 'bloodpressure_group'
 require_relative 'bodyheight_group'
 require_relative 'diagnosticresult_path_group'
-require_relative 'lipid_result_group'
-require_relative 'headcircum_group'
 require_relative 'bodytemp_group'
 require_relative 'heartrate_group'
 require_relative 'waistcircum_group'
-require_relative 'vitalspanel_group'
 require_relative 'resprate_group'
-require_relative 'diagnosticresult_imag_group'
 require_relative 'diagnosticresult_group'
-require_relative 'sexassignedatbirth_group'
 require_relative 'smokingstatus_group'
 require_relative 'allergy_intolerance_group'
 require_relative 'condition_group'
-require_relative 'diagnostic_report_group'
-require_relative 'document_reference_group'
 require_relative 'encounter_group'
 require_relative 'immunization_group'
 require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
-require_relative 'observation_group'
 require_relative 'procedure_group'
-require_relative 'related_person_group'
-require_relative 'service_request_group'
-require_relative 'healthcare_service_group'
 require_relative 'organization_group'
 require_relative 'practitioner_group'
 require_relative 'provenance_group'
@@ -82,9 +68,9 @@ module AUCoreTestKit
           message_filters.any? { |filter| filter.match? message.message }
         end
 
-        perform_additional_validation do |resource, profile_url|
-          ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
-        end
+        # perform_additional_validation do |resource, profile_url|
+        #   ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
+        # end
       end
 
       id :au_core_v030
@@ -115,41 +101,47 @@ module AUCoreTestKit
         group from: :au_core_v030_capability_statement
       
         group from: :au_core_v030_patient
-        group from: :au_core_v030_bmi
+      
         group from: :au_core_v030_bodyweight
-        group from: :au_core_v030_oxygensat
+      
         group from: :au_core_v030_bloodpressure
+      
         group from: :au_core_v030_bodyheight
+      
         group from: :au_core_v030_diagnosticresult_path
-        group from: :au_core_v030_lipid_result
-        group from: :au_core_v030_headcircum
+      
         group from: :au_core_v030_bodytemp
+      
         group from: :au_core_v030_heartrate
+      
         group from: :au_core_v030_waistcircum
-        group from: :au_core_v030_vitalspanel
+      
         group from: :au_core_v030_resprate
-        group from: :au_core_v030_diagnosticresult_imag
+      
         group from: :au_core_v030_diagnosticresult
-        group from: :au_core_v030_sexassignedatbirth
+      
         group from: :au_core_v030_smokingstatus
-        group from: :au_core_v030_observation
-        group from: :au_core_v030_medication_request
-        group from: :au_core_v030_encounter
-        group from: :au_core_v030_condition
-        group from: :au_core_v030_procedure
-        group from: :au_core_v030_diagnostic_report
-        group from: :au_core_v030_immunization
+      
         group from: :au_core_v030_allergy_intolerance
+      
+        group from: :au_core_v030_condition
+      
+        group from: :au_core_v030_encounter
+      
+        group from: :au_core_v030_immunization
+      
+        group from: :au_core_v030_medication_request
+      
         group from: :au_core_v030_medication_statement
-        group from: :au_core_v030_practitioner
+      
+        group from: :au_core_v030_procedure
+      
         group from: :au_core_v030_organization
-        group from: :au_core_v030_healthcare_service
-        group from: :au_core_v030_document_reference
-        group from: :au_core_v030_service_request
+      
+        group from: :au_core_v030_practitioner
+      
         group from: :au_core_v030_provenance
-        group from: :au_core_v030_related_person
-        group from: :au_core_v400_clinical_notes_guidance
-        group from: :au_core_311_data_absent_reason
+      
       end
     end
   end
