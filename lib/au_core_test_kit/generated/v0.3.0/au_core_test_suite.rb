@@ -83,10 +83,14 @@ module AUCoreTestKit
         title: 'OAuth Credentials',
         type: :oauth_credentials,
         optional: true
+      input :basic_auth_token,
+        title: 'Basic Auth Token',
+        optional: true
 
       fhir_client do
         url :url
         oauth_credentials :smart_credentials
+        headers basic_auth_token ? {'Authorization' => "Basic #{basic_auth_token}"} : {}
       end
 
       
