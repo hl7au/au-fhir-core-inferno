@@ -11,15 +11,20 @@ Please try dev version here http://au-inferno.beda.software/
 ```
 2. Execute ruby script
 ```bash
-bundle exec rake au_core:generate
+make generate
 ```
 
 ## Run inferno
 1. Run setup script
 ```bash
-./setup.sh
+make setup
 ```
 2. Run
 ```bash
-./run.sh
+make run
+```
+
+## Run production
+```bash
+make run-production
 ```
