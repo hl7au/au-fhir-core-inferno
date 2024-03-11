@@ -75,7 +75,8 @@ module AUCoreTestKit
 
       save_delayed_references(provenance_resources, 'Provenance')
 
-      skip_if provenance_resources.empty?, no_resources_skip_message('Provenance')
+      # Note: https://github.com/hl7au/au-fhir-core-inferno/issues/8
+      # skip_if provenance_resources.empty?, no_resources_skip_message('Provenance')
     end
 
     def run_search_test
