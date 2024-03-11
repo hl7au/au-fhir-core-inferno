@@ -8,7 +8,7 @@ Documented changes do not include:
 2. Renamed files;
 3. Renamed content inside of files.
 
-## 1/11
+## 1/12
 **File:** [generator.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb)
 
 ### Adding the MDSummaryGenerator and using it in the generator workflow.
@@ -19,7 +19,7 @@ Documented changes do not include:
 1. [Insert generator into the generator pipeline at the end](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb#L46)
 2. [Add a method to run MDSummaryGenerator](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb#L99)
 
-## 2/11
+## 2/12
 **File:** [group_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/group_metadata_extractor.rb)
 ### Updated the "ALL_VERSION_CATEGORY_FIRST_PROFILES" constant
 
@@ -67,7 +67,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/group_metadata_extractor.rb#L174
 
-## 3/11
+## 3/12
 **File:** [ig_loader.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_loader.rb)
 
 ### Updated the load_ig method
@@ -78,7 +78,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_loader.rb#L53
 
-## 4/11
+## 4/12
 **File:** [ig_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_metadata_extractor.rb)
 
 ### Updated the add_metadata_from_resources method
@@ -89,7 +89,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_metadata_extractor.rb#L63
 
-## 5/11
+## 5/12
 **File:** [ig_resources.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_resources.rb)
 
 ### Updated the search_param_by_resource_and_name method
@@ -100,7 +100,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_resources.rb#L93
 
-## 6/11
+## 6/12
 **File:** [must_support_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb)
 
 ### Updated the handle_special_cases method by adding new remove_observation_method_attribute method
@@ -127,7 +127,7 @@ Documented changes do not include:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb#L337
 2. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb#L353
 
-## 7/11
+## 7/12
 **File**: [must_support_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/must_support_test.rb)
 
 ### Updated the missing_extensions method
@@ -136,7 +136,7 @@ Documented changes do not include:
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/must_support_test.rb#L87
 
-## 8/11
+## 8/12
 **File**: [naming.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/naming.rb)
 
 ### Updated naming constants
@@ -147,7 +147,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/naming.rb#L4
 
-## 9/11
+## 9/12
 **File**: [reference_resolution_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/reference_resolution_test.rb)
 
 ### Add a hardcoded profile with the version for the reference resolution
@@ -156,7 +156,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/reference_resolution_test.rb#L162
 
-## 10/11
+## 10/12
 **File**: [special_cases.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/special_cases.rb)
 
 ### Add RelatedPerson to constant called RESOURCES_TO_EXCLUDE
@@ -165,7 +165,7 @@ Documented changes do not include:
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/special_cases.rb#L8
 
-## 11/11
+## 11/12
 **File**: [search_definition_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb)
 
 ### full_paths method refactoring
@@ -189,3 +189,13 @@ Documented changes do not include:
 
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb#L182
+
+## 12/12
+**File**: [search_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/search_test.rb)
+
+### run_provenance_revinclude_search_test method update
+
+**Reason**: We need the ability to search for provenance, even though the existence of the resource is not required.
+
+**Commit message:**
+1. https://github.com/hl7au/au-fhir-core-inferno/commit/2077b3e9c16a3562add7d56640c506df00893154
