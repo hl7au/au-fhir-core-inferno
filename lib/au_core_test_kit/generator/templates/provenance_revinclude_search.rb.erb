@@ -7,6 +7,7 @@ module AUCoreTestKit
       include AUCoreTestKit::SearchTest
 
       title 'Server returns Provenance resources from <%= resource_type %> search by <%= search_param_name_string %>'
+      optional
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 

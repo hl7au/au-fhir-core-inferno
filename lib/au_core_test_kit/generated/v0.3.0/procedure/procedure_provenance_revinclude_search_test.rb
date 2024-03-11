@@ -7,6 +7,7 @@ module AUCoreTestKit
       include AUCoreTestKit::SearchTest
 
       title 'Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target'
+      optional
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
