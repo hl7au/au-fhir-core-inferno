@@ -18,4 +18,4 @@ jobs:
       - run: docker run --rm --privileged tonistiigi/binfmt --install all
       - run: >-
           docker buildx build --platform linux/arm64,linux/amd64
-          --push --tag ${{ env.IMAGE }}:latest .
+          --push --tag ${{ env.IMAGE }}:latest --tag ${{ env.IMAGE }}:$GITHUB_SHA .
