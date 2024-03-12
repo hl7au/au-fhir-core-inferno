@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fhir-validator
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: inferno-fhir-validator
+  template:
+    metadata:
+      labels:
+        workload: inferno-fhir-validator
+    spec:
+      containers:
+      - name: inferno-fhir-validator
+        image: infernocommunity/fhir-validator-app:latest
+        imagePullPolicy: Always
+        env:
+        - name: EXTERNAL_VALIDATOR_URL
+          value: ${format("%svalidatorapi", base_url)}
+        - name: VALIDATOR_BASE_PATH
+          value: /validator
+        ports:
+        - containerPort: 80

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validator
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: inferno-validator
+  template:
+    metadata:
+      labels:
+        workload: inferno-validator
+    spec:
+      containers:
+      - name: inferno-validator
+        image: infernocommunity/fhir-validator-service:latest
+        imagePullPolicy: Always
+        env:
+        - name: TX_SERVER_URL
+          value: ${terminology_server}
+        ports:
+        - containerPort: 4567

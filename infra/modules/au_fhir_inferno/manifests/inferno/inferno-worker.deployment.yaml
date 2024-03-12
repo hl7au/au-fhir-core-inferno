@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-worker
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: inferno-worker
+  template:
+    metadata:
+      labels:
+        workload: inferno-worker
+    spec:
+      containers:
+      - name: inferno-worker
+        image: ${inferno_image}
+        command: ["bundle", "exec", "sidekiq", "-r", "./worker.rb"]
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_URL
+          value: redis://inferno-redis:6379
+        - name: RAILS_ENV
+          value: production
+        envFrom:
+        - secretRef:
+            name: postgres-database
+        - configMapRef:
+            name: postgres

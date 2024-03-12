@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-postgres
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: inferno-postgres
+  template:
+    metadata:
+      labels:
+        workload: inferno-postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:16.2-bullseye
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5432
+        envFrom:
+          - secretRef:
+              name: postgres-database
+        volumeMounts:
+          - mountPath: "/data"
+            name: postgres-data
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-data
