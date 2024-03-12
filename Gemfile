@@ -7,3 +7,5 @@ gemspec
 group :development, :test do
   gem 'debug'
 end
+
+gem "pg", "~> 1.5"
