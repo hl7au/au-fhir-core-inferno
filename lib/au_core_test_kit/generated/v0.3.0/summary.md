@@ -1,12 +1,8 @@
-# Capabilities by Resource/Profile
+# 1 AU Core FHIR API
 
 
-# 1 Patient
+# 1.1 Patient
 
-## Profiles
-
-
-### [Patient ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient)
 #### Background
 
 The AU Core Patient sequence verifies that the system under test is
@@ -64,8 +60,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -77,7 +71,7 @@ read succeeds.
 ## Test scenarios
 
 
-### 1.1 Search: _id (SHALL)
+### 1.1.1 Search: _id (SHALL)
 
 **HTTP GET**
 
@@ -94,7 +88,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?_id={_id}
 ```
 
-### 1.2 Search: family (SHOULD)
+### 1.1.2 Search: family (SHOULD)
 
 **HTTP GET**
 
@@ -111,7 +105,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}
 ```
 
-### 1.3 Search: identifier (SHALL)
+### 1.1.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -128,7 +122,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?identifier={identifier}
 ```
 
-### 1.4 Search: name (SHOULD)
+### 1.1.4 Search: name (SHOULD)
 
 **HTTP GET**
 
@@ -145,7 +139,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?name={name}
 ```
 
-### 1.5 Search: birthdate+family (SHOULD)
+### 1.1.5 Search: birthdate+family (SHOULD)
 
 **HTTP GET**
 
@@ -162,7 +156,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&family={family}
 ```
 
-### 1.6 Search: birthdate+name (SHOULD)
+### 1.1.6 Search: birthdate+name (SHOULD)
 
 **HTTP GET**
 
@@ -179,7 +173,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&name={name}
 ```
 
-### 1.7 Search: family+gender (SHOULD)
+### 1.1.7 Search: family+gender (SHOULD)
 
 **HTTP GET**
 
@@ -196,7 +190,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}&gender={gender}
 ```
 
-### 1.8 Search: gender+name (SHOULD)
+### 1.1.8 Search: gender+name (SHOULD)
 
 **HTTP GET**
 
@@ -214,12 +208,8 @@ Accept: application/fhir+json
 ```
 
 
-# 2 Observation
+# 1.2 Observation Body Weight
 
-## Profiles
-
-
-### [Observation Body Weight ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight)
 #### Background
 
 The AU Core Observation Body Weight sequence verifies that the system under test is
@@ -280,7 +270,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Blood Pressure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.2.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.2.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.2.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.2.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.2.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.2.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.3 Observation Blood Pressure
+
 #### Background
 
 The AU Core Observation Blood Pressure sequence verifies that the system under test is
@@ -341,7 +446,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Body Height ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.3.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.3.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.3.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.3.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.3.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.3.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.4 Observation Body Height
+
 #### Background
 
 The AU Core Observation Body Height sequence verifies that the system under test is
@@ -402,7 +622,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Pathology Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.4.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.4.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.4.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.4.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.4.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.4.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.5 Observation Pathology Result
+
 #### Background
 
 The AU Core Observation Pathology Result sequence verifies that the system under test is
@@ -463,7 +798,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Body Temperature ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.5.1 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.5.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.5.3 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.5.4 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.5.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.5.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.6 Observation Body Temperature
+
 #### Background
 
 The AU Core Observation Body Temperature sequence verifies that the system under test is
@@ -524,7 +974,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Heart Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.6.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.6.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.6.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.6.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.6.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.6.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.7 Observation Heart Rate
+
 #### Background
 
 The AU Core Observation Heart Rate sequence verifies that the system under test is
@@ -585,7 +1150,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Waist Circumference ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.7.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.7.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.7.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.7.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.7.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.7.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.8 Observation Waist Circumference
+
 #### Background
 
 The AU Core Observation Waist Circumference sequence verifies that the system under test is
@@ -646,7 +1326,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Respiration Rate ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.8.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.8.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.8.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.8.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.8.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.8.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.9 Observation Respiration Rate
+
 #### Background
 
 The AU Core Observation Respiration Rate sequence verifies that the system under test is
@@ -707,7 +1502,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Diagnostic Result ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.9.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.9.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.9.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.9.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.9.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.9.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.10 Observation Diagnostic Result
+
 #### Background
 
 The AU Core Observation Diagnostic Result sequence verifies that the system under test is
@@ -768,7 +1678,122 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-### [Observation Smoking Status ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus)
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.10.1 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.10.2 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.10.3 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.10.4 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.10.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.10.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+# 1.11 Observation Smoking Status
+
 #### Background
 
 The AU Core Observation Smoking Status sequence verifies that the system under test is
@@ -829,8 +1854,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -842,7 +1865,7 @@ read succeeds.
 ## Test scenarios
 
 
-### 2.1 Search: patient+code (SHALL)
+### 1.11.1 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -859,7 +1882,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 2.2 Search: patient (SHALL)
+### 1.11.2 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -876,7 +1899,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 2.3 Search: patient+category (SHALL)
+### 1.11.3 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -893,7 +1916,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 2.4 Search: patient+category+date (SHALL)
+### 1.11.4 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -910,7 +1933,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 2.5 Search: patient+category+status (SHALL)
+### 1.11.5 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -927,7 +1950,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 2.6 Search: patient+code+date (SHOULD)
+### 1.11.6 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -944,12 +1967,82 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}&date={date}
 ```
 
-### 2.1 Search: patient+category (SHALL)
+
+# 1.12 AllergyIntolerance
+
+#### Background
+
+The AU Core AllergyIntolerance sequence verifies that the system under test is
+able to provide correct responses for AllergyIntolerance queries. These queries
+must contain resources conforming to the AU Core AllergyIntolerance as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+AllergyIntolerance resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
+
+
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the AllergyIntolerance resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.12.1 Search: patient (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /AllergyIntolerance?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -958,15 +2051,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/AllergyIntolerance?patient={patient}
 ```
 
-### 2.3 Search: patient+category+date (SHALL)
+### 1.12.2 Search: patient+clinical-status (SHOULD)
 
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /AllergyIntolerance?patient={patient}&clinical-status={clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -975,15 +2068,87 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/AllergyIntolerance?patient={patient}&clinical-status={clinical-status}
 ```
 
-### 2.4 Search: patient+code (SHALL)
+
+# 1.13 Condition
+
+#### Background
+
+The AU Core Condition sequence verifies that the system under test is
+able to provide correct responses for Condition queries. These queries
+must contain resources conforming to the AU Core Condition as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient
+* patient + category
+* patient + clinical-status
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+Condition resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
+
+
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the Condition resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.13.1 Search: patient (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Condition?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -992,15 +2157,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Condition?patient={patient}
 ```
 
-### 2.1 Search: patient (SHALL)
+### 1.13.2 Search: patient+category (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient} HTTP/1.1
+GET /Condition?patient={patient}&category={category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1009,15 +2174,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}
+{test endpoint}/Condition?patient={patient}&category={category}
 ```
 
-### 2.2 Search: patient+category (SHALL)
+### 1.13.3 Search: patient+clinical-status (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Condition?patient={patient}&clinical-status={clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1026,16 +2191,375 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
+```
+
+### 1.13.4 Search: patient+category+clinical-status (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient={patient}&category={category}&clinical-status={clinical-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
+```
+
+### 1.13.5 Search: patient+code (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient={patient}&code={code}
+```
+
+### 1.13.6 Search: patient+onset-date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient={patient}&onset-date={onset-date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient={patient}&onset-date={onset-date}
 ```
 
 
-# 3 MedicationRequest
+# 1.14 Encounter
 
-## Profiles
+#### Background
+
+The AU Core Encounter sequence verifies that the system under test is
+able to provide correct responses for Encounter queries. These queries
+must contain resources conforming to the AU Core Encounter as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient
+* date + patient
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+Encounter resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
 
 
-### [MedicationRequest ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest)
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the Encounter resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.14.1 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}
+```
+
+### 1.14.2 Search: date+patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?date={date}&patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?date={date}&patient={patient}
+```
+
+### 1.14.3 Search: class+patient (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?class={class}&patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?class={class}&patient={patient}
+```
+
+### 1.14.4 Search: patient+discharge-disposition (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient}&discharge-disposition={discharge-disposition} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
+```
+
+### 1.14.5 Search: patient+location (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient}&location={location} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}&location={location}
+```
+
+### 1.14.6 Search: patient+status (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}&status={status}
+```
+
+### 1.14.7 Search: patient+type (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient={patient}&type={type} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient={patient}&type={type}
+```
+
+
+# 1.15 Immunization
+
+#### Background
+
+The AU Core Immunization sequence verifies that the system under test is
+able to provide correct responses for Immunization queries. These queries
+must contain resources conforming to the AU Core Immunization as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient
+* patient + status
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+Immunization resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
+
+
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the Immunization resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+## Test scenarios
+
+
+### 1.15.1 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient={patient}
+```
+
+### 1.15.2 Search: patient+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient={patient}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient={patient}&status={status}
+```
+
+### 1.15.3 Search: patient+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient={patient}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient={patient}&date={date}
+```
+
+
+# 1.16 MedicationRequest
+
 #### Background
 
 The AU Core MedicationRequest sequence verifies that the system under test is
@@ -1097,8 +2621,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -1110,7 +2632,7 @@ read succeeds.
 ## Test scenarios
 
 
-### 3.1 Search: patient (SHALL)
+### 1.16.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1127,7 +2649,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}
 ```
 
-### 3.2 Search: _id (SHALL)
+### 1.16.2 Search: _id (SHALL)
 
 **HTTP GET**
 
@@ -1144,7 +2666,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?_id={_id}
 ```
 
-### 3.3 Search: identifier (SHALL)
+### 1.16.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -1161,7 +2683,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?identifier={identifier}
 ```
 
-### 3.4 Search: patient+intent (SHALL)
+### 1.16.4 Search: patient+intent (SHALL)
 
 **HTTP GET**
 
@@ -1178,7 +2700,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}
 ```
 
-### 3.5 Search: patient+intent+status (SHALL)
+### 1.16.5 Search: patient+intent+status (SHALL)
 
 **HTTP GET**
 
@@ -1195,7 +2717,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
 ```
 
-### 3.6 Search: patient+intent+authoredon (SHALL)
+### 1.16.6 Search: patient+intent+authoredon (SHALL)
 
 **HTTP GET**
 
@@ -1213,824 +2735,8 @@ Accept: application/fhir+json
 ```
 
 
-# 4 Encounter
+# 1.17 MedicationStatement
 
-## Profiles
-
-
-### [Encounter ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter)
-#### Background
-
-The AU Core Encounter sequence verifies that the system under test is
-able to provide correct responses for Encounter queries. These queries
-must contain resources conforming to the AU Core Encounter as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient
-* date + patient
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Encounter resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Encounter resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 4.1 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}
-```
-
-### 4.2 Search: date+patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?date={date}&patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?date={date}&patient={patient}
-```
-
-### 4.3 Search: class+patient (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?class={class}&patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?class={class}&patient={patient}
-```
-
-### 4.4 Search: patient+discharge-disposition (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient}&discharge-disposition={discharge-disposition} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
-```
-
-### 4.5 Search: patient+location (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient}&location={location} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}&location={location}
-```
-
-### 4.6 Search: patient+status (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient}&status={status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}&status={status}
-```
-
-### 4.7 Search: patient+type (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient}&type={type} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}&type={type}
-```
-
-
-# 5 Condition
-
-## Profiles
-
-
-### [Condition ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition)
-#### Background
-
-The AU Core Condition sequence verifies that the system under test is
-able to provide correct responses for Condition queries. These queries
-must contain resources conforming to the AU Core Condition as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient
-* patient + category
-* patient + clinical-status
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Condition resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Condition resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 5.1 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}
-```
-
-### 5.2 Search: patient+category (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient}&category={category} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}&category={category}
-```
-
-### 5.3 Search: patient+clinical-status (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient}&clinical-status={clinical-status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
-```
-
-### 5.4 Search: patient+category+clinical-status (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient}&category={category}&clinical-status={clinical-status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
-```
-
-### 5.5 Search: patient+code (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient}&code={code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}&code={code}
-```
-
-### 5.6 Search: patient+onset-date (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient}&onset-date={onset-date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}&onset-date={onset-date}
-```
-
-
-# 6 Procedure
-
-## Profiles
-
-
-### [Procedure ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure)
-#### Background
-
-The AU Core Procedure sequence verifies that the system under test is
-able to provide correct responses for Procedure queries. These queries
-must contain resources conforming to the AU Core Procedure as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient
-* patient + date
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Procedure resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Procedure resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 6.1 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Procedure?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Procedure?patient={patient}
-```
-
-### 6.2 Search: patient+date (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Procedure?patient={patient}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Procedure?patient={patient}&date={date}
-```
-
-### 6.3 Search: patient+code+date (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Procedure?patient={patient}&code={code}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Procedure?patient={patient}&code={code}&date={date}
-```
-
-### 6.4 Search: patient+status (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Procedure?patient={patient}&status={status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Procedure?patient={patient}&status={status}
-```
-
-
-# 8 Immunization
-
-## Profiles
-
-
-### [Immunization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization)
-#### Background
-
-The AU Core Immunization sequence verifies that the system under test is
-able to provide correct responses for Immunization queries. These queries
-must contain resources conforming to the AU Core Immunization as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient
-* patient + status
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Immunization resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Immunization resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 8.1 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Immunization?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Immunization?patient={patient}
-```
-
-### 8.2 Search: patient+status (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Immunization?patient={patient}&status={status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Immunization?patient={patient}&status={status}
-```
-
-### 8.3 Search: patient+date (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Immunization?patient={patient}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Immunization?patient={patient}&date={date}
-```
-
-
-# 9 AllergyIntolerance
-
-## Profiles
-
-
-### [AllergyIntolerance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance)
-#### Background
-
-The AU Core AllergyIntolerance sequence verifies that the system under test is
-able to provide correct responses for AllergyIntolerance queries. These queries
-must contain resources conforming to the AU Core AllergyIntolerance as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-AllergyIntolerance resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the AllergyIntolerance resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 9.1 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /AllergyIntolerance?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/AllergyIntolerance?patient={patient}
-```
-
-### 9.2 Search: patient+clinical-status (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /AllergyIntolerance?patient={patient}&clinical-status={clinical-status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/AllergyIntolerance?patient={patient}&clinical-status={clinical-status}
-```
-
-
-# 10 Medication
-
-## Profiles
-
-
-### [Medication ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication)
-#### Background
-
-The AU Core Medication sequence verifies that the system under test is
-able to provide correct responses for Medication queries. These queries
-must contain resources conforming to the AU Core Medication as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Medication resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (MAY)
-
-
-## Test scenarios
-
-
-
-# 11 MedicationStatement
-
-## Profiles
-
-
-### [MedicationStatement ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement)
 #### Background
 
 The AU Core MedicationStatement sequence verifies that the system under test is
@@ -2088,8 +2794,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -2101,7 +2805,7 @@ read succeeds.
 ## Test scenarios
 
 
-### 11.1 Search: patient (SHALL)
+### 1.17.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2118,7 +2822,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}
 ```
 
-### 11.2 Search: patient+status (SHALL)
+### 1.17.2 Search: patient+status (SHALL)
 
 **HTTP GET**
 
@@ -2135,7 +2839,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}&status={status}
 ```
 
-### 11.3 Search: patient+effective (SHOULD)
+### 1.17.3 Search: patient+effective (SHOULD)
 
 **HTTP GET**
 
@@ -2153,17 +2857,13 @@ Accept: application/fhir+json
 ```
 
 
-# 12 Practitioner
+# 1.18 Procedure
 
-## Profiles
-
-
-### [Practitioner ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner)
 #### Background
 
-The AU Core Practitioner sequence verifies that the system under test is
-able to provide correct responses for Practitioner queries. These queries
-must contain resources conforming to the AU Core Practitioner as
+The AU Core Procedure sequence verifies that the system under test is
+able to provide correct responses for Procedure queries. These queries
+must contain resources conforming to the AU Core Procedure as
 specified in the AU Core v0.3.0 Implementation Guide.
 
 #### Testing Methodology
@@ -2172,8 +2872,8 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* _id
-* identifier
+* patient
+* patient + date
 
 ###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
@@ -2185,7 +2885,7 @@ search. If a value cannot be found this way, the search is skipped.
 
 ###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
-Practitioner resources and save them for subsequent tests. Each of
+Procedure resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
 parameters in accordance with [FHIR search
 guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
@@ -2197,12 +2897,12 @@ patient.
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
-through the Practitioner resources found in the first test for these
+through the Procedure resources found in the first test for these
 elements.
 
 ##### Profile Validation
 Each resource returned from the first search is expected to conform to
-the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner). Each element is checked against
+the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure). Each element is checked against
 teminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -2216,8 +2916,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -2229,12 +2927,12 @@ read succeeds.
 ## Test scenarios
 
 
-### 12.1 Search: _id (SHALL)
+### 1.18.1 Search: patient (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Practitioner?_id={_id} HTTP/1.1
+GET /Procedure?patient={patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2243,15 +2941,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Practitioner?_id={_id}
+{test endpoint}/Procedure?patient={patient}
 ```
 
-### 12.2 Search: identifier (SHALL)
+### 1.18.2 Search: patient+date (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /Practitioner?identifier={identifier} HTTP/1.1
+GET /Procedure?patient={patient}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2260,15 +2958,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Practitioner?identifier={identifier}
+{test endpoint}/Procedure?patient={patient}&date={date}
 ```
 
-### 12.3 Search: name (SHOULD)
+### 1.18.3 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
 ```bash
-GET /Practitioner?name={name} HTTP/1.1
+GET /Procedure?patient={patient}&code={code}&date={date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2277,16 +2975,29 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Practitioner?name={name}
+{test endpoint}/Procedure?patient={patient}&code={code}&date={date}
+```
+
+### 1.18.4 Search: patient+status (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Procedure?patient={patient}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?patient={patient}&status={status}
 ```
 
 
-# 13 Organization
+# 1.19 Organization
 
-## Profiles
-
-
-### [Organization ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization)
 #### Background
 
 The AU Core Organization sequence verifies that the system under test is
@@ -2345,8 +3056,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -2358,7 +3067,7 @@ read succeeds.
 ## Test scenarios
 
 
-### 13.1 Search: _id (SHOULD)
+### 1.19.1 Search: _id (SHOULD)
 
 **HTTP GET**
 
@@ -2375,7 +3084,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?_id={_id}
 ```
 
-### 13.2 Search: address (SHALL)
+### 1.19.2 Search: address (SHALL)
 
 **HTTP GET**
 
@@ -2392,7 +3101,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?address={address}
 ```
 
-### 13.3 Search: identifier (SHALL)
+### 1.19.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -2409,7 +3118,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?identifier={identifier}
 ```
 
-### 13.4 Search: name (SHALL)
+### 1.19.4 Search: name (SHALL)
 
 **HTTP GET**
 
@@ -2427,17 +3136,13 @@ Accept: application/fhir+json
 ```
 
 
-# 14 PractitionerRole
+# 1.20 Practitioner
 
-## Profiles
-
-
-### [PractitionerRole ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole)
 #### Background
 
-The AU Core PractitionerRole sequence verifies that the system under test is
-able to provide correct responses for PractitionerRole queries. These queries
-must contain resources conforming to the AU Core PractitionerRole as
+The AU Core Practitioner sequence verifies that the system under test is
+able to provide correct responses for Practitioner queries. These queries
+must contain resources conforming to the AU Core Practitioner as
 specified in the AU Core v0.3.0 Implementation Guide.
 
 #### Testing Methodology
@@ -2448,7 +3153,6 @@ following parameters:
 
 * _id
 * identifier
-* practitioner
 
 ###### Search Parameters
 The first search uses the selected patient(s) from the prior launch
@@ -2460,7 +3164,7 @@ search. If a value cannot be found this way, the search is skipped.
 
 ###### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
-PractitionerRole resources and save them for subsequent tests. Each of
+Practitioner resources and save them for subsequent tests. Each of
 these resources is then checked to see if it matches the searched
 parameters in accordance with [FHIR search
 guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
@@ -2472,12 +3176,12 @@ patient.
 Each profile contains elements marked as "must support". This test
 sequence expects to see each of these elements at least once. If at
 least one cannot be found, the test will fail. The test will look
-through the PractitionerRole resources found in the first test for these
+through the Practitioner resources found in the first test for these
 elements.
 
 ##### Profile Validation
 Each resource returned from the first search is expected to conform to
-the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole). Each element is checked against
+the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner). Each element is checked against
 teminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -2491,8 +3195,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-
-
 ## Interactions
 
 
@@ -2504,12 +3206,12 @@ read succeeds.
 ## Test scenarios
 
 
-### 14.1 Search: _id (SHALL)
+### 1.20.1 Search: _id (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /PractitionerRole?_id={_id} HTTP/1.1
+GET /Practitioner?_id={_id} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2518,15 +3220,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/PractitionerRole?_id={_id}
+{test endpoint}/Practitioner?_id={_id}
 ```
 
-### 14.2 Search: identifier (SHALL)
+### 1.20.2 Search: identifier (SHALL)
 
 **HTTP GET**
 
 ```bash
-GET /PractitionerRole?identifier={identifier} HTTP/1.1
+GET /Practitioner?identifier={identifier} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2535,15 +3237,15 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/PractitionerRole?identifier={identifier}
+{test endpoint}/Practitioner?identifier={identifier}
 ```
 
-### 14.3 Search: practitioner (SHALL)
+### 1.20.3 Search: name (SHOULD)
 
 **HTTP GET**
 
 ```bash
-GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
+GET /Practitioner?name={name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2552,195 +3254,12 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/PractitionerRole?practitioner={practitioner}
-```
-
-### 14.4 Search: specialty (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /PractitionerRole?specialty={specialty} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/PractitionerRole?specialty={specialty}
+{test endpoint}/Practitioner?name={name}
 ```
 
 
-# 16 Location
+# 1.21 Provenance
 
-## Profiles
-
-
-### [Location ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location)
-#### Background
-
-The AU Core Location sequence verifies that the system under test is
-able to provide correct responses for Location queries. These queries
-must contain resources conforming to the AU Core Location as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* address
-* name
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Location resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Location resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Location](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
-
-
-
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 16.1 Search: address (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Location?address={address} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?address={address}
-```
-
-### 16.2 Search: name (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Location?name={name} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?name={name}
-```
-
-### 16.3 Search: address-city (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Location?address-city={address-city} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?address-city={address-city}
-```
-
-### 16.4 Search: address-state (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Location?address-state={address-state} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?address-state={address-state}
-```
-
-### 16.5 Search: address-postalcode (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Location?address-postalcode={address-postalcode} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?address-postalcode={address-postalcode}
-```
-
-
-# 19 Provenance
-
-## Profiles
-
-
-### [Provenance ](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance)
 #### Background
 
 The AU Core Provenance sequence verifies that the system under test is
@@ -2772,8 +3291,6 @@ At least one instance of each external reference in elements marked as
 "must support" within the resources provided by the system must resolve.
 The test will attempt to read each reference found and will fail if no
 read succeeds.
-
-
 
 
 ## Interactions

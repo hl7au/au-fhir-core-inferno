@@ -38,37 +38,10 @@ module AUCoreTestKit
         File.open(output_file_name, 'w') { |f| f.write(output) }
       end
 
-      def resource_position(resource)
-        # This hash with resource positions is built on a subjective view and can be changed.
-        # Used for sorting resources in the summary list.
-        resource_positions = {
-          "Patient" => 1,
-          "Observation" => 2,
-          "MedicationRequest" => 3,
-          "Encounter" => 4,
-          "Condition" => 5,
-          "Procedure" => 6,
-          "DiagnosticReport" => 7,
-          "Immunization" => 8,
-          "AllergyIntolerance" => 9,
-          "Medication" => 10,
-          "MedicationStatement" => 11,
-          "Practitioner" => 12,
-          "Organization" => 13,
-          "PractitionerRole" => 14,
-          "HealthcareService" => 15,
-          "Location" => 16,
-          "DocumentReference" => 17,
-          "ServiceRequest" => 18,
-          "Provenance" => 19,
-          "RelatedPerson" => 20,
-        }
-
-        resource_positions[resource]
-      end
-
       def resource_list
-        mapped_groups = ig_metadata.groups.map do |group|
+        # TODO: Add CapabilityStatement
+        groups = ig_metadata.ordered_groups.reject { |group| ["Location", "Medication", "PractitionerRole"].include? group.resource }
+        mapped_groups = groups.map.with_index do |group, index|
           title = group.title
           resource_type = group.resource
           profile_name = group.profile_name
@@ -91,6 +64,7 @@ module AUCoreTestKit
           {
             'title' => title,
             'resource' => resource_type,
+            'position' => index + 1,
             'profile_url' => profile_url,
             'description' => group_description,
             'interactions' => group.interactions.map do |interaction|
@@ -109,25 +83,6 @@ module AUCoreTestKit
             end
           }
         end
-
-        mapped_groups.group_by { |group| group['resource'] }.map do |resource, groups|
-          combined_interactions = groups.flat_map { |group| group['interactions'] }.uniq
-          combined_searches = groups.flat_map { |group| group['searches'] }.uniq
-
-          {
-            'resource' => resource,
-            'position' => resource_position(resource),
-            'interactions' => combined_interactions,
-            'searches' => combined_searches,
-            'groups' => groups.map do |group|
-              {
-                'title' => group['title'],
-                'profile_url' => group['profile_url'],
-                'description' => group['description'],
-              }
-            end
-          }
-        end.sort_by { |data| data["position"] }
       end
 
       def make_search_string(resource_name, search_names)
