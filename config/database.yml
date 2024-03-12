@@ -9,8 +9,8 @@ development:
 
 production:
   adapter: postgres
-  host: <%= ENV['POSTGRES_PORT'] %>
-  post: <%= ENV['POSTGRES_HOST'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  post: <%= ENV['POSTGRES_PORT'] %>
   database: <%= ENV['POSTGRES_DB'] %>
   password: <%= ENV['POSTRGES_USER'] %>
   username: <%= ENV['POSTGRES_PASSWORD'] %>
