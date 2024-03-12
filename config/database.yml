@@ -8,9 +8,12 @@ development:
   # port:
 
 production:
-  adapter: sqlite
-  database: data/inferno_production.db
-  max_connections: 10
+  adapter: postgres
+  host: <%= ENV['POSTGRES_PORT'] %>
+  post: <%= ENV['POSTGRES_HOST'] %>
+  database: <%= ENV['POSTGRES_DB'] %>
+  password: <%= ENV['POSTRGES_USER'] %>
+  username: <%= ENV['POSTGRES_PASSWORD'] %>
 
 test:
   adapter: sqlite
