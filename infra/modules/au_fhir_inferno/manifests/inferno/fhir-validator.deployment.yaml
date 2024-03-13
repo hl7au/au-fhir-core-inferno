@@ -19,8 +19,8 @@ spec:
         imagePullPolicy: Always
         env:
         - name: EXTERNAL_VALIDATOR_URL
-          value: ${format("%svalidatorapi", base_url)}
+          value: ${external_validator_url}
         - name: VALIDATOR_BASE_PATH
-          value: /validator
+          value: ${validator_base_path}
         ports:
         - containerPort: 80

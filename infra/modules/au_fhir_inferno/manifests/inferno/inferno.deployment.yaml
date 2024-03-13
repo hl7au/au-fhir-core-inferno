@@ -18,29 +18,24 @@ spec:
         image: ${inferno_image}
         imagePullPolicy: Always
         command: ["bundle", "exec", "rake", "db:migrate"]
-        env:
-        - name: REDIS_URL
-          value: redis://inferno-redis:6379
-        - name: RAILS_ENV
-          value: production
         envFrom:
         - secretRef:
             name: postgres-database
         - configMapRef:
             name: postgres
+        - configMapRef:
+            name: inferno
       containers:
       - name: inferno-app
         image: ${inferno_image}
         imagePullPolicy: Always
         ports:
           - containerPort: 4567
-        env:
-        - name: REDIS_URL
-          value: redis://inferno-redis:6379
-        - name: RAILS_ENV
-          value: production
         envFrom:
         - secretRef:
             name: postgres-database
         - configMapRef:
             name: postgres
+        - configMapRef:
+            name: inferno
+ 

@@ -1,9 +1,11 @@
 locals {
-  namespace          = var.namespace
-  manifests          = fileset(path.module, "manifests/inferno/*.yaml")
-  inferno_image      = "bedasoftware/au-fhir-core-inferno-inferno:a63aeb4ba9b4a3e2024cc33a2646aac625a2894e"
-  terminology_server = "https://tx.test.hl7.org.au/fhir"
-  base_url           = var.base_url
+  namespace              = var.namespace
+  manifests              = fileset(path.module, "manifests/inferno/*.yaml")
+  inferno_image          = var.inferno_image
+  terminology_server     = var.terminology_server
+  base_url               = var.base_url
+  external_validator_url = var.external_validator_url != null ? var.external_validator_url : "${var.base_url}validatorapi"
+  validator_base_path    = var.validator_base_path
 }
 
 
@@ -37,6 +39,20 @@ resource "kubernetes_config_map" "postgres" {
   }
 }
 
+resource "kubernetes_config_map" "inferno" {
+  metadata {
+    name      = "inferno"
+    namespace = local.namespace
+  }
+
+  data = {
+    REDIS_URL = "redis://inferno-redis:6379"
+    RAILS_ENV = "production"
+  }
+}
+
+
+
 resource "kubernetes_namespace" "namespace" {
   metadata {
     name = local.namespace
@@ -47,11 +63,17 @@ resource "kubernetes_manifest" "inferno" {
   for_each = { for m in local.manifests : m => "${path.module}/${m}" }
 
   manifest = yamldecode(templatefile(each.value, {
-    namespace          = local.namespace
-    inferno_image      = local.inferno_image
-    terminology_server = local.terminology_server
-    base_url           = local.base_url
-    postgres_password  = random_password.postgres_password.result
+    namespace              = local.namespace
+    inferno_image          = local.inferno_image
+    terminology_server     = local.terminology_server
+    base_url               = local.base_url
+    external_validator_url = local.external_validator_url
+    validator_base_path    = local.validator_base_path
   }))
-  depends_on = [kubernetes_namespace.namespace, kubernetes_secret.postgres_database, kubernetes_config_map.postgres]
+  depends_on = [
+    kubernetes_namespace.namespace,
+    kubernetes_secret.postgres_database,
+    kubernetes_config_map.postgres,
+    kubernetes_config_map.inferno,
+  ]
 }

@@ -18,13 +18,11 @@ spec:
         image: ${inferno_image}
         command: ["bundle", "exec", "sidekiq", "-r", "./worker.rb"]
         imagePullPolicy: Always
-        env:
-        - name: REDIS_URL
-          value: redis://inferno-redis:6379
-        - name: RAILS_ENV
-          value: production
         envFrom:
         - secretRef:
             name: postgres-database
         - configMapRef:
             name: postgres
+        - configMapRef:
+            name: inferno
+ 
