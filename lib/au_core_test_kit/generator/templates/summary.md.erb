@@ -5,12 +5,15 @@
 
 <%= resource_data["description"] %>
 
+<% if resource_data["interactions"].any? %>
 ## Interactions
 
 <% resource_data["interactions"].each do |interaction| %>
 * <%= interaction["code"] %> (<%= interaction["expectation"] %>)
 <% end %>
+<% end %>
 
+<% if resource_data["searches"].any? %>
 ## Test scenarios
 
 <% resource_data["searches"].each do |search_data| %>
@@ -30,5 +33,6 @@ Accept: application/fhir+json
 ```bash
 {test endpoint}<%= search_data["search_string"] %>
 ```
+<% end %>
 <% end %>
 <% end %>

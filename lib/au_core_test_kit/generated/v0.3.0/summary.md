@@ -1,7 +1,48 @@
 # 1 AU Core FHIR API
 
 
-# 1.1 Patient
+# 1.1 CapabilityStatement
+
+#### Background
+The Capability Statement Sequence tests a FHIR server's ability to formally describe
+features supported by the API by using the [Capability
+Statement](https://www.hl7.org/fhir/capabilitystatement.html) resource.
+The features described in the Capability Statement must be consistent with
+the required capabilities of a AU Core server. The Capability Statement
+must also advertise the location of the required SMART on FHIR endpoints
+that enable authenticated access to the FHIR server resources.
+
+The Capability Statement resource allows clients to determine which
+resources are supported by a FHIR Server. Not all servers are expected to
+implement all possible queries and data elements described in the AU Core
+API. For example, the AU Core Implementation Guide requires that the
+Patient resource and only one additional resource profile from the AU Core
+Profiles.
+
+#### Testing Methodology
+
+This test sequence accesses the server endpoint at `/metadata` using a
+`GET` request. It parses the Capability Statement and verifies that:
+
+* The endpoint is secured by an appropriate cryptographic protocol
+* The resource matches the expected FHIR version defined by the tests
+* The resource is a valid FHIR resource
+* The server claims support for JSON encoding of resources
+* The server claims support for the Patient resource and one other
+  resource
+
+It collects the following information that is saved in the testing session
+for use by later tests:
+
+* List of resources supported
+* List of queries parameters supported
+
+
+
+
+
+
+# 1.2 Patient
 
 #### Background
 
@@ -60,6 +101,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -68,10 +110,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.1.1 Search: _id (SHALL)
+### 1.2.1 Search: _id (SHALL)
 
 **HTTP GET**
 
@@ -88,7 +132,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?_id={_id}
 ```
 
-### 1.1.2 Search: family (SHOULD)
+### 1.2.2 Search: family (SHOULD)
 
 **HTTP GET**
 
@@ -105,7 +149,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}
 ```
 
-### 1.1.3 Search: identifier (SHALL)
+### 1.2.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -122,7 +166,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?identifier={identifier}
 ```
 
-### 1.1.4 Search: name (SHOULD)
+### 1.2.4 Search: name (SHOULD)
 
 **HTTP GET**
 
@@ -139,7 +183,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?name={name}
 ```
 
-### 1.1.5 Search: birthdate+family (SHOULD)
+### 1.2.5 Search: birthdate+family (SHOULD)
 
 **HTTP GET**
 
@@ -156,7 +200,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&family={family}
 ```
 
-### 1.1.6 Search: birthdate+name (SHOULD)
+### 1.2.6 Search: birthdate+name (SHOULD)
 
 **HTTP GET**
 
@@ -173,7 +217,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&name={name}
 ```
 
-### 1.1.7 Search: family+gender (SHOULD)
+### 1.2.7 Search: family+gender (SHOULD)
 
 **HTTP GET**
 
@@ -190,7 +234,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}&gender={gender}
 ```
 
-### 1.1.8 Search: gender+name (SHOULD)
+### 1.2.8 Search: gender+name (SHOULD)
 
 **HTTP GET**
 
@@ -208,7 +252,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.2 Observation Body Weight
+
+# 1.3 Observation Body Weight
 
 #### Background
 
@@ -270,181 +315,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 1.2.1 Search: patient+code (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&code={code}
-```
-
-### 1.2.2 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}
-```
-
-### 1.2.3 Search: patient+category (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}
-```
-
-### 1.2.4 Search: patient+category+date (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
-```
-
-### 1.2.5 Search: patient+category+status (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
-```
-
-### 1.2.6 Search: patient+code+date (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
-```
-
-
-# 1.3 Observation Blood Pressure
-
-#### Background
-
-The AU Core Observation Blood Pressure sequence verifies that the system under test is
-able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Blood Pressure as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient + code
-* patient
-* patient + category
-* patient + category + date
-* patient + category + status
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Observation resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Observation resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
 
 ## Interactions
 
@@ -452,6 +322,8 @@ read succeeds.
 * read (SHALL)
 
 * search-type (SHALL)
+
+
 
 
 ## Test scenarios
@@ -560,13 +432,14 @@ Accept: application/fhir+json
 ```
 
 
-# 1.4 Observation Body Height
+
+# 1.4 Observation Blood Pressure
 
 #### Background
 
-The AU Core Observation Body Height sequence verifies that the system under test is
+The AU Core Observation Blood Pressure sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Body Height as
+must contain resources conforming to the AU Core Blood Pressure as
 specified in the AU Core v0.3.0 Implementation Guide.
 
 #### Testing Methodology
@@ -608,7 +481,7 @@ elements.
 
 ##### Profile Validation
 Each resource returned from the first search is expected to conform to
-the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight). Each element is checked against
+the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure). Each element is checked against
 teminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -622,12 +495,15 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
 * read (SHALL)
 
 * search-type (SHALL)
+
+
 
 
 ## Test scenarios
@@ -736,7 +612,188 @@ Accept: application/fhir+json
 ```
 
 
-# 1.5 Observation Pathology Result
+
+# 1.5 Observation Body Height
+
+#### Background
+
+The AU Core Observation Body Height sequence verifies that the system under test is
+able to provide correct responses for Observation queries. These queries
+must contain resources conforming to the AU Core Body Height as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient + code
+* patient
+* patient + category
+* patient + category + date
+* patient + category + status
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+Observation resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
+
+
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the Observation resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+
+
+## Test scenarios
+
+
+### 1.5.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.5.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.5.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.5.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.5.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.5.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+
+# 1.6 Observation Pathology Result
 
 #### Background
 
@@ -798,6 +855,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -806,10 +864,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.5.1 Search: patient+category (SHALL)
+### 1.6.1 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -826,7 +886,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.5.2 Search: patient (SHALL)
+### 1.6.2 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -843,7 +903,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.5.3 Search: patient+category+date (SHALL)
+### 1.6.3 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -860,7 +920,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.5.4 Search: patient+code (SHALL)
+### 1.6.4 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -877,7 +937,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.5.5 Search: patient+category+status (SHALL)
+### 1.6.5 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -894,7 +954,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.5.6 Search: patient+code+date (SHOULD)
+### 1.6.6 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -912,7 +972,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.6 Observation Body Temperature
+
+# 1.7 Observation Body Temperature
 
 #### Background
 
@@ -974,181 +1035,6 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
-## Interactions
-
-
-* read (SHALL)
-
-* search-type (SHALL)
-
-
-## Test scenarios
-
-
-### 1.6.1 Search: patient+code (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&code={code}
-```
-
-### 1.6.2 Search: patient (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}
-```
-
-### 1.6.3 Search: patient+category (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}
-```
-
-### 1.6.4 Search: patient+category+date (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
-```
-
-### 1.6.5 Search: patient+category+status (SHALL)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
-```
-
-### 1.6.6 Search: patient+code+date (SHOULD)
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
-```
-
-
-# 1.7 Observation Heart Rate
-
-#### Background
-
-The AU Core Observation Heart Rate sequence verifies that the system under test is
-able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Heart Rate as
-specified in the AU Core v0.3.0 Implementation Guide.
-
-#### Testing Methodology
-##### Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient + code
-* patient
-* patient + category
-* patient + category + date
-* patient + category + status
-
-###### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
-
-###### Search Validation
-Inferno will retrieve up to the first 20 bundle pages of the reply for
-Observation resources and save them for subsequent tests. Each of
-these resources is then checked to see if it matches the searched
-parameters in accordance with [FHIR search
-guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
-for example, if a Patient search for `gender=male` returns a `female`
-patient.
-
-
-##### Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Observation resources found in the first test for these
-elements.
-
-##### Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate). Each element is checked against
-teminology binding and cardinality requirements.
-
-Elements with a required binding are validated against their bound
-ValueSet. If the code/system in the element is not part of the ValueSet,
-then the test will fail.
-
-##### Reference Validation
-At least one instance of each external reference in elements marked as
-"must support" within the resources provided by the system must resolve.
-The test will attempt to read each reference found and will fail if no
-read succeeds.
-
 
 ## Interactions
 
@@ -1156,6 +1042,8 @@ read succeeds.
 * read (SHALL)
 
 * search-type (SHALL)
+
+
 
 
 ## Test scenarios
@@ -1264,13 +1152,14 @@ Accept: application/fhir+json
 ```
 
 
-# 1.8 Observation Waist Circumference
+
+# 1.8 Observation Heart Rate
 
 #### Background
 
-The AU Core Observation Waist Circumference sequence verifies that the system under test is
+The AU Core Observation Heart Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Waist Circumference as
+must contain resources conforming to the AU Core Heart Rate as
 specified in the AU Core v0.3.0 Implementation Guide.
 
 #### Testing Methodology
@@ -1312,7 +1201,7 @@ elements.
 
 ##### Profile Validation
 Each resource returned from the first search is expected to conform to
-the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum). Each element is checked against
+the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate). Each element is checked against
 teminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -1326,12 +1215,15 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
 * read (SHALL)
 
 * search-type (SHALL)
+
+
 
 
 ## Test scenarios
@@ -1440,13 +1332,14 @@ Accept: application/fhir+json
 ```
 
 
-# 1.9 Observation Respiration Rate
+
+# 1.9 Observation Waist Circumference
 
 #### Background
 
-The AU Core Observation Respiration Rate sequence verifies that the system under test is
+The AU Core Observation Waist Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Respiration Rate as
+must contain resources conforming to the AU Core Waist Circumference as
 specified in the AU Core v0.3.0 Implementation Guide.
 
 #### Testing Methodology
@@ -1488,7 +1381,7 @@ elements.
 
 ##### Profile Validation
 Each resource returned from the first search is expected to conform to
-the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate). Each element is checked against
+the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum). Each element is checked against
 teminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -1502,12 +1395,15 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
 * read (SHALL)
 
 * search-type (SHALL)
+
+
 
 
 ## Test scenarios
@@ -1616,7 +1512,188 @@ Accept: application/fhir+json
 ```
 
 
-# 1.10 Observation Diagnostic Result
+
+# 1.10 Observation Respiration Rate
+
+#### Background
+
+The AU Core Observation Respiration Rate sequence verifies that the system under test is
+able to provide correct responses for Observation queries. These queries
+must contain resources conforming to the AU Core Respiration Rate as
+specified in the AU Core v0.3.0 Implementation Guide.
+
+#### Testing Methodology
+##### Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient + code
+* patient
+* patient + category
+* patient + category + date
+* patient + category + status
+
+###### Search Parameters
+The first search uses the selected patient(s) from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. For example, the `identifier`
+search in the patient sequence is performed by looking for an existing
+`Patient.identifier` from any of the resources returned in the `_id`
+search. If a value cannot be found this way, the search is skipped.
+
+###### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+Observation resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html). The test will fail,
+for example, if a Patient search for `gender=male` returns a `female`
+patient.
+
+
+##### Must Support
+Each profile contains elements marked as "must support". This test
+sequence expects to see each of these elements at least once. If at
+least one cannot be found, the test will fail. The test will look
+through the Observation resources found in the first test for these
+elements.
+
+##### Profile Validation
+Each resource returned from the first search is expected to conform to
+the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate). Each element is checked against
+teminology binding and cardinality requirements.
+
+Elements with a required binding are validated against their bound
+ValueSet. If the code/system in the element is not part of the ValueSet,
+then the test will fail.
+
+##### Reference Validation
+At least one instance of each external reference in elements marked as
+"must support" within the resources provided by the system must resolve.
+The test will attempt to read each reference found and will fail if no
+read succeeds.
+
+
+
+## Interactions
+
+
+* read (SHALL)
+
+* search-type (SHALL)
+
+
+
+
+## Test scenarios
+
+
+### 1.10.1 Search: patient+code (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}
+```
+
+### 1.10.2 Search: patient (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+### 1.10.3 Search: patient+category (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}
+```
+
+### 1.10.4 Search: patient+category+date (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+```
+
+### 1.10.5 Search: patient+category+status (SHALL)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+```
+
+### 1.10.6 Search: patient+code+date (SHOULD)
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+```
+
+
+
+# 1.11 Observation Diagnostic Result
 
 #### Background
 
@@ -1678,6 +1755,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -1686,10 +1764,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.10.1 Search: patient (SHALL)
+### 1.11.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1706,7 +1786,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.10.2 Search: patient+category (SHALL)
+### 1.11.2 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1723,7 +1803,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.10.3 Search: patient+category+date (SHALL)
+### 1.11.3 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1740,7 +1820,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.10.4 Search: patient+code (SHALL)
+### 1.11.4 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -1757,7 +1837,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.10.5 Search: patient+category+status (SHALL)
+### 1.11.5 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1774,7 +1854,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.10.6 Search: patient+code+date (SHOULD)
+### 1.11.6 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1792,7 +1872,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.11 Observation Smoking Status
+
+# 1.12 Observation Smoking Status
 
 #### Background
 
@@ -1854,6 +1935,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -1862,10 +1944,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.11.1 Search: patient+code (SHALL)
+### 1.12.1 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -1882,7 +1966,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.11.2 Search: patient (SHALL)
+### 1.12.2 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1899,7 +1983,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.11.3 Search: patient+category (SHALL)
+### 1.12.3 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1916,7 +2000,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.11.4 Search: patient+category+date (SHALL)
+### 1.12.4 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1933,7 +2017,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.11.5 Search: patient+category+status (SHALL)
+### 1.12.5 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1950,7 +2034,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.11.6 Search: patient+code+date (SHOULD)
+### 1.12.6 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1968,7 +2052,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.12 AllergyIntolerance
+
+# 1.13 AllergyIntolerance
 
 #### Background
 
@@ -2026,6 +2111,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2034,10 +2120,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.12.1 Search: patient (SHALL)
+### 1.13.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2054,7 +2142,7 @@ Accept: application/fhir+json
 {test endpoint}/AllergyIntolerance?patient={patient}
 ```
 
-### 1.12.2 Search: patient+clinical-status (SHOULD)
+### 1.13.2 Search: patient+clinical-status (SHOULD)
 
 **HTTP GET**
 
@@ -2072,7 +2160,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.13 Condition
+
+# 1.14 Condition
 
 #### Background
 
@@ -2132,6 +2221,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2140,10 +2230,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.13.1 Search: patient (SHALL)
+### 1.14.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2160,7 +2252,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}
 ```
 
-### 1.13.2 Search: patient+category (SHALL)
+### 1.14.2 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -2177,7 +2269,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&category={category}
 ```
 
-### 1.13.3 Search: patient+clinical-status (SHALL)
+### 1.14.3 Search: patient+clinical-status (SHALL)
 
 **HTTP GET**
 
@@ -2194,7 +2286,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
 ```
 
-### 1.13.4 Search: patient+category+clinical-status (SHOULD)
+### 1.14.4 Search: patient+category+clinical-status (SHOULD)
 
 **HTTP GET**
 
@@ -2211,7 +2303,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
 ```
 
-### 1.13.5 Search: patient+code (SHOULD)
+### 1.14.5 Search: patient+code (SHOULD)
 
 **HTTP GET**
 
@@ -2228,7 +2320,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&code={code}
 ```
 
-### 1.13.6 Search: patient+onset-date (SHOULD)
+### 1.14.6 Search: patient+onset-date (SHOULD)
 
 **HTTP GET**
 
@@ -2246,7 +2338,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.14 Encounter
+
+# 1.15 Encounter
 
 #### Background
 
@@ -2305,6 +2398,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2313,10 +2407,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.14.1 Search: patient (SHALL)
+### 1.15.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2333,7 +2429,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}
 ```
 
-### 1.14.2 Search: date+patient (SHALL)
+### 1.15.2 Search: date+patient (SHALL)
 
 **HTTP GET**
 
@@ -2350,7 +2446,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?date={date}&patient={patient}
 ```
 
-### 1.14.3 Search: class+patient (SHOULD)
+### 1.15.3 Search: class+patient (SHOULD)
 
 **HTTP GET**
 
@@ -2367,7 +2463,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?class={class}&patient={patient}
 ```
 
-### 1.14.4 Search: patient+discharge-disposition (SHOULD)
+### 1.15.4 Search: patient+discharge-disposition (SHOULD)
 
 **HTTP GET**
 
@@ -2384,7 +2480,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
 ```
 
-### 1.14.5 Search: patient+location (SHOULD)
+### 1.15.5 Search: patient+location (SHOULD)
 
 **HTTP GET**
 
@@ -2401,7 +2497,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&location={location}
 ```
 
-### 1.14.6 Search: patient+status (SHOULD)
+### 1.15.6 Search: patient+status (SHOULD)
 
 **HTTP GET**
 
@@ -2418,7 +2514,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&status={status}
 ```
 
-### 1.14.7 Search: patient+type (SHOULD)
+### 1.15.7 Search: patient+type (SHOULD)
 
 **HTTP GET**
 
@@ -2436,7 +2532,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.15 Immunization
+
+# 1.16 Immunization
 
 #### Background
 
@@ -2495,6 +2592,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2503,10 +2601,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.15.1 Search: patient (SHALL)
+### 1.16.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2523,7 +2623,7 @@ Accept: application/fhir+json
 {test endpoint}/Immunization?patient={patient}
 ```
 
-### 1.15.2 Search: patient+status (SHALL)
+### 1.16.2 Search: patient+status (SHALL)
 
 **HTTP GET**
 
@@ -2540,7 +2640,7 @@ Accept: application/fhir+json
 {test endpoint}/Immunization?patient={patient}&status={status}
 ```
 
-### 1.15.3 Search: patient+date (SHOULD)
+### 1.16.3 Search: patient+date (SHOULD)
 
 **HTTP GET**
 
@@ -2558,7 +2658,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.16 MedicationRequest
+
+# 1.17 MedicationRequest
 
 #### Background
 
@@ -2621,6 +2722,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2629,10 +2731,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.16.1 Search: patient (SHALL)
+### 1.17.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2649,7 +2753,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}
 ```
 
-### 1.16.2 Search: _id (SHALL)
+### 1.17.2 Search: _id (SHALL)
 
 **HTTP GET**
 
@@ -2666,7 +2770,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?_id={_id}
 ```
 
-### 1.16.3 Search: identifier (SHALL)
+### 1.17.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -2683,7 +2787,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?identifier={identifier}
 ```
 
-### 1.16.4 Search: patient+intent (SHALL)
+### 1.17.4 Search: patient+intent (SHALL)
 
 **HTTP GET**
 
@@ -2700,7 +2804,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}
 ```
 
-### 1.16.5 Search: patient+intent+status (SHALL)
+### 1.17.5 Search: patient+intent+status (SHALL)
 
 **HTTP GET**
 
@@ -2717,7 +2821,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
 ```
 
-### 1.16.6 Search: patient+intent+authoredon (SHALL)
+### 1.17.6 Search: patient+intent+authoredon (SHALL)
 
 **HTTP GET**
 
@@ -2735,7 +2839,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.17 MedicationStatement
+
+# 1.18 MedicationStatement
 
 #### Background
 
@@ -2794,6 +2899,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2802,10 +2908,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.17.1 Search: patient (SHALL)
+### 1.18.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2822,7 +2930,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}
 ```
 
-### 1.17.2 Search: patient+status (SHALL)
+### 1.18.2 Search: patient+status (SHALL)
 
 **HTTP GET**
 
@@ -2839,7 +2947,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}&status={status}
 ```
 
-### 1.17.3 Search: patient+effective (SHOULD)
+### 1.18.3 Search: patient+effective (SHOULD)
 
 **HTTP GET**
 
@@ -2857,7 +2965,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.18 Procedure
+
+# 1.19 Procedure
 
 #### Background
 
@@ -2916,6 +3025,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -2924,10 +3034,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.18.1 Search: patient (SHALL)
+### 1.19.1 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2944,7 +3056,7 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}
 ```
 
-### 1.18.2 Search: patient+date (SHALL)
+### 1.19.2 Search: patient+date (SHALL)
 
 **HTTP GET**
 
@@ -2961,7 +3073,7 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}&date={date}
 ```
 
-### 1.18.3 Search: patient+code+date (SHOULD)
+### 1.19.3 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -2978,7 +3090,7 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}&code={code}&date={date}
 ```
 
-### 1.18.4 Search: patient+status (SHOULD)
+### 1.19.4 Search: patient+status (SHOULD)
 
 **HTTP GET**
 
@@ -2996,7 +3108,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.19 Organization
+
+# 1.20 Organization
 
 #### Background
 
@@ -3056,6 +3169,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -3064,10 +3178,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.19.1 Search: _id (SHOULD)
+### 1.20.1 Search: _id (SHOULD)
 
 **HTTP GET**
 
@@ -3084,7 +3200,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?_id={_id}
 ```
 
-### 1.19.2 Search: address (SHALL)
+### 1.20.2 Search: address (SHALL)
 
 **HTTP GET**
 
@@ -3101,7 +3217,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?address={address}
 ```
 
-### 1.19.3 Search: identifier (SHALL)
+### 1.20.3 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -3118,7 +3234,7 @@ Accept: application/fhir+json
 {test endpoint}/Organization?identifier={identifier}
 ```
 
-### 1.19.4 Search: name (SHALL)
+### 1.20.4 Search: name (SHALL)
 
 **HTTP GET**
 
@@ -3136,7 +3252,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.20 Practitioner
+
+# 1.21 Practitioner
 
 #### Background
 
@@ -3195,6 +3312,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -3203,10 +3321,12 @@ read succeeds.
 * search-type (SHALL)
 
 
+
+
 ## Test scenarios
 
 
-### 1.20.1 Search: _id (SHALL)
+### 1.21.1 Search: _id (SHALL)
 
 **HTTP GET**
 
@@ -3223,7 +3343,7 @@ Accept: application/fhir+json
 {test endpoint}/Practitioner?_id={_id}
 ```
 
-### 1.20.2 Search: identifier (SHALL)
+### 1.21.2 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -3240,7 +3360,7 @@ Accept: application/fhir+json
 {test endpoint}/Practitioner?identifier={identifier}
 ```
 
-### 1.20.3 Search: name (SHOULD)
+### 1.21.3 Search: name (SHOULD)
 
 **HTTP GET**
 
@@ -3258,7 +3378,8 @@ Accept: application/fhir+json
 ```
 
 
-# 1.21 Provenance
+
+# 1.22 Provenance
 
 #### Background
 
@@ -3293,6 +3414,7 @@ The test will attempt to read each reference found and will fail if no
 read succeeds.
 
 
+
 ## Interactions
 
 
@@ -3301,6 +3423,5 @@ read succeeds.
 * search-type (MAY)
 
 
-## Test scenarios
 
 

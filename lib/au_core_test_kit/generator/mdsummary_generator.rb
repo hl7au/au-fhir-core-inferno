@@ -39,7 +39,6 @@ module AUCoreTestKit
       end
 
       def resource_list
-        # TODO: Add CapabilityStatement
         groups = ig_metadata.ordered_groups.reject { |group| ["Location", "Medication", "PractitionerRole"].include? group.resource }
         mapped_groups = groups.map.with_index do |group, index|
           title = group.title
@@ -64,7 +63,7 @@ module AUCoreTestKit
           {
             'title' => title,
             'resource' => resource_type,
-            'position' => index + 1,
+            'position' => index + 2,
             'profile_url' => profile_url,
             'description' => group_description,
             'interactions' => group.interactions.map do |interaction|
@@ -83,6 +82,18 @@ module AUCoreTestKit
             end
           }
         end
+        mapped_groups.unshift(
+          {
+            'title' => "CapabilityStatement",
+            'resource' => "CapabilityStatement",
+            'position' => 1,
+            'profile_url' => "CapabilityStatement",
+            'description' => Helpers.get_capability_statement_group_description_text('Capability Statement', false),
+            'interactions' => [],
+            'searches' => []
+          }
+        )
+        mapped_groups
       end
 
       def make_search_string(resource_name, search_names)
