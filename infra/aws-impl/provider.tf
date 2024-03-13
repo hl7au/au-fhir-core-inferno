@@ -12,6 +12,10 @@ provider "helm" {
     token                  = data.aws_eks_cluster_auth.default.token
   }
 }
+provider "aws" {
+  profile = "FHIR-Admin"
+}
+
 
 terraform {
   required_version = ">= 1.3"
@@ -26,5 +30,6 @@ terraform {
     bucket = "examplebucket-fhir-aws"
     region = "ap-southeast-2"
     key    = "infra/inferno/dev.tfstate"
+    profile = "FHIR-Admin"
   }
 }
