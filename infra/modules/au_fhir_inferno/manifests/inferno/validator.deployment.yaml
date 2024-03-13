@@ -13,6 +13,18 @@ spec:
       labels:
         workload: inferno-validator
     spec:
+      volumes:
+      - name: igs
+        emptyDir:
+          sizeLimit: "10M"
+      initContainers:
+      - name: copy-ig
+        image: ${inferno_image}
+        imagePullPolicy: Always
+        command: ["cp", "/opt/inferno/lib/au_core_test_kit/igs/package.r4b.tgz", "/home/igs"]
+        volumeMounts:
+        - name: igs
+          mountPath: /home/igs
       containers:
       - name: inferno-validator
         image: infernocommunity/fhir-validator-service:latest
@@ -22,3 +34,7 @@ spec:
           value: ${terminology_server}
         ports:
         - containerPort: 4567
+        volumeMounts:
+        - name: igs
+          mountPath: /home/igs
+          readOnly: true
