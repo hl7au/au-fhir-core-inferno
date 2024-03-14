@@ -91,7 +91,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
   :class:
     :paths:
     - class
@@ -101,7 +100,6 @@
     :values: []
     :type: Coding
     :contains_multiple: false
-    :multiple_or: MAY
   :discharge-disposition:
     :paths:
     - hospitalization.dischargeDisposition
@@ -121,7 +119,6 @@
     :values: []
     :type: Reference
     :contains_multiple: false
-    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -140,7 +137,6 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
   :type:
     :paths:
     - type
@@ -150,7 +146,6 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

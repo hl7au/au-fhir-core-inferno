@@ -83,7 +83,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -108,7 +107,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -120,7 +118,6 @@
       - '27113001'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -138,7 +135,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: &1 []
   :revincludes: &2
   - Provenance:target
@@ -363,7 +359,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -388,7 +383,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -400,7 +394,6 @@
       - '75367002'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -418,7 +411,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -672,7 +664,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -697,7 +688,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -709,7 +699,6 @@
       - '50373000'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -727,7 +716,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -951,7 +939,6 @@
       - laboratory
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -976,7 +963,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -986,7 +972,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -1004,7 +989,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1202,7 +1186,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -1227,7 +1210,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -1239,7 +1221,6 @@
       - '386725007'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -1257,7 +1238,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1481,7 +1461,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -1506,7 +1485,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -1518,7 +1496,6 @@
       - '364075005'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -1536,7 +1513,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1757,7 +1733,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -1782,7 +1757,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -1794,7 +1768,6 @@
       - '276361009'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -1812,7 +1785,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2031,7 +2003,6 @@
       - vital-signs
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -2056,7 +2027,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -2068,7 +2038,6 @@
       - '86290005'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -2086,7 +2055,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2306,7 +2274,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -2331,7 +2298,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -2341,7 +2307,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -2359,7 +2324,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2548,7 +2512,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :date:
       :paths:
       - effectiveDateTime
@@ -2573,7 +2536,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -2584,7 +2546,6 @@
       - '266918002'
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -2602,7 +2563,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2754,7 +2714,6 @@
       - resolved
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -2927,7 +2886,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
     :clinical-status:
       :paths:
       - clinicalStatus
@@ -2943,7 +2901,6 @@
       - resolved
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -2953,7 +2910,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :onset-date:
       :paths:
       - onsetDateTime
@@ -2974,7 +2930,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3150,7 +3105,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :class:
       :paths:
       - class
@@ -3160,7 +3114,6 @@
       :values: []
       :type: Coding
       :contains_multiple: false
-      :multiple_or: MAY
     :discharge-disposition:
       :paths:
       - hospitalization.dischargeDisposition
@@ -3180,7 +3133,6 @@
       :values: []
       :type: Reference
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -3199,7 +3151,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
     :type:
       :paths:
       - type
@@ -3209,7 +3160,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3394,7 +3344,6 @@
       - not-done
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
     :date:
       :paths: []
       :full_paths: []
@@ -3411,7 +3360,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3575,7 +3523,6 @@
       :values: []
       :type: Address
       :contains_multiple: false
-      :multiple_or: MAY
     :name:
       :paths:
       - name
@@ -3587,7 +3534,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
     :address-city:
       :paths:
       - address.city
@@ -3597,7 +3543,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
     :address-state:
       :paths:
       - address.state
@@ -3607,7 +3552,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
     :address-postalcode:
       :paths:
       - address.postalCode
@@ -3617,7 +3561,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3804,7 +3747,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-      :multiple_or: MAY
     :identifier:
       :paths:
       - identifier
@@ -3814,7 +3756,6 @@
       :values: []
       :type: Identifier
       :contains_multiple: true
-      :multiple_or: MAY
     :patient:
       :paths:
       - subject
@@ -3837,7 +3778,6 @@
       :values: []
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -3855,7 +3795,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
     :authoredon:
       :paths:
       - authoredOn
@@ -3874,7 +3813,6 @@
       :values: []
       :type: dateTime
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params:
   - MedicationRequest:medication
   :revincludes:
@@ -4093,7 +4031,6 @@
       - not-taken
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
     :effective:
       :paths:
       - effectiveDateTime
@@ -4114,7 +4051,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params:
   - MedicationStatement:medication
   :revincludes:
@@ -4270,7 +4206,6 @@
       :values: []
       :type: Address
       :contains_multiple: false
-      :multiple_or: MAY
     :identifier:
       :paths:
       - identifier
@@ -4282,7 +4217,6 @@
       :values: []
       :type: Identifier
       :contains_multiple: true
-      :multiple_or: MAY
     :name:
       :paths:
       - name
@@ -4294,7 +4228,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
     :_id:
       :paths:
       - id
@@ -4304,7 +4237,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -4405,7 +4337,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-      :multiple_or: MAY
     :family:
       :paths:
       - name.family
@@ -4415,7 +4346,6 @@
       :values: []
       :type: string
       :contains_multiple: false
-      :multiple_or: MAY
     :identifier:
       :paths:
       - identifier
@@ -4425,7 +4355,6 @@
       :values: []
       :type: Identifier
       :contains_multiple: true
-      :multiple_or: MAY
     :name:
       :paths:
       - name
@@ -4435,7 +4364,6 @@
       :values: []
       :type: HumanName
       :contains_multiple: true
-      :multiple_or: MAY
     :birthdate:
       :paths:
       - birthDate
@@ -4454,7 +4382,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :gender:
       :paths:
       - gender
@@ -4464,7 +4391,6 @@
       :values: []
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -4578,7 +4504,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-      :multiple_or: MAY
     :identifier:
       :paths:
       - identifier
@@ -4590,7 +4515,6 @@
       :values: []
       :type: Identifier
       :contains_multiple: true
-      :multiple_or: MAY
     :name:
       :paths:
       - name
@@ -4600,7 +4524,6 @@
       :values: []
       :type: HumanName
       :contains_multiple: true
-      :multiple_or: MAY
   :include_params: []
   :revincludes: []
   :required_concepts: []
@@ -4681,7 +4604,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-      :multiple_or: MAY
     :identifier:
       :paths:
       - identifier
@@ -4691,7 +4613,6 @@
       :values: []
       :type: Identifier
       :contains_multiple: true
-      :multiple_or: MAY
     :practitioner:
       :paths:
       - practitioner
@@ -4714,7 +4635,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: true
-      :multiple_or: MAY
   :include_params:
   - PractitionerRole:practitioner
   :revincludes:
@@ -4857,7 +4777,6 @@
       :values: []
       :type: date
       :contains_multiple: false
-      :multiple_or: MAY
     :code:
       :paths:
       - code
@@ -4867,7 +4786,6 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
-      :multiple_or: MAY
     :status:
       :paths:
       - status
@@ -4885,7 +4803,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-      :multiple_or: MAY
   :include_params: []
   :revincludes:
   - Provenance:target

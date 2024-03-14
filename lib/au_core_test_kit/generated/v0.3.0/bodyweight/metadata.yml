@@ -81,7 +81,6 @@
     - vital-signs
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: MAY
   :date:
     :paths:
     - effectiveDateTime
@@ -106,7 +105,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
   :code:
     :paths:
     - code
@@ -118,7 +116,6 @@
     - '27113001'
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -136,7 +133,6 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

@@ -54,7 +54,6 @@
     - resolved
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

@@ -66,7 +66,6 @@
     - not-taken
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
   :effective:
     :paths:
     - effectiveDateTime
@@ -87,7 +86,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params:
 - MedicationStatement:medication
 :revincludes:

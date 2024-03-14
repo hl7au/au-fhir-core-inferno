@@ -74,7 +74,6 @@
     :values: []
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-    :multiple_or: MAY
   :family:
     :paths:
     - name.family
@@ -84,7 +83,6 @@
     :values: []
     :type: string
     :contains_multiple: false
-    :multiple_or: MAY
   :identifier:
     :paths:
     - identifier
@@ -94,7 +92,6 @@
     :values: []
     :type: Identifier
     :contains_multiple: true
-    :multiple_or: MAY
   :name:
     :paths:
     - name
@@ -104,7 +101,6 @@
     :values: []
     :type: HumanName
     :contains_multiple: true
-    :multiple_or: MAY
   :birthdate:
     :paths:
     - birthDate
@@ -123,7 +119,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
   :gender:
     :paths:
     - gender
@@ -133,7 +128,6 @@
     :values: []
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

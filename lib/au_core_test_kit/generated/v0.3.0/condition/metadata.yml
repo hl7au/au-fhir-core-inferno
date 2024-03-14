@@ -77,7 +77,6 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
-    :multiple_or: MAY
   :clinical-status:
     :paths:
     - clinicalStatus
@@ -93,7 +92,6 @@
     - resolved
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
   :code:
     :paths:
     - code
@@ -103,7 +101,6 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
   :onset-date:
     :paths:
     - onsetDateTime
@@ -124,7 +121,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

@@ -61,7 +61,6 @@
     - not-done
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
   :date:
     :paths: []
     :full_paths: []
@@ -78,7 +77,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target

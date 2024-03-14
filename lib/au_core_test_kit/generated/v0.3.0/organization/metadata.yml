@@ -48,7 +48,6 @@
     :values: []
     :type: Address
     :contains_multiple: false
-    :multiple_or: MAY
   :identifier:
     :paths:
     - identifier
@@ -60,7 +59,6 @@
     :values: []
     :type: Identifier
     :contains_multiple: true
-    :multiple_or: MAY
   :name:
     :paths:
     - name
@@ -72,7 +70,6 @@
     :values: []
     :type: string
     :contains_multiple: false
-    :multiple_or: MAY
   :_id:
     :paths:
     - id
@@ -82,7 +79,6 @@
     :values: []
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-    :multiple_or: MAY
 :include_params: []
 :revincludes:
 - Provenance:target
