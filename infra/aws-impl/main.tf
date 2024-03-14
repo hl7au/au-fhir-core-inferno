@@ -18,5 +18,11 @@ resource "kubernetes_manifest" "ingress" {
     namespace      = local.namespace
 
   }))
+
+  field_manager {
+    name = "ingress-${local.namespace}"
+    # force_conflicts = true
+  }
+  
   depends_on = [module.inferno]
 }
