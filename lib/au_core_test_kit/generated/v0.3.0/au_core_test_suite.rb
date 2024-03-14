@@ -37,7 +37,7 @@ module AUCoreTestKit
         Implementation Guide]().
 
         HL7® FHIR® resources are validated with the Java validator using
-        `tx.fhir.org` as the terminology server.
+        `#{ENV.fetch('TX_SERVER_URL', 'http://tx.test.hl7.org.au/fhir')}` as the terminology server.
       )
       version VERSION
 
