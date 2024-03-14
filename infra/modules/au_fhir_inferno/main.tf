@@ -46,8 +46,9 @@ resource "kubernetes_config_map" "inferno" {
   }
 
   data = {
-    REDIS_URL = "redis://inferno-redis:6379"
-    RAILS_ENV = "production"
+    V030_VALIDATOR_URL = "http://inferno-validator:4567"
+    REDIS_URL          = "redis://inferno-redis:6379"
+    RAILS_ENV          = "production"
   }
 }
 
