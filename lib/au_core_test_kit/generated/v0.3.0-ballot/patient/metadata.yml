@@ -1,0 +1,249 @@
+---
+:name: au_core_patient
+:class_name: AuCorePatientSequence
+:version: v0.3.0-ballot
+:reformatted_version: v030_ballot
+:resource: Patient
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+:profile_name: AU Core Patient
+:profile_version: 0.3.0-ballot
+:title: Patient
+:short_description: Verify support for the server capabilities required by the AU
+  Core Patient.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - _id
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - family
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory:
+  - family
+  :must_support_or_mandatory: false
+- :names:
+  - identifier
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - name
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - birthdate
+  - family
+  :names_not_must_support_or_mandatory:
+  - family
+  :must_support_or_mandatory: false
+- :expectation: SHOULD
+  :names:
+  - birthdate
+  - name
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - family
+  - gender
+  :names_not_must_support_or_mandatory:
+  - family
+  :must_support_or_mandatory: false
+- :expectation: SHOULD
+  :names:
+  - gender
+  - name
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - Patient.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+    :multiple_or: MAY
+  :family:
+    :paths:
+    - name.family
+    :full_paths:
+    - Patient.name.family
+    :comparators: {}
+    :values: []
+    :type: string
+    :contains_multiple: false
+    :multiple_or: MAY
+  :identifier:
+    :paths:
+    - identifier
+    :full_paths:
+    - Patient.identifier
+    :comparators: {}
+    :values: []
+    :type: Identifier
+    :contains_multiple: true
+    :multiple_or: MAY
+  :name:
+    :paths:
+    - name
+    :full_paths:
+    - Patient.name
+    :comparators: {}
+    :values: []
+    :type: HumanName
+    :contains_multiple: true
+    :multiple_or: MAY
+  :birthdate:
+    :paths:
+    - birthDate
+    :full_paths:
+    - Patient.birthDate
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: date
+    :contains_multiple: false
+    :multiple_or: MAY
+  :gender:
+    :paths:
+    - gender
+    :full_paths:
+    - Patient.gender
+    :comparators: {}
+    :values: []
+    :type: code
+    :contains_multiple: false
+    :multiple_or: MAY
+:include_params: []
+:revincludes:
+- Provenance:target
+:required_concepts: []
+:must_supports:
+  :extensions:
+  - :id: Patient.extension:birthPlace
+    :url: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
+  - :id: Patient.extension:indigenousStatus
+    :url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+  - :id: Patient.extension:interpreterRequired
+    :url: http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired
+  - :id: Patient.extension:genderIdentity
+    :url: http://hl7.org/fhir/StructureDefinition/individual-genderIdentity
+  - :id: Patient.extension:individualPronouns
+    :url: http://hl7.org/fhir/StructureDefinition/individual-pronouns
+  - :id: Patient.birthDate.extension:accuracyIndicator
+    :url: http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator
+  - :id: Patient.birthDate.extension:birthTime
+    :url: http://hl7.org/fhir/StructureDefinition/patient-birthTime
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: name
+  - :path: name.use
+  - :path: telecom
+  - :path: gender
+  - :path: birthDate
+  - :path: address
+  - :path: communication
+  - :path: communication.language
+  - :path: communication.preferred
+:mandatory_elements:
+- Patient.identifier
+- Patient.name
+- Patient.gender
+- Patient.birthDate
+- Patient.communication.language
+- Patient.link.other
+- Patient.link.type
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/name-use
+  :path: name.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/administrative-gender
+  :path: gender
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/administrative-gender
+  :path: contact.gender
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/link-type
+  :path: link.type
+:references:
+- :path: Patient.contact.organization
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Patient.generalPractitioner
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+- :path: Patient.managingOrganization
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Patient.link.other
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+:tests:
+- :id: au_core_v030_ballot_patient__id_search_test
+  :file_name: patient_id_search_test.rb
+- :id: au_core_v030_ballot_patient_family_search_test
+  :file_name: patient_family_search_test.rb
+- :id: au_core_v030_ballot_patient_identifier_search_test
+  :file_name: patient_identifier_search_test.rb
+- :id: au_core_v030_ballot_patient_name_search_test
+  :file_name: patient_name_search_test.rb
+- :id: au_core_v030_ballot_patient_birthdate_family_search_test
+  :file_name: patient_birthdate_family_search_test.rb
+- :id: au_core_v030_ballot_patient_birthdate_name_search_test
+  :file_name: patient_birthdate_name_search_test.rb
+- :id: au_core_v030_ballot_patient_family_gender_search_test
+  :file_name: patient_family_gender_search_test.rb
+- :id: au_core_v030_ballot_patient_gender_name_search_test
+  :file_name: patient_gender_name_search_test.rb
+- :id: au_core_v030_ballot_patient_read_test
+  :file_name: patient_read_test.rb
+- :id: au_core_v030_ballot_patient_provenance_revinclude_search_test
+  :file_name: patient_provenance_revinclude_search_test.rb
+- :id: au_core_v030_ballot_patient_validation_test
+  :file_name: patient_validation_test.rb
+- :id: au_core_v030_ballot_patient_must_support_test
+  :file_name: patient_must_support_test.rb
+:id: au_core_v030_ballot_patient
+:file_name: patient_group.rb
+:delayed_references: []
