@@ -335,6 +335,7 @@ module AUCoreTestKit
         remove_observation_method_attribute
         remove_observation_value_attribute
         remove_lipid_result_attributes
+        remove_specimen_attribute
 
         case profile.version
         when '3.1.1'
@@ -350,6 +351,14 @@ module AUCoreTestKit
         end
       end
 
+    def remove_specimen_attribute
+      # TODO: Temporary solution https://github.com/hl7au/au-fhir-core-inferno/issues/18
+      if profile.id == 'au-core-diagnosticresult-path'
+        @must_supports[:elements].delete_if do |element|
+          ['specimen'].include? element[:path]
+        end
+      end
+    end
     def remove_lipid_result_attributes
       # TODO: This code block should be discussed.
       # We need to understand why there are a lot of extra attributes

@@ -159,11 +159,6 @@ module AUCoreTestKit
     def resource_is_valid_with_target_profile?(resource, target_profile)
       return true if target_profile.blank?
 
-      # NOTE: Special case: terminology server don't have a specimen v0.3.0
-      if metadata.profile_version == "0.3.0" && target_profile == "http://hl7.org.au/fhir/StructureDefinition/au-specimen"
-        target_profile = "#{target_profile}|4.1.0"
-      end
-
       # Only need to know if the resource is valid.
       # Calling resource_is_valid? causes validation errors to be logged.
       validator = find_validator(:default)

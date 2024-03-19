@@ -17,7 +17,6 @@ module AUCoreTestKit
 
         * Observation.hasMember
         * Observation.performer
-        * Observation.specimen
         * Observation.subject
       )
 

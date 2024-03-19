@@ -28,7 +28,6 @@ module AUCoreTestKit
         * Observation.referenceRange.low
         * Observation.referenceRange.text
         * Observation.referenceRange.type
-        * Observation.specimen
         * Observation.status
         * Observation.subject
         * Observation.value[x]
