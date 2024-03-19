@@ -60,7 +60,7 @@ module AUCoreTestKit
       end
 
       validator do
-        url ENV.fetch('V030_BALLOT_VALIDATOR_URL', 'http://validator_service:4567')
+        url ENV.fetch('V030_BALLOT_VALIDATOR_URL', 'http://validator-service:4567')
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         exclude_message do |message|
