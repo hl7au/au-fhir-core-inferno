@@ -1,3 +1,4 @@
+require 'base64'
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
@@ -83,10 +84,17 @@ module AUCoreTestKit
         title: 'OAuth Credentials',
         type: :oauth_credentials,
         optional: true
+      input :basic_client,
+            title: 'HTTP Basic authentication client',
+            optional: true
+      input :basic_secret,
+            title: 'HTTP Basic authentication secret',
+            optional: true
 
       fhir_client do
         url :url
         oauth_credentials :smart_credentials
+        headers (basic_client && basic_secret)  ? {'Authorization' => "Basic #{Base64.encode64(basic_client + ':' + basic_secret)}"} : {}
       end
 
       
