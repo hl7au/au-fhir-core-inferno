@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validator-web-proxy
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: validator-web-proxy
+  template:
+    metadata:
+      labels:
+        workload: validator-web-proxy
+    spec:
+      containers:
+      - name: validator-web-proxy
+        image: bedasoftware/au-fhir-core-inferno-proxy:9d0b2aef0f93d224763146ac81ff0e3b31e15be4
+        imagePullPolicy: Always
+        env:
+        - name: PROXY_PORT
+          value: 8080
+        - name: TARGET
+          value: http://inferno-validator:4567
+        ports:
+        - containerPort: 8080
