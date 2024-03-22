@@ -210,10 +210,8 @@ module AUCoreTestKit
 
       def url_version
         case group_metadata.version
-        when 'v3.1.1'
-          'STU3.1.1'
-        when 'v4.0.0'
-          'STU4'
+        when 'v0.3.0-ballot'
+          '0.3.0-ballot'
         end
       end
 

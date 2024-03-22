@@ -1,8 +1,6 @@
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
-require_relative '../../custom_groups/v4.0.0/clinical_notes_guidance_group'
-require_relative '../../custom_groups/data_absent_reason_group'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../au_core_options'
 
@@ -34,7 +32,7 @@ module AUCoreTestKit
       title 'AU Core v0.3.0-ballot'
       description %(
         The AU Core Test Kit tests systems for their conformance to the [AU Core
-        Implementation Guide]().
+        Implementation Guide](http://hl7.org.au/fhir/core/0.3.0-ballot).
 
         HL7® FHIR® resources are validated with the Java validator using
         `#{ENV.fetch('TX_SERVER_URL', 'http://tx.test.hl7.org.au/fhir')}` as the terminology server.
@@ -47,8 +45,6 @@ module AUCoreTestKit
         /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
         /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
         /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in AU Core v5.0.1
-        %r{Unknown Code System 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags'}, # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
-        %r{URL value 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags' does not resolve} # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
       ].freeze
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
