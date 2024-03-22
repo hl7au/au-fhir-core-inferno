@@ -10,12 +10,11 @@ module AUCoreTestKit
 
       [```The AU Core Server **SHALL** Support json source formats for all US
       Core
-      interactions.```](http://hl7.org/fhir/us/core/CapabilityStatement-us-core-server.html#behavior)
+      interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title)
 
       The FHIR conformance interaction require servers to describe which
       formats are available for clients to use. The server must explicitly
-      state that JSON is supported. This is located in the [format
-      element](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.format)
+      state that JSON is supported. This is located in the format element
       of the CapabilityStatement Resource.
 
       This test checks that one of the following values are located in the

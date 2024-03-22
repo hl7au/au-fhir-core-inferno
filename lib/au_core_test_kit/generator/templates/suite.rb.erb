@@ -1,8 +1,6 @@
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '<%= capability_statement_file_name %>'
-require_relative '<%= clinical_notes_guidance_file_name %>'
-require_relative '../../custom_groups/data_absent_reason_group'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../au_core_options'
 
@@ -27,8 +25,6 @@ module AUCoreTestKit
         /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
         /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
         /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in AU Core v5.0.1
-        %r{Unknown Code System 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags'}, # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
-        %r{URL value 'http://hl7.org/fhir/us/core/CodeSystem/us-core-tags' does not resolve} # Validator has an issue with this AU Core 5 code system in AU Core 6 resource
       ].freeze
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = <%=version_specific_message_filters%>.freeze

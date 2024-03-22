@@ -286,7 +286,7 @@ module AUCoreTestKit
         #{first_search_description}
         #{post_search_description}
 
-        [AU Core Server CapabilityStatement](http://hl7.org/fhir/us/core/#{url_version}/CapabilityStatement-us-core-server.html)
+        [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
         DESCRIPTION
       end
     end
