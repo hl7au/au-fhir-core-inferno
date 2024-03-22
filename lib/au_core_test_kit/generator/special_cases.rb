@@ -8,10 +8,7 @@ module AUCoreTestKit
         'RelatedPerson',
       ].freeze
 
-      PROFILES_TO_EXCLUDE = [
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-survey',
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs'
-      ].freeze
+      PROFILES_TO_EXCLUDE = [].freeze
 
       class << self
         def exclude_group?(group)

@@ -1,32 +1,31 @@
 module AUCoreTestKit
   class Generator
     module Naming
-      ALLERGY_INTOLERANCE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-allergyintolerance'
-      CARE_PLAN = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-careplan'
-      CARE_TEAM = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-careteam'
-      CONDITION = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-condition'
-      IMPLANTABLE_DEVICE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-implantable-device'
-      DIAGNOSTIC_REPORT_NOTE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-diagnosticreport-note'
-      DIAGNOSTIC_REPORT_LAB = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-diagnosticreport-lab'
-      DOCUMENT_REFERENCE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-documentreference'
-      ENCOUNTER = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-encounter'
-      GOAL = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-goal'
-      IMMUNIZATION = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-immunization'
-      LOCATION = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-location'
-      MEDICATION = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-medication'
-      MEDICATION_REQUEST = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-medicationrequest'
-      SMOKING_STATUS = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-smokingstatus'
-      PEDIATRIC_WEIGHT_FOR_HEIGHT = 'http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height'
-      OBSERVATION_LAB = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-observation-lab'
-      PEDIATRIC_BMI_FOR_AGE = 'http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age'
-      PULSE_OXIMETRY = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-pulse-oximetry'
-      HEAD_CIRCUMFERENCE = 'http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile'
-      ORGANIZATION = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-organization'
-      PATIENT = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-patient'
-      PRACTITIONER = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-practitioner'
-      PRACTITIONER_ROLE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-practitionerrole'
-      PROCEDURE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-procedure'
-      PROVENANCE = 'http://hl7.org/fhir/us/core/StructureDefinition/au-core-provenance'
+      HEART_RATE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+      PATIENT = http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+      BLOOD_PRESSURE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+      PROVENANCE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
+      LOCATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+      BODY_TEMPERATURE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
+      RESPIRATION_RATE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
+      MEDICATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+      SEX_ASSIGNED_AT_BIRTH = http://hl7.org.au/fhir/core/StructureDefinition/au-core-rsg-sexassignedab
+      MEDICATIONSTATEMENT = http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+      ALLERGYINTOLERANCE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+      PATHOLOGY_RESULT_OBSERVATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+      BODY_HEIGHT = http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
+      MEDICATIONREQUEST = http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+      SMOKING_STATUS = http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus
+      CONDITION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+      WAIST_CIRCUMFERENCE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
+      BODY_WEIGHT = http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
+      ENCOUNTER = http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+      ORGANIZATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+      PRACTITIONER = http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+      PROCEDURE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+      IMMUNIZATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+      DIAGNOSTIC_RESULT_OBSERVATION = http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+      PRACTITIONERROLE = http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
 
       class << self
         def resources_with_multiple_profiles
