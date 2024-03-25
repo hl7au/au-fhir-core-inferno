@@ -6,7 +6,15 @@ services:
     volumes:
       - ./data:/opt/inferno/data
     depends_on:
-      - validator-service
+      validator-service:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inferno
+      POSTGRES_USER: postgres
   worker:
     build:
       context: ./
@@ -14,7 +22,15 @@ services:
       - ./data:/opt/inferno/data
     command: bundle exec sidekiq -r ./worker.rb
     depends_on:
-      - redis
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inferno
+      POSTGRES_USER: postgres
   validator-service:
     extends:
       file: docker-compose.background.yml
@@ -33,3 +49,14 @@ services:
     extends:
       file: docker-compose.background.yml
       service: redis
+  postgres:
+    image: postgres:16.2-alpine3.19
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inferno
