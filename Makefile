@@ -3,6 +3,9 @@ setup:
 	docker compose build
 	docker compose run inferno bundle exec rake db:migrate
 
+generate:
+	docker compose run inferno bundle exec rake au_core:generate
+
 run:
 	docker compose build
 	docker compose up
@@ -16,6 +19,3 @@ stop:
 
 down:
 	docker compose down
-
-generate:
-	bundle exec rake au_core:generate
