@@ -1,5 +1,0 @@
-version: '3'
-services:
-  validator-service:
-    environment:
-      TX_SERVER_URL: http://tx.fhir.org

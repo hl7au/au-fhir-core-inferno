@@ -10,10 +10,6 @@ run:
 	docker compose build
 	docker compose up
 
-run-production:
-	docker compose build
-	docker compose -f docker-compose.yml -f docker-compose.production.yml up
-
 stop:
 	docker compose stop
 
