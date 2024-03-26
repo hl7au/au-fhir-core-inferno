@@ -31,7 +31,7 @@ module AUCoreTestKit
         return [] if no_search_params?
 
         resource_capabilities.searchParam
-          .select { |search_param| ['SHALL', 'SHOULD'].include? conformance_expectation(search_param) }
+          .select { |search_param| ['SHALL', 'SHOULD', 'MAY'].include? conformance_expectation(search_param) }
           .map do |search_param|
             {
               names: [search_param.name],
@@ -49,7 +49,7 @@ module AUCoreTestKit
 
         search_extensions
           .select { |extension| extension.url == COMBO_EXTENSION_URL }
-          .select { |extension| ['SHALL', 'SHOULD'].include? conformance_expectation(extension) }
+          .select { |extension| ['SHALL', 'SHOULD', 'MAY'].include? conformance_expectation(extension) }
           .map do |extension|
             names = extension.extension.select { |param| param.valueString.present? }.map(&:valueString)
             {

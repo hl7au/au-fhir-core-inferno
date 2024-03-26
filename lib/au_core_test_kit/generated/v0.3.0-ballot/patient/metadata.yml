@@ -35,10 +35,26 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
+  - birthdate
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
   - family
   :expectation: SHOULD
   :names_not_must_support_or_mandatory:
   - family
+  :must_support_or_mandatory: false
+- :names:
+  - gender
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - indigenous-status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory:
+  - indigenous-status
   :must_support_or_mandatory: false
 - :names:
   - identifier
@@ -50,6 +66,12 @@
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - patient-gender-identity
+  :expectation: MAY
+  :names_not_must_support_or_mandatory:
+  - patient-gender-identity
+  :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - birthdate
@@ -87,6 +109,25 @@
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
     :multiple_or: MAY
+  :birthdate:
+    :paths:
+    - birthDate
+    :full_paths:
+    - Patient.birthDate
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: date
+    :contains_multiple: false
+    :multiple_or: MAY
   :family:
     :paths:
     - name.family
@@ -95,6 +136,26 @@
     :comparators: {}
     :values: []
     :type: string
+    :contains_multiple: false
+    :multiple_or: MAY
+  :gender:
+    :paths:
+    - gender
+    :full_paths:
+    - Patient.gender
+    :comparators: {}
+    :values: []
+    :type: code
+    :contains_multiple: false
+    :multiple_or: MAY
+  :indigenous-status:
+    :paths:
+    - extension('http://hl7.org.au/fhir/StructureDefinition/indigenous-status').value
+    :full_paths:
+    - Patient.extension('http://hl7.org.au/fhir/StructureDefinition/indigenous-status').value
+    :comparators: {}
+    :values: []
+    :type: token
     :contains_multiple: false
     :multiple_or: MAY
   :identifier:
@@ -117,33 +178,14 @@
     :type: HumanName
     :contains_multiple: true
     :multiple_or: MAY
-  :birthdate:
+  :patient-gender-identity:
     :paths:
-    - birthDate
+    - extension('http://hl7.org/fhir/StructureDefinition/patient-genderIdentity').value
     :full_paths:
-    - Patient.birthDate
-    :comparators:
-      :eq: MAY
-      :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
-      :sa: MAY
-      :eb: MAY
-      :ap: MAY
-    :values: []
-    :type: date
-    :contains_multiple: false
-    :multiple_or: MAY
-  :gender:
-    :paths:
-    - gender
-    :full_paths:
-    - Patient.gender
+    - Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-genderIdentity').value
     :comparators: {}
     :values: []
-    :type: code
+    :type: token
     :contains_multiple: false
     :multiple_or: MAY
 :include_params: []
@@ -222,12 +264,20 @@
 :tests:
 - :id: au_core_v030_ballot_patient__id_search_test
   :file_name: patient_id_search_test.rb
+- :id: au_core_v030_ballot_patient_birthdate_search_test
+  :file_name: patient_birthdate_search_test.rb
 - :id: au_core_v030_ballot_patient_family_search_test
   :file_name: patient_family_search_test.rb
+- :id: au_core_v030_ballot_patient_gender_search_test
+  :file_name: patient_gender_search_test.rb
+- :id: au_core_v030_ballot_patient_indigenous_status_search_test
+  :file_name: patient_indigenous_status_search_test.rb
 - :id: au_core_v030_ballot_patient_identifier_search_test
   :file_name: patient_identifier_search_test.rb
 - :id: au_core_v030_ballot_patient_name_search_test
   :file_name: patient_name_search_test.rb
+- :id: au_core_v030_ballot_patient_patient_gender_identity_search_test
+  :file_name: patient_patient_gender_identity_search_test.rb
 - :id: au_core_v030_ballot_patient_birthdate_family_search_test
   :file_name: patient_birthdate_family_search_test.rb
 - :id: au_core_v030_ballot_patient_birthdate_name_search_test

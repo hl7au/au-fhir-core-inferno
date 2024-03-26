@@ -144,7 +144,24 @@ Accept: application/fhir+json
 {test endpoint}/Patient?_id={_id}
 ```
 
-### 1.2.2 Search: family (SHOULD)
+### 1.2.2 Search: birthdate (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Patient?birthdate={birthdate} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?birthdate={birthdate}
+```
+
+### 1.2.3 Search: family (SHOULD)
 
 **HTTP GET**
 
@@ -161,7 +178,41 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}
 ```
 
-### 1.2.3 Search: identifier (SHALL)
+### 1.2.4 Search: gender (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Patient?gender={gender} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?gender={gender}
+```
+
+### 1.2.5 Search: indigenous-status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Patient?indigenous-status={indigenous-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?indigenous-status={indigenous-status}
+```
+
+### 1.2.6 Search: identifier (SHALL)
 
 **HTTP GET**
 
@@ -178,7 +229,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?identifier={identifier}
 ```
 
-### 1.2.4 Search: name (SHOULD)
+### 1.2.7 Search: name (SHOULD)
 
 **HTTP GET**
 
@@ -195,7 +246,24 @@ Accept: application/fhir+json
 {test endpoint}/Patient?name={name}
 ```
 
-### 1.2.5 Search: birthdate+family (SHOULD)
+### 1.2.8 Search: patient-gender-identity (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Patient?patient-gender-identity={patient-gender-identity} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?patient-gender-identity={patient-gender-identity}
+```
+
+### 1.2.9 Search: birthdate+family (SHOULD)
 
 **HTTP GET**
 
@@ -212,7 +280,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&family={family}
 ```
 
-### 1.2.6 Search: birthdate+name (SHOULD)
+### 1.2.10 Search: birthdate+name (SHOULD)
 
 **HTTP GET**
 
@@ -229,7 +297,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?birthdate={birthdate}&name={name}
 ```
 
-### 1.2.7 Search: family+gender (SHOULD)
+### 1.2.11 Search: family+gender (SHOULD)
 
 **HTTP GET**
 
@@ -246,7 +314,7 @@ Accept: application/fhir+json
 {test endpoint}/Patient?family={family}&gender={gender}
 ```
 
-### 1.2.8 Search: gender+name (SHOULD)
+### 1.2.12 Search: gender+name (SHOULD)
 
 **HTTP GET**
 
@@ -370,7 +438,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.3.2 Search: patient (SHALL)
+### 1.3.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.3.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.3.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.3.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.3.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -387,7 +523,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.3.3 Search: patient+category (SHALL)
+### 1.3.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -404,7 +540,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.3.4 Search: patient+category+date (SHALL)
+### 1.3.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -421,7 +557,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.3.5 Search: patient+category+status (SHALL)
+### 1.3.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -438,7 +574,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.3.6 Search: patient+code+date (SHOULD)
+### 1.3.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -562,7 +698,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.4.2 Search: patient (SHALL)
+### 1.4.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.4.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.4.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.4.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.4.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -579,7 +783,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.4.3 Search: patient+category (SHALL)
+### 1.4.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -596,7 +800,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.4.4 Search: patient+category+date (SHALL)
+### 1.4.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -613,7 +817,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.4.5 Search: patient+category+status (SHALL)
+### 1.4.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -630,7 +834,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.4.6 Search: patient+code+date (SHOULD)
+### 1.4.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -754,7 +958,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.5.2 Search: patient (SHALL)
+### 1.5.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.5.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.5.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.5.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.5.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -771,7 +1043,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.5.3 Search: patient+category (SHALL)
+### 1.5.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -788,7 +1060,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.5.4 Search: patient+category+date (SHALL)
+### 1.5.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -805,7 +1077,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.5.5 Search: patient+category+status (SHALL)
+### 1.5.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -822,7 +1094,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.5.6 Search: patient+code+date (SHOULD)
+### 1.5.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -946,7 +1218,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.6.2 Search: patient (SHALL)
+### 1.6.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.6.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.6.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.6.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.6.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -963,7 +1303,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.6.3 Search: patient+category+date (SHALL)
+### 1.6.7 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -980,7 +1320,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.6.4 Search: patient+code (SHALL)
+### 1.6.8 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -997,7 +1337,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.6.5 Search: patient+category+status (SHALL)
+### 1.6.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1014,7 +1354,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.6.6 Search: patient+code+date (SHOULD)
+### 1.6.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1138,7 +1478,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.7.2 Search: patient (SHALL)
+### 1.7.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.7.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.7.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.7.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.7.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1155,7 +1563,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.7.3 Search: patient+category (SHALL)
+### 1.7.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1172,7 +1580,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.7.4 Search: patient+category+date (SHALL)
+### 1.7.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1189,7 +1597,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.7.5 Search: patient+category+status (SHALL)
+### 1.7.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1206,7 +1614,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.7.6 Search: patient+code+date (SHOULD)
+### 1.7.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1330,7 +1738,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.8.2 Search: patient (SHALL)
+### 1.8.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.8.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.8.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.8.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.8.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1347,7 +1823,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.8.3 Search: patient+category (SHALL)
+### 1.8.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1364,7 +1840,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.8.4 Search: patient+category+date (SHALL)
+### 1.8.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1381,7 +1857,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.8.5 Search: patient+category+status (SHALL)
+### 1.8.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1398,7 +1874,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.8.6 Search: patient+code+date (SHOULD)
+### 1.8.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1522,7 +1998,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.9.2 Search: patient (SHALL)
+### 1.9.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.9.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.9.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.9.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.9.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1539,7 +2083,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.9.3 Search: patient+category (SHALL)
+### 1.9.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1556,7 +2100,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.9.4 Search: patient+category+date (SHALL)
+### 1.9.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1573,7 +2117,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.9.5 Search: patient+category+status (SHALL)
+### 1.9.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1590,7 +2134,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.9.6 Search: patient+code+date (SHOULD)
+### 1.9.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1714,7 +2258,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.10.2 Search: patient (SHALL)
+### 1.10.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.10.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.10.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.10.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.10.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -1731,7 +2343,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.10.3 Search: patient+category (SHALL)
+### 1.10.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1748,7 +2360,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.10.4 Search: patient+category+date (SHALL)
+### 1.10.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1765,7 +2377,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.10.5 Search: patient+category+status (SHALL)
+### 1.10.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1782,7 +2394,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.10.6 Search: patient+code+date (SHOULD)
+### 1.10.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -1906,7 +2518,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.11.2 Search: patient+category (SHALL)
+### 1.11.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.11.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.11.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.11.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.11.6 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -1923,7 +2603,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.11.3 Search: patient+category+date (SHALL)
+### 1.11.7 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -1940,7 +2620,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.11.4 Search: patient+code (SHALL)
+### 1.11.8 Search: patient+code (SHALL)
 
 **HTTP GET**
 
@@ -1957,7 +2637,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.11.5 Search: patient+category+status (SHALL)
+### 1.11.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -1974,7 +2654,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.11.6 Search: patient+code+date (SHOULD)
+### 1.11.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -2098,7 +2778,75 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&code={code}
 ```
 
-### 1.12.2 Search: patient (SHALL)
+### 1.12.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?category={category}
+```
+
+### 1.12.3 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+### 1.12.4 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+### 1.12.5 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+### 1.12.6 Search: patient (SHALL)
 
 **HTTP GET**
 
@@ -2115,7 +2863,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}
 ```
 
-### 1.12.3 Search: patient+category (SHALL)
+### 1.12.7 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -2132,7 +2880,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}
 ```
 
-### 1.12.4 Search: patient+category+date (SHALL)
+### 1.12.8 Search: patient+category+date (SHALL)
 
 **HTTP GET**
 
@@ -2149,7 +2897,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&date={date}
 ```
 
-### 1.12.5 Search: patient+category+status (SHALL)
+### 1.12.9 Search: patient+category+status (SHALL)
 
 **HTTP GET**
 
@@ -2166,7 +2914,7 @@ Accept: application/fhir+json
 {test endpoint}/Observation?patient={patient}&category={category}&status={status}
 ```
 
-### 1.12.6 Search: patient+code+date (SHOULD)
+### 1.12.10 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -2286,7 +3034,24 @@ Accept: application/fhir+json
 {test endpoint}/AllergyIntolerance?patient={patient}
 ```
 
-### 1.13.2 Search: patient+clinical-status (SHOULD)
+### 1.13.2 Search: clinical-status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /AllergyIntolerance?clinical-status={clinical-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/AllergyIntolerance?clinical-status={clinical-status}
+```
+
+### 1.13.3 Search: patient+clinical-status (SHOULD)
 
 **HTTP GET**
 
@@ -2408,7 +3173,75 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}
 ```
 
-### 1.14.2 Search: patient+category (SHALL)
+### 1.14.2 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Condition?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?category={category}
+```
+
+### 1.14.3 Search: clinical-status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Condition?clinical-status={clinical-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?clinical-status={clinical-status}
+```
+
+### 1.14.4 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Condition?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?code={code}
+```
+
+### 1.14.5 Search: onset-date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Condition?onset-date={onset-date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?onset-date={onset-date}
+```
+
+### 1.14.6 Search: patient+category (SHALL)
 
 **HTTP GET**
 
@@ -2425,7 +3258,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&category={category}
 ```
 
-### 1.14.3 Search: patient+clinical-status (SHALL)
+### 1.14.7 Search: patient+clinical-status (SHALL)
 
 **HTTP GET**
 
@@ -2442,7 +3275,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
 ```
 
-### 1.14.4 Search: patient+category+clinical-status (SHOULD)
+### 1.14.8 Search: patient+category+clinical-status (SHOULD)
 
 **HTTP GET**
 
@@ -2459,7 +3292,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
 ```
 
-### 1.14.5 Search: patient+code (SHOULD)
+### 1.14.9 Search: patient+code (SHOULD)
 
 **HTTP GET**
 
@@ -2476,7 +3309,7 @@ Accept: application/fhir+json
 {test endpoint}/Condition?patient={patient}&code={code}
 ```
 
-### 1.14.6 Search: patient+onset-date (SHOULD)
+### 1.14.10 Search: patient+onset-date (SHOULD)
 
 **HTTP GET**
 
@@ -2597,7 +3430,126 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}
 ```
 
-### 1.15.2 Search: date+patient (SHALL)
+### 1.15.2 Search: class (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?class={class} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?class={class}
+```
+
+### 1.15.3 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?date={date}
+```
+
+### 1.15.4 Search: discharge-disposition (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
+```
+
+### 1.15.5 Search: identifier (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?identifier={identifier}
+```
+
+### 1.15.6 Search: location (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?location={location} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?location={location}
+```
+
+### 1.15.7 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?status={status}
+```
+
+### 1.15.8 Search: type (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Encounter?type={type} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?type={type}
+```
+
+### 1.15.9 Search: date+patient (SHALL)
 
 **HTTP GET**
 
@@ -2614,7 +3566,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?date={date}&patient={patient}
 ```
 
-### 1.15.3 Search: class+patient (SHOULD)
+### 1.15.10 Search: class+patient (SHOULD)
 
 **HTTP GET**
 
@@ -2631,7 +3583,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?class={class}&patient={patient}
 ```
 
-### 1.15.4 Search: patient+discharge-disposition (SHOULD)
+### 1.15.11 Search: patient+discharge-disposition (SHOULD)
 
 **HTTP GET**
 
@@ -2648,7 +3600,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
 ```
 
-### 1.15.5 Search: patient+location (SHOULD)
+### 1.15.12 Search: patient+location (SHOULD)
 
 **HTTP GET**
 
@@ -2665,7 +3617,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&location={location}
 ```
 
-### 1.15.6 Search: patient+status (SHOULD)
+### 1.15.13 Search: patient+status (SHOULD)
 
 **HTTP GET**
 
@@ -2682,7 +3634,7 @@ Accept: application/fhir+json
 {test endpoint}/Encounter?patient={patient}&status={status}
 ```
 
-### 1.15.7 Search: patient+type (SHOULD)
+### 1.15.14 Search: patient+type (SHOULD)
 
 **HTTP GET**
 
@@ -2803,7 +3755,58 @@ Accept: application/fhir+json
 {test endpoint}/Immunization?patient={patient}
 ```
 
-### 1.16.2 Search: patient+status (SHALL)
+### 1.16.2 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?date={date}
+```
+
+### 1.16.3 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?status={status}
+```
+
+### 1.16.4 Search: vaccine-code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?vaccine-code={vaccine-code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?vaccine-code={vaccine-code}
+```
+
+### 1.16.5 Search: patient+status (SHALL)
 
 **HTTP GET**
 
@@ -2820,7 +3823,7 @@ Accept: application/fhir+json
 {test endpoint}/Immunization?patient={patient}&status={status}
 ```
 
-### 1.16.3 Search: patient+date (SHOULD)
+### 1.16.6 Search: patient+date (SHOULD)
 
 **HTTP GET**
 
@@ -2835,6 +3838,23 @@ Accept: application/fhir+json
 
 ```bash
 {test endpoint}/Immunization?patient={patient}&date={date}
+```
+
+### 1.16.7 Search: patient+vaccine-code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient={patient}&vaccine-code={vaccine-code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient={patient}&vaccine-code={vaccine-code}
 ```
 
 
@@ -2979,7 +3999,75 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?identifier={identifier}
 ```
 
-### 1.17.4 Search: patient+intent (SHALL)
+### 1.17.4 Search: category (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?category={category} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?category={category}
+```
+
+### 1.17.5 Search: authoredon (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?authoredon={authoredon} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?authoredon={authoredon}
+```
+
+### 1.17.6 Search: intent (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?intent={intent} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?intent={intent}
+```
+
+### 1.17.7 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?status={status}
+```
+
+### 1.17.8 Search: patient+intent (SHALL)
 
 **HTTP GET**
 
@@ -2996,7 +4084,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}
 ```
 
-### 1.17.5 Search: patient+intent+status (SHALL)
+### 1.17.9 Search: patient+intent+status (SHALL)
 
 **HTTP GET**
 
@@ -3013,7 +4101,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
 ```
 
-### 1.17.6 Search: patient+intent+authoredon (SHALL)
+### 1.17.10 Search: patient+intent+authoredon (SHALL)
 
 **HTTP GET**
 
@@ -3134,7 +4222,41 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}
 ```
 
-### 1.18.2 Search: patient+status (SHALL)
+### 1.18.2 Search: effective (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationStatement?effective={effective} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationStatement?effective={effective}
+```
+
+### 1.18.3 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /MedicationStatement?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationStatement?status={status}
+```
+
+### 1.18.4 Search: patient+status (SHALL)
 
 **HTTP GET**
 
@@ -3151,7 +4273,7 @@ Accept: application/fhir+json
 {test endpoint}/MedicationStatement?patient={patient}&status={status}
 ```
 
-### 1.18.3 Search: patient+effective (SHOULD)
+### 1.18.5 Search: patient+effective (SHOULD)
 
 **HTTP GET**
 
@@ -3272,7 +4394,58 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}
 ```
 
-### 1.19.2 Search: patient+date (SHALL)
+### 1.19.2 Search: code (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Procedure?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?code={code}
+```
+
+### 1.19.3 Search: date (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Procedure?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?date={date}
+```
+
+### 1.19.4 Search: status (MAY)
+
+**HTTP GET**
+
+```bash
+GET /Procedure?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?status={status}
+```
+
+### 1.19.5 Search: patient+date (SHALL)
 
 **HTTP GET**
 
@@ -3289,7 +4462,7 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}&date={date}
 ```
 
-### 1.19.3 Search: patient+code+date (SHOULD)
+### 1.19.6 Search: patient+code+date (SHOULD)
 
 **HTTP GET**
 
@@ -3306,7 +4479,7 @@ Accept: application/fhir+json
 {test endpoint}/Procedure?patient={patient}&code={code}&date={date}
 ```
 
-### 1.19.4 Search: patient+status (SHOULD)
+### 1.19.7 Search: patient+status (SHOULD)
 
 **HTTP GET**
 

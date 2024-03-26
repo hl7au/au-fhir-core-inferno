@@ -36,6 +36,27 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory:
+  - date
+  :must_support_or_mandatory: false
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
   - patient
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
@@ -70,19 +91,6 @@
   - date
   :must_support_or_mandatory: false
 :search_definitions:
-  :patient:
-    :paths:
-    - subject
-    :full_paths:
-    - Observation.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
   :category:
     :paths:
     - category
@@ -93,6 +101,16 @@
     - laboratory
     :type: CodeableConcept
     :contains_multiple: true
+    :multiple_or: MAY
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Observation.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
     :multiple_or: MAY
   :date:
     :paths:
@@ -119,16 +137,6 @@
     :type: date
     :contains_multiple: false
     :multiple_or: MAY
-  :code:
-    :paths:
-    - code
-    :full_paths:
-    - Observation.code
-    :comparators: {}
-    :values: []
-    :type: CodeableConcept
-    :contains_multiple: false
-    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -147,6 +155,19 @@
     :type: code
     :contains_multiple: false
     :multiple_or: MAY
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Observation.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -255,6 +276,14 @@
 :tests:
 - :id: au_core_v030_ballot_diagnosticresult_path_patient_category_search_test
   :file_name: diagnosticresult_path_patient_category_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_category_search_test
+  :file_name: diagnosticresult_path_category_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_code_search_test
+  :file_name: diagnosticresult_path_code_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_date_search_test
+  :file_name: diagnosticresult_path_date_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_status_search_test
+  :file_name: diagnosticresult_path_status_search_test.rb
 - :id: au_core_v030_ballot_diagnosticresult_path_patient_search_test
   :file_name: diagnosticresult_path_patient_search_test.rb
 - :id: au_core_v030_ballot_diagnosticresult_path_patient_category_date_search_test

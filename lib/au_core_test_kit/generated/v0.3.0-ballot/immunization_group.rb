@@ -1,6 +1,10 @@
 require_relative 'immunization/immunization_patient_search_test'
+require_relative 'immunization/immunization_date_search_test'
+require_relative 'immunization/immunization_status_search_test'
+require_relative 'immunization/immunization_vaccine_code_search_test'
 require_relative 'immunization/immunization_patient_status_search_test'
 require_relative 'immunization/immunization_patient_date_search_test'
+require_relative 'immunization/immunization_patient_vaccine_code_search_test'
 require_relative 'immunization/immunization_read_test'
 require_relative 'immunization/immunization_provenance_revinclude_search_test'
 require_relative 'immunization/immunization_validation_test'
@@ -79,8 +83,12 @@ read succeeds.
       end
   
       test from: :au_core_v030_ballot_immunization_patient_search_test
+      test from: :au_core_v030_ballot_immunization_date_search_test
+      test from: :au_core_v030_ballot_immunization_status_search_test
+      test from: :au_core_v030_ballot_immunization_vaccine_code_search_test
       test from: :au_core_v030_ballot_immunization_patient_status_search_test
       test from: :au_core_v030_ballot_immunization_patient_date_search_test
+      test from: :au_core_v030_ballot_immunization_patient_vaccine_code_search_test
       test from: :au_core_v030_ballot_immunization_read_test
       test from: :au_core_v030_ballot_immunization_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_immunization_validation_test

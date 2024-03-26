@@ -22,6 +22,7 @@ none are returned, the test is skipped.
         @properties ||= SearchTestProperties.new(
           resource_type: 'Patient',
         search_param_names: ['identifier'],
+        possible_status_search: true,
         token_search_params: ['identifier']
         )
       end

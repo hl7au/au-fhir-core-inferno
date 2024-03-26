@@ -1,4 +1,8 @@
 require_relative 'heartrate/heartrate_patient_code_search_test'
+require_relative 'heartrate/heartrate_category_search_test'
+require_relative 'heartrate/heartrate_code_search_test'
+require_relative 'heartrate/heartrate_date_search_test'
+require_relative 'heartrate/heartrate_status_search_test'
 require_relative 'heartrate/heartrate_patient_search_test'
 require_relative 'heartrate/heartrate_patient_category_search_test'
 require_relative 'heartrate/heartrate_patient_category_date_search_test'
@@ -85,6 +89,10 @@ read succeeds.
       end
   
       test from: :au_core_v030_ballot_heartrate_patient_code_search_test
+      test from: :au_core_v030_ballot_heartrate_category_search_test
+      test from: :au_core_v030_ballot_heartrate_code_search_test
+      test from: :au_core_v030_ballot_heartrate_date_search_test
+      test from: :au_core_v030_ballot_heartrate_status_search_test
       test from: :au_core_v030_ballot_heartrate_patient_search_test
       test from: :au_core_v030_ballot_heartrate_patient_category_search_test
       test from: :au_core_v030_ballot_heartrate_patient_category_date_search_test
