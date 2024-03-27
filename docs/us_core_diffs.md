@@ -199,3 +199,20 @@ Documented changes do not include:
 
 **Commit message:**
 1. https://github.com/hl7au/au-fhir-core-inferno/commit/2077b3e9c16a3562add7d56640c506df00893154
+
+## 13/13
+**File**: [search_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_metadata_extractor.rb)
+
+### basic_searches method update
+
+**Reason**: Tests with search parameters with the expectation "may" should be generated too.
+
+**Detailed changes:**
+1. https://github.com/hl7au/au-fhir-core-inferno/blob/74d586fc1ae5d73109371053f5a949bb9a34ebb2/lib/au_core_test_kit/generator/search_metadata_extractor.rb#L34
+
+### combo_searches method update
+
+**Reason**: Tests with combo search parameters with the expectation "may" should be generated too.
+
+**Detailed changes:**
+1. https://github.com/hl7au/au-fhir-core-inferno/blob/74d586fc1ae5d73109371053f5a949bb9a34ebb2/lib/au_core_test_kit/generator/search_metadata_extractor.rb#L52
