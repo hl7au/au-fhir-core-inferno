@@ -42,13 +42,6 @@ module AUCoreTestKit
               'http://hl7.org/fhir/StructureDefinition/heartrate',
               'http://hl7.org/fhir/StructureDefinition/resprate'
             ]
-        when '5.0.1'
-          # The AU Core v5.0.1 Server Capability Statement does not have supported-profile for Encounter
-          ig_resources.capability_statement.rest.first.resource
-            .find { |resource| resource.type == 'Encounter' }
-            .supportedProfile.concat [
-              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
-            ]
         end
       end
 

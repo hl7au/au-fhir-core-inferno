@@ -21,7 +21,7 @@ return the same number of results. Search by POST is required by the
 FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
-[AU Core Server CapabilityStatement](http://hl7.org/fhir/us/core//CapabilityStatement-us-core-server.html)
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
 
       )
 

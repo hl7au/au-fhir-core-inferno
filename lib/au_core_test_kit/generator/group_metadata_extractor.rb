@@ -113,10 +113,10 @@ module AUCoreTestKit
       ALL_VERSION_NAME_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice'
       ]
-
+      
+      # Usage example
       VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES = {
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis' => ['v610', 'v700_ballot'],
-        'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns' => ['v610', 'v700_ballot']
+        # 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice' => ['v030']
       }
 
       def name_first_profile?

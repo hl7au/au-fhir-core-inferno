@@ -210,10 +210,8 @@ module AUCoreTestKit
 
       def url_version
         case group_metadata.version
-        when 'v3.1.1'
-          'STU3.1.1'
-        when 'v4.0.0'
-          'STU4'
+        when 'v0.3.0-ballot'
+          '0.3.0-ballot'
         end
       end
 
@@ -286,7 +284,7 @@ module AUCoreTestKit
         #{first_search_description}
         #{post_search_description}
 
-        [AU Core Server CapabilityStatement](http://hl7.org/fhir/us/core/#{url_version}/CapabilityStatement-us-core-server.html)
+        [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
         DESCRIPTION
       end
     end

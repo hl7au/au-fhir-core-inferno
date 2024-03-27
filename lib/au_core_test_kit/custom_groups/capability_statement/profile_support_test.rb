@@ -26,11 +26,11 @@ module AUCoreTestKit
             rest.resource.each { |resource| profiles.concat(resource.supportedProfile) }
           end.uniq
 
-      assert supported_profiles.include?('http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'), 'AU Core Patient profile not supported'
+      assert supported_profiles.include?('http://hl7.org.au/fhir/core/0.3.0-ballot/StructureDefinition-au-core-patient.html'), 'AU Core Patient profile not supported'
 
       au_core_profiles = config.options[:au_core_profiles]
 
-      other_profiles = au_core_profiles.reject { |resource_type| resource_type == 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient' }
+      other_profiles = au_core_profiles.reject { |resource_type| resource_type == 'http://hl7.org.au/fhir/core/0.3.0-ballot/StructureDefinition-au-core-patient.html' }
       other_profiles_supported = other_profiles.any? { |profile| supported_profiles.include? profile }
       assert other_profiles_supported, 'No AU Core profiles other than Patient are supported'
 

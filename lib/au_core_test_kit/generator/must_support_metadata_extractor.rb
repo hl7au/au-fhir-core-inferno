@@ -26,10 +26,8 @@ module AUCoreTestKit
       end
 
       def is_uscdi_requirement_element?(element)
-        element.extension.any? do |extension|
-          extension.url == 'http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement' &&
-          extension.valueBoolean
-        end && !element.mustSupport
+        # TODO: Temporary fix
+        false
       end
 
       def all_must_support_elements
@@ -394,7 +392,6 @@ module AUCoreTestKit
       def is_vital_sign?
         [
           'http://hl7.org/fhir/StructureDefinition/vitalsigns',
-          'http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs'
         ].include?(profile.baseDefinition)
       end
 
