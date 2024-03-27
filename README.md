@@ -1,5 +1,8 @@
 # AU FHIR Core Inferno 🔥
-This is an [Inferno](https://inferno-framework.github.io/inferno-core/) test kit for the AU Core Implementation Guide [v0.3.0-ballot](http://hl7.org.au/fhir/core/0.3.0-ballot/)
+This is an [Inferno](https://inferno-framework.github.io/inferno-core/) test kit for the [AU Core Implementation Guide](http://hl7.org.au/fhir/core/)
+
+**Currently available versions:**
+1. [v0.3.0-ballot](http://hl7.org.au/fhir/core/0.3.0-ballot/)
 
 ## Use inferno as a service
 You can test your FHIR server using this link https://inferno.hl7.org.au/
