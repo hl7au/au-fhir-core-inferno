@@ -173,8 +173,6 @@ module AUCoreTestKit
         if param_hash['_multipleOr']
           param_hash['_multipleOr']['extension'].first['valueCode']
         end
-        # TODO: Fix it
-        "MAY"
       end
 
       def values
