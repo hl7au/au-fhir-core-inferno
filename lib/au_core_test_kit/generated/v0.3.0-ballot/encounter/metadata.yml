@@ -34,6 +34,42 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - class
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory:
+  - date
+  :must_support_or_mandatory: false
+- :names:
+  - discharge-disposition
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - identifier
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - location
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - type
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - date
@@ -72,19 +108,16 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
-  :patient:
+  :class:
     :paths:
-    - subject
+    - class
     :full_paths:
-    - Encounter.subject
+    - Encounter.class
     :comparators: {}
     :values: []
-    :type: Reference
+    :type: Coding
     :contains_multiple: false
     :multiple_or: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
   :date:
     :paths:
     - actualPeriod
@@ -104,16 +137,6 @@
     :type: date
     :contains_multiple: false
     :multiple_or: MAY
-  :class:
-    :paths:
-    - class
-    :full_paths:
-    - Encounter.class
-    :comparators: {}
-    :values: []
-    :type: Coding
-    :contains_multiple: false
-    :multiple_or: MAY
   :discharge-disposition:
     :paths:
     - hospitalization.dischargeDisposition
@@ -123,6 +146,16 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
+    :multiple_or: MAY
+  :identifier:
+    :paths:
+    - identifier
+    :full_paths:
+    - Encounter.identifier
+    :comparators: {}
+    :values: []
+    :type: Identifier
+    :contains_multiple: true
     :multiple_or: MAY
   :location:
     :paths:
@@ -163,6 +196,19 @@
     :type: CodeableConcept
     :contains_multiple: true
     :multiple_or: MAY
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Encounter.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -277,6 +323,20 @@
 :tests:
 - :id: au_core_v030_ballot_encounter_patient_search_test
   :file_name: encounter_patient_search_test.rb
+- :id: au_core_v030_ballot_encounter_class_search_test
+  :file_name: encounter_class_search_test.rb
+- :id: au_core_v030_ballot_encounter_date_search_test
+  :file_name: encounter_date_search_test.rb
+- :id: au_core_v030_ballot_encounter_discharge_disposition_search_test
+  :file_name: encounter_discharge_disposition_search_test.rb
+- :id: au_core_v030_ballot_encounter_identifier_search_test
+  :file_name: encounter_identifier_search_test.rb
+- :id: au_core_v030_ballot_encounter_location_search_test
+  :file_name: encounter_location_search_test.rb
+- :id: au_core_v030_ballot_encounter_status_search_test
+  :file_name: encounter_status_search_test.rb
+- :id: au_core_v030_ballot_encounter_type_search_test
+  :file_name: encounter_type_search_test.rb
 - :id: au_core_v030_ballot_encounter_date_patient_search_test
   :file_name: encounter_date_patient_search_test.rb
 - :id: au_core_v030_ballot_encounter_class_patient_search_test

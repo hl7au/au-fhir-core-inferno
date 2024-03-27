@@ -1,4 +1,8 @@
 require_relative 'bodyheight/bodyheight_patient_code_search_test'
+require_relative 'bodyheight/bodyheight_category_search_test'
+require_relative 'bodyheight/bodyheight_code_search_test'
+require_relative 'bodyheight/bodyheight_date_search_test'
+require_relative 'bodyheight/bodyheight_status_search_test'
 require_relative 'bodyheight/bodyheight_patient_search_test'
 require_relative 'bodyheight/bodyheight_patient_category_search_test'
 require_relative 'bodyheight/bodyheight_patient_category_date_search_test'
@@ -85,6 +89,10 @@ read succeeds.
       end
   
       test from: :au_core_v030_ballot_bodyheight_patient_code_search_test
+      test from: :au_core_v030_ballot_bodyheight_category_search_test
+      test from: :au_core_v030_ballot_bodyheight_code_search_test
+      test from: :au_core_v030_ballot_bodyheight_date_search_test
+      test from: :au_core_v030_ballot_bodyheight_status_search_test
       test from: :au_core_v030_ballot_bodyheight_patient_search_test
       test from: :au_core_v030_ballot_bodyheight_patient_category_search_test
       test from: :au_core_v030_ballot_bodyheight_patient_category_date_search_test

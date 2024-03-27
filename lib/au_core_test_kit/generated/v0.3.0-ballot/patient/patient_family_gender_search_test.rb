@@ -23,7 +23,8 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Patient',
-        search_param_names: ['family', 'gender']
+        search_param_names: ['family', 'gender'],
+        possible_status_search: true
         )
       end
 

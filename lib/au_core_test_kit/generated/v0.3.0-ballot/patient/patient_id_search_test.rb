@@ -36,6 +36,7 @@ requirement of AU Core v0.3.0-ballot.
           first_search: true,
         resource_type: 'Patient',
         search_param_names: ['_id'],
+        possible_status_search: true,
         test_post_search: true
         )
       end

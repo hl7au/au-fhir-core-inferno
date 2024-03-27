@@ -34,6 +34,11 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - clinical-status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
@@ -41,19 +46,6 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
-  :patient:
-    :paths:
-    - patient
-    :full_paths:
-    - AllergyIntolerance.patient
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
   :clinical-status:
     :paths:
     - clinicalStatus
@@ -67,6 +59,19 @@
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
+  :patient:
+    :paths:
+    - patient
+    :full_paths:
+    - AllergyIntolerance.patient
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -152,6 +157,8 @@
 :tests:
 - :id: au_core_v030_ballot_allergy_intolerance_patient_search_test
   :file_name: allergy_intolerance_patient_search_test.rb
+- :id: au_core_v030_ballot_allergy_intolerance_clinical_status_search_test
+  :file_name: allergy_intolerance_clinical_status_search_test.rb
 - :id: au_core_v030_ballot_allergy_intolerance_patient_clinical_status_search_test
   :file_name: allergy_intolerance_patient_clinical_status_search_test.rb
 - :id: au_core_v030_ballot_allergy_intolerance_read_test

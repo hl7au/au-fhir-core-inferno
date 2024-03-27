@@ -1,4 +1,8 @@
 require_relative 'condition/condition_patient_search_test'
+require_relative 'condition/condition_category_search_test'
+require_relative 'condition/condition_clinical_status_search_test'
+require_relative 'condition/condition_code_search_test'
+require_relative 'condition/condition_onset_date_search_test'
 require_relative 'condition/condition_patient_category_search_test'
 require_relative 'condition/condition_patient_clinical_status_search_test'
 require_relative 'condition/condition_patient_category_clinical_status_search_test'
@@ -83,6 +87,10 @@ read succeeds.
       end
   
       test from: :au_core_v030_ballot_condition_patient_search_test
+      test from: :au_core_v030_ballot_condition_category_search_test
+      test from: :au_core_v030_ballot_condition_clinical_status_search_test
+      test from: :au_core_v030_ballot_condition_code_search_test
+      test from: :au_core_v030_ballot_condition_onset_date_search_test
       test from: :au_core_v030_ballot_condition_patient_category_search_test
       test from: :au_core_v030_ballot_condition_patient_clinical_status_search_test
       test from: :au_core_v030_ballot_condition_patient_category_clinical_status_search_test
