@@ -175,9 +175,7 @@ Documented changes do not include:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb#L44
 
 ### multiple_or_expectation method update
-**Reason**: It was necessary to update because there were probably some missing values in the data.
-
-**Other notes:** Need to REVIEW
+**Reason**: It should be present because many SDs lack the "multipleOr" attribute, which could lead to errors in the generator.
 
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb#L172
