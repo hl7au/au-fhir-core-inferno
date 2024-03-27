@@ -58,7 +58,6 @@
     - resolved
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
   :patient:
     :paths:
     - patient

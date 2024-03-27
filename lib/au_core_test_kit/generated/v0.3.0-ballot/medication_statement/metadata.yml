@@ -79,7 +79,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-    :multiple_or: MAY
   :status:
     :paths:
     - status
@@ -97,7 +96,6 @@
     - not-taken
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
   :patient:
     :paths:
     - subject
