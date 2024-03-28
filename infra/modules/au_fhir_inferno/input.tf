@@ -14,7 +14,7 @@ variable "terminology_server" {
 
 variable "inferno_image" {
   description = "Docker image for inferno"
-  default     = "bedasoftware/au-fhir-core-inferno-inferno:04dc5c60920807c35105390d6718c7696dd78ad5"
+  default     = "bedasoftware/au-fhir-core-inferno-inferno:9d84e44f73fedd6224c8b8f04eddd5fab3bd122a"
 }
 
 variable "validator_base_path" {
