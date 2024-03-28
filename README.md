@@ -23,3 +23,4 @@ make run
 ## Additional information
 1. [Pre-requisites](/docs/pre-requisites.md)
 2. [Validator instructions](/docs/validator_instructions.md)
+3. [Changelog](CHANGELOG.md)
