@@ -6,6 +6,10 @@ setup:
 generate:
 	docker compose run inferno bundle exec rake au_core:generate
 
+tests:
+	docker build -t au-core-rspec-tests -f Dockerfile.test .
+	docker run au-core-rspec-tests
+
 run:
 	docker compose build
 	docker compose up

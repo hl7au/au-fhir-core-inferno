@@ -1,5 +1,5 @@
 module AUCoreTestKit
-  module AUCoreV311
+  module AUCoreV030_BALLOT
     class ProfileSupportTest < Inferno::Test
       id :au_core_profile_support
       title 'Capability Statement lists support for required AU Core Resoruce Types'
