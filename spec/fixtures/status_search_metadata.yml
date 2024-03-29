@@ -1,6 +1,6 @@
 ---
 :name: us_core_body_height
-:class_name: USCorev400BodyHeightSequence
+:class_name: AUCoreV030_BALLOTBodyHeightSequence
 :version: v4.0.0
 :reformatted_version: v400
 :resource: Observation
@@ -313,26 +313,26 @@
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence
   - http://hl7.org/fhir/StructureDefinition/vitalsigns
 :tests:
-- :id: us_core_v400_body_height_patient_code_search_test
+- :id: au_core_v030_ballot_body_height_patient_code_search_test
   :file_name: body_height_patient_code_search_test.rb
-- :id: us_core_v400_body_height_patient_category_status_search_test
+- :id: au_core_v030_ballot_body_height_patient_category_status_search_test
   :file_name: body_height_patient_category_status_search_test.rb
-- :id: us_core_v400_body_height_patient_code_date_search_test
+- :id: au_core_v030_ballot_body_height_patient_code_date_search_test
   :file_name: body_height_patient_code_date_search_test.rb
-- :id: us_core_v400_body_height_patient_category_search_test
+- :id: au_core_v030_ballot_body_height_patient_category_search_test
   :file_name: body_height_patient_category_search_test.rb
-- :id: us_core_v400_body_height_patient_category_date_search_test
+- :id: au_core_v030_ballot_body_height_patient_category_date_search_test
   :file_name: body_height_patient_category_date_search_test.rb
-- :id: us_core_v400_body_height_read_test
+- :id: au_core_v030_ballot_body_height_read_test
   :file_name: body_height_read_test.rb
-- :id: us_core_v400_body_height_provenance_revinclude_search_test
+- :id: au_core_v030_ballot_body_height_provenance_revinclude_search_test
   :file_name: body_height_provenance_revinclude_search_test.rb
-- :id: us_core_v400_body_height_validation_test
+- :id: au_core_v030_ballot_body_height_validation_test
   :file_name: body_height_validation_test.rb
-- :id: us_core_v400_body_height_must_support_test
+- :id: au_core_v030_ballot_body_height_must_support_test
   :file_name: body_height_must_support_test.rb
-- :id: us_core_v400_body_height_reference_resolution_test
+- :id: au_core_v030_ballot_body_height_reference_resolution_test
   :file_name: body_height_reference_resolution_test.rb
-:id: us_core_v400_body_height
+:id: au_core_v030_ballot_body_height
 :file_name: body_height_group.rb
 :delayed_references: []
