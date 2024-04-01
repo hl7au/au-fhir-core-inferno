@@ -27,18 +27,18 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: inferno-validator
+              name: validator-api
               port:
                 number: 4567
-        - path: /validator 
+        - path: /validator
           pathType: Prefix
           backend:
             service:
-              name: inferno-fhir-validator
+              name: validator-web
               port:
                 number: 80
-        - path: / 
-          pathType: Prefix 
+        - path: /
+          pathType: Prefix
           backend:
             service:
               name: inferno

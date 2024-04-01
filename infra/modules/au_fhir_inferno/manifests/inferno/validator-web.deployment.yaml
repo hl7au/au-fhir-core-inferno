@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fhir-validator
+  name: validator-web
   namespace: ${namespace}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      workload: inferno-fhir-validator
+      workload: validator-web
   template:
     metadata:
       labels:
-        workload: inferno-fhir-validator
+        workload: validator-web
     spec:
       containers:
-      - name: inferno-fhir-validator
+      - name: validator-web
         image: infernocommunity/fhir-validator-app:latest
         imagePullPolicy: Always
         env:

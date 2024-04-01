@@ -36,7 +36,7 @@ module AUCoreTestKit
       end
 
       validator do
-        url ENV.fetch('<%= validator_env_name %>', 'http://validator-service:4567')
+        url ENV.fetch('<%= validator_env_name %>', 'http://validator-api:4567')
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         exclude_message do |message|

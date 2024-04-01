@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: inferno-validator
+  name: validator-api
   namespace: ${namespace}
 spec:
   type: NodePort
@@ -10,4 +10,4 @@ spec:
       protocol: TCP
       targetPort: 4567
   selector:
-    workload: inferno-validator
+    workload: validator-api

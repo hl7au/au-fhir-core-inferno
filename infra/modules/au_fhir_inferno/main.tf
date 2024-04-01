@@ -46,7 +46,7 @@ resource "kubernetes_config_map" "inferno" {
   }
 
   data = {
-    V030_BALLOT_VALIDATOR_URL = "http://inferno-validator:4567"
+    V030_BALLOT_VALIDATOR_URL = "http://validator-api:4567"
     REDIS_URL                 = "redis://inferno-redis:6379"
     RAILS_ENV                 = "production"
   }
