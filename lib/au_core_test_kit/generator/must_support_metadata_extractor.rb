@@ -333,7 +333,7 @@ module AUCoreTestKit
         remove_observation_method_attribute
         remove_observation_value_attribute
         remove_lipid_result_attributes
-        remove_specimen_attribute
+        # remove_specimen_attribute
 
         case profile.version
         when '3.1.1'
