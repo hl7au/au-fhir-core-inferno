@@ -7,8 +7,8 @@ generate:
 	docker compose run inferno bundle exec rake au_core:generate
 
 tests:
-	docker build -t au-core-rspec-tests -f Dockerfile.test .
-	docker run au-core-rspec-tests
+	docker build -t au-core-rspec-tests .
+	docker run -e APP_ENV=test au-core-rspec-tests bundle exec rspec
 
 run:
 	docker compose build
