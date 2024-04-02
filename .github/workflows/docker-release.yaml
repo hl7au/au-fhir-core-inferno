@@ -1,5 +1,9 @@
 name: Release docekr image
-on: [push]
+on:
+  workflow_run:
+      workflows: [test]
+      branches: [master]
+      types: [completed]
 env:
   IMAGE: bedasoftware/au-fhir-core-inferno-inferno
 jobs:
