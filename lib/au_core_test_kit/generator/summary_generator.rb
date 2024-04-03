@@ -1,4 +1,44 @@
 require 'json'
+require 'erb'
+
+SUMMARY_TEMPLATE = <<-MD
+# AU CORE <%= folder_name %>
+
+<% test_groups.each do |test_group| %>
+## <%= test_group[:title] %>
+
+<details>
+<summary><%= test_group[:short_description] %></summary>
+
+<%= test_group[:description] %>
+</details>
+
+### Tests
+<% test_group[:tests].each_with_index do |test, index| %>
+<%= index + 1 %>. <%= test[:title] %>
+<details>
+<summary>Show details</summary>
+<%= test[:description] %>
+</details>
+
+<% end %>
+<% end %>
+MD
+
+def generate_summary_md(folder_hashes)
+  folder_hashes.each do |folder_hash|
+    folder_name = folder_hash[:folder_name]
+    folder_path = folder_hash[:folder_path]
+    test_groups = folder_hash[:test_groups]
+
+    summary_content = ERB.new(SUMMARY_TEMPLATE).result(binding)
+
+    File.open("#{folder_path}/#{folder_name}_summary.md", "w") do |summary_file|
+      summary_file.puts summary_content
+    end
+  end
+end
+
 
 def extract_test_title(test_file_path_with_id)
   test_title = nil
@@ -100,7 +140,9 @@ if Dir.exist?(directory_path)
 
   summary_data = { summary_data: folder_hashes }
 
-  puts JSON.pretty_generate(summary_data)
+  generate_summary_md(folder_hashes)
+
+  # puts JSON.pretty_generate(summary_data)
 else
   puts "Directory not found: #{directory_path}"
 end
