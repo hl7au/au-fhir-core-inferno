@@ -2,7 +2,7 @@ require 'json'
 require 'erb'
 
 SUMMARY_TEMPLATE = <<-MD
-# AU CORE <%= folder_name %>
+# <%= folder_name %>
 
 <% test_groups.each do |test_group| %>
 ## <%= test_group[:title] %>
@@ -14,8 +14,8 @@ SUMMARY_TEMPLATE = <<-MD
 </details>
 
 ### Tests
-<% test_group[:tests].each_with_index do |test, index| %>
-<%= index + 1 %>. <%= test[:title] %>
+<% test_group[:tests].each do |test| %>
+#### <%= test[:title] %>
 <details>
 <summary>Show details</summary>
 <%= test[:description] %>
@@ -25,6 +25,17 @@ SUMMARY_TEMPLATE = <<-MD
 <% end %>
 MD
 
+def update_test_groups_titles(ig_index, test_groups)
+  test_groups.map.with_index do |test_group, index|
+    test_group_index = index + 1
+    test_group[:title] = "#{ig_index}.#{test_group_index} #{test_group[:title]}"
+    test_group[:tests].map.with_index do |test, t_index|
+      test_index = t_index + 1
+      test[:title] = "#{ig_index}.#{test_group_index}.#{test_index} #{test[:title]}"
+    end
+  end
+end
+
 def generate_summary_md(folder_hashes)
   folder_hashes.each do |folder_hash|
     folder_name = folder_hash[:folder_name]
@@ -33,7 +44,7 @@ def generate_summary_md(folder_hashes)
 
     summary_content = ERB.new(SUMMARY_TEMPLATE).result(binding)
 
-    File.open("#{folder_path}/#{folder_name}_summary.md", "w") do |summary_file|
+    File.open("#{folder_path}/summary.md", "w") do |summary_file|
       summary_file.puts summary_content
     end
   end
@@ -94,10 +105,11 @@ folder_hashes = []
 if Dir.exist?(directory_path)
   folder_names = Dir.entries(directory_path).select { |entry| File.directory?(File.join(directory_path, entry)) && entry != '.' && entry != '..' }
 
-  folder_names.each do |folder_name|
+  folder_names.each_with_index do |folder_name, index|
     folder_path = File.join(directory_path, folder_name)
     file_path = File.join(folder_path, "au_core_test_suite.rb")
     test_groups = []
+    ig_index = index + 1
 
     if File.exist?(file_path)
       File.open(file_path, "r") do |file|
@@ -129,8 +141,10 @@ if Dir.exist?(directory_path)
       end
     end
 
+    update_test_groups_titles(ig_index, test_groups)
+
     folder_hash = {
-      folder_name: folder_name,
+      folder_name: "#{ig_index} AU Core #{folder_name}",
       folder_path: folder_path,
       test_groups: test_groups
     }
