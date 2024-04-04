@@ -1,38 +1,39 @@
-# 1 AU Core FHIR API
+# <%= folder_name %>
 
-<% resource_list.each do |resource_data| %>
-# 1.<%= resource_data["position"] %> <%= resource_data["title"] %>
+<% test_groups.each do |test_group| %>
+## <%= test_group[:title] %>
 
-<%= resource_data["description"] %>
+<details>
+<summary><%= test_group[:short_description] %></summary>
 
-<% if resource_data["interactions"].any? %>
-## Interactions
+<%= test_group[:description] %>
+</details>
 
-<% resource_data["interactions"].each do |interaction| %>
-* <%= interaction["code"] %> (<%= interaction["expectation"] %>)
-<% end %>
-<% end %>
+### Tests
+<% test_group[:tests].each do |test| %>
+#### <%= test[:title] %>
+<details>
+<summary>Show details</summary>
+<%= test[:description] %>
+# <% if test[:search_string] != nil %>
+# ##### Requests
 
-<% if resource_data["searches"].any? %>
-## Test scenarios
+# **HTTP GET**
 
-<% resource_data["searches"].each do |search_data| %>
-### 1.<%= resource_data["position"] %>.<%= search_data["position"] %> Search: <%= search_data["names"].join('+') %> (<%= search_data["expectation"] %>)
+# ```bash
+# GET <%= test[:search_string] %> HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
 
-**HTTP GET**
+# **For browser based calls:**
 
-```bash
-GET <%= search_data["search_string"] %> HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
+# ```bash
+# {test endpoint}<%= test[:search_string] %>
+# ```
+# <% end %>
+</details>
 
-**For browser based calls:**
-
-```bash
-{test endpoint}<%= search_data["search_string"] %>
-```
-<% end %>
 <% end %>
 <% end %>
