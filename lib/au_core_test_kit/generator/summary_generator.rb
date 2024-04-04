@@ -2,14 +2,14 @@ require 'erb'
 require 'yaml'
 
 def symbolize_keys(hash)
-  hash.each_with_object({}) do |(key, value), result|
-    result[key.to_sym] = if value.is_a?(Hash)
-                           symbolize_keys(value)
-                         elsif value.is_a?(Array)
-                           value.map { |item| item.is_a?(Hash) ? symbolize_keys(item) : item }
-                         else
-                           value
-                         end
+  hash.transform_keys(&:to_sym).transform_values do |value|
+    if value.is_a?(Hash)
+      symbolize_keys(value)
+    elsif value.is_a?(Array)
+      value.map { |item| item.is_a?(Hash) ? symbolize_keys(item) : item }
+    else
+      value
+    end
   end
 end
 
@@ -23,19 +23,17 @@ end
 
 def search_string(file_path)
   search_names = extract_test_attribute(file_path, "search_param_names")
-  if search_names
-    resource_type = extract_test_attribute(file_path, "resource_type")
-    make_search_string(resource_type, search_names)
-  else
-    nil
-  end
+  return unless search_names
+
+  resource_type = extract_test_attribute(file_path, "resource_type")
+  make_search_string(resource_type, search_names)
 end
 
 def update_test_groups_titles(ig_index, test_groups)
-  test_groups.map.with_index do |test_group, index|
+  test_groups.each_with_index do |test_group, index|
     test_group_index = index + 2
     test_group[:title] = "#{ig_index}.#{test_group_index} #{test_group[:title]}"
-    test_group[:tests].map.with_index do |test, t_index|
+    test_group[:tests].each_with_index do |test, t_index|
       test_index = t_index + 1
       test[:title] = "#{ig_index}.#{test_group_index}.#{test_index} #{test[:title]}"
     end
@@ -51,50 +49,36 @@ def generate_summary_md(folder_hashes)
 
     summary_content = ERB.new(summary_template).result(binding)
 
-    File.open("#{folder_path}/summary.md", "w") do |summary_file|
-      summary_file.puts summary_content
-    end
+    File.open("#{folder_path}/summary.md", "w") { |summary_file| summary_file.puts summary_content }
   end
 end
 
 def find_value_in_file(file_path, search_str)
   value = nil
-  File.open(file_path, "r") do |test_file|
-    test_file.each_line do |test_line|
-      if test_line.include?(search_str)
-        value = test_line.split(search_str)[1].strip.gsub("'", "")
-        break
-      end
+  File.foreach(file_path) do |test_line|
+    if test_line.include?(search_str)
+      value = test_line.split(search_str)[1].strip.gsub("'", "")
+      break
     end
   end
   value
 end
 
-
 def extract_test_attribute(test_file_path_with_id, attribute)
   attribute_value = nil
   case attribute
   when "resource_type"
-    attribute_value = find_value_in_file(test_file_path_with_id, "resource_type").gsub(":", "").gsub(",", "").strip
+    attribute_value = find_value_in_file(test_file_path_with_id, "resource_type").delete(":,").strip
   when "search_param_names"
     dirty_value = find_value_in_file(test_file_path_with_id, "search_param_names")
-    if dirty_value
-      attribute_value = dirty_value.scan(/\[(.*?)\]/).flatten.first.split(', ')
-    end
-  when "title"
-    attribute_value = find_value_in_file(test_file_path_with_id, "title")
-  when "short_description"
-    attribute_value = find_value_in_file(test_file_path_with_id, "short_description")
+    attribute_value = dirty_value.scan(/\[(.*?)\]/).flatten.first.split(', ') if dirty_value
+  when "title", "short_description"
+    attribute_value = find_value_in_file(test_file_path_with_id, attribute)
   when "description"
     content = File.read(test_file_path_with_id)
     matches = content.scan(/%\((.*?)\)/m)
-    if matches.empty?
-      attribute_value = find_value_in_file(test_file_path_with_id, "description")
-    else
-      matches.each do |match|
-        attribute_value = match[0].strip
-      end
-    end
+    attribute_value = find_value_in_file(test_file_path_with_id, "description") if matches.empty?
+    matches.each { |match| attribute_value = match[0].strip }
   else
     puts "Unknown attribute: #{attribute}"
   end
@@ -102,7 +86,6 @@ def extract_test_attribute(test_file_path_with_id, attribute)
 end
 
 directory_path = "lib/au_core_test_kit/generated"
-
 folder_hashes = []
 
 if Dir.exist?(directory_path)
@@ -114,46 +97,42 @@ if Dir.exist?(directory_path)
     test_groups = []
     ig_index = index + 1
 
-    if File.exist?(file_path)
-      File.open(file_path, "r") do |file|
-        file.each_line do |line|
-          if line.include?("group from: :")
-            value = line[/[:]\s*([^\s]+)/, 1]
-            id = value if value
-            file_path_with_id = Dir.glob("#{folder_path}/*").find { |f| File.file?(f) && File.read(f).include?("id #{id}") }
-            tests = []
-            if id && file_path_with_id
-              File.open(file_path_with_id, "r") do |test_file|
-                test_file.each_line do |test_line|
-                  if test_line.include?("test from: :")
-                    test_value = test_line[/[:]\s*([^\s]+)/, 1]
-                    test_id = test_value if test_value
-                    Dir.glob("#{folder_path}/**/*").select { |f| File.file?(f) }.each do |test_file_path_with_id|
-                      if File.read(test_file_path_with_id).include?("id #{test_id}")
-                        tests << { 
-                          id: test_id, 
-                          test_file_path: test_file_path_with_id, 
-                          title: extract_test_attribute(test_file_path_with_id, "title"), 
-                          description: extract_test_attribute(test_file_path_with_id, "description"),
-                          search_string: search_string(test_file_path_with_id)
-                        }
-                        break
-                      end
-                    end
-                  end
-                end
+    next unless File.exist?(file_path)
+
+    File.foreach(file_path) do |line|
+      if line.include?("group from: :")
+        value = line[/[:]\s*([^\s]+)/, 1]
+        id = value if value
+        file_path_with_id = Dir.glob("#{folder_path}/*").find { |f| File.file?(f) && File.read(f).include?("id #{id}") }
+        tests = []
+        next unless id && file_path_with_id
+
+        File.foreach(file_path_with_id) do |test_line|
+          if test_line.include?("test from: :")
+            test_value = test_line[/[:]\s*([^\s]+)/, 1]
+            test_id = test_value if test_value
+            Dir.glob("#{folder_path}/**/*").select { |f| File.file?(f) }.each do |test_file_path_with_id|
+              if File.read(test_file_path_with_id).include?("id #{test_id}")
+                tests << { 
+                  id: test_id, 
+                  test_file_path: test_file_path_with_id, 
+                  title: extract_test_attribute(test_file_path_with_id, "title"), 
+                  description: extract_test_attribute(test_file_path_with_id, "description"),
+                  search_string: search_string(test_file_path_with_id)
+                }
+                break
               end
             end
-            test_groups << { 
-              id: id, 
-              file_path: file_path_with_id, 
-              title: extract_test_attribute(file_path_with_id, "title"), 
-              short_description: extract_test_attribute(file_path_with_id, "short_description"), 
-              description: extract_test_attribute(file_path_with_id, "description"), 
-              tests: tests 
-            } if id && file_path_with_id
           end
         end
+        test_groups << { 
+          id: id, 
+          file_path: file_path_with_id, 
+          title: extract_test_attribute(file_path_with_id, "title"), 
+          short_description: extract_test_attribute(file_path_with_id, "short_description"), 
+          description: extract_test_attribute(file_path_with_id, "description"), 
+          tests: tests 
+        } if id && file_path_with_id
       end
     end
 
@@ -165,13 +144,11 @@ if Dir.exist?(directory_path)
             File.join(
               __dir__, 'assets', 'capability_statement_group.yaml')))))
 
-    folder_hash = {
+    folder_hashes << {
       folder_name: "#{ig_index} AU Core #{folder_name}",
       folder_path: folder_path,
       test_groups: test_groups,
     }
-
-    folder_hashes << folder_hash
   end
   generate_summary_md(folder_hashes)
 else
