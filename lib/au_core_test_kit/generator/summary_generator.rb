@@ -19,6 +19,24 @@ SUMMARY_TEMPLATE = <<-MD
 <details>
 <summary>Show details</summary>
 <%= test[:description] %>
+# <% if test[:search_string] != nil %>
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET <%= test[:search_string] %> HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}<%= test[:search_string] %>
+# ```
+# <% end %>
 </details>
 
 <% end %>
@@ -65,6 +83,24 @@ CAPABILITY_STATEMENT_GROUP = {
   ]
 }
 
+def make_search_string(resource_name, search_names)
+  search = search_names.map.with_index do |search_name, index|
+      prefix = index == 0 ? "?" : "&"
+      "#{prefix}#{search_name}={#{search_name}}"
+  end
+  "/#{resource_name}#{search.join('')}"
+end
+
+def search_string(file_path)
+  search_names = extract_test_attribute(file_path, "search_param_names")
+  if search_names
+    resource_type = extract_test_attribute(file_path, "resource_type")
+    make_search_string(resource_type, search_names)
+  else
+    nil
+  end
+end
+
 def update_test_groups_titles(ig_index, test_groups)
   test_groups.map.with_index do |test_group, index|
     test_group_index = index + 2
@@ -107,6 +143,13 @@ end
 def extract_test_attribute(test_file_path_with_id, attribute)
   attribute_value = nil
   case attribute
+  when "resource_type"
+    attribute_value = find_value_in_file(test_file_path_with_id, "resource_type").gsub(":", "").gsub(",", "").strip
+  when "search_param_names"
+    dirty_value = find_value_in_file(test_file_path_with_id, "search_param_names")
+    if dirty_value
+      attribute_value = dirty_value.scan(/\[(.*?)\]/).flatten.first.split(', ')
+    end
   when "title"
     attribute_value = find_value_in_file(test_file_path_with_id, "title")
   when "short_description"
@@ -156,7 +199,13 @@ if Dir.exist?(directory_path)
                     test_id = test_value if test_value
                     Dir.glob("#{folder_path}/**/*").select { |f| File.file?(f) }.each do |test_file_path_with_id|
                       if File.read(test_file_path_with_id).include?("id #{test_id}")
-                        tests << { id: test_id, test_file_path: test_file_path_with_id, title: extract_test_attribute(test_file_path_with_id, "title"), description: extract_test_attribute(test_file_path_with_id, "description") }
+                        tests << { 
+                          id: test_id, 
+                          test_file_path: test_file_path_with_id, 
+                          title: extract_test_attribute(test_file_path_with_id, "title"), 
+                          description: extract_test_attribute(test_file_path_with_id, "description"),
+                          search_string: search_string(test_file_path_with_id)
+                        }
                         break
                       end
                     end
@@ -164,7 +213,14 @@ if Dir.exist?(directory_path)
                 end
               end
             end
-            test_groups << { id: id, file_path: file_path_with_id, title: extract_test_attribute(file_path_with_id, "title"), short_description: extract_test_attribute(file_path_with_id, "short_description"), description: extract_test_attribute(file_path_with_id, "description"), tests: tests } if id && file_path_with_id
+            test_groups << { 
+              id: id, 
+              file_path: file_path_with_id, 
+              title: extract_test_attribute(file_path_with_id, "title"), 
+              short_description: extract_test_attribute(file_path_with_id, "short_description"), 
+              description: extract_test_attribute(file_path_with_id, "description"), 
+              tests: tests 
+            } if id && file_path_with_id
           end
         end
       end

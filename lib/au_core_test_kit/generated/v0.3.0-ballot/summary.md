@@ -18,6 +18,7 @@ This test sequence accesses the server endpoint at `/metadata` using a `GET` req
 <details>
 <summary>Show details</summary>
 Systems **SHALL** use TLS version 1.2 or higher for all transmissions not taking place over a secure network connection.
+# 
 </details>
 
 
@@ -25,6 +26,7 @@ Systems **SHALL** use TLS version 1.2 or higher for all transmissions not taking
 <details>
 <summary>Show details</summary>
 The conformance 'whole system' interaction provides a method to get the CapabilityStatement for the FHIR server. This test checks that the server responds to a `GET` request at the following endpoint: ``` GET [base]/metadata ``` This test checks the following SHALL requirement: > Applications SHALL return a resource that describes the functionality of the server end-point. [http://hl7.org/fhir/R4/http.html#capabilities](http://hl7.org/fhir/R4/http.html#capabilities) It does this by checking that the server responds with an HTTP OK 200 status code and that the body of the response contains a valid [CapabilityStatement resource](http://hl7.org/fhir/R4/capabilitystatement.html). This test does not inspect the content of the CapabilityStatement to see if it contains the required information. It only checks to see if the RESTful interaction is supported and returns a valid CapabilityStatement resource.
+# 
 </details>
 
 
@@ -32,6 +34,7 @@ The conformance 'whole system' interaction provides a method to get the Capabili
 <details>
 <summary>Show details</summary>
 This test inspects the CapabilityStatement returned by the server to verify that the server is using FHIR R4.
+# 
 </details>
 
 
@@ -39,6 +42,7 @@ This test inspects the CapabilityStatement returned by the server to verify that
 <details>
 <summary>Show details</summary>
 FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats.html) for resources, including JSON and XML. AU Core profiles require servers to use the [JSON representation](https://www.hl7.org/fhir/json.html): [```The AU Core Server **SHALL** Support json source formats for all US Core interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title) The FHIR conformance interaction require servers to describe which formats are available for clients to use. The server must explicitly state that JSON is supported. This is located in the format element of the CapabilityStatement Resource. This test checks that one of the following values are located in the format field. * json * application/json * application/fhir+json
+# 
 </details>
 
 
@@ -46,6 +50,7 @@ FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats
 <details>
 <summary>Show details</summary>
 The AU Core Implementation Guide states: ``` The AU Core Server SHALL: 1. Support the AU Core Patient resource. 2. Support at least one additional AU Core resources. In order to support USCDI, servers must support all USCDI resources. ```
+# 
 </details>
 
 
@@ -94,6 +99,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -106,6 +129,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?birthdate={birthdate} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?birthdate={birthdate}
+# ```
+# 
 </details>
 
 
@@ -118,6 +159,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?family={family} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?family={family}
+# ```
+# 
 </details>
 
 
@@ -130,6 +189,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?gender={gender} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?gender={gender}
+# ```
+# 
 </details>
 
 
@@ -142,6 +219,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?indigenous-status={indigenous-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?indigenous-status={indigenous-status}
+# ```
+# 
 </details>
 
 
@@ -154,6 +249,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?identifier={identifier} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?identifier={identifier}
+# ```
+# 
 </details>
 
 
@@ -166,6 +279,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?name={name} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?name={name}
+# ```
+# 
 </details>
 
 
@@ -178,6 +309,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?patient-gender-identity={patient-gender-identity} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?patient-gender-identity={patient-gender-identity}
+# ```
+# 
 </details>
 
 
@@ -190,6 +339,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?birthdate={birthdate}&family={family} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?birthdate={birthdate}&family={family}
+# ```
+# 
 </details>
 
 
@@ -202,6 +369,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?birthdate={birthdate}&name={name} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?birthdate={birthdate}&name={name}
+# ```
+# 
 </details>
 
 
@@ -214,6 +399,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?family={family}&gender={gender} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?family={family}&gender={gender}
+# ```
+# 
 </details>
 
 
@@ -226,6 +429,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?gender={gender}&name={name} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?gender={gender}&name={name}
+# ```
+# 
 </details>
 
 
@@ -233,6 +454,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Patient read interaction.
+# 
 </details>
 
 
@@ -244,6 +466,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by _id + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Patient?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Patient?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -252,6 +492,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+# 
 </details>
 
 
@@ -280,6 +521,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Patient.name
         * Patient.name.use
         * Patient.telecom
+# 
 </details>
 
 
@@ -336,6 +578,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -348,6 +608,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -360,6 +638,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -372,6 +668,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -384,6 +698,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -396,6 +728,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -408,6 +758,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -420,6 +788,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -432,6 +818,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -444,6 +848,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -451,6 +873,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -462,6 +885,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -470,6 +911,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
+# 
 </details>
 
 
@@ -498,6 +940,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.value[x]:valueQuantity.system
         * Observation.value[x]:valueQuantity.unit
         * Observation.value[x]:valueQuantity.value
+# 
 </details>
 
 
@@ -515,6 +958,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -571,6 +1015,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -583,6 +1045,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -595,6 +1075,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -607,6 +1105,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -619,6 +1135,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -631,6 +1165,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -643,6 +1195,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -655,6 +1225,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -667,6 +1255,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -679,6 +1285,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -686,6 +1310,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -697,6 +1322,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -705,6 +1348,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+# 
 </details>
 
 
@@ -747,6 +1391,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.performer
         * Observation.status
         * Observation.subject
+# 
 </details>
 
 
@@ -764,6 +1409,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -820,6 +1466,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -832,6 +1496,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -844,6 +1526,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -856,6 +1556,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -868,6 +1586,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -880,6 +1616,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -892,6 +1646,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -904,6 +1676,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -916,6 +1706,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -928,6 +1736,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -935,6 +1761,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -946,6 +1773,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -954,6 +1799,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
+# 
 </details>
 
 
@@ -982,6 +1828,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.value[x]:valueQuantity.system
         * Observation.value[x]:valueQuantity.unit
         * Observation.value[x]:valueQuantity.value
+# 
 </details>
 
 
@@ -999,6 +1846,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -1055,6 +1903,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -1067,6 +1933,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -1079,6 +1963,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -1091,6 +1993,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -1103,6 +2023,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -1115,6 +2053,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -1127,6 +2083,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1139,6 +2113,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1151,6 +2143,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -1163,6 +2173,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1170,6 +2198,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -1181,6 +2210,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + category + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -1189,6 +2236,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+# 
 </details>
 
 
@@ -1220,6 +2268,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+# 
 </details>
 
 
@@ -1238,6 +2287,7 @@ This test will attempt to read external references provided within elements
         * Observation.performer
         * Observation.specimen
         * Observation.subject
+# 
 </details>
 
 
@@ -1294,6 +2344,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1306,6 +2374,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -1318,6 +2404,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -1330,6 +2434,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -1342,6 +2464,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -1354,6 +2494,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -1366,6 +2524,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -1378,6 +2554,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1390,6 +2584,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -1402,6 +2614,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1409,6 +2639,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -1420,6 +2651,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1428,6 +2677,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
+# 
 </details>
 
 
@@ -1456,6 +2706,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.value[x]:valueQuantity.system
         * Observation.value[x]:valueQuantity.unit
         * Observation.value[x]:valueQuantity.value
+# 
 </details>
 
 
@@ -1473,6 +2724,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -1529,6 +2781,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1541,6 +2811,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -1553,6 +2841,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -1565,6 +2871,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -1577,6 +2901,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -1589,6 +2931,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -1601,6 +2961,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -1613,6 +2991,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1625,6 +3021,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -1637,6 +3051,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1644,6 +3076,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -1655,6 +3088,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1663,6 +3114,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+# 
 </details>
 
 
@@ -1691,6 +3143,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.value[x]:valueQuantity.system
         * Observation.value[x]:valueQuantity.unit
         * Observation.value[x]:valueQuantity.value
+# 
 </details>
 
 
@@ -1708,6 +3161,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -1764,6 +3218,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1776,6 +3248,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -1788,6 +3278,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -1800,6 +3308,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -1812,6 +3338,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -1824,6 +3368,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -1836,6 +3398,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -1848,6 +3428,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1860,6 +3458,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -1872,6 +3488,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -1879,6 +3513,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -1890,6 +3525,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -1898,6 +3551,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
+# 
 </details>
 
 
@@ -1922,6 +3576,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.subject
         * Observation.value[x]
         * Observation.value[x]:valueQuantity
+# 
 </details>
 
 
@@ -1939,6 +3594,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -1995,6 +3651,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2007,6 +3681,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -2019,6 +3711,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -2031,6 +3741,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -2043,6 +3771,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -2055,6 +3801,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2067,6 +3831,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -2079,6 +3861,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2091,6 +3891,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -2103,6 +3921,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2110,6 +3946,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -2121,6 +3958,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2129,6 +3984,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
+# 
 </details>
 
 
@@ -2157,6 +4013,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.value[x]:valueQuantity.system
         * Observation.value[x]:valueQuantity.unit
         * Observation.value[x]:valueQuantity.value
+# 
 </details>
 
 
@@ -2174,6 +4031,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -2230,6 +4088,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2242,6 +4118,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -2254,6 +4148,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -2266,6 +4178,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -2278,6 +4208,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -2290,6 +4238,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -2302,6 +4268,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2314,6 +4298,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2326,6 +4328,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -2338,6 +4358,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2345,6 +4383,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -2356,6 +4395,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2364,6 +4421,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+# 
 </details>
 
 
@@ -2395,6 +4453,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+# 
 </details>
 
 
@@ -2412,6 +4471,7 @@ This test will attempt to read external references provided within elements
         * Observation.hasMember
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -2468,6 +4528,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2480,6 +4558,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?category={category}
+# ```
+# 
 </details>
 
 
@@ -2492,6 +4588,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?code={code}
+# ```
+# 
 </details>
 
 
@@ -2504,6 +4618,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?date={date}
+# ```
+# 
 </details>
 
 
@@ -2516,6 +4648,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?status={status}
+# ```
+# 
 </details>
 
 
@@ -2528,6 +4678,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2540,6 +4708,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -2552,6 +4738,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2564,6 +4768,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&category={category}&status={status}
+# ```
+# 
 </details>
 
 
@@ -2576,6 +4798,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -2583,6 +4823,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Observation read interaction.
+# 
 </details>
 
 
@@ -2594,6 +4835,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Observation?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Observation?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2602,6 +4861,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus
+# 
 </details>
 
 
@@ -2621,6 +4881,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+# 
 </details>
 
 
@@ -2638,6 +4899,7 @@ This test will attempt to read external references provided within elements
         * Observation.encounter
         * Observation.performer
         * Observation.subject
+# 
 </details>
 
 
@@ -2690,6 +4952,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /AllergyIntolerance?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/AllergyIntolerance?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2702,6 +4982,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /AllergyIntolerance?clinical-status={clinical-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/AllergyIntolerance?clinical-status={clinical-status}
+# ```
+# 
 </details>
 
 
@@ -2714,6 +5012,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /AllergyIntolerance?patient={patient}&clinical-status={clinical-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/AllergyIntolerance?patient={patient}&clinical-status={clinical-status}
+# ```
+# 
 </details>
 
 
@@ -2721,6 +5037,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the AllergyIntolerance read interaction.
+# 
 </details>
 
 
@@ -2732,6 +5049,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /AllergyIntolerance?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/AllergyIntolerance?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2740,6 +5075,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+# 
 </details>
 
 
@@ -2763,6 +5099,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * AllergyIntolerance.reaction.severity
         * AllergyIntolerance.recorder
         * AllergyIntolerance.verificationStatus
+# 
 </details>
 
 
@@ -2781,6 +5118,7 @@ This test will attempt to read external references provided within elements
         * AllergyIntolerance.encounter
         * AllergyIntolerance.patient
         * AllergyIntolerance.recorder
+# 
 </details>
 
 
@@ -2835,6 +5173,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2847,6 +5203,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?category={category}
+# ```
+# 
 </details>
 
 
@@ -2859,6 +5233,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?clinical-status={clinical-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?clinical-status={clinical-status}
+# ```
+# 
 </details>
 
 
@@ -2871,6 +5263,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?code={code}
+# ```
+# 
 </details>
 
 
@@ -2883,6 +5293,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?onset-date={onset-date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?onset-date={onset-date}
+# ```
+# 
 </details>
 
 
@@ -2895,6 +5323,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient}&category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}&category={category}
+# ```
+# 
 </details>
 
 
@@ -2907,6 +5353,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient}&clinical-status={clinical-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
+# ```
+# 
 </details>
 
 
@@ -2919,6 +5383,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient}&category={category}&clinical-status={clinical-status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
+# ```
+# 
 </details>
 
 
@@ -2931,6 +5413,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient}&code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}&code={code}
+# ```
+# 
 </details>
 
 
@@ -2943,6 +5443,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient}&onset-date={onset-date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}&onset-date={onset-date}
+# ```
+# 
 </details>
 
 
@@ -2950,6 +5468,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Condition read interaction.
+# 
 </details>
 
 
@@ -2961,6 +5480,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Condition?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Condition?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -2969,6 +5506,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+# 
 </details>
 
 
@@ -2992,6 +5530,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Condition.severity
         * Condition.subject
         * Condition.verificationStatus
+# 
 </details>
 
 
@@ -3010,6 +5549,7 @@ This test will attempt to read external references provided within elements
         * Condition.encounter
         * Condition.recorder
         * Condition.subject
+# 
 </details>
 
 
@@ -3063,6 +5603,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3075,6 +5633,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?class={class} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?class={class}
+# ```
+# 
 </details>
 
 
@@ -3087,6 +5663,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?date={date}
+# ```
+# 
 </details>
 
 
@@ -3099,6 +5693,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?discharge-disposition={discharge-disposition}
+# ```
+# 
 </details>
 
 
@@ -3111,6 +5723,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?identifier={identifier} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?identifier={identifier}
+# ```
+# 
 </details>
 
 
@@ -3123,6 +5753,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?location={location} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?location={location}
+# ```
+# 
 </details>
 
 
@@ -3135,6 +5783,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?status={status}
+# ```
+# 
 </details>
 
 
@@ -3147,6 +5813,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?type={type} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?type={type}
+# ```
+# 
 </details>
 
 
@@ -3159,6 +5843,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?date={date}&patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?date={date}&patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3171,6 +5873,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?class={class}&patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?class={class}&patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3183,6 +5903,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient}&discharge-disposition={discharge-disposition} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
+# ```
+# 
 </details>
 
 
@@ -3195,6 +5933,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient}&location={location} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}&location={location}
+# ```
+# 
 </details>
 
 
@@ -3207,6 +5963,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}&status={status}
+# ```
+# 
 </details>
 
 
@@ -3219,6 +5993,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient}&type={type} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}&type={type}
+# ```
+# 
 </details>
 
 
@@ -3226,6 +6018,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Encounter read interaction.
+# 
 </details>
 
 
@@ -3237,6 +6030,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Encounter?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Encounter?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3245,6 +6056,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+# 
 </details>
 
 
@@ -3273,6 +6085,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Encounter.status
         * Encounter.subject
         * Encounter.type
+# 
 </details>
 
 
@@ -3292,6 +6105,7 @@ This test will attempt to read external references provided within elements
         * Encounter.reasonReference
         * Encounter.serviceProvider
         * Encounter.subject
+# 
 </details>
 
 
@@ -3345,6 +6159,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3357,6 +6189,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?date={date}
+# ```
+# 
 </details>
 
 
@@ -3369,6 +6219,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?status={status}
+# ```
+# 
 </details>
 
 
@@ -3381,6 +6249,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?vaccine-code={vaccine-code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?vaccine-code={vaccine-code}
+# ```
+# 
 </details>
 
 
@@ -3393,6 +6279,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?patient={patient}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?patient={patient}&status={status}
+# ```
+# 
 </details>
 
 
@@ -3405,6 +6309,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?patient={patient}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?patient={patient}&date={date}
+# ```
+# 
 </details>
 
 
@@ -3417,6 +6339,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?patient={patient}&vaccine-code={vaccine-code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?patient={patient}&vaccine-code={vaccine-code}
+# ```
+# 
 </details>
 
 
@@ -3424,6 +6364,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Immunization read interaction.
+# 
 </details>
 
 
@@ -3435,6 +6376,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Immunization?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Immunization?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3443,6 +6402,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+# 
 </details>
 
 
@@ -3470,6 +6430,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode
         * Immunization.vaccineCode.coding:amtVaccineCode
+# 
 </details>
 
 
@@ -3487,6 +6448,7 @@ This test will attempt to read external references provided within elements
         * Immunization.encounter
         * Immunization.patient
         * Immunization.performer.actor
+# 
 </details>
 
 
@@ -3548,6 +6510,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3564,6 +6544,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -3580,6 +6578,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?identifier={identifier} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?identifier={identifier}
+# ```
+# 
 </details>
 
 
@@ -3596,6 +6612,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?category={category} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?category={category}
+# ```
+# 
 </details>
 
 
@@ -3612,6 +6646,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?authoredon={authoredon} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?authoredon={authoredon}
+# ```
+# 
 </details>
 
 
@@ -3628,6 +6680,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?intent={intent} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?intent={intent}
+# ```
+# 
 </details>
 
 
@@ -3644,6 +6714,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?status={status}
+# ```
+# 
 </details>
 
 
@@ -3660,6 +6748,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?patient={patient}&intent={intent} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?patient={patient}&intent={intent}
+# ```
+# 
 </details>
 
 
@@ -3676,6 +6782,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?patient={patient}&intent={intent}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
+# ```
+# 
 </details>
 
 
@@ -3692,6 +6816,24 @@ Medications, the search will be repeated with
 `_include=MedicationRequest:medication`.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon}
+# ```
+# 
 </details>
 
 
@@ -3699,6 +6841,7 @@ Medications, the search will be repeated with
 <details>
 <summary>Show details</summary>
 A server SHALL support the MedicationRequest read interaction.
+# 
 </details>
 
 
@@ -3710,6 +6853,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationRequest?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationRequest?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3718,6 +6879,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+# 
 </details>
 
 
@@ -3726,6 +6888,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 <summary>Show details</summary>
 This test verifies resources returned from previous tests conform to
 the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+# 
 </details>
 
 
@@ -3757,6 +6920,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * MedicationRequest.subject
         * MedicationRequest.substitution
         * MedicationRequest.substitution.allowed[x]
+# 
 </details>
 
 
@@ -3775,6 +6939,7 @@ This test will attempt to read external references provided within elements
         * MedicationRequest.medication[x]
         * MedicationRequest.requester
         * MedicationRequest.subject
+# 
 </details>
 
 
@@ -3828,6 +6993,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3840,6 +7023,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?effective={effective} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?effective={effective}
+# ```
+# 
 </details>
 
 
@@ -3852,6 +7053,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?status={status}
+# ```
+# 
 </details>
 
 
@@ -3864,6 +7083,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?patient={patient}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?patient={patient}&status={status}
+# ```
+# 
 </details>
 
 
@@ -3876,6 +7113,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?patient={patient}&effective={effective} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?patient={patient}&effective={effective}
+# ```
+# 
 </details>
 
 
@@ -3883,6 +7138,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the MedicationStatement read interaction.
+# 
 </details>
 
 
@@ -3894,6 +7150,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /MedicationStatement?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/MedicationStatement?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -3902,6 +7176,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core MedicationStatement](http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+# 
 </details>
 
 
@@ -3928,6 +7203,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * MedicationStatement.status
         * MedicationStatement.statusReason
         * MedicationStatement.subject
+# 
 </details>
 
 
@@ -3947,6 +7223,7 @@ This test will attempt to read external references provided within elements
         * MedicationStatement.informationSource
         * MedicationStatement.medication[x]
         * MedicationStatement.subject
+# 
 </details>
 
 
@@ -4000,6 +7277,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -4012,6 +7307,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?code={code} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?code={code}
+# ```
+# 
 </details>
 
 
@@ -4024,6 +7337,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?date={date}
+# ```
+# 
 </details>
 
 
@@ -4036,6 +7367,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?status={status}
+# ```
+# 
 </details>
 
 
@@ -4048,6 +7397,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?patient={patient}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?patient={patient}&date={date}
+# ```
+# 
 </details>
 
 
@@ -4060,6 +7427,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?patient={patient}&code={code}&date={date} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?patient={patient}&code={code}&date={date}
+# ```
+# 
 </details>
 
 
@@ -4072,6 +7457,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?patient={patient}&status={status} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?patient={patient}&status={status}
+# ```
+# 
 </details>
 
 
@@ -4079,6 +7482,7 @@ none are returned, the test is skipped.
 <details>
 <summary>Show details</summary>
 A server SHALL support the Procedure read interaction.
+# 
 </details>
 
 
@@ -4090,6 +7494,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by patient + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Procedure?patient={patient} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Procedure?patient={patient}
+# ```
+# 
 </details>
 
 
@@ -4098,6 +7520,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+# 
 </details>
 
 
@@ -4122,6 +7545,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Procedure.status
         * Procedure.statusReason
         * Procedure.subject
+# 
 </details>
 
 
@@ -4141,6 +7565,7 @@ This test will attempt to read external references provided within elements
         * Procedure.reasonReference
         * Procedure.recorder
         * Procedure.subject
+# 
 </details>
 
 
@@ -4177,6 +7602,7 @@ The first search uses the selected patient(s
 <details>
 <summary>Show details</summary>
 A server SHALL support the Organization read interaction.
+# 
 </details>
 
 
@@ -4197,6 +7623,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Organization?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Organization?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -4209,6 +7653,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Organization?address={address} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Organization?address={address}
+# ```
+# 
 </details>
 
 
@@ -4221,6 +7683,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Organization?identifier={identifier} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Organization?identifier={identifier}
+# ```
+# 
 </details>
 
 
@@ -4233,6 +7713,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Organization?name={name} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Organization?name={name}
+# ```
+# 
 </details>
 
 
@@ -4244,6 +7742,24 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
         This test will perform a search by _id + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Organization?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Organization?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -4252,6 +7768,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Organization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+# 
 </details>
 
 
@@ -4269,6 +7786,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Organization.name
         * Organization.telecom
         * Organization.type
+# 
 </details>
 
 
@@ -4304,6 +7822,7 @@ The first search uses the selected patient(s
 <details>
 <summary>Show details</summary>
 A server SHALL support the Practitioner read interaction.
+# 
 </details>
 
 
@@ -4324,6 +7843,24 @@ FHIR R4 specification, and these tests interpret search by GET as a
 requirement of AU Core v0.3.0-ballot.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Practitioner?_id={_id} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Practitioner?_id={_id}
+# ```
+# 
 </details>
 
 
@@ -4336,6 +7873,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Practitioner?identifier={identifier} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Practitioner?identifier={identifier}
+# ```
+# 
 </details>
 
 
@@ -4348,6 +7903,24 @@ will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+# 
+# ##### Requests
+
+# **HTTP GET**
+
+# ```bash
+# GET /Practitioner?name={name} HTTP/1.1
+# User-Agent: {agent}
+# Host: {host}
+# Accept: application/fhir+json
+# ```
+
+# **For browser based calls:**
+
+# ```bash
+# {test endpoint}/Practitioner?name={name}
+# ```
+# 
 </details>
 
 
@@ -4356,6 +7929,7 @@ none are returned, the test is skipped.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+# 
 </details>
 
 
@@ -4377,6 +7951,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Practitioner.qualification.issuer
         * Practitioner.qualification.period
         * Practitioner.telecom
+# 
 </details>
 
 
@@ -4392,6 +7967,7 @@ This test will attempt to read external references provided within elements
         Elements which may provide external references include:
 
         * Practitioner.qualification.issuer
+# 
 </details>
 
 
@@ -4429,6 +8005,7 @@ the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 <details>
 <summary>Show details</summary>
 A server SHALL support the Provenance read interaction.
+# 
 </details>
 
 
@@ -4437,6 +8014,7 @@ A server SHALL support the Provenance read interaction.
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
 the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
+# 
 </details>
 
 
@@ -4455,6 +8033,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Provenance.occurred[x]
         * Provenance.recorded
         * Provenance.target
+# 
 </details>
 
 
@@ -4472,6 +8051,7 @@ This test will attempt to read external references provided within elements
         * Provenance.agent.onBehalfOf
         * Provenance.agent.who
         * Provenance.target
+# 
 </details>
 
 
