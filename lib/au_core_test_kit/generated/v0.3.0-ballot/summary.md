@@ -1,7 +1,56 @@
 # 1 AU Core v0.3.0-ballot
 
 
-## 1.1 Patient Tests
+## 1.1 Capability Statement
+
+<details>
+<summary>Retrieve information about supported server functionality using the FHIR capabilties interaction.</summary>
+
+# Background
+The Capability Statement Sequence tests a FHIR server's ability to formally describe features supported by the API by using the [Capability Statement](https://www.hl7.org/fhir/capabilitystatement.html) resource. The features described in the Capability Statement must be consistent with the required capabilities of a AU Core server. The Capability Statement must also advertise the location of the required SMART on FHIR endpoints that enable authenticated access to the FHIR server resources. The Capability Statement resource allows clients to determine which resources are supported by a FHIR Server. Not all servers are expected to implement all possible queries and data elements described in the AU Core API. For example, the AU Core Implementation Guide requires that the Patient resource and only one additional resource profile from the AU Core Profiles.
+# Testing Methodology
+This test sequence accesses the server endpoint at `/metadata` using a `GET` request. It parses the Capability Statement and verifies that: * The endpoint is secured by an appropriate cryptographic protocol * The resource matches the expected FHIR version defined by the tests * The resource is a valid FHIR resource * The server claims support for JSON encoding of resources * The server claims support for the Patient resource and one other resource It collects the following information that is saved in the testing session for use by later tests: * List of resources supported * List of queries parameters supported
+</details>
+
+### Tests
+
+#### 1.1.1 FHIR server secured by transport layer security
+<details>
+<summary>Show details</summary>
+Systems **SHALL** use TLS version 1.2 or higher for all transmissions not taking place over a secure network connection.
+</details>
+
+
+#### 1.1.2 FHIR Server supports the conformance interaction
+<details>
+<summary>Show details</summary>
+The conformance 'whole system' interaction provides a method to get the CapabilityStatement for the FHIR server. This test checks that the server responds to a `GET` request at the following endpoint: ``` GET [base]/metadata ``` This test checks the following SHALL requirement: > Applications SHALL return a resource that describes the functionality of the server end-point. [http://hl7.org/fhir/R4/http.html#capabilities](http://hl7.org/fhir/R4/http.html#capabilities) It does this by checking that the server responds with an HTTP OK 200 status code and that the body of the response contains a valid [CapabilityStatement resource](http://hl7.org/fhir/R4/capabilitystatement.html). This test does not inspect the content of the CapabilityStatement to see if it contains the required information. It only checks to see if the RESTful interaction is supported and returns a valid CapabilityStatement resource.
+</details>
+
+
+#### 1.1.3 Server is using FHIR R4
+<details>
+<summary>Show details</summary>
+This test inspects the CapabilityStatement returned by the server to verify that the server is using FHIR R4.
+</details>
+
+
+#### 1.1.4 FHIR server capability states JSON support
+<details>
+<summary>Show details</summary>
+FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats.html) for resources, including JSON and XML. AU Core profiles require servers to use the [JSON representation](https://www.hl7.org/fhir/json.html): [```The AU Core Server **SHALL** Support json source formats for all US Core interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title) The FHIR conformance interaction require servers to describe which formats are available for clients to use. The server must explicitly state that JSON is supported. This is located in the format element of the CapabilityStatement Resource. This test checks that one of the following values are located in the format field. * json * application/json * application/fhir+json
+</details>
+
+
+#### 1.1.5 Capability Statement lists support for required AU Core Resource Types
+<details>
+<summary>Show details</summary>
+The AU Core Implementation Guide states: ``` The AU Core Server SHALL: 1. Support the AU Core Patient resource. 2. Support at least one additional AU Core resources. In order to support USCDI, servers must support all USCDI resources. ```
+</details>
+
+
+
+## 1.2 Patient Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Patient.</summary>
@@ -28,7 +77,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.1.1 Server returns valid results for Patient search by _id
+#### 1.2.1 Server returns valid results for Patient search by _id
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -48,7 +97,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.1.2 Server returns valid results for Patient search by birthdate
+#### 1.2.2 Server returns valid results for Patient search by birthdate
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -60,7 +109,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.3 Server returns valid results for Patient search by family
+#### 1.2.3 Server returns valid results for Patient search by family
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -72,7 +121,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.4 Server returns valid results for Patient search by gender
+#### 1.2.4 Server returns valid results for Patient search by gender
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -84,7 +133,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.5 Server returns valid results for Patient search by indigenous-status
+#### 1.2.5 Server returns valid results for Patient search by indigenous-status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -96,7 +145,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.6 Server returns valid results for Patient search by identifier
+#### 1.2.6 Server returns valid results for Patient search by identifier
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -108,7 +157,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.7 Server returns valid results for Patient search by name
+#### 1.2.7 Server returns valid results for Patient search by name
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -120,7 +169,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.8 Server returns valid results for Patient search by patient-gender-identity
+#### 1.2.8 Server returns valid results for Patient search by patient-gender-identity
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -132,7 +181,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.9 Server returns valid results for Patient search by birthdate + family
+#### 1.2.9 Server returns valid results for Patient search by birthdate + family
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -144,7 +193,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.10 Server returns valid results for Patient search by birthdate + name
+#### 1.2.10 Server returns valid results for Patient search by birthdate + name
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -156,7 +205,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.11 Server returns valid results for Patient search by family + gender
+#### 1.2.11 Server returns valid results for Patient search by family + gender
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -168,7 +217,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.12 Server returns valid results for Patient search by gender + name
+#### 1.2.12 Server returns valid results for Patient search by gender + name
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -180,14 +229,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.1.13 Server returns correct Patient resource from Patient read interaction
+#### 1.2.13 Server returns correct Patient resource from Patient read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Patient read interaction.
 </details>
 
 
-#### 1.1.14 Server returns Provenance resources from Patient search by _id + revInclude:Provenance:target
+#### 1.2.14 Server returns Provenance resources from Patient search by _id + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -198,7 +247,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.1.15 Patient resources returned during previous tests conform to the AU Core Patient
+#### 1.2.15 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -206,7 +255,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 </details>
 
 
-#### 1.1.16 All must support elements are provided in the Patient resources returned
+#### 1.2.16 All must support elements are provided in the Patient resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -235,7 +284,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-## 1.2 Observation Body Weight Tests
+## 1.3 Observation Body Weight Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Body Weight.</summary>
@@ -245,241 +294,6 @@ AU Core Responders SHALL be capable of populating all data elements as
 The AU Core Observation Body Weight sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
 must contain resources conforming to the AU Core Body Weight as
-specified in the AU Core v0.3.0-ballot Implementation Guide.
-
-# Testing Methodology
-## Searching
-This test sequence will first perform each required search associated
-with this resource. This sequence will perform searches with the
-following parameters:
-
-* patient + code
-* patient
-* patient + category
-* patient + category + date
-* patient + category + status
-
-### Search Parameters
-The first search uses the selected patient(s
-</details>
-
-### Tests
-
-#### 1.2.1 Server returns valid results for Observation search by patient + code
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient + code on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-This test verifies that the server supports searching by reference using
-the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-different forms are expected to return the same number of results. US
-Core requires that both forms are supported by AU Core responders.
-
-Because this is the first search of the sequence, resources in the
-response will be used for subsequent tests.
-
-Additionally, this test will check that GET and POST search methods
-return the same number of results. Search by POST is required by the
-FHIR R4 specification, and these tests interpret search by GET as a
-requirement of AU Core v0.3.0-ballot.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.2 Server returns valid results for Observation search by category
-<details>
-<summary>Show details</summary>
-A server MAY support searching by
-category on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.3 Server returns valid results for Observation search by code
-<details>
-<summary>Show details</summary>
-A server MAY support searching by
-code on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.4 Server returns valid results for Observation search by date
-<details>
-<summary>Show details</summary>
-A server MAY support searching by
-date on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.5 Server returns valid results for Observation search by status
-<details>
-<summary>Show details</summary>
-A server MAY support searching by
-status on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.6 Server returns valid results for Observation search by patient
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.7 Server returns valid results for Observation search by patient + category
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient + category on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.8 Server returns valid results for Observation search by patient + category + date
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient + category + date on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.9 Server returns valid results for Observation search by patient + category + status
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient + category + status on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.10 Server returns valid results for Observation search by patient + code + date
-<details>
-<summary>Show details</summary>
-A server SHOULD support searching by
-patient + code + date on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.2.11 Server returns correct Observation resource from Observation read interaction
-<details>
-<summary>Show details</summary>
-A server SHALL support the Observation read interaction.
-</details>
-
-
-#### 1.2.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-<summary>Show details</summary>
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-</details>
-
-
-#### 1.2.13 Observation resources returned during previous tests conform to the AU Core Body Weight
-<details>
-<summary>Show details</summary>
-This test verifies resources returned from the first search conform to
-the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
-</details>
-
-
-#### 1.2.14 All must support elements are provided in the Observation resources returned
-<details>
-<summary>Show details</summary>
-AU Core Responders SHALL be capable of populating all data elements as
-        part of the query results as specified by the AU Core Server Capability
-        Statement. This test will look through the Observation resources
-        found previously for the following must support elements:
-
-        * Observation.category
-        * Observation.category:VSCat
-        * Observation.category:VSCat.coding
-        * Observation.category:VSCat.coding.code
-        * Observation.category:VSCat.coding.system
-        * Observation.code
-        * Observation.effective[x]
-        * Observation.encounter
-        * Observation.performer
-        * Observation.status
-        * Observation.subject
-        * Observation.value[x]
-        * Observation.value[x]:valueQuantity
-        * Observation.value[x]:valueQuantity.code
-        * Observation.value[x]:valueQuantity.system
-        * Observation.value[x]:valueQuantity.unit
-        * Observation.value[x]:valueQuantity.value
-</details>
-
-
-#### 1.2.15 MustSupport references within Observation resources are valid
-<details>
-<summary>Show details</summary>
-This test will attempt to read external references provided within elements
-        marked as 'MustSupport', if any are available.
-
-        It verifies that at least one external reference for each MustSupport Reference element
-        can be accessed by the test client, and conforms to corresponding AU Core profile.
-
-        Elements which may provide external references include:
-
-        * Observation.encounter
-        * Observation.performer
-        * Observation.subject
-</details>
-
-
-
-## 1.3 Observation Blood Pressure Tests
-
-<details>
-<summary>Verify support for the server capabilities required by the AU Core Blood Pressure.</summary>
-
-# Background
-
-The AU Core Observation Blood Pressure sequence verifies that the system under test is
-able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Blood Pressure as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -651,11 +465,11 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.3.13 Observation resources returned during previous tests conform to the AU Core Blood Pressure
+#### 1.3.13 Observation resources returned during previous tests conform to the AU Core Body Weight
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
 </details>
 
 
@@ -673,31 +487,17 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.category:VSCat.coding.code
         * Observation.category:VSCat.coding.system
         * Observation.code
-        * Observation.component
-        * Observation.component.code
-        * Observation.component.dataAbsentReason
-        * Observation.component.value[x]
-        * Observation.component:DiastolicBP
-        * Observation.component:DiastolicBP.code
-        * Observation.component:DiastolicBP.dataAbsentReason
-        * Observation.component:DiastolicBP.value[x]
-        * Observation.component:DiastolicBP.value[x].code
-        * Observation.component:DiastolicBP.value[x].system
-        * Observation.component:DiastolicBP.value[x].unit
-        * Observation.component:DiastolicBP.value[x].value
-        * Observation.component:SystolicBP
-        * Observation.component:SystolicBP.code
-        * Observation.component:SystolicBP.dataAbsentReason
-        * Observation.component:SystolicBP.value[x]
-        * Observation.component:SystolicBP.value[x].code
-        * Observation.component:SystolicBP.value[x].system
-        * Observation.component:SystolicBP.value[x].unit
-        * Observation.component:SystolicBP.value[x].value
         * Observation.effective[x]
         * Observation.encounter
         * Observation.performer
         * Observation.status
         * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueQuantity.code
+        * Observation.value[x]:valueQuantity.system
+        * Observation.value[x]:valueQuantity.unit
+        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -719,16 +519,16 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.4 Observation Body Height Tests
+## 1.4 Observation Blood Pressure Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Body Height.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Blood Pressure.</summary>
 
 # Background
 
-The AU Core Observation Body Height sequence verifies that the system under test is
+The AU Core Observation Blood Pressure sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Body Height as
+must contain resources conforming to the AU Core Blood Pressure as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -900,11 +700,11 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.4.13 Observation resources returned during previous tests conform to the AU Core Body Height
+#### 1.4.13 Observation resources returned during previous tests conform to the AU Core Blood Pressure
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
+the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
 </details>
 
 
@@ -922,17 +722,31 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.category:VSCat.coding.code
         * Observation.category:VSCat.coding.system
         * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.dataAbsentReason
+        * Observation.component.value[x]
+        * Observation.component:DiastolicBP
+        * Observation.component:DiastolicBP.code
+        * Observation.component:DiastolicBP.dataAbsentReason
+        * Observation.component:DiastolicBP.value[x]
+        * Observation.component:DiastolicBP.value[x].code
+        * Observation.component:DiastolicBP.value[x].system
+        * Observation.component:DiastolicBP.value[x].unit
+        * Observation.component:DiastolicBP.value[x].value
+        * Observation.component:SystolicBP
+        * Observation.component:SystolicBP.code
+        * Observation.component:SystolicBP.dataAbsentReason
+        * Observation.component:SystolicBP.value[x]
+        * Observation.component:SystolicBP.value[x].code
+        * Observation.component:SystolicBP.value[x].system
+        * Observation.component:SystolicBP.value[x].unit
+        * Observation.component:SystolicBP.value[x].value
         * Observation.effective[x]
         * Observation.encounter
         * Observation.performer
         * Observation.status
         * Observation.subject
-        * Observation.value[x]
-        * Observation.value[x]:valueQuantity
-        * Observation.value[x]:valueQuantity.code
-        * Observation.value[x]:valueQuantity.system
-        * Observation.value[x]:valueQuantity.unit
-        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -954,16 +768,16 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.5 Observation Pathology Result Tests
+## 1.5 Observation Body Height Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Pathology Result Observation.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Body Height.</summary>
 
 # Background
 
-The AU Core Observation Pathology Result sequence verifies that the system under test is
+The AU Core Observation Body Height sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Pathology Result Observation as
+must contain resources conforming to the AU Core Body Height as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -972,10 +786,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + category
-* patient
-* patient + category + date
 * patient + code
+* patient
+* patient + category
+* patient + category + date
 * patient + category + status
 
 ### Search Parameters
@@ -984,11 +798,11 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.5.1 Server returns valid results for Observation search by patient + category
+#### 1.5.1 Server returns valid results for Observation search by patient + code
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + category on the Observation resource. This test
+patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1069,11 +883,11 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.5.7 Server returns valid results for Observation search by patient + category + date
+#### 1.5.7 Server returns valid results for Observation search by patient + category
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + category + date on the Observation resource. This test
+patient + category on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1081,11 +895,11 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.5.8 Server returns valid results for Observation search by patient + code
+#### 1.5.8 Server returns valid results for Observation search by patient + category + date
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + code on the Observation resource. This test
+patient + category + date on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1124,22 +938,22 @@ A server SHALL support the Observation read interaction.
 </details>
 
 
-#### 1.5.12 Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target
+#### 1.5.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
-        This test will perform a search by patient + category + revInclude:Provenance:target and
+        This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
 </details>
 
 
-#### 1.5.13 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
+#### 1.5.13 Observation resources returned during previous tests conform to the AU Core Body Height
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
 </details>
 
 
@@ -1152,25 +966,22 @@ AU Core Responders SHALL be capable of populating all data elements as
         found previously for the following must support elements:
 
         * Observation.category
+        * Observation.category:VSCat
+        * Observation.category:VSCat.coding
+        * Observation.category:VSCat.coding.code
+        * Observation.category:VSCat.coding.system
         * Observation.code
-        * Observation.component
-        * Observation.component.code
-        * Observation.component.value[x]
         * Observation.effective[x]
-        * Observation.hasMember
-        * Observation.identifier
-        * Observation.interpretation
-        * Observation.note
+        * Observation.encounter
         * Observation.performer
-        * Observation.referenceRange
-        * Observation.referenceRange.high
-        * Observation.referenceRange.low
-        * Observation.referenceRange.text
-        * Observation.referenceRange.type
-        * Observation.specimen
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+        * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueQuantity.code
+        * Observation.value[x]:valueQuantity.system
+        * Observation.value[x]:valueQuantity.unit
+        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -1185,24 +996,23 @@ This test will attempt to read external references provided within elements
 
         Elements which may provide external references include:
 
-        * Observation.hasMember
+        * Observation.encounter
         * Observation.performer
-        * Observation.specimen
         * Observation.subject
 </details>
 
 
 
-## 1.6 Observation Body Temperature Tests
+## 1.6 Observation Pathology Result Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Body Temperature.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Pathology Result Observation.</summary>
 
 # Background
 
-The AU Core Observation Body Temperature sequence verifies that the system under test is
+The AU Core Observation Pathology Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Body Temperature as
+must contain resources conforming to the AU Core Pathology Result Observation as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -1211,10 +1021,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
-* patient
 * patient + category
+* patient
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ### Search Parameters
@@ -1223,11 +1033,11 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.6.1 Server returns valid results for Observation search by patient + code
+#### 1.6.1 Server returns valid results for Observation search by patient + category
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + code on the Observation resource. This test
+patient + category on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1308,11 +1118,11 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.6.7 Server returns valid results for Observation search by patient + category
+#### 1.6.7 Server returns valid results for Observation search by patient + category + date
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + category on the Observation resource. This test
+patient + category + date on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1320,11 +1130,11 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.6.8 Server returns valid results for Observation search by patient + category + date
+#### 1.6.8 Server returns valid results for Observation search by patient + code
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + category + date on the Observation resource. This test
+patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -1363,22 +1173,22 @@ A server SHALL support the Observation read interaction.
 </details>
 
 
-#### 1.6.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 1.6.12 Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
-        This test will perform a search by patient + code + revInclude:Provenance:target and
+        This test will perform a search by patient + category + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
 </details>
 
 
-#### 1.6.13 Observation resources returned during previous tests conform to the AU Core Body Temperature
+#### 1.6.13 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
+the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
 </details>
 
 
@@ -1391,22 +1201,25 @@ AU Core Responders SHALL be capable of populating all data elements as
         found previously for the following must support elements:
 
         * Observation.category
-        * Observation.category:VSCat
-        * Observation.category:VSCat.coding
-        * Observation.category:VSCat.coding.code
-        * Observation.category:VSCat.coding.system
         * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.value[x]
         * Observation.effective[x]
-        * Observation.encounter
+        * Observation.hasMember
+        * Observation.identifier
+        * Observation.interpretation
+        * Observation.note
         * Observation.performer
+        * Observation.referenceRange
+        * Observation.referenceRange.high
+        * Observation.referenceRange.low
+        * Observation.referenceRange.text
+        * Observation.referenceRange.type
+        * Observation.specimen
         * Observation.status
         * Observation.subject
         * Observation.value[x]
-        * Observation.value[x]:valueQuantity
-        * Observation.value[x]:valueQuantity.code
-        * Observation.value[x]:valueQuantity.system
-        * Observation.value[x]:valueQuantity.unit
-        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -1421,23 +1234,24 @@ This test will attempt to read external references provided within elements
 
         Elements which may provide external references include:
 
-        * Observation.encounter
+        * Observation.hasMember
         * Observation.performer
+        * Observation.specimen
         * Observation.subject
 </details>
 
 
 
-## 1.7 Observation Heart Rate Tests
+## 1.7 Observation Body Temperature Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Heart Rate.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Body Temperature.</summary>
 
 # Background
 
-The AU Core Observation Heart Rate sequence verifies that the system under test is
+The AU Core Observation Body Temperature sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Heart Rate as
+must contain resources conforming to the AU Core Body Temperature as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -1609,11 +1423,11 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.7.13 Observation resources returned during previous tests conform to the AU Core Heart Rate
+#### 1.7.13 Observation resources returned during previous tests conform to the AU Core Body Temperature
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
 </details>
 
 
@@ -1663,16 +1477,16 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.8 Observation Waist Circumference Tests
+## 1.8 Observation Heart Rate Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Waist Circumference.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Heart Rate.</summary>
 
 # Background
 
-The AU Core Observation Waist Circumference sequence verifies that the system under test is
+The AU Core Observation Heart Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Waist Circumference as
+must contain resources conforming to the AU Core Heart Rate as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -1844,11 +1658,11 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.8.13 Observation resources returned during previous tests conform to the AU Core Waist Circumference
+#### 1.8.13 Observation resources returned during previous tests conform to the AU Core Heart Rate
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
+the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
 </details>
 
 
@@ -1873,6 +1687,10 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.subject
         * Observation.value[x]
         * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueQuantity.code
+        * Observation.value[x]:valueQuantity.system
+        * Observation.value[x]:valueQuantity.unit
+        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -1894,16 +1712,16 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.9 Observation Respiration Rate Tests
+## 1.9 Observation Waist Circumference Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Respiration Rate.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Waist Circumference.</summary>
 
 # Background
 
-The AU Core Observation Respiration Rate sequence verifies that the system under test is
+The AU Core Observation Waist Circumference sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Respiration Rate as
+must contain resources conforming to the AU Core Waist Circumference as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -2075,11 +1893,11 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.9.13 Observation resources returned during previous tests conform to the AU Core Respiration Rate
+#### 1.9.13 Observation resources returned during previous tests conform to the AU Core Waist Circumference
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
+the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
 </details>
 
 
@@ -2104,10 +1922,6 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.subject
         * Observation.value[x]
         * Observation.value[x]:valueQuantity
-        * Observation.value[x]:valueQuantity.code
-        * Observation.value[x]:valueQuantity.system
-        * Observation.value[x]:valueQuantity.unit
-        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -2129,16 +1943,16 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.10 Observation Diagnostic Result Tests
+## 1.10 Observation Respiration Rate Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Diagnostic Result Observation.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Respiration Rate.</summary>
 
 # Background
 
-The AU Core Observation Diagnostic Result sequence verifies that the system under test is
+The AU Core Observation Respiration Rate sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Diagnostic Result Observation as
+must contain resources conforming to the AU Core Respiration Rate as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -2147,10 +1961,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
+* patient + code
 * patient
 * patient + category
 * patient + category + date
-* patient + code
 * patient + category + status
 
 ### Search Parameters
@@ -2159,11 +1973,11 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.10.1 Server returns valid results for Observation search by patient
+#### 1.10.1 Server returns valid results for Observation search by patient + code
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient on the Observation resource. This test
+patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -2232,7 +2046,19 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.10.6 Server returns valid results for Observation search by patient + category
+#### 1.10.6 Server returns valid results for Observation search by patient
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.10.7 Server returns valid results for Observation search by patient + category
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2244,23 +2070,11 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.10.7 Server returns valid results for Observation search by patient + category + date
+#### 1.10.8 Server returns valid results for Observation search by patient + category + date
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
 patient + category + date on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.10.8 Server returns valid results for Observation search by patient + code
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -2299,22 +2113,22 @@ A server SHALL support the Observation read interaction.
 </details>
 
 
-#### 1.10.12 Server returns Provenance resources from Observation search by patient + revInclude:Provenance:target
+#### 1.10.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
 
-        This test will perform a search by patient + revInclude:Provenance:target and
+        This test will perform a search by patient + code + revInclude:Provenance:target and
         will pass if a Provenance resource is found in the response.
       %
 </details>
 
 
-#### 1.10.13 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
+#### 1.10.13 Observation resources returned during previous tests conform to the AU Core Respiration Rate
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
-the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
 </details>
 
 
@@ -2326,26 +2140,23 @@ AU Core Responders SHALL be capable of populating all data elements as
         Statement. This test will look through the Observation resources
         found previously for the following must support elements:
 
-        * Observation.bodySite
         * Observation.category
+        * Observation.category:VSCat
+        * Observation.category:VSCat.coding
+        * Observation.category:VSCat.coding.code
+        * Observation.category:VSCat.coding.system
         * Observation.code
-        * Observation.component
-        * Observation.component.code
-        * Observation.component.value[x]
         * Observation.effective[x]
-        * Observation.hasMember
-        * Observation.identifier
-        * Observation.interpretation
-        * Observation.note
+        * Observation.encounter
         * Observation.performer
-        * Observation.referenceRange
-        * Observation.referenceRange.high
-        * Observation.referenceRange.low
-        * Observation.referenceRange.text
-        * Observation.referenceRange.type
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+        * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueQuantity.code
+        * Observation.value[x]:valueQuantity.system
+        * Observation.value[x]:valueQuantity.unit
+        * Observation.value[x]:valueQuantity.value
 </details>
 
 
@@ -2360,23 +2171,23 @@ This test will attempt to read external references provided within elements
 
         Elements which may provide external references include:
 
-        * Observation.hasMember
+        * Observation.encounter
         * Observation.performer
         * Observation.subject
 </details>
 
 
 
-## 1.11 Observation Smoking Status Tests
+## 1.11 Observation Diagnostic Result Tests
 
 <details>
-<summary>Verify support for the server capabilities required by the AU Core Smoking Status.</summary>
+<summary>Verify support for the server capabilities required by the AU Core Diagnostic Result Observation.</summary>
 
 # Background
 
-The AU Core Observation Smoking Status sequence verifies that the system under test is
+The AU Core Observation Diagnostic Result sequence verifies that the system under test is
 able to provide correct responses for Observation queries. These queries
-must contain resources conforming to the AU Core Smoking Status as
+must contain resources conforming to the AU Core Diagnostic Result Observation as
 specified in the AU Core v0.3.0-ballot Implementation Guide.
 
 # Testing Methodology
@@ -2385,10 +2196,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient + code
 * patient
 * patient + category
 * patient + category + date
+* patient + code
 * patient + category + status
 
 ### Search Parameters
@@ -2397,11 +2208,11 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.11.1 Server returns valid results for Observation search by patient + code
+#### 1.11.1 Server returns valid results for Observation search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
-patient + code on the Observation resource. This test
+patient on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -2470,19 +2281,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.11.6 Server returns valid results for Observation search by patient
-<details>
-<summary>Show details</summary>
-A server SHALL support searching by
-patient on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
-</details>
-
-
-#### 1.11.7 Server returns valid results for Observation search by patient + category
+#### 1.11.6 Server returns valid results for Observation search by patient + category
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2494,11 +2293,23 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.11.8 Server returns valid results for Observation search by patient + category + date
+#### 1.11.7 Server returns valid results for Observation search by patient + category + date
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
 patient + category + date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.11.8 Server returns valid results for Observation search by patient + code
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -2537,7 +2348,245 @@ A server SHALL support the Observation read interaction.
 </details>
 
 
-#### 1.11.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 1.11.12 Server returns Provenance resources from Observation search by patient + revInclude:Provenance:target
+<details>
+<summary>Show details</summary>
+A server SHALL be capable of supporting _revIncludes:Provenance:target.
+
+        This test will perform a search by patient + revInclude:Provenance:target and
+        will pass if a Provenance resource is found in the response.
+      %
+</details>
+
+
+#### 1.11.13 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
+<details>
+<summary>Show details</summary>
+This test verifies resources returned from the first search conform to
+the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+</details>
+
+
+#### 1.11.14 All must support elements are provided in the Observation resources returned
+<details>
+<summary>Show details</summary>
+AU Core Responders SHALL be capable of populating all data elements as
+        part of the query results as specified by the AU Core Server Capability
+        Statement. This test will look through the Observation resources
+        found previously for the following must support elements:
+
+        * Observation.bodySite
+        * Observation.category
+        * Observation.code
+        * Observation.component
+        * Observation.component.code
+        * Observation.component.value[x]
+        * Observation.effective[x]
+        * Observation.hasMember
+        * Observation.identifier
+        * Observation.interpretation
+        * Observation.note
+        * Observation.performer
+        * Observation.referenceRange
+        * Observation.referenceRange.high
+        * Observation.referenceRange.low
+        * Observation.referenceRange.text
+        * Observation.referenceRange.type
+        * Observation.status
+        * Observation.subject
+        * Observation.value[x]
+</details>
+
+
+#### 1.11.15 MustSupport references within Observation resources are valid
+<details>
+<summary>Show details</summary>
+This test will attempt to read external references provided within elements
+        marked as 'MustSupport', if any are available.
+
+        It verifies that at least one external reference for each MustSupport Reference element
+        can be accessed by the test client, and conforms to corresponding AU Core profile.
+
+        Elements which may provide external references include:
+
+        * Observation.hasMember
+        * Observation.performer
+        * Observation.subject
+</details>
+
+
+
+## 1.12 Observation Smoking Status Tests
+
+<details>
+<summary>Verify support for the server capabilities required by the AU Core Smoking Status.</summary>
+
+# Background
+
+The AU Core Observation Smoking Status sequence verifies that the system under test is
+able to provide correct responses for Observation queries. These queries
+must contain resources conforming to the AU Core Smoking Status as
+specified in the AU Core v0.3.0-ballot Implementation Guide.
+
+# Testing Methodology
+## Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient + code
+* patient
+* patient + category
+* patient + category + date
+* patient + category + status
+
+### Search Parameters
+The first search uses the selected patient(s
+</details>
+
+### Tests
+
+#### 1.12.1 Server returns valid results for Observation search by patient + code
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient + code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+This test verifies that the server supports searching by reference using
+the form `patient=[id]` as well as `patient=Patient/[id]`. The two
+different forms are expected to return the same number of results. US
+Core requires that both forms are supported by AU Core responders.
+
+Because this is the first search of the sequence, resources in the
+response will be used for subsequent tests.
+
+Additionally, this test will check that GET and POST search methods
+return the same number of results. Search by POST is required by the
+FHIR R4 specification, and these tests interpret search by GET as a
+requirement of AU Core v0.3.0-ballot.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.2 Server returns valid results for Observation search by category
+<details>
+<summary>Show details</summary>
+A server MAY support searching by
+category on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.3 Server returns valid results for Observation search by code
+<details>
+<summary>Show details</summary>
+A server MAY support searching by
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.4 Server returns valid results for Observation search by date
+<details>
+<summary>Show details</summary>
+A server MAY support searching by
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.5 Server returns valid results for Observation search by status
+<details>
+<summary>Show details</summary>
+A server MAY support searching by
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.6 Server returns valid results for Observation search by patient
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.7 Server returns valid results for Observation search by patient + category
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient + category on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.8 Server returns valid results for Observation search by patient + category + date
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient + category + date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.9 Server returns valid results for Observation search by patient + category + status
+<details>
+<summary>Show details</summary>
+A server SHALL support searching by
+patient + category + status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.10 Server returns valid results for Observation search by patient + code + date
+<details>
+<summary>Show details</summary>
+A server SHOULD support searching by
+patient + code + date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html
+</details>
+
+
+#### 1.12.11 Server returns correct Observation resource from Observation read interaction
+<details>
+<summary>Show details</summary>
+A server SHALL support the Observation read interaction.
+</details>
+
+
+#### 1.12.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -2548,7 +2597,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.11.13 Observation resources returned during previous tests conform to the AU Core Smoking Status
+#### 1.12.13 Observation resources returned during previous tests conform to the AU Core Smoking Status
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -2556,7 +2605,7 @@ the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-
 </details>
 
 
-#### 1.11.14 All must support elements are provided in the Observation resources returned
+#### 1.12.14 All must support elements are provided in the Observation resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -2575,7 +2624,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.11.15 MustSupport references within Observation resources are valid
+#### 1.12.15 MustSupport references within Observation resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -2593,7 +2642,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.12 AllergyIntolerance Tests
+## 1.13 AllergyIntolerance Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core AllergyIntolerance.</summary>
@@ -2619,7 +2668,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.12.1 Server returns valid results for AllergyIntolerance search by patient
+#### 1.13.1 Server returns valid results for AllergyIntolerance search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2644,7 +2693,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.12.2 Server returns valid results for AllergyIntolerance search by clinical-status
+#### 1.13.2 Server returns valid results for AllergyIntolerance search by clinical-status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -2656,7 +2705,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.12.3 Server returns valid results for AllergyIntolerance search by patient + clinical-status
+#### 1.13.3 Server returns valid results for AllergyIntolerance search by patient + clinical-status
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -2668,14 +2717,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.12.4 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
+#### 1.13.4 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the AllergyIntolerance read interaction.
 </details>
 
 
-#### 1.12.5 Server returns Provenance resources from AllergyIntolerance search by patient + revInclude:Provenance:target
+#### 1.13.5 Server returns Provenance resources from AllergyIntolerance search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -2686,7 +2735,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.12.6 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
+#### 1.13.6 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -2694,7 +2743,7 @@ the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition
 </details>
 
 
-#### 1.12.7 All must support elements are provided in the AllergyIntolerance resources returned
+#### 1.13.7 All must support elements are provided in the AllergyIntolerance resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -2717,7 +2766,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.12.8 MustSupport references within AllergyIntolerance resources are valid
+#### 1.13.8 MustSupport references within AllergyIntolerance resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -2736,7 +2785,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.13 Condition Tests
+## 1.14 Condition Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Condition.</summary>
@@ -2764,7 +2813,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.13.1 Server returns valid results for Condition search by patient
+#### 1.14.1 Server returns valid results for Condition search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2789,7 +2838,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.13.2 Server returns valid results for Condition search by category
+#### 1.14.2 Server returns valid results for Condition search by category
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -2801,7 +2850,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.3 Server returns valid results for Condition search by clinical-status
+#### 1.14.3 Server returns valid results for Condition search by clinical-status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -2813,7 +2862,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.4 Server returns valid results for Condition search by code
+#### 1.14.4 Server returns valid results for Condition search by code
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -2825,7 +2874,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.5 Server returns valid results for Condition search by onset-date
+#### 1.14.5 Server returns valid results for Condition search by onset-date
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -2837,7 +2886,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.6 Server returns valid results for Condition search by patient + category
+#### 1.14.6 Server returns valid results for Condition search by patient + category
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2849,7 +2898,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.7 Server returns valid results for Condition search by patient + clinical-status
+#### 1.14.7 Server returns valid results for Condition search by patient + clinical-status
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -2861,7 +2910,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.8 Server returns valid results for Condition search by patient + category + clinical-status
+#### 1.14.8 Server returns valid results for Condition search by patient + category + clinical-status
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -2873,7 +2922,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.9 Server returns valid results for Condition search by patient + code
+#### 1.14.9 Server returns valid results for Condition search by patient + code
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -2885,7 +2934,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.10 Server returns valid results for Condition search by patient + onset-date
+#### 1.14.10 Server returns valid results for Condition search by patient + onset-date
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -2897,14 +2946,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.13.11 Server returns correct Condition resource from Condition read interaction
+#### 1.14.11 Server returns correct Condition resource from Condition read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Condition read interaction.
 </details>
 
 
-#### 1.13.12 Server returns Provenance resources from Condition search by patient + revInclude:Provenance:target
+#### 1.14.12 Server returns Provenance resources from Condition search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -2915,7 +2964,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.13.13 Condition resources returned during previous tests conform to the AU Core Condition
+#### 1.14.13 Condition resources returned during previous tests conform to the AU Core Condition
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -2923,7 +2972,7 @@ the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 </details>
 
 
-#### 1.13.14 All must support elements are provided in the Condition resources returned
+#### 1.14.14 All must support elements are provided in the Condition resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -2946,7 +2995,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.13.15 MustSupport references within Condition resources are valid
+#### 1.14.15 MustSupport references within Condition resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -2965,7 +3014,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.14 Encounter Tests
+## 1.15 Encounter Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Encounter.</summary>
@@ -2992,7 +3041,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.14.1 Server returns valid results for Encounter search by patient
+#### 1.15.1 Server returns valid results for Encounter search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3017,7 +3066,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.14.2 Server returns valid results for Encounter search by class
+#### 1.15.2 Server returns valid results for Encounter search by class
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3029,7 +3078,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.3 Server returns valid results for Encounter search by date
+#### 1.15.3 Server returns valid results for Encounter search by date
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3041,7 +3090,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.4 Server returns valid results for Encounter search by discharge-disposition
+#### 1.15.4 Server returns valid results for Encounter search by discharge-disposition
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3053,7 +3102,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.5 Server returns valid results for Encounter search by identifier
+#### 1.15.5 Server returns valid results for Encounter search by identifier
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3065,7 +3114,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.6 Server returns valid results for Encounter search by location
+#### 1.15.6 Server returns valid results for Encounter search by location
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3077,7 +3126,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.7 Server returns valid results for Encounter search by status
+#### 1.15.7 Server returns valid results for Encounter search by status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3089,7 +3138,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.8 Server returns valid results for Encounter search by type
+#### 1.15.8 Server returns valid results for Encounter search by type
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3101,7 +3150,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.9 Server returns valid results for Encounter search by date + patient
+#### 1.15.9 Server returns valid results for Encounter search by date + patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3113,7 +3162,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.10 Server returns valid results for Encounter search by class + patient
+#### 1.15.10 Server returns valid results for Encounter search by class + patient
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3125,7 +3174,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.11 Server returns valid results for Encounter search by patient + discharge-disposition
+#### 1.15.11 Server returns valid results for Encounter search by patient + discharge-disposition
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3137,7 +3186,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.12 Server returns valid results for Encounter search by patient + location
+#### 1.15.12 Server returns valid results for Encounter search by patient + location
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3149,7 +3198,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.13 Server returns valid results for Encounter search by patient + status
+#### 1.15.13 Server returns valid results for Encounter search by patient + status
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3161,7 +3210,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.14 Server returns valid results for Encounter search by patient + type
+#### 1.15.14 Server returns valid results for Encounter search by patient + type
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3173,14 +3222,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.14.15 Server returns correct Encounter resource from Encounter read interaction
+#### 1.15.15 Server returns correct Encounter resource from Encounter read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Encounter read interaction.
 </details>
 
 
-#### 1.14.16 Server returns Provenance resources from Encounter search by patient + revInclude:Provenance:target
+#### 1.15.16 Server returns Provenance resources from Encounter search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -3191,7 +3240,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.14.17 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 1.15.17 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -3199,7 +3248,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 </details>
 
 
-#### 1.14.18 All must support elements are provided in the Encounter resources returned
+#### 1.15.18 All must support elements are provided in the Encounter resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -3227,7 +3276,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.14.19 MustSupport references within Encounter resources are valid
+#### 1.15.19 MustSupport references within Encounter resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -3247,7 +3296,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.15 Immunization Tests
+## 1.16 Immunization Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Immunization.</summary>
@@ -3274,7 +3323,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.15.1 Server returns valid results for Immunization search by patient
+#### 1.16.1 Server returns valid results for Immunization search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3299,7 +3348,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.15.2 Server returns valid results for Immunization search by date
+#### 1.16.2 Server returns valid results for Immunization search by date
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3311,7 +3360,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.3 Server returns valid results for Immunization search by status
+#### 1.16.3 Server returns valid results for Immunization search by status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3323,7 +3372,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.4 Server returns valid results for Immunization search by vaccine-code
+#### 1.16.4 Server returns valid results for Immunization search by vaccine-code
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3335,7 +3384,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.5 Server returns valid results for Immunization search by patient + status
+#### 1.16.5 Server returns valid results for Immunization search by patient + status
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3347,7 +3396,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.6 Server returns valid results for Immunization search by patient + date
+#### 1.16.6 Server returns valid results for Immunization search by patient + date
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3359,7 +3408,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.7 Server returns valid results for Immunization search by patient + vaccine-code
+#### 1.16.7 Server returns valid results for Immunization search by patient + vaccine-code
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3371,14 +3420,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.15.8 Server returns correct Immunization resource from Immunization read interaction
+#### 1.16.8 Server returns correct Immunization resource from Immunization read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Immunization read interaction.
 </details>
 
 
-#### 1.15.9 Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target
+#### 1.16.9 Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -3389,7 +3438,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.15.10 Immunization resources returned during previous tests conform to the AU Core Immunization
+#### 1.16.10 Immunization resources returned during previous tests conform to the AU Core Immunization
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -3397,7 +3446,7 @@ the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 </details>
 
 
-#### 1.15.11 All must support elements are provided in the Immunization resources returned
+#### 1.16.11 All must support elements are provided in the Immunization resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -3424,7 +3473,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.15.12 MustSupport references within Immunization resources are valid
+#### 1.16.12 MustSupport references within Immunization resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -3442,7 +3491,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.16 MedicationRequest Tests
+## 1.17 MedicationRequest Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core MedicationRequest.</summary>
@@ -3473,7 +3522,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.16.1 Server returns valid results for MedicationRequest search by patient
+#### 1.17.1 Server returns valid results for MedicationRequest search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3502,7 +3551,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.16.2 Server returns valid results for MedicationRequest search by _id
+#### 1.17.2 Server returns valid results for MedicationRequest search by _id
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3518,7 +3567,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.3 Server returns valid results for MedicationRequest search by identifier
+#### 1.17.3 Server returns valid results for MedicationRequest search by identifier
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3534,7 +3583,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.4 Server returns valid results for MedicationRequest search by category
+#### 1.17.4 Server returns valid results for MedicationRequest search by category
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3550,7 +3599,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.5 Server returns valid results for MedicationRequest search by authoredon
+#### 1.17.5 Server returns valid results for MedicationRequest search by authoredon
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3566,7 +3615,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.6 Server returns valid results for MedicationRequest search by intent
+#### 1.17.6 Server returns valid results for MedicationRequest search by intent
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3582,7 +3631,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.7 Server returns valid results for MedicationRequest search by status
+#### 1.17.7 Server returns valid results for MedicationRequest search by status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3598,7 +3647,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.8 Server returns valid results for MedicationRequest search by patient + intent
+#### 1.17.8 Server returns valid results for MedicationRequest search by patient + intent
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3614,7 +3663,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.9 Server returns valid results for MedicationRequest search by patient + intent + status
+#### 1.17.9 Server returns valid results for MedicationRequest search by patient + intent + status
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3630,7 +3679,7 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.10 Server returns valid results for MedicationRequest search by patient + intent + authoredon
+#### 1.17.10 Server returns valid results for MedicationRequest search by patient + intent + authoredon
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3646,14 +3695,14 @@ Medications, the search will be repeated with
 </details>
 
 
-#### 1.16.11 Server returns correct MedicationRequest resource from MedicationRequest read interaction
+#### 1.17.11 Server returns correct MedicationRequest resource from MedicationRequest read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the MedicationRequest read interaction.
 </details>
 
 
-#### 1.16.12 Server returns Provenance resources from MedicationRequest search by patient + revInclude:Provenance:target
+#### 1.17.12 Server returns Provenance resources from MedicationRequest search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -3664,7 +3713,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.16.13 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 1.17.13 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -3672,7 +3721,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 </details>
 
 
-#### 1.16.14 Medication resources returned during previous tests conform to the AU Core Medication
+#### 1.17.14 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from previous tests conform to
@@ -3680,7 +3729,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 </details>
 
 
-#### 1.16.15 All must support elements are provided in the MedicationRequest resources returned
+#### 1.17.15 All must support elements are provided in the MedicationRequest resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -3711,7 +3760,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.16.16 MustSupport references within MedicationRequest resources are valid
+#### 1.17.16 MustSupport references within MedicationRequest resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -3730,7 +3779,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.17 MedicationStatement Tests
+## 1.18 MedicationStatement Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core MedicationStatement.</summary>
@@ -3757,7 +3806,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.17.1 Server returns valid results for MedicationStatement search by patient
+#### 1.18.1 Server returns valid results for MedicationStatement search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3782,7 +3831,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.17.2 Server returns valid results for MedicationStatement search by effective
+#### 1.18.2 Server returns valid results for MedicationStatement search by effective
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3794,7 +3843,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.17.3 Server returns valid results for MedicationStatement search by status
+#### 1.18.3 Server returns valid results for MedicationStatement search by status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3806,7 +3855,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.17.4 Server returns valid results for MedicationStatement search by patient + status
+#### 1.18.4 Server returns valid results for MedicationStatement search by patient + status
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3818,7 +3867,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.17.5 Server returns valid results for MedicationStatement search by patient + effective
+#### 1.18.5 Server returns valid results for MedicationStatement search by patient + effective
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -3830,14 +3879,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.17.6 Server returns correct MedicationStatement resource from MedicationStatement read interaction
+#### 1.18.6 Server returns correct MedicationStatement resource from MedicationStatement read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the MedicationStatement read interaction.
 </details>
 
 
-#### 1.17.7 Server returns Provenance resources from MedicationStatement search by patient + revInclude:Provenance:target
+#### 1.18.7 Server returns Provenance resources from MedicationStatement search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -3848,7 +3897,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.17.8 MedicationStatement resources returned during previous tests conform to the AU Core MedicationStatement
+#### 1.18.8 MedicationStatement resources returned during previous tests conform to the AU Core MedicationStatement
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -3856,7 +3905,7 @@ the [AU Core MedicationStatement](http://hl7.org.au/fhir/core/StructureDefinitio
 </details>
 
 
-#### 1.17.9 All must support elements are provided in the MedicationStatement resources returned
+#### 1.18.9 All must support elements are provided in the MedicationStatement resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -3882,7 +3931,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.17.10 MustSupport references within MedicationStatement resources are valid
+#### 1.18.10 MustSupport references within MedicationStatement resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -3902,7 +3951,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.18 Procedure Tests
+## 1.19 Procedure Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Procedure.</summary>
@@ -3929,7 +3978,7 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.18.1 Server returns valid results for Procedure search by patient
+#### 1.19.1 Server returns valid results for Procedure search by patient
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -3954,7 +4003,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.18.2 Server returns valid results for Procedure search by code
+#### 1.19.2 Server returns valid results for Procedure search by code
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3966,7 +4015,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.3 Server returns valid results for Procedure search by date
+#### 1.19.3 Server returns valid results for Procedure search by date
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3978,7 +4027,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.4 Server returns valid results for Procedure search by status
+#### 1.19.4 Server returns valid results for Procedure search by status
 <details>
 <summary>Show details</summary>
 A server MAY support searching by
@@ -3990,7 +4039,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.5 Server returns valid results for Procedure search by patient + date
+#### 1.19.5 Server returns valid results for Procedure search by patient + date
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4002,7 +4051,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.6 Server returns valid results for Procedure search by patient + code + date
+#### 1.19.6 Server returns valid results for Procedure search by patient + code + date
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -4014,7 +4063,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.7 Server returns valid results for Procedure search by patient + status
+#### 1.19.7 Server returns valid results for Procedure search by patient + status
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -4026,14 +4075,14 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.18.8 Server returns correct Procedure resource from Procedure read interaction
+#### 1.19.8 Server returns correct Procedure resource from Procedure read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Procedure read interaction.
 </details>
 
 
-#### 1.18.9 Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target
+#### 1.19.9 Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -4044,7 +4093,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.18.10 Procedure resources returned during previous tests conform to the AU Core Procedure
+#### 1.19.10 Procedure resources returned during previous tests conform to the AU Core Procedure
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -4052,7 +4101,7 @@ the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 </details>
 
 
-#### 1.18.11 All must support elements are provided in the Procedure resources returned
+#### 1.19.11 All must support elements are provided in the Procedure resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -4076,7 +4125,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.18.12 MustSupport references within Procedure resources are valid
+#### 1.19.12 MustSupport references within Procedure resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -4096,7 +4145,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.19 Organization Tests
+## 1.20 Organization Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Organization.</summary>
@@ -4124,14 +4173,14 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.19.1 Server returns correct Organization resource from Organization read interaction
+#### 1.20.1 Server returns correct Organization resource from Organization read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Organization read interaction.
 </details>
 
 
-#### 1.19.2 Server returns valid results for Organization search by _id
+#### 1.20.2 Server returns valid results for Organization search by _id
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -4151,7 +4200,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.19.3 Server returns valid results for Organization search by address
+#### 1.20.3 Server returns valid results for Organization search by address
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4163,7 +4212,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.19.4 Server returns valid results for Organization search by identifier
+#### 1.20.4 Server returns valid results for Organization search by identifier
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4175,7 +4224,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.19.5 Server returns valid results for Organization search by name
+#### 1.20.5 Server returns valid results for Organization search by name
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4187,7 +4236,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.19.6 Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target
+#### 1.20.6 Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target
 <details>
 <summary>Show details</summary>
 A server SHALL be capable of supporting _revIncludes:Provenance:target.
@@ -4198,7 +4247,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 </details>
 
 
-#### 1.19.7 Organization resources returned during previous tests conform to the AU Core Organization
+#### 1.20.7 Organization resources returned during previous tests conform to the AU Core Organization
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -4206,7 +4255,7 @@ the [AU Core Organization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 </details>
 
 
-#### 1.19.8 All must support elements are provided in the Organization resources returned
+#### 1.20.8 All must support elements are provided in the Organization resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -4224,7 +4273,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-## 1.20 Practitioner Tests
+## 1.21 Practitioner Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Practitioner.</summary>
@@ -4251,14 +4300,14 @@ The first search uses the selected patient(s
 
 ### Tests
 
-#### 1.20.1 Server returns correct Practitioner resource from Practitioner read interaction
+#### 1.21.1 Server returns correct Practitioner resource from Practitioner read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Practitioner read interaction.
 </details>
 
 
-#### 1.20.2 Server returns valid results for Practitioner search by _id
+#### 1.21.2 Server returns valid results for Practitioner search by _id
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4278,7 +4327,7 @@ requirement of AU Core v0.3.0-ballot.
 </details>
 
 
-#### 1.20.3 Server returns valid results for Practitioner search by identifier
+#### 1.21.3 Server returns valid results for Practitioner search by identifier
 <details>
 <summary>Show details</summary>
 A server SHALL support searching by
@@ -4290,7 +4339,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.20.4 Server returns valid results for Practitioner search by name
+#### 1.21.4 Server returns valid results for Practitioner search by name
 <details>
 <summary>Show details</summary>
 A server SHOULD support searching by
@@ -4302,7 +4351,7 @@ none are returned, the test is skipped.
 </details>
 
 
-#### 1.20.5 Practitioner resources returned during previous tests conform to the AU Core Practitioner
+#### 1.21.5 Practitioner resources returned during previous tests conform to the AU Core Practitioner
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -4310,7 +4359,7 @@ the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 </details>
 
 
-#### 1.20.6 All must support elements are provided in the Practitioner resources returned
+#### 1.21.6 All must support elements are provided in the Practitioner resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -4331,7 +4380,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.20.7 MustSupport references within Practitioner resources are valid
+#### 1.21.7 MustSupport references within Practitioner resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
@@ -4347,7 +4396,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.21 Provenance Tests
+## 1.22 Provenance Tests
 
 <details>
 <summary>Verify support for the server capabilities required by the AU Core Provenance.</summary>
@@ -4376,14 +4425,14 @@ the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 ### Tests
 
-#### 1.21.1 Server returns correct Provenance resource from Provenance read interaction
+#### 1.22.1 Server returns correct Provenance resource from Provenance read interaction
 <details>
 <summary>Show details</summary>
 A server SHALL support the Provenance read interaction.
 </details>
 
 
-#### 1.21.2 Provenance resources returned during previous tests conform to the AU Core Provenance
+#### 1.22.2 Provenance resources returned during previous tests conform to the AU Core Provenance
 <details>
 <summary>Show details</summary>
 This test verifies resources returned from the first search conform to
@@ -4391,7 +4440,7 @@ the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 </details>
 
 
-#### 1.21.3 All must support elements are provided in the Provenance resources returned
+#### 1.22.3 All must support elements are provided in the Provenance resources returned
 <details>
 <summary>Show details</summary>
 AU Core Responders SHALL be capable of populating all data elements as
@@ -4409,7 +4458,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 </details>
 
 
-#### 1.21.4 MustSupport references within Provenance resources are valid
+#### 1.22.4 MustSupport references within Provenance resources are valid
 <details>
 <summary>Show details</summary>
 This test will attempt to read external references provided within elements
