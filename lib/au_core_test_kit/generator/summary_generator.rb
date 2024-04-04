@@ -50,52 +50,41 @@ def generate_summary_md(folder_hashes)
   end
 end
 
-
-def extract_test_title(test_file_path_with_id)
-  test_title = nil
-  File.open(test_file_path_with_id, "r") do |test_file|
+def find_value_in_file(file_path, search_str)
+  value = nil
+  File.open(file_path, "r") do |test_file|
     test_file.each_line do |test_line|
-      if test_line.include?("title")
-        test_title = test_line.split("title")[1].strip.gsub("'", "")
+      if test_line.include?(search_str)
+        value = test_line.split(search_str)[1].strip.gsub("'", "")
         break
       end
     end
   end
-  test_title
+  value
 end
 
-def extract_test_short_description(test_file_path_with_id)
-  short_description = nil
-  File.open(test_file_path_with_id, "r") do |test_file|
-    test_file.each_line do |test_line|
-      if test_line.include?("short_description")
-        short_description = test_line.split("short_description")[1].strip.gsub("'", "")
-        break
-      end
-    end
-  end
-  short_description
-end
 
-def extract_test_description(test_file_path_with_id)
-  test_description = nil
-  content = File.read(test_file_path_with_id)
-  matches = content.scan(/%\((.*?)\)/m)
-  if matches.empty?
-    File.open(test_file_path_with_id, "r") do |test_file|
-      test_file.each_line do |test_line|
-        if test_line.include?("description")
-          test_description = test_line.split("description")[1].strip.gsub("'", "")
-          break
-        end
+def extract_test_attribute(test_file_path_with_id, attribute)
+  attribute_value = nil
+  case attribute
+  when "title"
+    attribute_value = find_value_in_file(test_file_path_with_id, "title")
+  when "short_description"
+    attribute_value = find_value_in_file(test_file_path_with_id, "short_description")
+  when "description"
+    content = File.read(test_file_path_with_id)
+    matches = content.scan(/%\((.*?)\)/m)
+    if matches.empty?
+      attribute_value = find_value_in_file(test_file_path_with_id, "description")
+    else
+      matches.each do |match|
+        attribute_value = match[0].strip
       end
     end
   else
-    matches.each do |match|
-      test_description = match[0].strip
-    end
+    puts "Unknown attribute: #{attribute}"
   end
-  test_description
+  attribute_value
 end
 
 directory_path = "lib/au_core_test_kit/generated"
@@ -127,7 +116,7 @@ if Dir.exist?(directory_path)
                     test_id = test_value if test_value
                     Dir.glob("#{folder_path}/**/*").select { |f| File.file?(f) }.each do |test_file_path_with_id|
                       if File.read(test_file_path_with_id).include?("id #{test_id}")
-                        tests << { id: test_id, test_file_path: test_file_path_with_id, title: extract_test_title(test_file_path_with_id), description: extract_test_description(test_file_path_with_id) }
+                        tests << { id: test_id, test_file_path: test_file_path_with_id, title: extract_test_attribute(test_file_path_with_id, "title"), description: extract_test_attribute(test_file_path_with_id, "description") }
                         break
                       end
                     end
@@ -135,7 +124,7 @@ if Dir.exist?(directory_path)
                 end
               end
             end
-            test_groups << { id: id, file_path: file_path_with_id, title: extract_test_title(file_path_with_id), short_description: extract_test_short_description(file_path_with_id), description: extract_test_description(file_path_with_id), tests: tests } if id && file_path_with_id
+            test_groups << { id: id, file_path: file_path_with_id, title: extract_test_attribute(file_path_with_id, "title"), short_description: extract_test_attribute(file_path_with_id, "short_description"), description: extract_test_attribute(file_path_with_id, "description"), tests: tests } if id && file_path_with_id
           end
         end
       end
@@ -151,12 +140,7 @@ if Dir.exist?(directory_path)
 
     folder_hashes << folder_hash
   end
-
-  summary_data = { summary_data: folder_hashes }
-
   generate_summary_md(folder_hashes)
-
-  # puts JSON.pretty_generate(summary_data)
 else
   puts "Directory not found: #{directory_path}"
 end
