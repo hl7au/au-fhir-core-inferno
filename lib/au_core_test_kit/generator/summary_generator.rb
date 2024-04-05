@@ -79,6 +79,11 @@ def extract_test_attribute(test_file_path_with_id, attribute)
     matches = content.scan(/%\((.*?)\)/m)
     attribute_value = find_value_in_file(test_file_path_with_id, "description") if matches.empty?
     matches.each { |match| attribute_value = match[0].strip }
+    # TODO: Fix it
+    attribute_value = attribute_value.gsub(
+      '[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html',
+      '[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)'
+    )
   else
     puts "Unknown attribute: #{attribute}"
   end
