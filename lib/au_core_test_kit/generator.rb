@@ -11,7 +11,6 @@ require_relative 'generator/reference_resolution_test_generator'
 require_relative 'generator/search_test_generator'
 require_relative 'generator/suite_generator'
 require_relative 'generator/validation_test_generator'
-require_relative 'generator/mdsummary_generator'
 
 module AUCoreTestKit
   class Generator
@@ -43,7 +42,6 @@ module AUCoreTestKit
       generate_reference_resolution_tests
       generate_groups
       generate_suites
-      generate_mdsummary
     end
 
     def extract_metadata
@@ -94,10 +92,6 @@ module AUCoreTestKit
 
     def generate_suites
       SuiteGenerator.generate(ig_metadata, base_output_dir)
-    end
-
-    def generate_mdsummary
-      MDSummaryGenerator.generate(ig_metadata, base_output_dir)
     end
   end
 end
