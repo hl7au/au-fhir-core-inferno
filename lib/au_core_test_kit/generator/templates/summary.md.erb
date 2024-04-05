@@ -12,9 +12,13 @@
 ### Tests
 <% test_group[:tests].each do |test| %>
 #### <%= test[:title] %>
+
 <details>
+
 <summary>Show details</summary>
+
 <%= test[:description] %>
+
 <% if test[:search_string] != nil %>
 ##### Requests
 
@@ -33,6 +37,7 @@ Accept: application/fhir+json
 {test endpoint}<%= test[:search_string] %>
 ```
 <% end %>
+
 </details>
 
 <% end %>
