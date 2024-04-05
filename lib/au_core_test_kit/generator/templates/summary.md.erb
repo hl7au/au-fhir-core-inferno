@@ -15,24 +15,24 @@
 <details>
 <summary>Show details</summary>
 <%= test[:description] %>
-# <% if test[:search_string] != nil %>
-# ##### Requests
+<% if test[:search_string] != nil %>
+##### Requests
 
-# **HTTP GET**
+**HTTP GET**
 
-# ```bash
-# GET <%= test[:search_string] %> HTTP/1.1
-# User-Agent: {agent}
-# Host: {host}
-# Accept: application/fhir+json
-# ```
+```bash
+GET <%= test[:search_string] %> HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
 
-# **For browser based calls:**
+**For browser based calls:**
 
-# ```bash
-# {test endpoint}<%= test[:search_string] %>
-# ```
-# <% end %>
+```bash
+{test endpoint}<%= test[:search_string] %>
+```
+<% end %>
 </details>
 
 <% end %>
