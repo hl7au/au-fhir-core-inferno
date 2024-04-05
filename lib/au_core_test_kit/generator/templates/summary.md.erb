@@ -4,18 +4,25 @@
 ## <%= test_group[:title] %>
 
 <details>
+
 <summary><%= test_group[:short_description] %></summary>
 
 <%= test_group[:description] %>
+
 </details>
 
 ### Tests
 <% test_group[:tests].each do |test| %>
+
 #### <%= test[:title] %>
 <details>
+
 <summary>Show details</summary>
+
 <%= test[:description] %>
+
 <% if test[:search_string] != nil %>
+
 ##### Requests
 
 **HTTP GET**
@@ -32,7 +39,9 @@ Accept: application/fhir+json
 ```bash
 {test endpoint}<%= test[:search_string] %>
 ```
+
 <% end %>
+
 </details>
 
 <% end %>
