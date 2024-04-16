@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'resprate/resprate_patient_code_search_test'
 require_relative 'resprate/resprate_category_search_test'
 require_relative 'resprate/resprate_code_search_test'

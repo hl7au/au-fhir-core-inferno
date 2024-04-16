@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class ProfileSupportTest < Inferno::Test
     id :au_core_profile_support

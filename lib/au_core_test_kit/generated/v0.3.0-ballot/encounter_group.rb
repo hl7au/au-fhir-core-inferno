@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'encounter/encounter_patient_search_test'
 require_relative 'encounter/encounter_class_search_test'
 require_relative 'encounter/encounter_date_search_test'

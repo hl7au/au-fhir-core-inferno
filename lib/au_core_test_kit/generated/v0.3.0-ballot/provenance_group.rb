@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'provenance/provenance_read_test'
 require_relative 'provenance/provenance_validation_test'
 require_relative 'provenance/provenance_must_support_test'

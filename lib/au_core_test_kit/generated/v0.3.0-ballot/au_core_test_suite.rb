@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'

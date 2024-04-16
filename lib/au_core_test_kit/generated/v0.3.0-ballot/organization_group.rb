@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'organization/organization_read_test'
 require_relative 'organization/organization_id_search_test'
 require_relative 'organization/organization_address_search_test'

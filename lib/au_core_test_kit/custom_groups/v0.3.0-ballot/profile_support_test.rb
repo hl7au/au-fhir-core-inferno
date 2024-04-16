@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   module AUCoreV030_BALLOT
     class ProfileSupportTest < Inferno::Test

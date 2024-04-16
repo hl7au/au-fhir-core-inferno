@@ -26,4 +26,4 @@ down:
 
 rubocop:
 	docker compose build
-	docker compose run inferno rubocop -a
+	docker compose run inferno rubocop -A

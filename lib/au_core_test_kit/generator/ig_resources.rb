@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class Generator
     class IGResources
@@ -71,8 +73,8 @@ module AUCoreTestKit
       def search_param_by_specific_cases(resource, code)
         case "#{resource}-#{code}"
         when 'ServiceRequest-code'
-          search_params = resources_by_type['SearchParameter']
-                          .find { |param| param.id == 'ServiceRequest-code-concept' }
+          resources_by_type['SearchParameter']
+            .find { |param| param.id == 'ServiceRequest-code-concept' }
         end
       end
 

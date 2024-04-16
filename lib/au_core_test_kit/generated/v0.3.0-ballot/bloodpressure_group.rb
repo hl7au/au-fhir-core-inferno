@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'bloodpressure/bloodpressure_patient_code_search_test'
 require_relative 'bloodpressure/bloodpressure_category_search_test'
 require_relative 'bloodpressure/bloodpressure_code_search_test'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class Generator
     class ValueExactor
@@ -27,7 +29,7 @@ module AUCoreTestKit
           .select do |element|
             element.path == "#{profile_element.path}.coding.code" && element.fixedCode.present?
           end
-          .map { |element| element.fixedCode }
+          .map(&:fixedCode)
       end
 
       def values_from_pattern_coding(profile_element, type)
@@ -45,7 +47,7 @@ module AUCoreTestKit
 
         profile_elements
           .select do |element|
-            element.path == profile_element.path && element.patternCodeableConcept.present? && element.min > 0
+            element.path == profile_element.path && element.patternCodeableConcept.present? && element.min.positive?
           end
           .map { |element| element.patternCodeableConcept.coding.first.code }
       end
@@ -82,7 +84,7 @@ module AUCoreTestKit
 
         return [] if bound_systems.blank?
 
-        bound_systems.flat_map { |system| system.concept.map { |code| code.code } }.uniq
+        bound_systems.flat_map { |system| system.concept.map(&:code) }.uniq
       end
 
       def fhir_metadata(current_path)

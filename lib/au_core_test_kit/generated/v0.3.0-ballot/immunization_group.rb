@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'immunization/immunization_patient_search_test'
 require_relative 'immunization/immunization_date_search_test'
 require_relative 'immunization/immunization_status_search_test'

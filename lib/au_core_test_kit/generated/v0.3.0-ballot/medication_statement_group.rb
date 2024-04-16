@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'medication_statement/medication_statement_patient_search_test'
 require_relative 'medication_statement/medication_statement_effective_search_test'
 require_relative 'medication_statement/medication_statement_status_search_test'

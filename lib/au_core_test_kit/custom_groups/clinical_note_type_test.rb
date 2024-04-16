@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../search_test'
 
 module AUCoreTestKit
@@ -41,7 +43,7 @@ module AUCoreTestKit
                   &.select { |content| content.attachment&.url.present? && !attachments.key?(content.attachment&.url) }
                   &.each { |content| attachments[content.attachment.url] = resource.id }
 
-          resource.type&.coding&.map { |coding| coding.code }
+          resource.type&.coding&.map(&:code)
         end
 
       codes_found.compact.uniq

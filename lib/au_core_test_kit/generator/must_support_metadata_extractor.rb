@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'value_extractor'
 require_relative 'must_support_metadata_extractor_au_core_3'
 
@@ -204,7 +206,7 @@ module AUCoreTestKit
       end
 
       def plain_must_support_elements
-        plain_must_supports = all_must_support_elements - must_support_extension_elements - must_support_slice_elements
+        all_must_support_elements - must_support_extension_elements - must_support_slice_elements
       end
 
       def element_part_of_slice_discrimination?(element)
@@ -233,7 +235,7 @@ module AUCoreTestKit
       end
 
       def save_type_code?(type)
-        'Reference' == type.code
+        type.code == 'Reference'
       end
 
       def get_type_must_support_metadata(current_metadata, current_element)
@@ -302,7 +304,7 @@ module AUCoreTestKit
             else
               handle_choice_type_in_sliced_element(current_metadata, must_support_elements_metadata)
 
-              supported_types = current_element.type.select { |type| save_type_code?(type) }.map { |type| type.code }
+              supported_types = current_element.type.select { |type| save_type_code?(type) }.map(&:code)
               current_metadata[:types] = supported_types if supported_types.present?
 
               if current_element.type.first&.code == 'Reference'

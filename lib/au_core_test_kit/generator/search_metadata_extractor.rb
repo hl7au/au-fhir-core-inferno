@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require_relative 'search_definition_metadata_extractor'
 
 module AUCoreTestKit
   class Generator
     class SearchMetadataExtractor
       COMBO_EXTENSION_URL =
-        'http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination'.freeze
+        'http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination'
 
       attr_accessor :resource_capabilities, :ig_resources, :profile_elements, :group_metadata
 

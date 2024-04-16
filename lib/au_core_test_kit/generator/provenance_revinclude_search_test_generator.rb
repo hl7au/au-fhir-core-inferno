@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -93,7 +95,7 @@ module AUCoreTestKit
       end
 
       def search_param_name_string
-        search_metadata[:names].join(' + ') + ' + revInclude:Provenance:target'
+        "#{search_metadata[:names].join(' + ')} + revInclude:Provenance:target"
       end
 
       def needs_patient_id?

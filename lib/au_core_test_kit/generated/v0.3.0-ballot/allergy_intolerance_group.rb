@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'allergy_intolerance/allergy_intolerance_patient_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_clinical_status_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_patient_clinical_status_search_test'

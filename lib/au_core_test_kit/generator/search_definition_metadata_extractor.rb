@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'value_extractor'
 
 module AUCoreTestKit
@@ -45,7 +47,7 @@ module AUCoreTestKit
               expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/,
                                                                 'url=\'').gsub(/\.ofType\(([^)]+)\)/) do |_match|
                 type_name = ::Regexp.last_match(1)
-                "#{type_name[0].upcase}#{type_name[1..-1]}"
+                "#{type_name[0].upcase}#{type_name[1..]}"
               end
             end.filter { |path| path.split('.').first == resource }
             # path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
@@ -199,13 +201,13 @@ module AUCoreTestKit
       end
 
       def values_from_must_support_slices(profile_element, short_path, mandatory_slice_only)
-        return unless group_metadata[:must_supports][:slices].compact.length > 0
+        return unless group_metadata[:must_supports][:slices].compact.length.positive?
 
         group_metadata[:must_supports][:slices]
           .select { |slice| [short_path, "#{short_path}.coding"].include?(slice[:path]) }
           .map do |slice|
             slice_element = profile_elements.find { |element| slice[:slice_id] == element.id }
-            next if profile_element.min > 0 && slice_element.min == 0 && mandatory_slice_only
+            next if profile_element.min.positive? && slice_element.min.zero? && mandatory_slice_only
 
             case slice[:discriminator][:type]
             when 'patternCoding', 'patternCodeableConcept'

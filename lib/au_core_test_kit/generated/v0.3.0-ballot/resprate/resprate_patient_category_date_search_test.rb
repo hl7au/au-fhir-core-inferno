@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 

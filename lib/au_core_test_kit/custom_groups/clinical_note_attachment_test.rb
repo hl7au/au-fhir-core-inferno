@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class ClinicalNoteAttachmentTest < Inferno::Test
     id :au_core_clinical_note_attachments

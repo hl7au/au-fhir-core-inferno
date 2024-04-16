@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'waistcircum/waistcircum_patient_code_search_test'
 require_relative 'waistcircum/waistcircum_category_search_test'
 require_relative 'waistcircum/waistcircum_code_search_test'

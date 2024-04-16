@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Helpers
   def self.extract_extensions_from_resource(resource, extensions = [])
     resource_hash = convert_resource_to_hash(resource)
@@ -136,7 +138,7 @@ module Helpers
     case element
     when Hash
       extensions.concat(element['extension']) if element['extension'].is_a?(Array)
-      element.each do |_, value|
+      element.each_value do |value|
         process_resource_element(value, extensions)
       end
     when Array

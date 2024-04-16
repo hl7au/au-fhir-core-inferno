@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'patient/patient_id_search_test'
 require_relative 'patient/patient_birthdate_search_test'
 require_relative 'patient/patient_family_search_test'

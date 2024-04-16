@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'bodyweight/bodyweight_patient_code_search_test'
 require_relative 'bodyweight/bodyweight_category_search_test'
 require_relative 'bodyweight/bodyweight_code_search_test'

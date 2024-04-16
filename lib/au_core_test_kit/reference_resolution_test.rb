@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'fhir_resource_navigation'
 
 module AUCoreTestKit
@@ -10,7 +12,7 @@ module AUCoreTestKit
     def perform_reference_resolution_test(resources)
       skip_if resources.blank?, no_resources_skip_message
 
-      pass if unresolved_references(resources).length.zero?
+      pass if unresolved_references(resources).empty?
 
       skip "Could not resolve and validate any Must Support references for #{unresolved_references_strings.join(', ')}"
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fhir_models'
 require 'inferno/ext/fhir_models'
 

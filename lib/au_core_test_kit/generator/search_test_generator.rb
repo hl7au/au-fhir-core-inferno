@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -144,7 +146,7 @@ module AUCoreTestKit
       end
 
       def possible_status_search?
-        !search_metadata[:names].any? { |name| name.include? 'status' } &&
+        search_metadata[:names].none? { |name| name.include? 'status' } &&
           group_metadata.search_definitions.keys.any? { |key| key.to_s.include? 'status' }
       end
 
@@ -160,7 +162,7 @@ module AUCoreTestKit
       end
 
       def required_multiple_or_search_params
-        @multiple_or_search_params ||=
+        @required_multiple_or_search_params ||=
           search_param_names.select do |name|
             search_definition(name)[:multiple_or] == 'SHALL'
           end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'date_search_validation'
 require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
@@ -254,7 +256,7 @@ module AUCoreTestKit
     end
 
     def perform_reference_with_type_search(params, resource_count)
-      return if resource_count == 0
+      return if resource_count.zero?
       return if search_variant_test_records[:reference_variants]
 
       new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
@@ -345,7 +347,7 @@ module AUCoreTestKit
 
         multiple_or_search_params.each do |param_name|
           search_value = default_search_values(param_name.to_sym)
-          search_params = search_params.merge("#{param_name}" => search_value)
+          search_params = search_params.merge(param_name.to_s => search_value)
           existing_values[param_name.to_sym] =
             scratch_resources_for_patient(patient_id).map(&param_name.to_sym).compact.uniq
         end
@@ -542,7 +544,7 @@ module AUCoreTestKit
         msg.concat(" with the following Device Type Code filter: #{implantable_device_codes}")
       end
 
-      msg + '. Please use patients with more information'
+      "#{msg}. Please use patients with more information"
     end
 
     def fetch_all_bundled_resources(
@@ -585,7 +587,7 @@ module AUCoreTestKit
 
       if invalid_resource_types.any?
         info "Received resource type(s) #{invalid_resource_types.join(', ')} in search bundle, " \
-             "but only expected resource types #{valid_resource_types.join(', ')}. " + \
+             "but only expected resource types #{valid_resource_types.join(', ')}. " \
              'This is unusual but allowed if the server believes additional resource types are relevant.'
       end
 
@@ -606,10 +608,10 @@ module AUCoreTestKit
           case element
           when FHIR::Period
             if element.start.present?
-              'gt' + (DateTime.xmlschema(element.start) - 1).xmlschema
+              "gt#{(DateTime.xmlschema(element.start) - 1).xmlschema}"
             else
               end_datetime = get_fhir_datetime_range(element.end)[:end]
-              'lt' + (end_datetime + 1).xmlschema
+              "lt#{(end_datetime + 1).xmlschema}"
             end
           when FHIR::Reference
             element.reference

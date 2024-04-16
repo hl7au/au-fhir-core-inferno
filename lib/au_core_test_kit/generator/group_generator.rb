@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 require_relative '../helpers'

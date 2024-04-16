@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 require 'yaml'
 
@@ -15,7 +17,7 @@ end
 
 def make_search_string(resource_name, search_names)
   search = search_names.map.with_index do |search_name, index|
-    prefix = index == 0 ? '?' : '&'
+    prefix = index.zero? ? '?' : '&'
     "#{prefix}#{search_name}={#{search_name}}"
   end
   "/#{resource_name}#{search.join('')}"

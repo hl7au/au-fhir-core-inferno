@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'diagnosticresult/diagnosticresult_patient_search_test'
 require_relative 'diagnosticresult/diagnosticresult_category_search_test'
 require_relative 'diagnosticresult/diagnosticresult_code_search_test'

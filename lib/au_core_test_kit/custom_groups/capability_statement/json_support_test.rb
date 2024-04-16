@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class JSONSupportTest < Inferno::Test
     id :au_core_json_support

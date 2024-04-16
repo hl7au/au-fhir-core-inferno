@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'fhir_resource_navigation'
 require_relative 'helpers'
 
@@ -21,7 +23,7 @@ module AUCoreTestKit
 
       handle_must_support_choices if metadata.must_supports[:choices].present?
 
-      pass if (missing_elements + missing_slices + missing_extensions).length.zero?
+      pass if (missing_elements + missing_slices + missing_extensions).empty?
       skip "Could not find #{missing_must_support_strings.join(', ')} in the #{resources.length} " \
            "provided #{resource_type} resource(s)"
     end
