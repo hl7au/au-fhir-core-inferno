@@ -11,7 +11,7 @@ module AUCoreTestKit
           title: 'Patient IDs',
           description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
 
-    REQUIRED_CATEGORIES = ['LP29708-2', 'LP7839-6', 'LP29684-5'].freeze
+    REQUIRED_CATEGORIES = %w[LP29708-2 LP7839-6 LP29684-5].freeze
 
     def document_reference_types_found(patient_id)
       search_params = { patient: patient_id }
@@ -29,7 +29,7 @@ module AUCoreTestKit
       end
 
       resources = fetch_all_bundled_resources(resource_type: 'DocumentReference')
-                    .select { |resource| resource.resourceType == 'DocumentReference' }
+                  .select { |resource| resource.resourceType == 'DocumentReference' }
 
       scratch[:document_reference_attachments] ||= {}
       scratch[:document_reference_attachments][patient_id] ||= {}
@@ -38,8 +38,8 @@ module AUCoreTestKit
       codes_found =
         resources.flat_map do |resource|
           resource.content
-            &.select { |content| content.attachment&.url.present? && !attachments.key?(content.attachment&.url) }
-            &.each { |content| attachments[content.attachment.url] = resource.id }
+                  &.select { |content| content.attachment&.url.present? && !attachments.key?(content.attachment&.url) }
+                  &.each { |content| attachments[content.attachment.url] = resource.id }
 
           resource.type&.coding&.map { |coding| coding.code }
         end
@@ -62,7 +62,7 @@ module AUCoreTestKit
       end
 
       resources = fetch_all_bundled_resources(resource_type: 'DiagnosticReport')
-                    .select { |resource| resource.resourceType == 'DiagnosticReport' }
+                  .select { |resource| resource.resourceType == 'DiagnosticReport' }
 
       scratch[:diagnostic_report_attachments] ||= {}
       scratch[:diagnostic_report_attachments][patient_id] ||= {}
@@ -72,12 +72,12 @@ module AUCoreTestKit
         resources.flat_map do |resource|
           codes = resource.category&.flat_map do |category|
             category.coding&.map { |coding| coding.code if REQUIRED_CATEGORIES.include?(coding.code) }
-          end.compact
+          end&.compact
 
           if codes.present?
             resource.presentedForm
-              &.select { |attachment| attachment&.url.present? && !attachments.key?(attachment&.url) }
-              &.each { |attachment| attachments[attachment.url] = resource.id }
+                    &.select { |attachment| attachment&.url.present? && !attachments.key?(attachment&.url) }
+                    &.each { |attachment| attachments[attachment.url] = resource.id }
           end
 
           codes
@@ -104,9 +104,7 @@ module AUCoreTestKit
         message += ' and ' if missing_categories.present?
       end
 
-      if missing_categories.present?
-        message += "DiagnosticReport categories #{missing_categories.join(', ')}."
-      end
+      message += "DiagnosticReport categories #{missing_categories.join(', ')}." if missing_categories.present?
 
       skip message
     end

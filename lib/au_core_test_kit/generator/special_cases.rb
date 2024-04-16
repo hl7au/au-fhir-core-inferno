@@ -1,11 +1,11 @@
 module AUCoreTestKit
   class Generator
     module SpecialCases
-      RESOURCES_TO_EXCLUDE = [
-        'Location',
-        'Medication',
-        'PractitionerRole',
-        'RelatedPerson',
+      RESOURCES_TO_EXCLUDE = %w[
+        Location
+        Medication
+        PractitionerRole
+        RelatedPerson
       ].freeze
 
       PROFILES_TO_EXCLUDE = [].freeze

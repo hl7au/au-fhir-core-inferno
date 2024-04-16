@@ -7,11 +7,11 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups
-            .reject { |group| SpecialCases.exclude_group? group }
-            .select { |group| group.searches.present? }
-            .each do |group|
-              group.searches.each { |search| new(group, search, base_output_dir).generate }
-            end
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .select { |group| group.searches.present? }
+                     .each do |group|
+            group.searches.each { |search| new(group, search, base_output_dir).generate }
+          end
         end
       end
 
@@ -79,7 +79,7 @@ module AUCoreTestKit
         @search_params ||=
           search_metadata[:names].map do |name|
             {
-              name: name,
+              name:,
               path: search_definition(name)[:path]
             }
           end
@@ -151,7 +151,7 @@ module AUCoreTestKit
       def token_search_params
         @token_search_params ||=
           search_param_names.select do |name|
-            ['Identifier', 'CodeableConcept', 'Coding'].include? group_metadata.search_definitions[name.to_sym][:type]
+            %w[Identifier CodeableConcept Coding].include? group_metadata.search_definitions[name.to_sym][:type]
           end
       end
 
@@ -184,7 +184,7 @@ module AUCoreTestKit
       end
 
       def test_medication_inclusion?
-        ['MedicationRequest', 'MedicationDispense'].include?(resource_type)
+        %w[MedicationRequest MedicationDispense].include?(resource_type)
       end
 
       def test_post_search?
@@ -203,7 +203,10 @@ module AUCoreTestKit
           properties[:token_search_params] = token_search_params_string if token_search_params.present?
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?
-          properties[:multiple_or_search_params] = required_multiple_or_search_params_string if required_multiple_or_search_params.present?
+          if required_multiple_or_search_params.present?
+            properties[:multiple_or_search_params] =
+              required_multiple_or_search_params_string
+          end
           properties[:test_post_search] = 'true' if first_search?
         end
       end
@@ -235,10 +238,10 @@ module AUCoreTestKit
         return '' unless test_reference_variants?
 
         <<~REFERENCE_SEARCH_DESCRIPTION
-        This test verifies that the server supports searching by reference using
-        the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-        different forms are expected to return the same number of results. US
-        Core requires that both forms are supported by AU Core responders.
+          This test verifies that the server supports searching by reference using
+          the form `patient=[id]` as well as `patient=Patient/[id]`. The two
+          different forms are expected to return the same number of results. US
+          Core requires that both forms are supported by AU Core responders.
         REFERENCE_SEARCH_DESCRIPTION
       end
 
@@ -246,8 +249,8 @@ module AUCoreTestKit
         return '' unless first_search?
 
         <<~FIRST_SEARCH_DESCRIPTION
-        Because this is the first search of the sequence, resources in the
-        response will be used for subsequent tests.
+          Because this is the first search of the sequence, resources in the
+          response will be used for subsequent tests.
         FIRST_SEARCH_DESCRIPTION
       end
 
@@ -255,9 +258,9 @@ module AUCoreTestKit
         return '' unless test_medication_inclusion?
 
         <<~MEDICATION_INCLUSION_DESCRIPTION
-        If any #{resource_type} resources use external references to
-        Medications, the search will be repeated with
-        `_include=#{resource_type}:medication`.
+          If any #{resource_type} resources use external references to
+          Medications, the search will be repeated with
+          `_include=#{resource_type}:medication`.
         MEDICATION_INCLUSION_DESCRIPTION
       end
 
@@ -265,26 +268,26 @@ module AUCoreTestKit
         return '' unless test_post_search?
 
         <<~POST_SEARCH_DESCRIPTION
-        Additionally, this test will check that GET and POST search methods
-        return the same number of results. Search by POST is required by the
-        FHIR R4 specification, and these tests interpret search by GET as a
-        requirement of AU Core #{group_metadata.version}.
+          Additionally, this test will check that GET and POST search methods
+          return the same number of results. Search by POST is required by the
+          FHIR R4 specification, and these tests interpret search by GET as a
+          requirement of AU Core #{group_metadata.version}.
         POST_SEARCH_DESCRIPTION
       end
 
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-        A server #{conformance_expectation} support searching by
-        #{search_param_name_string} on the #{resource_type} resource. This test
-        will pass if resources are returned and match the search criteria. If
-        none are returned, the test is skipped.
+          A server #{conformance_expectation} support searching by
+          #{search_param_name_string} on the #{resource_type} resource. This test
+          will pass if resources are returned and match the search criteria. If
+          none are returned, the test is skipped.
 
-        #{medication_inclusion_description}
-        #{reference_search_description}
-        #{first_search_description}
-        #{post_search_description}
+          #{medication_inclusion_description}
+          #{reference_search_description}
+          #{first_search_description}
+          #{post_search_description}
 
-        [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
+          [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
         DESCRIPTION
       end
     end

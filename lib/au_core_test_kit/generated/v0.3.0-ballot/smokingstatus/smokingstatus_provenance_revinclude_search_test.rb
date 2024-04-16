@@ -15,18 +15,18 @@ module AUCoreTestKit
       %)
 
       id :au_core_v030_ballot_smokingstatus_provenance_revinclude_search_test
-  
+
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+
       def properties
         @properties ||= SearchTestProperties.new(
           fixed_value_search: true,
-        resource_type: 'Observation',
-        search_param_names: ['patient', 'code'],
-        possible_status_search: true
+          resource_type: 'Observation',
+          search_param_names: %w[patient code],
+          possible_status_search: true
         )
       end
 
@@ -35,7 +35,10 @@ module AUCoreTestKit
       end
 
       def self.provenance_metadata
-        @provenance_metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, '..', 'provenance', 'metadata.yml'), aliases: true))
+        @provenance_metadata ||= Generator::GroupMetadata.new(YAML.load_file(
+                                                                File.join(__dir__, '..', 'provenance',
+                                                                          'metadata.yml'), aliases: true
+                                                              ))
       end
 
       def scratch_resources

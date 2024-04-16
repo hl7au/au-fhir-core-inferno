@@ -27,13 +27,13 @@ requirement of AU Core v0.3.0-ballot.
 
       id :au_core_v030_ballot_organization__id_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
-        resource_type: 'Organization',
-        search_param_names: ['_id'],
-        test_post_search: true
+          resource_type: 'Organization',
+          search_param_names: ['_id'],
+          test_post_search: true
         )
       end
 

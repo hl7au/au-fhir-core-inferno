@@ -8,9 +8,9 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.ordered_groups
-            .compact
-            .reject { |group| SpecialCases.exclude_group? group }
-            .each { |group| new(group, base_output_dir).generate }
+                     .compact
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .each { |group| new(group, base_output_dir).generate }
         end
       end
 
@@ -34,7 +34,7 @@ module AUCoreTestKit
       end
 
       def base_metadata_file_name
-        "metadata.yml"
+        'metadata.yml'
       end
 
       def class_name
@@ -84,7 +84,6 @@ module AUCoreTestKit
       def profile_url
         group_metadata.profile_url
       end
-
 
       def optional?
         resource_type == 'QuestionnaireResponse'

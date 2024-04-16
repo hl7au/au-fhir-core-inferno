@@ -22,11 +22,12 @@ module AUCoreTestKit
 
       supported_profiles =
         capability_statement.rest
-          &.each_with_object([]) do |rest, profiles|
-            rest.resource.each { |resource| profiles.concat(resource.supportedProfile) }
-          end.uniq
+                            &.each_with_object([]) do |rest, profiles|
+          rest.resource.each { |resource| profiles.concat(resource.supportedProfile) }
+        end&.uniq
 
-      assert supported_profiles.include?('http://hl7.org.au/fhir/core/0.3.0-ballot/StructureDefinition-au-core-patient.html'), 'AU Core Patient profile not supported'
+      assert supported_profiles.include?('http://hl7.org.au/fhir/core/0.3.0-ballot/StructureDefinition-au-core-patient.html'),
+             'AU Core Patient profile not supported'
 
       au_core_profiles = config.options[:au_core_profiles]
 
@@ -41,8 +42,8 @@ module AUCoreTestKit
 
         missing_profiles_list =
           missing_profiles
-            .map { |resource| "`#{resource}`" }
-            .join(', ')
+          .map { |resource| "`#{resource}`" }
+          .join(', ')
 
         assert missing_profiles.empty?,
                "The CapabilityStatement did not list support for the following resources: #{missing_profiles_list}"

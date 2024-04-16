@@ -33,42 +33,44 @@ module AUCoreTestKit
           # The AU Core v3.1.1 Server Capability Statement does not list support for the
           # required vital signs profiles, so they need to be added
           ig_resources.capability_statement.rest.first.resource
-            .find { |resource| resource.type == 'Observation' }
-            .supportedProfile.concat [
-              'http://hl7.org/fhir/StructureDefinition/bodyheight',
-              'http://hl7.org/fhir/StructureDefinition/bodytemp',
-              'http://hl7.org/fhir/StructureDefinition/bp',
-              'http://hl7.org/fhir/StructureDefinition/bodyweight',
-              'http://hl7.org/fhir/StructureDefinition/heartrate',
-              'http://hl7.org/fhir/StructureDefinition/resprate'
-            ]
+                      .find { |resource| resource.type == 'Observation' }
+                      .supportedProfile.concat [
+                        'http://hl7.org/fhir/StructureDefinition/bodyheight',
+                        'http://hl7.org/fhir/StructureDefinition/bodytemp',
+                        'http://hl7.org/fhir/StructureDefinition/bp',
+                        'http://hl7.org/fhir/StructureDefinition/bodyweight',
+                        'http://hl7.org/fhir/StructureDefinition/heartrate',
+                        'http://hl7.org/fhir/StructureDefinition/resprate'
+                      ]
         end
       end
 
       def remove_extra_supported_profiles
         ig_resources.capability_statement.rest.first.resource
-            .find { |resource| resource.type == 'Observation' }
-            .supportedProfile.delete_if do |profile_url|
-              SpecialCases::PROFILES_TO_EXCLUDE.include?(profile_url)
-            end
+                    .find { |resource| resource.type == 'Observation' }
+                    .supportedProfile.delete_if do |profile_url|
+          SpecialCases::PROFILES_TO_EXCLUDE.include?(profile_url)
+        end
       end
 
       def add_metadata_from_resources
         profile_arr_to_skip = [
           'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire',
-          "http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding",
+          'http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding'
         ]
 
         supported_profile_groups = resources_in_capability_statement.flat_map do |resource|
           resource.supportedProfile&.map do |supported_profile|
             supported_profile = supported_profile.split('|').first
             next if profile_arr_to_skip.include?(supported_profile)
+
             GroupMetadataExtractor.new(resource, supported_profile, metadata, ig_resources).group_metadata
           end
         end.compact
 
         profile_groups = resources_in_capability_statement.flat_map do |resource|
-          next if !resource.profile.present?
+          next unless resource.profile.present?
+
           GroupMetadataExtractor.new(resource, resource.profile, metadata, ig_resources).group_metadata
         end.compact
 

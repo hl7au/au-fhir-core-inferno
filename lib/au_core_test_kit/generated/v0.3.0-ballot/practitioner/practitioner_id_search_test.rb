@@ -29,9 +29,9 @@ requirement of AU Core v0.3.0-ballot.
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
-        resource_type: 'Practitioner',
-        search_param_names: ['_id'],
-        test_post_search: true
+          resource_type: 'Practitioner',
+          search_param_names: ['_id'],
+          test_post_search: true
         )
       end
 

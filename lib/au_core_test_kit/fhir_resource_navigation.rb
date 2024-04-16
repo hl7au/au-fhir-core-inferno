@@ -16,18 +16,19 @@ module AUCoreTestKit
       end.compact
     end
 
-    def find_a_value_at(element, path, include_dar: false)
+    def find_a_value_at(element, path, include_dar: false, &block)
       return nil if element.nil?
 
       elements = Array.wrap(element)
       if path.empty?
         unless include_dar
           elements = elements.reject do |el|
-            el.respond_to?(:extension) && el.extension.any? { |ext| ext.url == DAR_EXTENSION_URL}
+            el.respond_to?(:extension) && el.extension.any? { |ext| ext.url == DAR_EXTENSION_URL }
           end
         end
 
-        return elements.find { |el| yield(el) } if block_given?
+        return elements.find(&block) if block_given?
+
         return elements.first
       end
 
@@ -36,9 +37,9 @@ module AUCoreTestKit
       segment = path_segments.shift.delete_suffix('[x]').gsub(/^class$/, 'local_class').gsub(/\[x\]:/, ':').to_sym
       no_elements_present =
         elements.none? do |element|
-        child = get_next_value(element, segment)
-        child.present? || child == false
-      end
+          child = get_next_value(element, segment)
+          child.present? || child == false
+        end
       return nil if no_elements_present
 
       remaining_path = path_segments.join('.')
@@ -46,9 +47,9 @@ module AUCoreTestKit
         child = get_next_value(element, segment)
         element_found =
           if block_given?
-            find_a_value_at(child, remaining_path, include_dar: include_dar) { |value_found| yield(value_found) }
+            find_a_value_at(child, remaining_path, include_dar:, &block)
           else
-            find_a_value_at(child, remaining_path, include_dar: include_dar)
+            find_a_value_at(child, remaining_path, include_dar:)
           end
         return element_found if element_found.present? || element_found == false
       end
@@ -61,8 +62,8 @@ module AUCoreTestKit
       if extension_url.present?
         element.url == extension_url ? element : nil
       elsif property.to_s.include?(':') && !property.to_s.include?('url')
-        slice = find_slice_via_discriminator(element, property)
-        slice
+        find_slice_via_discriminator(element, property)
+
       else
         element.send(property)
       end
@@ -74,7 +75,7 @@ module AUCoreTestKit
       element_name = property.to_s.split(':')[0].gsub(/^class$/, 'local_class')
       slice_name = property.to_s.split(':')[1].gsub(/^class$/, 'local_class')
       if metadata.present?
-        slice_by_name = metadata.must_supports[:slices].find{ |slice| slice[:slice_name] == slice_name }
+        slice_by_name = metadata.must_supports[:slices].find { |slice| slice[:slice_name] == slice_name }
         discriminator = slice_by_name[:discriminator]
         slices = Array.wrap(element.send(element_name))
         slices.find do |slice|
@@ -111,11 +112,11 @@ module AUCoreTestKit
             end
           when 'requiredBinding'
             slice_value = discriminator[:path].present? ? slice.send("#{discriminator[:path]}").coding : slice.coding
-            slice_value {|coding| discriminator[:values].include?(coding.code) }
+            slice_value { |coding| discriminator[:values].include?(coding.code) }
           end
         end
       else
-        #TODO: Error handling for if this file doesn't have access to metadata for some reason (begin/rescue with StandardError?)
+        # TODO: Error handling for if this file doesn't have access to metadata for some reason (begin/rescue with StandardError?)
       end
     end
 
@@ -124,19 +125,22 @@ module AUCoreTestKit
       path_prefixes.all? do |path_prefix|
         value_definitions_for_path =
           value_definitions
-            .select { |value_definition| value_definition[:path].first == path_prefix }
-            .each { |value_definition| value_definition[:path].shift }
+          .select { |value_definition| value_definition[:path].first == path_prefix }
+          .each { |value_definition| value_definition[:path].shift }
         find_a_value_at(element, path_prefix) do |el_found|
           child_element_value_definitions, current_element_value_definitions =
             value_definitions_for_path.partition { |value_definition| value_definition[:path].present? }
 
           current_element_values_match =
             current_element_value_definitions
-              .all? { |value_definition| value_definition[:value] == el_found }
+            .all? { |value_definition| value_definition[:value] == el_found }
 
           child_element_values_match =
-            child_element_value_definitions.present? ?
-              verify_slice_by_values(el_found, child_element_value_definitions) : true
+            if child_element_value_definitions.present?
+              verify_slice_by_values(el_found, child_element_value_definitions)
+            else
+              true
+            end
           current_element_values_match && child_element_values_match
         end
       end

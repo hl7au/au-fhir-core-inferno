@@ -79,9 +79,10 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'procedure', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'procedure', 'metadata.yml'),
+                                                                  aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_procedure_patient_search_test
       test from: :au_core_v030_ballot_procedure_code_search_test
       test from: :au_core_v030_ballot_procedure_date_search_test

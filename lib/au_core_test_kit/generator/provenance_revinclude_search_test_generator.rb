@@ -7,9 +7,9 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups
-            .reject { |group| SpecialCases.exclude_group? group }
-            .select { |group| group.revincludes.include? 'Provenance:target' }
-            .each { |group| new(group, group.searches.first, base_output_dir).generate }
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .select { |group| group.revincludes.include? 'Provenance:target' }
+                     .each { |group| new(group, group.searches.first, base_output_dir).generate }
         end
       end
 
@@ -73,7 +73,7 @@ module AUCoreTestKit
         @search_params ||=
           search_metadata[:names].map do |name|
             {
-              name: name,
+              name:,
               path: search_definition(name)[:path]
             }
           end
@@ -145,7 +145,7 @@ module AUCoreTestKit
       def token_search_params
         @token_search_params ||=
           search_param_names.select do |name|
-            ['Identifier', 'CodeableConcept', 'Coding'].include? group_metadata.search_definitions[name.to_sym][:type]
+            %w[Identifier CodeableConcept Coding].include? group_metadata.search_definitions[name.to_sym][:type]
           end
       end
 

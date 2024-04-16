@@ -19,12 +19,12 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_condition_clinical_status_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Condition',
-        search_param_names: ['clinical-status'],
-        token_search_params: ['clinical-status']
+          search_param_names: ['clinical-status'],
+          token_search_params: ['clinical-status']
         )
       end
 

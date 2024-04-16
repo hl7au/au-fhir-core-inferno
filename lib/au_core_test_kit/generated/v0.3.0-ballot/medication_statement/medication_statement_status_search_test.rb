@@ -19,11 +19,11 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_medication_statement_status_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationStatement',
-        search_param_names: ['status']
+          search_param_names: ['status']
         )
       end
 

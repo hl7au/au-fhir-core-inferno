@@ -19,12 +19,12 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_patient_gender_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Patient',
-        search_param_names: ['gender'],
-        possible_status_search: true
+          search_param_names: ['gender'],
+          possible_status_search: true
         )
       end
 

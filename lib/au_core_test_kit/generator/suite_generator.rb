@@ -30,11 +30,11 @@ module AUCoreTestKit
       end
 
       def base_output_file_name
-        "au_core_test_suite.rb"
+        'au_core_test_suite.rb'
       end
 
       def class_name
-        "AUCoreTestSuite"
+        'AUCoreTestSuite'
       end
 
       def module_name
@@ -74,7 +74,7 @@ module AUCoreTestKit
 
       def groups
         ig_metadata.ordered_groups.compact
-          .reject { |group| SpecialCases.exclude_group? group }
+                   .reject { |group| SpecialCases.exclude_group? group }
       end
 
       def group_id_list
@@ -94,7 +94,6 @@ module AUCoreTestKit
       def capability_statement_group_id
         "au_core_#{ig_metadata.reformatted_version}_capability_statement"
       end
-
     end
   end
 end

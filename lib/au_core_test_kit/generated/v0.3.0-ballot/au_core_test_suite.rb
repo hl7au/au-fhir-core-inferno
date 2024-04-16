@@ -44,15 +44,15 @@ module AUCoreTestKit
         %r{Sub-extension url 'revoke' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
         /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
         /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
-        /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in AU Core v5.0.1
+        /Provenance.agent\[\d*\]: Rule provenance-1/ # Invalid invariant in AU Core v5.0.1
       ].freeze
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
-            Generator::GroupMetadata.new(raw_metadata)
-          end
+          Generator::GroupMetadata.new(raw_metadata)
+        end
       end
 
       validator do
@@ -60,7 +60,6 @@ module AUCoreTestKit
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         exclude_message do |message|
-
           message_filters.any? { |filter| filter.match? message.message }
         end
 
@@ -72,72 +71,66 @@ module AUCoreTestKit
       id :au_core_v030_ballot
 
       input :url,
-        title: 'FHIR Endpoint',
-        description: 'URL of the FHIR endpoint',
-        default: 'https://sparked.npd.telstrahealth.com/smile/fhir/DEFAULT'
+            title: 'FHIR Endpoint',
+            description: 'URL of the FHIR endpoint',
+            default: 'https://sparked.npd.telstrahealth.com/smile/fhir/DEFAULT'
       input :smart_credentials,
-        title: 'OAuth Credentials',
-        type: :oauth_credentials,
-        optional: true
+            title: 'OAuth Credentials',
+            type: :oauth_credentials,
+            optional: true
 
       fhir_client do
         url :url
         oauth_credentials :smart_credentials
       end
 
-      
-      
-
-      
-
       group do
         title 'AU Core FHIR API'
         id :au_core_v030_ballot_fhir_api
 
         group from: :au_core_v030_ballot_capability_statement
-      
+
         group from: :au_core_v030_ballot_patient
-      
+
         group from: :au_core_v030_ballot_bodyweight
-      
+
         group from: :au_core_v030_ballot_bloodpressure
-      
+
         group from: :au_core_v030_ballot_bodyheight
-      
+
         group from: :au_core_v030_ballot_diagnosticresult_path
-      
+
         group from: :au_core_v030_ballot_bodytemp
-      
+
         group from: :au_core_v030_ballot_heartrate
-      
+
         group from: :au_core_v030_ballot_waistcircum
-      
+
         group from: :au_core_v030_ballot_resprate
-      
+
         group from: :au_core_v030_ballot_diagnosticresult
-      
+
         group from: :au_core_v030_ballot_smokingstatus
-      
+
         group from: :au_core_v030_ballot_allergy_intolerance
-      
+
         group from: :au_core_v030_ballot_condition
-      
+
         group from: :au_core_v030_ballot_encounter
-      
+
         group from: :au_core_v030_ballot_immunization
-      
+
         group from: :au_core_v030_ballot_medication_request
-      
+
         group from: :au_core_v030_ballot_medication_statement
-      
+
         group from: :au_core_v030_ballot_procedure
-      
+
         group from: :au_core_v030_ballot_organization
-      
+
         group from: :au_core_v030_ballot_practitioner
-      
+
         group from: :au_core_v030_ballot_provenance
-      
       end
     end
   end

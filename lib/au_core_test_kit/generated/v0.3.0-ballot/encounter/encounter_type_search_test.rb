@@ -19,13 +19,13 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_encounter_type_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Encounter',
-        search_param_names: ['type'],
-        possible_status_search: true,
-        token_search_params: ['type']
+          search_param_names: ['type'],
+          possible_status_search: true,
+          token_search_params: ['type']
         )
       end
 

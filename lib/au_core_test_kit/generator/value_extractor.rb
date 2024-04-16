@@ -9,7 +9,6 @@ module AUCoreTestKit
         self.profile_elements = profile_elements
       end
 
-
       def values_from_required_binding(profile_element)
         return [] unless profile_element&.max == '*'
 
@@ -25,8 +24,8 @@ module AUCoreTestKit
         return [] unless type == 'CodeableConcept'
 
         profile_elements
-          .select do
-            |element| element.path == "#{profile_element.path}.coding.code" && element.fixedCode.present?
+          .select do |element|
+            element.path == "#{profile_element.path}.coding.code" && element.fixedCode.present?
           end
           .map { |element| element.fixedCode }
       end
@@ -64,7 +63,7 @@ module AUCoreTestKit
       end
 
       def bound_systems_from_valueset(value_set)
-        systems = value_set&.compose&.include&.map do |include|
+        value_set&.compose&.include&.map do |include|
           if include.concept.present?
             include
           elsif include.system.present? && include.filter&.empty? # Cannot process intensional value set with filters
@@ -76,8 +75,6 @@ module AUCoreTestKit
             end
           end
         end&.flatten&.compact
-
-        systems
       end
 
       def values_from_value_set_binding(the_element)
@@ -98,9 +95,7 @@ module AUCoreTestKit
         paths.each do |current_path|
           current_metadata = fhir_metadata(current_path)
 
-          if current_metadata&.dig('valid_codes').present?
-            values = values + current_metadata['valid_codes'].values.flatten
-          end
+          values += current_metadata['valid_codes'].values.flatten if current_metadata&.dig('valid_codes').present?
         end
 
         values

@@ -23,13 +23,13 @@ Medications, the search will be repeated with
 
       id :au_core_v030_ballot_medication_request_authoredon_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationRequest',
-        search_param_names: ['authoredon'],
-        possible_status_search: true,
-        test_medication_inclusion: true
+          search_param_names: ['authoredon'],
+          possible_status_search: true,
+          test_medication_inclusion: true
         )
       end
 

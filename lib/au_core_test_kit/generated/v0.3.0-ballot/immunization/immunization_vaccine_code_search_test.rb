@@ -19,13 +19,13 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_immunization_vaccine_code_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Immunization',
-        search_param_names: ['vaccine-code'],
-        possible_status_search: true,
-        token_search_params: ['vaccine-code']
+          search_param_names: ['vaccine-code'],
+          possible_status_search: true,
+          token_search_params: ['vaccine-code']
         )
       end
 

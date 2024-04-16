@@ -19,11 +19,11 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_organization_address_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Organization',
-        search_param_names: ['address']
+          search_param_names: ['address']
         )
       end
 

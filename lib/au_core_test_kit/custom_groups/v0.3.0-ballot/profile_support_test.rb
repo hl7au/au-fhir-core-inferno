@@ -22,9 +22,9 @@ module AUCoreTestKit
 
         supported_resources =
           capability_statement.rest
-            &.each_with_object([]) do |rest, resources|
-              rest.resource.each { |resource| resources << resource.type }
-            end.uniq
+                              &.each_with_object([]) do |rest, resources|
+            rest.resource.each { |resource| resources << resource.type }
+          end&.uniq
 
         assert supported_resources.include?('Patient'), 'AU Core Patient profile not supported'
 
@@ -43,7 +43,7 @@ module AUCoreTestKit
             .join(', ')
 
           assert missing_resources.empty?,
-                "The CapabilityStatement did not list support for the following resources: #{missing_resource_list}"
+                 "The CapabilityStatement did not list support for the following resources: #{missing_resource_list}"
         end
       end
     end

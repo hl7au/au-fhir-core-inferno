@@ -23,14 +23,14 @@ Medications, the search will be repeated with
 
       id :au_core_v030_ballot_medication_request_category_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationRequest',
-        search_param_names: ['category'],
-        possible_status_search: true,
-        test_medication_inclusion: true,
-        token_search_params: ['category']
+          search_param_names: ['category'],
+          possible_status_search: true,
+          test_medication_inclusion: true,
+          token_search_params: ['category']
         )
       end
 

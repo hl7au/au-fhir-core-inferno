@@ -33,11 +33,9 @@ module AUCoreTestKit
 
       def profile_elements_with_bindings
         profile_elements
-          .select { |element| element.binding.present? && element.binding.strength == 'required'}
+          .select { |element| element.binding.present? && element.binding.strength == 'required' }
           .reject { |element| element_has_fixed_value?(element) || element_has_optional_binding_slice?(element) }
       end
-
-
 
       def element_terminology_bindings
         profile_elements_with_bindings.map do |element|
@@ -49,9 +47,7 @@ module AUCoreTestKit
             path: element.path.gsub('[x]', '').gsub("#{resource}.", '')
           }
 
-          if element.sliceName.present? && element.min > 0
-            binding[:required_binding_slice] = true
-          end
+          binding[:required_binding_slice] = true if element.sliceName.present? && element.min > 0
 
           binding
         end

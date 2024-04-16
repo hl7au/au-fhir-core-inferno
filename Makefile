@@ -23,3 +23,7 @@ stop:
 
 down:
 	docker compose down
+
+rubocop:
+	docker compose build
+	docker compose run inferno rubocop -a

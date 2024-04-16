@@ -40,7 +40,7 @@ module AUCoreTestKit
 
       def to_hash
         {
-          ig_version: ig_version,
+          ig_version:,
           groups: groups.map(&:to_hash)
         }
       end

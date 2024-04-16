@@ -19,7 +19,7 @@ module AUCoreTestKit
         'Condition' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition'],
         'DiagnosticReport' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport'],
         'DocumentReference' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference'],
-        'Encounter' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter',],
+        'Encounter' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter'],
         'HealthcareService' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice'],
         'Immunization' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization'],
         'Location' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-location'],
@@ -43,27 +43,26 @@ module AUCoreTestKit
                           'http://hl7.org.au/fhir/core/StructureDefinition/au-core-sexassignedatbirth',
                           'http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus',
                           'http://hl7.org.au/fhir/core/StructureDefinition/au-core-vitalspanel',
-                          'http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum',
-        ].freeze,
+                          'http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum'].freeze,
         'Organization' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization'],
         'Patient' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient'],
         'Practitioner' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner'],
         'PractitionerRole' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole'],
         'Procedure' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure'],
         'Provenance' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance'],
-        'ServiceRequest' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest'],
+        'ServiceRequest' => ['http://hl7.org.au/fhir/core/StructureDefinition/au-core-servicerequest']
       }.freeze
 
       test from: :tls_version_test,
-          id: :standalone_auth_tls,
-          title: 'FHIR server secured by transport layer security',
-          description: %(
+           id: :standalone_auth_tls,
+           title: 'FHIR server secured by transport layer security',
+           description: %(
             Systems **SHALL** use TLS version 1.2 or higher for all transmissions
             not taking place over a secure network connection.
           ),
-          config: {
-            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
-          }
+           config: {
+             options: { minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
+           }
       test from: :au_core_conformance_support
       test from: :au_core_fhir_version
       test from: :au_core_json_support

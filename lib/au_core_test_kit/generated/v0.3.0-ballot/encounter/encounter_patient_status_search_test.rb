@@ -19,16 +19,16 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_encounter_patient_status_search_test
       optional
-  
+
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Encounter',
-        search_param_names: ['patient', 'status']
+          search_param_names: %w[patient status]
         )
       end
 
