@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DateSearchValidationClass
   include AUCoreTestKit::DateSearchValidation
 end
@@ -6,7 +8,7 @@ RSpec.describe DateSearchValidationClass do
   subject { described_class.new }
 
   describe '#validate_date_search' do
-    let(:search_datetime) { '2022-09-17T00:00:00+00:00'}
+    let(:search_datetime) { '2022-09-17T00:00:00+00:00' }
 
     context 'gt search' do
       let(:search_value) { "gt#{search_datetime}" }
