@@ -42,6 +42,7 @@ module AUCoreTestKit
       generate_reference_resolution_tests
       generate_groups
       generate_suites
+      use_tests
     end
 
     def extract_metadata
@@ -92,6 +93,18 @@ module AUCoreTestKit
 
     def generate_suites
       SuiteGenerator.generate(ig_metadata, base_output_dir)
+    end
+
+    def use_tests
+      file_path = File.expand_path('../au_core_test_kit.rb', __dir__)
+
+      file_content = File.read(file_path)
+      string_to_add = "require_relative '#{base_output_dir.split('/opt/inferno/lib/').last}/au_core_test_suite'"
+
+      if !file_content.include? string_to_add
+        file_content << "\n#{string_to_add}"
+        File.write(file_path, file_content)
+      end
     end
   end
 end
