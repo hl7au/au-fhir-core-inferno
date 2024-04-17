@@ -1,4 +1,4 @@
-name: Release docekr image
+name: Release docker image
 on:
   workflow_run:
       workflows: [test]
