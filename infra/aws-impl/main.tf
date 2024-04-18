@@ -15,7 +15,7 @@ resource "kubernetes_manifest" "ingress" {
   for_each = { for m in local.manifests : m => "${path.module}/${m}" }
 
   manifest = yamldecode(templatefile(each.value, {
-    namespace      = local.namespace
+    namespace = local.namespace
 
   }))
 
@@ -23,6 +23,6 @@ resource "kubernetes_manifest" "ingress" {
     name = "ingress-${local.namespace}"
     # force_conflicts = true
   }
-  
+
   depends_on = [module.inferno]
 }
