@@ -9,3 +9,4 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.5"
+gem 'rubocop', '~> 1.63.2'

@@ -16,8 +16,7 @@ new_release:
 	docker compose run inferno bundle exec rake au_core:generate
 
 tests:
-	docker build -t au-core-rspec-tests .
-	docker run -e APP_ENV=test au-core-rspec-tests bundle exec rspec
+	docker compose run -e APP_ENV=test inferno bundle exec rspec
 
 run:
 	docker compose build
@@ -28,3 +27,6 @@ stop:
 
 down:
 	docker compose down
+
+rubocop:
+	docker compose run inferno rubocop

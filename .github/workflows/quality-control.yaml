@@ -1,0 +1,15 @@
+name: Automated Quality Control
+on: push
+jobs:
+  Spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup environment
+        run: make setup
+      - name: Run RuboCop
+        run: make rubocop
+      - name: Run Spec
+        run: make tests
