@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'value_extractor'
 require_relative 'must_support_metadata_extractor_au_core_3'
 
@@ -25,13 +27,13 @@ module AUCoreTestKit
         @must_supports
       end
 
-      def is_uscdi_requirement_element?(element)
+      def is_uscdi_requirement_element?(_element)
         # TODO: Temporary fix
         false
       end
 
       def all_must_support_elements
-        profile_elements.select { |element| (element.mustSupport || is_uscdi_requirement_element?(element))}
+        profile_elements.select { |element| element.mustSupport || is_uscdi_requirement_element?(element) }
       end
 
       def must_support_extension_elements
@@ -44,19 +46,21 @@ module AUCoreTestKit
             id: element.id,
             url: element.type.first.profile.first
           }.tap do |metadata|
-            if is_uscdi_requirement_element?(element)
-              metadata[:uscdi_only] = true
-            end
+            metadata[:uscdi_only] = true if is_uscdi_requirement_element?(element)
           end
         end
       end
 
       def must_support_slice_elements
-        all_must_support_elements.select { |element| !element.path.end_with?('extension') && element.sliceName.present? }
+        all_must_support_elements.select do |element|
+          !element.path.end_with?('extension') && element.sliceName.present?
+        end
       end
 
       def sliced_element(slice)
-        profile_elements.find { |element| element.id == slice.path || element.id == slice.id.sub(":#{slice.sliceName}", '') }
+        profile_elements.find do |element|
+          element.id == slice.path || element.id == slice.id.sub(":#{slice.sliceName}", '')
+        end
       end
 
       def discriminators(slice)
@@ -71,7 +75,8 @@ module AUCoreTestKit
 
       def pattern_slices
         must_support_pattern_slice_elements.map do |current_element|
-          next if current_element.id.include? ":"
+          next if current_element.id.include? ':'
+
           {
             slice_id: current_element.id,
             slice_name: current_element.sliceName,
@@ -118,15 +123,13 @@ module AUCoreTestKit
                 {
                   type: 'requiredBinding',
                   path: discriminator_path,
-                  values: values
+                  values:
                 }
               else
                 raise StandardError, 'Unsupported discriminator pattern type'
               end
 
-            if is_uscdi_requirement_element?(current_element)
-              metadata[:uscdi_only] = true
-            end
+            metadata[:uscdi_only] = true if is_uscdi_requirement_element?(current_element)
           end
         end.compact
       end
@@ -160,9 +163,7 @@ module AUCoreTestKit
               code: type_code.upcase_first
             }
           }.tap do |metadata|
-            if is_uscdi_requirement_element?(current_element)
-              metadata[:uscdi_only] = true
-            end
+            metadata[:uscdi_only] = true if is_uscdi_requirement_element?(current_element)
           end
         end
       end
@@ -195,9 +196,7 @@ module AUCoreTestKit
               }
             end
 
-            if is_uscdi_requirement_element?(current_element)
-              metadata[:uscdi_only] = true
-            end
+            metadata[:uscdi_only] = true if is_uscdi_requirement_element?(current_element)
           end
         end
       end
@@ -207,13 +206,12 @@ module AUCoreTestKit
       end
 
       def plain_must_support_elements
-        plain_must_supports = all_must_support_elements - must_support_extension_elements - must_support_slice_elements
+        all_must_support_elements - must_support_extension_elements - must_support_slice_elements
       end
 
       def element_part_of_slice_discrimination?(element)
         must_support_slice_elements.any? { |ms_slice| element.id.include?(ms_slice.id) }
       end
-
 
       def handle_fixed_values(metadata, element)
         if element.fixedUri.present?
@@ -232,27 +230,27 @@ module AUCoreTestKit
       def type_must_support_extension?(extensions)
         extensions&.any? do |extension|
           extension.url == 'http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support' &&
-          extension.valueBoolean
+            extension.valueBoolean
         end
       end
 
       def save_type_code?(type)
-        'Reference' == type.code
+        type.code == 'Reference'
       end
 
       def get_type_must_support_metadata(current_metadata, current_element)
         current_element.type.map do |type|
-          if type_must_support_extension?(type.extension)
-            metadata =
+          next unless type_must_support_extension?(type.extension)
+
+          metadata =
             {
               path: "#{current_metadata[:path].delete_suffix('[x]')}#{type.code.upcase_first}",
               original_path: current_metadata[:path]
             }
-            metadata[:types] = [type.code] if save_type_code?(type)
-            handle_type_must_support_target_profiles(type, metadata) if type.code == 'Reference'
+          metadata[:types] = [type.code] if save_type_code?(type)
+          handle_type_must_support_target_profiles(type, metadata) if type.code == 'Reference'
 
-            metadata
-          end
+          metadata
         end.compact
       end
 
@@ -275,20 +273,21 @@ module AUCoreTestKit
         end
 
         # remove target_profile for FHIR Base resource type.
-        target_profiles.delete_if { |reference| reference.start_with?('http://hl7.org/fhir/StructureDefinition')}
+        target_profiles.delete_if { |reference| reference.start_with?('http://hl7.org/fhir/StructureDefinition') }
         metadata[:target_profiles] = target_profiles if target_profiles.present?
       end
 
       def handle_choice_type_in_sliced_element(current_metadata, must_support_elements_metadata)
         choice_element_metadata = must_support_elements_metadata.find do |metadata|
           metadata[:original_path].present? &&
-          current_metadata[:path].include?( metadata[:original_path] )
+            current_metadata[:path].include?(metadata[:original_path])
         end
 
-        if choice_element_metadata.present?
-          current_metadata[:original_path] = current_metadata[:path]
-          current_metadata[:path] = current_metadata[:path].sub(choice_element_metadata[:original_path], choice_element_metadata[:path])
-        end
+        return unless choice_element_metadata.present?
+
+        current_metadata[:original_path] = current_metadata[:path]
+        current_metadata[:path] =
+          current_metadata[:path].sub(choice_element_metadata[:original_path], choice_element_metadata[:path])
       end
 
       def must_support_elements
@@ -296,9 +295,7 @@ module AUCoreTestKit
           {
             path: current_element.id.gsub("#{resource}.", '')
           }.tap do |current_metadata|
-            if is_uscdi_requirement_element?(current_element)
-              current_metadata[:uscdi_only] = true
-            end
+            current_metadata[:uscdi_only] = true if is_uscdi_requirement_element?(current_element)
 
             type_must_support_metadata = get_type_must_support_metadata(current_metadata, current_element)
 
@@ -307,10 +304,13 @@ module AUCoreTestKit
             else
               handle_choice_type_in_sliced_element(current_metadata, must_support_elements_metadata)
 
-              supported_types = current_element.type.select { |type| save_type_code?(type) }.map { |type| type.code }
+              supported_types = current_element.type.select { |type| save_type_code?(type) }.map(&:code)
               current_metadata[:types] = supported_types if supported_types.present?
 
-              handle_type_must_support_target_profiles(current_element.type.first, current_metadata) if current_element.type.first&.code == 'Reference'
+              if current_element.type.first&.code == 'Reference'
+                handle_type_must_support_target_profiles(current_element.type.first,
+                                                         current_metadata)
+              end
 
               handle_fixed_values(current_metadata, current_element)
 
@@ -349,70 +349,70 @@ module AUCoreTestKit
         end
       end
 
-    def remove_specimen_attribute
-      # TODO: Temporary solution https://github.com/hl7au/au-fhir-core-inferno/issues/18
-      if profile.id == 'au-core-diagnosticresult-path'
+      def remove_specimen_attribute
+        # TODO: Temporary solution https://github.com/hl7au/au-fhir-core-inferno/issues/18
+        return unless profile.id == 'au-core-diagnosticresult-path'
+
         @must_supports[:elements].delete_if do |element|
           ['specimen'].include? element[:path]
         end
       end
-    end
 
-    def remove_lipid_result_attributes
-      # TODO: This code block should be discussed.
-      # We need to understand why there are a lot of extra attributes
-      # for the current Observation resource profile.
-      if profile.id == 'au-core-lipid-result'
+      def remove_lipid_result_attributes
+        # TODO: This code block should be discussed.
+        # We need to understand why there are a lot of extra attributes
+        # for the current Observation resource profile.
+        return unless profile.id == 'au-core-lipid-result'
+
         @must_supports[:elements].delete_if do |element|
           ['identifier', 'performer', 'note',
            'specimen', 'referenceRange.type',
            'referenceRange.text', 'hasMember'].include? element[:path]
         end
       end
-    end
 
-    def remove_observation_value_attribute
-      if is_observation_without_value?
+      def remove_observation_value_attribute
+        return unless is_observation_without_value?
+
         @must_supports[:elements].delete_if do |element|
-          element[:path] == "value[x]"
+          element[:path] == 'value[x]'
         end
       end
-    end
 
-
-    def remove_observation_method_attribute
-      # TODO: Discuss with the team the problem related to the method attribute.
-      if ["AUCorePathologyResult", "AUCoreLipidResult", "AUCoreDiagnosticImagingResult", "AUCoreDiagnosticResult"].include? profile.name
-        @must_supports[:elements].delete_if do |element|
-          element[:path] == "method"
+      def remove_observation_method_attribute
+        # TODO: Discuss with the team the problem related to the method attribute.
+        if %w[AUCorePathologyResult AUCoreLipidResult AUCoreDiagnosticImagingResult
+              AUCoreDiagnosticResult].include? profile.name
+          @must_supports[:elements].delete_if do |element|
+            element[:path] == 'method'
+          end
         end
       end
-    end
 
       def is_vital_sign?
         [
-          'http://hl7.org/fhir/StructureDefinition/vitalsigns',
+          'http://hl7.org/fhir/StructureDefinition/vitalsigns'
         ].include?(profile.baseDefinition)
       end
 
       def is_observation_without_component?
-        [
-          'au-core-bmi',
-          'au-core-bodyweight',
-          'au-core-oxygensat',
-          'au-core-bodyheight',
-          'au-core-headcircum',
-          'au-core-bodytemp',
-          'au-core-heartrate',
-          'au-core-resprate',
-          'au-core-vitalspanel',
-          'au-core-lipid-result',
+        %w[
+          au-core-bmi
+          au-core-bodyweight
+          au-core-oxygensat
+          au-core-bodyheight
+          au-core-headcircum
+          au-core-bodytemp
+          au-core-heartrate
+          au-core-resprate
+          au-core-vitalspanel
+          au-core-lipid-result
         ].include?(profile.id)
       end
 
       def is_observation_without_value?
         [
-          'au-core-vitalspanel',
+          'au-core-vitalspanel'
         ].include?(profile.id)
       end
 
@@ -424,10 +424,10 @@ module AUCoreTestKit
       def remove_vital_sign_component
         return if is_blood_pressure? || profile.name == 'AUCorePulseOximetryProfile'
 
-        if is_vital_sign? || is_observation_without_component?
-          @must_supports[:elements].delete_if do |element|
-            element[:path].start_with?('component')
-          end
+        return unless is_vital_sign? || is_observation_without_component?
+
+        @must_supports[:elements].delete_if do |element|
+          element[:path].start_with?('component')
         end
       end
 
@@ -439,11 +439,11 @@ module AUCoreTestKit
 
         @must_supports[:elements].delete_if do |element|
           element[:path].start_with?('value[x]') ||
-          element[:original_path]&.start_with?('value[x]') ||
-          element[:path] == ('dataAbsentReason') ||
-          (
-            pattern.match?(element[:path]) && ['3.1.1', '4.0.0'].include?(ig_resources.ig.version)
-          )
+            element[:original_path]&.start_with?('value[x]') ||
+            element[:path] == ('dataAbsentReason') ||
+            (
+              pattern.match?(element[:path]) && ['3.1.1', '4.0.0'].include?(ig_resources.ig.version)
+            )
         end
 
         @must_supports[:slices].delete_if do |slice|
@@ -461,10 +461,10 @@ module AUCoreTestKit
 
         pattern = /(component(:[^.]+)?\.)?dataAbsentReason/
 
-        if profile.type == 'Observation'
-          @must_supports[:elements].delete_if do |element|
-            pattern.match?(element[:path])
-          end
+        return unless profile.type == 'Observation'
+
+        @must_supports[:elements].delete_if do |element|
+          pattern.match?(element[:path])
         end
       end
     end

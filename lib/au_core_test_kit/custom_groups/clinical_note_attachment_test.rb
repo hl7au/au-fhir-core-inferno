@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class ClinicalNoteAttachmentTest < Inferno::Test
     id :au_core_clinical_note_attachments
@@ -21,9 +23,9 @@ module AUCoreTestKit
 
     run do
       skip_if scratch[:document_reference_attachments].blank?,
-              "No DocumentReference attachments found"
+              'No DocumentReference attachments found'
       skip_if scratch[:diagnostic_report_attachments].blank?,
-              "No DiagnosticReport attachments found"
+              'No DiagnosticReport attachments found'
 
       unmatched_attachment_messages =
         scratch[:diagnostic_report_attachments].flat_map do |patient_id, report_attachments|
@@ -39,7 +41,7 @@ module AUCoreTestKit
         end
 
       assert unmatched_attachment_messages.empty?,
-            "Attachments #{unmatched_attachment_messages.join(', ')} are not referenced in any DocumentReference"
+             "Attachments #{unmatched_attachment_messages.join(', ')} are not referenced in any DocumentReference"
     end
   end
 end

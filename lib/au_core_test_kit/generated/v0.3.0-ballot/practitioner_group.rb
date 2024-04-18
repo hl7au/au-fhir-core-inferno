@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'practitioner/practitioner_read_test'
 require_relative 'practitioner/practitioner_id_search_test'
 require_relative 'practitioner/practitioner_identifier_search_test'
@@ -74,9 +76,10 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner', 'metadata.yml'),
+                                                                  aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_practitioner_read_test
       test from: :au_core_v030_ballot_practitioner__id_search_test
       test from: :au_core_v030_ballot_practitioner_identifier_search_test

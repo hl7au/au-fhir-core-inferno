@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'allergy_intolerance/allergy_intolerance_patient_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_clinical_status_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_patient_clinical_status_search_test'
@@ -74,9 +76,12 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'allergy_intolerance', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(
+                                                     File.join(__dir__, 'allergy_intolerance',
+                                                               'metadata.yml'), aliases: true
+                                                   ))
       end
-  
+
       test from: :au_core_v030_ballot_allergy_intolerance_patient_search_test
       test from: :au_core_v030_ballot_allergy_intolerance_clinical_status_search_test
       test from: :au_core_v030_ballot_allergy_intolerance_patient_clinical_status_search_test

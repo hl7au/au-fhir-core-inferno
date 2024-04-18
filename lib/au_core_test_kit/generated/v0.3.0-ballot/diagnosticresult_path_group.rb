@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_category_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_category_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_code_search_test'
@@ -85,9 +87,12 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult_path', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(
+                                                     File.join(__dir__, 'diagnosticresult_path',
+                                                               'metadata.yml'), aliases: true
+                                                   ))
       end
-  
+
       test from: :au_core_v030_ballot_diagnosticresult_path_patient_category_search_test
       test from: :au_core_v030_ballot_diagnosticresult_path_category_search_test
       test from: :au_core_v030_ballot_diagnosticresult_path_code_search_test

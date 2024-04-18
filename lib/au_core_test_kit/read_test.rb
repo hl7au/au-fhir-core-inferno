@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   module ReadTest
     def all_scratch_resources
       scratch_resources[:all] ||= []
     end
 
-    def perform_read_test(resources, reply_handler = nil)
+    def perform_read_test(resources, _reply_handler = nil)
       skip_if resources.blank?, no_resources_skip_message
 
       resources_to_read = readable_resources(resources)
@@ -37,9 +39,9 @@ module AUCoreTestKit
       assert_resource_type(resource_type)
       assert resource.id.present? && resource.id == id, bad_resource_id_message(id)
 
-      if resource_to_read.is_a? FHIR::Reference
-        all_scratch_resources << resource
-      end
+      return unless resource_to_read.is_a? FHIR::Reference
+
+      all_scratch_resources << resource
     end
 
     def resource_id(resource)

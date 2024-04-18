@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
@@ -19,13 +21,13 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_encounter_class_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Encounter',
-        search_param_names: ['class'],
-        possible_status_search: true,
-        token_search_params: ['class']
+          search_param_names: ['class'],
+          possible_status_search: true,
+          token_search_params: ['class']
         )
       end
 

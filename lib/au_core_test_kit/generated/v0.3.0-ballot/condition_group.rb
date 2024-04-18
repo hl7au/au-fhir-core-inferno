@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'condition/condition_patient_search_test'
 require_relative 'condition/condition_category_search_test'
 require_relative 'condition/condition_clinical_status_search_test'
@@ -83,9 +85,10 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'),
+                                                                  aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_condition_patient_search_test
       test from: :au_core_v030_ballot_condition_category_search_test
       test from: :au_core_v030_ballot_condition_clinical_status_search_test

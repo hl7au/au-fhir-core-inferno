@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class Generator
     class IGMetadata
@@ -19,12 +21,12 @@ module AUCoreTestKit
 
       def delayed_groups
         @delayed_groups ||=
-          groups.select { |group| group.delayed? }
+          groups.select(&:delayed?)
       end
 
       def non_delayed_groups
         @non_delayed_groups ||=
-          groups.reject { |group| group.delayed? } - [patient_group]
+          groups.reject(&:delayed?) - [patient_group]
       end
 
       def delayed_profiles
@@ -40,7 +42,7 @@ module AUCoreTestKit
 
       def to_hash
         {
-          ig_version: ig_version,
+          ig_version:,
           groups: groups.map(&:to_hash)
         }
       end

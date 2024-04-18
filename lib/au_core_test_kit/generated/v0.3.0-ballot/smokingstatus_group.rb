@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'smokingstatus/smokingstatus_patient_code_search_test'
 require_relative 'smokingstatus/smokingstatus_category_search_test'
 require_relative 'smokingstatus/smokingstatus_code_search_test'
@@ -85,9 +87,10 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'smokingstatus', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'smokingstatus', 'metadata.yml'),
+                                                                  aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_smokingstatus_patient_code_search_test
       test from: :au_core_v030_ballot_smokingstatus_category_search_test
       test from: :au_core_v030_ballot_smokingstatus_code_search_test

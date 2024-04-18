@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fhir_models'
 require 'inferno/ext/fhir_models'
 
@@ -101,10 +103,10 @@ module AUCoreTestKit
       file_content = File.read(file_path)
       string_to_add = "require_relative '#{base_output_dir.split('/opt/inferno/lib/').last}/au_core_test_suite'"
 
-      if !file_content.include? string_to_add
-        file_content << "\n#{string_to_add}"
-        File.write(file_path, file_content)
-      end
+      return if file_content.include? string_to_add
+
+      file_content << "\n#{string_to_add}"
+      File.write(file_path, file_content)
     end
   end
 end

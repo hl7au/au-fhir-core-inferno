@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'inferno'
 
 use Rack::Static,

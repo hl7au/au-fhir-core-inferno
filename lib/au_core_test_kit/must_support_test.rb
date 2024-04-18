@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'fhir_resource_navigation'
 require_relative 'helpers'
 
@@ -21,9 +23,7 @@ module AUCoreTestKit
 
       handle_must_support_choices if metadata.must_supports[:choices].present?
 
-      if (missing_elements + missing_slices + missing_extensions).length.zero?
-        pass
-      end
+      pass if (missing_elements + missing_slices + missing_extensions).empty?
       skip "Could not find #{missing_must_support_strings.join(', ')} in the #{resources.length} " \
            "provided #{resource_type} resource(s)"
     end
@@ -45,19 +45,23 @@ module AUCoreTestKit
       end
     end
 
-    def is_any_choice_supported? (choices)
+    def is_any_choice_supported?(choices)
       choices.present? &&
-      (
-        choices[:paths]&.any? { |path| missing_elements.none? { |element| element[:path] == path } } ||
-        choices[:extension_ids]&.any? { |extension_id| missing_extensions.none? { |extension| extension[:id] == extension_id} } ||
-        choices[:slice_names]&.any? { |slice_name| missing_slices.none? { |slice| slice[:name] == slice_name} }
-      )
+        (
+          choices[:paths]&.any? { |path| missing_elements.none? { |element| element[:path] == path } } ||
+          choices[:extension_ids]&.any? do |extension_id|
+            missing_extensions.none? do |extension|
+              extension[:id] == extension_id
+            end
+          end ||
+          choices[:slice_names]&.any? { |slice_name| missing_slices.none? { |slice| slice[:name] == slice_name } }
+        )
     end
 
     def missing_must_support_strings
       missing_elements.map { |element_definition| missing_element_string(element_definition) } +
-      missing_slices.map { |slice_definition| slice_definition[:slice_id] } +
-      missing_extensions.map { |extension_definition| extension_definition[:id] }
+        missing_slices.map { |slice_definition| slice_definition[:slice_id] } +
+        missing_extensions.map { |extension_definition| extension_definition[:id] }
     end
 
     def missing_element_string(element_definition)
@@ -74,7 +78,7 @@ module AUCoreTestKit
 
     def must_support_extensions
       if exclude_uscdi_only_test?
-        metadata.must_supports[:extensions].reject{ |extension| extension[:uscdi_only] }
+        metadata.must_supports[:extensions].reject { |extension| extension[:uscdi_only] }
       else
         metadata.must_supports[:extensions]
       end
@@ -84,7 +88,7 @@ module AUCoreTestKit
       @missing_extensions ||=
         must_support_extensions.select do |extension_definition|
           resources.none? do |resource|
-            resource_extensions_url_arr = Helpers.extract_extensions_from_resource(resource).map { |ext| ext["url"] }
+            resource_extensions_url_arr = Helpers.extract_extensions_from_resource(resource).map { |ext| ext['url'] }
             resource_extensions_url_arr.include? extension_definition[:url]
           end
         end
@@ -92,7 +96,7 @@ module AUCoreTestKit
 
     def must_support_elements
       if exclude_uscdi_only_test?
-        metadata.must_supports[:elements].reject{ |element| element[:uscdi_only] }
+        metadata.must_supports[:elements].reject { |element| element[:uscdi_only] }
       else
         metadata.must_supports[:elements]
       end
@@ -102,14 +106,13 @@ module AUCoreTestKit
       @missing_elements ||=
         must_support_elements.select do |element_definition|
           resources.none? do |resource|
-            path = element_definition[:path] #.delete_suffix('[x]')
+            path = element_definition[:path] # .delete_suffix('[x]')
             value_found = find_a_value_at(resource, path) do |value|
               value_without_extensions =
                 value.respond_to?(:to_hash) ? value.to_hash.reject { |key, _| key == 'extension' } : value
 
               (value_without_extensions.present? || value_without_extensions == false) &&
                 (element_definition[:fixed_value].blank? || value == element_definition[:fixed_value])
-
             end
             # Note that false.present? => false, which is why we need to add this extra check
             value_found.present? || value_found == false
@@ -120,7 +123,7 @@ module AUCoreTestKit
 
     def must_support_slices
       if exclude_uscdi_only_test?
-        metadata.must_supports[:slices].reject{ |slice| slice[:uscdi_only] }
+        metadata.must_supports[:slices].reject { |slice| slice[:uscdi_only] }
       else
         metadata.must_supports[:slices]
       end
@@ -175,7 +178,7 @@ module AUCoreTestKit
           end
         when 'requiredBinding'
           coding_path = discriminator[:path].present? ? "#{discriminator[:path]}.coding" : 'coding'
-          find_a_value_at(element, coding_path) {|coding| discriminator[:values].include?(coding.code) }
+          find_a_value_at(element, coding_path) { |coding| discriminator[:values].include?(coding.code) }
         end
       end
     end
@@ -186,8 +189,8 @@ module AUCoreTestKit
         path_prefixes.all? do |path_prefix|
           value_definitions_for_path =
             value_definitions
-              .select { |value_definition| value_definition[:path].first == path_prefix }
-              .each { |value_definition| value_definition[:path].shift }
+            .select { |value_definition| value_definition[:path].first == path_prefix }
+            .each { |value_definition| value_definition[:path].shift }
 
           find_a_value_at(el, path_prefix) do |el_found|
             child_element_value_definitions, current_element_value_definitions =
@@ -195,11 +198,14 @@ module AUCoreTestKit
 
             current_element_values_match =
               current_element_value_definitions
-                .all? { |value_definition| value_definition[:value] == el_found }
+              .all? { |value_definition| value_definition[:value] == el_found }
 
             child_element_values_match =
-              child_element_value_definitions.present? ?
-                find_slice_by_values(el_found, child_element_value_definitions) : true
+              if child_element_value_definitions.present?
+                find_slice_by_values(el_found, child_element_value_definitions)
+              else
+                true
+              end
 
             current_element_values_match && child_element_values_match
           end

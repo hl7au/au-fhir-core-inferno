@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -30,11 +32,11 @@ module AUCoreTestKit
       end
 
       def base_output_file_name
-        "au_core_test_suite.rb"
+        'au_core_test_suite.rb'
       end
 
       def class_name
-        "AUCoreTestSuite"
+        'AUCoreTestSuite'
       end
 
       def module_name
@@ -74,7 +76,7 @@ module AUCoreTestKit
 
       def groups
         ig_metadata.ordered_groups.compact
-          .reject { |group| SpecialCases.exclude_group? group }
+                   .reject { |group| SpecialCases.exclude_group? group }
       end
 
       def group_id_list
@@ -89,14 +91,13 @@ module AUCoreTestKit
 
       def capability_statement_file_name
         # "../../custom_groups/#{ig_metadata.ig_version}/capability_statement_group"
-        "../../custom_groups/v0.3.0-ballot/capability_statement_group"
+        '../../custom_groups/v0.3.0-ballot/capability_statement_group'
       end
 
       def capability_statement_group_id
         # "au_core_#{ig_metadata.reformatted_version}_capability_statement"
-        "au_core_v030_ballot_capability_statement"
+        'au_core_v030_ballot_capability_statement'
       end
-
     end
   end
 end

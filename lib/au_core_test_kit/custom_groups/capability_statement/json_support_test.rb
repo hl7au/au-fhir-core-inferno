@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class JSONSupportTest < Inferno::Test
     id :au_core_json_support
@@ -33,7 +35,7 @@ module AUCoreTestKit
       server_formats = resource.format
 
       assert server_formats.any? { |format| json_formats.include? format },
-              'CapabilityStatement does not state support for JSON'
+             'CapabilityStatement does not state support for JSON'
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
@@ -19,12 +21,12 @@ none are returned, the test is skipped.
 
       id :au_core_v030_ballot_bloodpressure_date_search_test
       optional
-  
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Observation',
-        search_param_names: ['date'],
-        possible_status_search: true
+          search_param_names: ['date'],
+          possible_status_search: true
         )
       end
 
