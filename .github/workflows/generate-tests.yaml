@@ -1,0 +1,28 @@
+name: Generate Tests
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Download IGs and generate tests
+      run: make new_release
+    - name: Change ownership
+      run: sudo chown -R $USER:$USER .
+    - uses: GrantBirki/git-diff-action@v2.6.1
+      id: git-diff-action
+    - name: Create Pull Request
+      if: steps.git-diff-action.outputs.raw-diff != ''
+      uses: peter-evans/create-pull-request@v6
+      id: cpr
+      with:
+          token: ${{ secrets.PAT }}
+          delete-branch: true
+          commit-message: Merge new auto generated tests
+          title: Merge new auto generated tests
+          body: Merge new auto generated tests
+          labels: automated-pr
+          base: master
