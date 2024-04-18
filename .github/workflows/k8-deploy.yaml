@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      working-dir: "infra/aws-impl/terraform-inferno"
+      working-dir: "./infra/aws-impl"
     defaults:
       run:
         shell: bash
