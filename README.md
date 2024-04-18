@@ -28,6 +28,14 @@ If you visit http://hl7.org.au/fhir/core/history.html and notice that there is a
 2. A list of already completed pipelines will open. In the upper right corner, you will see the "Run Workflow" button. Click on it and confirm the launch.
 3. The pipeline launch will be initiated. When it completes, a new Pull Request will be created with the changes. You can accept or reject it (https://github.com/hl7au/au-fhir-core-inferno/pulls)
 
+### The algorithm of the pipeline is as follows:
+
+1. The script will visit the releases history page;
+2. It will download all archives and store them in the igs folder;
+3. The generator will generate test groups for each IG archive;
+4. If there are any new test groups, they will be added to the project automatically;
+5. If there are any changes, the action will create a pull request.
+
 ## Additional information
 1. [Pre-requisites](/docs/pre-requisites.md)
 2. [Validator instructions](/docs/validator_instructions.md)
