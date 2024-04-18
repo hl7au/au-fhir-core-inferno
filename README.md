@@ -20,6 +20,14 @@ make run
 ```
 4. Navigate to http://localhost. The AU Core test suite will be available.
 
+## How to Generate New Test Suites
+
+If you visit http://hl7.org.au/fhir/core/history.html and notice that there is a new release, you can initiate the generation of test suites yourself. To accomplish this, you will need to take several steps:
+
+1. Follow the link to the Generate Tests workflow (https://github.com/hl7au/au-fhir-core-inferno/actions/workflows/generate-tests.yaml).
+2. A list of already completed pipelines will open. In the upper right corner, you will see the "Run Workflow" button. Click on it and confirm the launch.
+3. The pipeline launch will be initiated. When it completes, a new Pull Request will be created with the changes. You can accept or reject it (https://github.com/hl7au/au-fhir-core-inferno/pulls)
+
 ## Additional information
 1. [Pre-requisites](/docs/pre-requisites.md)
 2. [Validator instructions](/docs/validator_instructions.md)
