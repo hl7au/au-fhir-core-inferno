@@ -9,7 +9,7 @@ variable "base_url" {
 
 variable "terminology_server" {
   description = "Terminology server url"
-  default     = "https://tx.test.hl7.org.au/fhir"
+  default     = "https://tx.dev.hl7.org.au/fhir"
 }
 
 variable "inferno_image" {
