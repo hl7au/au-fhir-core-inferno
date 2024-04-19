@@ -19,7 +19,7 @@ jobs:
       uses: peter-evans/create-pull-request@v6
       id: cpr
       with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN  }}
           delete-branch: true
           commit-message: Merge new auto generated tests
           title: Merge new auto generated tests
