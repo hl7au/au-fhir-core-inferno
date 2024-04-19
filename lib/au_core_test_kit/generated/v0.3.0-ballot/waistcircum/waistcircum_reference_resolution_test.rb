@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../reference_resolution_test'
 
 module AUCoreTestKit

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
@@ -21,8 +23,8 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'Practitioner',
-        search_param_names: ['identifier'],
-        token_search_params: ['identifier']
+          search_param_names: ['identifier'],
+          token_search_params: ['identifier']
         )
       end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
@@ -32,21 +34,21 @@ requirement of AU Core v0.3.0-ballot.
 
       id :au_core_v030_ballot_diagnosticresult_path_patient_category_search_test
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
-        fixed_value_search: true,
-        resource_type: 'Observation',
-        search_param_names: ['patient', 'category'],
-        saves_delayed_references: true,
-        possible_status_search: true,
-        token_search_params: ['category'],
-        test_reference_variants: true,
-        test_post_search: true
+          fixed_value_search: true,
+          resource_type: 'Observation',
+          search_param_names: %w[patient category],
+          saves_delayed_references: true,
+          possible_status_search: true,
+          token_search_params: ['category'],
+          test_reference_variants: true,
+          test_post_search: true
         )
       end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'organization/organization_read_test'
 require_relative 'organization/organization_id_search_test'
 require_relative 'organization/organization_address_search_test'
@@ -78,7 +80,7 @@ read succeeds.
       def self.metadata
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'organization', 'metadata.yml'), aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_organization_read_test
       test from: :au_core_v030_ballot_organization__id_search_test
       test from: :au_core_v030_ballot_organization_address_search_test

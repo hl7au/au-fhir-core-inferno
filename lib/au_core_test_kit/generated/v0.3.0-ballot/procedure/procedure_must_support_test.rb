@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../must_support_test'
 
 module AUCoreTestKit
