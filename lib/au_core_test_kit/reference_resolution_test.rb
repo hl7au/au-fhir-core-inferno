@@ -31,9 +31,7 @@ module AUCoreTestKit
       saved_reference = resolved_references.find { |item| item[:reference] == reference.reference }
 
       if saved_reference.present?
-        if target_profile.present? && !saved_reference[:profiles].include?(target_profile)
-          saved_reference[:profiles] << target_profile
-        end
+        saved_reference[:profiles] << target_profile if target_profile.present? && !saved_reference[:profiles].include?(target_profile)
       else
         saved_reference = {
           reference: reference.reference,
@@ -170,9 +168,7 @@ module AUCoreTestKit
       return true if target_profile.blank?
 
       # NOTE: Special case: terminology server don't have a specimen v0.3.0
-      if metadata.profile_version == '0.3.0-ballot' && target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
-        target_profile = "#{target_profile}|4.2.0-preview"
-      end
+      target_profile = "#{target_profile}|4.2.0-preview" if metadata.profile_version == '0.3.0-ballot' && target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
 
       # Only need to know if the resource is valid.
       # Calling resource_is_valid? causes validation errors to be logged.

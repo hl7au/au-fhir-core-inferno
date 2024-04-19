@@ -223,9 +223,7 @@ module AUCoreTestKit
       def title
         title = profile.title.gsub(/AU\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
 
-        if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource) && version != 'v3.1.1'
-          title = "#{resource} #{title.split(resource).map(&:strip).join(' ')}"
-        end
+        title = "#{resource} #{title.split(resource).map(&:strip).join(' ')}" if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource) && version != 'v3.1.1'
 
         title
       end

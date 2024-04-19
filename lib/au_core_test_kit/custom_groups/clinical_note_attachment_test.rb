@@ -31,9 +31,7 @@ module AUCoreTestKit
         scratch[:diagnostic_report_attachments].flat_map do |patient_id, report_attachments|
           unmatched_urls = report_attachments.keys
 
-          if scratch[:document_reference_attachments].key? patient_id
-            unmatched_urls -= scratch[:document_reference_attachments][patient_id].keys
-          end
+          unmatched_urls -= scratch[:document_reference_attachments][patient_id].keys if scratch[:document_reference_attachments].key? patient_id
 
           unmatched_urls.map do |url|
             "#{url} in DiagnosticReport/#{report_attachments[url]} for Patient #{patient_id}"
