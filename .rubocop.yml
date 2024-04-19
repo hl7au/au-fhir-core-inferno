@@ -1,0 +1,45 @@
+require:
+  - rubocop-erb
+AllCops:
+  Exclude:
+    - 'lib/au_core_test_kit/generated/**/*'
+    - 'lib/au_core_test_kit/search_test.rb'
+    - 'lib/au_core_test_kit/reference_resolution_test.rb'
+    - 'lib/au_core_test_kit/generator/must_support_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/request_logger.rb'
+    - 'lib/au_core_test_kit/read_test.rb'
+    - 'lib/au_core_test_kit/provenance_validator.rb'
+    - 'lib/au_core_test_kit/must_support_test.rb'
+    - 'lib/au_core_test_kit/generator/must_support_test_generator.rb'
+    - 'lib/au_core_test_kit/generator/value_extractor.rb'
+    - 'lib/au_core_test_kit/generator/terminology_binding_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/generator/group_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/generator/search_test_generator.rb'
+    - 'lib/au_core_test_kit/generator/validation_test_generator.rb'
+    - 'lib/au_core_test_kit/helpers.rb'
+    - 'lib/au_core_test_kit/generator/summary_generator.rb'
+    - 'lib/au_core_test_kit/custom_groups/clinical_note_type_test.rb'
+    - 'lib/au_core_test_kit/custom_groups/smart_app_launch_group.rb'
+    - 'lib/au_core_test_kit/custom_groups/v0.3.0-ballot/capability_statement_group.rb'
+    - 'lib/au_core_test_kit/generator/search_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/generator/provenance_revinclude_search_test_generator.rb'
+    - 'lib/au_core_test_kit/generator/ig_resources.rb'
+    - 'lib/au_core_test_kit/generator/ig_metadata_extractor.rb'
+    - 'lib/au_core_test_kit/generator/ig_loader.rb'
+    - 'lib/au_core_test_kit/generator/group_generator.rb'
+    - 'lib/au_core_test_kit/fhir_resource_navigation.rb'
+    - 'lib/au_core_test_kit/date_search_validation.rb'
+    - 'lib/au_core_test_kit/custom_groups/v0.3.0-ballot/profile_support_test.rb'
+Style/Documentation:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Naming/ClassAndModuleCamelCase:
+  Enabled: false

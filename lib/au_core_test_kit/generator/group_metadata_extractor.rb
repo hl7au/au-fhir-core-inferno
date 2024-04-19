@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'group_metadata'
 require_relative 'ig_metadata'
 require_relative 'must_support_metadata_extractor'
@@ -24,28 +26,28 @@ module AUCoreTestKit
       def group_metadata_hash
         @group_metadata_hash ||=
           {
-            name: name,
-            class_name: class_name,
-            version: version,
-            reformatted_version: reformatted_version,
+            name:,
+            class_name:,
+            version:,
+            reformatted_version:,
             # test_id_prefix: test_id_prefix,
-            resource: resource,
-            profile_url: profile_url,
-            profile_name: profile_name,
-            profile_version: profile_version,
-            title: title,
-            short_description: short_description,
-            interactions: interactions,
-            operations: operations,
-            searches: searches,
-            search_definitions: search_definitions,
-            include_params: include_params,
-            revincludes: revincludes,
-            required_concepts: required_concepts,
-            must_supports: must_supports,
-            mandatory_elements: mandatory_elements,
-            bindings: bindings,
-            references: references
+            resource:,
+            profile_url:,
+            profile_name:,
+            profile_version:,
+            title:,
+            short_description:,
+            interactions:,
+            operations:,
+            searches:,
+            search_definitions:,
+            include_params:,
+            revincludes:,
+            required_concepts:,
+            must_supports:,
+            mandatory_elements:,
+            bindings:,
+            references:
             # tests: []
           }
 
@@ -59,7 +61,7 @@ module AUCoreTestKit
         searches.each do |search|
           search[:names_not_must_support_or_mandatory] = search[:names].reject do |name|
             full_paths = search_definitions[name.to_sym][:full_paths]
-            any_must_support_elements = (must_supports[:elements]).any? do |element|
+            any_must_support_elements = must_supports[:elements].any? do |element|
               full_must_support_paths = ["#{resource}.#{element[:original_path]}", "#{resource}.#{element[:path]}"]
 
               full_paths.any? do |path|
@@ -76,7 +78,7 @@ module AUCoreTestKit
                 full_must_support_path = "#{resource}.#{slice[:path].sub('[x]', slice[:discriminator][:code])}"
                 base_must_support_path = "#{resource}.#{slice[:path].sub('[x]', '')}"
 
-                full_paths.intersection([full_must_support_path,base_must_support_path]).present?
+                full_paths.intersection([full_must_support_path, base_must_support_path]).present?
               else
                 false
               end
@@ -97,27 +99,27 @@ module AUCoreTestKit
 
       ALL_VERSION_CATEGORY_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path',
-        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag',
-      ]
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-imag'
+      ].freeze
 
       ALL_VERSION_PATIENT_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation',
-        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult',
-      ]
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult'
+      ].freeze
 
       ALL_VERSION_ID_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization',
-        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner',
-      ]
+        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner'
+      ].freeze
 
       ALL_VERSION_NAME_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice'
-      ]
-      
+      ].freeze
+
       # Usage example
       VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES = {
         # 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice' => ['v030']
-      }
+      }.freeze
 
       def name_first_profile?
         ALL_VERSION_NAME_FIRST_PROFILES.include? profile_url
@@ -129,7 +131,7 @@ module AUCoreTestKit
 
       def category_first_profile?
         ALL_VERSION_CATEGORY_FIRST_PROFILES.include?(profile_url) ||
-        VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES[profile_url]&.include?(reformatted_version)
+          VERSION_SPECIFIC_CATEGORY_FIRST_PROFILES[profile_url]&.include?(reformatted_version)
       end
 
       def patient_first_profile?
@@ -138,23 +140,23 @@ module AUCoreTestKit
 
       def first_search_params
         @first_search_params ||=
-        if category_first_profile?
-          ['patient', 'category']
-        elsif patient_first_profile?
-          ['patient']
-        elsif id_first_profile?
-          ['_id']
-        elsif name_first_profile?
-          ['name']
-        elsif resource == 'Observation'
-          ['patient', 'code']
-        elsif resource == 'MedicationRequest'
-          ['patient']
-        elsif resource == 'CareTeam'
-          ['patient', 'status']
-        else
-          ['patient']
-        end
+          if category_first_profile?
+            %w[patient category]
+          elsif patient_first_profile?
+            ['patient']
+          elsif id_first_profile?
+            ['_id']
+          elsif name_first_profile?
+            ['name']
+          elsif resource == 'Observation'
+            %w[patient code]
+          elsif resource == 'MedicationRequest'
+            ['patient']
+          elsif resource == 'CareTeam'
+            %w[patient status]
+          else
+            ['patient']
+          end
       end
 
       def handle_special_cases
@@ -173,7 +175,7 @@ module AUCoreTestKit
 
       def profile
         # It's a temporary solution. Discuss it with the team
-        new_profile_url = profile_url == "http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson" ? "http://hl7.org.au/fhir/StructureDefinition/au-relatedperson" : profile_url
+        new_profile_url = profile_url == 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson' ? 'http://hl7.org.au/fhir/StructureDefinition/au-relatedperson' : profile_url
         @profile ||= ig_resources.profile_by_url(new_profile_url)
       end
 
@@ -221,9 +223,7 @@ module AUCoreTestKit
       def title
         title = profile.title.gsub(/AU\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
 
-        if (Naming.resources_with_multiple_profiles.include?(resource)) && !title.start_with?(resource) && version != 'v3.1.1'
-          title = resource + ' ' + title.split(resource).map(&:strip).join(' ')
-        end
+        title = "#{resource} #{title.split(resource).map(&:strip).join(' ')}" if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource) && version != 'v3.1.1'
 
         title
       end
@@ -258,9 +258,9 @@ module AUCoreTestKit
           ig_resources,
           profile_elements,
           {
-            resource: resource,
-            profile_url: profile_url,
-            must_supports: must_supports
+            resource:,
+            profile_url:,
+            must_supports:
           }
         )
       end
@@ -316,21 +316,21 @@ module AUCoreTestKit
       def mandatory_elements
         @mandatory_elements ||=
           profile_elements
-            .select { |element| element.min.positive? }
-            .map { |element| element.path }
-            .uniq
+          .select { |element| element.min.positive? }
+          .map(&:path)
+          .uniq
       end
 
       def references
         @references ||=
           profile_elements
-            .select { |element| element.type&.first&.code == 'Reference' }
-            .map do |reference_definition|
-              {
-                path: reference_definition.path,
-                profiles: reference_definition.type.first.targetProfile
-              }
-            end
+          .select { |element| element.type&.first&.code == 'Reference' }
+          .map do |reference_definition|
+            {
+              path: reference_definition.path,
+              profiles: reference_definition.type.first.targetProfile
+            }
+          end
       end
     end
   end

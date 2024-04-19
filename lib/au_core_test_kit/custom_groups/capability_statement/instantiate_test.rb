@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class InstantiateTest < Inferno::Test
     id :au_core_instantiate
@@ -13,7 +15,7 @@ module AUCoreTestKit
       capability_statement = resource
 
       assert capability_statement.instantiates.include?('http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html'),
-        "Server CapabilityStatement.instantiates does not include 'http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html'"
+             "Server CapabilityStatement.instantiates does not include 'http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html'"
     end
   end
 end

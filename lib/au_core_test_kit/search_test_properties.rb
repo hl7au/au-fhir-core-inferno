@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class SearchTestProperties
-    ATTRIBUTES = [
-      :resource_type,
-      :search_param_names,
-      :first_search,
-      :fixed_value_search,
-      :saves_delayed_references,
-      :possible_status_search,
-      :test_medication_inclusion,
-      :token_search_params,
-      :test_reference_variants,
-      :params_with_comparators,
-      :multiple_or_search_params,
-      :test_post_search
+    ATTRIBUTES = %i[
+      resource_type
+      search_param_names
+      first_search
+      fixed_value_search
+      saves_delayed_references
+      possible_status_search
+      test_medication_inclusion
+      token_search_params
+      test_reference_variants
+      params_with_comparators
+      multiple_or_search_params
+      test_post_search
     ].freeze
 
     ATTRIBUTES.each { |name| attr_reader name }

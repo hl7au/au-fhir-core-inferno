@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'value_extractor'
 
 module AUCoreTestKit
@@ -15,14 +17,14 @@ module AUCoreTestKit
       def search_definition
         @search_definition ||=
           {
-            paths: paths,
-            full_paths: full_paths,
-            comparators: comparators,
-            values: values,
-            type: type,
+            paths:,
+            full_paths:,
+            comparators:,
+            values:,
+            type:,
             contains_multiple: contains_multiple?,
             multiple_or: multiple_or_expectation,
-            chain: chain
+            chain:
           }.compact
       end
 
@@ -42,9 +44,10 @@ module AUCoreTestKit
         @full_paths ||=
           begin
             full_paths = param.expression.split('|').map do |expr|
-              expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'').gsub(/\.ofType\(([^)]+)\)/) do |match|
-                type_name = $1
-                "#{type_name[0].upcase}#{type_name[1..-1]}"
+              expr.strip.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/,
+                                                                'url=\'').gsub(/\.ofType\(([^)]+)\)/) do |_match|
+                type_name = ::Regexp.last_match(1)
+                "#{type_name[0].upcase}#{type_name[1..]}"
               end
             end.filter { |path| path.split('.').first == resource }
             # path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
@@ -58,9 +61,7 @@ module AUCoreTestKit
             # full_paths = full_paths.map(&:strip)
 
             # There is a bug in AU Core 5 asserted-date search parameter. See FHIR-40573
-            if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
-              remove_additional_extension_from_asserted_date(full_paths)
-            end
+            remove_additional_extension_from_asserted_date(full_paths) if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
 
             full_paths
           end
@@ -69,6 +70,7 @@ module AUCoreTestKit
       def remove_additional_extension_from_asserted_date(full_paths)
         full_paths.each do |full_path|
           next unless full_path.include?('http://hl7.org/fhir/StructureDefinition/condition-assertedDate')
+
           full_path.gsub!(/\).extension./, ').')
         end
       end
@@ -79,28 +81,26 @@ module AUCoreTestKit
 
       def extensions
         @extensions ||= full_paths.select { |a_path| a_path.include?('extension.where') }
-                                  .map { |a_path| { url: a_path[/(?<=extension.where\(url=').*(?='\))/] }}
+                                  .map { |a_path| { url: a_path[/(?<=extension.where\(url=').*(?='\))/] } }
                                   .presence
       end
 
       def profile_element
         @profile_element ||=
-          (
-            profile_elements.find { |element| full_paths.include?(element.id) } ||
-            extension_definition&.differential&.element&.find { |element| element.id == 'Extension.value[x]'}
-          )
+          profile_elements.find { |element| full_paths.include?(element.id) } ||
+          extension_definition&.differential&.element&.find { |element| element.id == 'Extension.value[x]' }
       end
 
       def extension_definition
-         @extension_definition ||=
-            begin
-              ext_definition = nil
-              extensions&.each do |ext_metadata|
-                ext_definition = ig_resources.profile_by_url(ext_metadata[:url])
-                break if ext_definition.present?
-              end
-              ext_definition
+        @extension_definition ||=
+          begin
+            ext_definition = nil
+            extensions&.each do |ext_metadata|
+              ext_definition = ig_resources.profile_by_url(ext_metadata[:url])
+              break if ext_definition.present?
             end
+            ext_definition
+          end
       end
 
       def comparator_expectation_extensions
@@ -142,7 +142,7 @@ module AUCoreTestKit
           if profile_element.id.start_with?('Extension') && extension_definition.present?
             # Find the extension instance in a AU Core profile
             target_element = profile_elements.find do |element|
-              element.type.any? { |type| type.code == "Extension" && type.profile.include?(extension_definition.url) }
+              element.type.any? { |type| type.code == 'Extension' && type.profile.include?(extension_definition.url) }
             end
             target_element&.max == '*'
           else
@@ -165,14 +165,14 @@ module AUCoreTestKit
         return nil if param.chain.blank?
 
         param.chain
-          .zip(chain_expectations)
-          .map { |chain, expectation| { chain: chain, expectation: expectation } }
+             .zip(chain_expectations)
+             .map { |chain, expectation| { chain:, expectation: } }
       end
 
       def multiple_or_expectation
-        if param_hash['_multipleOr']
-          param_hash['_multipleOr']['extension'].first['valueCode']
-        end
+        return unless param_hash['_multipleOr']
+
+        param_hash['_multipleOr']['extension'].first['valueCode']
       end
 
       def values
@@ -181,10 +181,10 @@ module AUCoreTestKit
         merged_values = Array(values_from_fixed_codes) + Array(values_from_pattern_coding)
 
         values_from_must_supports(profile_element).presence || merged_values.presence ||
-        #value_extractor.values_from_required_binding(profile_element).presence ||
-        value_extractor.values_from_value_set_binding(profile_element).presence ||
-        values_from_resource_metadata(paths).presence ||
-        []
+          # value_extractor.values_from_required_binding(profile_element).presence ||
+          value_extractor.values_from_value_set_binding(profile_element).presence ||
+          values_from_resource_metadata(paths).presence ||
+          []
       end
 
       def values_from_must_supports(profile_element)
@@ -193,32 +193,32 @@ module AUCoreTestKit
         short_path = profile_element.path.split('.', 2)[1]
 
         values_from_must_support_slices(profile_element, short_path, true).presence ||
-        values_from_must_support_slices(profile_element, short_path, false).presence ||
-        values_from_must_support_elements(short_path).presence ||
-        []
+          values_from_must_support_slices(profile_element, short_path, false).presence ||
+          values_from_must_support_elements(short_path).presence ||
+          []
       end
 
       def values_from_must_support_slices(profile_element, short_path, mandatory_slice_only)
-        if group_metadata[:must_supports][:slices].compact.length > 0
-          group_metadata[:must_supports][:slices]
-            .select { |slice| [short_path, "#{short_path}.coding"].include?(slice[:path]) }
-            .map do |slice|
-              slice_element = profile_elements.find { |element| slice[:slice_id] == element.id }
-              next if (profile_element.min > 0 && slice_element.min == 0 && mandatory_slice_only)
+        return unless group_metadata[:must_supports][:slices].compact.length.positive?
 
-              case slice[:discriminator][:type]
-              when 'patternCoding', 'patternCodeableConcept'
-                slice[:discriminator][:code]
-              when 'requiredBinding'
-                slice[:discriminator][:values]
-              when 'value'
-                slice[:discriminator][:values]
-                  .select { |value| value[:path] == 'coding.code' }
-                  .map { |value| value[:value] }
-              end
+        group_metadata[:must_supports][:slices]
+          .select { |slice| [short_path, "#{short_path}.coding"].include?(slice[:path]) }
+          .map do |slice|
+            slice_element = profile_elements.find { |element| slice[:slice_id] == element.id }
+            next if profile_element.min.positive? && slice_element.min.zero? && mandatory_slice_only
+
+            case slice[:discriminator][:type]
+            when 'patternCoding', 'patternCodeableConcept'
+              slice[:discriminator][:code]
+            when 'requiredBinding'
+              slice[:discriminator][:values]
+            when 'value'
+              slice[:discriminator][:values]
+                .select { |value| value[:path] == 'coding.code' }
+                .map { |value| value[:value] }
             end
-            .compact.flatten
-        end
+          end
+          .compact.flatten
       end
 
       def values_from_must_support_elements(short_path)

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require_relative 'search_definition_metadata_extractor'
 
 module AUCoreTestKit
   class Generator
     class SearchMetadataExtractor
       COMBO_EXTENSION_URL =
-        'http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination'.freeze
+        'http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination'
 
       attr_accessor :resource_capabilities, :ig_resources, :profile_elements, :group_metadata
 
@@ -31,13 +33,16 @@ module AUCoreTestKit
         return [] if no_search_params?
 
         resource_capabilities.searchParam
-          .select { |search_param| ['SHALL', 'SHOULD', 'MAY'].include? conformance_expectation(search_param) }
-          .map do |search_param|
-            {
-              names: [search_param.name],
-              expectation: conformance_expectation(search_param)
-            }
-          end
+                             .select do |search_param|
+          %w[SHALL SHOULD
+             MAY].include? conformance_expectation(search_param)
+        end
+                             .map do |search_param|
+          {
+            names: [search_param.name],
+            expectation: conformance_expectation(search_param)
+          }
+        end
       end
 
       def search_extensions
@@ -49,12 +54,12 @@ module AUCoreTestKit
 
         search_extensions
           .select { |extension| extension.url == COMBO_EXTENSION_URL }
-          .select { |extension| ['SHALL', 'SHOULD', 'MAY'].include? conformance_expectation(extension) }
+          .select { |extension| %w[SHALL SHOULD MAY].include? conformance_expectation(extension) }
           .map do |extension|
             names = extension.extension.select { |param| param.valueString.present? }.map(&:valueString)
             {
               expectation: conformance_expectation(extension),
-              names: names
+              names:
             }
           end
       end
@@ -66,7 +71,8 @@ module AUCoreTestKit
       def search_definitions
         search_param_names.each_with_object({}) do |name, definitions|
           definitions[name.to_sym] =
-            SearchDefinitionMetadataExtractor.new(name, ig_resources, profile_elements, group_metadata).search_definition
+            SearchDefinitionMetadataExtractor.new(name, ig_resources, profile_elements,
+                                                  group_metadata).search_definition
         end
       end
     end

@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/au_core_test_kit/provenance_validator'
 
 RSpec.describe AUCoreTestKit::ProvenanceValidator do
-  let(:provenance_id){'123'}
+  let(:provenance_id) { '123' }
 
   describe '.validate' do
     it 'passes when agent.who is a Practitioner and agent.onBehalfOf exists' do
       resource = FHIR::Provenance.new(
         id: provenance_id,
-        agent:[
+        agent: [
           {
             who: {
               reference: 'Practitioner/1'
@@ -28,16 +30,16 @@ RSpec.describe AUCoreTestKit::ProvenanceValidator do
     it 'passes when agent.who is a Device and agent.onBehalfOf exists' do
       resource = FHIR::Provenance.new(
         id: provenance_id,
-         agent:[
-           {
-             who: {
-               reference: 'Device/1'
-             },
-             onBehalfOf: {
-               reference: 'Organization/1'
-             }
-           }
-         ]
+        agent: [
+          {
+            who: {
+              reference: 'Device/1'
+            },
+            onBehalfOf: {
+              reference: 'Organization/1'
+            }
+          }
+        ]
       )
 
       result = described_class.validate(resource)
@@ -49,13 +51,13 @@ RSpec.describe AUCoreTestKit::ProvenanceValidator do
     it 'passes when agent.who is not a Practitioner nor Device and agent.onBehalfOf does not exists' do
       resource = FHIR::Provenance.new(
         id: provenance_id,
-        agent:[
-           {
-             who: {
-               reference: 'Organization/1'
-             }
-           }
-         ]
+        agent: [
+          {
+            who: {
+              reference: 'Organization/1'
+            }
+          }
+        ]
       )
 
       result = described_class.validate(resource)
@@ -67,13 +69,13 @@ RSpec.describe AUCoreTestKit::ProvenanceValidator do
     it 'fails when agent.who is a Practitioner and agent.onBehalfOf does not exists' do
       resource = FHIR::Provenance.new(
         id: provenance_id,
-        agent:[
-           {
-             who: {
-               reference: 'Practitioner/1'
-             }
-           }
-         ]
+        agent: [
+          {
+            who: {
+              reference: 'Practitioner/1'
+            }
+          }
+        ]
       )
 
       result = described_class.validate(resource)
@@ -87,13 +89,13 @@ RSpec.describe AUCoreTestKit::ProvenanceValidator do
     it 'fails when agent.who is a Device and agent.onBehalfOf does not exists' do
       resource = FHIR::Provenance.new(
         id: provenance_id,
-         agent:[
-           {
-             who: {
-               reference: 'Device/1'
-             }
-           }
-         ]
+        agent: [
+          {
+            who: {
+              reference: 'Device/1'
+            }
+          }
+        ]
       )
 
       result = described_class.validate(resource)

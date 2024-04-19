@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class ProvenanceValidator
     include FHIRResourceNavigation
@@ -19,10 +21,9 @@ module AUCoreTestKit
 
       failed_provenance =
         find_a_value_at(resource, 'agent') do |agent|
-          ['Practitioner', 'Device'].any? { |resource_type| agent.who.reference&.include?(resource_type) } &&
-          agent.onBehalfOf.nil?
+          %w[Practitioner Device].any? { |resource_type| agent.who.reference&.include?(resource_type) } &&
+            agent.onBehalfOf.nil?
         end
-
 
       if failed_provenance.present?
         validation_messages << {

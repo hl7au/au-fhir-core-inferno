@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'fhir_resource_navigation'
 
 module AUCoreTestKit
@@ -10,7 +12,7 @@ module AUCoreTestKit
     def perform_reference_resolution_test(resources)
       skip_if resources.blank?, no_resources_skip_message
 
-      pass if unresolved_references(resources).length.zero?
+      pass if unresolved_references(resources).empty?
 
       skip "Could not resolve and validate any Must Support references for #{unresolved_references_strings.join(', ')}"
     end
@@ -20,16 +22,16 @@ module AUCoreTestKit
         unresolved_references.each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |missing, hash|
           hash[missing[:path]] << missing[:target_profile]
         end
-      unresolved_reference_hash.map { |path, profiles| "#{path} element: Reference#{"(#{profiles.join('|')})" unless profiles.first.empty?}" }
+      unresolved_reference_hash.map do |path, profiles|
+        "#{path} element: Reference#{"(#{profiles.join('|')})" unless profiles.first.empty?}"
+      end
     end
 
     def record_resolved_reference(reference, target_profile)
       saved_reference = resolved_references.find { |item| item[:reference] == reference.reference }
 
       if saved_reference.present?
-        if target_profile.present? && !saved_reference[:profiles].include?(target_profile)
-          saved_reference[:profiles] << target_profile
-        end
+        saved_reference[:profiles] << target_profile if target_profile.present? && !saved_reference[:profiles].include?(target_profile)
       else
         saved_reference = {
           reference: reference.reference,
@@ -44,9 +46,9 @@ module AUCoreTestKit
     def is_reference_resolved?(reference, target_profile)
       resolved_references.any? do |item|
         item[:reference] == reference.reference &&
-        (
-          target_profile.blank? || item[:profiles].include?(target_profile)
-        )
+          (
+            target_profile.blank? || item[:profiles].include?(target_profile)
+          )
       end
     end
 
@@ -60,7 +62,9 @@ module AUCoreTestKit
     end
 
     def must_support_references
-      metadata.must_supports[:elements].select { |element_definition| element_definition[:types]&.include?('Reference') }
+      metadata.must_supports[:elements].select do |element_definition|
+        element_definition[:types]&.include?('Reference')
+      end
     end
 
     def must_support_references_with_target_profile
@@ -69,7 +73,7 @@ module AUCoreTestKit
         (element_definition[:target_profiles] || ['']).map do |target_profile|
           {
             path: element_definition[:path],
-            target_profile: target_profile
+            target_profile:
           }
         end
       end.flatten
@@ -99,10 +103,16 @@ module AUCoreTestKit
 
       if metadata.must_supports[:choices].present?
         @unresolved_references.delete_if do |reference|
-          choice_profiles = metadata.must_supports[:choices].find { |choice| choice[:target_profiles]&.include?(reference[:target_profile]) }
+          choice_profiles = metadata.must_supports[:choices].find do |choice|
+            choice[:target_profiles]&.include?(reference[:target_profile])
+          end
 
           choice_profiles.present? &&
-          choice_profiles[:target_profiles]&.any? { |profile| @unresolved_references.none? { |element| element[:target_profile] == profile } }
+            choice_profiles[:target_profiles]&.any? do |profile|
+              @unresolved_references.none? do |element|
+                element[:target_profile] == profile
+              end
+            end
         end
       end
 
@@ -117,9 +127,9 @@ module AUCoreTestKit
         return true if reference.reference_id.blank?
 
         return resource.contained.any? do |contained_resource|
-            contained_resource&.id == reference.reference_id &&
-              resource_is_valid_with_target_profile?(contained_resource, target_profile)
-          end
+                 contained_resource&.id == reference.reference_id &&
+                 resource_is_valid_with_target_profile?(contained_resource, target_profile)
+               end
       end
 
       reference_type = reference.resource_type
@@ -135,12 +145,10 @@ module AUCoreTestKit
             end
 
             fhir_read(reference_type, reference_id)&.resource
+          elsif reference.base_uri.chomp('/') == fhir_client.instance_variable_get(:@base_service_url).chomp('/')
+            fhir_read(reference_type, reference_id)&.resource
           else
-            if reference.base_uri.chomp('/') == fhir_client.instance_variable_get(:@base_service_url).chomp('/')
-              fhir_read(reference_type, reference_id)&.resource
-            else
-              get(reference.reference)&.resource
-            end
+            get(reference.reference)&.resource
           end
         rescue StandardError => e
           Inferno::Application['logger'].error("Unable to resolve reference #{reference.reference}")
@@ -160,15 +168,13 @@ module AUCoreTestKit
       return true if target_profile.blank?
 
       # NOTE: Special case: terminology server don't have a specimen v0.3.0
-      if metadata.profile_version == "0.3.0-ballot" && target_profile == "http://hl7.org.au/fhir/StructureDefinition/au-specimen"
-        target_profile = "#{target_profile}|4.2.0-preview"
-      end
+      target_profile = "#{target_profile}|4.2.0-preview" if metadata.profile_version == '0.3.0-ballot' && target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
 
       # Only need to know if the resource is valid.
       # Calling resource_is_valid? causes validation errors to be logged.
       validator = find_validator(:default)
 
-      target_profile_with_version =  target_profile.include?('|') ? target_profile : "#{target_profile}|#{metadata.profile_version}"
+      target_profile_with_version = target_profile.include?('|') ? target_profile : "#{target_profile}|#{metadata.profile_version}"
 
       outcome = FHIR::OperationOutcome.new(JSON.parse(validator.validate(resource, target_profile_with_version)))
 

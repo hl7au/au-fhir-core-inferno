@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class Generator
     class IGResources
@@ -37,13 +39,13 @@ module AUCoreTestKit
 
       def search_param_by_exact_resource_and_code(resource, code)
         search_params = resources_by_type['SearchParameter']
-          .select { |param| param.base.include?(resource) && param.code == code}
+                        .select { |param| param.base.include?(resource) && param.code == code }
 
         if search_params.length > 1
           search_params.find do |param|
             param.jurisdiction.any? do |codeable_concept|
               codeable_concept.coding.any? do |coding|
-                coding.system == "urn:iso:std:iso:3166" && coding.code == "AU"
+                coding.system == 'urn:iso:std:iso:3166' && coding.code == 'AU'
               end
             end
           end
@@ -55,7 +57,7 @@ module AUCoreTestKit
       def search_param_by_general_resource_and_code(resource, code)
         # For all base search params (eg: _id) which not defined in separate files, we get details from the base Resource.
         search_param = resources_by_type['SearchParameter']
-          .find { |param| param.base.include?("Resource") && param.code == code}
+                       .find { |param| param.base.include?('Resource') && param.code == code }
 
         search_param_dup = search_param.dup
 
@@ -70,9 +72,9 @@ module AUCoreTestKit
 
       def search_param_by_specific_cases(resource, code)
         case "#{resource}-#{code}"
-        when "ServiceRequest-code"
-          search_params = resources_by_type['SearchParameter']
-            .find { |param| param.id == "ServiceRequest-code-concept"}
+        when 'ServiceRequest-code'
+          resources_by_type['SearchParameter']
+            .find { |param| param.id == 'ServiceRequest-code-concept' }
         end
       end
 
