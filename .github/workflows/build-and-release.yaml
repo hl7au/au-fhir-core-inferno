@@ -1,0 +1,22 @@
+name: Build and Release
+on:
+  workflow_run:
+      workflows: [Automated Quality Control]
+      branches: [master]
+      types: [completed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to GitHub Packages
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.repository_owner }} --password-stdin
+      - name: Build latest Docker image
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/inferno:latest .
+      - name: Push latest Docker image
+        run: docker push docker.pkg.github.com/${{ github.repository }}/inferno:latest
+      - name: Build SHA Docker image
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/inferno:$GITHUB_SHA .
+      - name: Push SHA Docker image
+        run: docker push docker.pkg.github.com/${{ github.repository }}/inferno:$GITHUB_SHA
