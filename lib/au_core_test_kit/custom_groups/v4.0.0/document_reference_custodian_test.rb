@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   module AUCoreV400
     class DocumentReferenceCustodianTest < Inferno::Test
@@ -30,10 +32,9 @@ module AUCoreTestKit
           if provenances.present?
             has_agent = provenances.any? do |provenance|
               provenance.target.any? { |target| target.reference.end_with?("DocumentReference/#{docref.id}") } &&
-              provenance.agent.any? { |agent| agent.who.present? || agent.onBehalfOf.present? }
+                provenance.agent.any? { |agent| agent.who.present? || agent.onBehalfOf.present? }
             end
           end
-
 
           unless has_custodian || has_agent
             add_message('error',
@@ -41,7 +42,8 @@ module AUCoreTestKit
           end
         end
 
-        assert messages.blank?, "Resource does not have DocumentReference.custodian, Provenance.agent.who, nor Provenance.agent.onBehalfOf"
+        assert messages.blank?,
+               'Resource does not have DocumentReference.custodian, Provenance.agent.who, nor Provenance.agent.onBehalfOf'
       end
     end
   end

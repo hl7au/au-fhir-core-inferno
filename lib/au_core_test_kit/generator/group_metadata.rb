@@ -1,45 +1,46 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class Generator
     class GroupMetadata
-      ATTRIBUTES = [
-        :name,
-        :class_name,
-        :version,
-        :reformatted_version,
-        :resource,
-        :profile_url,
-        :profile_name,
-        :profile_version,
-        :title,
-        :short_description,
-        :interactions,
-        :operations,
-        :searches,
-        :search_definitions,
-        :include_params,
-        :revincludes,
-        :required_concepts,
-        :must_supports,
-        :mandatory_elements,
-        :bindings,
-        :references,
-        :tests,
-        :id,
-        :file_name,
-        :delayed_references
+      ATTRIBUTES = %i[
+        name
+        class_name
+        version
+        reformatted_version
+        resource
+        profile_url
+        profile_name
+        profile_version
+        title
+        short_description
+        interactions
+        operations
+        searches
+        search_definitions
+        include_params
+        revincludes
+        required_concepts
+        must_supports
+        mandatory_elements
+        bindings
+        references
+        tests
+        id
+        file_name
+        delayed_references
       ].freeze
 
       NON_USCDI_RESOURCES = {
-        'Encounter' => ['v311', 'v400'],
-        'Location' => ['v311', 'v400', 'v501', 'v610'],
-        'Organization' => ['v311', 'v400', 'v501', 'v610'],
-        'Practitioner' => ['v311', 'v400', 'v501', 'v610'],
-        'PractitionerRole' => ['v311', 'v400', 'v501', 'v610'],
-        'Provenance' => ['v311', 'v400', 'v501', 'v610'],
-        'RelatedPerson' => ['v501', 'v610'],
+        'Encounter' => %w[v311 v400],
+        'Location' => %w[v311 v400 v501 v610],
+        'Organization' => %w[v311 v400 v501 v610],
+        'Practitioner' => %w[v311 v400 v501 v610],
+        'PractitionerRole' => %w[v311 v400 v501 v610],
+        'Provenance' => %w[v311 v400 v501 v610],
+        'RelatedPerson' => %w[v501 v610],
         'Specimen' => ['v610']
       }.freeze
-
 
       ATTRIBUTES.each { |name| attr_accessor name }
 
@@ -69,8 +70,8 @@ module AUCoreTestKit
         self.tests ||= []
 
         test_metadata = {
-          id: id,
-          file_name: file_name
+          id:,
+          file_name:
         }
 
         if delayed? && id.include?('read')
@@ -87,15 +88,15 @@ module AUCoreTestKit
       def add_delayed_references(delayed_profiles, ig_resources)
         self.delayed_references =
           references
-            .select { |reference| (reference[:profiles] & delayed_profiles).present? }
-            .map do |reference|
-              profile_urls = (reference[:profiles] & delayed_profiles)
-              delayed_resources = profile_urls.map { |url| ig_resources.resource_for_profile(url) }
-              {
-                path: reference[:path].gsub("#{resource}.", ''),
-                resources: delayed_resources
-              }
-            end
+          .select { |reference| (reference[:profiles] & delayed_profiles).present? }
+          .map do |reference|
+            profile_urls = (reference[:profiles] & delayed_profiles)
+            delayed_resources = profile_urls.map { |url| ig_resources.resource_for_profile(url) }
+            {
+              path: reference[:path].gsub("#{resource}.", ''),
+              resources: delayed_resources
+            }
+          end
       end
     end
   end

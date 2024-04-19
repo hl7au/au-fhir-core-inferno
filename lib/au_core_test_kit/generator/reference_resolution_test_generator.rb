@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -7,8 +9,8 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups
-            .reject { |group| SpecialCases.exclude_group? group }
-            .each { |group| new(group, base_output_dir).generate }
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .each { |group| new(group, base_output_dir).generate }
         end
       end
 
@@ -65,9 +67,9 @@ module AUCoreTestKit
 
       def must_support_references
         group_metadata.must_supports[:elements]
-          .select { |element| element[:types]&.include?('Reference') }
+                      .select { |element| element[:types]&.include?('Reference') }
       end
-      
+
       def must_support_reference_list_string
         must_support_references
           .map { |element| "#{' ' * 8}* #{resource_type}.#{element[:path]}" }

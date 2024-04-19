@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -7,8 +9,8 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups
-            .reject { |group| SpecialCases.exclude_group? group }
-            .each { |group| new(group, base_output_dir).generate }
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .each { |group| new(group, base_output_dir).generate }
         end
       end
 
@@ -77,16 +79,16 @@ module AUCoreTestKit
 
       def build_must_support_list_string(uscdi_only)
         slice_names = group_metadata.must_supports[:slices]
-          .select { |slice| slice[:uscdi_only].presence == uscdi_only.presence }
-          .map { |slice| slice[:slice_id] }
+                                    .select { |slice| slice[:uscdi_only].presence == uscdi_only.presence }
+                                    .map { |slice| slice[:slice_id] }
 
         element_names = group_metadata.must_supports[:elements]
-          .select { |element| element[:uscdi_only].presence == uscdi_only.presence }
-          .map { |element| "#{resource_type}.#{element[:path]}" }
+                                      .select { |element| element[:uscdi_only].presence == uscdi_only.presence }
+                                      .map { |element| "#{resource_type}.#{element[:path]}" }
 
         extension_names = group_metadata.must_supports[:extensions]
-          .select { |extension| extension[:uscdi_only].presence == uscdi_only.presence }
-          .map { |extension| extension[:id] }
+                                        .select { |extension| extension[:uscdi_only].presence == uscdi_only.presence }
+                                        .map { |extension| extension[:id] }
 
         group_metadata.must_supports[:choices]&.each do |choice|
           next unless choice[:uscdi_only].presence == uscdi_only.presence && choice.key?(:paths)

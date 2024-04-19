@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AUCoreTestKit
   class FHIRVersionTest < Inferno::Test
     id :au_core_fhir_version

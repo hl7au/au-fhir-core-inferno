@@ -6,6 +6,7 @@ services:
     volumes:
       - ./data:/opt/inferno/data
       - ./lib/:/opt/inferno/lib
+      - ./:/opt/inferno/
     depends_on:
       validator-api:
         condition: service_started

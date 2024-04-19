@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'naming'
 require_relative 'special_cases'
 
@@ -7,9 +9,9 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups
-            .reject { |group| SpecialCases.exclude_group? group }
-            .select { |group| read_interaction(group).present? }
-            .each { |group| new(group, base_output_dir).generate }
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .select { |group| read_interaction(group).present? }
+                     .each { |group| new(group, base_output_dir).generate }
         end
 
         def read_interaction(group_metadata)

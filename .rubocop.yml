@@ -1,0 +1,5 @@
+AllCops:
+  Exclude:
+    # - 'lib/au_core_test_kit/generated/**/*'
+Style/Documentation:
+  Enabled: false
