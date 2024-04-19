@@ -41,3 +41,5 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/ModuleLength:
   Enabled: false
+Naming/ClassAndModuleCamelCase:
+  Enabled: false
