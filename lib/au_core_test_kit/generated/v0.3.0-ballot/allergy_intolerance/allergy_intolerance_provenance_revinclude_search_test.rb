@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
@@ -15,16 +17,16 @@ module AUCoreTestKit
       %)
 
       id :au_core_v030_ballot_allergy_intolerance_provenance_revinclude_search_test
-  
+
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+
       def properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'AllergyIntolerance',
-        search_param_names: ['patient']
+          search_param_names: ['patient']
         )
       end
 

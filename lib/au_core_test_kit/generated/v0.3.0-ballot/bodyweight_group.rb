@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'bodyweight/bodyweight_patient_code_search_test'
 require_relative 'bodyweight/bodyweight_category_search_test'
 require_relative 'bodyweight/bodyweight_code_search_test'
@@ -87,7 +89,7 @@ read succeeds.
       def self.metadata
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bodyweight', 'metadata.yml'), aliases: true))
       end
-  
+
       test from: :au_core_v030_ballot_bodyweight_patient_code_search_test
       test from: :au_core_v030_ballot_bodyweight_category_search_test
       test from: :au_core_v030_ballot_bodyweight_code_search_test
