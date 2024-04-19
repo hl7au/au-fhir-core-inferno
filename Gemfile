@@ -10,3 +10,4 @@ end
 
 gem 'pg', '~> 1.5'
 gem 'rubocop', '~> 1.63.2'
+gem 'rubocop-erb', '~> 0.3.0'

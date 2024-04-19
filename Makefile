@@ -29,4 +29,4 @@ down:
 	docker compose down
 
 rubocop:
-	docker compose run inferno rubocop -A
+	docker compose run inferno rubocop
