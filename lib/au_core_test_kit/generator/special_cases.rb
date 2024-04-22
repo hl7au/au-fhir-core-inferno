@@ -4,7 +4,6 @@ module AUCoreTestKit
   class Generator
     module SpecialCases
       RESOURCES_TO_EXCLUDE = %w[
-        Location
         Medication
         PractitionerRole
         RelatedPerson

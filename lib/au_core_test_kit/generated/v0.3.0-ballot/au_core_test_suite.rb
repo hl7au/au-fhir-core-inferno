@@ -24,6 +24,7 @@ require_relative 'immunization_group'
 require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
 require_relative 'procedure_group'
+require_relative 'location_group'
 require_relative 'organization_group'
 require_relative 'practitioner_group'
 require_relative 'provenance_group'
@@ -127,6 +128,8 @@ module AUCoreTestKit
         group from: :au_core_v030_ballot_medication_statement
 
         group from: :au_core_v030_ballot_procedure
+
+        group from: :au_core_v030_ballot_location
 
         group from: :au_core_v030_ballot_organization
 
