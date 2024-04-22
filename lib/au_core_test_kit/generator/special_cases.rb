@@ -5,7 +5,6 @@ module AUCoreTestKit
     module SpecialCases
       RESOURCES_TO_EXCLUDE = %w[
         Medication
-        PractitionerRole
         RelatedPerson
       ].freeze
 

@@ -27,6 +27,7 @@ require_relative 'procedure_group'
 require_relative 'location_group'
 require_relative 'organization_group'
 require_relative 'practitioner_group'
+require_relative 'practitioner_role_group'
 require_relative 'provenance_group'
 
 module AUCoreTestKit
@@ -134,6 +135,8 @@ module AUCoreTestKit
         group from: :au_core_v030_ballot_organization
 
         group from: :au_core_v030_ballot_practitioner
+
+        group from: :au_core_v030_ballot_practitioner_role
 
         group from: :au_core_v030_ballot_provenance
       end
