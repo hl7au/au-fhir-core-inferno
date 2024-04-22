@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 module Helpers
+  def self.get_auth_header(auth_header_type, auth_header_value)
+    case auth_header_type
+    when 'false'
+      {}
+    when 'basic_token'
+      {'Authorization' => "Basic #{auth_header_value}"}
+    when 'basic_client_secret'
+      {'Authorization' => "Basic #{Base64.encode64(auth_header_value)}"}
+    when 'bearer'
+      {'Authorization' => "Bearer #{auth_header_value}"}
+    end
+  end
   def self.extract_extensions_from_resource(resource, extensions = [])
     resource_hash = convert_resource_to_hash(resource)
     process_resource_element(resource_hash, extensions)
