@@ -61,38 +61,17 @@ module AUCoreTestKit
         title: 'OAuth Credentials',
         type: :oauth_credentials,
         optional: true
-      input :auth_header_type,
-            title: 'Authentification header type',
-            type: 'radio',
-            default: 'false',
-            options: {
-              list_options: [
-                {
-                  label: 'Basic (token)',
-                  value: 'basic_token'
-                },
-                {
-                  label: 'Basic (client:secret)',
-                  value: 'basic_client_secret'
-                },
-                {
-                  label: 'Bearer',
-                  value: 'bearer'
-                },
-                {
-                  label: 'False',
-                  value: 'false'
-                }
-              ]
-            }
-      input :auth_header_value,
-      title: 'Authentification header value',
-      optional: true
+      input :header_name,
+            title: 'Header name',
+            optional: true
+      input :header_value,
+            title: 'Header value',
+            optional: true
 
       fhir_client do
         url :url
         oauth_credentials :smart_credentials
-        headers Helpers.get_auth_header(auth_header_type, auth_header_value)
+        headers Helpers.get_http_header(header_name, header_value)
       end
 
       <%# Temporary removed: https://github.com/heathfrankel/inferno-au-core/issues/7 %>
