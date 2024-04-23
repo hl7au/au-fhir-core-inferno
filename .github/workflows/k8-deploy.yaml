@@ -1,0 +1,58 @@
+name: 'Inferno Deployment to K8'
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+  workflow_dispatch: # Manual trigger
+
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+jobs:
+  Terraform:
+    runs-on: ubuntu-latest
+    environment: dev
+    env:
+      working-dir: "./infra/aws-impl"
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::471112546300:role/inferno-github-actions-eks-role
+          aws-region: ap-southeast-2
+
+
+      # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+          # terraform_version: '1.3.0'
+
+      - name: Terraform Init
+        run: terraform init -upgrade -input=false
+        working-directory: ${{ env.working-dir }}
+
+      # Checks that all Terraform configuration files adhere to a canonical format
+      - name: Terraform Format
+        run: terraform fmt -check
+        working-directory: ${{ env.working-dir }}
+
+      # Generates an execution plan for Terraform
+      - name: Terraform Plan
+        run: terraform plan -input=false
+        working-directory: ${{ env.working-dir }}
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+        run: terraform apply -auto-approve -input=false
+        working-directory: ${{ env.working-dir }}
+
