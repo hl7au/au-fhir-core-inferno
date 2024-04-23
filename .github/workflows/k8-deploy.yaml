@@ -2,7 +2,7 @@ name: 'Inferno Deployment to K8'
 
 on:
   push:
-    branches: [ "main", "feature/cicd" ]
+    branches: [ "master" ]
   pull_request:
   workflow_dispatch: # Manual trigger
 
@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -36,7 +36,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
           # terraform_version: '1.3.0'
-    
+
       - name: Terraform Init
         run: terraform init -upgrade -input=false
         working-directory: ${{ env.working-dir }}
@@ -45,13 +45,12 @@ jobs:
       - name: Terraform Format
         run: terraform fmt -check
         working-directory: ${{ env.working-dir }}
-        
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         run: terraform plan -input=false
         working-directory: ${{ env.working-dir }}
-    
+
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
         run: terraform apply -auto-approve -input=false
