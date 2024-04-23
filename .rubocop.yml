@@ -30,6 +30,7 @@ AllCops:
     - 'lib/au_core_test_kit/fhir_resource_navigation.rb'
     - 'lib/au_core_test_kit/date_search_validation.rb'
     - 'lib/au_core_test_kit/custom_groups/v0.3.0-ballot/profile_support_test.rb'
+    - 'lib/au_core_test_kit/generated/v0.3.0-ballot/au_core_test_suite.rb'
 Style/Documentation:
   Enabled: false
 Layout/LineLength:

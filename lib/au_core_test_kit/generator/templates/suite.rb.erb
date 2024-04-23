@@ -1,8 +1,10 @@
+require 'base64'
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '<%= capability_statement_file_name %>'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../au_core_options'
+require_relative '../../helpers'
 
 <% group_file_list.each do |file_name| %>require_relative '<%= file_name %>'
 <% end %>
@@ -59,10 +61,17 @@ module AUCoreTestKit
         title: 'OAuth Credentials',
         type: :oauth_credentials,
         optional: true
+      input :header_name,
+            title: 'Header name',
+            optional: true
+      input :header_value,
+            title: 'Header value',
+            optional: true
 
       fhir_client do
         url :url
         oauth_credentials :smart_credentials
+        headers Helpers.get_http_header(header_name, header_value)
       end
 
       <%# Temporary removed: https://github.com/heathfrankel/inferno-au-core/issues/7 %>

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Helpers
+  def self.get_http_header(header_name, header_value)
+    (header_name && header_value) ? {header_name => header_value} : {}
+  end
   def self.extract_extensions_from_resource(resource, extensions = [])
     resource_hash = convert_resource_to_hash(resource)
     process_resource_element(resource_hash, extensions)
