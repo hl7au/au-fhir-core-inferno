@@ -52,7 +52,7 @@ jobs:
         working-directory: ${{ env.working-dir }}
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'workflow_dispatch'
         run: terraform apply -auto-approve -input=false
         working-directory: ${{ env.working-dir }}
 
