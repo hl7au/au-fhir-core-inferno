@@ -63,7 +63,6 @@ module AUCoreTestKit
             full_paths = search_definitions[name.to_sym][:full_paths]
             any_must_support_elements = must_supports[:elements].any? do |element|
               full_must_support_paths = ["#{resource}.#{element[:original_path]}", "#{resource}.#{element[:path]}"]
-
               full_paths.any? do |path|
                 # allow for non-choice, choice types, and _id
                 name == '_id' || full_must_support_paths.include?(path) || full_must_support_paths.include?("#{path}[x]")

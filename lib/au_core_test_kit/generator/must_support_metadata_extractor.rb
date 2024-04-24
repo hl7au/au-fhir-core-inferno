@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'value_extractor'
-require_relative 'must_support_metadata_extractor_au_core_3'
+require_relative 'must_support_metadata_extractor_au_core_030_ballot'
 
 module AUCoreTestKit
   class Generator
@@ -295,7 +295,9 @@ module AUCoreTestKit
           {
             path: current_element.id.gsub("#{resource}.", '')
           }.tap do |current_metadata|
-            current_metadata[:uscdi_only] = true if is_uscdi_requirement_element?(current_element)
+            if is_uscdi_requirement_element?(current_element)
+              current_metadata[:uscdi_only] = true
+            end
 
             type_must_support_metadata = get_type_must_support_metadata(current_metadata, current_element)
 
@@ -304,13 +306,10 @@ module AUCoreTestKit
             else
               handle_choice_type_in_sliced_element(current_metadata, must_support_elements_metadata)
 
-              supported_types = current_element.type.select { |type| save_type_code?(type) }.map(&:code)
+              supported_types = current_element.type.select { |type| save_type_code?(type) }.map { |type| type.code }
               current_metadata[:types] = supported_types if supported_types.present?
 
-              if current_element.type.first&.code == 'Reference'
-                handle_type_must_support_target_profiles(current_element.type.first,
-                                                         current_metadata)
-              end
+              handle_type_must_support_target_profiles(current_element.type.first, current_metadata) if current_element.type.first&.code == 'Reference'
 
               handle_fixed_values(current_metadata, current_element)
 
@@ -335,17 +334,11 @@ module AUCoreTestKit
         remove_lipid_result_attributes
         # remove_specimen_attribute
 
+        puts "profile.version #{profile.version}"
+
         case profile.version
-        when '3.1.1'
-          MustSupportMetadataExtractorAUCore3.new(profile, @must_supports).handle_special_cases
-        when '4.0.0'
-          MustSupportMetadataExtractorAUCore4.new(profile, @must_supports).handle_special_cases
-        when '5.0.1'
-          MustSupportMetadataExtractorAUCore5.new(profile, @must_supports).handle_special_cases
-        when '6.1.0'
-          MustSupportMetadataExtractorAUCore6.new(profile, @must_supports).handle_special_cases
-        when '7.0.0-ballot'
-          MustSupportMetadataExtractorAUCore7.new(profile, @must_supports).handle_special_cases
+        when "0.3.0-ballot"
+          MustSupportMetadataExtractorAUCore030Ballot.new(profile, @must_supports).handle_special_cases
         end
       end
 
