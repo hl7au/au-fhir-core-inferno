@@ -170,6 +170,16 @@ module AUCoreTestKit
       end
 
       def multiple_or_expectation
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/61
+        case group_metadata[:resource]
+        when 'Procedure'
+          return 'SHALL' if param_hash['id'] == 'Procedure-status'
+        when 'Observation'
+          return 'SHALL' if param_hash['id'] == 'Observation-status'
+        when 'MedicationRequest'
+          return 'SHALL' if param_hash['id'] == 'medications-status'
+        end
+
         return unless param_hash['_multipleOr']
 
         param_hash['_multipleOr']['extension'].first['valueCode']
