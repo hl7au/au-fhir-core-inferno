@@ -24,7 +24,9 @@ module AUCoreTestKit
                    :test_reference_variants?,
                    :params_with_comparators,
                    :multiple_or_search_params,
-                   :optional_multiple_or_search_params
+                   :optional_multiple_or_search_params,
+                   :multiple_and_search_params,
+                   :optional_multiple_and_search_params
 
     def all_search_params
       @all_search_params ||=

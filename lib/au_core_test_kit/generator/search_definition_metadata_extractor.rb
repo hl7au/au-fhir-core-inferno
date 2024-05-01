@@ -24,6 +24,7 @@ module AUCoreTestKit
             type:,
             contains_multiple: contains_multiple?,
             multiple_or: multiple_or_expectation,
+            multiple_and: multiple_and_expectation,
             chain:
           }.compact
       end
@@ -189,6 +190,25 @@ module AUCoreTestKit
         return unless param_hash['_multipleOr']
 
         param_hash['_multipleOr']['extension'].first['valueCode']
+      end
+
+      def multiple_and_expectation
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/62
+        case group_metadata[:resource]
+        when 'Observation'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'Condition'
+          return 'SHOULD' if param_hash['id'] == 'Condition-onset-date'
+        when 'Encounter'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'Immunization'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'MedicationRequest'
+          return 'SHOULD' if param_hash['id'] == 'MedicationRequest-authoredon'
+        end
+        return unless param_hash['_multipleAnd']
+
+        param_hash['_multipleAnd']['extension'].first['valueCode']
       end
 
       def values

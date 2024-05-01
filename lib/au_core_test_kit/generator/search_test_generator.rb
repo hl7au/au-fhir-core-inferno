@@ -183,6 +183,28 @@ module AUCoreTestKit
         array_of_strings(optional_multiple_or_search_params)
       end
 
+      def optional_multiple_and_search_params
+        @optional_multiple_and_search_params ||=
+          search_param_names.select do |name|
+            search_definition(name)[:multiple_and] == 'SHOULD'
+          end
+      end
+
+      def required_multiple_and_search_params
+        @required_multiple_and_search_params ||=
+          search_param_names.select do |name|
+            search_definition(name)[:multiple_and] == 'SHALL'
+          end
+      end
+
+      def optional_multiple_and_search_params_string
+        array_of_strings(optional_multiple_and_search_params)
+      end
+
+      def required_multiple_and_search_params_string
+        array_of_strings(required_multiple_and_search_params)
+      end
+
       def required_comparators_string
         array_of_strings(required_comparators.keys)
       end
@@ -222,6 +244,14 @@ module AUCoreTestKit
           end
           if optional_multiple_or_search_params.present?
             properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string
+          end
+          if optional_multiple_and_search_params.present?
+            properties[:optional_multiple_and_search_params] =
+              optional_multiple_and_search_params_string
+          end
+          if required_multiple_and_search_params.present?
+            properties[:required_multiple_and_search_params] =
+              required_multiple_and_search_params_string
           end
           properties[:test_post_search] = 'true' if first_search?
         end
