@@ -94,9 +94,11 @@ module AUCoreTestKit
         end
 
       skip_if resources_returned.empty?, no_resources_skip_message
-
+      
       perform_multiple_or_search_test(multiple_or_search_params) if multiple_or_search_params.present?
       perform_multiple_or_search_test(optional_multiple_or_search_params, false) if optional_multiple_or_search_params.present?
+      perform_multiple_and_search_test(multiple_and_search_params) if multiple_and_search_params.present?
+      perform_multiple_and_search_test(optional_multiple_and_search_params, false) if optional_multiple_and_search_params.present?
     end
 
     def perform_search(params, patient_id)
@@ -341,8 +343,21 @@ module AUCoreTestKit
     def default_search_values(param_name)
       definition = metadata.search_definitions[param_name]
       return [] if definition.blank?
-
+      
       (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
+    end
+
+    def check_keys(resources_arr, keys_arr)
+      results = []
+      
+      resources_arr.each do |resource|
+        resource = resource.to_hash
+        keys_arr.each do |key_item|
+          results << resource[key_item]
+        end
+      end
+
+      results.compact.uniq
     end
 
     def perform_multiple_or_search_test(multiple_or_search_params, required=true)
@@ -366,7 +381,7 @@ module AUCoreTestKit
         next if existing_values.values.any?(&:empty?)
 
         resolved_one = true
-        
+      
         if required
           search_and_check_response(search_params)
         else
@@ -389,6 +404,32 @@ module AUCoreTestKit
 
         assert missing_value_message.blank?,
                "Could not find #{missing_value_message} in any of the resources returned for Patient/#{patient_id}"
+
+        break if resolved_one
+      end
+    end
+
+    def perform_multiple_and_search_test(multiple_and_search_params, required=true)
+      resolved_one = false
+
+      all_search_params.each do |patient_id, params_list|
+        next unless params_list.present?
+
+        search_params = params_list.first
+        missing_values = {}
+
+        multiple_and_search_params.each do |param_name|
+          search_value = default_search_values(param_name.to_sym)
+          search_params = search_params.merge(param_name.to_s => search_value)
+        end
+
+        resolved_one = true
+        
+        if required
+          search_and_check_response(search_params)
+        else
+          optional_search_and_check_response(search_params)
+        end
 
         break if resolved_one
       end

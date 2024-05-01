@@ -250,7 +250,7 @@ module AUCoreTestKit
               optional_multiple_and_search_params_string
           end
           if required_multiple_and_search_params.present?
-            properties[:required_multiple_and_search_params] =
+            properties[:multiple_and_search_params] =
               required_multiple_and_search_params_string
           end
           properties[:test_post_search] = 'true' if first_search?

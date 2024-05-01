@@ -212,6 +212,19 @@ module AUCoreTestKit
       end
 
       def values
+        case group_metadata[:resource]
+        when 'Observation'
+          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+        when 'Condition'
+          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'Condition-onset-date'
+        when 'Encounter'
+          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+        when 'Immunization'
+          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+        when 'MedicationRequest'
+          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'MedicationRequest-authoredon'
+        end
+        
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
         values_from_pattern_coding = value_extractor.values_from_pattern_coding(profile_element, type).presence
         merged_values = Array(values_from_fixed_codes) + Array(values_from_pattern_coding)
