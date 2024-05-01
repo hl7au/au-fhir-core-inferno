@@ -14,6 +14,7 @@ module AUCoreTestKit
       test_reference_variants
       params_with_comparators
       multiple_or_search_params
+      optional_multiple_or_search_params
       test_post_search
     ].freeze
 

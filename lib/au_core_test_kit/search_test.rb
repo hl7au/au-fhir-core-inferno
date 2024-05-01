@@ -23,7 +23,8 @@ module AUCoreTestKit
                    :token_search_params,
                    :test_reference_variants?,
                    :params_with_comparators,
-                   :multiple_or_search_params
+                   :multiple_or_search_params,
+                   :optional_multiple_or_search_params
 
     def all_search_params
       @all_search_params ||=
@@ -92,7 +93,8 @@ module AUCoreTestKit
 
       skip_if resources_returned.empty?, no_resources_skip_message
 
-      perform_multiple_or_search_test if multiple_or_search_params.present?
+      perform_multiple_or_search_test(multiple_or_search_params) if multiple_or_search_params.present?
+      perform_multiple_or_search_test(optional_multiple_or_search_params, false) if optional_multiple_or_search_params.present?
     end
 
     def perform_search(params, patient_id)
@@ -180,6 +182,12 @@ module AUCoreTestKit
       fhir_search(resource_type, params:)
 
       check_search_response
+    end
+
+    def optional_search_and_check_response(params, resource_type = self.resource_type)
+      fhir_search(resource_type, params:)
+
+      assert_resource_type(:bundle)
     end
 
     def check_search_response
@@ -332,10 +340,10 @@ module AUCoreTestKit
       definition = metadata.search_definitions[param_name]
       return [] if definition.blank?
 
-      definition[:multiple_or] == 'SHALL' ? [definition[:values].join(',')] : Array.wrap(definition[:values])
+      (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
     end
 
-    def perform_multiple_or_search_test
+    def perform_multiple_or_search_test(multiple_or_search_params, required=true)
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -356,8 +364,12 @@ module AUCoreTestKit
         next if existing_values.values.any?(&:empty?)
 
         resolved_one = true
-
-        search_and_check_response(search_params)
+        
+        if required
+          search_and_check_response(search_params)
+        else
+          optional_search_and_check_response(search_params)
+        end
 
         resources_returned =
           fetch_all_bundled_resources
