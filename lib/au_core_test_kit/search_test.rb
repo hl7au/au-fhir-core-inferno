@@ -94,11 +94,6 @@ module AUCoreTestKit
         end
 
       skip_if resources_returned.empty?, no_resources_skip_message
-      
-      # perform_multiple_or_search_test(multiple_or_search_params) if multiple_or_search_params.present?
-      # perform_multiple_or_search_test(optional_multiple_or_search_params, false) if optional_multiple_or_search_params.present?
-      # perform_multiple_and_search_test(multiple_and_search_params) if multiple_and_search_params.present?
-      # perform_multiple_and_search_test(optional_multiple_and_search_params, false) if optional_multiple_and_search_params.present?
     end
 
     def perform_search(params, patient_id)
