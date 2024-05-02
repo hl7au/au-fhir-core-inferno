@@ -171,6 +171,8 @@ module AUCoreTestKit
       end
 
       def multiple_or_expectation
+        # NOTE: Hard-coded values are used because the multipleOr attributes
+        # do not exist in the machine-readable files, but they do exist in the narrative.
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/61
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/63
         case group_metadata[:resource]
@@ -195,6 +197,8 @@ module AUCoreTestKit
       end
 
       def multiple_and_expectation
+        # NOTE: Hard-coded values are used because the multipleAnd attributes 
+        # do not exist in the machine-readable files, but they do exist in the narrative.
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/62
         case group_metadata[:resource]
         when 'Observation'
@@ -214,6 +218,9 @@ module AUCoreTestKit
       end
 
       def values
+        # NOTE: In the current step of the IG we don't need to check the correct content of the response.
+        # We should care about the correct structure of the request. In this current case we use dates just
+        # to check that server can make a response for the request.
         case group_metadata[:resource]
         when 'Observation'
           return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
