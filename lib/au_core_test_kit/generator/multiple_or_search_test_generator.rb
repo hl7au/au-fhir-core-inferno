@@ -11,10 +11,8 @@ module AUCoreTestKit
           ig_metadata.groups
                      .select { |group| group.searches.present? }
                      .each do |group|
-            group.search_definitions.keys.each do |search_key|
-                if group.search_definitions[search_key].key?(:multiple_or) && search_key.to_s != 'patient'
-                  new(search_key.to_s, group, group.search_definitions[search_key], base_output_dir).generate
-                end
+            group.search_definitions.each_key do |search_key|
+              new(search_key.to_s, group, group.search_definitions[search_key], base_output_dir).generate if group.search_definitions[search_key].key?(:multiple_or) && search_key.to_s != 'patient'
             end
           end
         end
@@ -128,12 +126,12 @@ module AUCoreTestKit
 
       def required_multiple_or_search_params
         @required_multiple_or_search_params ||=
-            search_definition(search_name)[:multiple_or] == 'SHALL'
+          search_definition(search_name)[:multiple_or] == 'SHALL'
       end
 
       def optional_multiple_or_search_params
         @optional_multiple_or_search_params ||=
-            search_definition(search_name)[:multiple_or] == 'SHOULD'
+          search_definition(search_name)[:multiple_or] == 'SHOULD'
       end
 
       def required_multiple_or_search_params_string
@@ -178,9 +176,7 @@ module AUCoreTestKit
             properties[:multiple_or_search_params] =
               required_multiple_or_search_params_string
           end
-          if optional_multiple_or_search_params.present?
-            properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string
-          end
+          properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string if optional_multiple_or_search_params.present?
         end
       end
 
