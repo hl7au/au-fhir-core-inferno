@@ -205,7 +205,7 @@ module AUCoreTestKit
 
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-          A server #{conformance_expectation} support searching by
+          A server #{conformance_expectation} support searching by multipleAnd
           #{search_param_name_string} on the #{resource_type} resource. This test
           will pass if resources are returned and match the search criteria. If
           none are returned, the test is skipped.
