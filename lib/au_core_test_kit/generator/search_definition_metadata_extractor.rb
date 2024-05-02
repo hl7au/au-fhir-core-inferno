@@ -189,7 +189,9 @@ module AUCoreTestKit
 
         return unless param_hash['_multipleOr']
 
-        param_hash['_multipleOr']['extension'].first['valueCode']
+        result = param_hash['_multipleOr']['extension'].first['valueCode']
+
+        result
       end
 
       def multiple_and_expectation

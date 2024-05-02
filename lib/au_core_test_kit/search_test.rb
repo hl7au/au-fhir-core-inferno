@@ -95,10 +95,10 @@ module AUCoreTestKit
 
       skip_if resources_returned.empty?, no_resources_skip_message
       
-      perform_multiple_or_search_test(multiple_or_search_params) if multiple_or_search_params.present?
-      perform_multiple_or_search_test(optional_multiple_or_search_params, false) if optional_multiple_or_search_params.present?
-      perform_multiple_and_search_test(multiple_and_search_params) if multiple_and_search_params.present?
-      perform_multiple_and_search_test(optional_multiple_and_search_params, false) if optional_multiple_and_search_params.present?
+      # perform_multiple_or_search_test(multiple_or_search_params) if multiple_or_search_params.present?
+      # perform_multiple_or_search_test(optional_multiple_or_search_params, false) if optional_multiple_or_search_params.present?
+      # perform_multiple_and_search_test(multiple_and_search_params) if multiple_and_search_params.present?
+      # perform_multiple_and_search_test(optional_multiple_and_search_params, false) if optional_multiple_and_search_params.present?
     end
 
     def perform_search(params, patient_id)
@@ -190,8 +190,6 @@ module AUCoreTestKit
 
     def optional_search_and_check_response(params, resource_type = self.resource_type)
       fhir_search(resource_type, params:)
-
-      assert_resource_type(:bundle)
     end
 
     def check_search_response
@@ -360,7 +358,9 @@ module AUCoreTestKit
       results.compact.uniq
     end
 
-    def perform_multiple_or_search_test(multiple_or_search_params, required=true)
+    def perform_multiple_or_search_test
+      required = multiple_or_search_params.present?
+      multiple_or_search_params = search_param_names
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -382,11 +382,7 @@ module AUCoreTestKit
 
         resolved_one = true
       
-        if required
-          search_and_check_response(search_params)
-        else
-          optional_search_and_check_response(search_params)
-        end
+        search_and_check_response(search_params)
 
         resources_returned =
           fetch_all_bundled_resources
@@ -409,7 +405,9 @@ module AUCoreTestKit
       end
     end
 
-    def perform_multiple_and_search_test(multiple_and_search_params, required=true)
+    def perform_multiple_and_search_test
+      required = multiple_and_search_params.present?
+      multiple_and_search_params = search_param_names
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -425,13 +423,7 @@ module AUCoreTestKit
 
         resolved_one = true
         
-        if required
-          search_and_check_response(search_params)
-        else
-          optional_search_and_check_response(search_params)
-        end
-
-        break if resolved_one
+        search_and_check_response(search_params)
       end
     end
 

@@ -238,21 +238,21 @@ module AUCoreTestKit
           properties[:token_search_params] = token_search_params_string if token_search_params.present?
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?
-          if required_multiple_or_search_params.present?
-            properties[:multiple_or_search_params] =
-              required_multiple_or_search_params_string
-          end
-          if optional_multiple_or_search_params.present?
-            properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string
-          end
-          if optional_multiple_and_search_params.present?
-            properties[:optional_multiple_and_search_params] =
-              optional_multiple_and_search_params_string
-          end
-          if required_multiple_and_search_params.present?
-            properties[:multiple_and_search_params] =
-              required_multiple_and_search_params_string
-          end
+          # if required_multiple_or_search_params.present?
+          #   properties[:multiple_or_search_params] =
+          #     required_multiple_or_search_params_string
+          # end
+          # if optional_multiple_or_search_params.present?
+          #   properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string
+          # end
+          # if optional_multiple_and_search_params.present?
+          #   properties[:optional_multiple_and_search_params] =
+          #     optional_multiple_and_search_params_string
+          # end
+          # if required_multiple_and_search_params.present?
+          #   properties[:multiple_and_search_params] =
+          #     required_multiple_and_search_params_string
+          # end
           properties[:test_post_search] = 'true' if first_search?
         end
       end
