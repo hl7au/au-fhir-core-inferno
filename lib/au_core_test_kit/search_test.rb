@@ -340,22 +340,7 @@ module AUCoreTestKit
       (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
     end
 
-    def check_keys(resources_arr, keys_arr)
-      results = []
-      
-      resources_arr.each do |resource|
-        resource = resource.to_hash
-        keys_arr.each do |key_item|
-          results << resource[key_item]
-        end
-      end
-
-      results.compact.uniq
-    end
-
     def perform_multiple_or_search_test
-      required = multiple_or_search_params.present?
-      multiple_or_search_params = search_param_names
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -365,7 +350,7 @@ module AUCoreTestKit
         existing_values = {}
         missing_values = {}
 
-        multiple_or_search_params.each do |param_name|
+        search_param_names.each do |param_name|
           search_value = default_search_values(param_name.to_sym)
           search_params = search_params.merge(param_name.to_s => search_value)
           existing_values[param_name.to_sym] =
@@ -383,7 +368,7 @@ module AUCoreTestKit
           fetch_all_bundled_resources
           .select { |resource| resource.resourceType == resource_type }
 
-        multiple_or_search_params.each do |param_name|
+        search_param_names.each do |param_name|
           missing_values[param_name.to_sym] =
             existing_values[param_name.to_sym] - resources_returned.map(&param_name.to_sym)
         end
@@ -401,11 +386,9 @@ module AUCoreTestKit
     end
 
     def perform_multiple_and_search_test
-      required = multiple_and_search_params.present?
-      multiple_and_search_params = search_param_names
       resolved_one = false
 
-      all_search_params.each do |patient_id, params_list|
+      search_param_names.each do |patient_id, params_list|
         next unless params_list.present?
 
         search_params = params_list.first
