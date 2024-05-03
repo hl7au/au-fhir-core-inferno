@@ -196,6 +196,14 @@ module AUCoreTestKit
         result
       end
 
+      # Patient
+      # Procedure
+      # Observation
+      # MedicationRequest
+      # Immunization
+      # Condition
+      # Encounter
+
       def multiple_and_expectation
         # NOTE: Hard-coded values are used because the multipleAnd attributes 
         # do not exist in the machine-readable files, but they do exist in the narrative.
@@ -218,20 +226,21 @@ module AUCoreTestKit
       end
 
       def values
+        fixed_date_value = ['1950-01-01', '2050-01-01']
         # NOTE: In the current step of the IG we don't need to check the correct content of the response.
         # We should care about the correct structure of the request. In this current case we use dates just
         # to check that server can make a response for the request.
         case group_metadata[:resource]
         when 'Observation'
-          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
         when 'Condition'
-          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'Condition-onset-date'
+          return fixed_date_value if param_hash['id'] == 'Condition-onset-date'
         when 'Encounter'
-          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
         when 'Immunization'
-          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'clinical-date'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
-          return ['2023-01-01', '2023-01-02'] if param_hash['id'] == 'MedicationRequest-authoredon'
+          return fixed_date_value if param_hash['id'] == 'MedicationRequest-authoredon'
         end
         
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence

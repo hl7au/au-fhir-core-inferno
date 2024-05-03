@@ -334,10 +334,23 @@ module AUCoreTestKit
     end
 
     def default_search_values(param_name)
+      puts param_name
       definition = metadata.search_definitions[param_name]
+      puts definition
       return [] if definition.blank?
       
       (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
+    end
+
+    def extract_existing_values_safety(resources_arr, keys_arr)
+      results = []
+
+      resources_arr.each do |resource|
+        temp = search_param_value(keys_arr, resource)
+        results << temp
+      end
+
+      results.compact.uniq
     end
 
     def perform_multiple_or_search_test
@@ -353,8 +366,8 @@ module AUCoreTestKit
         search_param_names.each do |param_name|
           search_value = default_search_values(param_name.to_sym)
           search_params = search_params.merge(param_name.to_s => search_value)
-          existing_values[param_name.to_sym] =
-            scratch_resources_for_patient(patient_id).map(&param_name.to_sym).compact.uniq
+          patient_resources = scratch_resources_for_patient(patient_id)
+          existing_values[param_name.to_sym] = extract_existing_values_safety(patient_resources, param_name)
         end
 
         # skip patient without multiple-or values
@@ -388,20 +401,31 @@ module AUCoreTestKit
     def perform_multiple_and_search_test
       resolved_one = false
 
-      search_param_names.each do |patient_id, params_list|
+      all_search_params.each do |patient_id, params_list|
         next unless params_list.present?
 
         search_params = params_list.first
+        existing_values = {}
         missing_values = {}
 
-        multiple_and_search_params.each do |param_name|
+        search_param_names.each do |param_name|
           search_value = default_search_values(param_name.to_sym)
           search_params = search_params.merge(param_name.to_s => search_value)
+          patient_resources = scratch_resources_for_patient(patient_id)
+          patient_existing_values = extract_existing_values_safety(patient_resources, param_name)
+          existing_values[param_name.to_sym] = patient_existing_values
         end
+
+        puts "full existing_values #{existing_values}"
+
+        # skip patient without multiple-or values
+        next if existing_values.values.any?(&:empty?)
 
         resolved_one = true
         
         search_and_check_response(search_params)
+
+        break if resolved_one
       end
     end
 
