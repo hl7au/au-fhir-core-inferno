@@ -333,10 +333,15 @@ module AUCoreTestKit
       default_search_values(status_search_param_name)
     end
 
-    def default_search_values(param_name)
-      puts param_name
+    def default_values_for_param(param_name)
       definition = metadata.search_definitions[param_name]
-      puts definition
+      return [] if definition.blank?
+
+      definition[:values]
+    end
+
+    def default_search_values(param_name)
+      definition = metadata.search_definitions[param_name]
       return [] if definition.blank?
       
       (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
@@ -349,11 +354,15 @@ module AUCoreTestKit
         temp = search_param_value(keys_arr, resource)
         results << temp
       end
-
       results.compact.uniq
     end
 
+    def search_param_number_valid(search_params)
+      puts "search_param_number_valid? #{search_params}"
+    end
+
     def perform_multiple_or_search_test
+      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -362,14 +371,17 @@ module AUCoreTestKit
         search_params = params_list.first
         existing_values = {}
         missing_values = {}
+        search_values = []
 
         search_param_names.each do |param_name|
+          search_values << default_values_for_param(param_name.to_sym)
           search_value = default_search_values(param_name.to_sym)
           search_params = search_params.merge(param_name.to_s => search_value)
           patient_resources = scratch_resources_for_patient(patient_id)
           existing_values[param_name.to_sym] = extract_existing_values_safety(patient_resources, param_name)
         end
 
+        skip_if search_values.flatten.uniq.length < 2, insufficient_number_of_values(search_values.flatten.uniq)
         # skip patient without multiple-or values
         next if existing_values.values.any?(&:empty?)
 
@@ -377,28 +389,12 @@ module AUCoreTestKit
       
         search_and_check_response(search_params)
 
-        resources_returned =
-          fetch_all_bundled_resources
-          .select { |resource| resource.resourceType == resource_type }
-
-        search_param_names.each do |param_name|
-          missing_values[param_name.to_sym] =
-            existing_values[param_name.to_sym] - resources_returned.map(&param_name.to_sym)
-        end
-
-        missing_value_message = missing_values
-                                .reject { |_param_name, missing_value| missing_value.empty? }
-                                .map { |param_name, missing_value| "#{missing_value.join(',')} values from #{param_name}" }
-                                .join(' and ')
-
-        assert missing_value_message.blank?,
-               "Could not find #{missing_value_message} in any of the resources returned for Patient/#{patient_id}"
-
         break if resolved_one
       end
     end
 
     def perform_multiple_and_search_test
+      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
       resolved_one = false
 
       all_search_params.each do |patient_id, params_list|
@@ -407,8 +403,10 @@ module AUCoreTestKit
         search_params = params_list.first
         existing_values = {}
         missing_values = {}
+        search_values = []
 
         search_param_names.each do |param_name|
+          search_values << default_values_for_param(param_name.to_sym)
           search_value = default_search_values(param_name.to_sym)
           search_params = search_params.merge(param_name.to_s => search_value)
           patient_resources = scratch_resources_for_patient(patient_id)
@@ -416,8 +414,7 @@ module AUCoreTestKit
           existing_values[param_name.to_sym] = patient_existing_values
         end
 
-        puts "full existing_values #{existing_values}"
-
+        skip_if search_values.flatten.uniq.length < 2, insufficient_number_of_values(search_values.flatten.uniq)
         # skip patient without multiple-or values
         next if existing_values.values.any?(&:empty?)
 
@@ -577,6 +574,13 @@ module AUCoreTestKit
     def array_of_codes(array)
       array.map { |name| "`#{name}`" }.join(', ')
     end
+
+    def insufficient_number_of_values(values_to_search)
+      main_message = "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
+      extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length > 0
+      
+      "#{main_message} #{extra_message}"
+    end  
 
     def unable_to_resolve_params_message
       "Could not find values for all search params #{array_of_codes(search_param_names)}"

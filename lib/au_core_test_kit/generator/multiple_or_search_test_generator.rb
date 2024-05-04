@@ -97,7 +97,7 @@ module AUCoreTestKit
       end
 
       def needs_patient_id?
-        false
+        true
       end
 
       def search_param_names
