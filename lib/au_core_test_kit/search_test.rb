@@ -362,38 +362,14 @@ module AUCoreTestKit
     end
 
     def perform_multiple_or_search_test
-      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
-      resolved_one = false
-
-      all_search_params.each do |patient_id, params_list|
-        next unless params_list.present?
-
-        search_params = params_list.first
-        existing_values = {}
-        missing_values = {}
-        search_values = []
-
-        search_param_names.each do |param_name|
-          search_values << default_values_for_param(param_name.to_sym)
-          search_value = default_search_values(param_name.to_sym)
-          search_params = search_params.merge(param_name.to_s => search_value)
-          patient_resources = scratch_resources_for_patient(patient_id)
-          existing_values[param_name.to_sym] = extract_existing_values_safety(patient_resources, param_name)
-        end
-
-        skip_if search_values.flatten.uniq.length < 2, insufficient_number_of_values(search_values.flatten.uniq)
-        # skip patient without multiple-or values
-        next if existing_values.values.any?(&:empty?)
-
-        resolved_one = true
-      
-        search_and_check_response(search_params)
-
-        break if resolved_one
-      end
+      perform_multiple_search_test
     end
 
     def perform_multiple_and_search_test
+      perform_multiple_search_test
+    end
+
+    def perform_multiple_search_test
       skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
       resolved_one = false
 
