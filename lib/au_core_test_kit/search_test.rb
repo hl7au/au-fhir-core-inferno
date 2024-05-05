@@ -357,10 +357,6 @@ module AUCoreTestKit
       results.compact.uniq
     end
 
-    def search_param_number_valid(search_params)
-      puts "search_param_number_valid? #{search_params}"
-    end
-
     def perform_multiple_or_search_test
       perform_multiple_search_test
     end
