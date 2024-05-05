@@ -196,14 +196,6 @@ module AUCoreTestKit
         result
       end
 
-      # Patient
-      # Procedure
-      # Observation
-      # MedicationRequest
-      # Immunization
-      # Condition
-      # Encounter
-
       def multiple_and_expectation
         # NOTE: Hard-coded values are used because the multipleAnd attributes 
         # do not exist in the machine-readable files, but they do exist in the narrative.
@@ -227,7 +219,7 @@ module AUCoreTestKit
 
       def values
         fixed_date_value = ['1950-01-01', '2050-01-01']
-        # NOTE: In the current step of the IG we don't need to check the correct content of the response.
+        # NOTE: In the current step we don't need to check the correct content of the response.
         # We should care about the correct structure of the request. In this current case we use dates just
         # to check that server can make a response for the request.
         case group_metadata[:resource]
