@@ -64,7 +64,7 @@ module AUCoreTestKit
       end
 
       def class_name
-        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title}MultipleOrSearchTest"
+        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title.capitalize}MultipleOrSearchTest"
       end
 
       def module_name
