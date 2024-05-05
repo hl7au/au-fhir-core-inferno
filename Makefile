@@ -33,3 +33,7 @@ down:
 
 rubocop:
 	docker compose run inferno rubocop
+
+clean_generated:
+	sudo rm -rf lib/au_core_test_kit/generated/
+	git checkout lib/au_core_test_kit/generated/

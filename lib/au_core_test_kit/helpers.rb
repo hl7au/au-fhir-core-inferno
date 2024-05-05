@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 
 module Helpers
+  def self.multiple_test_description(multiple_type, conformance_expectation, search_param_name_string, resource_type, url_version)
+    multiple_type_str = multiple_type == 'OR' ? 'multipleOr' : 'multipleAnd' 
+    <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
+    A server #{conformance_expectation} support searching by #{multiple_type_str}
+    #{search_param_name_string} on the #{resource_type} resource. This test
+    will pass if resources are returned and match the search criteria. If
+    none are returned, the test is skipped.
+
+    [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
+    DESCRIPTION
+  end
   def self.get_http_header(header_name, header_value)
     (header_name && header_value) ? {header_name => header_value} : {}
   end
+
   def self.extract_extensions_from_resource(resource, extensions = [])
     resource_hash = convert_resource_to_hash(resource)
     process_resource_element(resource_hash, extensions)

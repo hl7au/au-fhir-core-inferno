@@ -13,6 +13,8 @@ require_relative 'generator/reference_resolution_test_generator'
 require_relative 'generator/search_test_generator'
 require_relative 'generator/suite_generator'
 require_relative 'generator/validation_test_generator'
+require_relative 'generator/multiple_or_search_test_generator'
+require_relative 'generator/multiple_and_search_test_generator'
 
 module AUCoreTestKit
   class Generator
@@ -35,6 +37,8 @@ module AUCoreTestKit
       load_ig_package
       extract_metadata
       generate_search_tests
+      generate_multiple_or_search_tests
+      generate_multiple_and_search_tests
       generate_read_tests
       # TODO: generate_vread_tests
       # TODO: generate_history_tests
@@ -87,6 +91,14 @@ module AUCoreTestKit
 
     def generate_provenance_revinclude_search_tests
       ProvenanceRevincludeSearchTestGenerator.generate(ig_metadata, base_output_dir)
+    end
+
+    def generate_multiple_or_search_tests
+      MultipleOrSearchTestGenerator.generate(ig_metadata, base_output_dir)
+    end
+
+    def generate_multiple_and_search_tests
+      MultipleAndSearchTestGenerator.generate(ig_metadata, base_output_dir)
     end
 
     def generate_groups

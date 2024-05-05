@@ -24,6 +24,7 @@ module AUCoreTestKit
             type:,
             contains_multiple: contains_multiple?,
             multiple_or: multiple_or_expectation,
+            multiple_and: multiple_and_expectation,
             chain:
           }.compact
       end
@@ -170,12 +171,70 @@ module AUCoreTestKit
       end
 
       def multiple_or_expectation
+        # NOTE: Hard-coded values are used because the multipleOr attributes
+        # do not exist in the machine-readable files, but they do exist in the narrative.
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/61
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/63
+        case group_metadata[:resource]
+        when 'Procedure'
+          return 'SHALL' if param_hash['id'] == 'Procedure-status'
+          return 'SHOULD' if param_hash['id'] == 'clinical-code'
+        when 'Observation'
+          return 'SHALL' if param_hash['id'] == 'Observation-status'
+          return "SHOULD" if param_hash['id'] == 'clinical-code'
+        when 'MedicationRequest'
+          return 'SHALL' if param_hash['id'] == 'medications-status'
+          return 'SHOULD' if param_hash['id'] == 'MedicationRequest-intent'
+        when 'Immunization'
+          return 'SHOULD' if param_hash['id'] == 'Immunization-vaccine-code'
+        end
+
         return unless param_hash['_multipleOr']
 
-        param_hash['_multipleOr']['extension'].first['valueCode']
+        result = param_hash['_multipleOr']['extension'].first['valueCode']
+
+        result
+      end
+
+      def multiple_and_expectation
+        # NOTE: Hard-coded values are used because the multipleAnd attributes 
+        # do not exist in the machine-readable files, but they do exist in the narrative.
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/62
+        case group_metadata[:resource]
+        when 'Observation'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'Condition'
+          return 'SHOULD' if param_hash['id'] == 'Condition-onset-date'
+        when 'Encounter'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'Immunization'
+          return 'SHOULD' if param_hash['id'] == 'clinical-date'
+        when 'MedicationRequest'
+          return 'SHOULD' if param_hash['id'] == 'MedicationRequest-authoredon'
+        end
+        return unless param_hash['_multipleAnd']
+
+        param_hash['_multipleAnd']['extension'].first['valueCode']
       end
 
       def values
+        fixed_date_value = ['1950-01-01', '2050-01-01']
+        # NOTE: In the current step we don't need to check the correct content of the response.
+        # We should care about the correct structure of the request. In this current case we use dates just
+        # to check that server can make a response for the request.
+        case group_metadata[:resource]
+        when 'Observation'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
+        when 'Condition'
+          return fixed_date_value if param_hash['id'] == 'Condition-onset-date'
+        when 'Encounter'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
+        when 'Immunization'
+          return fixed_date_value if param_hash['id'] == 'clinical-date'
+        when 'MedicationRequest'
+          return fixed_date_value if param_hash['id'] == 'MedicationRequest-authoredon'
+        end
+        
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
         values_from_pattern_coding = value_extractor.values_from_pattern_coding(profile_element, type).presence
         merged_values = Array(values_from_fixed_codes) + Array(values_from_pattern_coding)

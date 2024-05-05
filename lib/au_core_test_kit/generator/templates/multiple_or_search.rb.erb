@@ -1,0 +1,39 @@
+require_relative '../../../search_test'
+require_relative '../../../generator/group_metadata'
+
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::Test
+      include AUCoreTestKit::SearchTest
+
+      title 'Server returns valid results for <%= resource_type %> multipleOr search by <%= search_param_name_string %>'
+      description %(<%= description %>)
+
+      id :<%= test_id %>
+      <% if optional? %>
+      optional
+      <% end %>
+      <% if needs_patient_id? %>
+      input :patient_ids,
+        title: 'Patient IDs',
+        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+      <% end %>
+      def self.properties
+        @properties ||= SearchTestProperties.new(<%= search_test_properties_string %>)
+      end
+
+      def self.metadata
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      run do
+        perform_multiple_or_search_test
+      end
+    end
+  end
+end
