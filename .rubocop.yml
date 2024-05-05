@@ -31,6 +31,8 @@ AllCops:
     - 'lib/au_core_test_kit/date_search_validation.rb'
     - 'lib/au_core_test_kit/custom_groups/v0.3.0-ballot/profile_support_test.rb'
     - 'lib/au_core_test_kit/generated/v0.3.0-ballot/au_core_test_suite.rb'
+    - 'lib/au_core_test_kit/generator/multiple_or_search_test_generator.rb'
+    - 'lib/au_core_test_kit/generator/multiple_and_search_test_generator.rb'
 Style/Documentation:
   Enabled: false
 Layout/LineLength:
