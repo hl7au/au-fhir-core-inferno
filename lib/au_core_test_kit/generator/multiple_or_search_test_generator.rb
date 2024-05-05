@@ -2,6 +2,7 @@
 
 require_relative 'naming'
 require_relative 'special_cases'
+require_relative '../helpers'
 
 module AUCoreTestKit
   class Generator
@@ -204,14 +205,7 @@ module AUCoreTestKit
       end
 
       def description
-        <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-          A server #{conformance_expectation} support searching by multipleOr
-          #{search_param_name_string} on the #{resource_type} resource. This test
-          will pass if resources are returned and match the search criteria. If
-          none are returned, the test is skipped.
-
-          [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
-        DESCRIPTION
+        Helpers.multiple_test_description('OR', conformance_expectation, search_param_name_string, resource_type, url_version)
       end
     end
   end
