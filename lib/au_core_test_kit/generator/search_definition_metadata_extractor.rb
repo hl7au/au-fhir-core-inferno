@@ -121,6 +121,9 @@ module AUCoreTestKit
       end
 
       def comparators
+        # NOTE: Hard-coded values are used because the comparator expectation 
+        # does not exist in the machine-readable files, but it does exist in the narrative.
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/48
         special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest]
         special_cases_comparators = %w[gt lt ge le]
         special_cases_param_ids = %w[clinical-date Condition-onset-date clinical-date MedicationRequest-authoredon]
