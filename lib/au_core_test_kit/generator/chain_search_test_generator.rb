@@ -88,7 +88,7 @@ module AUCoreTestKit
       end
 
       def conformance_expectation
-        search_metadata[:expectation]
+        chain_item[:expectation]
       end
 
       def search_param_names
@@ -111,7 +111,7 @@ module AUCoreTestKit
       end
 
       def optional?
-        conformance_expectation != 'SHALL' || !search_metadata[:must_support_or_mandatory]
+        conformance_expectation != 'SHALL'
       end
 
       def search_definition(name)
