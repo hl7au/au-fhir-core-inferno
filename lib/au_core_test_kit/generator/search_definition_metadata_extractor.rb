@@ -175,10 +175,11 @@ module AUCoreTestKit
 
       def chain
         return nil if param.chain.blank?
-
+        puts "param #{param.target.first}"
+        target = param.target.first
         param.chain
              .zip(chain_expectations)
-             .map { |chain, expectation| { chain:, expectation: } }
+             .map { |chain, expectation| { chain:, expectation:, target: } }
       end
 
       def multiple_or_expectation

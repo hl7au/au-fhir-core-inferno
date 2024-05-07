@@ -96,6 +96,22 @@ module AUCoreTestKit
       skip_if resources_returned.empty?, no_resources_skip_message
     end
 
+    def run_chain_search_test
+      search_param = search_param_names[0]
+      
+      skip_if search_param != "patient:Patient.identifier", chain_search_restriction(search_param)
+      
+      patient_id_list.each do |patient_id|
+        search_and_check_response(
+          { search_param => resolve_path(
+            fhir_read(
+              :patient, patient_id
+            )&.resource, 'identifier'
+          ).first.value }
+        )
+      end
+    end
+
     def perform_search(params, patient_id)
       fhir_search(resource_type, params:)
 
@@ -343,8 +359,8 @@ module AUCoreTestKit
     def default_search_values(param_name)
       definition = metadata.search_definitions[param_name]
       return [] if definition.blank?
-      
-      (definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD') ? [definition[:values].join(',')] : Array.wrap(definition[:values])
+
+      definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [definition[:values].join(',')] : Array.wrap(definition[:values])
     end
 
     def extract_existing_values_safety(resources_arr, keys_arr)
@@ -374,7 +390,6 @@ module AUCoreTestKit
 
         search_params = params_list.first
         existing_values = {}
-        missing_values = {}
         search_values = []
 
         search_param_names.each do |param_name|
@@ -391,7 +406,6 @@ module AUCoreTestKit
         next if existing_values.values.any?(&:empty?)
 
         resolved_one = true
-        
         search_and_check_response(search_params)
 
         break if resolved_one
@@ -549,10 +563,10 @@ module AUCoreTestKit
 
     def insufficient_number_of_values(values_to_search)
       main_message = "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
-      extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length > 0
-      
+      extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length.positive?
+
       "#{main_message} #{extra_message}"
-    end  
+    end
 
     def unable_to_resolve_params_message
       "Could not find values for all search params #{array_of_codes(search_param_names)}"
@@ -568,6 +582,10 @@ module AUCoreTestKit
       msg.concat(" with the following Device Type Code filter: #{implantable_device_codes}") if resource_type == 'Device' && implantable_device_codes.present?
 
       "#{msg}. Please use patients with more information"
+    end
+
+    def chain_search_restriction(search_parameter)
+      "I don't know how to run a chain search with this search parameter: #{search_parameter} (generator restrictions)."
     end
 
     def fetch_all_bundled_resources(

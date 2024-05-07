@@ -15,6 +15,7 @@ require_relative 'generator/suite_generator'
 require_relative 'generator/validation_test_generator'
 require_relative 'generator/multiple_or_search_test_generator'
 require_relative 'generator/multiple_and_search_test_generator'
+require_relative 'generator/chain_search_test_generator'
 
 module AUCoreTestKit
   class Generator
@@ -39,6 +40,7 @@ module AUCoreTestKit
       generate_search_tests
       generate_multiple_or_search_tests
       generate_multiple_and_search_tests
+      generate_chain_search_tests
       generate_read_tests
       # TODO: generate_vread_tests
       # TODO: generate_history_tests
@@ -99,6 +101,10 @@ module AUCoreTestKit
 
     def generate_multiple_and_search_tests
       MultipleAndSearchTestGenerator.generate(ig_metadata, base_output_dir)
+    end
+
+    def generate_chain_search_tests
+      ChainSearchTestGenerator.generate(ig_metadata, base_output_dir)
     end
 
     def generate_groups
