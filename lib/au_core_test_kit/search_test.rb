@@ -98,9 +98,9 @@ module AUCoreTestKit
 
     def run_chain_search_test
       search_param = search_param_names[0]
-      
-      skip_if search_param != "patient:Patient.identifier", chain_search_restriction(search_param)
-      
+
+      skip_if search_param != 'patient:Patient.identifier', chain_search_restriction(search_param)
+
       patient_id_list.each do |patient_id|
         search_and_check_response(
           { search_param => resolve_path(

@@ -14,14 +14,15 @@ module AUCoreTestKit
             group.search_definitions.each_key do |search_key|
               current_search_definition = group.search_definitions[search_key]
               next unless current_search_definition.key?(:chain) && current_search_definition[:chain].length.positive?
+
               current_search_definition[:chain].each do |chain_item|
                 new(
-                    search_key.to_s,
-                    group,
-                    group.search_definitions[search_key],
-                    base_output_dir,
-                    chain_item
-                  ).generate
+                  search_key.to_s,
+                  group,
+                  group.search_definitions[search_key],
+                  base_output_dir,
+                  chain_item
+                ).generate
               end
             end
           end
@@ -90,38 +91,23 @@ module AUCoreTestKit
         search_metadata[:expectation]
       end
 
-      def first_search?
-        group_metadata.searches.first == search_metadata
-      end
-
-      def fixed_value_search?
-        first_search? && search_metadata[:names] != ['patient'] &&
-          !group_metadata.delayed? && resource_type != 'Patient'
-      end
-
       def search_param_names
-        full_search_name = "#{search_name}:#{chain_item[:target]}.#{chain_item[:chain]}"
-        [full_search_name]
+        ["#{search_name}:#{chain_item[:target]}.#{chain_item[:chain]}"]
       end
 
       def search_param_names_array
         array_of_strings(search_param_names)
       end
 
-      def fixed_value_search_param_name
-        (search_metadata[:names] - [:patient]).first
-      end
-
       def search_param_name_string
         search_name
       end
 
-      def needs_patient_id?
-        true
-      end
-
-      def path_for_value(path)
-        path == 'class' ? 'local_class' : path
+      def search_properties
+        {}.tap do |properties|
+          properties[:resource_type] = "'#{resource_type}'"
+          properties[:search_param_names] = search_param_names_array
+        end
       end
 
       def optional?
@@ -132,32 +118,15 @@ module AUCoreTestKit
         group_metadata.search_definitions[name.to_sym]
       end
 
-      def saves_delayed_references?
-        first_search? && group_metadata.delayed_references.present?
-      end
-
       def array_of_strings(array)
         quoted_strings = array.map { |element| "'#{element}'" }
         "[#{quoted_strings.join(', ')}]"
       end
 
-      def test_reference_variants?
-        first_search? && search_param_names.include?('patient')
-      end
-
-      def test_post_search?
-        first_search?
-      end
-
-      def search_properties
-        {}.tap do |properties|
-          properties[:first_search] = 'true' if first_search?
-          properties[:fixed_value_search] = 'true' if fixed_value_search?
-          properties[:resource_type] = "'#{resource_type}'"
-          properties[:search_param_names] = search_param_names_array
-          properties[:saves_delayed_references] = 'true' if saves_delayed_references?
-          properties[:test_post_search] = 'true' if first_search?
-        end
+      def search_test_properties_string
+        search_properties
+          .map { |key, value| "#{' ' * 8}#{key}: #{value}" }
+          .join(",\n")
       end
 
       def url_version
@@ -165,12 +134,6 @@ module AUCoreTestKit
         when 'v0.3.0-ballot'
           '0.3.0-ballot'
         end
-      end
-
-      def search_test_properties_string
-        search_properties
-          .map { |key, value| "#{' ' * 8}#{key}: #{value}" }
-          .join(",\n")
       end
 
       def generate
@@ -187,8 +150,7 @@ module AUCoreTestKit
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
           A server #{conformance_expectation} support searching by
           #{search_param_name_string} on the #{resource_type} resource. This test
-          will pass if resources are returned and match the search criteria. If
-          none are returned, the test is skipped.
+          will pass if the server returns a success response to the request.
 
           [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
         DESCRIPTION
