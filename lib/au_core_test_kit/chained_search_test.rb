@@ -78,9 +78,9 @@ module AUCoreTestKit
     end
 
     def patient_id_list
-        return [nil] unless respond_to? :patient_ids
-  
-        patient_ids.split(',').map(&:strip)
+      return [nil] unless respond_to? :patient_ids
+
+      patient_ids.split(',').map(&:strip)
     end
   end
 end
