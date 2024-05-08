@@ -96,19 +96,50 @@ module AUCoreTestKit
       skip_if resources_returned.empty?, no_resources_skip_message
     end
 
-    def run_chain_search_test
-      search_param = search_param_names[0]
+    def extract_target_resource_from_chained_search_parameter(search_param)
+      search_param.split(':').second.split('.').first
+    end
 
-      skip_if search_param != 'patient:Patient.identifier', chain_search_restriction(search_param)
+    def get_resources_identifier(resources)
+      result = []
 
+      resources.each do |r|
+        r.identifier.each do |ident|
+          result << ident.value
+        end
+      end
+
+      result
+    end
+
+    def all_chain_identifier_values(_patiend_id_list, all_resources, chain_target)
+      result = []
       patient_id_list.each do |patient_id|
-        search_and_check_response(
-          { search_param => resolve_path(
-            fhir_read(
-              :patient, patient_id
-            )&.resource, 'identifier'
-          ).first.value }
-        )
+        all_patient_resources = all_resources[patient_id]
+        target_resources = all_patient_resources.filter { |r| r.resourceType == chain_target }
+        result << get_resources_identifier(target_resources)
+      end
+      result.flatten
+    end
+
+    def run_chain_search_test
+      run_chain_search_test_clean(
+        search_param_names[0],
+        patient_id_list,
+        scratch[:patient_resources]
+      )
+    end
+
+    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources)
+      all_values = all_chain_identifier_values(
+        patient_id_list, all_patients_resources,
+        extract_target_resource_from_chained_search_parameter(search_param)
+      )
+
+      skip_if !all_values.empty?, "I don't have values to perform search"
+
+      all_values.each do |val|
+        search_and_check_response({ search_param => val })
       end
     end
 
