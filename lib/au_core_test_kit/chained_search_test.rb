@@ -13,20 +13,7 @@ module AUCoreTestKit
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
                    :resource_type,
-                   :search_param_names,
-                   :saves_delayed_references?,
-                   :first_search?,
-                   :fixed_value_search?,
-                   :possible_status_search?,
-                   :test_medication_inclusion?,
-                   :test_post_search?,
-                   :token_search_params,
-                   :test_reference_variants?,
-                   :params_with_comparators,
-                   :multiple_or_search_params,
-                   :optional_multiple_or_search_params,
-                   :multiple_and_search_params,
-                   :optional_multiple_and_search_params
+                   :search_param_names
 
     def any_valid_search_params?(search_params)
       search_params.any? { |_patient_id, params| params.present? }
@@ -59,9 +46,6 @@ module AUCoreTestKit
     end
 
     def run_chain_search_test
-      if search_param_names[0] == 'practitioner:Practitioner.identifier'
-        puts "scratch[:patient_resources] #{scratch[:patient_resources]}"
-      end
       run_chain_search_test_clean(
         search_param_names[0],
         patient_id_list,
