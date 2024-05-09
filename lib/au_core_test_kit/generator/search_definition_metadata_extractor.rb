@@ -121,7 +121,7 @@ module AUCoreTestKit
       end
 
       def comparators
-        # NOTE: Hard-coded values are used because the comparator expectation 
+        # NOTE: Hard-coded values are used because the comparator expectation
         # does not exist in the machine-readable files, but it does exist in the narrative.
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/48
         special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest]
@@ -176,9 +176,10 @@ module AUCoreTestKit
       def chain
         return nil if param.chain.blank?
 
+        target = param.target.first
         param.chain
              .zip(chain_expectations)
-             .map { |chain, expectation| { chain:, expectation: } }
+             .map { |chain, expectation| { chain:, expectation:, target: } }
       end
 
       def multiple_or_expectation
