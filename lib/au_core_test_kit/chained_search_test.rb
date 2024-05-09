@@ -11,7 +11,8 @@ module AUCoreTestKit
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
                    :resource_type,
-                   :search_param_names
+                   :search_param_names,
+                   :attr_paths
 
     def extract_target_resource_from_chained_search_parameter(search_param)
       search_param.split(':').second.split('.').first
@@ -25,9 +26,12 @@ module AUCoreTestKit
 
     def all_chain_identifier_values(patient_id_list, all_resources, chain_target)
       patient_id_list.map do |patient_id|
-        get_resources_identifier(
+        resource_identifiers = get_resources_identifier(
           all_resources[patient_id].filter { |r| r.resourceType == chain_target }
         )
+        resource_identifiers.map do |identifier_value|
+          { patient_id:, identifier_value: }
+        end
       end.flatten
     end
 
@@ -35,19 +39,38 @@ module AUCoreTestKit
       run_chain_search_test_clean(
         search_param_names[0],
         patient_id_list,
-        scratch[:patient_resources]
+        scratch[:patient_resources],
+        attr_paths
       )
     end
 
-    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources)
-      all_values = all_chain_identifier_values(
-        patient_id_list, all_patients_resources,
+    def pick_identifier_to_test(patient_id_list, all_patients_resources, search_param)
+      all_chain_identifier_values(
+        patient_id_list,
+        all_patients_resources,
         extract_target_resource_from_chained_search_parameter(search_param)
-      )
+      ).sample
+    end
 
-      skip_if all_values.empty?, "I don't have values to perform search"
+    def assert_returned_resources_valid(resources_returned, identifier_to_test, attr_paths)
+      existing_values = resources_returned.map do |rr|
+        attr_paths.map do |attr_path|
+          resolve_path(rr, attr_path).first.reference.split('/').second
+        end
+      end.flatten.compact.uniq
 
-      search_and_check_response({ search_param => all_values.sample })
+      assert (existing_values.include? identifier_to_test[:patient_id]),
+             'There is no reference to the target resource in the returned results.'
+    end
+
+    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources, attr_paths)
+      identifier_to_test = pick_identifier_to_test(patient_id_list, all_patients_resources, search_param)
+
+      skip_if identifier_to_test.nil?, "I don't have values to perform search"
+
+      search_and_check_response({ search_param => identifier_to_test[:identifier_value] })
+
+      assert_returned_resources_valid(fetch_all_bundled_resources.select { |resource| resource.resourceType == resource_type }, identifier_to_test, attr_paths)
     end
   end
 end

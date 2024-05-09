@@ -107,7 +107,12 @@ module AUCoreTestKit
         {}.tap do |properties|
           properties[:resource_type] = "'#{resource_type}'"
           properties[:search_param_names] = search_param_names_array
+          properties[:attr_paths] = attribute_paths
         end
+      end
+
+      def attribute_paths
+        search_metadata[:paths]
       end
 
       def optional?
