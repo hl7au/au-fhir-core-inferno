@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'search_test_properties'
+require_relative 'search_test'
 
 module AUCoreTestKit
   module ChainedSearchTest
     extend Forwardable
+    include SearchTest
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
@@ -46,23 +48,6 @@ module AUCoreTestKit
       skip_if all_values.empty?, "I don't have values to perform search"
 
       search_and_check_response({ search_param => all_values.sample })
-    end
-
-    def search_and_check_response(params, resource_type = self.resource_type)
-      fhir_search(resource_type, params:)
-
-      check_search_response
-    end
-
-    def check_search_response
-      assert_response_status(200)
-      assert_resource_type(:bundle)
-    end
-
-    def patient_id_list
-      return [nil] unless respond_to? :patient_ids
-
-      patient_ids.split(',').map(&:strip)
     end
   end
 end
