@@ -6,6 +6,9 @@ require_relative 'practitioner_role/practitioner_role_identifier_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_search_test'
 require_relative 'practitioner_role/practitioner_role_specialty_search_test'
 require_relative 'practitioner_role/practitioner_role_organization_search_test'
+require_relative 'practitioner_role/practitioner_role_practitioner_multiple_or_search_test'
+require_relative 'practitioner_role/practitioner_role_practitioner_multiple_and_search_test'
+require_relative 'practitioner_role/practitioner_role_practitioner_chain_search_test'
 require_relative 'practitioner_role/practitioner_role_provenance_revinclude_search_test'
 require_relative 'practitioner_role/practitioner_role_validation_test'
 require_relative 'practitioner_role/practitioner_role_must_support_test'
@@ -89,6 +92,9 @@ read succeeds.
       test from: :au_core_v030_ballot_practitioner_role_practitioner_search_test
       test from: :au_core_v030_ballot_practitioner_role_specialty_search_test
       test from: :au_core_v030_ballot_practitioner_role_organization_search_test
+      test from: :au_core_v030_ballot_practitioner_role_practitioner_multiple_or_search_test
+      test from: :au_core_v030_ballot_practitioner_role_practitioner_multiple_and_search_test
+      test from: :au_core_v030_ballot_practitioner_role_practitioner_chain_search_test
       test from: :au_core_v030_ballot_practitioner_role_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_practitioner_role_validation_test
       test from: :au_core_v030_ballot_practitioner_role_must_support_test

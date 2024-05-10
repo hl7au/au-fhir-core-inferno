@@ -10,6 +10,10 @@ require_relative 'bloodpressure/bloodpressure_patient_category_search_test'
 require_relative 'bloodpressure/bloodpressure_patient_category_date_search_test'
 require_relative 'bloodpressure/bloodpressure_patient_category_status_search_test'
 require_relative 'bloodpressure/bloodpressure_patient_code_date_search_test'
+require_relative 'bloodpressure/bloodpressure_code_multiple_or_search_test'
+require_relative 'bloodpressure/bloodpressure_status_multiple_or_search_test'
+require_relative 'bloodpressure/bloodpressure_date_multiple_and_search_test'
+require_relative 'bloodpressure/bloodpressure_patient_chain_search_test'
 require_relative 'bloodpressure/bloodpressure_read_test'
 require_relative 'bloodpressure/bloodpressure_provenance_revinclude_search_test'
 require_relative 'bloodpressure/bloodpressure_validation_test'
@@ -100,6 +104,10 @@ read succeeds.
       test from: :au_core_v030_ballot_bloodpressure_patient_category_date_search_test
       test from: :au_core_v030_ballot_bloodpressure_patient_category_status_search_test
       test from: :au_core_v030_ballot_bloodpressure_patient_code_date_search_test
+      test from: :au_core_v030_ballot_bloodpressure_code_multiple_or_search_test
+      test from: :au_core_v030_ballot_bloodpressure_status_multiple_or_search_test
+      test from: :au_core_v030_ballot_bloodpressure_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_bloodpressure_patient_chain_search_test
       test from: :au_core_v030_ballot_bloodpressure_read_test
       test from: :au_core_v030_ballot_bloodpressure_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_bloodpressure_validation_test

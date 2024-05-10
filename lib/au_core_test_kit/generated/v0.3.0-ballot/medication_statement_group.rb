@@ -5,6 +5,7 @@ require_relative 'medication_statement/medication_statement_effective_search_tes
 require_relative 'medication_statement/medication_statement_status_search_test'
 require_relative 'medication_statement/medication_statement_patient_status_search_test'
 require_relative 'medication_statement/medication_statement_patient_effective_search_test'
+require_relative 'medication_statement/medication_statement_patient_chain_search_test'
 require_relative 'medication_statement/medication_statement_read_test'
 require_relative 'medication_statement/medication_statement_provenance_revinclude_search_test'
 require_relative 'medication_statement/medication_statement_validation_test'
@@ -87,6 +88,7 @@ read succeeds.
       test from: :au_core_v030_ballot_medication_statement_status_search_test
       test from: :au_core_v030_ballot_medication_statement_patient_status_search_test
       test from: :au_core_v030_ballot_medication_statement_patient_effective_search_test
+      test from: :au_core_v030_ballot_medication_statement_patient_chain_search_test
       test from: :au_core_v030_ballot_medication_statement_read_test
       test from: :au_core_v030_ballot_medication_statement_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_medication_statement_validation_test

@@ -14,6 +14,10 @@ require_relative 'encounter/encounter_patient_discharge_disposition_search_test'
 require_relative 'encounter/encounter_patient_location_search_test'
 require_relative 'encounter/encounter_patient_status_search_test'
 require_relative 'encounter/encounter_patient_type_search_test'
+require_relative 'encounter/encounter_discharge_disposition_multiple_or_search_test'
+require_relative 'encounter/encounter_date_multiple_and_search_test'
+require_relative 'encounter/encounter_discharge_disposition_multiple_and_search_test'
+require_relative 'encounter/encounter_patient_chain_search_test'
 require_relative 'encounter/encounter_read_test'
 require_relative 'encounter/encounter_provenance_revinclude_search_test'
 require_relative 'encounter/encounter_validation_test'
@@ -105,6 +109,10 @@ read succeeds.
       test from: :au_core_v030_ballot_encounter_patient_location_search_test
       test from: :au_core_v030_ballot_encounter_patient_status_search_test
       test from: :au_core_v030_ballot_encounter_patient_type_search_test
+      test from: :au_core_v030_ballot_encounter_discharge_disposition_multiple_or_search_test
+      test from: :au_core_v030_ballot_encounter_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_encounter_discharge_disposition_multiple_and_search_test
+      test from: :au_core_v030_ballot_encounter_patient_chain_search_test
       test from: :au_core_v030_ballot_encounter_read_test
       test from: :au_core_v030_ballot_encounter_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_encounter_validation_test

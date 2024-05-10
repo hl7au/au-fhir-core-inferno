@@ -106,9 +106,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params:
 - MedicationStatement:medication
 :revincludes:
@@ -218,6 +220,8 @@
   :file_name: medication_statement_patient_status_search_test.rb
 - :id: au_core_v030_ballot_medication_statement_patient_effective_search_test
   :file_name: medication_statement_patient_effective_search_test.rb
+- :id: au_core_v030_ballot_medication_statement_patient_chain_search_test
+  :file_name: medication_statement_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_medication_statement_read_test
   :file_name: medication_statement_read_test.rb
 - :id: au_core_v030_ballot_medication_statement_provenance_revinclude_search_test

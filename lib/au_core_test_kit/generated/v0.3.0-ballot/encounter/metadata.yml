@@ -125,16 +125,19 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values: []
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :discharge-disposition:
     :paths:
     - hospitalization.dischargeDisposition
@@ -145,6 +148,7 @@
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
   :identifier:
     :paths:
     - identifier
@@ -200,9 +204,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -343,6 +349,14 @@
   :file_name: encounter_patient_status_search_test.rb
 - :id: au_core_v030_ballot_encounter_patient_type_search_test
   :file_name: encounter_patient_type_search_test.rb
+- :id: au_core_v030_ballot_encounter_discharge_disposition_multiple_or_search_test
+  :file_name: encounter_discharge_disposition_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_encounter_date_multiple_and_search_test
+  :file_name: encounter_date_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_encounter_discharge_disposition_multiple_and_search_test
+  :file_name: encounter_discharge_disposition_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_encounter_patient_chain_search_test
+  :file_name: encounter_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_encounter_read_test
   :file_name: encounter_read_test.rb
 - :id: au_core_v030_ballot_encounter_provenance_revinclude_search_test

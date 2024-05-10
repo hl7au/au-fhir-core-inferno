@@ -10,6 +10,10 @@ require_relative 'diagnosticresult/diagnosticresult_patient_category_date_search
 require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_status_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_code_date_search_test'
+require_relative 'diagnosticresult/diagnosticresult_code_multiple_or_search_test'
+require_relative 'diagnosticresult/diagnosticresult_status_multiple_or_search_test'
+require_relative 'diagnosticresult/diagnosticresult_date_multiple_and_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_chain_search_test'
 require_relative 'diagnosticresult/diagnosticresult_read_test'
 require_relative 'diagnosticresult/diagnosticresult_provenance_revinclude_search_test'
 require_relative 'diagnosticresult/diagnosticresult_validation_test'
@@ -100,6 +104,10 @@ read succeeds.
       test from: :au_core_v030_ballot_diagnosticresult_patient_code_search_test
       test from: :au_core_v030_ballot_diagnosticresult_patient_category_status_search_test
       test from: :au_core_v030_ballot_diagnosticresult_patient_code_date_search_test
+      test from: :au_core_v030_ballot_diagnosticresult_code_multiple_or_search_test
+      test from: :au_core_v030_ballot_diagnosticresult_status_multiple_or_search_test
+      test from: :au_core_v030_ballot_diagnosticresult_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_diagnosticresult_patient_chain_search_test
       test from: :au_core_v030_ballot_diagnosticresult_read_test
       test from: :au_core_v030_ballot_diagnosticresult_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_diagnosticresult_validation_test

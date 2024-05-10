@@ -76,16 +76,19 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values: []
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :status:
     :paths:
     - status
@@ -107,6 +110,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
+    :multiple_or: SHOULD
   :patient:
     :paths:
     - patient
@@ -117,9 +121,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -236,6 +242,12 @@
   :file_name: immunization_patient_date_search_test.rb
 - :id: au_core_v030_ballot_immunization_patient_vaccine_code_search_test
   :file_name: immunization_patient_vaccine_code_search_test.rb
+- :id: au_core_v030_ballot_immunization_vaccine_code_multiple_or_search_test
+  :file_name: immunization_vaccine_code_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_immunization_date_multiple_and_search_test
+  :file_name: immunization_date_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_immunization_patient_chain_search_test
+  :file_name: immunization_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_immunization_read_test
   :file_name: immunization_read_test.rb
 - :id: au_core_v030_ballot_immunization_provenance_revinclude_search_test

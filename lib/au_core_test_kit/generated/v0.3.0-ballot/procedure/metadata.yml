@@ -81,6 +81,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
+    :multiple_or: SHOULD
   :date:
     :paths:
     - occurrenceDateTime
@@ -120,6 +121,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: SHALL
   :patient:
     :paths:
     - subject
@@ -130,9 +132,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -259,6 +263,12 @@
   :file_name: procedure_patient_code_date_search_test.rb
 - :id: au_core_v030_ballot_procedure_patient_status_search_test
   :file_name: procedure_patient_status_search_test.rb
+- :id: au_core_v030_ballot_procedure_code_multiple_or_search_test
+  :file_name: procedure_code_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_procedure_status_multiple_or_search_test
+  :file_name: procedure_status_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_procedure_patient_chain_search_test
+  :file_name: procedure_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_procedure_read_test
   :file_name: procedure_read_test.rb
 - :id: au_core_v030_ballot_procedure_provenance_revinclude_search_test

@@ -120,16 +120,19 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values: []
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
     :type: dateTime
     :contains_multiple: false
+    :multiple_and: SHOULD
   :intent:
     :paths:
     - intent
@@ -139,6 +142,7 @@
     :values: []
     :type: code
     :contains_multiple: false
+    :multiple_or: SHOULD
   :status:
     :paths:
     - status
@@ -156,6 +160,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: SHALL
   :patient:
     :paths:
     - subject
@@ -166,9 +171,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params:
 - MedicationRequest:medication
 :revincludes:
@@ -332,6 +339,14 @@
   :file_name: medication_request_patient_intent_status_search_test.rb
 - :id: au_core_v030_ballot_medication_request_patient_intent_authoredon_search_test
   :file_name: medication_request_patient_intent_authoredon_search_test.rb
+- :id: au_core_v030_ballot_medication_request_intent_multiple_or_search_test
+  :file_name: medication_request_intent_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_medication_request_status_multiple_or_search_test
+  :file_name: medication_request_status_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_medication_request_authoredon_multiple_and_search_test
+  :file_name: medication_request_authoredon_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_medication_request_patient_chain_search_test
+  :file_name: medication_request_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_medication_request_read_test
   :file_name: medication_request_read_test.rb
 - :id: au_core_v030_ballot_medication_request_provenance_revinclude_search_test
