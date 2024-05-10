@@ -1,39 +1,48 @@
-setup:
-	docker compose pull
-	docker compose build
-	docker compose run inferno bundle exec rake db:migrate
+compose = docker compose
+inferno = run inferno
+
+.PHONY: setup generate summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
+
+setup: pull build migrate
 
 generate:
-	docker compose run inferno bundle exec rake au_core:generate
-	docker compose run inferno rubocop -A lib/au_core_test_kit/generated/
+	$(compose) $(inferno) bundle exec rake au_core:generate
+	$(compose) $(inferno) rubocop -A lib/au_core_test_kit/
 
-summary:
-	docker compose build
-	docker compose run inferno ruby lib/au_core_test_kit/generator/summary_generator.rb
+summary: build
+	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
 
-new_release:
-	docker compose build
-	docker compose run inferno ruby lib/au_core_test_kit/generator/ig_download.rb
-	docker compose run inferno bundle exec rake au_core:generate
-	docker compose run inferno rubocop -A lib/au_core_test_kit/generated/
-	docker compose run inferno ruby lib/au_core_test_kit/generator/summary_generator.rb
+new_release: build ig_download generate summary
 
 tests:
-	docker compose run -e APP_ENV=test inferno bundle exec rspec
+	$(compose) run -e APP_ENV=test $(inferno) bundle exec rspec
 
-run:
-	docker compose build
-	docker compose up
+run: build up
+
+pull:
+	$(compose) pull
+
+build:
+	$(compose) build
+
+up:
+	$(compose) up
 
 stop:
-	docker compose stop
+	$(compose) stop
 
 down:
-	docker compose down
+	$(compose) down
 
 rubocop:
-	docker compose run inferno rubocop
+	$(compose) $(inferno) rubocop
+
+migrate:
+	$(compose) $(inferno) bundle exec rake db:migrate
 
 clean_generated:
 	sudo rm -rf lib/au_core_test_kit/generated/
 	git checkout lib/au_core_test_kit/generated/
+
+ig_download:
+	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/ig_download.rb
