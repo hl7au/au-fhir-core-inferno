@@ -10,6 +10,10 @@ require_relative 'bodyheight/bodyheight_patient_category_search_test'
 require_relative 'bodyheight/bodyheight_patient_category_date_search_test'
 require_relative 'bodyheight/bodyheight_patient_category_status_search_test'
 require_relative 'bodyheight/bodyheight_patient_code_date_search_test'
+require_relative 'bodyheight/bodyheight_code_multiple_or_search_test'
+require_relative 'bodyheight/bodyheight_status_multiple_or_search_test'
+require_relative 'bodyheight/bodyheight_date_multiple_and_search_test'
+require_relative 'bodyheight/bodyheight_patient_chain_search_test'
 require_relative 'bodyheight/bodyheight_read_test'
 require_relative 'bodyheight/bodyheight_provenance_revinclude_search_test'
 require_relative 'bodyheight/bodyheight_validation_test'
@@ -100,6 +104,10 @@ read succeeds.
       test from: :au_core_v030_ballot_bodyheight_patient_category_date_search_test
       test from: :au_core_v030_ballot_bodyheight_patient_category_status_search_test
       test from: :au_core_v030_ballot_bodyheight_patient_code_date_search_test
+      test from: :au_core_v030_ballot_bodyheight_code_multiple_or_search_test
+      test from: :au_core_v030_ballot_bodyheight_status_multiple_or_search_test
+      test from: :au_core_v030_ballot_bodyheight_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_bodyheight_patient_chain_search_test
       test from: :au_core_v030_ballot_bodyheight_read_test
       test from: :au_core_v030_ballot_bodyheight_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_bodyheight_validation_test

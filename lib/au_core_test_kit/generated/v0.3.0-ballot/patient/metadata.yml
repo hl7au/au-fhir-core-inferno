@@ -154,6 +154,7 @@
     :type: token
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
   :identifier:
     :paths:
     - identifier
@@ -182,6 +183,7 @@
     :type: token
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -280,6 +282,14 @@
   :file_name: patient_family_gender_search_test.rb
 - :id: au_core_v030_ballot_patient_gender_name_search_test
   :file_name: patient_gender_name_search_test.rb
+- :id: au_core_v030_ballot_patient_indigenous_status_multiple_or_search_test
+  :file_name: patient_indigenous_status_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_patient_patient_gender_identity_multiple_or_search_test
+  :file_name: patient_patient_gender_identity_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_patient_indigenous_status_multiple_and_search_test
+  :file_name: patient_indigenous_status_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_patient_patient_gender_identity_multiple_and_search_test
+  :file_name: patient_patient_gender_identity_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_patient_read_test
   :file_name: patient_read_test.rb
 - :id: au_core_v030_ballot_patient_provenance_revinclude_search_test

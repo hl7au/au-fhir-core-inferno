@@ -131,16 +131,19 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values: []
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :patient:
     :paths:
     - subject
@@ -151,9 +154,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -249,6 +254,10 @@
   :file_name: condition_patient_code_search_test.rb
 - :id: au_core_v030_ballot_condition_patient_onset_date_search_test
   :file_name: condition_patient_onset_date_search_test.rb
+- :id: au_core_v030_ballot_condition_onset_date_multiple_and_search_test
+  :file_name: condition_onset_date_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_condition_patient_chain_search_test
+  :file_name: condition_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_condition_read_test
   :file_name: condition_read_test.rb
 - :id: au_core_v030_ballot_condition_provenance_revinclude_search_test

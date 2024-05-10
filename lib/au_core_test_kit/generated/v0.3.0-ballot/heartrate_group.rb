@@ -10,6 +10,10 @@ require_relative 'heartrate/heartrate_patient_category_search_test'
 require_relative 'heartrate/heartrate_patient_category_date_search_test'
 require_relative 'heartrate/heartrate_patient_category_status_search_test'
 require_relative 'heartrate/heartrate_patient_code_date_search_test'
+require_relative 'heartrate/heartrate_code_multiple_or_search_test'
+require_relative 'heartrate/heartrate_status_multiple_or_search_test'
+require_relative 'heartrate/heartrate_date_multiple_and_search_test'
+require_relative 'heartrate/heartrate_patient_chain_search_test'
 require_relative 'heartrate/heartrate_read_test'
 require_relative 'heartrate/heartrate_provenance_revinclude_search_test'
 require_relative 'heartrate/heartrate_validation_test'
@@ -100,6 +104,10 @@ read succeeds.
       test from: :au_core_v030_ballot_heartrate_patient_category_date_search_test
       test from: :au_core_v030_ballot_heartrate_patient_category_status_search_test
       test from: :au_core_v030_ballot_heartrate_patient_code_date_search_test
+      test from: :au_core_v030_ballot_heartrate_code_multiple_or_search_test
+      test from: :au_core_v030_ballot_heartrate_status_multiple_or_search_test
+      test from: :au_core_v030_ballot_heartrate_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_heartrate_patient_chain_search_test
       test from: :au_core_v030_ballot_heartrate_read_test
       test from: :au_core_v030_ballot_heartrate_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_heartrate_validation_test

@@ -32,7 +32,8 @@ none are returned, the test is skipped.
           resource_type: 'Observation',
           search_param_names: %w[patient code date],
           possible_status_search: true,
-          token_search_params: ['code']
+          token_search_params: ['code'],
+          params_with_comparators: ['date']
         )
       end
 

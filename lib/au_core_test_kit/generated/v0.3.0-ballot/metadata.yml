@@ -114,6 +114,7 @@
       - '27113001'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -128,16 +129,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -155,6 +159,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -165,9 +170,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: &1 []
   :revincludes: &2
   - Provenance:target
@@ -423,6 +430,7 @@
       - '75367002'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -437,16 +445,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -464,6 +475,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -474,9 +486,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -761,6 +775,7 @@
       - '50373000'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -775,16 +790,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -802,6 +820,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -812,9 +831,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1067,6 +1088,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -1081,16 +1103,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -1108,6 +1133,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -1118,9 +1144,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1349,6 +1377,7 @@
       - '386725007'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -1363,16 +1392,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -1390,6 +1422,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -1400,9 +1433,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1657,6 +1692,7 @@
       - '364075005'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -1671,16 +1707,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -1698,6 +1737,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -1708,9 +1748,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -1962,6 +2004,7 @@
       - '276361009'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -1976,16 +2019,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -2003,6 +2049,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -2013,9 +2060,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2265,6 +2314,7 @@
       - '86290005'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -2279,16 +2329,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -2306,6 +2359,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -2316,9 +2370,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2567,6 +2623,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -2581,16 +2638,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -2608,6 +2668,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -2618,9 +2679,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -2838,6 +2901,7 @@
       - '266918002'
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - effectiveDateTime
@@ -2852,16 +2916,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -2879,6 +2946,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -2889,9 +2957,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: *1
   :revincludes: *2
   :required_concepts: []
@@ -3057,9 +3127,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3283,16 +3355,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :patient:
       :paths:
       - subject
@@ -3303,9 +3378,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3515,16 +3592,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :discharge-disposition:
       :paths:
       - hospitalization.dischargeDisposition
@@ -3535,6 +3615,7 @@
       :type: CodeableConcept
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
     :identifier:
       :paths:
       - identifier
@@ -3590,9 +3671,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -3792,16 +3875,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -3823,6 +3909,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :patient:
       :paths:
       - patient
@@ -3833,9 +3920,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -4319,16 +4408,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - '1950-01-01'
+      - '2050-01-01'
       :type: dateTime
       :contains_multiple: false
+      :multiple_and: SHOULD
     :intent:
       :paths:
       - intent
@@ -4338,6 +4430,7 @@
       :values: []
       :type: code
       :contains_multiple: false
+      :multiple_or: SHOULD
     :status:
       :paths:
       - status
@@ -4355,6 +4448,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -4365,9 +4459,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params:
   - MedicationRequest:medication
   :revincludes:
@@ -4626,9 +4722,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params:
   - MedicationStatement:medication
   :revincludes:
@@ -5007,6 +5105,7 @@
       :type: token
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
     :identifier:
       :paths:
       - identifier
@@ -5035,6 +5134,7 @@
       :type: token
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
   :include_params: []
   :revincludes:
   - Provenance:target
@@ -5300,9 +5400,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Practitioner
     :specialty:
       :paths:
       - specialty
@@ -5465,6 +5567,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - occurrenceDateTime
@@ -5504,6 +5607,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -5514,9 +5618,11 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+      :multiple_and: MAY
       :chain:
       - :chain: identifier
         :expectation: SHOULD
+        :target: Patient
   :include_params: []
   :revincludes:
   - Provenance:target

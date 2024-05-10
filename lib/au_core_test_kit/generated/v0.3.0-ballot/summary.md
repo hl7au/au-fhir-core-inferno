@@ -1,4 +1,4 @@
-# 1 AU Core v0.3.0-ballot
+# 2 AU Core v0.3.0-ballot
 
 
 ## 1.1 Capability Statement
@@ -82,7 +82,7 @@ The AU Core Implementation Guide states: ``` The AU Core Server SHALL: 1. Suppor
 
 
 
-## 1.2 Patient Tests
+## 2.2 Patient Tests
 
 <details>
 
@@ -112,7 +112,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.2.1 Server returns valid results for Patient search by _id
+#### 2.2.1 Server returns valid results for Patient search by _id
 <details>
 
 <summary>Show details</summary>
@@ -157,7 +157,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.2 Server returns valid results for Patient search by birthdate
+#### 2.2.2 Server returns valid results for Patient search by birthdate
 <details>
 
 <summary>Show details</summary>
@@ -194,7 +194,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.3 Server returns valid results for Patient search by family
+#### 2.2.3 Server returns valid results for Patient search by family
 <details>
 
 <summary>Show details</summary>
@@ -231,7 +231,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.4 Server returns valid results for Patient search by gender
+#### 2.2.4 Server returns valid results for Patient search by gender
 <details>
 
 <summary>Show details</summary>
@@ -268,7 +268,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.5 Server returns valid results for Patient search by indigenous-status
+#### 2.2.5 Server returns valid results for Patient search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -305,7 +305,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.6 Server returns valid results for Patient search by identifier
+#### 2.2.6 Server returns valid results for Patient search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -342,7 +342,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.7 Server returns valid results for Patient search by name
+#### 2.2.7 Server returns valid results for Patient search by name
 <details>
 
 <summary>Show details</summary>
@@ -379,7 +379,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.8 Server returns valid results for Patient search by patient-gender-identity
+#### 2.2.8 Server returns valid results for Patient search by patient-gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -416,7 +416,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.9 Server returns valid results for Patient search by birthdate + family
+#### 2.2.9 Server returns valid results for Patient search by birthdate + family
 <details>
 
 <summary>Show details</summary>
@@ -435,7 +435,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Patient?birthdate={birthdate}&family={family} HTTP/1.1
+GET /Patient?birthdate family={birthdate family} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -444,7 +444,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Patient?birthdate={birthdate}&family={family}
+{test endpoint}/Patient?birthdate family={birthdate family}
 ```
 
 
@@ -453,7 +453,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.10 Server returns valid results for Patient search by birthdate + name
+#### 2.2.10 Server returns valid results for Patient search by birthdate + name
 <details>
 
 <summary>Show details</summary>
@@ -472,7 +472,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Patient?birthdate={birthdate}&name={name} HTTP/1.1
+GET /Patient?birthdate name={birthdate name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -481,7 +481,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Patient?birthdate={birthdate}&name={name}
+{test endpoint}/Patient?birthdate name={birthdate name}
 ```
 
 
@@ -490,7 +490,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.11 Server returns valid results for Patient search by family + gender
+#### 2.2.11 Server returns valid results for Patient search by family + gender
 <details>
 
 <summary>Show details</summary>
@@ -509,7 +509,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Patient?family={family}&gender={gender} HTTP/1.1
+GET /Patient?family gender={family gender} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -518,7 +518,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Patient?family={family}&gender={gender}
+{test endpoint}/Patient?family gender={family gender}
 ```
 
 
@@ -527,7 +527,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.12 Server returns valid results for Patient search by gender + name
+#### 2.2.12 Server returns valid results for Patient search by gender + name
 <details>
 
 <summary>Show details</summary>
@@ -546,7 +546,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Patient?gender={gender}&name={name} HTTP/1.1
+GET /Patient?gender name={gender name} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -555,7 +555,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Patient?gender={gender}&name={name}
+{test endpoint}/Patient?gender name={gender name}
 ```
 
 
@@ -564,7 +564,155 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.13 Server returns correct Patient resource from Patient read interaction
+#### 2.2.13 Server returns valid results for Patient multipleOr search by indigenous-status
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+indigenous-status on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?indigenous-status={indigenous-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?indigenous-status={indigenous-status}
+```
+
+
+
+</details>
+
+
+
+#### 2.2.14 Server returns valid results for Patient multipleOr search by patient-gender-identity
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+patient-gender-identity on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?patient-gender-identity={patient-gender-identity} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?patient-gender-identity={patient-gender-identity}
+```
+
+
+
+</details>
+
+
+
+#### 2.2.15 Server returns valid results for Patient multipleAnd search by indigenous-status
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+indigenous-status on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?indigenous-status={indigenous-status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?indigenous-status={indigenous-status}
+```
+
+
+
+</details>
+
+
+
+#### 2.2.16 Server returns valid results for Patient multipleAnd search by patient-gender-identity
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+patient-gender-identity on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?patient-gender-identity={patient-gender-identity} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?patient-gender-identity={patient-gender-identity}
+```
+
+
+
+</details>
+
+
+
+#### 2.2.17 Server returns correct Patient resource from Patient read interaction
 <details>
 
 <summary>Show details</summary>
@@ -577,7 +725,7 @@ A server SHALL support the Patient read interaction.
 
 
 
-#### 1.2.14 Server returns Provenance resources from Patient search by _id + revInclude:Provenance:target
+#### 2.2.18 Server returns Provenance resources from Patient search by _id + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -613,7 +761,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.15 Patient resources returned during previous tests conform to the AU Core Patient
+#### 2.2.19 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 
 <summary>Show details</summary>
@@ -627,7 +775,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 
 
 
-#### 1.2.16 All must support elements are provided in the Patient resources returned
+#### 2.2.20 All must support elements are provided in the Patient resources returned
 <details>
 
 <summary>Show details</summary>
@@ -661,7 +809,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-## 1.3 Observation Body Weight Tests
+## 2.3 Observation Body Weight Tests
 
 <details>
 
@@ -694,7 +842,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.3.1 Server returns valid results for Observation search by patient + code
+#### 2.3.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -726,7 +874,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -735,7 +883,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -744,7 +892,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.2 Server returns valid results for Observation search by category
+#### 2.3.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -781,7 +929,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.3 Server returns valid results for Observation search by code
+#### 2.3.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -818,7 +966,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.4 Server returns valid results for Observation search by date
+#### 2.3.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -855,7 +1003,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.5 Server returns valid results for Observation search by status
+#### 2.3.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -892,7 +1040,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.6 Server returns valid results for Observation search by patient
+#### 2.3.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -929,7 +1077,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.7 Server returns valid results for Observation search by patient + category
+#### 2.3.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -948,7 +1096,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -957,7 +1105,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -966,7 +1114,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.8 Server returns valid results for Observation search by patient + category + date
+#### 2.3.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -985,7 +1133,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -994,7 +1142,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -1003,7 +1151,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.9 Server returns valid results for Observation search by patient + category + status
+#### 2.3.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -1022,7 +1170,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1031,7 +1179,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -1040,7 +1188,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.10 Server returns valid results for Observation search by patient + code + date
+#### 2.3.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -1059,7 +1207,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1068,7 +1216,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -1077,7 +1225,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.11 Server returns correct Observation resource from Observation read interaction
+#### 2.3.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.3.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.3.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.3.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.3.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -1090,7 +1385,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.3.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.3.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -1108,7 +1403,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1117,7 +1412,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -1126,7 +1421,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.13 Observation resources returned during previous tests conform to the AU Core Body Weight
+#### 2.3.17 Observation resources returned during previous tests conform to the AU Core Body Weight
 <details>
 
 <summary>Show details</summary>
@@ -1140,7 +1435,7 @@ the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.3.14 All must support elements are provided in the Observation resources returned
+#### 2.3.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1174,7 +1469,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.3.15 MustSupport references within Observation resources are valid
+#### 2.3.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -1197,7 +1492,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.4 Observation Blood Pressure Tests
+## 2.4 Observation Blood Pressure Tests
 
 <details>
 
@@ -1230,7 +1525,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.4.1 Server returns valid results for Observation search by patient + code
+#### 2.4.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -1262,7 +1557,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1271,7 +1566,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -1280,7 +1575,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.2 Server returns valid results for Observation search by category
+#### 2.4.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -1317,7 +1612,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.3 Server returns valid results for Observation search by code
+#### 2.4.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -1354,7 +1649,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.4 Server returns valid results for Observation search by date
+#### 2.4.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -1391,7 +1686,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.5 Server returns valid results for Observation search by status
+#### 2.4.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -1428,7 +1723,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.6 Server returns valid results for Observation search by patient
+#### 2.4.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -1465,7 +1760,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.7 Server returns valid results for Observation search by patient + category
+#### 2.4.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -1484,7 +1779,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1493,7 +1788,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -1502,7 +1797,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.8 Server returns valid results for Observation search by patient + category + date
+#### 2.4.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -1521,7 +1816,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1530,7 +1825,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -1539,7 +1834,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.9 Server returns valid results for Observation search by patient + category + status
+#### 2.4.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -1558,7 +1853,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1567,7 +1862,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -1576,7 +1871,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.10 Server returns valid results for Observation search by patient + code + date
+#### 2.4.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -1595,7 +1890,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1604,7 +1899,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -1613,7 +1908,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.11 Server returns correct Observation resource from Observation read interaction
+#### 2.4.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.4.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.4.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.4.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.4.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -1626,7 +2068,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.4.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.4.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -1644,7 +2086,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1653,7 +2095,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -1662,7 +2104,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.13 Observation resources returned during previous tests conform to the AU Core Blood Pressure
+#### 2.4.17 Observation resources returned during previous tests conform to the AU Core Blood Pressure
 <details>
 
 <summary>Show details</summary>
@@ -1676,7 +2118,7 @@ the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.4.14 All must support elements are provided in the Observation resources returned
+#### 2.4.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1724,7 +2166,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.4.15 MustSupport references within Observation resources are valid
+#### 2.4.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -1747,7 +2189,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.5 Observation Body Height Tests
+## 2.5 Observation Body Height Tests
 
 <details>
 
@@ -1780,7 +2222,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.5.1 Server returns valid results for Observation search by patient + code
+#### 2.5.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -1812,7 +2254,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -1821,7 +2263,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -1830,7 +2272,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.2 Server returns valid results for Observation search by category
+#### 2.5.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -1867,7 +2309,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.3 Server returns valid results for Observation search by code
+#### 2.5.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -1904,7 +2346,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.4 Server returns valid results for Observation search by date
+#### 2.5.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -1941,7 +2383,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.5 Server returns valid results for Observation search by status
+#### 2.5.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -1978,7 +2420,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.6 Server returns valid results for Observation search by patient
+#### 2.5.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -2015,7 +2457,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.7 Server returns valid results for Observation search by patient + category
+#### 2.5.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -2034,7 +2476,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2043,7 +2485,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -2052,7 +2494,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.8 Server returns valid results for Observation search by patient + category + date
+#### 2.5.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -2071,7 +2513,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2080,7 +2522,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -2089,7 +2531,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.9 Server returns valid results for Observation search by patient + category + status
+#### 2.5.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -2108,7 +2550,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2117,7 +2559,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -2126,7 +2568,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.10 Server returns valid results for Observation search by patient + code + date
+#### 2.5.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -2145,7 +2587,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2154,7 +2596,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -2163,7 +2605,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.11 Server returns correct Observation resource from Observation read interaction
+#### 2.5.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.5.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.5.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.5.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.5.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -2176,7 +2765,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.5.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.5.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -2194,7 +2783,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2203,7 +2792,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -2212,7 +2801,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.13 Observation resources returned during previous tests conform to the AU Core Body Height
+#### 2.5.17 Observation resources returned during previous tests conform to the AU Core Body Height
 <details>
 
 <summary>Show details</summary>
@@ -2226,7 +2815,7 @@ the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.5.14 All must support elements are provided in the Observation resources returned
+#### 2.5.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2260,7 +2849,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.5.15 MustSupport references within Observation resources are valid
+#### 2.5.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -2283,7 +2872,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.6 Observation Pathology Result Tests
+## 2.6 Observation Pathology Result Tests
 
 <details>
 
@@ -2316,7 +2905,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.6.1 Server returns valid results for Observation search by patient + category
+#### 2.6.1 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -2348,7 +2937,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2357,7 +2946,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -2366,7 +2955,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.2 Server returns valid results for Observation search by category
+#### 2.6.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -2403,7 +2992,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.3 Server returns valid results for Observation search by code
+#### 2.6.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -2440,7 +3029,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.4 Server returns valid results for Observation search by date
+#### 2.6.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -2477,7 +3066,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.5 Server returns valid results for Observation search by status
+#### 2.6.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -2514,7 +3103,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.6 Server returns valid results for Observation search by patient
+#### 2.6.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -2551,7 +3140,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.7 Server returns valid results for Observation search by patient + category + date
+#### 2.6.7 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -2570,7 +3159,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2579,7 +3168,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -2588,7 +3177,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.8 Server returns valid results for Observation search by patient + code
+#### 2.6.8 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -2607,7 +3196,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2616,7 +3205,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -2625,7 +3214,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.9 Server returns valid results for Observation search by patient + category + status
+#### 2.6.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -2644,7 +3233,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2653,7 +3242,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -2662,7 +3251,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.10 Server returns valid results for Observation search by patient + code + date
+#### 2.6.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -2681,7 +3270,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2690,7 +3279,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -2699,7 +3288,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.11 Server returns correct Observation resource from Observation read interaction
+#### 2.6.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.6.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.6.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.6.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.6.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -2712,7 +3448,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.6.12 Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target
+#### 2.6.16 Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -2730,7 +3466,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2739,7 +3475,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -2748,7 +3484,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.13 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
+#### 2.6.17 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -2762,7 +3498,7 @@ the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/Structure
 
 
 
-#### 1.6.14 All must support elements are provided in the Observation resources returned
+#### 2.6.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2799,7 +3535,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.6.15 MustSupport references within Observation resources are valid
+#### 2.6.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -2823,7 +3559,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.7 Observation Body Temperature Tests
+## 2.7 Observation Body Temperature Tests
 
 <details>
 
@@ -2856,7 +3592,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.7.1 Server returns valid results for Observation search by patient + code
+#### 2.7.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -2888,7 +3624,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -2897,7 +3633,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -2906,7 +3642,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.2 Server returns valid results for Observation search by category
+#### 2.7.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -2943,7 +3679,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.3 Server returns valid results for Observation search by code
+#### 2.7.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -2980,7 +3716,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.4 Server returns valid results for Observation search by date
+#### 2.7.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -3017,7 +3753,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.5 Server returns valid results for Observation search by status
+#### 2.7.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -3054,7 +3790,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.6 Server returns valid results for Observation search by patient
+#### 2.7.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -3091,7 +3827,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.7 Server returns valid results for Observation search by patient + category
+#### 2.7.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -3110,7 +3846,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3119,7 +3855,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -3128,7 +3864,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.8 Server returns valid results for Observation search by patient + category + date
+#### 2.7.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -3147,7 +3883,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3156,7 +3892,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -3165,7 +3901,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.9 Server returns valid results for Observation search by patient + category + status
+#### 2.7.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -3184,7 +3920,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3193,7 +3929,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -3202,7 +3938,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.10 Server returns valid results for Observation search by patient + code + date
+#### 2.7.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -3221,7 +3957,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3230,7 +3966,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -3239,7 +3975,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.11 Server returns correct Observation resource from Observation read interaction
+#### 2.7.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.7.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.7.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.7.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.7.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3252,7 +4135,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.7.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.7.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -3270,7 +4153,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3279,7 +4162,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -3288,7 +4171,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.13 Observation resources returned during previous tests conform to the AU Core Body Temperature
+#### 2.7.17 Observation resources returned during previous tests conform to the AU Core Body Temperature
 <details>
 
 <summary>Show details</summary>
@@ -3302,7 +4185,7 @@ the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.7.14 All must support elements are provided in the Observation resources returned
+#### 2.7.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -3336,7 +4219,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.7.15 MustSupport references within Observation resources are valid
+#### 2.7.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -3359,7 +4242,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.8 Observation Heart Rate Tests
+## 2.8 Observation Heart Rate Tests
 
 <details>
 
@@ -3392,7 +4275,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.8.1 Server returns valid results for Observation search by patient + code
+#### 2.8.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -3424,7 +4307,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3433,7 +4316,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -3442,7 +4325,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.2 Server returns valid results for Observation search by category
+#### 2.8.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -3479,7 +4362,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.3 Server returns valid results for Observation search by code
+#### 2.8.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -3516,7 +4399,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.4 Server returns valid results for Observation search by date
+#### 2.8.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -3553,7 +4436,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.5 Server returns valid results for Observation search by status
+#### 2.8.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -3590,7 +4473,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.6 Server returns valid results for Observation search by patient
+#### 2.8.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -3627,7 +4510,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.7 Server returns valid results for Observation search by patient + category
+#### 2.8.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -3646,7 +4529,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3655,7 +4538,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -3664,7 +4547,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.8 Server returns valid results for Observation search by patient + category + date
+#### 2.8.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -3683,7 +4566,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3692,7 +4575,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -3701,7 +4584,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.9 Server returns valid results for Observation search by patient + category + status
+#### 2.8.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -3720,7 +4603,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3729,7 +4612,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -3738,7 +4621,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.10 Server returns valid results for Observation search by patient + code + date
+#### 2.8.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -3757,7 +4640,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3766,7 +4649,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -3775,7 +4658,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.11 Server returns correct Observation resource from Observation read interaction
+#### 2.8.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.8.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.8.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.8.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.8.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3788,7 +4818,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.8.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.8.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -3806,7 +4836,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3815,7 +4845,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -3824,7 +4854,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.13 Observation resources returned during previous tests conform to the AU Core Heart Rate
+#### 2.8.17 Observation resources returned during previous tests conform to the AU Core Heart Rate
 <details>
 
 <summary>Show details</summary>
@@ -3838,7 +4868,7 @@ the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.8.14 All must support elements are provided in the Observation resources returned
+#### 2.8.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -3872,7 +4902,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.8.15 MustSupport references within Observation resources are valid
+#### 2.8.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -3895,7 +4925,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.9 Observation Waist Circumference Tests
+## 2.9 Observation Waist Circumference Tests
 
 <details>
 
@@ -3928,7 +4958,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.9.1 Server returns valid results for Observation search by patient + code
+#### 2.9.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -3960,7 +4990,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -3969,7 +4999,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -3978,7 +5008,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.2 Server returns valid results for Observation search by category
+#### 2.9.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -4015,7 +5045,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.3 Server returns valid results for Observation search by code
+#### 2.9.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -4052,7 +5082,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.4 Server returns valid results for Observation search by date
+#### 2.9.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -4089,7 +5119,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.5 Server returns valid results for Observation search by status
+#### 2.9.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -4126,7 +5156,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.6 Server returns valid results for Observation search by patient
+#### 2.9.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -4163,7 +5193,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.7 Server returns valid results for Observation search by patient + category
+#### 2.9.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -4182,7 +5212,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4191,7 +5221,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -4200,7 +5230,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.8 Server returns valid results for Observation search by patient + category + date
+#### 2.9.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -4219,7 +5249,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4228,7 +5258,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -4237,7 +5267,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.9 Server returns valid results for Observation search by patient + category + status
+#### 2.9.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -4256,7 +5286,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4265,7 +5295,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -4274,7 +5304,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.10 Server returns valid results for Observation search by patient + code + date
+#### 2.9.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -4293,7 +5323,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4302,7 +5332,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -4311,7 +5341,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.11 Server returns correct Observation resource from Observation read interaction
+#### 2.9.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.9.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.9.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.9.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.9.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -4324,7 +5501,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.9.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.9.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -4342,7 +5519,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4351,7 +5528,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -4360,7 +5537,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.13 Observation resources returned during previous tests conform to the AU Core Waist Circumference
+#### 2.9.17 Observation resources returned during previous tests conform to the AU Core Waist Circumference
 <details>
 
 <summary>Show details</summary>
@@ -4374,7 +5551,7 @@ the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinitio
 
 
 
-#### 1.9.14 All must support elements are provided in the Observation resources returned
+#### 2.9.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -4404,7 +5581,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.9.15 MustSupport references within Observation resources are valid
+#### 2.9.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4427,7 +5604,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.10 Observation Respiration Rate Tests
+## 2.10 Observation Respiration Rate Tests
 
 <details>
 
@@ -4460,7 +5637,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.10.1 Server returns valid results for Observation search by patient + code
+#### 2.10.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -4492,7 +5669,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4501,7 +5678,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -4510,7 +5687,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.2 Server returns valid results for Observation search by category
+#### 2.10.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -4547,7 +5724,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.3 Server returns valid results for Observation search by code
+#### 2.10.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -4584,7 +5761,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.4 Server returns valid results for Observation search by date
+#### 2.10.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -4621,7 +5798,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.5 Server returns valid results for Observation search by status
+#### 2.10.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -4658,7 +5835,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.6 Server returns valid results for Observation search by patient
+#### 2.10.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -4695,7 +5872,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.7 Server returns valid results for Observation search by patient + category
+#### 2.10.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -4714,7 +5891,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4723,7 +5900,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -4732,7 +5909,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.8 Server returns valid results for Observation search by patient + category + date
+#### 2.10.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -4751,7 +5928,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4760,7 +5937,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -4769,7 +5946,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.9 Server returns valid results for Observation search by patient + category + status
+#### 2.10.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -4788,7 +5965,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4797,7 +5974,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -4806,7 +5983,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.10 Server returns valid results for Observation search by patient + code + date
+#### 2.10.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -4825,7 +6002,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4834,7 +6011,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -4843,7 +6020,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.11 Server returns correct Observation resource from Observation read interaction
+#### 2.10.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.10.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.10.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.10.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.10.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -4856,7 +6180,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.10.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.10.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -4874,7 +6198,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -4883,7 +6207,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -4892,7 +6216,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.13 Observation resources returned during previous tests conform to the AU Core Respiration Rate
+#### 2.10.17 Observation resources returned during previous tests conform to the AU Core Respiration Rate
 <details>
 
 <summary>Show details</summary>
@@ -4906,7 +6230,7 @@ the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.10.14 All must support elements are provided in the Observation resources returned
+#### 2.10.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -4940,7 +6264,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.10.15 MustSupport references within Observation resources are valid
+#### 2.10.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4963,7 +6287,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.11 Observation Diagnostic Result Tests
+## 2.11 Observation Diagnostic Result Tests
 
 <details>
 
@@ -4996,7 +6320,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.11.1 Server returns valid results for Observation search by patient
+#### 2.11.1 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -5046,7 +6370,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.2 Server returns valid results for Observation search by category
+#### 2.11.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -5083,7 +6407,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.3 Server returns valid results for Observation search by code
+#### 2.11.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -5120,7 +6444,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.4 Server returns valid results for Observation search by date
+#### 2.11.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -5157,7 +6481,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.5 Server returns valid results for Observation search by status
+#### 2.11.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -5194,7 +6518,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.6 Server returns valid results for Observation search by patient + category
+#### 2.11.6 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -5213,7 +6537,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5222,7 +6546,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -5231,7 +6555,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.7 Server returns valid results for Observation search by patient + category + date
+#### 2.11.7 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -5250,7 +6574,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5259,7 +6583,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -5268,7 +6592,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.8 Server returns valid results for Observation search by patient + code
+#### 2.11.8 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -5287,7 +6611,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5296,7 +6620,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -5305,7 +6629,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.9 Server returns valid results for Observation search by patient + category + status
+#### 2.11.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -5324,7 +6648,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5333,7 +6657,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -5342,7 +6666,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.10 Server returns valid results for Observation search by patient + code + date
+#### 2.11.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -5361,7 +6685,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5370,7 +6694,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -5379,7 +6703,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.11 Server returns correct Observation resource from Observation read interaction
+#### 2.11.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.11.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.11.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.11.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.11.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -5392,7 +6863,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.11.12 Server returns Provenance resources from Observation search by patient + revInclude:Provenance:target
+#### 2.11.16 Server returns Provenance resources from Observation search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -5428,7 +6899,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.13 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
+#### 2.11.17 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -5442,7 +6913,7 @@ the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/Structur
 
 
 
-#### 1.11.14 All must support elements are provided in the Observation resources returned
+#### 2.11.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -5479,7 +6950,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.11.15 MustSupport references within Observation resources are valid
+#### 2.11.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -5502,7 +6973,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.12 Observation Smoking Status Tests
+## 2.12 Observation Smoking Status Tests
 
 <details>
 
@@ -5535,7 +7006,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.12.1 Server returns valid results for Observation search by patient + code
+#### 2.12.1 Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -5567,7 +7038,7 @@ requirement of AU Core v0.3.0-ballot.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5576,7 +7047,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -5585,7 +7056,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.2 Server returns valid results for Observation search by category
+#### 2.12.2 Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -5622,7 +7093,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.3 Server returns valid results for Observation search by code
+#### 2.12.3 Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -5659,7 +7130,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.4 Server returns valid results for Observation search by date
+#### 2.12.4 Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -5696,7 +7167,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.5 Server returns valid results for Observation search by status
+#### 2.12.5 Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -5733,7 +7204,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.6 Server returns valid results for Observation search by patient
+#### 2.12.6 Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -5770,7 +7241,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.7 Server returns valid results for Observation search by patient + category
+#### 2.12.7 Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -5789,7 +7260,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category} HTTP/1.1
+GET /Observation?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5798,7 +7269,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}
+{test endpoint}/Observation?patient category={patient category}
 ```
 
 
@@ -5807,7 +7278,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.8 Server returns valid results for Observation search by patient + category + date
+#### 2.12.8 Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -5826,7 +7297,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&date={date} HTTP/1.1
+GET /Observation?patient category date={patient category date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5835,7 +7306,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&date={date}
+{test endpoint}/Observation?patient category date={patient category date}
 ```
 
 
@@ -5844,7 +7315,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.9 Server returns valid results for Observation search by patient + category + status
+#### 2.12.9 Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -5863,7 +7334,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&category={category}&status={status} HTTP/1.1
+GET /Observation?patient category status={patient category status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5872,7 +7343,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&category={category}&status={status}
+{test endpoint}/Observation?patient category status={patient category status}
 ```
 
 
@@ -5881,7 +7352,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.10 Server returns valid results for Observation search by patient + code + date
+#### 2.12.10 Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -5900,7 +7371,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Observation?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5909,7 +7380,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}&date={date}
+{test endpoint}/Observation?patient code date={patient code date}
 ```
 
 
@@ -5918,7 +7389,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.11 Server returns correct Observation resource from Observation read interaction
+#### 2.12.11 Server returns valid results for Observation multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.12.12 Server returns valid results for Observation multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.12.13 Server returns valid results for Observation multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.12.14 Server returns valid results for Observation search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Observation resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.12.15 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -5931,7 +7549,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.12.12 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
+#### 2.12.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -5949,7 +7567,7 @@ A server SHALL be capable of supporting _revIncludes:Provenance:target.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient}&code={code} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -5958,7 +7576,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}&code={code}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -5967,7 +7585,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.13 Observation resources returned during previous tests conform to the AU Core Smoking Status
+#### 2.12.17 Observation resources returned during previous tests conform to the AU Core Smoking Status
 <details>
 
 <summary>Show details</summary>
@@ -5981,7 +7599,7 @@ the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.12.14 All must support elements are provided in the Observation resources returned
+#### 2.12.18 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6006,7 +7624,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.12.15 MustSupport references within Observation resources are valid
+#### 2.12.19 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6029,7 +7647,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.13 AllergyIntolerance Tests
+## 2.13 AllergyIntolerance Tests
 
 <details>
 
@@ -6058,7 +7676,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.13.1 Server returns valid results for AllergyIntolerance search by patient
+#### 2.13.1 Server returns valid results for AllergyIntolerance search by patient
 <details>
 
 <summary>Show details</summary>
@@ -6108,7 +7726,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.2 Server returns valid results for AllergyIntolerance search by clinical-status
+#### 2.13.2 Server returns valid results for AllergyIntolerance search by clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -6145,7 +7763,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.3 Server returns valid results for AllergyIntolerance search by patient + clinical-status
+#### 2.13.3 Server returns valid results for AllergyIntolerance search by patient + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -6164,7 +7782,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /AllergyIntolerance?patient={patient}&clinical-status={clinical-status} HTTP/1.1
+GET /AllergyIntolerance?patient clinical-status={patient clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6173,7 +7791,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/AllergyIntolerance?patient={patient}&clinical-status={clinical-status}
+{test endpoint}/AllergyIntolerance?patient clinical-status={patient clinical-status}
 ```
 
 
@@ -6182,7 +7800,43 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.4 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
+#### 2.13.4 Server returns valid results for AllergyIntolerance search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the AllergyIntolerance resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.13.5 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
 <details>
 
 <summary>Show details</summary>
@@ -6195,7 +7849,7 @@ A server SHALL support the AllergyIntolerance read interaction.
 
 
 
-#### 1.13.5 Server returns Provenance resources from AllergyIntolerance search by patient + revInclude:Provenance:target
+#### 2.13.6 Server returns Provenance resources from AllergyIntolerance search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -6231,7 +7885,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.6 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
+#### 2.13.7 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
 <details>
 
 <summary>Show details</summary>
@@ -6245,7 +7899,7 @@ the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition
 
 
 
-#### 1.13.7 All must support elements are provided in the AllergyIntolerance resources returned
+#### 2.13.8 All must support elements are provided in the AllergyIntolerance resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6274,7 +7928,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.13.8 MustSupport references within AllergyIntolerance resources are valid
+#### 2.13.9 MustSupport references within AllergyIntolerance resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6298,7 +7952,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.14 Condition Tests
+## 2.14 Condition Tests
 
 <details>
 
@@ -6329,7 +7983,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.14.1 Server returns valid results for Condition search by patient
+#### 2.14.1 Server returns valid results for Condition search by patient
 <details>
 
 <summary>Show details</summary>
@@ -6379,7 +8033,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.2 Server returns valid results for Condition search by category
+#### 2.14.2 Server returns valid results for Condition search by category
 <details>
 
 <summary>Show details</summary>
@@ -6416,7 +8070,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.3 Server returns valid results for Condition search by clinical-status
+#### 2.14.3 Server returns valid results for Condition search by clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -6453,7 +8107,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.4 Server returns valid results for Condition search by code
+#### 2.14.4 Server returns valid results for Condition search by code
 <details>
 
 <summary>Show details</summary>
@@ -6490,7 +8144,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.5 Server returns valid results for Condition search by onset-date
+#### 2.14.5 Server returns valid results for Condition search by onset-date
 <details>
 
 <summary>Show details</summary>
@@ -6527,7 +8181,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.6 Server returns valid results for Condition search by patient + category
+#### 2.14.6 Server returns valid results for Condition search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -6546,7 +8200,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Condition?patient={patient}&category={category} HTTP/1.1
+GET /Condition?patient category={patient category} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6555,7 +8209,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Condition?patient={patient}&category={category}
+{test endpoint}/Condition?patient category={patient category}
 ```
 
 
@@ -6564,7 +8218,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.7 Server returns valid results for Condition search by patient + clinical-status
+#### 2.14.7 Server returns valid results for Condition search by patient + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -6583,7 +8237,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Condition?patient={patient}&clinical-status={clinical-status} HTTP/1.1
+GET /Condition?patient clinical-status={patient clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6592,7 +8246,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Condition?patient={patient}&clinical-status={clinical-status}
+{test endpoint}/Condition?patient clinical-status={patient clinical-status}
 ```
 
 
@@ -6601,7 +8255,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.8 Server returns valid results for Condition search by patient + category + clinical-status
+#### 2.14.8 Server returns valid results for Condition search by patient + category + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -6620,7 +8274,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Condition?patient={patient}&category={category}&clinical-status={clinical-status} HTTP/1.1
+GET /Condition?patient category clinical-status={patient category clinical-status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6629,7 +8283,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Condition?patient={patient}&category={category}&clinical-status={clinical-status}
+{test endpoint}/Condition?patient category clinical-status={patient category clinical-status}
 ```
 
 
@@ -6638,7 +8292,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.9 Server returns valid results for Condition search by patient + code
+#### 2.14.9 Server returns valid results for Condition search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -6657,7 +8311,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Condition?patient={patient}&code={code} HTTP/1.1
+GET /Condition?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6666,7 +8320,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Condition?patient={patient}&code={code}
+{test endpoint}/Condition?patient code={patient code}
 ```
 
 
@@ -6675,7 +8329,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.10 Server returns valid results for Condition search by patient + onset-date
+#### 2.14.10 Server returns valid results for Condition search by patient + onset-date
 <details>
 
 <summary>Show details</summary>
@@ -6694,7 +8348,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Condition?patient={patient}&onset-date={onset-date} HTTP/1.1
+GET /Condition?patient onset-date={patient onset-date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6703,7 +8357,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Condition?patient={patient}&onset-date={onset-date}
+{test endpoint}/Condition?patient onset-date={patient onset-date}
 ```
 
 
@@ -6712,7 +8366,80 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.11 Server returns correct Condition resource from Condition read interaction
+#### 2.14.11 Server returns valid results for Condition multipleAnd search by onset-date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+onset-date on the Condition resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?onset-date={onset-date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?onset-date={onset-date}
+```
+
+
+
+</details>
+
+
+
+#### 2.14.12 Server returns valid results for Condition search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Condition resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.14.13 Server returns correct Condition resource from Condition read interaction
 <details>
 
 <summary>Show details</summary>
@@ -6725,7 +8452,7 @@ A server SHALL support the Condition read interaction.
 
 
 
-#### 1.14.12 Server returns Provenance resources from Condition search by patient + revInclude:Provenance:target
+#### 2.14.14 Server returns Provenance resources from Condition search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -6761,7 +8488,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.13 Condition resources returned during previous tests conform to the AU Core Condition
+#### 2.14.15 Condition resources returned during previous tests conform to the AU Core Condition
 <details>
 
 <summary>Show details</summary>
@@ -6775,7 +8502,7 @@ the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.14.14 All must support elements are provided in the Condition resources returned
+#### 2.14.16 All must support elements are provided in the Condition resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6804,7 +8531,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.14.15 MustSupport references within Condition resources are valid
+#### 2.14.17 MustSupport references within Condition resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6828,7 +8555,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.15 Encounter Tests
+## 2.15 Encounter Tests
 
 <details>
 
@@ -6858,7 +8585,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.15.1 Server returns valid results for Encounter search by patient
+#### 2.15.1 Server returns valid results for Encounter search by patient
 <details>
 
 <summary>Show details</summary>
@@ -6908,7 +8635,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.2 Server returns valid results for Encounter search by class
+#### 2.15.2 Server returns valid results for Encounter search by class
 <details>
 
 <summary>Show details</summary>
@@ -6945,7 +8672,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.3 Server returns valid results for Encounter search by date
+#### 2.15.3 Server returns valid results for Encounter search by date
 <details>
 
 <summary>Show details</summary>
@@ -6982,7 +8709,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.4 Server returns valid results for Encounter search by discharge-disposition
+#### 2.15.4 Server returns valid results for Encounter search by discharge-disposition
 <details>
 
 <summary>Show details</summary>
@@ -7019,7 +8746,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.5 Server returns valid results for Encounter search by identifier
+#### 2.15.5 Server returns valid results for Encounter search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -7056,7 +8783,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.6 Server returns valid results for Encounter search by location
+#### 2.15.6 Server returns valid results for Encounter search by location
 <details>
 
 <summary>Show details</summary>
@@ -7093,7 +8820,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.7 Server returns valid results for Encounter search by status
+#### 2.15.7 Server returns valid results for Encounter search by status
 <details>
 
 <summary>Show details</summary>
@@ -7130,7 +8857,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.8 Server returns valid results for Encounter search by type
+#### 2.15.8 Server returns valid results for Encounter search by type
 <details>
 
 <summary>Show details</summary>
@@ -7167,7 +8894,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.9 Server returns valid results for Encounter search by date + patient
+#### 2.15.9 Server returns valid results for Encounter search by date + patient
 <details>
 
 <summary>Show details</summary>
@@ -7186,7 +8913,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?date={date}&patient={patient} HTTP/1.1
+GET /Encounter?date patient={date patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7195,7 +8922,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?date={date}&patient={patient}
+{test endpoint}/Encounter?date patient={date patient}
 ```
 
 
@@ -7204,7 +8931,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.10 Server returns valid results for Encounter search by class + patient
+#### 2.15.10 Server returns valid results for Encounter search by class + patient
 <details>
 
 <summary>Show details</summary>
@@ -7223,7 +8950,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?class={class}&patient={patient} HTTP/1.1
+GET /Encounter?class patient={class patient} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7232,7 +8959,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?class={class}&patient={patient}
+{test endpoint}/Encounter?class patient={class patient}
 ```
 
 
@@ -7241,7 +8968,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.11 Server returns valid results for Encounter search by patient + discharge-disposition
+#### 2.15.11 Server returns valid results for Encounter search by patient + discharge-disposition
 <details>
 
 <summary>Show details</summary>
@@ -7260,7 +8987,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?patient={patient}&discharge-disposition={discharge-disposition} HTTP/1.1
+GET /Encounter?patient discharge-disposition={patient discharge-disposition} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7269,7 +8996,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?patient={patient}&discharge-disposition={discharge-disposition}
+{test endpoint}/Encounter?patient discharge-disposition={patient discharge-disposition}
 ```
 
 
@@ -7278,7 +9005,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.12 Server returns valid results for Encounter search by patient + location
+#### 2.15.12 Server returns valid results for Encounter search by patient + location
 <details>
 
 <summary>Show details</summary>
@@ -7297,7 +9024,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?patient={patient}&location={location} HTTP/1.1
+GET /Encounter?patient location={patient location} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7306,7 +9033,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?patient={patient}&location={location}
+{test endpoint}/Encounter?patient location={patient location}
 ```
 
 
@@ -7315,7 +9042,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.13 Server returns valid results for Encounter search by patient + status
+#### 2.15.13 Server returns valid results for Encounter search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -7334,7 +9061,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?patient={patient}&status={status} HTTP/1.1
+GET /Encounter?patient status={patient status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7343,7 +9070,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?patient={patient}&status={status}
+{test endpoint}/Encounter?patient status={patient status}
 ```
 
 
@@ -7352,7 +9079,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.14 Server returns valid results for Encounter search by patient + type
+#### 2.15.14 Server returns valid results for Encounter search by patient + type
 <details>
 
 <summary>Show details</summary>
@@ -7371,7 +9098,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Encounter?patient={patient}&type={type} HTTP/1.1
+GET /Encounter?patient type={patient type} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7380,7 +9107,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Encounter?patient={patient}&type={type}
+{test endpoint}/Encounter?patient type={patient type}
 ```
 
 
@@ -7389,7 +9116,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.15 Server returns correct Encounter resource from Encounter read interaction
+#### 2.15.15 Server returns valid results for Encounter multipleOr search by discharge-disposition
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+discharge-disposition on the Encounter resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
+```
+
+
+
+</details>
+
+
+
+#### 2.15.16 Server returns valid results for Encounter multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Encounter resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.15.17 Server returns valid results for Encounter multipleAnd search by discharge-disposition
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+discharge-disposition on the Encounter resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
+```
+
+
+
+</details>
+
+
+
+#### 2.15.18 Server returns valid results for Encounter search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Encounter resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.15.19 Server returns correct Encounter resource from Encounter read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7402,7 +9276,7 @@ A server SHALL support the Encounter read interaction.
 
 
 
-#### 1.15.16 Server returns Provenance resources from Encounter search by patient + revInclude:Provenance:target
+#### 2.15.20 Server returns Provenance resources from Encounter search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -7438,7 +9312,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.17 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 2.15.21 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 
 <summary>Show details</summary>
@@ -7452,7 +9326,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.15.18 All must support elements are provided in the Encounter resources returned
+#### 2.15.22 All must support elements are provided in the Encounter resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7486,7 +9360,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.15.19 MustSupport references within Encounter resources are valid
+#### 2.15.23 MustSupport references within Encounter resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7511,7 +9385,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.16 Immunization Tests
+## 2.16 Immunization Tests
 
 <details>
 
@@ -7541,7 +9415,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.16.1 Server returns valid results for Immunization search by patient
+#### 2.16.1 Server returns valid results for Immunization search by patient
 <details>
 
 <summary>Show details</summary>
@@ -7591,7 +9465,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.2 Server returns valid results for Immunization search by date
+#### 2.16.2 Server returns valid results for Immunization search by date
 <details>
 
 <summary>Show details</summary>
@@ -7628,7 +9502,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.3 Server returns valid results for Immunization search by status
+#### 2.16.3 Server returns valid results for Immunization search by status
 <details>
 
 <summary>Show details</summary>
@@ -7665,7 +9539,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.4 Server returns valid results for Immunization search by vaccine-code
+#### 2.16.4 Server returns valid results for Immunization search by vaccine-code
 <details>
 
 <summary>Show details</summary>
@@ -7702,7 +9576,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.5 Server returns valid results for Immunization search by patient + status
+#### 2.16.5 Server returns valid results for Immunization search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -7721,7 +9595,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Immunization?patient={patient}&status={status} HTTP/1.1
+GET /Immunization?patient status={patient status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7730,7 +9604,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Immunization?patient={patient}&status={status}
+{test endpoint}/Immunization?patient status={patient status}
 ```
 
 
@@ -7739,7 +9613,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.6 Server returns valid results for Immunization search by patient + date
+#### 2.16.6 Server returns valid results for Immunization search by patient + date
 <details>
 
 <summary>Show details</summary>
@@ -7758,7 +9632,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Immunization?patient={patient}&date={date} HTTP/1.1
+GET /Immunization?patient date={patient date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7767,7 +9641,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Immunization?patient={patient}&date={date}
+{test endpoint}/Immunization?patient date={patient date}
 ```
 
 
@@ -7776,7 +9650,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.7 Server returns valid results for Immunization search by patient + vaccine-code
+#### 2.16.7 Server returns valid results for Immunization search by patient + vaccine-code
 <details>
 
 <summary>Show details</summary>
@@ -7795,7 +9669,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Immunization?patient={patient}&vaccine-code={vaccine-code} HTTP/1.1
+GET /Immunization?patient vaccine-code={patient vaccine-code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -7804,7 +9678,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Immunization?patient={patient}&vaccine-code={vaccine-code}
+{test endpoint}/Immunization?patient vaccine-code={patient vaccine-code}
 ```
 
 
@@ -7813,7 +9687,117 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.8 Server returns correct Immunization resource from Immunization read interaction
+#### 2.16.8 Server returns valid results for Immunization multipleOr search by vaccine-code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+vaccine-code on the Immunization resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?vaccine-code={vaccine-code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?vaccine-code={vaccine-code}
+```
+
+
+
+</details>
+
+
+
+#### 2.16.9 Server returns valid results for Immunization multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+date on the Immunization resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.16.10 Server returns valid results for Immunization search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Immunization resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.16.11 Server returns correct Immunization resource from Immunization read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7826,7 +9810,7 @@ A server SHALL support the Immunization read interaction.
 
 
 
-#### 1.16.9 Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target
+#### 2.16.12 Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -7862,7 +9846,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.10 Immunization resources returned during previous tests conform to the AU Core Immunization
+#### 2.16.13 Immunization resources returned during previous tests conform to the AU Core Immunization
 <details>
 
 <summary>Show details</summary>
@@ -7876,7 +9860,7 @@ the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.16.11 All must support elements are provided in the Immunization resources returned
+#### 2.16.14 All must support elements are provided in the Immunization resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7909,7 +9893,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.16.12 MustSupport references within Immunization resources are valid
+#### 2.16.15 MustSupport references within Immunization resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7932,7 +9916,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.17 MedicationRequest Tests
+## 2.17 MedicationRequest Tests
 
 <details>
 
@@ -7966,7 +9950,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.17.1 Server returns valid results for MedicationRequest search by patient
+#### 2.17.1 Server returns valid results for MedicationRequest search by patient
 <details>
 
 <summary>Show details</summary>
@@ -8020,7 +10004,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.2 Server returns valid results for MedicationRequest search by _id
+#### 2.17.2 Server returns valid results for MedicationRequest search by _id
 <details>
 
 <summary>Show details</summary>
@@ -8061,7 +10045,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.3 Server returns valid results for MedicationRequest search by identifier
+#### 2.17.3 Server returns valid results for MedicationRequest search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -8102,7 +10086,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.4 Server returns valid results for MedicationRequest search by category
+#### 2.17.4 Server returns valid results for MedicationRequest search by category
 <details>
 
 <summary>Show details</summary>
@@ -8143,7 +10127,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.5 Server returns valid results for MedicationRequest search by authoredon
+#### 2.17.5 Server returns valid results for MedicationRequest search by authoredon
 <details>
 
 <summary>Show details</summary>
@@ -8184,7 +10168,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.6 Server returns valid results for MedicationRequest search by intent
+#### 2.17.6 Server returns valid results for MedicationRequest search by intent
 <details>
 
 <summary>Show details</summary>
@@ -8225,7 +10209,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.7 Server returns valid results for MedicationRequest search by status
+#### 2.17.7 Server returns valid results for MedicationRequest search by status
 <details>
 
 <summary>Show details</summary>
@@ -8266,7 +10250,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.8 Server returns valid results for MedicationRequest search by patient + intent
+#### 2.17.8 Server returns valid results for MedicationRequest search by patient + intent
 <details>
 
 <summary>Show details</summary>
@@ -8289,7 +10273,7 @@ Medications, the search will be repeated with
 **HTTP GET**
 
 ```bash
-GET /MedicationRequest?patient={patient}&intent={intent} HTTP/1.1
+GET /MedicationRequest?patient intent={patient intent} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -8298,7 +10282,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationRequest?patient={patient}&intent={intent}
+{test endpoint}/MedicationRequest?patient intent={patient intent}
 ```
 
 
@@ -8307,7 +10291,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.9 Server returns valid results for MedicationRequest search by patient + intent + status
+#### 2.17.9 Server returns valid results for MedicationRequest search by patient + intent + status
 <details>
 
 <summary>Show details</summary>
@@ -8330,7 +10314,7 @@ Medications, the search will be repeated with
 **HTTP GET**
 
 ```bash
-GET /MedicationRequest?patient={patient}&intent={intent}&status={status} HTTP/1.1
+GET /MedicationRequest?patient intent status={patient intent status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -8339,7 +10323,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationRequest?patient={patient}&intent={intent}&status={status}
+{test endpoint}/MedicationRequest?patient intent status={patient intent status}
 ```
 
 
@@ -8348,7 +10332,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.10 Server returns valid results for MedicationRequest search by patient + intent + authoredon
+#### 2.17.10 Server returns valid results for MedicationRequest search by patient + intent + authoredon
 <details>
 
 <summary>Show details</summary>
@@ -8371,7 +10355,7 @@ Medications, the search will be repeated with
 **HTTP GET**
 
 ```bash
-GET /MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon} HTTP/1.1
+GET /MedicationRequest?patient intent authoredon={patient intent authoredon} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -8380,7 +10364,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationRequest?patient={patient}&intent={intent}&authoredon={authoredon}
+{test endpoint}/MedicationRequest?patient intent authoredon={patient intent authoredon}
 ```
 
 
@@ -8389,7 +10373,154 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.11 Server returns correct MedicationRequest resource from MedicationRequest read interaction
+#### 2.17.11 Server returns valid results for MedicationRequest multipleOr search by intent
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+intent on the MedicationRequest resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?intent={intent} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?intent={intent}
+```
+
+
+
+</details>
+
+
+
+#### 2.17.12 Server returns valid results for MedicationRequest multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the MedicationRequest resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.17.13 Server returns valid results for MedicationRequest multipleAnd search by authoredon
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleAnd
+authoredon on the MedicationRequest resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?authoredon={authoredon} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?authoredon={authoredon}
+```
+
+
+
+</details>
+
+
+
+#### 2.17.14 Server returns valid results for MedicationRequest search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the MedicationRequest resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.17.15 Server returns correct MedicationRequest resource from MedicationRequest read interaction
 <details>
 
 <summary>Show details</summary>
@@ -8402,7 +10533,7 @@ A server SHALL support the MedicationRequest read interaction.
 
 
 
-#### 1.17.12 Server returns Provenance resources from MedicationRequest search by patient + revInclude:Provenance:target
+#### 2.17.16 Server returns Provenance resources from MedicationRequest search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -8438,7 +10569,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.13 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 2.17.17 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 
 <summary>Show details</summary>
@@ -8452,7 +10583,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 
 
 
-#### 1.17.14 Medication resources returned during previous tests conform to the AU Core Medication
+#### 2.17.18 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 
 <summary>Show details</summary>
@@ -8466,7 +10597,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.17.15 All must support elements are provided in the MedicationRequest resources returned
+#### 2.17.19 All must support elements are provided in the MedicationRequest resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8503,7 +10634,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.17.16 MustSupport references within MedicationRequest resources are valid
+#### 2.17.20 MustSupport references within MedicationRequest resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -8527,7 +10658,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.18 MedicationStatement Tests
+## 2.18 MedicationStatement Tests
 
 <details>
 
@@ -8557,7 +10688,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.18.1 Server returns valid results for MedicationStatement search by patient
+#### 2.18.1 Server returns valid results for MedicationStatement search by patient
 <details>
 
 <summary>Show details</summary>
@@ -8607,7 +10738,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.2 Server returns valid results for MedicationStatement search by effective
+#### 2.18.2 Server returns valid results for MedicationStatement search by effective
 <details>
 
 <summary>Show details</summary>
@@ -8644,7 +10775,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.3 Server returns valid results for MedicationStatement search by status
+#### 2.18.3 Server returns valid results for MedicationStatement search by status
 <details>
 
 <summary>Show details</summary>
@@ -8681,7 +10812,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.4 Server returns valid results for MedicationStatement search by patient + status
+#### 2.18.4 Server returns valid results for MedicationStatement search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -8700,7 +10831,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /MedicationStatement?patient={patient}&status={status} HTTP/1.1
+GET /MedicationStatement?patient status={patient status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -8709,7 +10840,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationStatement?patient={patient}&status={status}
+{test endpoint}/MedicationStatement?patient status={patient status}
 ```
 
 
@@ -8718,7 +10849,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.5 Server returns valid results for MedicationStatement search by patient + effective
+#### 2.18.5 Server returns valid results for MedicationStatement search by patient + effective
 <details>
 
 <summary>Show details</summary>
@@ -8737,7 +10868,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /MedicationStatement?patient={patient}&effective={effective} HTTP/1.1
+GET /MedicationStatement?patient effective={patient effective} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -8746,7 +10877,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/MedicationStatement?patient={patient}&effective={effective}
+{test endpoint}/MedicationStatement?patient effective={patient effective}
 ```
 
 
@@ -8755,7 +10886,43 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.6 Server returns correct MedicationStatement resource from MedicationStatement read interaction
+#### 2.18.6 Server returns valid results for MedicationStatement search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the MedicationStatement resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationStatement?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationStatement?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.18.7 Server returns correct MedicationStatement resource from MedicationStatement read interaction
 <details>
 
 <summary>Show details</summary>
@@ -8768,7 +10935,7 @@ A server SHALL support the MedicationStatement read interaction.
 
 
 
-#### 1.18.7 Server returns Provenance resources from MedicationStatement search by patient + revInclude:Provenance:target
+#### 2.18.8 Server returns Provenance resources from MedicationStatement search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -8804,7 +10971,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.8 MedicationStatement resources returned during previous tests conform to the AU Core MedicationStatement
+#### 2.18.9 MedicationStatement resources returned during previous tests conform to the AU Core MedicationStatement
 <details>
 
 <summary>Show details</summary>
@@ -8818,7 +10985,7 @@ the [AU Core MedicationStatement](http://hl7.org.au/fhir/core/StructureDefinitio
 
 
 
-#### 1.18.9 All must support elements are provided in the MedicationStatement resources returned
+#### 2.18.10 All must support elements are provided in the MedicationStatement resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8850,7 +11017,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.18.10 MustSupport references within MedicationStatement resources are valid
+#### 2.18.11 MustSupport references within MedicationStatement resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -8875,7 +11042,7 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.19 Procedure Tests
+## 2.19 Procedure Tests
 
 <details>
 
@@ -8905,7 +11072,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.19.1 Server returns valid results for Procedure search by patient
+#### 2.19.1 Server returns valid results for Procedure search by patient
 <details>
 
 <summary>Show details</summary>
@@ -8955,7 +11122,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.2 Server returns valid results for Procedure search by code
+#### 2.19.2 Server returns valid results for Procedure search by code
 <details>
 
 <summary>Show details</summary>
@@ -8992,7 +11159,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.3 Server returns valid results for Procedure search by date
+#### 2.19.3 Server returns valid results for Procedure search by date
 <details>
 
 <summary>Show details</summary>
@@ -9029,7 +11196,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.4 Server returns valid results for Procedure search by status
+#### 2.19.4 Server returns valid results for Procedure search by status
 <details>
 
 <summary>Show details</summary>
@@ -9066,7 +11233,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.5 Server returns valid results for Procedure search by patient + date
+#### 2.19.5 Server returns valid results for Procedure search by patient + date
 <details>
 
 <summary>Show details</summary>
@@ -9085,7 +11252,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Procedure?patient={patient}&date={date} HTTP/1.1
+GET /Procedure?patient date={patient date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -9094,7 +11261,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Procedure?patient={patient}&date={date}
+{test endpoint}/Procedure?patient date={patient date}
 ```
 
 
@@ -9103,7 +11270,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.6 Server returns valid results for Procedure search by patient + code + date
+#### 2.19.6 Server returns valid results for Procedure search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -9122,7 +11289,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Procedure?patient={patient}&code={code}&date={date} HTTP/1.1
+GET /Procedure?patient code date={patient code date} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -9131,7 +11298,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Procedure?patient={patient}&code={code}&date={date}
+{test endpoint}/Procedure?patient code date={patient code date}
 ```
 
 
@@ -9140,7 +11307,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.7 Server returns valid results for Procedure search by patient + status
+#### 2.19.7 Server returns valid results for Procedure search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -9159,7 +11326,7 @@ none are returned, the test is skipped.
 **HTTP GET**
 
 ```bash
-GET /Procedure?patient={patient}&status={status} HTTP/1.1
+GET /Procedure?patient status={patient status} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -9168,7 +11335,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Procedure?patient={patient}&status={status}
+{test endpoint}/Procedure?patient status={patient status}
 ```
 
 
@@ -9177,7 +11344,117 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.8 Server returns correct Procedure resource from Procedure read interaction
+#### 2.19.8 Server returns valid results for Procedure multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by multipleOr
+code on the Procedure resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 2.19.9 Server returns valid results for Procedure multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by multipleOr
+status on the Procedure resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 2.19.10 Server returns valid results for Procedure search by patient (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier on the Procedure resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.19.11 Server returns correct Procedure resource from Procedure read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9190,7 +11467,7 @@ A server SHALL support the Procedure read interaction.
 
 
 
-#### 1.19.9 Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target
+#### 2.19.12 Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -9226,7 +11503,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.10 Procedure resources returned during previous tests conform to the AU Core Procedure
+#### 2.19.13 Procedure resources returned during previous tests conform to the AU Core Procedure
 <details>
 
 <summary>Show details</summary>
@@ -9240,7 +11517,7 @@ the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.19.11 All must support elements are provided in the Procedure resources returned
+#### 2.19.14 All must support elements are provided in the Procedure resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9270,7 +11547,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.19.12 MustSupport references within Procedure resources are valid
+#### 2.19.15 MustSupport references within Procedure resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9295,7 +11572,376 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.20 Organization Tests
+## 2.20 Location Tests
+
+<details>
+
+<summary>Verify support for the server capabilities required by the AU Core Location.</summary>
+
+# Background
+
+The AU Core Location sequence verifies that the system under test is
+able to provide correct responses for Location queries. These queries
+must contain resources conforming to the AU Core Location as
+specified in the AU Core v0.3.0-ballot Implementation Guide.
+
+# Testing Methodology
+## Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* address
+* name
+
+### Search Parameters
+The first search uses the selected patient(s
+
+</details>
+
+### Tests
+
+
+#### 2.20.1 Server returns correct Location resource from Location read interaction
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support the Location read interaction.
+
+
+
+</details>
+
+
+
+#### 2.20.2 Server returns valid results for Location search by address
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+address on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+Because this is the first search of the sequence, resources in the
+response will be used for subsequent tests.
+
+Additionally, this test will check that GET and POST search methods
+return the same number of results. Search by POST is required by the
+FHIR R4 specification, and these tests interpret search by GET as a
+requirement of AU Core v0.3.0-ballot.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?address={address} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?address={address}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.3 Server returns valid results for Location search by name
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+name on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?name={name} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?name={name}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.4 Server returns valid results for Location search by address-city
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+address-city on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?address-city={address-city} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?address-city={address-city}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.5 Server returns valid results for Location search by address-state
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+address-state on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?address-state={address-state} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?address-state={address-state}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.6 Server returns valid results for Location search by address-postalcode
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+address-postalcode on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?address-postalcode={address-postalcode} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?address-postalcode={address-postalcode}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.7 Server returns valid results for Location search by identifier
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by
+identifier on the Location resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.8 Server returns Provenance resources from Location search by address + revInclude:Provenance:target
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL be capable of supporting _revIncludes:Provenance:target.
+
+        This test will perform a search by address + revInclude:Provenance:target and
+        will pass if a Provenance resource is found in the response.
+      %
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Location?address={address} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Location?address={address}
+```
+
+
+
+</details>
+
+
+
+#### 2.20.9 Location resources returned during previous tests conform to the AU Core Location
+<details>
+
+<summary>Show details</summary>
+
+This test verifies resources returned from the first search conform to
+the [AU Core Location](http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+
+
+
+</details>
+
+
+
+#### 2.20.10 All must support elements are provided in the Location resources returned
+<details>
+
+<summary>Show details</summary>
+
+AU Core Responders SHALL be capable of populating all data elements as
+        part of the query results as specified by the AU Core Server Capability
+        Statement. This test will look through the Location resources
+        found previously for the following must support elements:
+
+        * Location.address
+        * Location.description
+        * Location.identifier
+        * Location.managingOrganization
+        * Location.mode
+        * Location.name
+        * Location.physicalType
+        * Location.type
+
+
+
+</details>
+
+
+
+#### 2.20.11 MustSupport references within Location resources are valid
+<details>
+
+<summary>Show details</summary>
+
+This test will attempt to read external references provided within elements
+        marked as 'MustSupport', if any are available.
+
+        It verifies that at least one external reference for each MustSupport Reference element
+        can be accessed by the test client, and conforms to corresponding AU Core profile.
+
+        Elements which may provide external references include:
+
+        * Location.managingOrganization
+
+
+
+</details>
+
+
+
+## 2.21 Organization Tests
 
 <details>
 
@@ -9326,7 +11972,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.20.1 Server returns correct Organization resource from Organization read interaction
+#### 2.21.1 Server returns correct Organization resource from Organization read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9339,7 +11985,7 @@ A server SHALL support the Organization read interaction.
 
 
 
-#### 1.20.2 Server returns valid results for Organization search by _id
+#### 2.21.2 Server returns valid results for Organization search by _id
 <details>
 
 <summary>Show details</summary>
@@ -9384,7 +12030,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.3 Server returns valid results for Organization search by address
+#### 2.21.3 Server returns valid results for Organization search by address
 <details>
 
 <summary>Show details</summary>
@@ -9421,7 +12067,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.4 Server returns valid results for Organization search by identifier
+#### 2.21.4 Server returns valid results for Organization search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -9458,7 +12104,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.5 Server returns valid results for Organization search by name
+#### 2.21.5 Server returns valid results for Organization search by name
 <details>
 
 <summary>Show details</summary>
@@ -9495,7 +12141,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.6 Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target
+#### 2.21.6 Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -9531,7 +12177,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.7 Organization resources returned during previous tests conform to the AU Core Organization
+#### 2.21.7 Organization resources returned during previous tests conform to the AU Core Organization
 <details>
 
 <summary>Show details</summary>
@@ -9545,7 +12191,7 @@ the [AU Core Organization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.20.8 All must support elements are provided in the Organization resources returned
+#### 2.21.8 All must support elements are provided in the Organization resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9568,7 +12214,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-## 1.21 Practitioner Tests
+## 2.22 Practitioner Tests
 
 <details>
 
@@ -9598,7 +12244,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.21.1 Server returns correct Practitioner resource from Practitioner read interaction
+#### 2.22.1 Server returns correct Practitioner resource from Practitioner read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9611,7 +12257,7 @@ A server SHALL support the Practitioner read interaction.
 
 
 
-#### 1.21.2 Server returns valid results for Practitioner search by _id
+#### 2.22.2 Server returns valid results for Practitioner search by _id
 <details>
 
 <summary>Show details</summary>
@@ -9656,7 +12302,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.3 Server returns valid results for Practitioner search by identifier
+#### 2.22.3 Server returns valid results for Practitioner search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -9693,7 +12339,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.4 Server returns valid results for Practitioner search by name
+#### 2.22.4 Server returns valid results for Practitioner search by name
 <details>
 
 <summary>Show details</summary>
@@ -9730,7 +12376,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.5 Practitioner resources returned during previous tests conform to the AU Core Practitioner
+#### 2.22.5 Practitioner resources returned during previous tests conform to the AU Core Practitioner
 <details>
 
 <summary>Show details</summary>
@@ -9744,7 +12390,7 @@ the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.21.6 All must support elements are provided in the Practitioner resources returned
+#### 2.22.6 All must support elements are provided in the Practitioner resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9771,7 +12417,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.21.7 MustSupport references within Practitioner resources are valid
+#### 2.22.7 MustSupport references within Practitioner resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9792,7 +12438,451 @@ This test will attempt to read external references provided within elements
 
 
 
-## 1.22 Provenance Tests
+## 2.23 PractitionerRole Tests
+
+<details>
+
+<summary>Verify support for the server capabilities required by the AU Core PractitionerRole.</summary>
+
+# Background
+
+The AU Core PractitionerRole sequence verifies that the system under test is
+able to provide correct responses for PractitionerRole queries. These queries
+must contain resources conforming to the AU Core PractitionerRole as
+specified in the AU Core v0.3.0-ballot Implementation Guide.
+
+# Testing Methodology
+## Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* _id
+* identifier
+* practitioner
+
+### Search Parameters
+The first search uses the selected patient(s
+
+</details>
+
+### Tests
+
+
+#### 2.23.1 Server returns correct PractitionerRole resource from PractitionerRole read interaction
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support the PractitionerRole read interaction.
+
+
+
+</details>
+
+
+
+#### 2.23.2 Server returns valid results for PractitionerRole search by _id
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+_id on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+Because this is the first search of the sequence, resources in the
+response will be used for subsequent tests.
+
+Additionally, this test will check that GET and POST search methods
+return the same number of results. Search by POST is required by the
+FHIR R4 specification, and these tests interpret search by GET as a
+requirement of AU Core v0.3.0-ballot.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?_id={_id}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.3 Server returns valid results for PractitionerRole search by identifier
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+identifier on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.4 Server returns valid results for PractitionerRole search by practitioner
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+practitioner on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?practitioner={practitioner}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.5 Server returns valid results for PractitionerRole search by specialty
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+specialty on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?specialty={specialty} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?specialty={specialty}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.6 Server returns valid results for PractitionerRole search by organization
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by
+organization on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?organization={organization} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?organization={organization}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.7 Server returns valid results for PractitionerRole multipleOr search by practitioner
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+practitioner on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?practitioner={practitioner}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.8 Server returns valid results for PractitionerRole multipleAnd search by practitioner
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+practitioner on the PractitionerRole resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?practitioner={practitioner}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.9 Server returns valid results for PractitionerRole search by practitioner (chained parameters)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+practitioner:Practitioner.identifier on the PractitionerRole resource. This test
+will pass if the server returns a success response to the request.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?practitioner:Practitioner.identifier={practitioner:Practitioner.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?practitioner:Practitioner.identifier={practitioner:Practitioner.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.10 Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL be capable of supporting _revIncludes:Provenance:target.
+
+        This test will perform a search by _id + revInclude:Provenance:target and
+        will pass if a Provenance resource is found in the response.
+      %
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?_id={_id}
+```
+
+
+
+</details>
+
+
+
+#### 2.23.11 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
+<details>
+
+<summary>Show details</summary>
+
+This test verifies resources returned from the first search conform to
+the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+
+
+
+</details>
+
+
+
+#### 2.23.12 All must support elements are provided in the PractitionerRole resources returned
+<details>
+
+<summary>Show details</summary>
+
+AU Core Responders SHALL be capable of populating all data elements as
+        part of the query results as specified by the AU Core Server Capability
+        Statement. This test will look through the PractitionerRole resources
+        found previously for the following must support elements:
+
+        * PractitionerRole.code
+        * PractitionerRole.identifier
+        * PractitionerRole.location
+        * PractitionerRole.organization
+        * PractitionerRole.practitioner
+        * PractitionerRole.specialty
+        * PractitionerRole.telecom
+
+
+
+</details>
+
+
+
+#### 2.23.13 MustSupport references within PractitionerRole resources are valid
+<details>
+
+<summary>Show details</summary>
+
+This test will attempt to read external references provided within elements
+        marked as 'MustSupport', if any are available.
+
+        It verifies that at least one external reference for each MustSupport Reference element
+        can be accessed by the test client, and conforms to corresponding AU Core profile.
+
+        Elements which may provide external references include:
+
+        * PractitionerRole.location
+        * PractitionerRole.organization
+        * PractitionerRole.practitioner
+
+
+
+</details>
+
+
+
+## 2.24 Provenance Tests
 
 <details>
 
@@ -9824,7 +12914,7 @@ the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 ### Tests
 
 
-#### 1.22.1 Server returns correct Provenance resource from Provenance read interaction
+#### 2.24.1 Server returns correct Provenance resource from Provenance read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9837,7 +12927,7 @@ A server SHALL support the Provenance read interaction.
 
 
 
-#### 1.22.2 Provenance resources returned during previous tests conform to the AU Core Provenance
+#### 2.24.2 Provenance resources returned during previous tests conform to the AU Core Provenance
 <details>
 
 <summary>Show details</summary>
@@ -9851,7 +12941,7 @@ the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.22.3 All must support elements are provided in the Provenance resources returned
+#### 2.24.3 All must support elements are provided in the Provenance resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9875,7 +12965,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.22.4 MustSupport references within Provenance resources are valid
+#### 2.24.4 MustSupport references within Provenance resources are valid
 <details>
 
 <summary>Show details</summary>

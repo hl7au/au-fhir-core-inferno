@@ -10,6 +10,10 @@ require_relative 'waistcircum/waistcircum_patient_category_search_test'
 require_relative 'waistcircum/waistcircum_patient_category_date_search_test'
 require_relative 'waistcircum/waistcircum_patient_category_status_search_test'
 require_relative 'waistcircum/waistcircum_patient_code_date_search_test'
+require_relative 'waistcircum/waistcircum_code_multiple_or_search_test'
+require_relative 'waistcircum/waistcircum_status_multiple_or_search_test'
+require_relative 'waistcircum/waistcircum_date_multiple_and_search_test'
+require_relative 'waistcircum/waistcircum_patient_chain_search_test'
 require_relative 'waistcircum/waistcircum_read_test'
 require_relative 'waistcircum/waistcircum_provenance_revinclude_search_test'
 require_relative 'waistcircum/waistcircum_validation_test'
@@ -100,6 +104,10 @@ read succeeds.
       test from: :au_core_v030_ballot_waistcircum_patient_category_date_search_test
       test from: :au_core_v030_ballot_waistcircum_patient_category_status_search_test
       test from: :au_core_v030_ballot_waistcircum_patient_code_date_search_test
+      test from: :au_core_v030_ballot_waistcircum_code_multiple_or_search_test
+      test from: :au_core_v030_ballot_waistcircum_status_multiple_or_search_test
+      test from: :au_core_v030_ballot_waistcircum_date_multiple_and_search_test
+      test from: :au_core_v030_ballot_waistcircum_patient_chain_search_test
       test from: :au_core_v030_ballot_waistcircum_read_test
       test from: :au_core_v030_ballot_waistcircum_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_waistcircum_validation_test

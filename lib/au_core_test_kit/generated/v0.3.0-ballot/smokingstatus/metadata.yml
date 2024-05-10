@@ -110,6 +110,7 @@
     - '266918002'
     :type: CodeableConcept
     :contains_multiple: false
+    :multiple_or: SHOULD
   :date:
     :paths:
     - effectiveDateTime
@@ -124,16 +125,19 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values: []
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :status:
     :paths:
     - status
@@ -151,6 +155,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: SHALL
   :patient:
     :paths:
     - subject
@@ -161,9 +166,11 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+    :multiple_and: MAY
     :chain:
     - :chain: identifier
       :expectation: SHOULD
+      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -276,6 +283,14 @@
   :file_name: smokingstatus_patient_category_status_search_test.rb
 - :id: au_core_v030_ballot_smokingstatus_patient_code_date_search_test
   :file_name: smokingstatus_patient_code_date_search_test.rb
+- :id: au_core_v030_ballot_smokingstatus_code_multiple_or_search_test
+  :file_name: smokingstatus_code_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_smokingstatus_status_multiple_or_search_test
+  :file_name: smokingstatus_status_multiple_or_search_test.rb
+- :id: au_core_v030_ballot_smokingstatus_date_multiple_and_search_test
+  :file_name: smokingstatus_date_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_smokingstatus_patient_chain_search_test
+  :file_name: smokingstatus_patient_chain_search_test.rb
 - :id: au_core_v030_ballot_smokingstatus_read_test
   :file_name: smokingstatus_read_test.rb
 - :id: au_core_v030_ballot_smokingstatus_provenance_revinclude_search_test
