@@ -15,7 +15,7 @@ summary: build
 new_release: build ig_download generate summary
 
 tests:
-	$(compose) run -e APP_ENV=test $(inferno) bundle exec rspec
+	$(compose) run -e APP_ENV=test inferno bundle exec rspec
 
 run: build up
 
