@@ -134,7 +134,13 @@ module AUCoreTestKit
       end
 
       def optional?
-        conformance_expectation != 'SHALL' || !search_metadata[:must_support_or_mandatory]
+        # NOTE: Original behavior changed because we need a clear
+        # expectation of the search parameters in tests. If in the
+        # CapabilityStatement resource we have SHALL it should be
+        # required in the tests.
+        # https://github.com/hl7au/au-fhir-core-inferno/issues/47
+        # conformance_expectation != 'SHALL' || !search_metadata[:must_support_or_mandatory]
+        conformance_expectation != 'SHALL'
       end
 
       def search_definition(name)
