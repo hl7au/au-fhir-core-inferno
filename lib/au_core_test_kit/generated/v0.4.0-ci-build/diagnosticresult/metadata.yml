@@ -171,8 +171,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -302,8 +301,6 @@
   :file_name: diagnosticresult_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_diagnosticresult_read_test
   :file_name: diagnosticresult_read_test.rb
-- :id: au_core_v040_ci_build_diagnosticresult_provenance_revinclude_search_test
-  :file_name: diagnosticresult_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_diagnosticresult_validation_test
   :file_name: diagnosticresult_validation_test.rb
 - :id: au_core_v040_ci_build_diagnosticresult_must_support_test

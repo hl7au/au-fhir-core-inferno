@@ -19,7 +19,6 @@ require_relative 'encounter/encounter_date_multiple_and_search_test'
 require_relative 'encounter/encounter_discharge_disposition_multiple_and_search_test'
 require_relative 'encounter/encounter_patient_chain_search_test'
 require_relative 'encounter/encounter_read_test'
-require_relative 'encounter/encounter_provenance_revinclude_search_test'
 require_relative 'encounter/encounter_validation_test'
 require_relative 'encounter/encounter_must_support_test'
 require_relative 'encounter/encounter_reference_resolution_test'
@@ -114,7 +113,6 @@ read succeeds.
       test from: :au_core_v040_ci_build_encounter_discharge_disposition_multiple_and_search_test
       test from: :au_core_v040_ci_build_encounter_patient_chain_search_test
       test from: :au_core_v040_ci_build_encounter_read_test
-      test from: :au_core_v040_ci_build_encounter_provenance_revinclude_search_test
       test from: :au_core_v040_ci_build_encounter_validation_test
       test from: :au_core_v040_ci_build_encounter_must_support_test
       test from: :au_core_v040_ci_build_encounter_reference_resolution_test

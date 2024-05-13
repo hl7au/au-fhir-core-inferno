@@ -120,8 +120,7 @@
     :type: Identifier
     :contains_multiple: true
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -179,8 +178,6 @@
   :file_name: location_address_postalcode_search_test.rb
 - :id: au_core_v040_ci_build_location_identifier_search_test
   :file_name: location_identifier_search_test.rb
-- :id: au_core_v040_ci_build_location_provenance_revinclude_search_test
-  :file_name: location_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_location_validation_test
   :file_name: location_validation_test.rb
 - :id: au_core_v040_ci_build_location_must_support_test

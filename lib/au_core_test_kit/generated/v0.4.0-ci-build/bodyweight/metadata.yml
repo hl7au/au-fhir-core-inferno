@@ -174,8 +174,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -333,8 +332,6 @@
   :file_name: bodyweight_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_bodyweight_read_test
   :file_name: bodyweight_read_test.rb
-- :id: au_core_v040_ci_build_bodyweight_provenance_revinclude_search_test
-  :file_name: bodyweight_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_bodyweight_validation_test
   :file_name: bodyweight_validation_test.rb
 - :id: au_core_v040_ci_build_bodyweight_must_support_test

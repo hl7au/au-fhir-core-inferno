@@ -15,7 +15,6 @@ require_relative 'resprate/resprate_status_multiple_or_search_test'
 require_relative 'resprate/resprate_date_multiple_and_search_test'
 require_relative 'resprate/resprate_patient_chain_search_test'
 require_relative 'resprate/resprate_read_test'
-require_relative 'resprate/resprate_provenance_revinclude_search_test'
 require_relative 'resprate/resprate_validation_test'
 require_relative 'resprate/resprate_must_support_test'
 require_relative 'resprate/resprate_reference_resolution_test'
@@ -109,7 +108,6 @@ read succeeds.
       test from: :au_core_v040_ci_build_resprate_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_resprate_patient_chain_search_test
       test from: :au_core_v040_ci_build_resprate_read_test
-      test from: :au_core_v040_ci_build_resprate_provenance_revinclude_search_test
       test from: :au_core_v040_ci_build_resprate_validation_test
       test from: :au_core_v040_ci_build_resprate_must_support_test
       test from: :au_core_v040_ci_build_resprate_reference_resolution_test

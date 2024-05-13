@@ -182,8 +182,7 @@
     :multiple_or: MAY
     :multiple_and: MAY
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions:
@@ -284,8 +283,6 @@
   :file_name: patient_gender_identity_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_patient_read_test
   :file_name: patient_read_test.rb
-- :id: au_core_v040_ci_build_patient_provenance_revinclude_search_test
-  :file_name: patient_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_patient_validation_test
   :file_name: patient_validation_test.rb
 - :id: au_core_v040_ci_build_patient_must_support_test

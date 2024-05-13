@@ -174,8 +174,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -330,8 +329,6 @@
   :file_name: resprate_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_resprate_read_test
   :file_name: resprate_read_test.rb
-- :id: au_core_v040_ci_build_resprate_provenance_revinclude_search_test
-  :file_name: resprate_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_resprate_validation_test
   :file_name: resprate_validation_test.rb
 - :id: au_core_v040_ci_build_resprate_must_support_test

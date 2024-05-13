@@ -210,8 +210,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -359,8 +358,6 @@
   :file_name: encounter_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_encounter_read_test
   :file_name: encounter_read_test.rb
-- :id: au_core_v040_ci_build_encounter_provenance_revinclude_search_test
-  :file_name: encounter_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_encounter_validation_test
   :file_name: encounter_validation_test.rb
 - :id: au_core_v040_ci_build_encounter_must_support_test

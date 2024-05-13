@@ -176,8 +176,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: &1 []
-  :revincludes: &2
-  - Provenance:target
+  :revincludes: &2 []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -3044,8 +3043,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts:
   - clinicalStatus
   - verificationStatus
@@ -3276,8 +3274,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts:
   - clinicalStatus
   - verificationStatus
@@ -3550,8 +3547,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -3799,8 +3795,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -4011,8 +4006,7 @@
       :type: Identifier
       :contains_multiple: true
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -4323,8 +4317,7 @@
         :target: Patient
   :include_params:
   - MedicationRequest:medication
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -4565,8 +4558,7 @@
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -4771,8 +4763,7 @@
       :multiple_or: MAY
       :multiple_and: MAY
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions:
@@ -5052,8 +5043,7 @@
       :contains_multiple: false
   :include_params:
   - PractitionerRole:practitioner
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -5243,8 +5233,7 @@
         :expectation: SHOULD
         :target: Patient
   :include_params: []
-  :revincludes:
-  - Provenance:target
+  :revincludes: []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -5345,103 +5334,3 @@
     - http://hl7.org/fhir/StructureDefinition/Medication
     - http://hl7.org/fhir/StructureDefinition/Substance
   :delayed_references: []
-- :name: au_core_provenance
-  :class_name: AuCoreProvenanceSequence
-  :version: v0.4.0-ci-build
-  :reformatted_version: v040_ci_build
-  :resource: Provenance
-  :profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
-  :profile_name: AU Core Provenance
-  :profile_version: 0.4.0-ci-build
-  :title: Provenance
-  :short_description: Verify support for the server capabilities required by the AU
-    Core Provenance.
-  :interactions:
-  - :code: read
-    :expectation: SHALL
-  - :code: search-type
-    :expectation: MAY
-  - :code: create
-    :expectation: MAY
-  - :code: update
-    :expectation: MAY
-  - :code: delete
-    :expectation: MAY
-  - :code: vread
-    :expectation: MAY
-  - :code: patch
-    :expectation: MAY
-  - :code: history-instance
-    :expectation: MAY
-  :operations: []
-  :searches: []
-  :search_definitions: {}
-  :include_params: []
-  :revincludes: []
-  :required_concepts: []
-  :must_supports:
-    :extensions: []
-    :slices: []
-    :elements:
-    - :path: target
-      :types:
-      - Reference
-    - :path: occurred[x]
-    - :path: recorded
-    - :path: activity
-    - :path: agent
-    - :path: agent.who
-      :types:
-      - Reference
-    - :path: agent.onBehalfOf
-      :types:
-      - Reference
-  :mandatory_elements:
-  - Provenance.target
-  - Provenance.recorded
-  - Provenance.agent
-  - Provenance.agent.who
-  - Provenance.entity.role
-  - Provenance.entity.what
-  :bindings:
-  - :type: code
-    :strength: required
-    :system: http://hl7.org/fhir/ValueSet/provenance-entity-role
-    :path: entity.role
-  :references:
-  - :path: Provenance.target
-    :profiles:
-    - http://hl7.org/fhir/StructureDefinition/Resource
-  - :path: Provenance.location
-    :profiles:
-    - http://hl7.org/fhir/StructureDefinition/Location
-  - :path: Provenance.agent.who
-    :profiles:
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
-    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
-    - http://hl7.org/fhir/StructureDefinition/Device
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
-  - :path: Provenance.agent.onBehalfOf
-    :profiles:
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
-    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
-    - http://hl7.org/fhir/StructureDefinition/Device
-    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
-  - :path: Provenance.entity.what
-    :profiles:
-    - http://hl7.org/fhir/StructureDefinition/Resource
-  :delayed_references:
-  - :path: agent.who
-    :resources:
-    - Practitioner
-    - PractitionerRole
-    - Organization
-  - :path: agent.onBehalfOf
-    :resources:
-    - Practitioner
-    - PractitionerRole
-    - Organization

@@ -15,7 +15,6 @@ require_relative 'bodytemp/bodytemp_status_multiple_or_search_test'
 require_relative 'bodytemp/bodytemp_date_multiple_and_search_test'
 require_relative 'bodytemp/bodytemp_patient_chain_search_test'
 require_relative 'bodytemp/bodytemp_read_test'
-require_relative 'bodytemp/bodytemp_provenance_revinclude_search_test'
 require_relative 'bodytemp/bodytemp_validation_test'
 require_relative 'bodytemp/bodytemp_must_support_test'
 require_relative 'bodytemp/bodytemp_reference_resolution_test'
@@ -109,7 +108,6 @@ read succeeds.
       test from: :au_core_v040_ci_build_bodytemp_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_bodytemp_patient_chain_search_test
       test from: :au_core_v040_ci_build_bodytemp_read_test
-      test from: :au_core_v040_ci_build_bodytemp_provenance_revinclude_search_test
       test from: :au_core_v040_ci_build_bodytemp_validation_test
       test from: :au_core_v040_ci_build_bodytemp_must_support_test
       test from: :au_core_v040_ci_build_bodytemp_reference_resolution_test

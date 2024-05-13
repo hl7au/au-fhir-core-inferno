@@ -108,8 +108,7 @@
     :contains_multiple: false
 :include_params:
 - PractitionerRole:practitioner
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -172,8 +171,6 @@
   :file_name: practitioner_role_practitioner_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_practitioner_role_practitioner_chain_search_test
   :file_name: practitioner_role_practitioner_chain_search_test.rb
-- :id: au_core_v040_ci_build_practitioner_role_provenance_revinclude_search_test
-  :file_name: practitioner_role_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_practitioner_role_validation_test
   :file_name: practitioner_role_validation_test.rb
 - :id: au_core_v040_ci_build_practitioner_role_must_support_test

@@ -174,8 +174,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -328,8 +327,6 @@
   :file_name: waistcircum_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_waistcircum_read_test
   :file_name: waistcircum_read_test.rb
-- :id: au_core_v040_ci_build_waistcircum_provenance_revinclude_search_test
-  :file_name: waistcircum_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_waistcircum_validation_test
   :file_name: waistcircum_validation_test.rb
 - :id: au_core_v040_ci_build_waistcircum_must_support_test

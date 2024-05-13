@@ -20,8 +20,6 @@ none are returned, the test is skipped.
       )
 
       id :au_core_v030_ballot_encounter_date_patient_search_test
-      optional
-
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
