@@ -15,7 +15,6 @@ require_relative 'medication_request/medication_request_status_multiple_or_searc
 require_relative 'medication_request/medication_request_authoredon_multiple_and_search_test'
 require_relative 'medication_request/medication_request_patient_chain_search_test'
 require_relative 'medication_request/medication_request_read_test'
-require_relative 'medication_request/medication_request_provenance_revinclude_search_test'
 require_relative 'medication_request/medication_request_validation_test'
 require_relative 'medication_request/medication_validation_test'
 require_relative 'medication_request/medication_request_must_support_test'
@@ -111,7 +110,6 @@ read succeeds.
       test from: :au_core_v040_ci_build_medication_request_authoredon_multiple_and_search_test
       test from: :au_core_v040_ci_build_medication_request_patient_chain_search_test
       test from: :au_core_v040_ci_build_medication_request_read_test
-      test from: :au_core_v040_ci_build_medication_request_provenance_revinclude_search_test
       test from: :au_core_v040_ci_build_medication_request_validation_test
       test from: :au_core_v040_ci_build_medication_validation_test
       test from: :au_core_v040_ci_build_medication_request_must_support_test

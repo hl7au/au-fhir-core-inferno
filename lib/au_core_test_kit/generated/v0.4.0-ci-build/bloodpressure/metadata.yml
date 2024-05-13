@@ -174,8 +174,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -363,8 +362,6 @@
   :file_name: bloodpressure_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_read_test
   :file_name: bloodpressure_read_test.rb
-- :id: au_core_v040_ci_build_bloodpressure_provenance_revinclude_search_test
-  :file_name: bloodpressure_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_validation_test
   :file_name: bloodpressure_validation_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_must_support_test

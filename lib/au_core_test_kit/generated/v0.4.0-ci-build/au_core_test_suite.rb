@@ -29,7 +29,6 @@ require_relative 'location_group'
 require_relative 'organization_group'
 require_relative 'practitioner_group'
 require_relative 'practitioner_role_group'
-require_relative 'provenance_group'
 
 module AUCoreTestKit
   module AUCoreV040_CI_BUILD
@@ -143,8 +142,6 @@ module AUCoreTestKit
         group from: :au_core_v040_ci_build_practitioner
 
         group from: :au_core_v040_ci_build_practitioner_role
-
-        group from: :au_core_v040_ci_build_provenance
       end
     end
   end

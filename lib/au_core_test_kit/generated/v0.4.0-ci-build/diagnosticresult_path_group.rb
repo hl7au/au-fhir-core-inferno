@@ -15,7 +15,6 @@ require_relative 'diagnosticresult_path/diagnosticresult_path_status_multiple_or
 require_relative 'diagnosticresult_path/diagnosticresult_path_date_multiple_and_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_chain_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_read_test'
-require_relative 'diagnosticresult_path/diagnosticresult_path_provenance_revinclude_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_validation_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_must_support_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_reference_resolution_test'
@@ -109,7 +108,6 @@ read succeeds.
       test from: :au_core_v040_ci_build_diagnosticresult_path_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_diagnosticresult_path_patient_chain_search_test
       test from: :au_core_v040_ci_build_diagnosticresult_path_read_test
-      test from: :au_core_v040_ci_build_diagnosticresult_path_provenance_revinclude_search_test
       test from: :au_core_v040_ci_build_diagnosticresult_path_validation_test
       test from: :au_core_v040_ci_build_diagnosticresult_path_must_support_test
       test from: :au_core_v040_ci_build_diagnosticresult_path_reference_resolution_test

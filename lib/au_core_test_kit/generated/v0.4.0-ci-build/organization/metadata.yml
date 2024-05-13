@@ -92,8 +92,7 @@
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -125,8 +124,6 @@
   :file_name: organization_identifier_search_test.rb
 - :id: au_core_v040_ci_build_organization_name_search_test
   :file_name: organization_name_search_test.rb
-- :id: au_core_v040_ci_build_organization_provenance_revinclude_search_test
-  :file_name: organization_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_organization_validation_test
   :file_name: organization_validation_test.rb
 - :id: au_core_v040_ci_build_organization_must_support_test

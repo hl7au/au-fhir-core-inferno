@@ -74,8 +74,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts:
 - clinicalStatus
 - verificationStatus
@@ -155,8 +154,6 @@
   :file_name: allergy_intolerance_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_allergy_intolerance_read_test
   :file_name: allergy_intolerance_read_test.rb
-- :id: au_core_v040_ci_build_allergy_intolerance_provenance_revinclude_search_test
-  :file_name: allergy_intolerance_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_allergy_intolerance_validation_test
   :file_name: allergy_intolerance_validation_test.rb
 - :id: au_core_v040_ci_build_allergy_intolerance_must_support_test

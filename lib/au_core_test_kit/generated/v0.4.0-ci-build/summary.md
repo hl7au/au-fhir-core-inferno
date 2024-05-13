@@ -725,43 +725,7 @@ A server SHALL support the Patient read interaction.
 
 
 
-#### 1.2.18 Server returns Provenance resources from Patient search by _id + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by _id + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Patient?_id={_id} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Patient?_id={_id}
-```
-
-
-
-</details>
-
-
-
-#### 1.2.19 Patient resources returned during previous tests conform to the AU Core Patient
+#### 1.2.18 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 
 <summary>Show details</summary>
@@ -775,7 +739,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 
 
 
-#### 1.2.20 All must support elements are provided in the Patient resources returned
+#### 1.2.19 All must support elements are provided in the Patient resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1384,43 +1348,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.3.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.3.17 Observation resources returned during previous tests conform to the AU Core Body Weight
+#### 1.3.16 Observation resources returned during previous tests conform to the AU Core Body Weight
 <details>
 
 <summary>Show details</summary>
@@ -1434,7 +1362,7 @@ the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.3.18 All must support elements are provided in the Observation resources returned
+#### 1.3.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1466,7 +1394,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.3.19 MustSupport references within Observation resources are valid
+#### 1.3.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -2063,43 +1991,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.4.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.4.17 Observation resources returned during previous tests conform to the AU Core Blood Pressure
+#### 1.4.16 Observation resources returned during previous tests conform to the AU Core Blood Pressure
 <details>
 
 <summary>Show details</summary>
@@ -2113,7 +2005,7 @@ the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.4.18 All must support elements are provided in the Observation resources returned
+#### 1.4.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2159,7 +2051,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.4.19 MustSupport references within Observation resources are valid
+#### 1.4.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -2756,43 +2648,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.5.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.5.17 Observation resources returned during previous tests conform to the AU Core Body Height
+#### 1.5.16 Observation resources returned during previous tests conform to the AU Core Body Height
 <details>
 
 <summary>Show details</summary>
@@ -2806,7 +2662,7 @@ the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.5.18 All must support elements are provided in the Observation resources returned
+#### 1.5.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2838,7 +2694,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.5.19 MustSupport references within Observation resources are valid
+#### 1.5.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -3435,43 +3291,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.6.16 Server returns Provenance resources from Observation search by patient + category + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + category + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient category={patient category} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient category={patient category}
-```
-
-
-
-</details>
-
-
-
-#### 1.6.17 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
+#### 1.6.16 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -3485,7 +3305,7 @@ the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/Structure
 
 
 
-#### 1.6.18 All must support elements are provided in the Observation resources returned
+#### 1.6.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -3522,7 +3342,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.6.19 MustSupport references within Observation resources are valid
+#### 1.6.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4122,43 +3942,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.7.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.7.17 Observation resources returned during previous tests conform to the AU Core Body Temperature
+#### 1.7.16 Observation resources returned during previous tests conform to the AU Core Body Temperature
 <details>
 
 <summary>Show details</summary>
@@ -4172,7 +3956,7 @@ the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.7.18 All must support elements are provided in the Observation resources returned
+#### 1.7.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -4204,7 +3988,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.7.19 MustSupport references within Observation resources are valid
+#### 1.7.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4801,43 +4585,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.8.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.8.17 Observation resources returned during previous tests conform to the AU Core Heart Rate
+#### 1.8.16 Observation resources returned during previous tests conform to the AU Core Heart Rate
 <details>
 
 <summary>Show details</summary>
@@ -4851,7 +4599,7 @@ the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.8.18 All must support elements are provided in the Observation resources returned
+#### 1.8.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -4884,7 +4632,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.8.19 MustSupport references within Observation resources are valid
+#### 1.8.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -5482,43 +5230,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.9.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.9.17 Observation resources returned during previous tests conform to the AU Core Waist Circumference
+#### 1.9.16 Observation resources returned during previous tests conform to the AU Core Waist Circumference
 <details>
 
 <summary>Show details</summary>
@@ -5532,7 +5244,7 @@ the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinitio
 
 
 
-#### 1.9.18 All must support elements are provided in the Observation resources returned
+#### 1.9.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -5560,7 +5272,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.9.19 MustSupport references within Observation resources are valid
+#### 1.9.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6157,43 +5869,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.10.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.10.17 Observation resources returned during previous tests conform to the AU Core Respiration Rate
+#### 1.10.16 Observation resources returned during previous tests conform to the AU Core Respiration Rate
 <details>
 
 <summary>Show details</summary>
@@ -6207,7 +5883,7 @@ the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.10.18 All must support elements are provided in the Observation resources returned
+#### 1.10.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6239,7 +5915,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.10.19 MustSupport references within Observation resources are valid
+#### 1.10.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6836,43 +6512,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.11.16 Server returns Provenance resources from Observation search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.11.17 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
+#### 1.11.16 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -6886,7 +6526,7 @@ the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/Structur
 
 
 
-#### 1.11.18 All must support elements are provided in the Observation resources returned
+#### 1.11.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6923,7 +6563,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.11.19 MustSupport references within Observation resources are valid
+#### 1.11.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7522,43 +7162,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.12.16 Server returns Provenance resources from Observation search by patient + code + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + code + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
-```
-
-
-
-</details>
-
-
-
-#### 1.12.17 Observation resources returned during previous tests conform to the AU Core Smoking Status
+#### 1.12.16 Observation resources returned during previous tests conform to the AU Core Smoking Status
 <details>
 
 <summary>Show details</summary>
@@ -7572,7 +7176,7 @@ the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.12.18 All must support elements are provided in the Observation resources returned
+#### 1.12.17 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7595,7 +7199,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.12.19 MustSupport references within Observation resources are valid
+#### 1.12.18 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7818,43 +7422,7 @@ A server SHALL support the AllergyIntolerance read interaction.
 
 
 
-#### 1.13.6 Server returns Provenance resources from AllergyIntolerance search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /AllergyIntolerance?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/AllergyIntolerance?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.13.7 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
+#### 1.13.6 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
 <details>
 
 <summary>Show details</summary>
@@ -7868,7 +7436,7 @@ the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition
 
 
 
-#### 1.13.8 All must support elements are provided in the AllergyIntolerance resources returned
+#### 1.13.7 All must support elements are provided in the AllergyIntolerance resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7894,7 +7462,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.13.9 MustSupport references within AllergyIntolerance resources are valid
+#### 1.13.8 MustSupport references within AllergyIntolerance resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -8415,43 +7983,7 @@ A server SHALL support the Condition read interaction.
 
 
 
-#### 1.14.14 Server returns Provenance resources from Condition search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Condition?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Condition?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.14.15 Condition resources returned during previous tests conform to the AU Core Condition
+#### 1.14.14 Condition resources returned during previous tests conform to the AU Core Condition
 <details>
 
 <summary>Show details</summary>
@@ -8465,7 +7997,7 @@ the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.14.16 All must support elements are provided in the Condition resources returned
+#### 1.14.15 All must support elements are provided in the Condition resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8491,7 +8023,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.14.17 MustSupport references within Condition resources are valid
+#### 1.14.16 MustSupport references within Condition resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9233,43 +8765,7 @@ A server SHALL support the Encounter read interaction.
 
 
 
-#### 1.15.20 Server returns Provenance resources from Encounter search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.21 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 1.15.20 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 
 <summary>Show details</summary>
@@ -9283,7 +8779,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.15.22 All must support elements are provided in the Encounter resources returned
+#### 1.15.21 All must support elements are provided in the Encounter resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9317,7 +8813,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.15.23 MustSupport references within Encounter resources are valid
+#### 1.15.22 MustSupport references within Encounter resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9767,43 +9263,7 @@ A server SHALL support the Immunization read interaction.
 
 
 
-#### 1.16.12 Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Immunization?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Immunization?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.16.13 Immunization resources returned during previous tests conform to the AU Core Immunization
+#### 1.16.12 Immunization resources returned during previous tests conform to the AU Core Immunization
 <details>
 
 <summary>Show details</summary>
@@ -9817,7 +9277,7 @@ the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.16.14 All must support elements are provided in the Immunization resources returned
+#### 1.16.13 All must support elements are provided in the Immunization resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9846,7 +9306,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.16.15 MustSupport references within Immunization resources are valid
+#### 1.16.14 MustSupport references within Immunization resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -10484,43 +9944,7 @@ A server SHALL support the MedicationRequest read interaction.
 
 
 
-#### 1.17.16 Server returns Provenance resources from MedicationRequest search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /MedicationRequest?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/MedicationRequest?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.17.17 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 1.17.16 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 
 <summary>Show details</summary>
@@ -10534,7 +9958,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 
 
 
-#### 1.17.18 Medication resources returned during previous tests conform to the AU Core Medication
+#### 1.17.17 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 
 <summary>Show details</summary>
@@ -10548,7 +9972,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.17.19 All must support elements are provided in the MedicationRequest resources returned
+#### 1.17.18 All must support elements are provided in the MedicationRequest resources returned
 <details>
 
 <summary>Show details</summary>
@@ -10585,7 +10009,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.17.20 MustSupport references within MedicationRequest resources are valid
+#### 1.17.19 MustSupport references within MedicationRequest resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -11034,43 +10458,7 @@ A server SHALL support the Procedure read interaction.
 
 
 
-#### 1.18.12 Server returns Provenance resources from Procedure search by patient + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by patient + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Procedure?patient={patient} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Procedure?patient={patient}
-```
-
-
-
-</details>
-
-
-
-#### 1.18.13 Procedure resources returned during previous tests conform to the AU Core Procedure
+#### 1.18.12 Procedure resources returned during previous tests conform to the AU Core Procedure
 <details>
 
 <summary>Show details</summary>
@@ -11084,7 +10472,7 @@ the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.18.14 All must support elements are provided in the Procedure resources returned
+#### 1.18.13 All must support elements are provided in the Procedure resources returned
 <details>
 
 <summary>Show details</summary>
@@ -11109,7 +10497,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.18.15 MustSupport references within Procedure resources are valid
+#### 1.18.14 MustSupport references within Procedure resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -11405,43 +10793,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.8 Server returns Provenance resources from Location search by address + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by address + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Location?address={address} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Location?address={address}
-```
-
-
-
-</details>
-
-
-
-#### 1.19.9 Location resources returned during previous tests conform to the AU Core Location
+#### 1.19.8 Location resources returned during previous tests conform to the AU Core Location
 <details>
 
 <summary>Show details</summary>
@@ -11455,7 +10807,7 @@ the [AU Core Location](http://hl7.org.au/fhir/core/StructureDefinition/au-core-l
 
 
 
-#### 1.19.10 All must support elements are provided in the Location resources returned
+#### 1.19.9 All must support elements are provided in the Location resources returned
 <details>
 
 <summary>Show details</summary>
@@ -11479,7 +10831,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.19.11 MustSupport references within Location resources are valid
+#### 1.19.10 MustSupport references within Location resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -11698,43 +11050,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.6 Server returns Provenance resources from Organization search by _id + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by _id + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Organization?_id={_id} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Organization?_id={_id}
-```
-
-
-
-</details>
-
-
-
-#### 1.20.7 Organization resources returned during previous tests conform to the AU Core Organization
+#### 1.20.6 Organization resources returned during previous tests conform to the AU Core Organization
 <details>
 
 <summary>Show details</summary>
@@ -11748,7 +11064,7 @@ the [AU Core Organization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.20.8 All must support elements are provided in the Organization resources returned
+#### 1.20.7 All must support elements are provided in the Organization resources returned
 <details>
 
 <summary>Show details</summary>
@@ -12314,43 +11630,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.10 Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL be capable of supporting _revIncludes:Provenance:target.
-
-        This test will perform a search by _id + revInclude:Provenance:target and
-        will pass if a Provenance resource is found in the response.
-      %
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /PractitionerRole?_id={_id} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/PractitionerRole?_id={_id}
-```
-
-
-
-</details>
-
-
-
-#### 1.22.11 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
+#### 1.22.10 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
 <details>
 
 <summary>Show details</summary>
@@ -12364,7 +11644,7 @@ the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.22.12 All must support elements are provided in the PractitionerRole resources returned
+#### 1.22.11 All must support elements are provided in the PractitionerRole resources returned
 <details>
 
 <summary>Show details</summary>
@@ -12387,7 +11667,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.22.13 MustSupport references within PractitionerRole resources are valid
+#### 1.22.12 MustSupport references within PractitionerRole resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -12402,112 +11682,6 @@ This test will attempt to read external references provided within elements
 
         * PractitionerRole.organization
         * PractitionerRole.practitioner
-
-
-
-</details>
-
-
-
-## 1.23 Provenance Tests
-
-<details>
-
-<summary>Verify support for the server capabilities required by the AU Core Provenance.</summary>
-
-# Background
-
-The AU Core Provenance sequence verifies that the system under test is
-able to provide correct responses for Provenance queries. These queries
-must contain resources conforming to the AU Core Provenance as
-specified in the AU Core v0.4.0-ci-build Implementation Guide.
-
-# Testing Methodology
-
-
-## Must Support
-Each profile contains elements marked as "must support". This test
-sequence expects to see each of these elements at least once. If at
-least one cannot be found, the test will fail. The test will look
-through the Provenance resources found in the first test for these
-elements.
-
-## Profile Validation
-Each resource returned from the first search is expected to conform to
-the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
-
-</details>
-
-### Tests
-
-
-#### 1.23.1 Server returns correct Provenance resource from Provenance read interaction
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL support the Provenance read interaction.
-
-
-
-</details>
-
-
-
-#### 1.23.2 Provenance resources returned during previous tests conform to the AU Core Provenance
-<details>
-
-<summary>Show details</summary>
-
-This test verifies resources returned from the first search conform to
-the [AU Core Provenance](http://hl7.org.au/fhir/core/StructureDefinition/au-core-provenance
-
-
-
-</details>
-
-
-
-#### 1.23.3 All must support elements are provided in the Provenance resources returned
-<details>
-
-<summary>Show details</summary>
-
-AU Core Responders SHALL be capable of populating all data elements as
-        part of the query results as specified by the AU Core Server Capability
-        Statement. This test will look through the Provenance resources
-        found previously for the following must support elements:
-
-        * Provenance.activity
-        * Provenance.agent
-        * Provenance.agent.onBehalfOf
-        * Provenance.agent.who
-        * Provenance.occurred[x]
-        * Provenance.recorded
-        * Provenance.target
-
-
-
-</details>
-
-
-
-#### 1.23.4 MustSupport references within Provenance resources are valid
-<details>
-
-<summary>Show details</summary>
-
-This test will attempt to read external references provided within elements
-        marked as 'MustSupport', if any are available.
-
-        It verifies that at least one external reference for each MustSupport Reference element
-        can be accessed by the test client, and conforms to corresponding AU Core profile.
-
-        Elements which may provide external references include:
-
-        * Provenance.agent.onBehalfOf
-        * Provenance.agent.who
-        * Provenance.target
 
 
 

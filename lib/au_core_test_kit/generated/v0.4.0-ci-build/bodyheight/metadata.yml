@@ -174,8 +174,7 @@
       :expectation: SHOULD
       :target: Patient
 :include_params: []
-:revincludes:
-- Provenance:target
+:revincludes: []
 :required_concepts: []
 :must_supports:
   :extensions: []
@@ -333,8 +332,6 @@
   :file_name: bodyheight_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_bodyheight_read_test
   :file_name: bodyheight_read_test.rb
-- :id: au_core_v040_ci_build_bodyheight_provenance_revinclude_search_test
-  :file_name: bodyheight_provenance_revinclude_search_test.rb
 - :id: au_core_v040_ci_build_bodyheight_validation_test
   :file_name: bodyheight_validation_test.rb
 - :id: au_core_v040_ci_build_bodyheight_must_support_test
