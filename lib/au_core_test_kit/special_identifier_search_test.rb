@@ -52,12 +52,7 @@ module AUCoreTestKit
     def search_params_with_values(search_param_names, patient_id, include_system: false)
       resources = scratch_resources_for_patient(patient_id)
 
-      if resources.empty?
-        return search_param_names.each_with_object({}) do |name, params|
-          value = patient_id_param?(name) ? patient_id : nil
-          params[name] = value
-        end
-      end
+      return default_search_params if resources.empty?
 
       resources.each_with_object({}) do |resource, outer_params|
         results_from_one_resource = search_param_names.each_with_object({}) do |name, params|
@@ -68,6 +63,13 @@ module AUCoreTestKit
         outer_params.merge!(results_from_one_resource)
         # stop if all parameter values are found
         return outer_params if outer_params.all? { |_key, value| value.present? }
+      end
+    end
+
+    def default_search_params(search_param_names, patient_id)
+      search_param_names.each_with_object({}) do |name, params|
+        value = patient_id_param?(name) ? patient_id : nil
+        params[name] = value
       end
     end
 

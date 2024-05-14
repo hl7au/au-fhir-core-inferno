@@ -39,13 +39,7 @@ module AUCoreTestKit
       load_ig_package
       extract_metadata
       generate_search_tests
-      generate_multiple_or_search_tests
-      generate_multiple_and_search_tests
-      generate_chain_search_tests
-      generate_special_identifier_search_tests
       generate_read_tests
-      # TODO: generate_vread_tests
-      # TODO: generate_history_tests
       generate_provenance_revinclude_search_tests
       generate_validation_tests
       generate_must_support_tests
@@ -91,6 +85,10 @@ module AUCoreTestKit
 
     def generate_search_tests
       SearchTestGenerator.generate(ig_metadata, base_output_dir)
+      generate_multiple_or_search_tests
+      generate_multiple_and_search_tests
+      generate_chain_search_tests
+      generate_special_identifier_search_tests
     end
 
     def generate_provenance_revinclude_search_tests
