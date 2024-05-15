@@ -19,11 +19,7 @@ module AUCoreTestKit
               current_search_definition[:chain].each do |chain_item|
                 next unless chain_item[:target] == 'Patient'
 
-                [
-                  { display: 'IHI', url: 'http://ns.electronichealth.net.au/id/hi/ihi/1.0' },
-                  { display: 'Medicare', url: 'http://ns.electronichealth.net.au/id/medicare-number' },
-                  { display: 'DVA', url: 'http://ns.electronichealth.net.au/id/dva' }
-                ].each do |target_identifier|
+                SpecialCases.patient_au_identifiers.each do |target_identifier|
                   new(
                     search_key.to_s,
                     group,
@@ -42,11 +38,7 @@ module AUCoreTestKit
       attr_accessor :search_name, :group_metadata, :search_metadata, :base_output_dir, :chain_item, :target_identifier
 
       def initialize(search_name, group_metadata, search_metadata, base_output_dir, chain_item, target_identifier)
-        self.search_name = search_name
-        self.group_metadata = group_metadata
-        self.search_metadata = search_metadata
-        self.base_output_dir = base_output_dir
-        self.chain_item = chain_item
+        super(search_name, group_metadata, search_metadata, base_output_dir, chain_item)
         self.target_identifier = target_identifier
       end
 
