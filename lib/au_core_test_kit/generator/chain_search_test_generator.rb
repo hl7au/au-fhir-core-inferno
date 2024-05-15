@@ -151,6 +151,10 @@ module AUCoreTestKit
         )
       end
 
+      def title
+        "Server returns valid results for #{resource_type} search by #{search_param_name_string} (chained parameters)"
+      end
+
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
           A server #{conformance_expectation} support searching by

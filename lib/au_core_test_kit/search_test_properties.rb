@@ -20,6 +20,7 @@ module AUCoreTestKit
       test_post_search
       attr_paths
       identifier_type
+      target_identifier
     ].freeze
 
     ATTRIBUTES.each { |name| attr_reader name }

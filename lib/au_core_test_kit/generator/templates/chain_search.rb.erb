@@ -6,7 +6,7 @@ module AUCoreTestKit
     class <%= class_name %> < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title 'Server returns valid results for <%= resource_type %> search by <%= search_param_name_string %> (chained parameters)'
+      title %(<%= title %>)
       description %(<%= description %>)
 
       id :<%= test_id %>
