@@ -14,6 +14,9 @@ require_relative 'resprate/resprate_code_multiple_or_search_test'
 require_relative 'resprate/resprate_status_multiple_or_search_test'
 require_relative 'resprate/resprate_date_multiple_and_search_test'
 require_relative 'resprate/resprate_patient_chain_search_test'
+require_relative 'resprate/resprate_patient_ihi_chain_search_test'
+require_relative 'resprate/resprate_patient_medicare_chain_search_test'
+require_relative 'resprate/resprate_patient_dva_chain_search_test'
 require_relative 'resprate/resprate_read_test'
 require_relative 'resprate/resprate_provenance_revinclude_search_test'
 require_relative 'resprate/resprate_validation_test'
@@ -108,6 +111,9 @@ read succeeds.
       test from: :au_core_v030_ballot_resprate_status_multiple_or_search_test
       test from: :au_core_v030_ballot_resprate_date_multiple_and_search_test
       test from: :au_core_v030_ballot_resprate_patient_chain_search_test
+      test from: :au_core_v030_ballot_resprate_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_resprate_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_resprate_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_resprate_read_test
       test from: :au_core_v030_ballot_resprate_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_resprate_validation_test

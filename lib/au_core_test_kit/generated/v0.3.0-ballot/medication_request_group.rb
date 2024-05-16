@@ -14,6 +14,9 @@ require_relative 'medication_request/medication_request_intent_multiple_or_searc
 require_relative 'medication_request/medication_request_status_multiple_or_search_test'
 require_relative 'medication_request/medication_request_authoredon_multiple_and_search_test'
 require_relative 'medication_request/medication_request_patient_chain_search_test'
+require_relative 'medication_request/medication_request_patient_ihi_chain_search_test'
+require_relative 'medication_request/medication_request_patient_medicare_chain_search_test'
+require_relative 'medication_request/medication_request_patient_dva_chain_search_test'
 require_relative 'medication_request/medication_request_read_test'
 require_relative 'medication_request/medication_request_provenance_revinclude_search_test'
 require_relative 'medication_request/medication_request_validation_test'
@@ -110,6 +113,9 @@ read succeeds.
       test from: :au_core_v030_ballot_medication_request_status_multiple_or_search_test
       test from: :au_core_v030_ballot_medication_request_authoredon_multiple_and_search_test
       test from: :au_core_v030_ballot_medication_request_patient_chain_search_test
+      test from: :au_core_v030_ballot_medication_request_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_medication_request_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_medication_request_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_medication_request_read_test
       test from: :au_core_v030_ballot_medication_request_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_medication_request_validation_test

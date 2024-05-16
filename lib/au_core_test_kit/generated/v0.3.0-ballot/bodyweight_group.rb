@@ -14,6 +14,9 @@ require_relative 'bodyweight/bodyweight_code_multiple_or_search_test'
 require_relative 'bodyweight/bodyweight_status_multiple_or_search_test'
 require_relative 'bodyweight/bodyweight_date_multiple_and_search_test'
 require_relative 'bodyweight/bodyweight_patient_chain_search_test'
+require_relative 'bodyweight/bodyweight_patient_ihi_chain_search_test'
+require_relative 'bodyweight/bodyweight_patient_medicare_chain_search_test'
+require_relative 'bodyweight/bodyweight_patient_dva_chain_search_test'
 require_relative 'bodyweight/bodyweight_read_test'
 require_relative 'bodyweight/bodyweight_provenance_revinclude_search_test'
 require_relative 'bodyweight/bodyweight_validation_test'
@@ -108,6 +111,9 @@ read succeeds.
       test from: :au_core_v030_ballot_bodyweight_status_multiple_or_search_test
       test from: :au_core_v030_ballot_bodyweight_date_multiple_and_search_test
       test from: :au_core_v030_ballot_bodyweight_patient_chain_search_test
+      test from: :au_core_v030_ballot_bodyweight_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_bodyweight_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_bodyweight_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_bodyweight_read_test
       test from: :au_core_v030_ballot_bodyweight_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_bodyweight_validation_test

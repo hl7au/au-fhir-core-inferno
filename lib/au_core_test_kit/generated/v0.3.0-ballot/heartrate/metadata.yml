@@ -335,6 +335,12 @@
   :file_name: heartrate_date_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_heartrate_patient_chain_search_test
   :file_name: heartrate_patient_chain_search_test.rb
+- :id: au_core_v030_ballot_heartrate_patient_ihi_chain_search_test
+  :file_name: heartrate_patient_ihi_chain_search_test.rb
+- :id: au_core_v030_ballot_heartrate_patient_medicare_chain_search_test
+  :file_name: heartrate_patient_medicare_chain_search_test.rb
+- :id: au_core_v030_ballot_heartrate_patient_dva_chain_search_test
+  :file_name: heartrate_patient_dva_chain_search_test.rb
 - :id: au_core_v030_ballot_heartrate_read_test
   :file_name: heartrate_read_test.rb
 - :id: au_core_v030_ballot_heartrate_provenance_revinclude_search_test

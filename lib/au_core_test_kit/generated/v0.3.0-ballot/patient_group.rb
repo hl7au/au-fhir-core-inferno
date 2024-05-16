@@ -16,6 +16,9 @@ require_relative 'patient/patient_indigenous_status_multiple_or_search_test'
 require_relative 'patient/patient_patient_gender_identity_multiple_or_search_test'
 require_relative 'patient/patient_indigenous_status_multiple_and_search_test'
 require_relative 'patient/patient_patient_gender_identity_multiple_and_search_test'
+require_relative 'patient/patient_identifier_ihi_search_test'
+require_relative 'patient/patient_identifier_medicare_search_test'
+require_relative 'patient/patient_identifier_dva_search_test'
 require_relative 'patient/patient_read_test'
 require_relative 'patient/patient_provenance_revinclude_search_test'
 require_relative 'patient/patient_validation_test'
@@ -108,6 +111,9 @@ read succeeds.
       test from: :au_core_v030_ballot_patient_patient_gender_identity_multiple_or_search_test
       test from: :au_core_v030_ballot_patient_indigenous_status_multiple_and_search_test
       test from: :au_core_v030_ballot_patient_patient_gender_identity_multiple_and_search_test
+      test from: :au_core_v030_ballot_patient_identifier_ihi_search_test
+      test from: :au_core_v030_ballot_patient_identifier_medicare_search_test
+      test from: :au_core_v030_ballot_patient_identifier_dva_search_test
       test from: :au_core_v030_ballot_patient_read_test
       test from: :au_core_v030_ballot_patient_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_patient_validation_test

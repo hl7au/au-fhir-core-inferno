@@ -290,6 +290,12 @@
   :file_name: patient_indigenous_status_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_patient_patient_gender_identity_multiple_and_search_test
   :file_name: patient_patient_gender_identity_multiple_and_search_test.rb
+- :id: au_core_v030_ballot_patient_identifier_ihi_search_test
+  :file_name: patient_identifier_ihi_search_test.rb
+- :id: au_core_v030_ballot_patient_identifier_medicare_search_test
+  :file_name: patient_identifier_medicare_search_test.rb
+- :id: au_core_v030_ballot_patient_identifier_dva_search_test
+  :file_name: patient_identifier_dva_search_test.rb
 - :id: au_core_v030_ballot_patient_read_test
   :file_name: patient_read_test.rb
 - :id: au_core_v030_ballot_patient_provenance_revinclude_search_test

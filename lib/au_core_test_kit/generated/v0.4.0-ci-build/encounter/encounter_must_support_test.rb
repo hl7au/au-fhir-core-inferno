@@ -15,9 +15,6 @@ module AUCoreTestKit
         found previously for the following must support elements:
 
         * Encounter.class
-        * Encounter.hospitalization
-        * Encounter.hospitalization.dischargeDisposition
-        * Encounter.identifier
         * Encounter.location
         * Encounter.location.location
         * Encounter.participant
@@ -30,7 +27,6 @@ module AUCoreTestKit
         * Encounter.serviceType
         * Encounter.status
         * Encounter.subject
-        * Encounter.type
       )
 
       id :au_core_v040_ci_build_encounter_must_support_test

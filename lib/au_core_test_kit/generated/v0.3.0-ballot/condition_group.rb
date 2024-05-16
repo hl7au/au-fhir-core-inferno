@@ -12,6 +12,9 @@ require_relative 'condition/condition_patient_code_search_test'
 require_relative 'condition/condition_patient_onset_date_search_test'
 require_relative 'condition/condition_onset_date_multiple_and_search_test'
 require_relative 'condition/condition_patient_chain_search_test'
+require_relative 'condition/condition_patient_ihi_chain_search_test'
+require_relative 'condition/condition_patient_medicare_chain_search_test'
+require_relative 'condition/condition_patient_dva_chain_search_test'
 require_relative 'condition/condition_read_test'
 require_relative 'condition/condition_provenance_revinclude_search_test'
 require_relative 'condition/condition_validation_test'
@@ -102,6 +105,9 @@ read succeeds.
       test from: :au_core_v030_ballot_condition_patient_onset_date_search_test
       test from: :au_core_v030_ballot_condition_onset_date_multiple_and_search_test
       test from: :au_core_v030_ballot_condition_patient_chain_search_test
+      test from: :au_core_v030_ballot_condition_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_condition_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_condition_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_condition_read_test
       test from: :au_core_v030_ballot_condition_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_condition_validation_test

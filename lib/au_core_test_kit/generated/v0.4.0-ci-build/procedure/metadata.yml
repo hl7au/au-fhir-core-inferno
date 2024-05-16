@@ -259,6 +259,12 @@
   :file_name: procedure_status_multiple_or_search_test.rb
 - :id: au_core_v040_ci_build_procedure_patient_chain_search_test
   :file_name: procedure_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_procedure_patient_ihi_chain_search_test
+  :file_name: procedure_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_procedure_patient_medicare_chain_search_test
+  :file_name: procedure_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_procedure_patient_dva_chain_search_test
+  :file_name: procedure_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_procedure_read_test
   :file_name: procedure_read_test.rb
 - :id: au_core_v040_ci_build_procedure_validation_test

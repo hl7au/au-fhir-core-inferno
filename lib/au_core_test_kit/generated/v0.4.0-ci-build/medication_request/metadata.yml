@@ -277,7 +277,7 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
-  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org.au/fhir/StructureDefinition/au-relatedperson
 - :path: MedicationRequest.performer
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner
@@ -346,6 +346,12 @@
   :file_name: medication_request_authoredon_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_medication_request_patient_chain_search_test
   :file_name: medication_request_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_medication_request_patient_ihi_chain_search_test
+  :file_name: medication_request_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_medication_request_patient_medicare_chain_search_test
+  :file_name: medication_request_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_medication_request_patient_dva_chain_search_test
+  :file_name: medication_request_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_medication_request_read_test
   :file_name: medication_request_read_test.rb
 - :id: au_core_v040_ci_build_medication_request_validation_test

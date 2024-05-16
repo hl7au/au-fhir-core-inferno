@@ -712,7 +712,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.17 Server returns correct Patient resource from Patient read interaction
+#### 1.2.17 %(Server returns valid results for Patient search by identifier (IHI))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.2.18 %(Server returns valid results for Patient search by identifier (Medicare))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.2.19 %(Server returns valid results for Patient search by identifier (DVA))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.2.20 Server returns correct Patient resource from Patient read interaction
 <details>
 
 <summary>Show details</summary>
@@ -725,7 +824,7 @@ A server SHALL support the Patient read interaction.
 
 
 
-#### 1.2.18 Patient resources returned during previous tests conform to the AU Core Patient
+#### 1.2.21 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 
 <summary>Show details</summary>
@@ -739,7 +838,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 
 
 
-#### 1.2.19 All must support elements are provided in the Patient resources returned
+#### 1.2.22 All must support elements are provided in the Patient resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1299,7 +1398,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.3.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -1335,7 +1434,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.15 Server returns correct Observation resource from Observation read interaction
+#### 1.3.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.3.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.3.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.3.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -1348,7 +1546,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.3.16 Observation resources returned during previous tests conform to the AU Core Body Weight
+#### 1.3.19 Observation resources returned during previous tests conform to the AU Core Body Weight
 <details>
 
 <summary>Show details</summary>
@@ -1362,7 +1560,7 @@ the [AU Core Body Weight](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.3.17 All must support elements are provided in the Observation resources returned
+#### 1.3.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -1394,7 +1592,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.3.18 MustSupport references within Observation resources are valid
+#### 1.3.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -1942,7 +2140,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.4.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -1978,7 +2176,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.15 Server returns correct Observation resource from Observation read interaction
+#### 1.4.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.4.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.4.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.4.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -1991,7 +2288,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.4.16 Observation resources returned during previous tests conform to the AU Core Blood Pressure
+#### 1.4.19 Observation resources returned during previous tests conform to the AU Core Blood Pressure
 <details>
 
 <summary>Show details</summary>
@@ -2005,7 +2302,7 @@ the [AU Core Blood Pressure](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.4.17 All must support elements are provided in the Observation resources returned
+#### 1.4.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2051,7 +2348,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.4.18 MustSupport references within Observation resources are valid
+#### 1.4.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -2599,7 +2896,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.5.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -2635,7 +2932,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.15 Server returns correct Observation resource from Observation read interaction
+#### 1.5.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.5.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.5.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.5.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -2648,7 +3044,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.5.16 Observation resources returned during previous tests conform to the AU Core Body Height
+#### 1.5.19 Observation resources returned during previous tests conform to the AU Core Body Height
 <details>
 
 <summary>Show details</summary>
@@ -2662,7 +3058,7 @@ the [AU Core Body Height](http://hl7.org.au/fhir/core/StructureDefinition/au-cor
 
 
 
-#### 1.5.17 All must support elements are provided in the Observation resources returned
+#### 1.5.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -2694,7 +3090,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.5.18 MustSupport references within Observation resources are valid
+#### 1.5.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -3242,7 +3638,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.6.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -3278,7 +3674,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.15 Server returns correct Observation resource from Observation read interaction
+#### 1.6.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.6.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.6.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.6.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3291,7 +3786,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.6.16 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
+#### 1.6.19 Observation resources returned during previous tests conform to the AU Core Pathology Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -3305,7 +3800,7 @@ the [AU Core Pathology Result Observation](http://hl7.org.au/fhir/core/Structure
 
 
 
-#### 1.6.17 All must support elements are provided in the Observation resources returned
+#### 1.6.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -3342,7 +3837,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.6.18 MustSupport references within Observation resources are valid
+#### 1.6.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -3893,7 +4388,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.7.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -3929,7 +4424,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.15 Server returns correct Observation resource from Observation read interaction
+#### 1.7.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.7.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.7.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.7.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3942,7 +4536,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.7.16 Observation resources returned during previous tests conform to the AU Core Body Temperature
+#### 1.7.19 Observation resources returned during previous tests conform to the AU Core Body Temperature
 <details>
 
 <summary>Show details</summary>
@@ -3956,7 +4550,7 @@ the [AU Core Body Temperature](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.7.17 All must support elements are provided in the Observation resources returned
+#### 1.7.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -3988,7 +4582,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.7.18 MustSupport references within Observation resources are valid
+#### 1.7.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4536,7 +5130,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.8.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -4572,7 +5166,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.15 Server returns correct Observation resource from Observation read interaction
+#### 1.8.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.8.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.8.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.8.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -4585,7 +5278,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.8.16 Observation resources returned during previous tests conform to the AU Core Heart Rate
+#### 1.8.19 Observation resources returned during previous tests conform to the AU Core Heart Rate
 <details>
 
 <summary>Show details</summary>
@@ -4599,7 +5292,7 @@ the [AU Core Heart Rate](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.8.17 All must support elements are provided in the Observation resources returned
+#### 1.8.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -4616,7 +5309,6 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Observation.category:VSCat.coding.system
         * Observation.code
         * Observation.effective[x]
-        * Observation.performer
         * Observation.status
         * Observation.subject
         * Observation.value[x]
@@ -4632,7 +5324,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.8.18 MustSupport references within Observation resources are valid
+#### 1.8.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -4645,7 +5337,6 @@ This test will attempt to read external references provided within elements
 
         Elements which may provide external references include:
 
-        * Observation.performer
         * Observation.subject
 
 
@@ -5181,7 +5872,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.9.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -5217,7 +5908,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.15 Server returns correct Observation resource from Observation read interaction
+#### 1.9.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.9.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.9.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.9.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -5230,7 +6020,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.9.16 Observation resources returned during previous tests conform to the AU Core Waist Circumference
+#### 1.9.19 Observation resources returned during previous tests conform to the AU Core Waist Circumference
 <details>
 
 <summary>Show details</summary>
@@ -5244,7 +6034,7 @@ the [AU Core Waist Circumference](http://hl7.org.au/fhir/core/StructureDefinitio
 
 
 
-#### 1.9.17 All must support elements are provided in the Observation resources returned
+#### 1.9.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -5272,7 +6062,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.9.18 MustSupport references within Observation resources are valid
+#### 1.9.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -5820,7 +6610,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.10.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -5856,7 +6646,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.15 Server returns correct Observation resource from Observation read interaction
+#### 1.10.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.10.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.10.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.10.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -5869,7 +6758,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.10.16 Observation resources returned during previous tests conform to the AU Core Respiration Rate
+#### 1.10.19 Observation resources returned during previous tests conform to the AU Core Respiration Rate
 <details>
 
 <summary>Show details</summary>
@@ -5883,7 +6772,7 @@ the [AU Core Respiration Rate](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.10.17 All must support elements are provided in the Observation resources returned
+#### 1.10.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -5915,7 +6804,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.10.18 MustSupport references within Observation resources are valid
+#### 1.10.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -6463,7 +7352,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.11.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -6499,7 +7388,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.15 Server returns correct Observation resource from Observation read interaction
+#### 1.11.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.11.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.11.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.11.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -6512,7 +7500,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.11.16 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
+#### 1.11.19 Observation resources returned during previous tests conform to the AU Core Diagnostic Result Observation
 <details>
 
 <summary>Show details</summary>
@@ -6526,7 +7514,7 @@ the [AU Core Diagnostic Result Observation](http://hl7.org.au/fhir/core/Structur
 
 
 
-#### 1.11.17 All must support elements are provided in the Observation resources returned
+#### 1.11.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -6563,7 +7551,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.11.18 MustSupport references within Observation resources are valid
+#### 1.11.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7113,7 +8101,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.12.14 %(Server returns valid results for Observation search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -7149,7 +8137,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.15 Server returns correct Observation resource from Observation read interaction
+#### 1.12.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.12.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.12.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.12.18 Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7162,7 +8249,7 @@ A server SHALL support the Observation read interaction.
 
 
 
-#### 1.12.16 Observation resources returned during previous tests conform to the AU Core Smoking Status
+#### 1.12.19 Observation resources returned during previous tests conform to the AU Core Smoking Status
 <details>
 
 <summary>Show details</summary>
@@ -7176,7 +8263,7 @@ the [AU Core Smoking Status](http://hl7.org.au/fhir/core/StructureDefinition/au-
 
 
 
-#### 1.12.17 All must support elements are provided in the Observation resources returned
+#### 1.12.20 All must support elements are provided in the Observation resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7199,7 +8286,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.12.18 MustSupport references within Observation resources are valid
+#### 1.12.21 MustSupport references within Observation resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7373,7 +8460,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.4 Server returns valid results for AllergyIntolerance search by patient (chained parameters)
+#### 1.13.4 %(Server returns valid results for AllergyIntolerance search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -7409,7 +8496,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.5 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
+#### 1.13.5 %(Server returns valid results for AllergyIntolerance search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.13.6 %(Server returns valid results for AllergyIntolerance search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.13.7 %(Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/AllergyIntolerance?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.13.8 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7422,7 +8608,7 @@ A server SHALL support the AllergyIntolerance read interaction.
 
 
 
-#### 1.13.6 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
+#### 1.13.9 AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance
 <details>
 
 <summary>Show details</summary>
@@ -7436,7 +8622,7 @@ the [AU Core AllergyIntolerance](http://hl7.org.au/fhir/core/StructureDefinition
 
 
 
-#### 1.13.7 All must support elements are provided in the AllergyIntolerance resources returned
+#### 1.13.10 All must support elements are provided in the AllergyIntolerance resources returned
 <details>
 
 <summary>Show details</summary>
@@ -7462,7 +8648,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.13.8 MustSupport references within AllergyIntolerance resources are valid
+#### 1.13.11 MustSupport references within AllergyIntolerance resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -7934,7 +9120,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.12 Server returns valid results for Condition search by patient (chained parameters)
+#### 1.14.12 %(Server returns valid results for Condition search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -7970,7 +9156,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.13 Server returns correct Condition resource from Condition read interaction
+#### 1.14.13 %(Server returns valid results for Condition search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.14.14 %(Server returns valid results for Condition search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.14.15 %(Server returns valid results for Condition search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.14.16 Server returns correct Condition resource from Condition read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7983,7 +9268,7 @@ A server SHALL support the Condition read interaction.
 
 
 
-#### 1.14.14 Condition resources returned during previous tests conform to the AU Core Condition
+#### 1.14.17 Condition resources returned during previous tests conform to the AU Core Condition
 <details>
 
 <summary>Show details</summary>
@@ -7997,7 +9282,7 @@ the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.14.15 All must support elements are provided in the Condition resources returned
+#### 1.14.18 All must support elements are provided in the Condition resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8023,7 +9308,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.14.16 MustSupport references within Condition resources are valid
+#### 1.14.19 MustSupport references within Condition resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -8716,7 +10001,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.18 Server returns valid results for Encounter search by patient (chained parameters)
+#### 1.15.18 %(Server returns valid results for Encounter search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -8752,7 +10037,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.19 Server returns correct Encounter resource from Encounter read interaction
+#### 1.15.19 %(Server returns valid results for Encounter search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.15.20 %(Server returns valid results for Encounter search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.15.21 %(Server returns valid results for Encounter search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.15.22 Server returns correct Encounter resource from Encounter read interaction
 <details>
 
 <summary>Show details</summary>
@@ -8765,7 +10149,7 @@ A server SHALL support the Encounter read interaction.
 
 
 
-#### 1.15.20 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 1.15.23 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 
 <summary>Show details</summary>
@@ -8779,7 +10163,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.15.21 All must support elements are provided in the Encounter resources returned
+#### 1.15.24 All must support elements are provided in the Encounter resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8790,9 +10174,6 @@ AU Core Responders SHALL be capable of populating all data elements as
         found previously for the following must support elements:
 
         * Encounter.class
-        * Encounter.hospitalization
-        * Encounter.hospitalization.dischargeDisposition
-        * Encounter.identifier
         * Encounter.location
         * Encounter.location.location
         * Encounter.participant
@@ -8805,7 +10186,6 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Encounter.serviceType
         * Encounter.status
         * Encounter.subject
-        * Encounter.type
 
 
 
@@ -8813,7 +10193,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.15.22 MustSupport references within Encounter resources are valid
+#### 1.15.25 MustSupport references within Encounter resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9214,7 +10594,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.10 Server returns valid results for Immunization search by patient (chained parameters)
+#### 1.16.10 %(Server returns valid results for Immunization search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -9250,7 +10630,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.11 Server returns correct Immunization resource from Immunization read interaction
+#### 1.16.11 %(Server returns valid results for Immunization search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.16.12 %(Server returns valid results for Immunization search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.16.13 %(Server returns valid results for Immunization search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Immunization?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Immunization?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.16.14 Server returns correct Immunization resource from Immunization read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9263,7 +10742,7 @@ A server SHALL support the Immunization read interaction.
 
 
 
-#### 1.16.12 Immunization resources returned during previous tests conform to the AU Core Immunization
+#### 1.16.15 Immunization resources returned during previous tests conform to the AU Core Immunization
 <details>
 
 <summary>Show details</summary>
@@ -9277,7 +10756,7 @@ the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 1.16.13 All must support elements are provided in the Immunization resources returned
+#### 1.16.16 All must support elements are provided in the Immunization resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9306,7 +10785,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.16.14 MustSupport references within Immunization resources are valid
+#### 1.16.17 MustSupport references within Immunization resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -9895,7 +11374,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.14 Server returns valid results for MedicationRequest search by patient (chained parameters)
+#### 1.17.14 %(Server returns valid results for MedicationRequest search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -9931,7 +11410,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.15 Server returns correct MedicationRequest resource from MedicationRequest read interaction
+#### 1.17.15 %(Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.16 %(Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.17 %(Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.18 Server returns correct MedicationRequest resource from MedicationRequest read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9944,7 +11522,7 @@ A server SHALL support the MedicationRequest read interaction.
 
 
 
-#### 1.17.16 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 1.17.19 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 
 <summary>Show details</summary>
@@ -9958,7 +11536,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 
 
 
-#### 1.17.17 Medication resources returned during previous tests conform to the AU Core Medication
+#### 1.17.20 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 
 <summary>Show details</summary>
@@ -9972,7 +11550,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.17.18 All must support elements are provided in the MedicationRequest resources returned
+#### 1.17.21 All must support elements are provided in the MedicationRequest resources returned
 <details>
 
 <summary>Show details</summary>
@@ -10009,7 +11587,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.17.19 MustSupport references within MedicationRequest resources are valid
+#### 1.17.22 MustSupport references within MedicationRequest resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -10409,7 +11987,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.10 Server returns valid results for Procedure search by patient (chained parameters)
+#### 1.18.10 %(Server returns valid results for Procedure search by patient (chained parameters))
 <details>
 
 <summary>Show details</summary>
@@ -10445,7 +12023,106 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.11 Server returns correct Procedure resource from Procedure read interaction
+#### 1.18.11 %(Server returns valid results for Procedure search by patient (IHI) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (IHI
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.18.12 %(Server returns valid results for Procedure search by patient (Medicare) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.18.13 %(Server returns valid results for Procedure search by patient (DVA) (chained parameters))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+patient:Patient.identifier (DVA
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?patient:Patient.identifier={patient:Patient.identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?patient:Patient.identifier={patient:Patient.identifier}
+```
+
+
+
+</details>
+
+
+
+#### 1.18.14 Server returns correct Procedure resource from Procedure read interaction
 <details>
 
 <summary>Show details</summary>
@@ -10458,7 +12135,7 @@ A server SHALL support the Procedure read interaction.
 
 
 
-#### 1.18.12 Procedure resources returned during previous tests conform to the AU Core Procedure
+#### 1.18.15 Procedure resources returned during previous tests conform to the AU Core Procedure
 <details>
 
 <summary>Show details</summary>
@@ -10472,7 +12149,7 @@ the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.18.13 All must support elements are provided in the Procedure resources returned
+#### 1.18.16 All must support elements are provided in the Procedure resources returned
 <details>
 
 <summary>Show details</summary>
@@ -10497,7 +12174,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.18.14 MustSupport references within Procedure resources are valid
+#### 1.18.17 MustSupport references within Procedure resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -11594,7 +13271,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.9 Server returns valid results for PractitionerRole search by practitioner (chained parameters)
+#### 1.22.9 %(Server returns valid results for PractitionerRole search by practitioner (chained parameters))
 <details>
 
 <summary>Show details</summary>

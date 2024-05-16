@@ -10,6 +10,9 @@ require_relative 'procedure/procedure_patient_status_search_test'
 require_relative 'procedure/procedure_code_multiple_or_search_test'
 require_relative 'procedure/procedure_status_multiple_or_search_test'
 require_relative 'procedure/procedure_patient_chain_search_test'
+require_relative 'procedure/procedure_patient_ihi_chain_search_test'
+require_relative 'procedure/procedure_patient_medicare_chain_search_test'
+require_relative 'procedure/procedure_patient_dva_chain_search_test'
 require_relative 'procedure/procedure_read_test'
 require_relative 'procedure/procedure_provenance_revinclude_search_test'
 require_relative 'procedure/procedure_validation_test'
@@ -97,6 +100,9 @@ read succeeds.
       test from: :au_core_v030_ballot_procedure_code_multiple_or_search_test
       test from: :au_core_v030_ballot_procedure_status_multiple_or_search_test
       test from: :au_core_v030_ballot_procedure_patient_chain_search_test
+      test from: :au_core_v030_ballot_procedure_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_procedure_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_procedure_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_procedure_read_test
       test from: :au_core_v030_ballot_procedure_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_procedure_validation_test

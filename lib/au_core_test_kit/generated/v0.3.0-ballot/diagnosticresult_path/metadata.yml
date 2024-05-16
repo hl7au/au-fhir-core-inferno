@@ -310,6 +310,12 @@
   :file_name: diagnosticresult_path_date_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_diagnosticresult_path_patient_chain_search_test
   :file_name: diagnosticresult_path_patient_chain_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_patient_ihi_chain_search_test
+  :file_name: diagnosticresult_path_patient_ihi_chain_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_patient_medicare_chain_search_test
+  :file_name: diagnosticresult_path_patient_medicare_chain_search_test.rb
+- :id: au_core_v030_ballot_diagnosticresult_path_patient_dva_chain_search_test
+  :file_name: diagnosticresult_path_patient_dva_chain_search_test.rb
 - :id: au_core_v030_ballot_diagnosticresult_path_read_test
   :file_name: diagnosticresult_path_read_test.rb
 - :id: au_core_v030_ballot_diagnosticresult_path_provenance_revinclude_search_test

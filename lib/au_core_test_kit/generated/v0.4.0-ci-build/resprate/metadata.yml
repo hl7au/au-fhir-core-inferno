@@ -327,6 +327,12 @@
   :file_name: resprate_date_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_resprate_patient_chain_search_test
   :file_name: resprate_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_resprate_patient_ihi_chain_search_test
+  :file_name: resprate_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_resprate_patient_medicare_chain_search_test
+  :file_name: resprate_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_resprate_patient_dva_chain_search_test
+  :file_name: resprate_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_resprate_read_test
   :file_name: resprate_read_test.rb
 - :id: au_core_v040_ci_build_resprate_validation_test

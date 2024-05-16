@@ -338,6 +338,12 @@
   :file_name: bodyweight_date_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_bodyweight_patient_chain_search_test
   :file_name: bodyweight_patient_chain_search_test.rb
+- :id: au_core_v030_ballot_bodyweight_patient_ihi_chain_search_test
+  :file_name: bodyweight_patient_ihi_chain_search_test.rb
+- :id: au_core_v030_ballot_bodyweight_patient_medicare_chain_search_test
+  :file_name: bodyweight_patient_medicare_chain_search_test.rb
+- :id: au_core_v030_ballot_bodyweight_patient_dva_chain_search_test
+  :file_name: bodyweight_patient_dva_chain_search_test.rb
 - :id: au_core_v030_ballot_bodyweight_read_test
   :file_name: bodyweight_read_test.rb
 - :id: au_core_v030_ballot_bodyweight_provenance_revinclude_search_test
