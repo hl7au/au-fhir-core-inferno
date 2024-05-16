@@ -34,6 +34,9 @@ AllCops:
     - 'lib/au_core_test_kit/generator/multiple_or_search_test_generator.rb'
     - 'lib/au_core_test_kit/generator/multiple_and_search_test_generator.rb'
     - 'lib/au_core_test_kit/generator/chain_search_test_generator.rb'
+    - 'lib/au_core_test_kit/generator/special_identifier_search_test_generator.rb'
+    - 'lib/au_core_test_kit/special_identifier_search_test.rb'
+    - 'lib/au_core_test_kit/generator/special_identifiers_chain_search_test_generator.rb'
 Style/Documentation:
   Enabled: false
 Layout/LineLength:

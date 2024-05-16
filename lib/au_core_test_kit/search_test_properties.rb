@@ -19,6 +19,7 @@ module AUCoreTestKit
       optional_multiple_and_search_params
       test_post_search
       attr_paths
+      target_identifier
     ].freeze
 
     ATTRIBUTES.each { |name| attr_reader name }

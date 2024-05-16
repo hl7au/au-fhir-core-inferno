@@ -1,23 +1,17 @@
-require_relative '../../../chained_search_test'
+require_relative '../../../special_identifier_search_test'
 require_relative '../../../generator/group_metadata'
 
 module AUCoreTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include AUCoreTestKit::ChainedSearchTest
+      include AUCoreTestKit::SpecialIdentifierSearchTest
 
       title %(<%= title %>)
       description %(<%= description %>)
 
-      id :<%= test_id %>
-      <% if optional? %>
+      id :<%= test_id %><% if optional? %>
       optional
-      <% end %>
-      input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
-
+  <% end %>
       def self.properties
         @properties ||= SearchTestProperties.new(
   <%= search_test_properties_string %>
@@ -33,7 +27,7 @@ module AUCoreTestKit
       end
 
       run do
-        run_chain_search_test
+        run_special_identifier_search_test
       end
     end
   end
