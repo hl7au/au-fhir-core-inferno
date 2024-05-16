@@ -25,17 +25,7 @@ module AUCoreTestKit
                    :optional_multiple_or_search_params,
                    :multiple_and_search_params,
                    :optional_multiple_and_search_params,
-                   :identifier_type
-
-    def map_identifier_system_by_type(identifier_type)
-      identifier_system_hash = {
-        'dva' => 'http://ns.electronichealth.net.au/id/dva',
-        'ihi' => 'http://ns.electronichealth.net.au/id/hi/ihi/1.0',
-        'medicare' => 'http://ns.electronichealth.net.au/id/medicare-number'
-      }
-
-      identifier_system_hash[identifier_type]
-    end
+                   :target_identifier
 
     def all_search_params
       @all_search_params ||=
@@ -73,13 +63,13 @@ module AUCoreTestKit
       end
     end
 
-    def get_resource_identifiers(resource, identifier_type)
-      resource.identifier.filter { |ident| ident.system == map_identifier_system_by_type(identifier_type) }
+    def get_resource_identifiers(resource, target_identifier)
+      resource.identifier.filter { |ident| ident.system == target_identifier[:url] }
     end
 
     def search_param_value(_name, resource, include_system: false)
       search_value = nil
-      resource_identifiers = get_resource_identifiers(resource, identifier_type)
+      resource_identifiers = get_resource_identifiers(resource, target_identifier)
       if resource_identifiers.length.positive?
         resource_identifier = resource_identifiers.first
         search_value = include_system ? "#{resource_identifier.system}|#{resource_identifier.value}" : resource_identifier.value.to_s

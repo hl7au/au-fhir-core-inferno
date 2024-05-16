@@ -19,7 +19,6 @@ module AUCoreTestKit
       optional_multiple_and_search_params
       test_post_search
       attr_paths
-      identifier_type
       target_identifier
     ].freeze
 
