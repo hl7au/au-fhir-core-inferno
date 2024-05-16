@@ -14,6 +14,9 @@ require_relative 'smokingstatus/smokingstatus_code_multiple_or_search_test'
 require_relative 'smokingstatus/smokingstatus_status_multiple_or_search_test'
 require_relative 'smokingstatus/smokingstatus_date_multiple_and_search_test'
 require_relative 'smokingstatus/smokingstatus_patient_chain_search_test'
+require_relative 'smokingstatus/smokingstatus_patient_ihi_chain_search_test'
+require_relative 'smokingstatus/smokingstatus_patient_medicare_chain_search_test'
+require_relative 'smokingstatus/smokingstatus_patient_dva_chain_search_test'
 require_relative 'smokingstatus/smokingstatus_read_test'
 require_relative 'smokingstatus/smokingstatus_provenance_revinclude_search_test'
 require_relative 'smokingstatus/smokingstatus_validation_test'
@@ -108,6 +111,9 @@ read succeeds.
       test from: :au_core_v030_ballot_smokingstatus_status_multiple_or_search_test
       test from: :au_core_v030_ballot_smokingstatus_date_multiple_and_search_test
       test from: :au_core_v030_ballot_smokingstatus_patient_chain_search_test
+      test from: :au_core_v030_ballot_smokingstatus_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_smokingstatus_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_smokingstatus_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_smokingstatus_read_test
       test from: :au_core_v030_ballot_smokingstatus_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_smokingstatus_validation_test

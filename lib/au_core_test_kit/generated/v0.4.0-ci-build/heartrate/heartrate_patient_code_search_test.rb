@@ -44,7 +44,6 @@ requirement of AU Core v0.4.0-ci-build.
           fixed_value_search: true,
           resource_type: 'Observation',
           search_param_names: %w[patient code],
-          saves_delayed_references: true,
           possible_status_search: true,
           token_search_params: ['code'],
           test_reference_variants: true,

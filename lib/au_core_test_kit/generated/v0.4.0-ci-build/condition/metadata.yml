@@ -246,6 +246,12 @@
   :file_name: condition_onset_date_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_condition_patient_chain_search_test
   :file_name: condition_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_condition_patient_ihi_chain_search_test
+  :file_name: condition_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_condition_patient_medicare_chain_search_test
+  :file_name: condition_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_condition_patient_dva_chain_search_test
+  :file_name: condition_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_condition_read_test
   :file_name: condition_read_test.rb
 - :id: au_core_v040_ci_build_condition_validation_test

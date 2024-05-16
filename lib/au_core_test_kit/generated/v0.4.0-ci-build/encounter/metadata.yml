@@ -48,13 +48,15 @@
 - :names:
   - discharge-disposition
   :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
+  :names_not_must_support_or_mandatory:
+  - discharge-disposition
+  :must_support_or_mandatory: false
 - :names:
   - identifier
   :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
+  :names_not_must_support_or_mandatory:
+  - identifier
+  :must_support_or_mandatory: false
 - :names:
   - location
   :expectation: MAY
@@ -68,8 +70,9 @@
 - :names:
   - type
   :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
+  :names_not_must_support_or_mandatory:
+  - type
+  :must_support_or_mandatory: false
 - :expectation: SHALL
   :names:
   - date
@@ -87,8 +90,9 @@
   :names:
   - patient
   - discharge-disposition
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
+  :names_not_must_support_or_mandatory:
+  - discharge-disposition
+  :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - patient
@@ -105,8 +109,9 @@
   :names:
   - patient
   - type
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
+  :names_not_must_support_or_mandatory:
+  - type
+  :must_support_or_mandatory: false
 :search_definitions:
   :class:
     :paths:
@@ -216,10 +221,8 @@
   :extensions: []
   :slices: []
   :elements:
-  - :path: identifier
   - :path: status
   - :path: class
-  - :path: type
   - :path: serviceType
   - :path: subject
     :types:
@@ -236,8 +239,6 @@
   - :path: reasonReference
     :types:
     - Reference
-  - :path: hospitalization
-  - :path: hospitalization.dischargeDisposition
   - :path: location
   - :path: location.location
     :types:
@@ -286,7 +287,7 @@
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
-  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org.au/fhir/StructureDefinition/au-relatedperson
 - :path: Encounter.appointment
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Appointment
@@ -356,6 +357,12 @@
   :file_name: encounter_discharge_disposition_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_encounter_patient_chain_search_test
   :file_name: encounter_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_encounter_patient_ihi_chain_search_test
+  :file_name: encounter_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_encounter_patient_medicare_chain_search_test
+  :file_name: encounter_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_encounter_patient_dva_chain_search_test
+  :file_name: encounter_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_encounter_read_test
   :file_name: encounter_read_test.rb
 - :id: au_core_v040_ci_build_encounter_validation_test

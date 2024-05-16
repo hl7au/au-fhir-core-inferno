@@ -21,7 +21,6 @@ module AUCoreTestKit
         * Observation.category:VSCat.coding.system
         * Observation.code
         * Observation.effective[x]
-        * Observation.performer
         * Observation.status
         * Observation.subject
         * Observation.value[x]

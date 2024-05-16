@@ -360,6 +360,12 @@
   :file_name: bloodpressure_date_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_patient_chain_search_test
   :file_name: bloodpressure_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_bloodpressure_patient_ihi_chain_search_test
+  :file_name: bloodpressure_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_bloodpressure_patient_medicare_chain_search_test
+  :file_name: bloodpressure_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_bloodpressure_patient_dva_chain_search_test
+  :file_name: bloodpressure_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_read_test
   :file_name: bloodpressure_read_test.rb
 - :id: au_core_v040_ci_build_bloodpressure_validation_test

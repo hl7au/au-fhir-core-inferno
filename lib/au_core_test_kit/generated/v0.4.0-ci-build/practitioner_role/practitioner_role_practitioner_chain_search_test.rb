@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerRolePractitionerChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title 'Server returns valid results for PractitionerRole search by practitioner (chained parameters)'
+      title %(Server returns valid results for PractitionerRole search by practitioner (chained parameters))
       description %(A server SHOULD support searching by
 practitioner:Practitioner.identifier on the PractitionerRole resource. This test
 will pass if the server returns a success response to the request.

@@ -14,6 +14,9 @@ require_relative 'bloodpressure/bloodpressure_code_multiple_or_search_test'
 require_relative 'bloodpressure/bloodpressure_status_multiple_or_search_test'
 require_relative 'bloodpressure/bloodpressure_date_multiple_and_search_test'
 require_relative 'bloodpressure/bloodpressure_patient_chain_search_test'
+require_relative 'bloodpressure/bloodpressure_patient_ihi_chain_search_test'
+require_relative 'bloodpressure/bloodpressure_patient_medicare_chain_search_test'
+require_relative 'bloodpressure/bloodpressure_patient_dva_chain_search_test'
 require_relative 'bloodpressure/bloodpressure_read_test'
 require_relative 'bloodpressure/bloodpressure_validation_test'
 require_relative 'bloodpressure/bloodpressure_must_support_test'
@@ -107,6 +110,9 @@ read succeeds.
       test from: :au_core_v040_ci_build_bloodpressure_status_multiple_or_search_test
       test from: :au_core_v040_ci_build_bloodpressure_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_bloodpressure_patient_chain_search_test
+      test from: :au_core_v040_ci_build_bloodpressure_patient_ihi_chain_search_test
+      test from: :au_core_v040_ci_build_bloodpressure_patient_medicare_chain_search_test
+      test from: :au_core_v040_ci_build_bloodpressure_patient_dva_chain_search_test
       test from: :au_core_v040_ci_build_bloodpressure_read_test
       test from: :au_core_v040_ci_build_bloodpressure_validation_test
       test from: :au_core_v040_ci_build_bloodpressure_must_support_test

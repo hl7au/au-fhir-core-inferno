@@ -14,6 +14,9 @@ require_relative 'heartrate/heartrate_code_multiple_or_search_test'
 require_relative 'heartrate/heartrate_status_multiple_or_search_test'
 require_relative 'heartrate/heartrate_date_multiple_and_search_test'
 require_relative 'heartrate/heartrate_patient_chain_search_test'
+require_relative 'heartrate/heartrate_patient_ihi_chain_search_test'
+require_relative 'heartrate/heartrate_patient_medicare_chain_search_test'
+require_relative 'heartrate/heartrate_patient_dva_chain_search_test'
 require_relative 'heartrate/heartrate_read_test'
 require_relative 'heartrate/heartrate_validation_test'
 require_relative 'heartrate/heartrate_must_support_test'
@@ -107,6 +110,9 @@ read succeeds.
       test from: :au_core_v040_ci_build_heartrate_status_multiple_or_search_test
       test from: :au_core_v040_ci_build_heartrate_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_heartrate_patient_chain_search_test
+      test from: :au_core_v040_ci_build_heartrate_patient_ihi_chain_search_test
+      test from: :au_core_v040_ci_build_heartrate_patient_medicare_chain_search_test
+      test from: :au_core_v040_ci_build_heartrate_patient_dva_chain_search_test
       test from: :au_core_v040_ci_build_heartrate_read_test
       test from: :au_core_v040_ci_build_heartrate_validation_test
       test from: :au_core_v040_ci_build_heartrate_must_support_test

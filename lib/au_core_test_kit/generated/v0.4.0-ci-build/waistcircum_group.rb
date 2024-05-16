@@ -14,6 +14,9 @@ require_relative 'waistcircum/waistcircum_code_multiple_or_search_test'
 require_relative 'waistcircum/waistcircum_status_multiple_or_search_test'
 require_relative 'waistcircum/waistcircum_date_multiple_and_search_test'
 require_relative 'waistcircum/waistcircum_patient_chain_search_test'
+require_relative 'waistcircum/waistcircum_patient_ihi_chain_search_test'
+require_relative 'waistcircum/waistcircum_patient_medicare_chain_search_test'
+require_relative 'waistcircum/waistcircum_patient_dva_chain_search_test'
 require_relative 'waistcircum/waistcircum_read_test'
 require_relative 'waistcircum/waistcircum_validation_test'
 require_relative 'waistcircum/waistcircum_must_support_test'
@@ -107,6 +110,9 @@ read succeeds.
       test from: :au_core_v040_ci_build_waistcircum_status_multiple_or_search_test
       test from: :au_core_v040_ci_build_waistcircum_date_multiple_and_search_test
       test from: :au_core_v040_ci_build_waistcircum_patient_chain_search_test
+      test from: :au_core_v040_ci_build_waistcircum_patient_ihi_chain_search_test
+      test from: :au_core_v040_ci_build_waistcircum_patient_medicare_chain_search_test
+      test from: :au_core_v040_ci_build_waistcircum_patient_dva_chain_search_test
       test from: :au_core_v040_ci_build_waistcircum_read_test
       test from: :au_core_v040_ci_build_waistcircum_validation_test
       test from: :au_core_v040_ci_build_waistcircum_must_support_test

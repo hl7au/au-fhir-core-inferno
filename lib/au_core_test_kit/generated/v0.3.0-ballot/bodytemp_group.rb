@@ -14,6 +14,9 @@ require_relative 'bodytemp/bodytemp_code_multiple_or_search_test'
 require_relative 'bodytemp/bodytemp_status_multiple_or_search_test'
 require_relative 'bodytemp/bodytemp_date_multiple_and_search_test'
 require_relative 'bodytemp/bodytemp_patient_chain_search_test'
+require_relative 'bodytemp/bodytemp_patient_ihi_chain_search_test'
+require_relative 'bodytemp/bodytemp_patient_medicare_chain_search_test'
+require_relative 'bodytemp/bodytemp_patient_dva_chain_search_test'
 require_relative 'bodytemp/bodytemp_read_test'
 require_relative 'bodytemp/bodytemp_provenance_revinclude_search_test'
 require_relative 'bodytemp/bodytemp_validation_test'
@@ -108,6 +111,9 @@ read succeeds.
       test from: :au_core_v030_ballot_bodytemp_status_multiple_or_search_test
       test from: :au_core_v030_ballot_bodytemp_date_multiple_and_search_test
       test from: :au_core_v030_ballot_bodytemp_patient_chain_search_test
+      test from: :au_core_v030_ballot_bodytemp_patient_ihi_chain_search_test
+      test from: :au_core_v030_ballot_bodytemp_patient_medicare_chain_search_test
+      test from: :au_core_v030_ballot_bodytemp_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_bodytemp_read_test
       test from: :au_core_v030_ballot_bodytemp_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_bodytemp_validation_test

@@ -237,6 +237,12 @@
   :file_name: immunization_date_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_immunization_patient_chain_search_test
   :file_name: immunization_patient_chain_search_test.rb
+- :id: au_core_v040_ci_build_immunization_patient_ihi_chain_search_test
+  :file_name: immunization_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_ci_build_immunization_patient_medicare_chain_search_test
+  :file_name: immunization_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_ci_build_immunization_patient_dva_chain_search_test
+  :file_name: immunization_patient_dva_chain_search_test.rb
 - :id: au_core_v040_ci_build_immunization_read_test
   :file_name: immunization_read_test.rb
 - :id: au_core_v040_ci_build_immunization_validation_test
