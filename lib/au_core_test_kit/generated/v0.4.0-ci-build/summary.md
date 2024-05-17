@@ -712,7 +712,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.17 %(Server returns valid results for Patient search by identifier (IHI))
+#### 1.2.17 Server returns valid results for Patient search by identifier (IHI)
 <details>
 
 <summary>Show details</summary>
@@ -745,7 +745,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.18 %(Server returns valid results for Patient search by identifier (Medicare))
+#### 1.2.18 Server returns valid results for Patient search by identifier (Medicare)
 <details>
 
 <summary>Show details</summary>
@@ -778,7 +778,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.19 %(Server returns valid results for Patient search by identifier (DVA))
+#### 1.2.19 Server returns valid results for Patient search by identifier (DVA)
 <details>
 
 <summary>Show details</summary>
@@ -1398,7 +1398,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.3.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1434,7 +1434,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.3.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1467,7 +1467,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.3.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1500,7 +1500,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.3.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2140,7 +2140,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.4.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2176,7 +2176,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.4.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2209,7 +2209,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.4.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2242,7 +2242,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.4.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2896,7 +2896,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.5.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2932,7 +2932,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.5.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2965,7 +2965,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.5.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2998,7 +2998,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.5.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3638,7 +3638,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.6.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3674,7 +3674,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.6.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3707,7 +3707,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.6.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3740,7 +3740,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.6.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4388,7 +4388,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.7.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4424,7 +4424,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.7.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4457,7 +4457,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.7.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4490,7 +4490,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.7.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5130,7 +5130,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.8.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5166,7 +5166,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.8.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5199,7 +5199,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.8.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5232,7 +5232,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.8.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5872,7 +5872,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.9.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5908,7 +5908,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.9.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5941,7 +5941,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.9.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5974,7 +5974,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.9.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6610,7 +6610,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.10.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6646,7 +6646,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.10.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6679,7 +6679,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.10.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6712,7 +6712,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.10.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7352,7 +7352,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.11.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7388,7 +7388,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.11.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7421,7 +7421,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.11.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7454,7 +7454,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.11.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8101,7 +8101,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.14 %(Server returns valid results for Observation search by patient (chained parameters))
+#### 1.12.14 Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8137,7 +8137,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.15 %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+#### 1.12.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8170,7 +8170,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.16 %(Server returns valid results for Observation search by patient (Medicare) (chained parameters))
+#### 1.12.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8203,7 +8203,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.17 %(Server returns valid results for Observation search by patient (DVA) (chained parameters))
+#### 1.12.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8460,7 +8460,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.4 %(Server returns valid results for AllergyIntolerance search by patient (chained parameters))
+#### 1.13.4 Server returns valid results for AllergyIntolerance search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8496,7 +8496,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.5 %(Server returns valid results for AllergyIntolerance search by patient (IHI) (chained parameters))
+#### 1.13.5 Server returns valid results for AllergyIntolerance search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8529,7 +8529,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.6 %(Server returns valid results for AllergyIntolerance search by patient (Medicare) (chained parameters))
+#### 1.13.6 Server returns valid results for AllergyIntolerance search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8562,7 +8562,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.7 %(Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters))
+#### 1.13.7 Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9120,7 +9120,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.12 %(Server returns valid results for Condition search by patient (chained parameters))
+#### 1.14.12 Server returns valid results for Condition search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9156,7 +9156,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.13 %(Server returns valid results for Condition search by patient (IHI) (chained parameters))
+#### 1.14.13 Server returns valid results for Condition search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9189,7 +9189,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.14 %(Server returns valid results for Condition search by patient (Medicare) (chained parameters))
+#### 1.14.14 Server returns valid results for Condition search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9222,7 +9222,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.15 %(Server returns valid results for Condition search by patient (DVA) (chained parameters))
+#### 1.14.15 Server returns valid results for Condition search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10001,7 +10001,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.18 %(Server returns valid results for Encounter search by patient (chained parameters))
+#### 1.15.18 Server returns valid results for Encounter search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10037,7 +10037,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.19 %(Server returns valid results for Encounter search by patient (IHI) (chained parameters))
+#### 1.15.19 Server returns valid results for Encounter search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10070,7 +10070,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.20 %(Server returns valid results for Encounter search by patient (Medicare) (chained parameters))
+#### 1.15.20 Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10103,7 +10103,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.21 %(Server returns valid results for Encounter search by patient (DVA) (chained parameters))
+#### 1.15.21 Server returns valid results for Encounter search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10594,7 +10594,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.10 %(Server returns valid results for Immunization search by patient (chained parameters))
+#### 1.16.10 Server returns valid results for Immunization search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10630,7 +10630,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.11 %(Server returns valid results for Immunization search by patient (IHI) (chained parameters))
+#### 1.16.11 Server returns valid results for Immunization search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10663,7 +10663,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.12 %(Server returns valid results for Immunization search by patient (Medicare) (chained parameters))
+#### 1.16.12 Server returns valid results for Immunization search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10696,7 +10696,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.13 %(Server returns valid results for Immunization search by patient (DVA) (chained parameters))
+#### 1.16.13 Server returns valid results for Immunization search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11374,7 +11374,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.14 %(Server returns valid results for MedicationRequest search by patient (chained parameters))
+#### 1.17.14 Server returns valid results for MedicationRequest search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11410,7 +11410,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.15 %(Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters))
+#### 1.17.15 Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11443,7 +11443,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.16 %(Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters))
+#### 1.17.16 Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11476,7 +11476,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.17 %(Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters))
+#### 1.17.17 Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11987,7 +11987,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.10 %(Server returns valid results for Procedure search by patient (chained parameters))
+#### 1.18.10 Server returns valid results for Procedure search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -12023,7 +12023,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.11 %(Server returns valid results for Procedure search by patient (IHI) (chained parameters))
+#### 1.18.11 Server returns valid results for Procedure search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -12056,7 +12056,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.12 %(Server returns valid results for Procedure search by patient (Medicare) (chained parameters))
+#### 1.18.12 Server returns valid results for Procedure search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -12089,7 +12089,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.13 %(Server returns valid results for Procedure search by patient (DVA) (chained parameters))
+#### 1.18.13 Server returns valid results for Procedure search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -12925,7 +12925,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.5 %(Server returns valid results for Practitioner search by identifier (HPI-I))
+#### 1.21.5 Server returns valid results for Practitioner search by identifier (HPI-I)
 <details>
 
 <summary>Show details</summary>
@@ -13304,7 +13304,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.9 %(Server returns valid results for PractitionerRole search by practitioner (chained parameters))
+#### 1.22.9 Server returns valid results for PractitionerRole search by practitioner (chained parameters)
 <details>
 
 <summary>Show details</summary>

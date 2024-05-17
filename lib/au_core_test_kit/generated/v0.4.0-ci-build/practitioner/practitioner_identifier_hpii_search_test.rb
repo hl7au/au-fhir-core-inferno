@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerIdentifierHPIISearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title %(Server returns valid results for Practitioner search by identifier (HPI-I))
+      title 'Server returns valid results for Practitioner search by identifier (HPI-I)'
       description %(A server SHOULD support searching by
 identifier (HPI-I) on the Practitioner resource. This test
 will pass if resources are returned and match the search criteria. If

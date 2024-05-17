@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientIdentifierIHISearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title %(Server returns valid results for Patient search by identifier (IHI))
+      title 'Server returns valid results for Patient search by identifier (IHI)'
       description %(A server SHOULD support searching by
 identifier (IHI) on the Patient resource. This test
 will pass if resources are returned and match the search criteria. If
