@@ -5,7 +5,7 @@ require_relative '../../../generator/group_metadata'
 
 module AUCoreTestKit
   module AUCoreV040_CI_BUILD
-    class PatientIdentifier_MedicareSearchTest < Inferno::Test
+    class PatientIdentifierMedicareSearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
       title %(Server returns valid results for Patient search by identifier (Medicare))

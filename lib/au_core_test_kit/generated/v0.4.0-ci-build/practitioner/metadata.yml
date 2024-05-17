@@ -111,6 +111,8 @@
   :file_name: practitioner_identifier_search_test.rb
 - :id: au_core_v040_ci_build_practitioner_name_search_test
   :file_name: practitioner_name_search_test.rb
+- :id: au_core_v040_ci_build_practitioner_identifier_hpii_search_test
+  :file_name: practitioner_identifier_hpii_search_test.rb
 - :id: au_core_v040_ci_build_practitioner_validation_test
   :file_name: practitioner_validation_test.rb
 - :id: au_core_v040_ci_build_practitioner_must_support_test

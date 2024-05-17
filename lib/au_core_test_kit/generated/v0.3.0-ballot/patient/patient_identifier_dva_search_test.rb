@@ -5,7 +5,7 @@ require_relative '../../../generator/group_metadata'
 
 module AUCoreTestKit
   module AUCoreV030_BALLOT
-    class PatientIdentifier_DVASearchTest < Inferno::Test
+    class PatientIdentifierDVASearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
       title %(Server returns valid results for Patient search by identifier (DVA))

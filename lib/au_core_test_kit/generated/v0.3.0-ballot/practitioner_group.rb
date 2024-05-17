@@ -4,6 +4,7 @@ require_relative 'practitioner/practitioner_read_test'
 require_relative 'practitioner/practitioner_id_search_test'
 require_relative 'practitioner/practitioner_identifier_search_test'
 require_relative 'practitioner/practitioner_name_search_test'
+require_relative 'practitioner/practitioner_identifier_hpii_search_test'
 require_relative 'practitioner/practitioner_validation_test'
 require_relative 'practitioner/practitioner_must_support_test'
 require_relative 'practitioner/practitioner_reference_resolution_test'
@@ -83,6 +84,7 @@ read succeeds.
       test from: :au_core_v030_ballot_practitioner__id_search_test
       test from: :au_core_v030_ballot_practitioner_identifier_search_test
       test from: :au_core_v030_ballot_practitioner_name_search_test
+      test from: :au_core_v030_ballot_practitioner_identifier_hpii_search_test
       test from: :au_core_v030_ballot_practitioner_validation_test
       test from: :au_core_v030_ballot_practitioner_must_support_test
       test from: :au_core_v030_ballot_practitioner_reference_resolution_test
