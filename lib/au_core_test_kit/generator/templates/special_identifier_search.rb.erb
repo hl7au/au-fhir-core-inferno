@@ -6,7 +6,7 @@ module AUCoreTestKit
     class <%= class_name %> < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title %(<%= title %>)
+      title '<%= title %>'
       description %(<%= description %>)
 
       id :<%= test_id %><% if optional? %>
