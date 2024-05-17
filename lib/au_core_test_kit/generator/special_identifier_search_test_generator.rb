@@ -10,13 +10,14 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups.reject { |group| SpecialCases.exclude_group? group }
-            .select { |group| group.name == 'au_core_patient' }
+            .select { |group| (group.name == 'au_core_patient' || group.name == 'au_core_practitioner') }
             .select { |group| group.searches.present? }
             .each do |group|
               group.searches.each do |search|
                 next unless search[:names].include? 'identifier'
 
-                SpecialCases.patient_au_identifiers.each do |special_identifier|
+                identifier_arr = group.name == 'au_core_patient' ? SpecialCases.patient_au_identifiers : SpecialCases.practitioner_au_identifiers
+                identifier_arr.each do |special_identifier|
                   new(group, search, base_output_dir, special_identifier).generate
                 end
               end
@@ -36,11 +37,11 @@ module AUCoreTestKit
       end
 
       def test_id
-        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_#{special_identifier[:display].downcase}_search_test"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_#{special_identifier[:display].delete('-').downcase}_search_test"
       end
 
       def class_name
-        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title}_#{special_identifier[:display]}SearchTest"
+        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title}#{special_identifier[:display].delete('-')}SearchTest"
       end
 
       def optional?
@@ -57,7 +58,7 @@ module AUCoreTestKit
       end
 
       def title
-        "Server returns valid results for Patient search by identifier (#{special_identifier[:display]})"
+        "Server returns valid results for #{resource_type} search by identifier (#{special_identifier[:display]})"
       end
 
       def description
