@@ -16,6 +16,10 @@ module AUCoreTestKit
         { display: 'DVA', url: 'http://ns.electronichealth.net.au/id/dva' }
       ].freeze
 
+      PRACTITIONER_IDENTIFIERS = [
+        { display: 'HPI-I', url: 'http://ns.electronichealth.net.au/id/hi/hpii/1.0' }
+      ].freeze
+
       class << self
         def exclude_group?(group)
           RESOURCES_TO_EXCLUDE.include?(group.resource)
@@ -23,6 +27,10 @@ module AUCoreTestKit
 
         def patient_au_identifiers
           PATIENT_IDENTIFIERS
+        end
+
+        def practitioner_au_identifiers
+          PRACTITIONER_IDENTIFIERS
         end
       end
     end
