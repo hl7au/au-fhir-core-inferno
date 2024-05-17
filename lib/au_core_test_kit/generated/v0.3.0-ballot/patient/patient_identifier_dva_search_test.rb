@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientIdentifierDVASearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title %(Server returns valid results for Patient search by identifier (DVA))
+      title 'Server returns valid results for Patient search by identifier (DVA)'
       description %(A server SHOULD support searching by
 identifier (DVA) on the Patient resource. This test
 will pass if resources are returned and match the search criteria. If

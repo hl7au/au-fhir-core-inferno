@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationPatientChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title %(Server returns valid results for Immunization search by patient (chained parameters))
+      title 'Server returns valid results for Immunization search by patient (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier on the Immunization resource. This test
 will pass if the server returns a success response to the request.

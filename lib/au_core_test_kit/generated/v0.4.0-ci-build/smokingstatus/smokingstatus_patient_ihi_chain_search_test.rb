@@ -8,7 +8,7 @@ module AUCoreTestKit
     class SmokingstatusPatient_IHI_ChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title %(Server returns valid results for Observation search by patient (IHI) (chained parameters))
+      title 'Server returns valid results for Observation search by patient (IHI) (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier (IHI) on the Observation resource. This test
 will pass if the server returns a success response to the request.

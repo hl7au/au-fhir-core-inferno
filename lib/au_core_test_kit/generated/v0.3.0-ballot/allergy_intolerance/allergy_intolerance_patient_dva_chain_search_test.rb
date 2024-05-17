@@ -8,7 +8,7 @@ module AUCoreTestKit
     class AllergyIntolerancePatient_DVA_ChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title %(Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters))
+      title 'Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier (DVA) on the AllergyIntolerance resource. This test
 will pass if the server returns a success response to the request.
