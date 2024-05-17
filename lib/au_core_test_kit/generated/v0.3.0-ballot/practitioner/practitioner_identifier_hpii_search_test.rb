@@ -5,27 +5,27 @@ require_relative '../../../generator/group_metadata'
 
 module AUCoreTestKit
   module AUCoreV030_BALLOT
-    class PatientIdentifierMedicareSearchTest < Inferno::Test
+    class PractitionerIdentifierHPIISearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title %(Server returns valid results for Patient search by identifier (Medicare))
+      title %(Server returns valid results for Practitioner search by identifier (HPI-I))
       description %(A server SHOULD support searching by
-identifier (Medicare) on the Patient resource. This test
+identifier (HPI-I) on the Practitioner resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html)
 )
 
-      id :au_core_v030_ballot_patient_identifier_medicare_search_test
+      id :au_core_v030_ballot_practitioner_identifier_hpii_search_test
       optional
 
       def self.properties
         @properties ||= SearchTestProperties.new(
-          resource_type: 'Patient',
+          resource_type: 'Practitioner',
           search_param_names: ['identifier'],
           token_search_params: ['identifier'],
-          target_identifier: { display: 'Medicare', url: 'http://ns.electronichealth.net.au/id/medicare-number' }
+          target_identifier: { display: 'HPI-I', url: 'http://ns.electronichealth.net.au/id/hi/hpii/1.0' }
         )
       end
 
@@ -34,7 +34,7 @@ none are returned, the test is skipped.
       end
 
       def scratch_resources
-        scratch[:patient_resources] ||= {}
+        scratch[:practitioner_resources] ||= {}
       end
 
       run do

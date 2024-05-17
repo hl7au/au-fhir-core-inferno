@@ -14158,7 +14158,40 @@ Accept: application/fhir+json
 
 
 
-#### 2.22.5 Practitioner resources returned during previous tests conform to the AU Core Practitioner
+#### 2.22.5 %(Server returns valid results for Practitioner search by identifier (HPI-I))
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+identifier (HPI-I
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Practitioner?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Practitioner?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 2.22.6 Practitioner resources returned during previous tests conform to the AU Core Practitioner
 <details>
 
 <summary>Show details</summary>
@@ -14172,7 +14205,7 @@ the [AU Core Practitioner](http://hl7.org.au/fhir/core/StructureDefinition/au-co
 
 
 
-#### 2.22.6 All must support elements are provided in the Practitioner resources returned
+#### 2.22.7 All must support elements are provided in the Practitioner resources returned
 <details>
 
 <summary>Show details</summary>
@@ -14199,7 +14232,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 2.22.7 MustSupport references within Practitioner resources are valid
+#### 2.22.8 MustSupport references within Practitioner resources are valid
 <details>
 
 <summary>Show details</summary>
