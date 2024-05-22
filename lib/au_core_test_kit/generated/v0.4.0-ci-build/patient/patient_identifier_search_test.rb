@@ -38,7 +38,7 @@ none are returned, the test is skipped.
       end
 
       run do
-        run_search_test
+        run_search_test_with_system
       end
     end
   end

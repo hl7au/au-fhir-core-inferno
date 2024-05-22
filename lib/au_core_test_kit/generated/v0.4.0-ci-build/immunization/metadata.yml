@@ -158,11 +158,6 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - :path: occurrence[x]
   - :path: note
-  - :path: reasonCode
-  - :path: protocolApplied
-  - :path: protocolApplied.series
-  - :path: protocolApplied.targetDisease
-  - :path: protocolApplied.doseNumber[x]
 :mandatory_elements:
 - Immunization.status
 - Immunization.vaccineCode

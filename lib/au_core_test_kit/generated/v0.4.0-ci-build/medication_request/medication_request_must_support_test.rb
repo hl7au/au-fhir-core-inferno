@@ -15,20 +15,19 @@ module AUCoreTestKit
         found previously for the following must support elements:
 
         * MedicationRequest.authoredOn
-        * MedicationRequest.category
         * MedicationRequest.dispenseRequest
         * MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
         * MedicationRequest.dispenseRequest.quantity
         * MedicationRequest.dispenseRequest.validityPeriod
         * MedicationRequest.dosageInstruction
         * MedicationRequest.encounter
-        * MedicationRequest.identifier
         * MedicationRequest.intent
         * MedicationRequest.medication[x]
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
         * MedicationRequest.note
         * MedicationRequest.reasonCode
+        * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.status
         * MedicationRequest.subject

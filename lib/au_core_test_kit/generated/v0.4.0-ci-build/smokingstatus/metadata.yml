@@ -179,7 +179,6 @@
   :slices: []
   :elements:
   - :path: status
-    :fixed_value: final
   - :path: category
   - :path: code.coding.code
     :fixed_value: '266918002'
@@ -199,7 +198,11 @@
 - Observation.subject
 - Observation.effective[x]
 - Observation.component.code
-:bindings: []
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/observation-status
+  :path: status
 :references:
 - :path: Observation.basedOn
   :profiles:

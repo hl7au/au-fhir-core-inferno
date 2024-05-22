@@ -16,7 +16,6 @@ module AUCoreTestKit
 
         * Procedure.code
         * Procedure.encounter
-        * Procedure.note
         * Procedure.performed[x]
         * Procedure.reasonCode
         * Procedure.reasonReference

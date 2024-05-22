@@ -19,6 +19,7 @@ module AUCoreTestKit
 
         * MedicationRequest.encounter
         * MedicationRequest.medication[x]
+        * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.subject
       )
