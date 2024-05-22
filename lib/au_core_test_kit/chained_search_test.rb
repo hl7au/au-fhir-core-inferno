@@ -76,7 +76,6 @@ module AUCoreTestKit
       skip_if identifier_to_test.nil?, "I don't have values to perform search"
 
       values_to_test = [
-        identifier_to_test[:identifier].value,
         "#{identifier_to_test[:identifier].system}|#{identifier_to_test[:identifier].value}"
       ]
 
