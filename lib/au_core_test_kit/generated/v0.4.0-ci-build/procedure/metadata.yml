@@ -161,12 +161,10 @@
   - :path: reasonReference
     :types:
     - Reference
-  - :path: note
 :mandatory_elements:
 - Procedure.status
 - Procedure.code
 - Procedure.subject
-- Procedure.performed[x]
 - Procedure.performer.actor
 - Procedure.focalDevice.manipulated
 :bindings:

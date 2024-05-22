@@ -17,11 +17,6 @@ module AUCoreTestKit
         * Immunization.note
         * Immunization.occurrence[x]
         * Immunization.patient
-        * Immunization.protocolApplied
-        * Immunization.protocolApplied.doseNumber[x]
-        * Immunization.protocolApplied.series
-        * Immunization.protocolApplied.targetDisease
-        * Immunization.reasonCode
         * Immunization.status
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode

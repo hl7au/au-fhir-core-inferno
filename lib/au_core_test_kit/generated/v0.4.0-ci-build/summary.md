@@ -10769,11 +10769,6 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Immunization.note
         * Immunization.occurrence[x]
         * Immunization.patient
-        * Immunization.protocolApplied
-        * Immunization.protocolApplied.doseNumber[x]
-        * Immunization.protocolApplied.series
-        * Immunization.protocolApplied.targetDisease
-        * Immunization.reasonCode
         * Immunization.status
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode
@@ -11561,20 +11556,19 @@ AU Core Responders SHALL be capable of populating all data elements as
         found previously for the following must support elements:
 
         * MedicationRequest.authoredOn
-        * MedicationRequest.category
         * MedicationRequest.dispenseRequest
         * MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
         * MedicationRequest.dispenseRequest.quantity
         * MedicationRequest.dispenseRequest.validityPeriod
         * MedicationRequest.dosageInstruction
         * MedicationRequest.encounter
-        * MedicationRequest.identifier
         * MedicationRequest.intent
         * MedicationRequest.medication[x]
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
         * MedicationRequest.note
         * MedicationRequest.reasonCode
+        * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.status
         * MedicationRequest.subject
@@ -11602,6 +11596,7 @@ This test will attempt to read external references provided within elements
 
         * MedicationRequest.encounter
         * MedicationRequest.medication[x]
+        * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.subject
 
@@ -12161,7 +12156,6 @@ AU Core Responders SHALL be capable of populating all data elements as
 
         * Procedure.code
         * Procedure.encounter
-        * Procedure.note
         * Procedure.performed[x]
         * Procedure.reasonCode
         * Procedure.reasonReference

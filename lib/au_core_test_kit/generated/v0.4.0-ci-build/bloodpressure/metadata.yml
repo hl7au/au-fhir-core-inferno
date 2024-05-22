@@ -211,7 +211,6 @@
         :value: http://loinc.org
   :elements:
   - :path: status
-    :fixed_value: final
   - :path: category
   - :path: category:VSCat.coding
   - :path: category:VSCat.coding.system
@@ -269,6 +268,10 @@
 - Observation.component.value[x].system
 - Observation.component.value[x].code
 :bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/observation-status
+  :path: status
 - :type: code
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/quantity-comparator
