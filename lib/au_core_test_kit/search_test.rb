@@ -85,15 +85,11 @@ module AUCoreTestKit
     end
 
     def run_search_test
-      # TODO: skip if not supported?
-      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
+      run_search_test_common(method(:perform_search))
+    end
 
-      resources_returned =
-        all_search_params.flat_map do |patient_id, params_list|
-          params_list.flat_map { |params| perform_search(params, patient_id) }
-        end
-
-      skip_if resources_returned.empty?, no_resources_skip_message
+    def run_search_test_with_system
+      run_search_test_common(method(:perform_search_with_system))
     end
 
     def perform_search(params, patient_id)
@@ -831,6 +827,19 @@ module AUCoreTestKit
                "* Expected: #{search_value}\n" \
                "* Found: #{values_found.map(&:inspect).join(', ')}"
       end
+    end
+
+    private
+
+    def run_search_test_common(search_method)
+      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
+
+      resources_returned =
+        all_search_params.flat_map do |patient_id, params_list|
+          params_list.flat_map { |params| search_method.call(params, patient_id) }
+        end
+
+      skip_if resources_returned.empty?, no_resources_skip_message
     end
   end
 end

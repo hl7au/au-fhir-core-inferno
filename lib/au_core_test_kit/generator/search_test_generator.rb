@@ -327,6 +327,14 @@ module AUCoreTestKit
           [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
         DESCRIPTION
       end
+
+      def search_method
+        if search_metadata[:names].first == 'identifier' && group_metadata.name == 'au_core_patient'
+          'run_search_test_with_system'
+        else
+          'run_search_test'
+        end
+      end
     end
   end
 end

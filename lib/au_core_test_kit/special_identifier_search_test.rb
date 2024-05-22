@@ -82,7 +82,7 @@ module AUCoreTestKit
 
       resources_returned =
         all_search_params.flat_map do |patient_id, params_list|
-          params_list.flat_map { |params| perform_search(params, patient_id) }
+          params_list.flat_map { |params| perform_search_with_system(params, patient_id) }
         end
 
       skip_if resources_returned.empty?, no_resources_skip_message
