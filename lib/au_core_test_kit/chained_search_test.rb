@@ -31,6 +31,7 @@ module AUCoreTestKit
 
     def all_chain_identifier_values(patient_id_list, all_resources, chain_target, target_identifier)
       patient_id_list.map do |patient_id|
+        next unless !all_resources.nil? && all_resources.include?(patient_id)
         resource_identifiers = get_resources_identifier(
           all_resources[patient_id].filter { |r| r.resourceType == chain_target },
           target_identifier
