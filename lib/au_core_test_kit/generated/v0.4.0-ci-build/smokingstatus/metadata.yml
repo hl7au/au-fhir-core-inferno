@@ -107,7 +107,7 @@
     - Observation.code
     :comparators: {}
     :values:
-    - '266918002'
+    - '1747861000168109'
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: SHOULD
@@ -181,7 +181,7 @@
   - :path: status
   - :path: category
   - :path: code.coding.code
-    :fixed_value: '266918002'
+    :fixed_value: '1747861000168109'
   - :path: subject
     :types:
     - Reference

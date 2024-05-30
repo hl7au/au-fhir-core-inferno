@@ -244,12 +244,8 @@
   :path: value.comparator
 - :type: code
   :strength: required
-  :system: https://healthterminologies.gov.au/fhir/ValueSet/metric-body-weight-units-1
+  :system: http://hl7.org/fhir/ValueSet/ucum-bodyweight
   :path: value.code
-- :type: Quantity
-  :strength: required
-  :system: http://hl7.org/fhir/ValueSet/ucum-vitals-common
-  :path: component.value
 :references:
 - :path: Observation.basedOn
   :profiles:

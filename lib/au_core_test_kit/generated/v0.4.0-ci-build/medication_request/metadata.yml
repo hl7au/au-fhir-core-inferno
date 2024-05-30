@@ -225,14 +225,7 @@
   - :path: reasonReference
     :types:
     - Reference
-  - :path: note
   - :path: dosageInstruction
-  - :path: dispenseRequest
-  - :path: dispenseRequest.validityPeriod
-  - :path: dispenseRequest.numberOfRepeatsAllowed
-  - :path: dispenseRequest.quantity
-  - :path: substitution
-  - :path: substitution.allowed[x]
 :mandatory_elements:
 - MedicationRequest.status
 - MedicationRequest.intent

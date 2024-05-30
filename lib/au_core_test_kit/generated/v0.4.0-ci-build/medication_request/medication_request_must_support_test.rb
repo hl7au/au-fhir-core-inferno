@@ -15,24 +15,17 @@ module AUCoreTestKit
         found previously for the following must support elements:
 
         * MedicationRequest.authoredOn
-        * MedicationRequest.dispenseRequest
-        * MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
-        * MedicationRequest.dispenseRequest.quantity
-        * MedicationRequest.dispenseRequest.validityPeriod
         * MedicationRequest.dosageInstruction
         * MedicationRequest.encounter
         * MedicationRequest.intent
         * MedicationRequest.medication[x]
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
-        * MedicationRequest.note
         * MedicationRequest.reasonCode
         * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.status
         * MedicationRequest.subject
-        * MedicationRequest.substitution
-        * MedicationRequest.substitution.allowed[x]
       )
 
       id :au_core_v040_ci_build_medication_request_must_support_test
