@@ -157,6 +157,7 @@
     :target_profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - :path: occurrence[x]
+  - :path: primarySource
   - :path: note
 :mandatory_elements:
 - Immunization.status

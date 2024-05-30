@@ -8634,7 +8634,6 @@ AU Core Responders SHALL be capable of populating all data elements as
 
         * AllergyIntolerance.clinicalStatus
         * AllergyIntolerance.code
-        * AllergyIntolerance.note
         * AllergyIntolerance.onset[x]
         * AllergyIntolerance.patient
         * AllergyIntolerance.reaction
@@ -10769,6 +10768,7 @@ AU Core Responders SHALL be capable of populating all data elements as
         * Immunization.note
         * Immunization.occurrence[x]
         * Immunization.patient
+        * Immunization.primarySource
         * Immunization.status
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode
@@ -11556,24 +11556,17 @@ AU Core Responders SHALL be capable of populating all data elements as
         found previously for the following must support elements:
 
         * MedicationRequest.authoredOn
-        * MedicationRequest.dispenseRequest
-        * MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
-        * MedicationRequest.dispenseRequest.quantity
-        * MedicationRequest.dispenseRequest.validityPeriod
         * MedicationRequest.dosageInstruction
         * MedicationRequest.encounter
         * MedicationRequest.intent
         * MedicationRequest.medication[x]
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
         * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
-        * MedicationRequest.note
         * MedicationRequest.reasonCode
         * MedicationRequest.reasonReference
         * MedicationRequest.requester
         * MedicationRequest.status
         * MedicationRequest.subject
-        * MedicationRequest.substitution
-        * MedicationRequest.substitution.allowed[x]
 
 
 

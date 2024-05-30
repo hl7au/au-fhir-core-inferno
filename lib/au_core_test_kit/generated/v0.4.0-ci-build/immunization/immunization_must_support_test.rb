@@ -17,6 +17,7 @@ module AUCoreTestKit
         * Immunization.note
         * Immunization.occurrence[x]
         * Immunization.patient
+        * Immunization.primarySource
         * Immunization.status
         * Immunization.vaccineCode
         * Immunization.vaccineCode.coding:airVaccineCode

@@ -91,7 +91,6 @@
     :target_profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - :path: onset[x]
-  - :path: note
   - :path: reaction
   - :path: reaction.manifestation
   - :path: reaction.severity

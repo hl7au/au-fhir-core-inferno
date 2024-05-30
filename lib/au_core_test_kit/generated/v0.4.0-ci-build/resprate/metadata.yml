@@ -243,10 +243,6 @@
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/quantity-comparator
   :path: value.comparator
-- :type: Quantity
-  :strength: required
-  :system: http://hl7.org/fhir/ValueSet/ucum-vitals-common
-  :path: component.value
 :references:
 - :path: Observation.basedOn
   :profiles:

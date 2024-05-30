@@ -16,7 +16,6 @@ module AUCoreTestKit
 
         * AllergyIntolerance.clinicalStatus
         * AllergyIntolerance.code
-        * AllergyIntolerance.note
         * AllergyIntolerance.onset[x]
         * AllergyIntolerance.patient
         * AllergyIntolerance.reaction

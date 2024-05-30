@@ -227,7 +227,7 @@
 :bindings:
 - :type: code
   :strength: required
-  :system: https://healthterminologies.gov.au/fhir/ValueSet/observationstatus-result-available-1
+  :system: http://hl7.org/fhir/ValueSet/observation-status
   :path: status
 :references:
 - :path: Observation.basedOn

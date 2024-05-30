@@ -241,10 +241,6 @@
   :strength: required
   :system: https://healthterminologies.gov.au/fhir/ValueSet/metric-body-length-units-1
   :path: value.code
-- :type: Quantity
-  :strength: required
-  :system: http://hl7.org/fhir/ValueSet/ucum-vitals-common
-  :path: component.value
 :references:
 - :path: Observation.basedOn
   :profiles:
