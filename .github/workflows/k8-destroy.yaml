@@ -2,7 +2,7 @@ name: 'Inferno Destroy Deployment to K8'
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "feature/destroy-deploy" ]
   pull_request:
   workflow_dispatch: # Manual trigger
 
