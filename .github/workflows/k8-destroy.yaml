@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "feature/destroy-deploy" ]
   pull_request:
-  workflow_dispatch: # Manual trigger
 
 
 permissions:
@@ -52,7 +51,7 @@ jobs:
         working-directory: ${{ env.working-dir }}
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/feature-festroy-deploy' && github.event_name == 'workflow_dispatch'
+        if: github.ref == 'refs/heads/feature-festroy-deploy'
         run: terraform apply -destroy -auto-approve -input=false
         working-directory: ${{ env.working-dir }}
 
