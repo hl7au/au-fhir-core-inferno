@@ -21,7 +21,7 @@ spec:
       - name: copy-ig
         image: ${inferno_image}
         imagePullPolicy: Always
-        command: ["cp", "/opt/inferno/lib/au_core_test_kit/igs/hl7.fhir.au.core#0.3.0-ballot.tgz", "/home/igs"]
+        command: ["cp", "/opt/inferno/lib/au_core_test_kit/igs/0.3.0-ballot.tgz", "/home/igs"]
         volumeMounts:
         - name: igs
           mountPath: /home/igs
