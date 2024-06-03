@@ -13,6 +13,8 @@ spec:
       labels:
         workload: inferno-worker
     spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - name: inferno-worker
         image: ${inferno_image}

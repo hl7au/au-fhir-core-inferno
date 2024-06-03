@@ -13,6 +13,8 @@ spec:
       labels:
         workload: validator-web
     spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
       containers:
       - name: validator-web
         image: infernocommunity/fhir-validator-app:latest

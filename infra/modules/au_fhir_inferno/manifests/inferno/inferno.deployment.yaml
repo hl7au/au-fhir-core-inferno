@@ -13,6 +13,8 @@ spec:
       labels:
         workload: inferno-app
     spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
       initContainers:
       - name: run-migrations
         image: ${inferno_image}
