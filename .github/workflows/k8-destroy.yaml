@@ -51,7 +51,7 @@ jobs:
         working-directory: ${{ env.working-dir }}
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/feature-festroy-deploy'
+        if: github.ref == 'refs/heads/feature/destroy-deploy'
         run: terraform apply -destroy -auto-approve -input=false
         working-directory: ${{ env.working-dir }}
 
