@@ -37,9 +37,8 @@
 - :names:
   - address
   :expectation: SHOULD
-  :names_not_must_support_or_mandatory:
-  - address
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - identifier
   :expectation: SHALL
@@ -53,20 +52,18 @@
 :search_definitions:
   :address:
     :paths:
-    - contact.address
+    - address
     :full_paths:
-    - Organization.contact.address
+    - Organization.address
     :comparators: {}
     :values: []
     :type: Address
-    :contains_multiple: false
+    :contains_multiple: true
   :identifier:
     :paths:
     - identifier
-    - qualification.identifier
     :full_paths:
     - Organization.identifier
-    - Organization.qualification.identifier
     :comparators: {}
     :values: []
     :type: Identifier

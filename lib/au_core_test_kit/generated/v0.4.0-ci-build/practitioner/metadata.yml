@@ -57,10 +57,8 @@
   :identifier:
     :paths:
     - identifier
-    - qualification.identifier
     :full_paths:
     - Practitioner.identifier
-    - Practitioner.qualification.identifier
     :comparators: {}
     :values: []
     :type: Identifier

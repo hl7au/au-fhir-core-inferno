@@ -50,9 +50,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -74,9 +73,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -89,9 +87,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -117,15 +114,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -352,9 +343,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -376,9 +366,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -391,9 +380,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -419,15 +407,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -688,9 +670,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -712,9 +693,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -727,9 +707,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -755,15 +734,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -990,9 +963,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -1008,9 +980,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -1029,9 +1000,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -1055,15 +1025,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1277,9 +1241,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -1301,9 +1264,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -1316,9 +1278,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -1344,15 +1305,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1579,9 +1534,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -1603,9 +1557,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -1618,9 +1571,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -1646,15 +1598,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -1878,9 +1824,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -1902,9 +1847,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -1917,9 +1861,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -1945,15 +1888,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2175,9 +2112,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -2199,9 +2135,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -2214,9 +2149,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -2242,15 +2176,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2473,9 +2401,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -2492,9 +2419,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -2513,9 +2439,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -2538,15 +2463,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -2751,9 +2670,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -2775,9 +2693,8 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -2790,9 +2707,8 @@
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :category:
       :paths:
@@ -2816,15 +2732,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - effectiveDateTime
-      - effectivePeriod
-      - effectiveTiming
-      - effectiveInstant
+      - effective
       :full_paths:
-      - Observation.effectiveDateTime
-      - Observation.effectivePeriod
-      - Observation.effectiveTiming
-      - Observation.effectiveInstant
+      - Observation.effective
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3229,11 +3139,11 @@
       :contains_multiple: false
     :onset-date:
       :paths:
-      - onsetDateTime
-      - onsetPeriod
+      - onset.as(dateTime)
+      - onset.as(Period)
       :full_paths:
-      - Condition.onsetDateTime
-      - Condition.onsetPeriod
+      - Condition.onset.as(dateTime)
+      - Condition.onset.as(Period)
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3371,15 +3281,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
-  - :names:
-    - discharge-disposition
-    :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - discharge-disposition
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - identifier
     :expectation: MAY
@@ -3396,19 +3299,12 @@
     :expectation: MAY
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
-  - :names:
-    - type
-    :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - type
-    :must_support_or_mandatory: false
   - :expectation: SHALL
     :names:
     - date
     - patient
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHOULD
     :names:
     - class
@@ -3418,13 +3314,6 @@
   - :expectation: SHOULD
     :names:
     - patient
-    - discharge-disposition
-    :names_not_must_support_or_mandatory:
-    - discharge-disposition
-    :must_support_or_mandatory: false
-  - :expectation: SHOULD
-    :names:
-    - patient
     - location
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
@@ -3434,13 +3323,6 @@
     - status
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
-  - :expectation: SHOULD
-    :names:
-    - patient
-    - type
-    :names_not_must_support_or_mandatory:
-    - type
-    :must_support_or_mandatory: false
   :search_definitions:
     :class:
       :paths:
@@ -3453,9 +3335,9 @@
       :contains_multiple: false
     :date:
       :paths:
-      - actualPeriod
+      - period
       :full_paths:
-      - Encounter.actualPeriod
+      - Encounter.period
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -3469,20 +3351,9 @@
       :values:
       - '1950-01-01'
       - '2050-01-01'
-      :type: date
+      :type: Period
       :contains_multiple: false
       :multiple_and: SHOULD
-    :discharge-disposition:
-      :paths:
-      - hospitalization.dischargeDisposition
-      :full_paths:
-      - Encounter.hospitalization.dischargeDisposition
-      :comparators: {}
-      :values: []
-      :type: CodeableConcept
-      :contains_multiple: false
-      :multiple_or: MAY
-      :multiple_and: MAY
     :identifier:
       :paths:
       - identifier
@@ -3519,15 +3390,6 @@
       - unknown
       :type: code
       :contains_multiple: false
-    :type:
-      :paths:
-      - type
-      :full_paths:
-      - Encounter.type
-      :comparators: {}
-      :values: []
-      :type: CodeableConcept
-      :contains_multiple: true
     :patient:
       :paths:
       - subject
@@ -3698,9 +3560,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -3721,9 +3582,8 @@
     :names:
     - patient
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: MAY
     :names:
     - patient
@@ -3732,8 +3592,10 @@
     :must_support_or_mandatory: true
   :search_definitions:
     :date:
-      :paths: []
-      :full_paths: []
+      :paths:
+      - occurrence
+      :full_paths:
+      - Immunization.occurrence
       :comparators:
         :eq: MAY
         :ne: MAY
@@ -4152,18 +4014,6 @@
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :names:
-    - identifier
-    :expectation: SHALL
-    :names_not_must_support_or_mandatory:
-    - identifier
-    :must_support_or_mandatory: false
-  - :names:
-    - category
-    :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - category
-    :must_support_or_mandatory: false
-  - :names:
     - authoredon
     :expectation: MAY
     :names_not_must_support_or_mandatory: []
@@ -4208,24 +4058,6 @@
       :values: []
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
-    :identifier:
-      :paths:
-      - identifier
-      :full_paths:
-      - MedicationRequest.identifier
-      :comparators: {}
-      :values: []
-      :type: Identifier
-      :contains_multiple: true
-    :category:
-      :paths:
-      - category
-      :full_paths:
-      - MedicationRequest.category
-      :comparators: {}
-      :values: []
-      :type: CodeableConcept
-      :contains_multiple: true
     :authoredon:
       :paths:
       - authoredOn
@@ -4472,9 +4304,8 @@
   - :names:
     - address
     :expectation: SHOULD
-    :names_not_must_support_or_mandatory:
-    - address
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - identifier
     :expectation: SHALL
@@ -4488,20 +4319,18 @@
   :search_definitions:
     :address:
       :paths:
-      - contact.address
+      - address
       :full_paths:
-      - Organization.contact.address
+      - Organization.address
       :comparators: {}
       :values: []
       :type: Address
-      :contains_multiple: false
+      :contains_multiple: true
     :identifier:
       :paths:
       - identifier
-      - qualification.identifier
       :full_paths:
       - Organization.identifier
-      - Organization.qualification.identifier
       :comparators: {}
       :values: []
       :type: Identifier
@@ -4857,10 +4686,8 @@
     :identifier:
       :paths:
       - identifier
-      - qualification.identifier
       :full_paths:
       - Practitioner.identifier
-      - Practitioner.qualification.identifier
       :comparators: {}
       :values: []
       :type: Identifier
@@ -5106,9 +4933,8 @@
   - :names:
     - date
     :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: MAY
@@ -5118,17 +4944,15 @@
     :names:
     - patient
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHOULD
     :names:
     - patient
     - code
     - date
-    :names_not_must_support_or_mandatory:
-    - date
-    :must_support_or_mandatory: false
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHOULD
     :names:
     - patient
@@ -5148,13 +4972,9 @@
       :multiple_or: SHOULD
     :date:
       :paths:
-      - occurrenceDateTime
-      - occurrencePeriod
-      - occurrenceTiming
+      - performed
       :full_paths:
-      - Procedure.occurrenceDateTime
-      - Procedure.occurrencePeriod
-      - Procedure.occurrenceTiming
+      - Procedure.performed
       :comparators:
         :eq: MAY
         :ne: MAY
