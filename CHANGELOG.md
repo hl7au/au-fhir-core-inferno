@@ -1,3 +1,27 @@
+# 0.0.5
+* Add reporting issues section to the README by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/109
+* Update search-params file to fix problems with searchDefinitions by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/111
+* Generate test kit source files @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/112
+
+# 0.0.4
+* Regenerate test kit source files after updating the IG in https://github.com/hl7au/au-fhir-core-inferno/pull/107
+
+# 0.0.3
+* 62 add multiple and by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/75
+* 48 add missing comparators by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/76
+* WIP: Add chained search for patient:Patient.identifier by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/82
+* Change tx server from test to dev by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/68
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/83
+* Fix optional? method by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/84
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/85
+* 80 ihi dva chained by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/86
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/87
+* Add search for Practitioner IHI-I by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/88
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/89
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/90
+* Fix search by identifier by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/104
+* Merge new auto generated tests by @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/105
+
 # 0.0.2
 * Spec tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/31
 * Summary generator update by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/32
