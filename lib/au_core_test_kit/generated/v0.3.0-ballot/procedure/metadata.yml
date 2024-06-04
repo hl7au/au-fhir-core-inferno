@@ -42,9 +42,8 @@
 - :names:
   - date
   :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - status
   :expectation: MAY
@@ -54,17 +53,15 @@
   :names:
   - patient
   - date
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
   - code
   - date
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - patient
@@ -84,13 +81,9 @@
     :multiple_or: SHOULD
   :date:
     :paths:
-    - occurrenceDateTime
-    - occurrencePeriod
-    - occurrenceTiming
+    - performed
     :full_paths:
-    - Procedure.occurrenceDateTime
-    - Procedure.occurrencePeriod
-    - Procedure.occurrenceTiming
+    - Procedure.performed
     :comparators:
       :eq: MAY
       :ne: MAY

@@ -37,9 +37,8 @@
 - :names:
   - date
   :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - status
   :expectation: MAY
@@ -60,9 +59,8 @@
   :names:
   - patient
   - date
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: MAY
   :names:
   - patient
@@ -71,8 +69,10 @@
   :must_support_or_mandatory: true
 :search_definitions:
   :date:
-    :paths: []
-    :full_paths: []
+    :paths:
+    - occurrence
+    :full_paths:
+    - Immunization.occurrence
     :comparators:
       :eq: MAY
       :ne: MAY

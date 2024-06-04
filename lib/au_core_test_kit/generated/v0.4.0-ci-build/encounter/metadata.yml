@@ -42,15 +42,8 @@
 - :names:
   - date
   :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
-- :names:
-  - discharge-disposition
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - discharge-disposition
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - identifier
   :expectation: MAY
@@ -67,19 +60,12 @@
   :expectation: MAY
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - type
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - type
-  :must_support_or_mandatory: false
 - :expectation: SHALL
   :names:
   - date
   - patient
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - class
@@ -89,13 +75,6 @@
 - :expectation: SHOULD
   :names:
   - patient
-  - discharge-disposition
-  :names_not_must_support_or_mandatory:
-  - discharge-disposition
-  :must_support_or_mandatory: false
-- :expectation: SHOULD
-  :names:
-  - patient
   - location
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
@@ -105,13 +84,6 @@
   - status
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :expectation: SHOULD
-  :names:
-  - patient
-  - type
-  :names_not_must_support_or_mandatory:
-  - type
-  :must_support_or_mandatory: false
 :search_definitions:
   :class:
     :paths:
@@ -124,9 +96,9 @@
     :contains_multiple: false
   :date:
     :paths:
-    - actualPeriod
+    - period
     :full_paths:
-    - Encounter.actualPeriod
+    - Encounter.period
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -140,20 +112,9 @@
     :values:
     - '1950-01-01'
     - '2050-01-01'
-    :type: date
+    :type: Period
     :contains_multiple: false
     :multiple_and: SHOULD
-  :discharge-disposition:
-    :paths:
-    - hospitalization.dischargeDisposition
-    :full_paths:
-    - Encounter.hospitalization.dischargeDisposition
-    :comparators: {}
-    :values: []
-    :type: CodeableConcept
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
   :identifier:
     :paths:
     - identifier
@@ -190,15 +151,6 @@
     - unknown
     :type: code
     :contains_multiple: false
-  :type:
-    :paths:
-    - type
-    :full_paths:
-    - Encounter.type
-    :comparators: {}
-    :values: []
-    :type: CodeableConcept
-    :contains_multiple: true
   :patient:
     :paths:
     - subject
@@ -327,34 +279,22 @@
   :file_name: encounter_class_search_test.rb
 - :id: au_core_v040_ci_build_encounter_date_search_test
   :file_name: encounter_date_search_test.rb
-- :id: au_core_v040_ci_build_encounter_discharge_disposition_search_test
-  :file_name: encounter_discharge_disposition_search_test.rb
 - :id: au_core_v040_ci_build_encounter_identifier_search_test
   :file_name: encounter_identifier_search_test.rb
 - :id: au_core_v040_ci_build_encounter_location_search_test
   :file_name: encounter_location_search_test.rb
 - :id: au_core_v040_ci_build_encounter_status_search_test
   :file_name: encounter_status_search_test.rb
-- :id: au_core_v040_ci_build_encounter_type_search_test
-  :file_name: encounter_type_search_test.rb
 - :id: au_core_v040_ci_build_encounter_date_patient_search_test
   :file_name: encounter_date_patient_search_test.rb
 - :id: au_core_v040_ci_build_encounter_class_patient_search_test
   :file_name: encounter_class_patient_search_test.rb
-- :id: au_core_v040_ci_build_encounter_patient_discharge_disposition_search_test
-  :file_name: encounter_patient_discharge_disposition_search_test.rb
 - :id: au_core_v040_ci_build_encounter_patient_location_search_test
   :file_name: encounter_patient_location_search_test.rb
 - :id: au_core_v040_ci_build_encounter_patient_status_search_test
   :file_name: encounter_patient_status_search_test.rb
-- :id: au_core_v040_ci_build_encounter_patient_type_search_test
-  :file_name: encounter_patient_type_search_test.rb
-- :id: au_core_v040_ci_build_encounter_discharge_disposition_multiple_or_search_test
-  :file_name: encounter_discharge_disposition_multiple_or_search_test.rb
 - :id: au_core_v040_ci_build_encounter_date_multiple_and_search_test
   :file_name: encounter_date_multiple_and_search_test.rb
-- :id: au_core_v040_ci_build_encounter_discharge_disposition_multiple_and_search_test
-  :file_name: encounter_discharge_disposition_multiple_and_search_test.rb
 - :id: au_core_v040_ci_build_encounter_patient_chain_search_test
   :file_name: encounter_patient_chain_search_test.rb
 - :id: au_core_v040_ci_build_encounter_patient_ihi_chain_search_test

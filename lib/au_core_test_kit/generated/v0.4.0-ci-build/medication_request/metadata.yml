@@ -40,18 +40,6 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
-  - identifier
-  :expectation: SHALL
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
-- :names:
-  - category
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - category
-  :must_support_or_mandatory: false
-- :names:
   - authoredon
   :expectation: MAY
   :names_not_must_support_or_mandatory: []
@@ -96,24 +84,6 @@
     :values: []
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-  :identifier:
-    :paths:
-    - identifier
-    :full_paths:
-    - MedicationRequest.identifier
-    :comparators: {}
-    :values: []
-    :type: Identifier
-    :contains_multiple: true
-  :category:
-    :paths:
-    - category
-    :full_paths:
-    - MedicationRequest.category
-    :comparators: {}
-    :values: []
-    :type: CodeableConcept
-    :contains_multiple: true
   :authoredon:
     :paths:
     - authoredOn
@@ -318,10 +288,6 @@
   :file_name: medication_request_patient_search_test.rb
 - :id: au_core_v040_ci_build_medication_request__id_search_test
   :file_name: medication_request_id_search_test.rb
-- :id: au_core_v040_ci_build_medication_request_identifier_search_test
-  :file_name: medication_request_identifier_search_test.rb
-- :id: au_core_v040_ci_build_medication_request_category_search_test
-  :file_name: medication_request_category_search_test.rb
 - :id: au_core_v040_ci_build_medication_request_authoredon_search_test
   :file_name: medication_request_authoredon_search_test.rb
 - :id: au_core_v040_ci_build_medication_request_intent_search_test

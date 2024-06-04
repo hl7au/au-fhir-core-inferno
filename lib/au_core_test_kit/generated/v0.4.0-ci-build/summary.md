@@ -9482,44 +9482,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.4 Server returns valid results for Encounter search by discharge-disposition
-<details>
-
-<summary>Show details</summary>
-
-A server MAY support searching by
-discharge-disposition on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.5 Server returns valid results for Encounter search by identifier
+#### 1.15.4 Server returns valid results for Encounter search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -9556,7 +9519,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.6 Server returns valid results for Encounter search by location
+#### 1.15.5 Server returns valid results for Encounter search by location
 <details>
 
 <summary>Show details</summary>
@@ -9593,7 +9556,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.7 Server returns valid results for Encounter search by status
+#### 1.15.6 Server returns valid results for Encounter search by status
 <details>
 
 <summary>Show details</summary>
@@ -9630,44 +9593,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.8 Server returns valid results for Encounter search by type
-<details>
-
-<summary>Show details</summary>
-
-A server MAY support searching by
-type on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?type={type} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?type={type}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.9 Server returns valid results for Encounter search by date + patient
+#### 1.15.7 Server returns valid results for Encounter search by date + patient
 <details>
 
 <summary>Show details</summary>
@@ -9704,7 +9630,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.10 Server returns valid results for Encounter search by class + patient
+#### 1.15.8 Server returns valid results for Encounter search by class + patient
 <details>
 
 <summary>Show details</summary>
@@ -9741,44 +9667,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.11 Server returns valid results for Encounter search by patient + discharge-disposition
-<details>
-
-<summary>Show details</summary>
-
-A server SHOULD support searching by
-patient + discharge-disposition on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient discharge-disposition={patient discharge-disposition} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient discharge-disposition={patient discharge-disposition}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.12 Server returns valid results for Encounter search by patient + location
+#### 1.15.9 Server returns valid results for Encounter search by patient + location
 <details>
 
 <summary>Show details</summary>
@@ -9815,7 +9704,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.13 Server returns valid results for Encounter search by patient + status
+#### 1.15.10 Server returns valid results for Encounter search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -9852,81 +9741,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.14 Server returns valid results for Encounter search by patient + type
-<details>
-
-<summary>Show details</summary>
-
-A server SHOULD support searching by
-patient + type on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?patient type={patient type} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?patient type={patient type}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.15 Server returns valid results for Encounter multipleOr search by discharge-disposition
-<details>
-
-<summary>Show details</summary>
-
-A server MAY support searching by multipleOr
-discharge-disposition on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.16 Server returns valid results for Encounter multipleAnd search by date
+#### 1.15.11 Server returns valid results for Encounter multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -9963,44 +9778,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.17 Server returns valid results for Encounter multipleAnd search by discharge-disposition
-<details>
-
-<summary>Show details</summary>
-
-A server MAY support searching by multipleAnd
-discharge-disposition on the Encounter resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Encounter?discharge-disposition={discharge-disposition} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Encounter?discharge-disposition={discharge-disposition}
-```
-
-
-
-</details>
-
-
-
-#### 1.15.18 Server returns valid results for Encounter search by patient (chained parameters)
+#### 1.15.12 Server returns valid results for Encounter search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10036,7 +9814,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.19 Server returns valid results for Encounter search by patient (IHI) (chained parameters)
+#### 1.15.13 Server returns valid results for Encounter search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10069,7 +9847,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.20 Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
+#### 1.15.14 Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10102,7 +9880,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.21 Server returns valid results for Encounter search by patient (DVA) (chained parameters)
+#### 1.15.15 Server returns valid results for Encounter search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10135,7 +9913,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.22 Server returns correct Encounter resource from Encounter read interaction
+#### 1.15.16 Server returns correct Encounter resource from Encounter read interaction
 <details>
 
 <summary>Show details</summary>
@@ -10148,7 +9926,7 @@ A server SHALL support the Encounter read interaction.
 
 
 
-#### 1.15.23 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 1.15.17 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 
 <summary>Show details</summary>
@@ -10162,7 +9940,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.15.24 All must support elements are provided in the Encounter resources returned
+#### 1.15.18 All must support elements are provided in the Encounter resources returned
 <details>
 
 <summary>Show details</summary>
@@ -10192,7 +9970,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.15.25 MustSupport references within Encounter resources are valid
+#### 1.15.19 MustSupport references within Encounter resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -10822,7 +10600,6 @@ following parameters:
 
 * patient
 * _id
-* identifier
 * patient + intent
 * patient + intent + status
 * patient + intent + authoredon
@@ -10930,89 +10707,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.3 Server returns valid results for MedicationRequest search by identifier
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL support searching by
-identifier on the MedicationRequest resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-If any MedicationRequest resources use external references to
-Medications, the search will be repeated with
-`_include=MedicationRequest:medication`.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /MedicationRequest?identifier={identifier} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/MedicationRequest?identifier={identifier}
-```
-
-
-
-</details>
-
-
-
-#### 1.17.4 Server returns valid results for MedicationRequest search by category
-<details>
-
-<summary>Show details</summary>
-
-A server MAY support searching by
-category on the MedicationRequest resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-If any MedicationRequest resources use external references to
-Medications, the search will be repeated with
-`_include=MedicationRequest:medication`.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /MedicationRequest?category={category} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/MedicationRequest?category={category}
-```
-
-
-
-</details>
-
-
-
-#### 1.17.5 Server returns valid results for MedicationRequest search by authoredon
+#### 1.17.3 Server returns valid results for MedicationRequest search by authoredon
 <details>
 
 <summary>Show details</summary>
@@ -11053,7 +10748,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.6 Server returns valid results for MedicationRequest search by intent
+#### 1.17.4 Server returns valid results for MedicationRequest search by intent
 <details>
 
 <summary>Show details</summary>
@@ -11094,7 +10789,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.7 Server returns valid results for MedicationRequest search by status
+#### 1.17.5 Server returns valid results for MedicationRequest search by status
 <details>
 
 <summary>Show details</summary>
@@ -11135,7 +10830,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.8 Server returns valid results for MedicationRequest search by patient + intent
+#### 1.17.6 Server returns valid results for MedicationRequest search by patient + intent
 <details>
 
 <summary>Show details</summary>
@@ -11176,7 +10871,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.9 Server returns valid results for MedicationRequest search by patient + intent + status
+#### 1.17.7 Server returns valid results for MedicationRequest search by patient + intent + status
 <details>
 
 <summary>Show details</summary>
@@ -11217,7 +10912,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.10 Server returns valid results for MedicationRequest search by patient + intent + authoredon
+#### 1.17.8 Server returns valid results for MedicationRequest search by patient + intent + authoredon
 <details>
 
 <summary>Show details</summary>
@@ -11258,7 +10953,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.11 Server returns valid results for MedicationRequest multipleOr search by intent
+#### 1.17.9 Server returns valid results for MedicationRequest multipleOr search by intent
 <details>
 
 <summary>Show details</summary>
@@ -11295,7 +10990,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.12 Server returns valid results for MedicationRequest multipleOr search by status
+#### 1.17.10 Server returns valid results for MedicationRequest multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -11332,7 +11027,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.13 Server returns valid results for MedicationRequest multipleAnd search by authoredon
+#### 1.17.11 Server returns valid results for MedicationRequest multipleAnd search by authoredon
 <details>
 
 <summary>Show details</summary>
@@ -11369,7 +11064,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.14 Server returns valid results for MedicationRequest search by patient (chained parameters)
+#### 1.17.12 Server returns valid results for MedicationRequest search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11405,7 +11100,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.15 Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters)
+#### 1.17.13 Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11438,7 +11133,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.16 Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters)
+#### 1.17.14 Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11471,7 +11166,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.17 Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters)
+#### 1.17.15 Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11504,7 +11199,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.18 Server returns correct MedicationRequest resource from MedicationRequest read interaction
+#### 1.17.16 Server returns correct MedicationRequest resource from MedicationRequest read interaction
 <details>
 
 <summary>Show details</summary>
@@ -11517,7 +11212,7 @@ A server SHALL support the MedicationRequest read interaction.
 
 
 
-#### 1.17.19 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 1.17.17 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 
 <summary>Show details</summary>
@@ -11531,7 +11226,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 
 
 
-#### 1.17.20 Medication resources returned during previous tests conform to the AU Core Medication
+#### 1.17.18 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 
 <summary>Show details</summary>
@@ -11545,7 +11240,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.17.21 All must support elements are provided in the MedicationRequest resources returned
+#### 1.17.19 All must support elements are provided in the MedicationRequest resources returned
 <details>
 
 <summary>Show details</summary>
@@ -11574,7 +11269,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.17.22 MustSupport references within MedicationRequest resources are valid
+#### 1.17.20 MustSupport references within MedicationRequest resources are valid
 <details>
 
 <summary>Show details</summary>

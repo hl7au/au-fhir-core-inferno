@@ -37,9 +37,8 @@
 - :names:
   - effective
   :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - effective
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - status
   :expectation: MAY
@@ -55,17 +54,14 @@
   :names:
   - patient
   - effective
-  :names_not_must_support_or_mandatory:
-  - effective
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :effective:
     :paths:
-    - effectiveDateTime
-    - effectivePeriod
+    - effective
     :full_paths:
-    - MedicationStatement.effectiveDateTime
-    - MedicationStatement.effectivePeriod
+    - MedicationStatement.effective
     :comparators:
       :eq: MAY
       :ne: MAY

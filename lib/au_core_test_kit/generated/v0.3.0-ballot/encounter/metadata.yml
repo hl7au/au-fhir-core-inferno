@@ -42,9 +42,8 @@
 - :names:
   - date
   :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :names:
   - discharge-disposition
   :expectation: MAY
@@ -74,9 +73,8 @@
   :names:
   - date
   - patient
-  :names_not_must_support_or_mandatory:
-  - date
-  :must_support_or_mandatory: false
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHOULD
   :names:
   - class
@@ -119,9 +117,9 @@
     :contains_multiple: false
   :date:
     :paths:
-    - actualPeriod
+    - period
     :full_paths:
-    - Encounter.actualPeriod
+    - Encounter.period
     :comparators:
       :eq: MAY
       :ne: MAY
@@ -135,7 +133,7 @@
     :values:
     - '1950-01-01'
     - '2050-01-01'
-    :type: date
+    :type: Period
     :contains_multiple: false
     :multiple_and: SHOULD
   :discharge-disposition:
