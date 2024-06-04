@@ -54,6 +54,26 @@ Then you need to create a tag for this version. The tag name should start with `
 Once a tag is created, you need to create a GitHub release for this newly published version.
 The release creation triggers the pipeline that deploys a new version to the cloud environment.
 
+## Reporting Issues
+
+We appreciate your contributions to improving this test suite. **If you encounter any issues or have suggestions for enhancements, please follow the steps below to report them**:
+
+1. **Search for Existing Issues**:
+Before submitting a new issue, please check the [Issues section](https://github.com/hl7au/au-fhir-core-inferno/issues) to see if the problem or suggestion has already been reported. If you find an existing issue, you can add your comments or additional information to it.
+2. **Open a New Issue:**
+If you do not find a similar issue, you can open a [new one](https://github.com/hl7au/au-fhir-core-inferno/issues/new). Click on the New Issue button and provide the following details:
+```
+Title: A brief and descriptive title for the issue.
+Description: A detailed description of the issue, including:
+1. Steps to reproduce the issue.
+2. Expected and actual behavior.
+3. Screenshots or another related information (if applicable).
+```
+3. **Labeling:**
+Help us categorize the issue by adding relevant labels (e.g., bug, enhancement, question). This helps us prioritize and address the issues more efficiently.
+
+In addition to reporting issues on GitHub, you can also ask questions or report problems through our Zulip channel. Join the conversation [here](https://chat.fhir.org/#narrow/stream/179173-australia/topic/AU.20Core.20Testing).
+
 ## Additional information
 1. [Pre-requisites](/docs/pre-requisites.md)
 2. [Validator instructions](/docs/validator_instructions.md)
