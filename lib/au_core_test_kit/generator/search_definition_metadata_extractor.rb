@@ -51,6 +51,13 @@ module AUCoreTestKit
                 "#{type_name[0].upcase}#{type_name[1..]}"
               end
             end.filter { |path| path.split('.').first == resource }
+
+            full_paths.map do |path|
+              path.scan(/[. ]as[( ]([^)]*)[)]?/).flatten.map do |as_type|
+                path.gsub!(/[. ]as[( ](#{as_type}[^)]*)[)]?/, as_type.upcase_first) if as_type.present?
+              end
+            end
+
             # path = param.expression.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
             # path = path[1..-2] if path.start_with?('(') && path.end_with?(')')
             # path.scan(/[. ]as[( ]([^)]*)[)]?/).flatten.map do |as_type|
