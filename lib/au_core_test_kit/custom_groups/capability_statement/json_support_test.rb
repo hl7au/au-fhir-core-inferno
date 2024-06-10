@@ -10,9 +10,7 @@ module AUCoreTestKit
       JSON and XML. AU Core profiles require servers to use the [JSON
       representation](https://www.hl7.org/fhir/json.html):
 
-      [```The AU Core Server **SHALL** Support json source formats for all US
-      Core
-      interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title)
+      [```The AU Core Server **SHALL** Support json source formats for all AU Core Responder interactions```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title)
 
       The FHIR conformance interaction require servers to describe which
       formats are available for clients to use. The server must explicitly

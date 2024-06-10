@@ -12,8 +12,6 @@ module AUCoreTestKit
         The AU Core Server SHALL:
         1. Support the AU Core Patient resource.
         2. Support at least one additional AU Core resources.
-
-        In order to support USCDI, servers must support all USCDI resources.
         ```
       )
       uses_request :capability_statement

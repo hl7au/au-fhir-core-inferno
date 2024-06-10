@@ -12,8 +12,6 @@ module AUCoreTestKit
       1. Support the AU Core Patient resource profile.
       2. Support at least one additional resource profile from the list of US
          Core Profiles.
-
-      In order to support USCDI, servers must support all USCDI resources.
       ```
     )
     uses_request :capability_statement
