@@ -10,6 +10,10 @@ module AUCoreTestKit
       )
 
     run do
+      fhir_get_capability_statement
+      assert_response_status(200)
+      assert_resource_type(:capability_statement)
+
       server_version = fhir_client.detect_version.to_s.upcase
       assert server_version == 'R4', "Server is using FHIR version #{server_version} rather than R4"
     end
