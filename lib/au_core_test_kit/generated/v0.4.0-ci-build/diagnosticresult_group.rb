@@ -45,7 +45,6 @@ following parameters:
 * patient + category
 * patient + category + date
 * patient + code
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s) from the prior launch
