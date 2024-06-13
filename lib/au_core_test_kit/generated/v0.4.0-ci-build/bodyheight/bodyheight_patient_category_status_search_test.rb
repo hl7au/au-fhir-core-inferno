@@ -10,7 +10,7 @@ module AUCoreTestKit
 
       title 'Server returns valid results for Observation search by patient + category + status'
       description %(
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -20,6 +20,8 @@ none are returned, the test is skipped.
       )
 
       id :au_core_v040_ci_build_bodyheight_patient_category_status_search_test
+      optional
+
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
