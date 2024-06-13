@@ -60,7 +60,13 @@ module AUCoreTestKit
       end
 
       def validator_env_name
-        "#{ig_metadata.reformatted_version.upcase}_VALIDATOR_URL"
+        # "#{ig_metadata.reformatted_version.upcase}_VALIDATOR_URL"
+        "#{ig_metadata.reformatted_version.upcase}_FHIR_RESOURCE_VALIDATOR_URL"
+      end
+
+      def ig_identifier
+        version = ig_metadata.ig_version[1..] # Remove leading 'v'
+        "hl7.fhir.au.core##{version}"
       end
 
       def ig_link
