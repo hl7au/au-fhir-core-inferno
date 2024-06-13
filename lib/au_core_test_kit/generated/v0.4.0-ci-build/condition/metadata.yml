@@ -123,11 +123,11 @@
     :contains_multiple: false
   :onset-date:
     :paths:
-    - onset.as(dateTime)
-    - onset.as(Period)
+    - onsetDateTime
+    - onsetPeriod
     :full_paths:
-    - Condition.onset.as(dateTime)
-    - Condition.onset.as(Period)
+    - Condition.onsetDateTime
+    - Condition.onsetPeriod
     :comparators:
       :eq: MAY
       :ne: MAY

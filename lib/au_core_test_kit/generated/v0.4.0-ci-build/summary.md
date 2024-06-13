@@ -61,7 +61,7 @@ This test inspects the CapabilityStatement returned by the server to verify that
 
 <summary>Show details</summary>
 
-FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats.html) for resources, including JSON and XML. AU Core profiles require servers to use the [JSON representation](https://www.hl7.org/fhir/json.html): [```The AU Core Server **SHALL** Support json source formats for all US Core interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title) The FHIR conformance interaction require servers to describe which formats are available for clients to use. The server must explicitly state that JSON is supported. This is located in the format element of the CapabilityStatement Resource. This test checks that one of the following values are located in the format field. * json * application/json * application/fhir+json
+FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats.html) for resources, including JSON and XML. AU Core profiles require servers to use the [JSON representation](https://www.hl7.org/fhir/json.html): [```The AU Core Server **SHALL** Support json source formats for all AU Core Responder interactions.```](http://hl7.org.au/fhir/core/0.3.0-ballot/CapabilityStatement-au-core-server.html#title) The FHIR conformance interaction require servers to describe which formats are available for clients to use. The server must explicitly state that JSON is supported. This is located in the format element of the CapabilityStatement Resource. This test checks that one of the following values are located in the format field. * json * application/json * application/fhir+json
 
 
 
@@ -74,7 +74,7 @@ FHIR provides multiple [representation formats](https://www.hl7.org/fhir/formats
 
 <summary>Show details</summary>
 
-The AU Core Implementation Guide states: ``` The AU Core Server SHALL: 1. Support the AU Core Patient resource. 2. Support at least one additional AU Core resources. In order to support USCDI, servers must support all USCDI resources. ```
+The AU Core Implementation Guide states: ``` The AU Core Server SHALL: 1. Support the AU Core Patient resource. 2. Support at least one additional AU Core resources. ```
 
 
 
@@ -894,7 +894,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -1218,7 +1217,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -1636,7 +1635,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -1960,7 +1958,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -2392,7 +2390,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -2716,7 +2713,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -3134,7 +3131,6 @@ following parameters:
 * patient
 * patient + category + date
 * patient + code
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -3458,7 +3454,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -3884,7 +3880,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -4208,7 +4203,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -4626,7 +4621,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -4950,7 +4944,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -5368,7 +5362,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -5692,7 +5685,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -6106,7 +6099,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -6430,7 +6422,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -6848,7 +6840,6 @@ following parameters:
 * patient + category
 * patient + category + date
 * patient + code
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -7172,7 +7163,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -7597,7 +7588,6 @@ following parameters:
 * patient
 * patient + category
 * patient + category + date
-* patient + category + status
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -7921,7 +7911,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
