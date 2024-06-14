@@ -34,10 +34,9 @@ services:
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
   hl7_validator_service:
-    image: infernocommunity/inferno-resource-validator
+    image: infernocommunity/inferno-resource-validator:1.0.52
     environment:
       SESSION_CACHE_DURATION: -1
-      TX_SERVER_URL: https://tx.dev.hl7.org.au/fhir
     volumes:
       - ./lib/au_core_test_kit/igs:/home/igs
   nginx:

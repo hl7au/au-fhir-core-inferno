@@ -39,9 +39,12 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        url ENV.fetch('<%= validator_env_name %>', 'http://hl7_validator_service:3500')
         igs '<%= ig_identifier %>'
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
+
+        cli_context do
+          txServer 'https://tx.dev.hl7.org.au/fhir'
+        end
 
         exclude_message do |message|
           message_filters.any? { |filter| filter.match? message.message }
