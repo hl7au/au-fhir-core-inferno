@@ -133,7 +133,7 @@ module AUCoreTestKit
           <<~GENERIC_INTRO
             This test verifies resources returned from the first search conform to
             the [#{profile_name}](#{profile_url}).
-            Systems must demonstrate at least one valid example in order to pass this test.
+            If at least one resource from the first search is invalid, the test will fail.
           GENERIC_INTRO
         end
       end
