@@ -5,6 +5,7 @@ require_relative '../../helpers'
 require_relative '../capability_statement/conformance_support_test'
 require_relative '../capability_statement/fhir_version_test'
 require_relative '../capability_statement/json_support_test'
+require_relative '../capability_statement/xml_support_test'
 require_relative './profile_support_test'
 
 module AUCoreTestKit
@@ -68,6 +69,7 @@ module AUCoreTestKit
       test from: :au_core_conformance_support
       test from: :au_core_fhir_version
       test from: :au_core_json_support
+      test from: :au_core_xml_support
 
       test from: :au_core_profile_support do
         config(
