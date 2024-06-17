@@ -44,6 +44,7 @@ module AUCoreTestKit
 
         cli_context do
           txServer 'https://tx.dev.hl7.org.au/fhir'
+          disableDefaultResourceFetcher false
         end
 
         exclude_message do |message|
