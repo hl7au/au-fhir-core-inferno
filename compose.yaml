@@ -34,7 +34,8 @@ services:
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
   hl7_validator_service:
-    image: infernocommunity/inferno-resource-validator:1.0.52
+    # image: infernocommunity/inferno-resource-validator:1.0.52
+    image: pavelrozhkov/wrapper:6.3.11
     environment:
       SESSION_CACHE_DURATION: -1
     volumes:
