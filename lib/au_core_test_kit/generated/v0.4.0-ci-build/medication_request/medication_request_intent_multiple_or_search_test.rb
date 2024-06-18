@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestIntentMultipleOrSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest multipleOr search by intent'
+      title '(SHOULD) Server returns valid results for MedicationRequest multipleOr search by intent'
       description %(A server SHOULD support searching by multipleOr
 intent on the MedicationRequest resource. This test
 will pass if resources are returned and match the search criteria. If

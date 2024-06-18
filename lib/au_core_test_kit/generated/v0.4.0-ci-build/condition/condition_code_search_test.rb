@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionCodeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by code'
+      title '(MAY) Server returns valid results for Condition search by code'
       description %(
 A server MAY support searching by
 code on the Condition resource. This test

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerRoleIdentifierSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for PractitionerRole search by identifier'
+      title '(SHALL) Server returns valid results for PractitionerRole search by identifier'
       description %(
 A server SHALL support searching by
 identifier on the PractitionerRole resource. This test

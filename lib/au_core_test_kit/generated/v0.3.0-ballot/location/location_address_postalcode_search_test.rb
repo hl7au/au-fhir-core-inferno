@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationAddressPostalcodeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Location search by address-postalcode'
+      title '(SHOULD) Server returns valid results for Location search by address-postalcode'
       description %(
 A server SHOULD support searching by
 address-postalcode on the Location resource. This test

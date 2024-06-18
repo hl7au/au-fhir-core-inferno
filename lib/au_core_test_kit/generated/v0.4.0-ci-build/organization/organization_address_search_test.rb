@@ -8,7 +8,7 @@ module AUCoreTestKit
     class OrganizationAddressSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Organization search by address'
+      title '(SHOULD) Server returns valid results for Organization search by address'
       description %(
 A server SHOULD support searching by
 address on the Organization resource. This test

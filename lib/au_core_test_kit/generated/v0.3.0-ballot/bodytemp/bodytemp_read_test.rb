@@ -7,7 +7,7 @@ module AUCoreTestKit
     class BodytempReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Observation resource from Observation read interaction'
+      title '(SHALL) Server returns correct Observation resource from Observation read interaction'
       description 'A server SHALL support the Observation read interaction.'
 
       id :au_core_v030_ballot_bodytemp_read_test

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationPatientStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Immunization search by patient + status'
+      title '(SHALL) Server returns valid results for Immunization search by patient + status'
       description %(
 A server SHALL support searching by
 patient + status on the Immunization resource. This test

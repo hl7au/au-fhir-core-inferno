@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientIdSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by _id'
+      title '(SHALL) Server returns valid results for Patient search by _id'
       description %(
 A server SHALL support searching by
 _id on the Patient resource. This test

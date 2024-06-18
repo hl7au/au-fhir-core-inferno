@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationNameSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Location search by name'
+      title '(SHALL) Server returns valid results for Location search by name'
       description %(
 A server SHALL support searching by
 name on the Location resource. This test

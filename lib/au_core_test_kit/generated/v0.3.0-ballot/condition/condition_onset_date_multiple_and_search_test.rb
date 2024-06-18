@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionOnset_dateMultipleAndSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition multipleAnd search by onset-date'
+      title '(SHOULD) Server returns valid results for Condition multipleAnd search by onset-date'
       description %(A server SHOULD support searching by multipleAnd
 onset-date on the Condition resource. This test
 will pass if resources are returned and match the search criteria. If

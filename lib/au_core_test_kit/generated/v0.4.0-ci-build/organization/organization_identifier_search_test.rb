@@ -8,7 +8,7 @@ module AUCoreTestKit
     class OrganizationIdentifierSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Organization search by identifier'
+      title '(SHALL) Server returns valid results for Organization search by identifier'
       description %(
 A server SHALL support searching by
 identifier on the Organization resource. This test

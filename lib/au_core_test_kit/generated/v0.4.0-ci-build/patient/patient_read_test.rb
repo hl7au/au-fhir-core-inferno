@@ -7,7 +7,7 @@ module AUCoreTestKit
     class PatientReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Patient resource from Patient read interaction'
+      title '(SHALL) Server returns correct Patient resource from Patient read interaction'
       description 'A server SHALL support the Patient read interaction.'
 
       id :au_core_v040_ci_build_patient_read_test

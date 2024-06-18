@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationDateMultipleAndSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Immunization multipleAnd search by date'
+      title '(SHOULD) Server returns valid results for Immunization multipleAnd search by date'
       description %(A server SHOULD support searching by multipleAnd
 date on the Immunization resource. This test
 will pass if resources are returned and match the search criteria. If

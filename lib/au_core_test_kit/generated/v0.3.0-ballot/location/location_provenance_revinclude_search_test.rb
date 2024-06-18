@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationProvenanceRevincludeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns Provenance resources from Location search by address + revInclude:Provenance:target'
+      title '(SHALL) Server returns Provenance resources from Location search by address + revInclude:Provenance:target'
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 

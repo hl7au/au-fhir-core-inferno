@@ -112,7 +112,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.2.1 Server returns valid results for Patient search by _id
+#### 1.2.1 (SHALL) Server returns valid results for Patient search by _id
 <details>
 
 <summary>Show details</summary>
@@ -157,7 +157,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.2 Server returns valid results for Patient search by birthdate
+#### 1.2.2 (MAY) Server returns valid results for Patient search by birthdate
 <details>
 
 <summary>Show details</summary>
@@ -194,7 +194,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.3 Server returns valid results for Patient search by family
+#### 1.2.3 (SHOULD) Server returns valid results for Patient search by family
 <details>
 
 <summary>Show details</summary>
@@ -231,7 +231,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.4 Server returns valid results for Patient search by gender
+#### 1.2.4 (MAY) Server returns valid results for Patient search by gender
 <details>
 
 <summary>Show details</summary>
@@ -268,7 +268,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.5 Server returns valid results for Patient search by indigenous-status
+#### 1.2.5 (MAY) Server returns valid results for Patient search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -305,7 +305,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.6 Server returns valid results for Patient search by identifier
+#### 1.2.6 (SHALL) Server returns valid results for Patient search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -342,7 +342,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.7 Server returns valid results for Patient search by name
+#### 1.2.7 (SHOULD) Server returns valid results for Patient search by name
 <details>
 
 <summary>Show details</summary>
@@ -379,7 +379,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.8 Server returns valid results for Patient search by gender-identity
+#### 1.2.8 (MAY) Server returns valid results for Patient search by gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -416,7 +416,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.9 Server returns valid results for Patient search by birthdate + family
+#### 1.2.9 (SHOULD) Server returns valid results for Patient search by birthdate + family
 <details>
 
 <summary>Show details</summary>
@@ -453,7 +453,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.10 Server returns valid results for Patient search by birthdate + name
+#### 1.2.10 (SHOULD) Server returns valid results for Patient search by birthdate + name
 <details>
 
 <summary>Show details</summary>
@@ -490,7 +490,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.11 Server returns valid results for Patient search by family + gender
+#### 1.2.11 (SHOULD) Server returns valid results for Patient search by family + gender
 <details>
 
 <summary>Show details</summary>
@@ -527,7 +527,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.12 Server returns valid results for Patient search by gender + name
+#### 1.2.12 (SHOULD) Server returns valid results for Patient search by gender + name
 <details>
 
 <summary>Show details</summary>
@@ -564,7 +564,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.13 Server returns valid results for Patient multipleOr search by indigenous-status
+#### 1.2.13 (MAY) Server returns valid results for Patient multipleOr search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -601,7 +601,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.14 Server returns valid results for Patient multipleOr search by gender-identity
+#### 1.2.14 (MAY) Server returns valid results for Patient multipleOr search by gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -638,7 +638,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.15 Server returns valid results for Patient multipleAnd search by indigenous-status
+#### 1.2.15 (MAY) Server returns valid results for Patient multipleAnd search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -675,7 +675,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.16 Server returns valid results for Patient multipleAnd search by gender-identity
+#### 1.2.16 (MAY) Server returns valid results for Patient multipleAnd search by gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -712,7 +712,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.17 Server returns valid results for Patient search by identifier (IHI)
+#### 1.2.17 (SHOULD) Server returns valid results for Patient search by identifier (IHI)
 <details>
 
 <summary>Show details</summary>
@@ -745,7 +745,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.18 Server returns valid results for Patient search by identifier (Medicare)
+#### 1.2.18 (SHOULD) Server returns valid results for Patient search by identifier (Medicare)
 <details>
 
 <summary>Show details</summary>
@@ -778,7 +778,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.19 Server returns valid results for Patient search by identifier (DVA)
+#### 1.2.19 (SHOULD) Server returns valid results for Patient search by identifier (DVA)
 <details>
 
 <summary>Show details</summary>
@@ -811,7 +811,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.2.20 Server returns correct Patient resource from Patient read interaction
+#### 1.2.20 (SHALL) Server returns correct Patient resource from Patient read interaction
 <details>
 
 <summary>Show details</summary>
@@ -903,7 +903,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.3.1 Server returns valid results for Observation search by patient + code
+#### 1.3.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -953,7 +953,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.2 Server returns valid results for Observation search by category
+#### 1.3.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -990,7 +990,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.3 Server returns valid results for Observation search by code
+#### 1.3.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -1027,7 +1027,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.4 Server returns valid results for Observation search by date
+#### 1.3.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -1064,7 +1064,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.5 Server returns valid results for Observation search by status
+#### 1.3.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -1101,7 +1101,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.6 Server returns valid results for Observation search by patient
+#### 1.3.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -1138,7 +1138,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.7 Server returns valid results for Observation search by patient + category
+#### 1.3.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -1175,7 +1175,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.8 Server returns valid results for Observation search by patient + category + date
+#### 1.3.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -1212,7 +1212,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.9 Server returns valid results for Observation search by patient + category + status
+#### 1.3.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -1249,7 +1249,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.10 Server returns valid results for Observation search by patient + code + date
+#### 1.3.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -1286,7 +1286,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.11 Server returns valid results for Observation multipleOr search by code
+#### 1.3.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -1323,7 +1323,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.12 Server returns valid results for Observation multipleOr search by status
+#### 1.3.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -1360,7 +1360,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.3.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -1397,7 +1397,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.3.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1433,7 +1433,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.3.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1466,7 +1466,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.3.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1499,7 +1499,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.3.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -1532,7 +1532,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.18 Server returns correct Observation resource from Observation read interaction
+#### 1.3.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -1644,7 +1644,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.4.1 Server returns valid results for Observation search by patient + code
+#### 1.4.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -1694,7 +1694,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.2 Server returns valid results for Observation search by category
+#### 1.4.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -1731,7 +1731,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.3 Server returns valid results for Observation search by code
+#### 1.4.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -1768,7 +1768,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.4 Server returns valid results for Observation search by date
+#### 1.4.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -1805,7 +1805,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.5 Server returns valid results for Observation search by status
+#### 1.4.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -1842,7 +1842,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.6 Server returns valid results for Observation search by patient
+#### 1.4.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -1879,7 +1879,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.7 Server returns valid results for Observation search by patient + category
+#### 1.4.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -1916,7 +1916,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.8 Server returns valid results for Observation search by patient + category + date
+#### 1.4.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -1953,7 +1953,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.9 Server returns valid results for Observation search by patient + category + status
+#### 1.4.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -1990,7 +1990,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.10 Server returns valid results for Observation search by patient + code + date
+#### 1.4.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -2027,7 +2027,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.11 Server returns valid results for Observation multipleOr search by code
+#### 1.4.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -2064,7 +2064,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.12 Server returns valid results for Observation multipleOr search by status
+#### 1.4.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -2101,7 +2101,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.4.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -2138,7 +2138,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.4.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2174,7 +2174,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.4.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2207,7 +2207,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.4.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2240,7 +2240,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.4.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2273,7 +2273,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.18 Server returns correct Observation resource from Observation read interaction
+#### 1.4.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -2399,7 +2399,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.5.1 Server returns valid results for Observation search by patient + code
+#### 1.5.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -2449,7 +2449,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.2 Server returns valid results for Observation search by category
+#### 1.5.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -2486,7 +2486,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.3 Server returns valid results for Observation search by code
+#### 1.5.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -2523,7 +2523,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.4 Server returns valid results for Observation search by date
+#### 1.5.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -2560,7 +2560,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.5 Server returns valid results for Observation search by status
+#### 1.5.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -2597,7 +2597,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.6 Server returns valid results for Observation search by patient
+#### 1.5.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -2634,7 +2634,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.7 Server returns valid results for Observation search by patient + category
+#### 1.5.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -2671,7 +2671,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.8 Server returns valid results for Observation search by patient + category + date
+#### 1.5.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -2708,7 +2708,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.9 Server returns valid results for Observation search by patient + category + status
+#### 1.5.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -2745,7 +2745,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.10 Server returns valid results for Observation search by patient + code + date
+#### 1.5.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -2782,7 +2782,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.11 Server returns valid results for Observation multipleOr search by code
+#### 1.5.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -2819,7 +2819,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.12 Server returns valid results for Observation multipleOr search by status
+#### 1.5.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -2856,7 +2856,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.5.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -2893,7 +2893,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.5.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2929,7 +2929,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.5.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2962,7 +2962,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.5.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -2995,7 +2995,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.5.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3028,7 +3028,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.18 Server returns correct Observation resource from Observation read interaction
+#### 1.5.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3140,7 +3140,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.6.1 Server returns valid results for Observation search by patient + category
+#### 1.6.1 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -3190,7 +3190,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.2 Server returns valid results for Observation search by category
+#### 1.6.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -3227,7 +3227,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.3 Server returns valid results for Observation search by code
+#### 1.6.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -3264,7 +3264,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.4 Server returns valid results for Observation search by date
+#### 1.6.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -3301,7 +3301,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.5 Server returns valid results for Observation search by status
+#### 1.6.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -3338,7 +3338,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.6 Server returns valid results for Observation search by patient
+#### 1.6.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -3375,7 +3375,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.7 Server returns valid results for Observation search by patient + category + date
+#### 1.6.7 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -3412,7 +3412,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.8 Server returns valid results for Observation search by patient + code
+#### 1.6.8 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -3449,7 +3449,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.9 Server returns valid results for Observation search by patient + category + status
+#### 1.6.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -3486,7 +3486,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.10 Server returns valid results for Observation search by patient + code + date
+#### 1.6.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -3523,7 +3523,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.11 Server returns valid results for Observation multipleOr search by code
+#### 1.6.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -3560,7 +3560,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.12 Server returns valid results for Observation multipleOr search by status
+#### 1.6.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -3597,7 +3597,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.6.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -3634,7 +3634,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.6.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3670,7 +3670,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.6.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3703,7 +3703,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.6.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3736,7 +3736,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.6.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -3769,7 +3769,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.18 Server returns correct Observation resource from Observation read interaction
+#### 1.6.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -3889,7 +3889,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.7.1 Server returns valid results for Observation search by patient + code
+#### 1.7.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -3939,7 +3939,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.2 Server returns valid results for Observation search by category
+#### 1.7.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -3976,7 +3976,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.3 Server returns valid results for Observation search by code
+#### 1.7.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -4013,7 +4013,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.4 Server returns valid results for Observation search by date
+#### 1.7.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -4050,7 +4050,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.5 Server returns valid results for Observation search by status
+#### 1.7.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -4087,7 +4087,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.6 Server returns valid results for Observation search by patient
+#### 1.7.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -4124,7 +4124,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.7 Server returns valid results for Observation search by patient + category
+#### 1.7.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -4161,7 +4161,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.8 Server returns valid results for Observation search by patient + category + date
+#### 1.7.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -4198,7 +4198,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.9 Server returns valid results for Observation search by patient + category + status
+#### 1.7.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -4235,7 +4235,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.10 Server returns valid results for Observation search by patient + code + date
+#### 1.7.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -4272,7 +4272,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.11 Server returns valid results for Observation multipleOr search by code
+#### 1.7.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -4309,7 +4309,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.12 Server returns valid results for Observation multipleOr search by status
+#### 1.7.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -4346,7 +4346,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.7.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -4383,7 +4383,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.7.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4419,7 +4419,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.7.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4452,7 +4452,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.7.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4485,7 +4485,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.7.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -4518,7 +4518,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.18 Server returns correct Observation resource from Observation read interaction
+#### 1.7.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -4630,7 +4630,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.8.1 Server returns valid results for Observation search by patient + code
+#### 1.8.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -4680,7 +4680,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.2 Server returns valid results for Observation search by category
+#### 1.8.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -4717,7 +4717,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.3 Server returns valid results for Observation search by code
+#### 1.8.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -4754,7 +4754,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.4 Server returns valid results for Observation search by date
+#### 1.8.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -4791,7 +4791,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.5 Server returns valid results for Observation search by status
+#### 1.8.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -4828,7 +4828,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.6 Server returns valid results for Observation search by patient
+#### 1.8.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -4865,7 +4865,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.7 Server returns valid results for Observation search by patient + category
+#### 1.8.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -4902,7 +4902,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.8 Server returns valid results for Observation search by patient + category + date
+#### 1.8.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -4939,7 +4939,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.9 Server returns valid results for Observation search by patient + category + status
+#### 1.8.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -4976,7 +4976,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.10 Server returns valid results for Observation search by patient + code + date
+#### 1.8.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -5013,7 +5013,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.11 Server returns valid results for Observation multipleOr search by code
+#### 1.8.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -5050,7 +5050,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.12 Server returns valid results for Observation multipleOr search by status
+#### 1.8.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -5087,7 +5087,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.8.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -5124,7 +5124,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.8.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5160,7 +5160,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.8.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5193,7 +5193,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.8.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5226,7 +5226,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.8.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5259,7 +5259,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.18 Server returns correct Observation resource from Observation read interaction
+#### 1.8.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -5371,7 +5371,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.9.1 Server returns valid results for Observation search by patient + code
+#### 1.9.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -5421,7 +5421,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.2 Server returns valid results for Observation search by category
+#### 1.9.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -5458,7 +5458,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.3 Server returns valid results for Observation search by code
+#### 1.9.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -5495,7 +5495,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.4 Server returns valid results for Observation search by date
+#### 1.9.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -5532,7 +5532,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.5 Server returns valid results for Observation search by status
+#### 1.9.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -5569,7 +5569,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.6 Server returns valid results for Observation search by patient
+#### 1.9.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -5606,7 +5606,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.7 Server returns valid results for Observation search by patient + category
+#### 1.9.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -5643,7 +5643,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.8 Server returns valid results for Observation search by patient + category + date
+#### 1.9.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -5680,7 +5680,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.9 Server returns valid results for Observation search by patient + category + status
+#### 1.9.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -5717,7 +5717,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.10 Server returns valid results for Observation search by patient + code + date
+#### 1.9.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -5754,7 +5754,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.11 Server returns valid results for Observation multipleOr search by code
+#### 1.9.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -5791,7 +5791,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.12 Server returns valid results for Observation multipleOr search by status
+#### 1.9.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -5828,7 +5828,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.9.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -5865,7 +5865,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.9.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5901,7 +5901,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.9.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5934,7 +5934,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.9.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -5967,7 +5967,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.9.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6000,7 +6000,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.18 Server returns correct Observation resource from Observation read interaction
+#### 1.9.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -6108,7 +6108,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.10.1 Server returns valid results for Observation search by patient + code
+#### 1.10.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -6158,7 +6158,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.2 Server returns valid results for Observation search by category
+#### 1.10.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -6195,7 +6195,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.3 Server returns valid results for Observation search by code
+#### 1.10.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -6232,7 +6232,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.4 Server returns valid results for Observation search by date
+#### 1.10.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -6269,7 +6269,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.5 Server returns valid results for Observation search by status
+#### 1.10.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -6306,7 +6306,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.6 Server returns valid results for Observation search by patient
+#### 1.10.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -6343,7 +6343,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.7 Server returns valid results for Observation search by patient + category
+#### 1.10.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -6380,7 +6380,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.8 Server returns valid results for Observation search by patient + category + date
+#### 1.10.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -6417,7 +6417,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.9 Server returns valid results for Observation search by patient + category + status
+#### 1.10.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -6454,7 +6454,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.10 Server returns valid results for Observation search by patient + code + date
+#### 1.10.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -6491,7 +6491,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.11 Server returns valid results for Observation multipleOr search by code
+#### 1.10.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -6528,7 +6528,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.12 Server returns valid results for Observation multipleOr search by status
+#### 1.10.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -6565,7 +6565,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.10.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -6602,7 +6602,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.10.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6638,7 +6638,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.10.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6671,7 +6671,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.10.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6704,7 +6704,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.10.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -6737,7 +6737,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.18 Server returns correct Observation resource from Observation read interaction
+#### 1.10.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -6849,7 +6849,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.11.1 Server returns valid results for Observation search by patient
+#### 1.11.1 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -6899,7 +6899,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.2 Server returns valid results for Observation search by category
+#### 1.11.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -6936,7 +6936,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.3 Server returns valid results for Observation search by code
+#### 1.11.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -6973,7 +6973,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.4 Server returns valid results for Observation search by date
+#### 1.11.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -7010,7 +7010,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.5 Server returns valid results for Observation search by status
+#### 1.11.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -7047,7 +7047,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.6 Server returns valid results for Observation search by patient + category
+#### 1.11.6 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -7084,7 +7084,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.7 Server returns valid results for Observation search by patient + category + date
+#### 1.11.7 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -7121,7 +7121,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.8 Server returns valid results for Observation search by patient + code
+#### 1.11.8 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -7158,7 +7158,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.9 Server returns valid results for Observation search by patient + category + status
+#### 1.11.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -7195,7 +7195,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.10 Server returns valid results for Observation search by patient + code + date
+#### 1.11.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -7232,7 +7232,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.11 Server returns valid results for Observation multipleOr search by code
+#### 1.11.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -7269,7 +7269,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.12 Server returns valid results for Observation multipleOr search by status
+#### 1.11.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -7306,7 +7306,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.11.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -7343,7 +7343,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.11.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7379,7 +7379,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.11.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7412,7 +7412,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.11.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7445,7 +7445,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.11.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -7478,7 +7478,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.18 Server returns correct Observation resource from Observation read interaction
+#### 1.11.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -7597,7 +7597,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.12.1 Server returns valid results for Observation search by patient + code
+#### 1.12.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -7647,7 +7647,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.2 Server returns valid results for Observation search by category
+#### 1.12.2 (MAY) Server returns valid results for Observation search by category
 <details>
 
 <summary>Show details</summary>
@@ -7684,7 +7684,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.3 Server returns valid results for Observation search by code
+#### 1.12.3 (MAY) Server returns valid results for Observation search by code
 <details>
 
 <summary>Show details</summary>
@@ -7721,7 +7721,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.4 Server returns valid results for Observation search by date
+#### 1.12.4 (MAY) Server returns valid results for Observation search by date
 <details>
 
 <summary>Show details</summary>
@@ -7758,7 +7758,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.5 Server returns valid results for Observation search by status
+#### 1.12.5 (MAY) Server returns valid results for Observation search by status
 <details>
 
 <summary>Show details</summary>
@@ -7795,7 +7795,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.6 Server returns valid results for Observation search by patient
+#### 1.12.6 (SHALL) Server returns valid results for Observation search by patient
 <details>
 
 <summary>Show details</summary>
@@ -7832,7 +7832,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.7 Server returns valid results for Observation search by patient + category
+#### 1.12.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -7869,7 +7869,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.8 Server returns valid results for Observation search by patient + category + date
+#### 1.12.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -7906,7 +7906,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.9 Server returns valid results for Observation search by patient + category + status
+#### 1.12.9 (SHOULD) Server returns valid results for Observation search by patient + category + status
 <details>
 
 <summary>Show details</summary>
@@ -7943,7 +7943,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.10 Server returns valid results for Observation search by patient + code + date
+#### 1.12.10 (SHOULD) Server returns valid results for Observation search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -7980,7 +7980,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.11 Server returns valid results for Observation multipleOr search by code
+#### 1.12.11 (SHOULD) Server returns valid results for Observation multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -8017,7 +8017,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.12 Server returns valid results for Observation multipleOr search by status
+#### 1.12.12 (SHALL) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -8054,7 +8054,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.13 Server returns valid results for Observation multipleAnd search by date
+#### 1.12.13 (SHOULD) Server returns valid results for Observation multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -8091,7 +8091,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.14 Server returns valid results for Observation search by patient (chained parameters)
+#### 1.12.14 (SHOULD) Server returns valid results for Observation search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8127,7 +8127,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.15 Server returns valid results for Observation search by patient (IHI) (chained parameters)
+#### 1.12.15 (SHOULD) Server returns valid results for Observation search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8160,7 +8160,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.16 Server returns valid results for Observation search by patient (Medicare) (chained parameters)
+#### 1.12.16 (SHOULD) Server returns valid results for Observation search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8193,7 +8193,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.17 Server returns valid results for Observation search by patient (DVA) (chained parameters)
+#### 1.12.17 (SHOULD) Server returns valid results for Observation search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8226,7 +8226,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.18 Server returns correct Observation resource from Observation read interaction
+#### 1.12.18 (SHALL) Server returns correct Observation resource from Observation read interaction
 <details>
 
 <summary>Show details</summary>
@@ -8326,7 +8326,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.13.1 Server returns valid results for AllergyIntolerance search by patient
+#### 1.13.1 (SHALL) Server returns valid results for AllergyIntolerance search by patient
 <details>
 
 <summary>Show details</summary>
@@ -8376,7 +8376,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.2 Server returns valid results for AllergyIntolerance search by clinical-status
+#### 1.13.2 (MAY) Server returns valid results for AllergyIntolerance search by clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -8413,7 +8413,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.3 Server returns valid results for AllergyIntolerance search by patient + clinical-status
+#### 1.13.3 (SHOULD) Server returns valid results for AllergyIntolerance search by patient + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -8450,7 +8450,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.4 Server returns valid results for AllergyIntolerance search by patient (chained parameters)
+#### 1.13.4 (SHOULD) Server returns valid results for AllergyIntolerance search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8486,7 +8486,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.5 Server returns valid results for AllergyIntolerance search by patient (IHI) (chained parameters)
+#### 1.13.5 (SHOULD) Server returns valid results for AllergyIntolerance search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8519,7 +8519,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.6 Server returns valid results for AllergyIntolerance search by patient (Medicare) (chained parameters)
+#### 1.13.6 (SHOULD) Server returns valid results for AllergyIntolerance search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8552,7 +8552,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.7 Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters)
+#### 1.13.7 (SHOULD) Server returns valid results for AllergyIntolerance search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -8585,7 +8585,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.13.8 Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
+#### 1.13.8 (SHALL) Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction
 <details>
 
 <summary>Show details</summary>
@@ -8689,7 +8689,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.14.1 Server returns valid results for Condition search by patient
+#### 1.14.1 (SHALL) Server returns valid results for Condition search by patient
 <details>
 
 <summary>Show details</summary>
@@ -8739,7 +8739,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.2 Server returns valid results for Condition search by category
+#### 1.14.2 (MAY) Server returns valid results for Condition search by category
 <details>
 
 <summary>Show details</summary>
@@ -8776,7 +8776,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.3 Server returns valid results for Condition search by clinical-status
+#### 1.14.3 (MAY) Server returns valid results for Condition search by clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -8813,7 +8813,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.4 Server returns valid results for Condition search by code
+#### 1.14.4 (MAY) Server returns valid results for Condition search by code
 <details>
 
 <summary>Show details</summary>
@@ -8850,7 +8850,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.5 Server returns valid results for Condition search by onset-date
+#### 1.14.5 (MAY) Server returns valid results for Condition search by onset-date
 <details>
 
 <summary>Show details</summary>
@@ -8887,7 +8887,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.6 Server returns valid results for Condition search by patient + category
+#### 1.14.6 (SHALL) Server returns valid results for Condition search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -8924,7 +8924,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.7 Server returns valid results for Condition search by patient + clinical-status
+#### 1.14.7 (SHALL) Server returns valid results for Condition search by patient + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -8961,7 +8961,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.8 Server returns valid results for Condition search by patient + category + clinical-status
+#### 1.14.8 (SHOULD) Server returns valid results for Condition search by patient + category + clinical-status
 <details>
 
 <summary>Show details</summary>
@@ -8998,7 +8998,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.9 Server returns valid results for Condition search by patient + code
+#### 1.14.9 (SHOULD) Server returns valid results for Condition search by patient + code
 <details>
 
 <summary>Show details</summary>
@@ -9035,7 +9035,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.10 Server returns valid results for Condition search by patient + onset-date
+#### 1.14.10 (SHOULD) Server returns valid results for Condition search by patient + onset-date
 <details>
 
 <summary>Show details</summary>
@@ -9072,7 +9072,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.11 Server returns valid results for Condition multipleAnd search by onset-date
+#### 1.14.11 (SHOULD) Server returns valid results for Condition multipleAnd search by onset-date
 <details>
 
 <summary>Show details</summary>
@@ -9109,7 +9109,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.12 Server returns valid results for Condition search by patient (chained parameters)
+#### 1.14.12 (SHOULD) Server returns valid results for Condition search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9145,7 +9145,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.13 Server returns valid results for Condition search by patient (IHI) (chained parameters)
+#### 1.14.13 (SHOULD) Server returns valid results for Condition search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9178,7 +9178,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.14 Server returns valid results for Condition search by patient (Medicare) (chained parameters)
+#### 1.14.14 (SHOULD) Server returns valid results for Condition search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9211,7 +9211,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.15 Server returns valid results for Condition search by patient (DVA) (chained parameters)
+#### 1.14.15 (SHOULD) Server returns valid results for Condition search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9244,7 +9244,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.14.16 Server returns correct Condition resource from Condition read interaction
+#### 1.14.16 (SHALL) Server returns correct Condition resource from Condition read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9348,7 +9348,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.15.1 Server returns valid results for Encounter search by patient
+#### 1.15.1 (SHALL) Server returns valid results for Encounter search by patient
 <details>
 
 <summary>Show details</summary>
@@ -9398,7 +9398,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.2 Server returns valid results for Encounter search by class
+#### 1.15.2 (MAY) Server returns valid results for Encounter search by class
 <details>
 
 <summary>Show details</summary>
@@ -9435,7 +9435,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.3 Server returns valid results for Encounter search by date
+#### 1.15.3 (MAY) Server returns valid results for Encounter search by date
 <details>
 
 <summary>Show details</summary>
@@ -9472,7 +9472,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.4 Server returns valid results for Encounter search by identifier
+#### 1.15.4 (MAY) Server returns valid results for Encounter search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -9509,7 +9509,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.5 Server returns valid results for Encounter search by location
+#### 1.15.5 (MAY) Server returns valid results for Encounter search by location
 <details>
 
 <summary>Show details</summary>
@@ -9546,7 +9546,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.6 Server returns valid results for Encounter search by status
+#### 1.15.6 (MAY) Server returns valid results for Encounter search by status
 <details>
 
 <summary>Show details</summary>
@@ -9583,7 +9583,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.7 Server returns valid results for Encounter search by date + patient
+#### 1.15.7 (SHALL) Server returns valid results for Encounter search by date + patient
 <details>
 
 <summary>Show details</summary>
@@ -9620,7 +9620,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.8 Server returns valid results for Encounter search by class + patient
+#### 1.15.8 (SHOULD) Server returns valid results for Encounter search by class + patient
 <details>
 
 <summary>Show details</summary>
@@ -9657,7 +9657,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.9 Server returns valid results for Encounter search by patient + location
+#### 1.15.9 (SHOULD) Server returns valid results for Encounter search by patient + location
 <details>
 
 <summary>Show details</summary>
@@ -9694,7 +9694,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.10 Server returns valid results for Encounter search by patient + status
+#### 1.15.10 (SHOULD) Server returns valid results for Encounter search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -9731,7 +9731,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.11 Server returns valid results for Encounter multipleAnd search by date
+#### 1.15.11 (SHOULD) Server returns valid results for Encounter multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -9768,7 +9768,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.12 Server returns valid results for Encounter search by patient (chained parameters)
+#### 1.15.12 (SHOULD) Server returns valid results for Encounter search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9804,7 +9804,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.13 Server returns valid results for Encounter search by patient (IHI) (chained parameters)
+#### 1.15.13 (SHOULD) Server returns valid results for Encounter search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9837,7 +9837,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.14 Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
+#### 1.15.14 (SHOULD) Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9870,7 +9870,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.15 Server returns valid results for Encounter search by patient (DVA) (chained parameters)
+#### 1.15.15 (SHOULD) Server returns valid results for Encounter search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9903,7 +9903,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.16 Server returns correct Encounter resource from Encounter read interaction
+#### 1.15.16 (SHALL) Server returns correct Encounter resource from Encounter read interaction
 <details>
 
 <summary>Show details</summary>
@@ -10015,7 +10015,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.16.1 Server returns valid results for Immunization search by patient
+#### 1.16.1 (SHALL) Server returns valid results for Immunization search by patient
 <details>
 
 <summary>Show details</summary>
@@ -10065,7 +10065,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.2 Server returns valid results for Immunization search by date
+#### 1.16.2 (MAY) Server returns valid results for Immunization search by date
 <details>
 
 <summary>Show details</summary>
@@ -10102,7 +10102,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.3 Server returns valid results for Immunization search by status
+#### 1.16.3 (MAY) Server returns valid results for Immunization search by status
 <details>
 
 <summary>Show details</summary>
@@ -10139,7 +10139,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.4 Server returns valid results for Immunization search by vaccine-code
+#### 1.16.4 (MAY) Server returns valid results for Immunization search by vaccine-code
 <details>
 
 <summary>Show details</summary>
@@ -10176,7 +10176,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.5 Server returns valid results for Immunization search by patient + status
+#### 1.16.5 (SHALL) Server returns valid results for Immunization search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -10213,7 +10213,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.6 Server returns valid results for Immunization search by patient + date
+#### 1.16.6 (SHOULD) Server returns valid results for Immunization search by patient + date
 <details>
 
 <summary>Show details</summary>
@@ -10250,7 +10250,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.7 Server returns valid results for Immunization search by patient + vaccine-code
+#### 1.16.7 (MAY) Server returns valid results for Immunization search by patient + vaccine-code
 <details>
 
 <summary>Show details</summary>
@@ -10287,7 +10287,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.8 Server returns valid results for Immunization multipleOr search by vaccine-code
+#### 1.16.8 (SHOULD) Server returns valid results for Immunization multipleOr search by vaccine-code
 <details>
 
 <summary>Show details</summary>
@@ -10324,7 +10324,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.9 Server returns valid results for Immunization multipleAnd search by date
+#### 1.16.9 (SHOULD) Server returns valid results for Immunization multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -10361,7 +10361,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.10 Server returns valid results for Immunization search by patient (chained parameters)
+#### 1.16.10 (SHOULD) Server returns valid results for Immunization search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10397,7 +10397,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.11 Server returns valid results for Immunization search by patient (IHI) (chained parameters)
+#### 1.16.11 (SHOULD) Server returns valid results for Immunization search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10430,7 +10430,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.12 Server returns valid results for Immunization search by patient (Medicare) (chained parameters)
+#### 1.16.12 (SHOULD) Server returns valid results for Immunization search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10463,7 +10463,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.13 Server returns valid results for Immunization search by patient (DVA) (chained parameters)
+#### 1.16.13 (SHOULD) Server returns valid results for Immunization search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -10496,7 +10496,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.16.14 Server returns correct Immunization resource from Immunization read interaction
+#### 1.16.14 (SHALL) Server returns correct Immunization resource from Immunization read interaction
 <details>
 
 <summary>Show details</summary>
@@ -10601,7 +10601,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.17.1 Server returns valid results for MedicationRequest search by patient
+#### 1.17.1 (SHALL) Server returns valid results for MedicationRequest search by patient
 <details>
 
 <summary>Show details</summary>
@@ -10655,7 +10655,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.2 Server returns valid results for MedicationRequest search by _id
+#### 1.17.2 (SHALL) Server returns valid results for MedicationRequest search by _id
 <details>
 
 <summary>Show details</summary>
@@ -10696,7 +10696,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.3 Server returns valid results for MedicationRequest search by authoredon
+#### 1.17.3 (MAY) Server returns valid results for MedicationRequest search by authoredon
 <details>
 
 <summary>Show details</summary>
@@ -10737,7 +10737,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.4 Server returns valid results for MedicationRequest search by intent
+#### 1.17.4 (MAY) Server returns valid results for MedicationRequest search by intent
 <details>
 
 <summary>Show details</summary>
@@ -10778,7 +10778,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.5 Server returns valid results for MedicationRequest search by status
+#### 1.17.5 (MAY) Server returns valid results for MedicationRequest search by status
 <details>
 
 <summary>Show details</summary>
@@ -10819,7 +10819,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.6 Server returns valid results for MedicationRequest search by patient + intent
+#### 1.17.6 (SHALL) Server returns valid results for MedicationRequest search by patient + intent
 <details>
 
 <summary>Show details</summary>
@@ -10860,7 +10860,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.7 Server returns valid results for MedicationRequest search by patient + intent + status
+#### 1.17.7 (SHALL) Server returns valid results for MedicationRequest search by patient + intent + status
 <details>
 
 <summary>Show details</summary>
@@ -10901,7 +10901,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.8 Server returns valid results for MedicationRequest search by patient + intent + authoredon
+#### 1.17.8 (SHOULD) Server returns valid results for MedicationRequest search by patient + intent + authoredon
 <details>
 
 <summary>Show details</summary>
@@ -10942,7 +10942,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.9 Server returns valid results for MedicationRequest multipleOr search by intent
+#### 1.17.9 (SHOULD) Server returns valid results for MedicationRequest multipleOr search by intent
 <details>
 
 <summary>Show details</summary>
@@ -10979,7 +10979,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.10 Server returns valid results for MedicationRequest multipleOr search by status
+#### 1.17.10 (SHALL) Server returns valid results for MedicationRequest multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -11016,7 +11016,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.11 Server returns valid results for MedicationRequest multipleAnd search by authoredon
+#### 1.17.11 (SHOULD) Server returns valid results for MedicationRequest multipleAnd search by authoredon
 <details>
 
 <summary>Show details</summary>
@@ -11053,7 +11053,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.12 Server returns valid results for MedicationRequest search by patient (chained parameters)
+#### 1.17.12 (SHOULD) Server returns valid results for MedicationRequest search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11089,7 +11089,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.13 Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters)
+#### 1.17.13 (SHOULD) Server returns valid results for MedicationRequest search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11122,7 +11122,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.14 Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters)
+#### 1.17.14 (SHOULD) Server returns valid results for MedicationRequest search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11155,7 +11155,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.15 Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters)
+#### 1.17.15 (SHOULD) Server returns valid results for MedicationRequest search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11188,7 +11188,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.16 Server returns correct MedicationRequest resource from MedicationRequest read interaction
+#### 1.17.16 (SHALL) Server returns correct MedicationRequest resource from MedicationRequest read interaction
 <details>
 
 <summary>Show details</summary>
@@ -11313,7 +11313,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.18.1 Server returns valid results for Procedure search by patient
+#### 1.18.1 (SHALL) Server returns valid results for Procedure search by patient
 <details>
 
 <summary>Show details</summary>
@@ -11363,7 +11363,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.2 Server returns valid results for Procedure search by code
+#### 1.18.2 (MAY) Server returns valid results for Procedure search by code
 <details>
 
 <summary>Show details</summary>
@@ -11400,7 +11400,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.3 Server returns valid results for Procedure search by date
+#### 1.18.3 (MAY) Server returns valid results for Procedure search by date
 <details>
 
 <summary>Show details</summary>
@@ -11437,7 +11437,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.4 Server returns valid results for Procedure search by status
+#### 1.18.4 (MAY) Server returns valid results for Procedure search by status
 <details>
 
 <summary>Show details</summary>
@@ -11474,7 +11474,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.5 Server returns valid results for Procedure search by patient + date
+#### 1.18.5 (SHALL) Server returns valid results for Procedure search by patient + date
 <details>
 
 <summary>Show details</summary>
@@ -11511,7 +11511,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.6 Server returns valid results for Procedure search by patient + code + date
+#### 1.18.6 (SHOULD) Server returns valid results for Procedure search by patient + code + date
 <details>
 
 <summary>Show details</summary>
@@ -11548,7 +11548,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.7 Server returns valid results for Procedure search by patient + status
+#### 1.18.7 (SHOULD) Server returns valid results for Procedure search by patient + status
 <details>
 
 <summary>Show details</summary>
@@ -11585,7 +11585,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.8 Server returns valid results for Procedure multipleOr search by code
+#### 1.18.8 (SHOULD) Server returns valid results for Procedure multipleOr search by code
 <details>
 
 <summary>Show details</summary>
@@ -11622,7 +11622,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.9 Server returns valid results for Procedure multipleOr search by status
+#### 1.18.9 (SHALL) Server returns valid results for Procedure multipleOr search by status
 <details>
 
 <summary>Show details</summary>
@@ -11659,7 +11659,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.10 Server returns valid results for Procedure search by patient (chained parameters)
+#### 1.18.10 (SHOULD) Server returns valid results for Procedure search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11695,7 +11695,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.11 Server returns valid results for Procedure search by patient (IHI) (chained parameters)
+#### 1.18.11 (SHOULD) Server returns valid results for Procedure search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11728,7 +11728,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.12 Server returns valid results for Procedure search by patient (Medicare) (chained parameters)
+#### 1.18.12 (SHOULD) Server returns valid results for Procedure search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11761,7 +11761,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.13 Server returns valid results for Procedure search by patient (DVA) (chained parameters)
+#### 1.18.13 (SHOULD) Server returns valid results for Procedure search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11794,7 +11794,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.14 Server returns correct Procedure resource from Procedure read interaction
+#### 1.18.14 (SHALL) Server returns correct Procedure resource from Procedure read interaction
 <details>
 
 <summary>Show details</summary>
@@ -11898,7 +11898,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.19.1 Server returns correct Location resource from Location read interaction
+#### 1.19.1 (SHALL) Server returns correct Location resource from Location read interaction
 <details>
 
 <summary>Show details</summary>
@@ -11911,7 +11911,7 @@ A server SHALL support the Location read interaction.
 
 
 
-#### 1.19.2 Server returns valid results for Location search by address
+#### 1.19.2 (SHALL) Server returns valid results for Location search by address
 <details>
 
 <summary>Show details</summary>
@@ -11956,7 +11956,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.3 Server returns valid results for Location search by name
+#### 1.19.3 (SHALL) Server returns valid results for Location search by name
 <details>
 
 <summary>Show details</summary>
@@ -11993,7 +11993,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.4 Server returns valid results for Location search by address-city
+#### 1.19.4 (SHOULD) Server returns valid results for Location search by address-city
 <details>
 
 <summary>Show details</summary>
@@ -12030,7 +12030,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.5 Server returns valid results for Location search by address-state
+#### 1.19.5 (SHOULD) Server returns valid results for Location search by address-state
 <details>
 
 <summary>Show details</summary>
@@ -12067,7 +12067,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.6 Server returns valid results for Location search by address-postalcode
+#### 1.19.6 (SHOULD) Server returns valid results for Location search by address-postalcode
 <details>
 
 <summary>Show details</summary>
@@ -12104,7 +12104,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.19.7 Server returns valid results for Location search by identifier
+#### 1.19.7 (MAY) Server returns valid results for Location search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -12229,7 +12229,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.20.1 Server returns correct Organization resource from Organization read interaction
+#### 1.20.1 (SHALL) Server returns correct Organization resource from Organization read interaction
 <details>
 
 <summary>Show details</summary>
@@ -12242,7 +12242,7 @@ A server SHALL support the Organization read interaction.
 
 
 
-#### 1.20.2 Server returns valid results for Organization search by _id
+#### 1.20.2 (SHOULD) Server returns valid results for Organization search by _id
 <details>
 
 <summary>Show details</summary>
@@ -12287,7 +12287,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.3 Server returns valid results for Organization search by address
+#### 1.20.3 (SHOULD) Server returns valid results for Organization search by address
 <details>
 
 <summary>Show details</summary>
@@ -12324,7 +12324,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.4 Server returns valid results for Organization search by identifier
+#### 1.20.4 (SHALL) Server returns valid results for Organization search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -12361,7 +12361,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.20.5 Server returns valid results for Organization search by name
+#### 1.20.5 (SHOULD) Server returns valid results for Organization search by name
 <details>
 
 <summary>Show details</summary>
@@ -12464,7 +12464,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.21.1 Server returns correct Practitioner resource from Practitioner read interaction
+#### 1.21.1 (SHALL) Server returns correct Practitioner resource from Practitioner read interaction
 <details>
 
 <summary>Show details</summary>
@@ -12477,7 +12477,7 @@ A server SHALL support the Practitioner read interaction.
 
 
 
-#### 1.21.2 Server returns valid results for Practitioner search by _id
+#### 1.21.2 (SHALL) Server returns valid results for Practitioner search by _id
 <details>
 
 <summary>Show details</summary>
@@ -12522,7 +12522,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.3 Server returns valid results for Practitioner search by identifier
+#### 1.21.3 (SHALL) Server returns valid results for Practitioner search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -12559,7 +12559,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.4 Server returns valid results for Practitioner search by name
+#### 1.21.4 (SHOULD) Server returns valid results for Practitioner search by name
 <details>
 
 <summary>Show details</summary>
@@ -12596,7 +12596,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.21.5 Server returns valid results for Practitioner search by identifier (HPI-I)
+#### 1.21.5 (SHOULD) Server returns valid results for Practitioner search by identifier (HPI-I)
 <details>
 
 <summary>Show details</summary>
@@ -12695,7 +12695,7 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.22.1 Server returns correct PractitionerRole resource from PractitionerRole read interaction
+#### 1.22.1 (SHALL) Server returns correct PractitionerRole resource from PractitionerRole read interaction
 <details>
 
 <summary>Show details</summary>
@@ -12708,7 +12708,7 @@ A server SHALL support the PractitionerRole read interaction.
 
 
 
-#### 1.22.2 Server returns valid results for PractitionerRole search by _id
+#### 1.22.2 (SHALL) Server returns valid results for PractitionerRole search by _id
 <details>
 
 <summary>Show details</summary>
@@ -12753,7 +12753,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.3 Server returns valid results for PractitionerRole search by identifier
+#### 1.22.3 (SHALL) Server returns valid results for PractitionerRole search by identifier
 <details>
 
 <summary>Show details</summary>
@@ -12790,7 +12790,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.4 Server returns valid results for PractitionerRole search by practitioner
+#### 1.22.4 (SHALL) Server returns valid results for PractitionerRole search by practitioner
 <details>
 
 <summary>Show details</summary>
@@ -12827,7 +12827,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.5 Server returns valid results for PractitionerRole search by specialty
+#### 1.22.5 (SHOULD) Server returns valid results for PractitionerRole search by specialty
 <details>
 
 <summary>Show details</summary>
@@ -12864,7 +12864,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.6 Server returns valid results for PractitionerRole search by organization
+#### 1.22.6 (MAY) Server returns valid results for PractitionerRole search by organization
 <details>
 
 <summary>Show details</summary>
@@ -12901,7 +12901,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.7 Server returns valid results for PractitionerRole multipleOr search by practitioner
+#### 1.22.7 (MAY) Server returns valid results for PractitionerRole multipleOr search by practitioner
 <details>
 
 <summary>Show details</summary>
@@ -12938,7 +12938,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.8 Server returns valid results for PractitionerRole multipleAnd search by practitioner
+#### 1.22.8 (MAY) Server returns valid results for PractitionerRole multipleAnd search by practitioner
 <details>
 
 <summary>Show details</summary>
@@ -12975,7 +12975,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.9 Server returns valid results for PractitionerRole search by practitioner (chained parameters)
+#### 1.22.9 (SHOULD) Server returns valid results for PractitionerRole search by practitioner (chained parameters)
 <details>
 
 <summary>Show details</summary>

@@ -7,7 +7,7 @@ module AUCoreTestKit
     class ProcedureReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Procedure resource from Procedure read interaction'
+      title '(SHALL) Server returns correct Procedure resource from Procedure read interaction'
       description 'A server SHALL support the Procedure read interaction.'
 
       id :au_core_v030_ballot_procedure_read_test

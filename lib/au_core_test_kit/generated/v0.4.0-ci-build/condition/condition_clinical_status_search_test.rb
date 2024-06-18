@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionClinicalStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by clinical-status'
+      title '(MAY) Server returns valid results for Condition search by clinical-status'
       description %(
 A server MAY support searching by
 clinical-status on the Condition resource. This test

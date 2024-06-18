@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientGenderIdentitySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by gender-identity'
+      title '(MAY) Server returns valid results for Patient search by gender-identity'
       description %(
 A server MAY support searching by
 gender-identity on the Patient resource. This test

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class BodyweightCategorySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by category'
+      title '(MAY) Server returns valid results for Observation search by category'
       description %(
 A server MAY support searching by
 category on the Observation resource. This test

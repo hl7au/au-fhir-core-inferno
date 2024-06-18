@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ProcedurePatientStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Procedure search by patient + status'
+      title '(SHOULD) Server returns valid results for Procedure search by patient + status'
       description %(
 A server SHOULD support searching by
 patient + status on the Procedure resource. This test

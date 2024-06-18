@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestPatientChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title 'Server returns valid results for MedicationRequest search by patient (chained parameters)'
+      title '(SHOULD) Server returns valid results for MedicationRequest search by patient (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier on the MedicationRequest resource. This test
 will pass if the server returns a success response to the request.

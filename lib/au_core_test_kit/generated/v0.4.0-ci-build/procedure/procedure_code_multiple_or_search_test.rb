@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ProcedureCodeMultipleOrSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Procedure multipleOr search by code'
+      title '(SHOULD) Server returns valid results for Procedure multipleOr search by code'
       description %(A server SHOULD support searching by multipleOr
 code on the Procedure resource. This test
 will pass if resources are returned and match the search criteria. If
