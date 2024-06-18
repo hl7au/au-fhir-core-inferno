@@ -6,7 +6,7 @@ module AUCoreTestKit
     class <%= class_name %> < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for <%= resource_type %> search by <%= search_param_name_string %>'
+      title '(<%= conformance_expectation %>) Server returns valid results for <%= resource_type %> search by <%= search_param_name_string %>'
       description %(
 <%= description %>
       )
