@@ -44,7 +44,6 @@ following parameters:
 * _id
 * patient + intent
 * patient + intent + status
-* patient + intent + authoredon
 
 ### Search Parameters
 The first search uses the selected patient(s) from the prior launch

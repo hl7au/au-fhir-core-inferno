@@ -10592,7 +10592,6 @@ following parameters:
 * _id
 * patient + intent
 * patient + intent + status
-* patient + intent + authoredon
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -10907,7 +10906,7 @@ Accept: application/fhir+json
 
 <summary>Show details</summary>
 
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + intent + authoredon on the MedicationRequest resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
