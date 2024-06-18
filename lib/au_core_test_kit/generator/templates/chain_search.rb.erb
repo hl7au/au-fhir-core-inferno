@@ -6,7 +6,7 @@ module AUCoreTestKit
     class <%= class_name %> < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title '<%= title %>'
+      title '(<%= conformance_expectation %>) <%= title %>'
       description %(<%= description %>)
 
       id :<%= test_id %>
