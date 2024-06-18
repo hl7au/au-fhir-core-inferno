@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationIdentifierSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Location search by identifier'
+      title '(MAY) Server returns valid results for Location search by identifier'
       description %(
 A server MAY support searching by
 identifier on the Location resource. This test

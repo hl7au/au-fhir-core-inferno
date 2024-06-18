@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerRolePractitionerMultipleAndSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for PractitionerRole multipleAnd search by practitioner'
+      title '(MAY) Server returns valid results for PractitionerRole multipleAnd search by practitioner'
       description %(A server MAY support searching by multipleAnd
 practitioner on the PractitionerRole resource. This test
 will pass if resources are returned and match the search criteria. If

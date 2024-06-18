@@ -7,7 +7,7 @@ module AUCoreTestKit
     class LocationReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Location resource from Location read interaction'
+      title '(SHALL) Server returns correct Location resource from Location read interaction'
       description 'A server SHALL support the Location read interaction.'
 
       id :au_core_v040_ci_build_location_read_test

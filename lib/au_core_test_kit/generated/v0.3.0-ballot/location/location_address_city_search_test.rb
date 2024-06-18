@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationAddressCitySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Location search by address-city'
+      title '(SHOULD) Server returns valid results for Location search by address-city'
       description %(
 A server SHOULD support searching by
 address-city on the Location resource. This test

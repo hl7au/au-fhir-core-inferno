@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionPatientCategorySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by patient + category'
+      title '(SHALL) Server returns valid results for Condition search by patient + category'
       description %(
 A server SHALL support searching by
 patient + category on the Condition resource. This test

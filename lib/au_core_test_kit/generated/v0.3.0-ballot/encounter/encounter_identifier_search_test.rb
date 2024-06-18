@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterIdentifierSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter search by identifier'
+      title '(MAY) Server returns valid results for Encounter search by identifier'
       description %(
 A server MAY support searching by
 identifier on the Encounter resource. This test

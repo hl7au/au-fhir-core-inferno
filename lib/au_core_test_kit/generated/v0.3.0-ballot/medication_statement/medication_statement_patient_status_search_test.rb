@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationStatementPatientStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationStatement search by patient + status'
+      title '(SHALL) Server returns valid results for MedicationStatement search by patient + status'
       description %(
 A server SHALL support searching by
 patient + status on the MedicationStatement resource. This test

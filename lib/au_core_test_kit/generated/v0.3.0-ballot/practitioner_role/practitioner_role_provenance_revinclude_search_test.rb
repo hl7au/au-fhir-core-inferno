@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerRoleProvenanceRevincludeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target'
+      title '(SHALL) Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target'
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 

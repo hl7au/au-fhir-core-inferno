@@ -8,7 +8,7 @@ module AUCoreTestKit
     class LocationAddressStateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Location search by address-state'
+      title '(SHOULD) Server returns valid results for Location search by address-state'
       description %(
 A server SHOULD support searching by
 address-state on the Location resource. This test

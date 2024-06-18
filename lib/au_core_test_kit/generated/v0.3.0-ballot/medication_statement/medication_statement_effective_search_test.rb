@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationStatementEffectiveSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationStatement search by effective'
+      title '(MAY) Server returns valid results for MedicationStatement search by effective'
       description %(
 A server MAY support searching by
 effective on the MedicationStatement resource. This test

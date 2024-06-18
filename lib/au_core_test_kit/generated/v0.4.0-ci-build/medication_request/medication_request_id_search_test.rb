@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestIdSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest search by _id'
+      title '(SHALL) Server returns valid results for MedicationRequest search by _id'
       description %(
 A server SHALL support searching by
 _id on the MedicationRequest resource. This test

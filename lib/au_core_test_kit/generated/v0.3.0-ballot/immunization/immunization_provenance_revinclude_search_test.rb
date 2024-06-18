@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationProvenanceRevincludeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target'
+      title '(SHALL) Server returns Provenance resources from Immunization search by patient + revInclude:Provenance:target'
       description %(
         A server SHALL be capable of supporting _revIncludes:Provenance:target.
 

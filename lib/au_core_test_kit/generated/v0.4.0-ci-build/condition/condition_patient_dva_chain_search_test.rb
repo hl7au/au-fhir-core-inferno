@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionPatient_DVA_ChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title 'Server returns valid results for Condition search by patient (DVA) (chained parameters)'
+      title '(SHOULD) Server returns valid results for Condition search by patient (DVA) (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier (DVA) on the Condition resource. This test
 will pass if the server returns a success response to the request.

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationPatient_DVA_ChainSearchTest < Inferno::Test
       include AUCoreTestKit::ChainedSearchTest
 
-      title 'Server returns valid results for Immunization search by patient (DVA) (chained parameters)'
+      title '(SHOULD) Server returns valid results for Immunization search by patient (DVA) (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier (DVA) on the Immunization resource. This test
 will pass if the server returns a success response to the request.

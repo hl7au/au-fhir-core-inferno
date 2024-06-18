@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationPatientDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Immunization search by patient + date'
+      title '(SHOULD) Server returns valid results for Immunization search by patient + date'
       description %(
 A server SHOULD support searching by
 patient + date on the Immunization resource. This test

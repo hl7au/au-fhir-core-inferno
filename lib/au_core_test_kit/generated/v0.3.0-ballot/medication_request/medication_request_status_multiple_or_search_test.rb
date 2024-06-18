@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestStatusMultipleOrSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest multipleOr search by status'
+      title '(SHALL) Server returns valid results for MedicationRequest multipleOr search by status'
       description %(A server SHALL support searching by multipleOr
 status on the MedicationRequest resource. This test
 will pass if resources are returned and match the search criteria. If

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientFamilyGenderSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by family + gender'
+      title '(SHOULD) Server returns valid results for Patient search by family + gender'
       description %(
 A server SHOULD support searching by
 family + gender on the Patient resource. This test

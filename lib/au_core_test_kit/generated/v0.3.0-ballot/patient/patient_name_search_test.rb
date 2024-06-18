@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientNameSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by name'
+      title '(SHOULD) Server returns valid results for Patient search by name'
       description %(
 A server SHOULD support searching by
 name on the Patient resource. This test

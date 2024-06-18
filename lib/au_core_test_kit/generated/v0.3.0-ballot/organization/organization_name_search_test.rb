@@ -8,7 +8,7 @@ module AUCoreTestKit
     class OrganizationNameSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Organization search by name'
+      title '(SHALL) Server returns valid results for Organization search by name'
       description %(
 A server SHALL support searching by
 name on the Organization resource. This test

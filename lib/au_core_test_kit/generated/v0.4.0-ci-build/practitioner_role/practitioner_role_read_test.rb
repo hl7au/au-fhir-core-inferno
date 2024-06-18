@@ -7,7 +7,7 @@ module AUCoreTestKit
     class PractitionerRoleReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct PractitionerRole resource from PractitionerRole read interaction'
+      title '(SHALL) Server returns correct PractitionerRole resource from PractitionerRole read interaction'
       description 'A server SHALL support the PractitionerRole read interaction.'
 
       id :au_core_v040_ci_build_practitioner_role_read_test

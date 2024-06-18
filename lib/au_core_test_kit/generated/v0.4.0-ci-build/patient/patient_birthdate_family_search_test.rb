@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientBirthdateFamilySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by birthdate + family'
+      title '(SHOULD) Server returns valid results for Patient search by birthdate + family'
       description %(
 A server SHOULD support searching by
 birthdate + family on the Patient resource. This test

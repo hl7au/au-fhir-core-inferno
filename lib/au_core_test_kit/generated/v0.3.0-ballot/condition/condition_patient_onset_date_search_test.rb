@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionPatientOnsetDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by patient + onset-date'
+      title '(SHOULD) Server returns valid results for Condition search by patient + onset-date'
       description %(
 A server SHOULD support searching by
 patient + onset-date on the Condition resource. This test

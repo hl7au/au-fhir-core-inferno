@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterDischargeDispositionSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter search by discharge-disposition'
+      title '(MAY) Server returns valid results for Encounter search by discharge-disposition'
       description %(
 A server MAY support searching by
 discharge-disposition on the Encounter resource. This test

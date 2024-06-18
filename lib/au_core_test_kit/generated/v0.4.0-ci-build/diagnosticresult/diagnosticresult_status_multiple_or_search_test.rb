@@ -8,7 +8,7 @@ module AUCoreTestKit
     class DiagnosticresultStatusMultipleOrSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation multipleOr search by status'
+      title '(SHALL) Server returns valid results for Observation multipleOr search by status'
       description %(A server SHALL support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerNameSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Practitioner search by name'
+      title '(SHOULD) Server returns valid results for Practitioner search by name'
       description %(
 A server SHOULD support searching by
 name on the Practitioner resource. This test

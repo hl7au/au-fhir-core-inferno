@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestCategorySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest search by category'
+      title '(MAY) Server returns valid results for MedicationRequest search by category'
       description %(
 A server MAY support searching by
 category on the MedicationRequest resource. This test

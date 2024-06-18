@@ -8,7 +8,7 @@ module AUCoreTestKit
     class DiagnosticresultPathDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by date'
+      title '(MAY) Server returns valid results for Observation search by date'
       description %(
 A server MAY support searching by
 date on the Observation resource. This test

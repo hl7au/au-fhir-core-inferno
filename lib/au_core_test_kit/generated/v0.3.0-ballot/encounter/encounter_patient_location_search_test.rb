@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterPatientLocationSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter search by patient + location'
+      title '(SHOULD) Server returns valid results for Encounter search by patient + location'
       description %(
 A server SHOULD support searching by
 patient + location on the Encounter resource. This test

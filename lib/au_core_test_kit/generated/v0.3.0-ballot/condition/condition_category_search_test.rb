@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionCategorySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by category'
+      title '(MAY) Server returns valid results for Condition search by category'
       description %(
 A server MAY support searching by
 category on the Condition resource. This test

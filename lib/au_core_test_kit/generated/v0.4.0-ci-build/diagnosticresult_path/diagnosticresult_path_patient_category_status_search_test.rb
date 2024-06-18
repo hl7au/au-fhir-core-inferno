@@ -8,7 +8,7 @@ module AUCoreTestKit
     class DiagnosticresultPathPatientCategoryStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by patient + category + status'
+      title '(SHOULD) Server returns valid results for Observation search by patient + category + status'
       description %(
 A server SHOULD support searching by
 patient + category + status on the Observation resource. This test
