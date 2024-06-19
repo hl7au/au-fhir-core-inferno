@@ -343,13 +343,14 @@ module AUCoreTestKit
       definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [definition[:values].join(',')] : Array.wrap(definition[:values])
     end
 
-    def extract_existing_values_safety(resources_arr, keys_arr)
+    def extract_existing_values_safety(resources_arr, param_name)
       results = []
 
       resources_arr.each do |resource|
-        temp = search_param_value(keys_arr, resource)
+        temp = search_param_value(param_name, resource)
         results << temp
       end
+
       results.compact.uniq
     end
 
@@ -362,33 +363,26 @@ module AUCoreTestKit
     end
 
     def perform_multiple_search_test
-      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
-      resolved_one = false
-
-      all_search_params.each do |patient_id, params_list|
-        next unless params_list.present?
-
-        search_params = params_list.first
-        existing_values = {}
-        search_values = []
-
-        search_param_names.each do |param_name|
-          search_values << default_values_for_param(param_name.to_sym)
-          search_value = default_search_values(param_name.to_sym)
-          search_params = search_params.merge(param_name.to_s => search_value)
-          patient_resources = scratch_resources_for_patient(patient_id)
-          patient_existing_values = extract_existing_values_safety(patient_resources, param_name)
-          existing_values[param_name.to_sym] = patient_existing_values
+      if search_param_names.length == 1
+        param_name = search_param_names[0]
+        default_search_values = default_search_values(param_name.to_sym)
+        if default_search_values.length > 1
+          search_params = {param_name => default_search_values}
+          search_and_check_response(search_params)
+        else
+          resources_arr = all_search_params.map { |patient_id, params_list| scratch_resources_for_patient(patient_id) }.flatten
+          existing_values = extract_existing_values_safety(resources_arr, param_name)
+          if existing_values.length > 2
+            definition = metadata.search_definitions[param_name.to_sym]
+            existing_values = definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [existing_values.join(',')] : Array.wrap(existing_values)
+            search_params = {param_name => existing_values}
+            search_and_check_response(search_params)
+          else
+            skip_if existing_values.length < 2, insufficient_number_of_values(existing_values)
+          end
         end
-
-        skip_if search_values.flatten.uniq.length < 2, insufficient_number_of_values(search_values.flatten.uniq)
-        # skip patient without multiple-or values
-        next if existing_values.values.any?(&:empty?)
-
-        resolved_one = true
-        search_and_check_response(search_params)
-
-        break if resolved_one
+      else
+        skip "Inconsistent state of the test (params to search more than 2)"
       end
     end
 
