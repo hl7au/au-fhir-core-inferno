@@ -14,7 +14,7 @@ variable "terminology_server" {
 
 variable "inferno_image" {
   description = "Docker image for inferno"
-  default     = "ghcr.io/hl7au/au-fhir-core-inferno:85c81ed0b80e4939f02ef458f446b89861ec29ad"
+  default     = "ghcr.io/hl7au/au-fhir-core-inferno:dd11b204866271d588745fc92ad2183377323bbc"
 }
 
 variable "validator_base_path" {
