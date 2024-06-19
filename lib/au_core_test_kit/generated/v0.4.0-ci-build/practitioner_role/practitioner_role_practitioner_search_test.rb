@@ -15,6 +15,11 @@ practitioner on the PractitionerRole resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
+This test verifies that the server supports searching by reference using
+the form `practitioner=[id]` as well as `practitioner=Practitioner/[id]`. The two
+different forms are expected to return the same number of results. AU
+Core requires that both forms are supported by AU Core responders.
+
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html)
 
       )
@@ -23,7 +28,8 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'PractitionerRole',
-          search_param_names: ['practitioner']
+          search_param_names: ['practitioner'],
+          test_reference_variants: true
         )
       end
 
