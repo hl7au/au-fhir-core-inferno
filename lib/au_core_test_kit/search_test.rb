@@ -260,7 +260,7 @@ module AUCoreTestKit
       return if resource_count.zero?
       return if search_variant_test_records[:reference_variants]
 
-      if !params.keys.include?("patient")
+      if params.keys.include?("patient")
         new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
       else
         param_key = params.keys.first
