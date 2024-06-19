@@ -221,6 +221,9 @@ module AUCoreTestKit
       end
 
       def test_reference_variants?
+        if resource_type == 'PractitionerRole' && search_param_names.include?('practitioner')
+          return true
+        end
         first_search? && search_param_names.include?('patient')
       end
 
@@ -276,8 +279,8 @@ module AUCoreTestKit
 
         <<~REFERENCE_SEARCH_DESCRIPTION
           This test verifies that the server supports searching by reference using
-          the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-          different forms are expected to return the same number of results. US
+          the form `#{search_param_names.first}=[id]` as well as `#{search_param_names.first}=#{search_param_names.first.capitalize}/[id]`. The two
+          different forms are expected to return the same number of results. AU
           Core requires that both forms are supported by AU Core responders.
         REFERENCE_SEARCH_DESCRIPTION
       end
