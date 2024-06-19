@@ -260,7 +260,12 @@ module AUCoreTestKit
       return if resource_count.zero?
       return if search_variant_test_records[:reference_variants]
 
-      new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
+      if !params.keys.include?("patient")
+        new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
+      else
+        param_key = params.keys.first
+        new_search_params = params.merge(param_key => params[param_key])
+      end
       search_and_check_response(new_search_params)
 
       reference_with_type_resources = fetch_all_bundled_resources.select do |resource|
