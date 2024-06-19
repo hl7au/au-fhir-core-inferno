@@ -343,6 +343,13 @@ module AUCoreTestKit
       definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [definition[:values].join(',')] : Array.wrap(definition[:values])
     end
 
+    def default_search_values_clean(param_name)
+      definition = metadata.search_definitions[param_name]
+      return [] if definition.blank?
+
+      definition[:values]
+    end
+
     def extract_existing_values_safety(resources_arr, param_name)
       results = []
 
@@ -362,20 +369,23 @@ module AUCoreTestKit
       perform_multiple_search_test
     end
 
+    def modify_value_by_multiple_type(param_name, values)
+      definition = metadata.search_definitions[param_name.to_sym]
+      definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [values.join(',')] : Array.wrap(values)
+    end
+
     def perform_multiple_search_test
       if search_param_names.length == 1
         param_name = search_param_names[0]
-        default_search_values = default_search_values(param_name.to_sym)
+        default_search_values = default_search_values_clean(param_name.to_sym)
         if default_search_values.length > 1
-          search_params = {param_name => default_search_values}
+          search_params = {param_name => modify_value_by_multiple_type(param_name, default_search_values)}
           search_and_check_response(search_params)
         else
           resources_arr = all_search_params.map { |patient_id, params_list| scratch_resources_for_patient(patient_id) }.flatten
           existing_values = extract_existing_values_safety(resources_arr, param_name)
           if existing_values.length > 2
-            definition = metadata.search_definitions[param_name.to_sym]
-            existing_values = definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [existing_values.join(',')] : Array.wrap(existing_values)
-            search_params = {param_name => existing_values}
+            search_params = {param_name => modify_value_by_multiple_type(param_name, existing_values)}
             search_and_check_response(search_params)
           else
             skip_if existing_values.length < 2, insufficient_number_of_values(existing_values)
