@@ -264,7 +264,7 @@ module AUCoreTestKit
         new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
       else
         param_key = params.keys.first
-        new_search_params = params.merge(param_key => params[param_key])
+        new_search_params = params.merge(param_key => params[param_key].split('/').last)
       end
       search_and_check_response(new_search_params)
 
