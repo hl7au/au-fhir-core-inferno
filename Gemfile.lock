@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    au_core_test_kit (0.0.6)
+    au_core_test_kit (0.0.7)
       inferno_core (>= 0.4.2)
       smart_app_launch_test_kit (>= 0.4.0)
       tls_test_kit (~> 0.2.0)
@@ -188,7 +188,7 @@ GEM
       aes_key_wrap
       bindata
       httpclient
-    jwt (2.8.1)
+    jwt (2.8.2)
       base64
     kramdown (2.4.0)
       rexml
