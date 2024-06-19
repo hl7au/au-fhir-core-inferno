@@ -1,3 +1,7 @@
+# 0.0.7
+* Add search by practitioner id for PractitionerRole test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/132
+* Generate test kit source files @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/133
+
 # 0.0.6
 * Update narrative for validation tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/122
 * Update narrative for the Capability Statement group by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/123
