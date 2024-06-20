@@ -177,6 +177,8 @@
   :file_name: practitioner_role_practitioner_multiple_and_search_test.rb
 - :id: au_core_v030_ballot_practitioner_role_practitioner_chain_search_test
   :file_name: practitioner_role_practitioner_chain_search_test.rb
+- :id: au_core_v030_ballot_practitioner_role_identifier_medicare_search_test
+  :file_name: practitioner_role_identifier_medicare_search_test.rb
 - :id: au_core_v030_ballot_practitioner_role_provenance_revinclude_search_test
   :file_name: practitioner_role_provenance_revinclude_search_test.rb
 - :id: au_core_v030_ballot_practitioner_role_validation_test
