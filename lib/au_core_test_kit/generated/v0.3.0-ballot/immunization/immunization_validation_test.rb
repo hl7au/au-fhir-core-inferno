@@ -12,7 +12,7 @@ module AUCoreTestKit
       description %(
 This test verifies resources returned from the first search conform to
 the [AU Core Immunization](http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization).
-Systems must demonstrate at least one valid example in order to pass this test.
+If at least one resource from the first search is invalid, the test will fail.
 
 It verifies the presence of mandatory elements and that elements with
 required bindings contain appropriate values. CodeableConcept element

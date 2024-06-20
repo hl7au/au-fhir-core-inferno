@@ -8,7 +8,7 @@ module AUCoreTestKit
     class OrganizationIdSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Organization search by _id'
+      title '(SHOULD) Server returns valid results for Organization search by _id'
       description %(
 A server SHOULD support searching by
 _id on the Organization resource. This test

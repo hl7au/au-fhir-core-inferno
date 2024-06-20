@@ -1,3 +1,16 @@
+# 0.0.7
+* Add search by practitioner id for PractitionerRole test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/132
+* Generate test kit source files @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/133
+
+# 0.0.6
+* Update narrative for validation tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/122
+* Update narrative for the Capability Statement group by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/123
+* Add check for support XML by Capability Statement by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/124
+* Change the default URL by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/127
+* Handle special case for combo searches by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/128
+* Add prefix with information about expectaction by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/130
+* Generate test kit source files @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/131, https://github.com/hl7au/au-fhir-core-inferno/pull/119, https://github.com/hl7au/au-fhir-core-inferno/pull/129, https://github.com/hl7au/au-fhir-core-inferno/pull/125
+
 # 0.0.5
 * Add reporting issues section to the README by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/109
 * Update search-params file to fix problems with searchDefinitions by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/111

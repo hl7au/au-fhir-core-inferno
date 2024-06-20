@@ -7,7 +7,7 @@ module AUCoreTestKit
     class ImmunizationReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Immunization resource from Immunization read interaction'
+      title '(SHALL) Server returns correct Immunization resource from Immunization read interaction'
       description 'A server SHALL support the Immunization read interaction.'
 
       id :au_core_v040_ci_build_immunization_read_test

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class SmokingstatusPatientCategoryDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by patient + category + date'
+      title '(SHALL) Server returns valid results for Observation search by patient + category + date'
       description %(
 A server SHALL support searching by
 patient + category + date on the Observation resource. This test

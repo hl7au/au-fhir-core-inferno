@@ -123,6 +123,10 @@
   :file_name: organization_identifier_search_test.rb
 - :id: au_core_v030_ballot_organization_name_search_test
   :file_name: organization_name_search_test.rb
+- :id: au_core_v030_ballot_organization_identifier_hpio_search_test
+  :file_name: organization_identifier_hpio_search_test.rb
+- :id: au_core_v030_ballot_organization_identifier_abn_search_test
+  :file_name: organization_identifier_abn_search_test.rb
 - :id: au_core_v030_ballot_organization_provenance_revinclude_search_test
   :file_name: organization_provenance_revinclude_search_test.rb
 - :id: au_core_v030_ballot_organization_validation_test

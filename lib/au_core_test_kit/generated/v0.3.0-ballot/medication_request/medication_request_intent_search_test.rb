@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestIntentSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest search by intent'
+      title '(MAY) Server returns valid results for MedicationRequest search by intent'
       description %(
 A server MAY support searching by
 intent on the MedicationRequest resource. This test

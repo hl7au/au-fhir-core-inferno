@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ConditionOnsetDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Condition search by onset-date'
+      title '(MAY) Server returns valid results for Condition search by onset-date'
       description %(
 A server MAY support searching by
 onset-date on the Condition resource. This test

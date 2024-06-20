@@ -8,7 +8,7 @@ module AUCoreTestKit
     class AllergyIntoleranceClinicalStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for AllergyIntolerance search by clinical-status'
+      title '(MAY) Server returns valid results for AllergyIntolerance search by clinical-status'
       description %(
 A server MAY support searching by
 clinical-status on the AllergyIntolerance resource. This test

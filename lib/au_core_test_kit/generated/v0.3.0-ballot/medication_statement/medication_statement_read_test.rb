@@ -7,7 +7,7 @@ module AUCoreTestKit
     class MedicationStatementReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct MedicationStatement resource from MedicationStatement read interaction'
+      title '(SHALL) Server returns correct MedicationStatement resource from MedicationStatement read interaction'
       description 'A server SHALL support the MedicationStatement read interaction.'
 
       id :au_core_v030_ballot_medication_statement_read_test

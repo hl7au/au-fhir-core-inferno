@@ -5,7 +5,7 @@ module AUCoreTestKit
     class <%= class_name %> < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
+      title '(<%= conformance_expectation %>) Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
       description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'
 
       id :<%= test_id %>

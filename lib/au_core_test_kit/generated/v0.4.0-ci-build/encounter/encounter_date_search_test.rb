@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter search by date'
+      title '(MAY) Server returns valid results for Encounter search by date'
       description %(
 A server MAY support searching by
 date on the Encounter resource. This test

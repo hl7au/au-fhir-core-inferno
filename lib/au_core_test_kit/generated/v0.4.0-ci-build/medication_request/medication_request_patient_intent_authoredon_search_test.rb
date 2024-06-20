@@ -8,9 +8,9 @@ module AUCoreTestKit
     class MedicationRequestPatientIntentAuthoredonSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest search by patient + intent + authoredon'
+      title '(SHOULD) Server returns valid results for MedicationRequest search by patient + intent + authoredon'
       description %(
-A server SHALL support searching by
+A server SHOULD support searching by
 patient + intent + authoredon on the MedicationRequest resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -24,6 +24,8 @@ Medications, the search will be repeated with
       )
 
       id :au_core_v040_ci_build_medication_request_patient_intent_authoredon_search_test
+      optional
+
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',

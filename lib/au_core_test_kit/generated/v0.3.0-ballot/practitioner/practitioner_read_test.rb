@@ -7,7 +7,7 @@ module AUCoreTestKit
     class PractitionerReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Practitioner resource from Practitioner read interaction'
+      title '(SHALL) Server returns correct Practitioner resource from Practitioner read interaction'
       description 'A server SHALL support the Practitioner read interaction.'
 
       id :au_core_v030_ballot_practitioner_read_test

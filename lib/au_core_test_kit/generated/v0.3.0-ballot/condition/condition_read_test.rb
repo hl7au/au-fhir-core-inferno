@@ -7,7 +7,7 @@ module AUCoreTestKit
     class ConditionReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Condition resource from Condition read interaction'
+      title '(SHALL) Server returns correct Condition resource from Condition read interaction'
       description 'A server SHALL support the Condition read interaction.'
 
       id :au_core_v030_ballot_condition_read_test

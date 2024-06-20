@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterDischarge_dispositionMultipleAndSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter multipleAnd search by discharge-disposition'
+      title '(MAY) Server returns valid results for Encounter multipleAnd search by discharge-disposition'
       description %(A server MAY support searching by multipleAnd
 discharge-disposition on the Encounter resource. This test
 will pass if resources are returned and match the search criteria. If

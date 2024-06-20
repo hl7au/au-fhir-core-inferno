@@ -8,7 +8,7 @@ module AUCoreTestKit
     class DiagnosticresultDateMultipleAndSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation multipleAnd search by date'
+      title '(SHOULD) Server returns valid results for Observation multipleAnd search by date'
       description %(A server SHOULD support searching by multipleAnd
 date on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If

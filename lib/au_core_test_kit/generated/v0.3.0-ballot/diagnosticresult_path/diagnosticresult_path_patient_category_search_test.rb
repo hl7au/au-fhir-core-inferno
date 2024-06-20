@@ -8,7 +8,7 @@ module AUCoreTestKit
     class DiagnosticresultPathPatientCategorySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by patient + category'
+      title '(SHALL) Server returns valid results for Observation search by patient + category'
       description %(
 A server SHALL support searching by
 patient + category on the Observation resource. This test
@@ -17,7 +17,7 @@ none are returned, the test is skipped.
 
 This test verifies that the server supports searching by reference using
 the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-different forms are expected to return the same number of results. US
+different forms are expected to return the same number of results. AU
 Core requires that both forms are supported by AU Core responders.
 
 Because this is the first search of the sequence, resources in the

@@ -5,6 +5,8 @@ require_relative 'organization/organization_id_search_test'
 require_relative 'organization/organization_address_search_test'
 require_relative 'organization/organization_identifier_search_test'
 require_relative 'organization/organization_name_search_test'
+require_relative 'organization/organization_identifier_hpio_search_test'
+require_relative 'organization/organization_identifier_abn_search_test'
 require_relative 'organization/organization_provenance_revinclude_search_test'
 require_relative 'organization/organization_validation_test'
 require_relative 'organization/organization_must_support_test'
@@ -86,6 +88,8 @@ read succeeds.
       test from: :au_core_v030_ballot_organization_address_search_test
       test from: :au_core_v030_ballot_organization_identifier_search_test
       test from: :au_core_v030_ballot_organization_name_search_test
+      test from: :au_core_v030_ballot_organization_identifier_hpio_search_test
+      test from: :au_core_v030_ballot_organization_identifier_abn_search_test
       test from: :au_core_v030_ballot_organization_provenance_revinclude_search_test
       test from: :au_core_v030_ballot_organization_validation_test
       test from: :au_core_v030_ballot_organization_must_support_test

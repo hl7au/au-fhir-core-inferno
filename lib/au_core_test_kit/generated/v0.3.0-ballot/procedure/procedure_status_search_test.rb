@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ProcedureStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Procedure search by status'
+      title '(MAY) Server returns valid results for Procedure search by status'
       description %(
 A server MAY support searching by
 status on the Procedure resource. This test

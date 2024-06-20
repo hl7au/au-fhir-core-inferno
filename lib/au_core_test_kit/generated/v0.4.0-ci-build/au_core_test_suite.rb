@@ -82,7 +82,7 @@ module AUCoreTestKit
       input :url,
             title: 'FHIR Endpoint',
             description: 'URL of the FHIR endpoint',
-            default: 'https://sparked.npd.telstrahealth.com/smile/fhir/DEFAULT'
+            default: 'https://fhir.hl7.org.au/aucore/fhir/DEFAULT'
       input :smart_credentials,
             title: 'OAuth Credentials',
             type: :oauth_credentials,

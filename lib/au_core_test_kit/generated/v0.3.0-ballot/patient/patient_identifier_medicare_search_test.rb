@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientIdentifierMedicareSearchTest < Inferno::Test
       include AUCoreTestKit::SpecialIdentifierSearchTest
 
-      title 'Server returns valid results for Patient search by identifier (Medicare)'
+      title '(SHOULD) Server returns valid results for Patient search by identifier (Medicare)'
       description %(A server SHOULD support searching by
 identifier (Medicare) on the Patient resource. This test
 will pass if resources are returned and match the search criteria. If

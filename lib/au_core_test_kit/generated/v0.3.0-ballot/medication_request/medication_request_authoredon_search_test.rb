@@ -8,7 +8,7 @@ module AUCoreTestKit
     class MedicationRequestAuthoredonSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for MedicationRequest search by authoredon'
+      title '(MAY) Server returns valid results for MedicationRequest search by authoredon'
       description %(
 A server MAY support searching by
 authoredon on the MedicationRequest resource. This test

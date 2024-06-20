@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PractitionerRoleSpecialtySearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for PractitionerRole search by specialty'
+      title '(SHOULD) Server returns valid results for PractitionerRole search by specialty'
       description %(
 A server SHOULD support searching by
 specialty on the PractitionerRole resource. This test

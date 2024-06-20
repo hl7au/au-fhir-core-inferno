@@ -8,7 +8,7 @@ module AUCoreTestKit
     class PatientIndigenousStatusSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Patient search by indigenous-status'
+      title '(MAY) Server returns valid results for Patient search by indigenous-status'
       description %(
 A server MAY support searching by
 indigenous-status on the Patient resource. This test

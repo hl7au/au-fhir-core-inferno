@@ -19,6 +19,10 @@ module AUCoreTestKit
 
       def searches
         @searches ||= basic_searches + combo_searches
+
+        handle_special_cases
+
+        @searches
       end
 
       def conformance_expectation(search_param)
@@ -73,6 +77,18 @@ module AUCoreTestKit
           definitions[name.to_sym] =
             SearchDefinitionMetadataExtractor.new(name, ig_resources, profile_elements,
                                                   group_metadata).search_definition
+        end
+      end
+
+      def handle_special_cases
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/57
+        profile_url = group_metadata[:profile_url]
+        if profile_url == 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest'
+          @searches.map do |search|
+            if search[:names] == ["patient", "intent", "authoredon"] && search[:expectation] == "SHALL"
+              search[:expectation] = "SHOULD"
+            end
+          end
         end
       end
     end

@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ProcedureDateSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Procedure search by date'
+      title '(MAY) Server returns valid results for Procedure search by date'
       description %(
 A server MAY support searching by
 date on the Procedure resource. This test

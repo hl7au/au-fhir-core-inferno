@@ -8,7 +8,7 @@ module AUCoreTestKit
     class WaistcircumCodeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by code'
+      title '(MAY) Server returns valid results for Observation search by code'
       description %(
 A server MAY support searching by
 code on the Observation resource. This test

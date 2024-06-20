@@ -7,7 +7,7 @@ module AUCoreTestKit
     class AllergyIntoleranceReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction'
+      title '(SHALL) Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction'
       description 'A server SHALL support the AllergyIntolerance read interaction.'
 
       id :au_core_v040_ci_build_allergy_intolerance_read_test

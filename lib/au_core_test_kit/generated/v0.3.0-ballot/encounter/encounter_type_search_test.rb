@@ -8,7 +8,7 @@ module AUCoreTestKit
     class EncounterTypeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Encounter search by type'
+      title '(MAY) Server returns valid results for Encounter search by type'
       description %(
 A server MAY support searching by
 type on the Encounter resource. This test

@@ -10,13 +10,22 @@ module AUCoreTestKit
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups.reject { |group| SpecialCases.exclude_group? group }
-            .select { |group| (group.name == 'au_core_patient' || group.name == 'au_core_practitioner') }
+            .select { |group| ['au_core_patient', 'au_core_practitioner', 'au_core_organization', 'au_core_practitionerrole'].include? group.name }
             .select { |group| group.searches.present? }
             .each do |group|
               group.searches.each do |search|
                 next unless search[:names].include? 'identifier'
-
-                identifier_arr = group.name == 'au_core_patient' ? SpecialCases.patient_au_identifiers : SpecialCases.practitioner_au_identifiers
+                identifier_arr =
+                  case group.name
+                  when 'au_core_patient'
+                    SpecialCases.patient_au_identifiers
+                  when 'au_core_practitioner'
+                    SpecialCases.practitioner_au_identifiers
+                  when 'au_core_practitionerrole'
+                    SpecialCases.practitionerrole_au_identifiers
+                  when 'au_core_organization'
+                    SpecialCases.organization_au_identifiers
+                  end
                 identifier_arr.each do |special_identifier|
                   new(group, search, base_output_dir, special_identifier).generate
                 end

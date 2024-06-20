@@ -7,7 +7,7 @@ module AUCoreTestKit
     class ProvenanceReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Provenance resource from Provenance read interaction'
+      title '(SHALL) Server returns correct Provenance resource from Provenance read interaction'
       description 'A server SHALL support the Provenance read interaction.'
 
       id :au_core_v030_ballot_provenance_read_test

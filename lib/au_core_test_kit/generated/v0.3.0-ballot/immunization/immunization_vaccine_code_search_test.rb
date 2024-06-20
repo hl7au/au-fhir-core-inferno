@@ -8,7 +8,7 @@ module AUCoreTestKit
     class ImmunizationVaccineCodeSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Immunization search by vaccine-code'
+      title '(MAY) Server returns valid results for Immunization search by vaccine-code'
       description %(
 A server MAY support searching by
 vaccine-code on the Immunization resource. This test

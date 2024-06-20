@@ -8,7 +8,7 @@ module AUCoreTestKit
     class HeartratePatientSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title 'Server returns valid results for Observation search by patient'
+      title '(SHALL) Server returns valid results for Observation search by patient'
       description %(
 A server SHALL support searching by
 patient on the Observation resource. This test

@@ -1,0 +1,269 @@
+---
+:name: au_core_procedure
+:class_name: AuCoreProcedureSequence
+:version: v0.4.0-preview
+:reformatted_version: v040_preview
+:resource: Procedure
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+:profile_name: AU Core Procedure
+:profile_version: 0.4.0-preview
+:title: Procedure
+:short_description: Verify support for the server capabilities required by the AU
+  Core Procedure.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Procedure.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
+  :date:
+    :paths:
+    - performed
+    :full_paths:
+    - Procedure.performed
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: date
+    :contains_multiple: false
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Procedure.status
+    :comparators: {}
+    :values:
+    - preparation
+    - in-progress
+    - not-done
+    - on-hold
+    - stopped
+    - completed
+    - entered-in-error
+    - unknown
+    :type: code
+    :contains_multiple: false
+    :multiple_or: SHALL
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Procedure.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: status
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: encounter
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  - :path: performed[x]
+  - :path: reasonCode
+  - :path: reasonReference
+    :types:
+    - Reference
+:mandatory_elements:
+- Procedure.status
+- Procedure.code
+- Procedure.subject
+- Procedure.performer.actor
+- Procedure.focalDevice.manipulated
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/event-status
+  :path: status
+:references:
+- :path: Procedure.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+- :path: Procedure.partOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Procedure
+  - http://hl7.org/fhir/StructureDefinition/Observation
+  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+- :path: Procedure.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Procedure.encounter
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+- :path: Procedure.recorder
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+- :path: Procedure.asserter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+- :path: Procedure.performer.actor
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  - http://hl7.org/fhir/StructureDefinition/Device
+- :path: Procedure.performer.onBehalfOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Procedure.location
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+- :path: Procedure.reasonReference
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+  - http://hl7.org/fhir/StructureDefinition/Observation
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+  - http://hl7.org/fhir/StructureDefinition/DocumentReference
+- :path: Procedure.report
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  - http://hl7.org/fhir/StructureDefinition/Composition
+- :path: Procedure.complicationDetail
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+- :path: Procedure.focalDevice.manipulated
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Device
+- :path: Procedure.usedReference
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Device
+  - http://hl7.org/fhir/StructureDefinition/Medication
+  - http://hl7.org/fhir/StructureDefinition/Substance
+:tests:
+- :id: au_core_v040_preview_procedure_patient_search_test
+  :file_name: procedure_patient_search_test.rb
+- :id: au_core_v040_preview_procedure_code_search_test
+  :file_name: procedure_code_search_test.rb
+- :id: au_core_v040_preview_procedure_date_search_test
+  :file_name: procedure_date_search_test.rb
+- :id: au_core_v040_preview_procedure_status_search_test
+  :file_name: procedure_status_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_date_search_test
+  :file_name: procedure_patient_date_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_code_date_search_test
+  :file_name: procedure_patient_code_date_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_status_search_test
+  :file_name: procedure_patient_status_search_test.rb
+- :id: au_core_v040_preview_procedure_code_multiple_or_search_test
+  :file_name: procedure_code_multiple_or_search_test.rb
+- :id: au_core_v040_preview_procedure_status_multiple_or_search_test
+  :file_name: procedure_status_multiple_or_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_chain_search_test
+  :file_name: procedure_patient_chain_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_ihi_chain_search_test
+  :file_name: procedure_patient_ihi_chain_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_medicare_chain_search_test
+  :file_name: procedure_patient_medicare_chain_search_test.rb
+- :id: au_core_v040_preview_procedure_patient_dva_chain_search_test
+  :file_name: procedure_patient_dva_chain_search_test.rb
+- :id: au_core_v040_preview_procedure_read_test
+  :file_name: procedure_read_test.rb
+- :id: au_core_v040_preview_procedure_validation_test
+  :file_name: procedure_validation_test.rb
+- :id: au_core_v040_preview_procedure_must_support_test
+  :file_name: procedure_must_support_test.rb
+- :id: au_core_v040_preview_procedure_reference_resolution_test
+  :file_name: procedure_reference_resolution_test.rb
+:id: au_core_v040_preview_procedure
+:file_name: procedure_group.rb
+:delayed_references: []

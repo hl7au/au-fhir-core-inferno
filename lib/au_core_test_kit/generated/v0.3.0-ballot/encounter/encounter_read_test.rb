@@ -7,7 +7,7 @@ module AUCoreTestKit
     class EncounterReadTest < Inferno::Test
       include AUCoreTestKit::ReadTest
 
-      title 'Server returns correct Encounter resource from Encounter read interaction'
+      title '(SHALL) Server returns correct Encounter resource from Encounter read interaction'
       description 'A server SHALL support the Encounter read interaction.'
 
       id :au_core_v030_ballot_encounter_read_test
