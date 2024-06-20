@@ -14670,7 +14670,40 @@ Accept: application/fhir+json
 
 
 
-#### 3.23.10 (SHALL) Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target
+#### 3.23.10 (SHOULD) Server returns valid results for PractitionerRole search by identifier (Medicare)
+<details>
+
+<summary>Show details</summary>
+
+A server SHOULD support searching by
+identifier (Medicare
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?identifier={identifier} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?identifier={identifier}
+```
+
+
+
+</details>
+
+
+
+#### 3.23.11 (SHALL) Server returns Provenance resources from PractitionerRole search by _id + revInclude:Provenance:target
 <details>
 
 <summary>Show details</summary>
@@ -14706,7 +14739,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.23.11 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
+#### 3.23.12 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
 <details>
 
 <summary>Show details</summary>
@@ -14720,7 +14753,7 @@ the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 3.23.12 All must support elements are provided in the PractitionerRole resources returned
+#### 3.23.13 All must support elements are provided in the PractitionerRole resources returned
 <details>
 
 <summary>Show details</summary>
@@ -14744,7 +14777,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 3.23.13 MustSupport references within PractitionerRole resources are valid
+#### 3.23.14 MustSupport references within PractitionerRole resources are valid
 <details>
 
 <summary>Show details</summary>
