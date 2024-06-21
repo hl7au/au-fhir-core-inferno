@@ -78,6 +78,7 @@ module AUCoreTestKit
     end
 
     def run_special_identifier_search_test
+      skip_if scratch_resources[:all].empty?, no_resources_skip_message
       skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
 
       resources_returned =
