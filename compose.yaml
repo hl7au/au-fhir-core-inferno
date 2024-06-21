@@ -17,6 +17,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
+      TX_SERVER_URL: https://tx.dev.hl7.org.au/fhir
   inferno-worker:
     build:
       context: ./

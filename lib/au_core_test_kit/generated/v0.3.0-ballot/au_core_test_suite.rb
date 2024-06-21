@@ -65,7 +65,7 @@ module AUCoreTestKit
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         cli_context do
-          txServer 'https://tx.dev.hl7.org.au/fhir'
+          txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
           disableDefaultResourceFetcher false
         end
 
