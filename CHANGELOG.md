@@ -1,3 +1,7 @@
+# 0.0.8
+* AU Core 0.4.0-preview 
+* Minor changes
+
 # 0.0.7
 * Add search by practitioner id for PractitionerRole test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/132
 * Generate test kit source files @github-actions in https://github.com/hl7au/au-fhir-core-inferno/pull/133

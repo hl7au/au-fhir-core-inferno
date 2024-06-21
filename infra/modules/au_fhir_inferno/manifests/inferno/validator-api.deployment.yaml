@@ -13,6 +13,8 @@ spec:
       labels:
         workload: validator-api
     spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
       volumes:
       - name: igs
         emptyDir:

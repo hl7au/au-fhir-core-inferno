@@ -1,0 +1,265 @@
+---
+:name: au_core_condition
+:class_name: AuCoreConditionSequence
+:version: v0.5.0-ci-build
+:reformatted_version: v050_ci_build
+:resource: Condition
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+:profile_name: AU Core Condition
+:profile_version: 0.5.0-ci-build
+:title: Condition
+:short_description: Verify support for the server capabilities required by the AU
+  Core Condition.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - clinical-status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - onset-date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory:
+  - onset-date
+  :must_support_or_mandatory: false
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - clinical-status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - category
+  - clinical-status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - onset-date
+  :names_not_must_support_or_mandatory:
+  - onset-date
+  :must_support_or_mandatory: false
+:search_definitions:
+  :category:
+    :paths:
+    - category
+    :full_paths:
+    - Condition.category
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: true
+  :clinical-status:
+    :paths:
+    - clinicalStatus
+    :full_paths:
+    - Condition.clinicalStatus
+    :comparators: {}
+    :values:
+    - active
+    - recurrence
+    - relapse
+    - inactive
+    - remission
+    - resolved
+    :type: CodeableConcept
+    :contains_multiple: false
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Condition.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+  :onset-date:
+    :paths:
+    - onsetDateTime
+    - onsetPeriod
+    :full_paths:
+    - Condition.onsetDateTime
+    - Condition.onsetPeriod
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - '1950-01-01'
+    - '2050-01-01'
+    :type: date
+    :contains_multiple: false
+    :multiple_and: SHOULD
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Condition.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+:include_params: []
+:revincludes: []
+:required_concepts:
+- clinicalStatus
+- verificationStatus
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: clinicalStatus
+  - :path: verificationStatus
+  - :path: category
+  - :path: severity
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: onset[x]
+  - :path: abatement[x]
+  - :path: note
+:mandatory_elements:
+- Condition.category
+- Condition.code
+- Condition.subject
+:bindings:
+- :type: CodeableConcept
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/condition-clinical
+  :path: clinicalStatus
+- :type: CodeableConcept
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/condition-ver-status
+  :path: verificationStatus
+:references:
+- :path: Condition.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Condition.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter
+- :path: Condition.recorder
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :path: Condition.asserter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :path: Condition.stage.assessment
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/ClinicalImpression
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - http://hl7.org/fhir/StructureDefinition/Observation
+- :path: Condition.evidence.detail
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource
+:tests:
+- :id: au_core_v050_ci_build_condition_patient_search_test
+  :file_name: condition_patient_search_test.rb
+- :id: au_core_v050_ci_build_condition_category_search_test
+  :file_name: condition_category_search_test.rb
+- :id: au_core_v050_ci_build_condition_clinical_status_search_test
+  :file_name: condition_clinical_status_search_test.rb
+- :id: au_core_v050_ci_build_condition_code_search_test
+  :file_name: condition_code_search_test.rb
+- :id: au_core_v050_ci_build_condition_onset_date_search_test
+  :file_name: condition_onset_date_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_category_search_test
+  :file_name: condition_patient_category_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_clinical_status_search_test
+  :file_name: condition_patient_clinical_status_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_category_clinical_status_search_test
+  :file_name: condition_patient_category_clinical_status_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_code_search_test
+  :file_name: condition_patient_code_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_onset_date_search_test
+  :file_name: condition_patient_onset_date_search_test.rb
+- :id: au_core_v050_ci_build_condition_onset_date_multiple_and_search_test
+  :file_name: condition_onset_date_multiple_and_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_chain_search_test
+  :file_name: condition_patient_chain_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_ihi_chain_search_test
+  :file_name: condition_patient_ihi_chain_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_medicare_chain_search_test
+  :file_name: condition_patient_medicare_chain_search_test.rb
+- :id: au_core_v050_ci_build_condition_patient_dva_chain_search_test
+  :file_name: condition_patient_dva_chain_search_test.rb
+- :id: au_core_v050_ci_build_condition_read_test
+  :file_name: condition_read_test.rb
+- :id: au_core_v050_ci_build_condition_validation_test
+  :file_name: condition_validation_test.rb
+- :id: au_core_v050_ci_build_condition_must_support_test
+  :file_name: condition_must_support_test.rb
+- :id: au_core_v050_ci_build_condition_reference_resolution_test
+  :file_name: condition_reference_resolution_test.rb
+:id: au_core_v050_ci_build_condition
+:file_name: condition_group.rb
+:delayed_references: []
