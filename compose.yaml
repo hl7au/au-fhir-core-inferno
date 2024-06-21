@@ -33,7 +33,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
-  hl7_validator_service:
+  validator-api:
     # image: infernocommunity/inferno-resource-validator:1.0.52
     image: pavelrozhkov/wrapper:6.3.11
     environment:
