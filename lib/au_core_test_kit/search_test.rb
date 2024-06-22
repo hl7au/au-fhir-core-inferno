@@ -367,39 +367,42 @@ module AUCoreTestKit
     end
 
     def perform_multiple_or_search_test
-      perform_multiple_search_test("or")
+      perform_multiple_search_test('or')
     end
 
     def perform_multiple_and_search_test
-      perform_multiple_search_test("and")
+      perform_multiple_search_test('and')
     end
 
     def modify_value_by_multiple_type(values, multiple_type)
-      if multiple_type == "or"
-        return [values.join(',')]
-      else
-        return Array.wrap(values)
-      end
+      return [values.join(',')] if multiple_type == 'or'
+
+      Array.wrap(values)
     end
 
     def perform_multiple_search_test(multiple_type)
-      skip 'Inconsistent state of the test (params to search more than 2)' if search_param_names.length > 2
-      skip 'Inconsistent state of the test (number of params to search is 0)' if search_param_names.length == 0
-
-      param_name = search_param_names[0]
-      default_search_values = default_search_values_clean(param_name.to_sym)
-      if default_search_values.length > 1
-        search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
-        search_and_check_response(search_params)
-      end
-
-      resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
-      existing_values = extract_existing_values_safety(resources_arr, param_name)
-      if existing_values.length > 1
-        search_params = { param_name => modify_value_by_multiple_type(existing_values, multiple_type) }
-        search_and_check_response(search_params)
+      if search_param_names.length > 2
+        skip 'Inconsistent state of the test (params to search more than 2)'
+      elsif search_param_names.empty?
+        skip 'Inconsistent state of the test (number of params to search is 0)'
       else
-        skip insufficient_number_of_values(existing_values)
+        param_name = search_param_names[0]
+        default_search_values = default_search_values_clean(param_name.to_sym)
+
+        if default_search_values.length > 1
+          search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
+          search_and_check_response(search_params)
+        else
+          resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
+          existing_values = extract_existing_values_safety(resources_arr, param_name)
+
+          if existing_values.length > 1
+            search_params = { param_name => modify_value_by_multiple_type(existing_values, multiple_type) }
+            search_and_check_response(search_params)
+          else
+            skip insufficient_number_of_values(existing_values)
+          end
+        end
       end
     end
 
@@ -553,10 +556,8 @@ module AUCoreTestKit
     end
 
     def insufficient_number_of_values(values_to_search)
-      main_message = "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
+      "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
       # extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length.positive?
-
-      main_message
 
       # "#{main_message} #{extra_message}"
     end
@@ -755,15 +756,13 @@ module AUCoreTestKit
 
         match_found = false
         values_found = []
-        if ['indigenous-status', 'gender-identity'].include?(name)
+        if %w[indigenous-status gender-identity].include?(name)
           search_param_extension_map = {
             'indigenous-status' => 'http://hl7.org.au/fhir/StructureDefinition/indigenous-status',
             'gender-identity' => 'http://hl7.org/fhir/StructureDefinition/individual-genderIdentity'
           }
           values_found = [extension_check(resource, search_param_extension_map[name])]
-          if values_found.length > 0
-            match_found = search_value.to_s == values_found.first
-          end
+          match_found = search_value.to_s == values_found.first if values_found.length.positive?
         else
           paths.each do |path|
             type = metadata.search_definitions[name.to_sym][:type]
