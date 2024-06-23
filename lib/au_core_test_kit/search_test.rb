@@ -260,7 +260,7 @@ module AUCoreTestKit
       return if resource_count.zero?
       return if search_variant_test_records[:reference_variants]
 
-      if params.keys.include?("patient")
+      if params.keys.include?('patient')
         new_search_params = params.merge('patient' => "Patient/#{params['patient']}")
       else
         param_key = params.keys.first
@@ -367,37 +367,42 @@ module AUCoreTestKit
     end
 
     def perform_multiple_or_search_test
-      perform_multiple_search_test
+      perform_multiple_search_test('or')
     end
 
     def perform_multiple_and_search_test
-      perform_multiple_search_test
+      perform_multiple_search_test('and')
     end
 
-    def modify_value_by_multiple_type(param_name, values)
-      definition = metadata.search_definitions[param_name.to_sym]
-      definition[:multiple_or] == 'SHALL' || definition[:multiple_or] == 'SHOULD' ? [values.join(',')] : Array.wrap(values)
+    def modify_value_by_multiple_type(values, multiple_type)
+      return [values.join(',')] if multiple_type == 'or'
+
+      Array.wrap(values)
     end
 
-    def perform_multiple_search_test
-      if search_param_names.length == 1
+    def perform_multiple_search_test(multiple_type)
+      if search_param_names.length > 2
+        skip 'Inconsistent state of the test (params to search more than 2)'
+      elsif search_param_names.empty?
+        skip 'Inconsistent state of the test (number of params to search is 0)'
+      else
         param_name = search_param_names[0]
         default_search_values = default_search_values_clean(param_name.to_sym)
+
         if default_search_values.length > 1
-          search_params = {param_name => modify_value_by_multiple_type(param_name, default_search_values)}
+          search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
           search_and_check_response(search_params)
         else
-          resources_arr = all_search_params.map { |patient_id, params_list| scratch_resources_for_patient(patient_id) }.flatten
+          resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
           existing_values = extract_existing_values_safety(resources_arr, param_name)
-          if existing_values.length > 2
-            search_params = {param_name => modify_value_by_multiple_type(param_name, existing_values)}
+
+          if existing_values.length > 1
+            search_params = { param_name => modify_value_by_multiple_type(existing_values, multiple_type) }
             search_and_check_response(search_params)
           else
-            skip_if existing_values.length < 2, insufficient_number_of_values(existing_values)
+            skip insufficient_number_of_values(existing_values)
           end
         end
-      else
-        skip "Inconsistent state of the test (params to search more than 2)"
       end
     end
 
@@ -551,10 +556,10 @@ module AUCoreTestKit
     end
 
     def insufficient_number_of_values(values_to_search)
-      main_message = "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
-      extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length.positive?
+      "Insufficient number of values for the search. The number of values should be more than 1. The current number of values is #{values_to_search.length}."
+      # extra_message = "Current values: #{values_to_search.join(', ')}." if values_to_search.length.positive?
 
-      "#{main_message} #{extra_message}"
+      # "#{main_message} #{extra_message}"
     end
 
     def unable_to_resolve_params_message
@@ -736,6 +741,13 @@ module AUCoreTestKit
 
     #### RESULT CHECKING ####
 
+    def extension_check(resource, extension_url)
+      extension_elements = resource.extension.filter { |ext| ext.url == extension_url }
+      extension_element = extension_elements.first
+
+      extension_element.valueCoding.code
+    end
+
     def check_resource_against_params(resource, params)
       params.each do |name, escaped_search_value|
         # unescape search value
@@ -744,91 +756,99 @@ module AUCoreTestKit
 
         match_found = false
         values_found = []
+        if %w[indigenous-status gender-identity].include?(name)
+          search_param_extension_map = {
+            'indigenous-status' => 'http://hl7.org.au/fhir/StructureDefinition/indigenous-status',
+            'gender-identity' => 'http://hl7.org/fhir/StructureDefinition/individual-genderIdentity'
+          }
+          values_found = [extension_check(resource, search_param_extension_map[name])]
+          match_found = search_value.to_s == values_found.first if values_found.length.positive?
+        else
+          paths.each do |path|
+            type = metadata.search_definitions[name.to_sym][:type]
+            values_found =
+              resolve_path(resource, path)
+              .map do |value|
+                if value.is_a? FHIR::Reference
+                  value.reference
+                else
+                  value
+                end
+              end
 
-        paths.each do |path|
-          type = metadata.search_definitions[name.to_sym][:type]
-          values_found =
-            resolve_path(resource, path)
-            .map do |value|
-              if value.is_a? FHIR::Reference
-                value.reference
-              else
-                value
-              end
-            end
-
-          match_found =
-            case type
-            when 'Period', 'date', 'instant', 'dateTime'
-              values_found.any? { |date| validate_date_search(search_value, date) }
-            when 'HumanName'
-              # When a string search parameter refers to the types HumanName and Address,
-              # the search covers the elements of type string, and does not cover elements such as use and period
-              # https://www.hl7.org/fhir/search.html#string
-              search_value_downcase = search_value.downcase
-              values_found.any? do |name|
-                name&.text&.downcase&.start_with?(search_value_downcase) ||
-                  name&.family&.downcase&.start_with?(search_value_downcase) ||
-                  name&.given&.any? { |given| given.downcase.start_with?(search_value_downcase) } ||
-                  name&.prefix&.any? { |prefix| prefix.downcase.start_with?(search_value_downcase) } ||
-                  name&.suffix&.any? { |suffix| suffix.downcase.start_with?(search_value_downcase) }
-              end
-            when 'Address'
-              search_value_downcase = search_value.downcase
-              values_found.any? do |address|
-                address&.text&.downcase&.start_with?(search_value_downcase) ||
-                  address&.city&.downcase&.start_with?(search_value_downcase) ||
-                  address&.state&.downcase&.start_with?(search_value_downcase) ||
-                  address&.postalCode&.downcase&.start_with?(search_value_downcase) ||
-                  address&.country&.downcase&.start_with?(search_value_downcase)
-              end
-            when 'CodeableConcept'
-              # FHIR token search (https://www.hl7.org/fhir/search.html#token): "When in doubt, servers SHOULD
-              # treat tokens in a case-insensitive manner, on the grounds that including undesired data has
-              # less safety implications than excluding desired behavior".
-              codings = values_found.flat_map(&:coding)
-              if search_value.include? '|'
-                system = search_value.split('|').first
-                code = search_value.split('|').last
-                codings&.any? { |coding| coding.system == system && coding.code&.casecmp?(code) }
-              else
-                codings&.any? { |coding| coding.code&.casecmp?(search_value) }
-              end
-            when 'Coding'
-              if search_value.include? '|'
-                system = search_value.split('|').first
-                code = search_value.split('|').last
-                values_found.any? { |coding| coding.system == system && coding.code&.casecmp?(code) }
-              else
-                values_found.any? { |coding| coding.code&.casecmp?(search_value) }
-              end
-            when 'Identifier'
-              if search_value.include? '|'
-                values_found.any? { |identifier| "#{identifier.system}|#{identifier.value}" == search_value }
-              else
-                values_found.any? { |identifier| identifier.value == search_value }
-              end
-            when 'string'
-              searched_values = search_value.downcase.split(/(?<!\\\\),/).map { |string| string.gsub('\\,', ',') }
-              values_found.any? do |value_found|
-                searched_values.any? { |searched_value| value_found.downcase.starts_with? searched_value }
-              end
-            else
-              # searching by patient requires special case because we are searching by a resource identifier
-              # references can also be URLs, so we may need to resolve those URLs
-              if %w[subject patient].include? name.to_s
-                id = search_value.split('Patient/').last
-                possible_values = [id, "Patient/#{id}", "#{url}/Patient/#{id}"]
-                values_found.any? do |reference|
-                  possible_values.include? reference
+            match_found =
+              case type
+              when 'Period', 'date', 'instant', 'dateTime'
+                values_found.any? { |date| validate_date_search(search_value, date) }
+              when 'HumanName'
+                # When a string search parameter refers to the types HumanName and Address,
+                # the search covers the elements of type string, and does not cover elements such as use and period
+                # https://www.hl7.org/fhir/search.html#string
+                search_value_downcase = search_value.downcase
+                values_found.any? do |name|
+                  name&.text&.downcase&.start_with?(search_value_downcase) ||
+                    name&.family&.downcase&.start_with?(search_value_downcase) ||
+                    name&.given&.any? { |given| given.downcase.start_with?(search_value_downcase) } ||
+                    name&.prefix&.any? { |prefix| prefix.downcase.start_with?(search_value_downcase) } ||
+                    name&.suffix&.any? { |suffix| suffix.downcase.start_with?(search_value_downcase) }
+                end
+              when 'Address'
+                search_value_downcase = search_value.downcase
+                values_found.any? do |address|
+                  address&.text&.downcase&.start_with?(search_value_downcase) ||
+                    address&.city&.downcase&.start_with?(search_value_downcase) ||
+                    address&.state&.downcase&.start_with?(search_value_downcase) ||
+                    address&.postalCode&.downcase&.start_with?(search_value_downcase) ||
+                    address&.country&.downcase&.start_with?(search_value_downcase)
+                end
+              when 'CodeableConcept'
+                # FHIR token search (https://www.hl7.org/fhir/search.html#token): "When in doubt, servers SHOULD
+                # treat tokens in a case-insensitive manner, on the grounds that including undesired data has
+                # less safety implications than excluding desired behavior".
+                codings = values_found.flat_map(&:coding)
+                if search_value.include? '|'
+                  system = search_value.split('|').first
+                  code = search_value.split('|').last
+                  codings&.any? { |coding| coding.system == system && coding.code&.casecmp?(code) }
+                else
+                  codings&.any? { |coding| coding.code&.casecmp?(search_value) }
+                end
+              when 'Coding'
+                if search_value.include? '|'
+                  system = search_value.split('|').first
+                  code = search_value.split('|').last
+                  values_found.any? { |coding| coding.system == system && coding.code&.casecmp?(code) }
+                else
+                  values_found.any? { |coding| coding.code&.casecmp?(search_value) }
+                end
+              when 'Identifier'
+                if search_value.include? '|'
+                  values_found.any? { |identifier| "#{identifier.system}|#{identifier.value}" == search_value }
+                else
+                  values_found.any? { |identifier| identifier.value == search_value }
+                end
+              when 'string'
+                searched_values = search_value.downcase.split(/(?<!\\\\),/).map { |string| string.gsub('\\,', ',') }
+                values_found.any? do |value_found|
+                  searched_values.any? { |searched_value| value_found.downcase.starts_with? searched_value }
                 end
               else
-                search_values = search_value.split(/(?<!\\\\),/).map { |string| string.gsub('\\,', ',') }
-                values_found.any? { |value_found| search_values.include? value_found }
+                # searching by patient requires special case because we are searching by a resource identifier
+                # references can also be URLs, so we may need to resolve those URLs
+                if %w[subject patient].include? name.to_s
+                  id = search_value.split('Patient/').last
+                  possible_values = [id, "Patient/#{id}", "#{url}/Patient/#{id}"]
+                  values_found.any? do |reference|
+                    possible_values.include? reference
+                  end
+                else
+                  search_values = search_value.split(/(?<!\\\\),/).map { |string| string.gsub('\\,', ',') }
+                  values_found.any? { |value_found| search_values.include? value_found }
+                end
               end
-            end
 
-          break if match_found
+            break if match_found
+          end
         end
 
         assert match_found,
