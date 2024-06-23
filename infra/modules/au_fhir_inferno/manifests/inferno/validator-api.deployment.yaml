@@ -29,10 +29,10 @@ spec:
           mountPath: /home/igs
       containers:
       - name: validator-api
-        image: infernocommunity/fhir-validator-service:latest
+        image: pavelrozhkov/wrapper:6.3.11
         imagePullPolicy: Always
         ports:
-        - containerPort: 4567
+        - containerPort: 3500
         volumeMounts:
         - name: igs
           mountPath: /home/igs
