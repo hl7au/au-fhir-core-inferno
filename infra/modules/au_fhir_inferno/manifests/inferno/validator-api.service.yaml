@@ -6,8 +6,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 4567
+    - port: 3500
       protocol: TCP
-      targetPort: 4567
+      targetPort: 3500
   selector:
     workload: validator-api
