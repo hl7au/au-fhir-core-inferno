@@ -62,30 +62,38 @@ module AUCoreTestKit
       ).sample
     end
 
-    def assert_returned_resources_valid(resources_returned, identifier_to_test, attr_paths)
+    def returned_resources_is_valid?(resources_returned, identifier_to_test, attr_paths)
       existing_values = resources_returned.map do |rr|
         attr_paths.map do |attr_path|
           resolve_path(rr, attr_path).first.reference.split('/').second
         end
       end.flatten.compact.uniq
 
-      assert (existing_values.include? identifier_to_test[:patient_id]),
-             'There is no reference to the target resource in the returned results.'
+      existing_values.include? identifier_to_test[:patient_id]
     end
 
-    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources, attr_paths, target_identifier)
-      identifier_to_test = pick_identifier_to_test(patient_id_list, all_patients_resources, search_param, target_identifier)
-      skip_if identifier_to_test.nil?, "I don't have values to perform search"
+    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources, attr_paths, target_identifier) # rubocop:disable Metrics/AbcSize
+      passed = false
 
-      values_to_test = [
-        "#{identifier_to_test[:identifier].system}|#{identifier_to_test[:identifier].value}"
-      ]
+      identifiers_to_test = all_chain_identifier_values(
+        patient_id_list,
+        all_patients_resources,
+        extract_target_resource_from_chained_search_parameter(search_param),
+        target_identifier
+      )
 
-      values_to_test.each do |idnt_value|
-        search_and_check_response({ search_param => idnt_value })
+      identifiers_to_test.each do |identifier_to_test|
+        next if identifier_to_test.nil?
+
+        search_and_check_response({ search_param => "#{identifier_to_test[:identifier].system}|#{identifier_to_test[:identifier].value}" })
+        result = returned_resources_is_valid?(fetch_all_bundled_resources.select { |resource| resource.resourceType == resource_type }, identifier_to_test, attr_paths)
+        next unless result
+
+        passed = true
+        break
       end
 
-      assert_returned_resources_valid(fetch_all_bundled_resources.select { |resource| resource.resourceType == resource_type }, identifier_to_test, attr_paths)
+      assert passed, 'There is no reference to the target resource in the returned result'
     end
   end
 end
