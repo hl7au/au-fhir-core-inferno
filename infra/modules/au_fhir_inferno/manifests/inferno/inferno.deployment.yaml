@@ -33,6 +33,9 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 4567
+        env:
+        - name: TX_SERVER_URL
+          value: ${terminology_server}
         envFrom:
         - secretRef:
             name: postgres-database
@@ -40,4 +43,4 @@ spec:
             name: postgres
         - configMapRef:
             name: inferno
- 
+

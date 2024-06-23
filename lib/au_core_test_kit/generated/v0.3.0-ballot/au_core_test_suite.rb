@@ -49,6 +49,7 @@ module AUCoreTestKit
         /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
         /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
         /Provenance.agent\[\d*\]: Rule provenance-1/, #Invalid invariant in AU Core v5.0.1
+        /\A\S+: \S+: URL value '.*' does not resolve/,
       ].freeze
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
@@ -59,18 +60,22 @@ module AUCoreTestKit
           end
       end
 
-      validator do
-        url ENV.fetch('V030_BALLOT_VALIDATOR_URL', 'http://validator-api:4567')
+      fhir_resource_validator do
+        igs 'hl7.fhir.au.core#0.3.0-ballot'
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
-        exclude_message do |message|
+        cli_context do
+          txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
+          disableDefaultResourceFetcher false
+        end
 
+        exclude_message do |message|
           message_filters.any? { |filter| filter.match? message.message }
         end
 
-        # perform_additional_validation do |resource, profile_url|
-        #   ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
-        # end
+        perform_additional_validation do |resource, profile_url|
+          ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
+        end
       end
 
       id :au_core_v030_ballot

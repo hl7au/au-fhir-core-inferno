@@ -176,7 +176,8 @@ module AUCoreTestKit
 
       target_profile_with_version = target_profile.include?('|') ? target_profile : "#{target_profile}|#{metadata.profile_version}"
 
-      outcome = FHIR::OperationOutcome.new(JSON.parse(validator.validate(resource, target_profile_with_version)))
+      validator_response = validator.validate(resource, target_profile_with_version)
+      outcome = validator.operation_outcome_from_hl7_wrapped_response(validator_response)
 
       message_hashes = outcome.issue&.map { |issue| validator.message_hash_from_issue(issue, resource) } || []
 
