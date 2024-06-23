@@ -72,7 +72,7 @@ module AUCoreTestKit
       existing_values.include? identifier_to_test[:patient_id]
     end
 
-    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources, attr_paths, target_identifier) # rubocop:disable Metrics/AbcSize
+    def run_chain_search_test_clean(search_param, patient_id_list, all_patients_resources, attr_paths, target_identifier)
       passed = false
 
       identifiers_to_test = all_chain_identifier_values(
