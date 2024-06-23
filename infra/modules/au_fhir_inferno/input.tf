@@ -19,7 +19,7 @@ variable "inferno_image" {
 
 variable "validator_base_path" {
   description = "Validator base path"
-  default     = "/validator"
+  default     = "/hl7validatorapi"
 }
 
 variable "external_validator_url" {
