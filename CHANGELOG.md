@@ -1,3 +1,8 @@
+# 0.0.9
+* Fix search for the extension value by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/139
+* Fix multiple date search by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/141
+* Migrate to the HL7 official validator by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/118
+
 # 0.0.8
 * AU Core 0.4.0-preview 
 * Minor changes
