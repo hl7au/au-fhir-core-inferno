@@ -49,6 +49,8 @@ services:
     volumes:
       - ./config/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
+      validator-api:
+        condition: service_started
       inferno:
         condition: service_started
   redis:
