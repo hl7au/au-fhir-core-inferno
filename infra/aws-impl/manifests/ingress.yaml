@@ -10,8 +10,8 @@ metadata:
     allowSnippetAnnotations: true
     # validatorapi wants base path for some reason?
     nginx.ingress.kubernetes.io/configuration-snippet: |- 
-      if ($request_uri ~* "^/validatorapi/(.*)") {
-        rewrite ^/validatorapi/(.*)$ /$1 break;
+      if ($request_uri ~* "^/hl7validatorapi/(.*)") {
+        rewrite ^/hl7validatorapi/(.*)$ /$1 break;
       }
 spec:
   ingressClassName: nginx
@@ -23,20 +23,13 @@ spec:
     - host: inferno.hl7.org.au
       http:
         paths:
-        - path: /validatorapi
+        - path: /hl7validatorapi
           pathType: Prefix
           backend:
             service:
               name: validator-api
               port:
                 number: 4567
-        - path: /validator
-          pathType: Prefix
-          backend:
-            service:
-              name: validator-web
-              port:
-                number: 80
         - path: /
           pathType: Prefix
           backend:
