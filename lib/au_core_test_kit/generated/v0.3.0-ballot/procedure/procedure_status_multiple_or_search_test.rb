@@ -8,8 +8,8 @@ module AUCoreTestKit
     class ProcedureStatusMultipleOrSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title '(SHALL) Server returns valid results for Procedure multipleOr search by status'
-      description %(A server SHALL support searching by multipleOr
+      title '(SHOULD) Server returns valid results for Procedure multipleOr search by status'
+      description %(A server SHOULD support searching by multipleOr
 status on the Procedure resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -18,6 +18,8 @@ none are returned, the test is skipped.
 )
 
       id :au_core_v030_ballot_procedure_status_multiple_or_search_test
+
+      optional
 
       input :patient_ids,
             title: 'Patient IDs',
