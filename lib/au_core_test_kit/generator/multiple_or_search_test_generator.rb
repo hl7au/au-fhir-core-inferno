@@ -77,6 +77,11 @@ module AUCoreTestKit
       end
 
       def conformance_expectation
+        # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/61
+        if search_name == 'status' && (resource_type == 'Procedure' || resource_type == 'Observation')
+          return 'SHOULD'
+        end
+
         search_metadata[:multiple_or]
       end
 
