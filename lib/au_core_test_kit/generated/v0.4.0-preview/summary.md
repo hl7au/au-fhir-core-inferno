@@ -1323,12 +1323,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.3.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.3.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -2064,12 +2064,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.4.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.4.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -2819,12 +2819,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.5.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.5.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -3560,12 +3560,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.6.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.6.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -4309,12 +4309,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.7.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.7.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -5050,12 +5050,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.8.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.8.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -5791,12 +5791,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.9.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.9.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -6528,12 +6528,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.10.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.10.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -7269,12 +7269,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.11.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -8017,12 +8017,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.12.12 (SHALL) Server returns valid results for Observation multipleOr search by status
+#### 1.12.12 (SHOULD) Server returns valid results for Observation multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -11622,12 +11622,12 @@ Accept: application/fhir+json
 
 
 
-#### 1.18.9 (SHALL) Server returns valid results for Procedure multipleOr search by status
+#### 1.18.9 (SHOULD) Server returns valid results for Procedure multipleOr search by status
 <details>
 
 <summary>Show details</summary>
 
-A server SHALL support searching by multipleOr
+A server SHOULD support searching by multipleOr
 status on the Procedure resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
