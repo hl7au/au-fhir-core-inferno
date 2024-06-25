@@ -9,10 +9,10 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     allowSnippetAnnotations: true
     # validatorapi wants base path for some reason?
-    nginx.ingress.kubernetes.io/configuration-snippet: |- 
-      if ($request_uri ~* "^/hl7validatorapi/(.*)") {
-        rewrite ^/hl7validatorapi/(.*)$ /$1 break;
-      }
+    #nginx.ingress.kubernetes.io/configuration-snippet: |- 
+    #  if ($request_uri ~* "^/hl7validatorapi/(.*)") {
+    #    rewrite ^/hl7validatorapi/(.*)$ /$1 break;
+    #  }
 spec:
   ingressClassName: nginx
   tls:
