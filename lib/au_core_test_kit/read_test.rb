@@ -13,13 +13,10 @@ module AUCoreTestKit
 
       assert resources_to_read.present?, "No #{resource_type} id found."
 
-      if config.options[:read_all_resources]
-        resources_to_read.each do |resource|
-          read_and_validate(resource)
-        end
-      else
-        read_and_validate(resources_to_read.first)
+      resources_to_read.each do |resource|
+        read_and_validate(resource)
       end
+
     end
 
     def readable_resources(resources)
