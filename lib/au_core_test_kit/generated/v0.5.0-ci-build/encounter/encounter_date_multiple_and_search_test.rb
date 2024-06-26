@@ -24,7 +24,7 @@ none are returned, the test is skipped.
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li'
+            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li, hayes-maria'
 
       def self.properties
         @properties ||= SearchTestProperties.new(resource_type: 'Encounter',
