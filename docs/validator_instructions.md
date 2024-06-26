@@ -1,6 +1,6 @@
 # Step-by-Step Guide to Using the FHIR Resources Validator
 
-The validator is available at this [link](https://inferno.hl7.org.au/hl7validatorapi/).
+The validator is available at this [link](https://validator.fhir.org/).
 
 1. Paste the complete target resource in **JSON** format into the text input field.
 ![Past the complete target resource](/docs/assets/1_validator_paste_resource.png "Past the complete target resource")
