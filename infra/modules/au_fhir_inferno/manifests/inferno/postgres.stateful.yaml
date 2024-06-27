@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet ## allows for stable data storage that persists across pod restarts and stable network for later clusterd Postgres deployments
+metadata:
+  name: inferno-postgres
+  namespace: ${namespace}
+spec:
+  serviceName: "inferno-postgres"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-postgres
+  template:
+    metadata:
+      labels:
+        app: inferno-postgres
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      containers:
+        - name: postgres
+          image: postgres:16.2-bullseye
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: postgres-database
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: postgres-data
+          # resources: ## need to check what resonable values are
+          #   requests:
+          #     memory: "500Mi"
+          #     cpu: "500m"
+          #   limits:
+          #     memory: "2Gi"
+          #     cpu: "1"
+          livenessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 20Gi
+

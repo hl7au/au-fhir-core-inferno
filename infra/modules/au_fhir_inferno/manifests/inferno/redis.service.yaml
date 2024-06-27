@@ -10,4 +10,4 @@ spec:
       protocol: TCP
       targetPort: 6379
   selector:
-    workload: inferno-redis
+    app: inferno-redis

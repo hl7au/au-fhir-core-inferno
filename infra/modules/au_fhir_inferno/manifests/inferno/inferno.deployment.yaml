@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      workload: inferno-app
+      app: inferno-app
   template:
     metadata:
       labels:
-        workload: inferno-app
+        app: inferno-app
     spec:
       nodeSelector:
         kubernetes.io/arch: amd64

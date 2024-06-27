@@ -4,10 +4,10 @@ metadata:
   name: inferno-postgres
   namespace: ${namespace}
 spec:
-  type: NodePort
+  type: NodePort ## Change to LoadBalancer or ClusterIP later?
   ports:
     - port: 5432
       protocol: TCP
       targetPort: 5432
   selector:
-    workload: inferno-postgres
+    app: inferno-postgres
