@@ -10,4 +10,4 @@ spec:
       protocol: TCP
       targetPort: 4567
   selector:
-    workload: inferno-app
+    app: inferno-app

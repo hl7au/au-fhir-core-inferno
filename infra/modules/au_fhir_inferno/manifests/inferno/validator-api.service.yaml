@@ -10,4 +10,4 @@ spec:
       protocol: TCP
       targetPort: 3500
   selector:
-    workload: validator-api
+    app: validator-api
