@@ -7,16 +7,57 @@ module AUCoreTestKit
     end
 
     def perform_read_test(resources, _reply_handler = nil)
-      skip_if resources.blank?, no_resources_skip_message
+      if resources.blank?
+        resource_ids_str = fetch_resource_ids(resource_type)
+        if resource_ids_str.blank?
+          skip no_resources_custom_skip_message
+        else
+          resources_to_read = get_resources_to_read_from_arr_ids(
+            resource_ids_str_to_arr(resource_ids_str),
+            resource_type
+          )
+          assert resources_to_read.present?, "No #{resource_type} id found."
+          read_and_validate_resourses_arr(resources_to_read)
+        end
+      else
+        resources_to_read = readable_resources(resources)
+        assert resources_to_read.present?, "No #{resource_type} id found."
+        read_and_validate_resourses_arr(resources_to_read)
+      end
+    end
 
-      resources_to_read = readable_resources(resources)
+    def fetch_resource_ids(resource_type)
+      case resource_type
+      when 'Location'
+        location_ids
+      when 'Organization'
+        organization_ids
+      when 'Practitioner'
+        practitioner_ids
+      when 'PractitionerRole'
+        practitioner_role_ids
+      else
+        ''
+      end
+    end
 
-      assert resources_to_read.present?, "No #{resource_type} id found."
+    def resource_ids_str_to_arr(resource_ids_str)
+      resource_ids_str.split(',').map(&:strip)
+    end
 
+    def read_and_validate_resourses_arr(resources_to_read)
       resources_to_read.each do |resource|
         read_and_validate(resource)
       end
+    end
 
+    def get_resources_to_read_from_arr_ids(resource_ids_arr, resource_type)
+      resource_ids_arr.map do |resource_id|
+        FHIR::Reference.new(
+          reference: "#{resource_type}/#{resource_id}",
+          type: resource_type
+        )
+      end
     end
 
     def readable_resources(resources)
@@ -52,6 +93,10 @@ module AUCoreTestKit
 
     def bad_resource_id_message(expected_id)
       "Expected resource to have id: `#{expected_id.inspect}`, but found `#{resource.id.inspect}`"
+    end
+
+    def no_resources_custom_skip_message
+      "There are no resources of the type #{resource_type} from previous tests, and you didn't provide IDs to search."
     end
 
     def resource_class

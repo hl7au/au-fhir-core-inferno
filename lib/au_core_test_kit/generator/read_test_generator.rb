@@ -82,6 +82,22 @@ module AUCoreTestKit
         read_interaction[:expectation]
       end
 
+      def needs_location_id?
+        resource_type == 'Location'
+      end
+
+      def needs_organization_id?
+        resource_type == 'Organization'
+      end
+
+      def needs_practitioner_id?
+        resource_type == 'Practitioner'
+      end
+
+      def needs_practitioner_role_id?
+        resource_type == 'PractitionerRole'
+      end
+
       def generate
         FileUtils.mkdir_p(output_file_directory)
         File.open(output_file_name, 'w') { |f| f.write(output) }
