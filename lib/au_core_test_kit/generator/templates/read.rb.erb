@@ -8,6 +8,38 @@ module AUCoreTestKit
       title '(<%= conformance_expectation %>) Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
       description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'
 
+      <% if needs_location_id? %>
+      input :location_ids,
+        title: 'Location IDs',
+        description: 'Comma separated list of location IDs that in sum contain all MUST SUPPORT elements',
+        default: 'bobrester-medical-center, au-hospital',
+        optional: true
+      <% end %>
+
+      <% if needs_organization_id? %>
+      input :organization_ids,
+        title: 'Organization IDs',
+        description: 'Comma separated list of organization IDs that in sum contain all MUST SUPPORT elements',
+        default: 'dva-au, organization-medical-center-tc',
+        optional: true
+      <% end %>
+
+      <% if needs_practitioner_id? %>
+      input :practitioner_ids,
+        title: 'Practitioner IDs',
+        description: 'Comma separated list of practitioner IDs that in sum contain all MUST SUPPORT elements',
+        default: 'alderson-helene',
+        optional: true
+      <% end %>
+
+      <% if needs_practitioner_role_id? %>
+      input :practitioner_role_ids,
+        title: 'PractitionerRole IDs',
+        description: 'Comma separated list of practitioner role IDs that in sum contain all MUST SUPPORT elements',
+        default: 'cardiologist-sallie-sutherland, bobrester-bob-gp',
+        optional: true
+      <% end %>
+
       id :<%= test_id %>
 
       def resource_type
