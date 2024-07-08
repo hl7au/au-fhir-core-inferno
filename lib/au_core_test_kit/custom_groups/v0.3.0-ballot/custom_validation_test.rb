@@ -2,24 +2,18 @@
 
 require 'json'
 require_relative '../../validation_test'
+require_relative '../../helpers'
 
 module AUCoreTestKit
   class CustomValidationTest < Inferno::Test
     include AUCoreTestKit::ValidationTest
     id :au_core_custom_validation
-    title 'Custom validation of the resource'
+    title Helpers.custom_validation_test_title_text
     optional
     input :resource_json,
-          title: 'FHIR resource in JSON format (custom validation)',
+          title: Helpers.custom_validation_test_input_text,
           optional: true
-    description %(
-      This test automatically identifies and validates any provided FHIR resource.
-      Users are required to input the FHIR resource in JSON format, referred to as 'resource_json'.
-      The test extracts the applicable profile for validation from the first element in the 'meta.profile' array, located at the path: resource.meta.profile.0.
-      This profile serves as the benchmark for the validation process.
-
-      Given the optional nature of this test, its results do not influence the final outcome of the test report.
-    )
+    description Helpers.custom_validation_test_description_text
 
     def resource_type
       ''
@@ -35,9 +29,9 @@ module AUCoreTestKit
       fhir_class = FHIR.const_get(resource_type)
       fhir_resource = fhir_class.new(fhir_resource_hash)
 
-      info "Resource type to validate is #{resource_type}"
-      info "Resource profile to validate is #{fhir_resource_profile}"
-      info "IG version to validate is #{ig_version}"
+      info Helpers.custom_validation_test_info_resource_type_text(resource_type)
+      info Helpers.custom_validation_test_info_profile_text(fhir_resource_profile)
+      info Helpers.custom_validation_test_info_ig_text(ig_version)
 
       perform_validation_test([fhir_resource],
                               fhir_resource_profile,
