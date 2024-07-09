@@ -10,6 +10,12 @@ module AUCoreTestKit
       title '(SHALL) Server returns correct Organization resource from Organization read interaction'
       description 'A server SHALL support the Organization read interaction.'
 
+      input :organization_ids,
+            title: 'Organization IDs',
+            description: 'Comma separated list of organization IDs that in sum contain all MUST SUPPORT elements',
+            default: 'dva-au, organization-medical-center-tc',
+            optional: true
+
       id :au_core_v040_preview_organization_read_test
 
       def resource_type
