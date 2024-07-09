@@ -158,4 +158,46 @@ module Helpers
       element.each { |item| process_resource_element(item, extensions) }
     end
   end
+
+  def self.custom_validation_group_title_text
+    'Custom Validation Group'
+  end
+
+  def self.custom_validation_group_description_text
+    %(
+      This test group is designed to validate the conformity of FHIR resources against specified profiles.
+      Leveraging the dynamic capabilities of FHIR, this validation ensures that the resources adhere to the standards and guidelines established within the relevant AU Core.
+    )
+  end
+
+  def self.custom_validation_test_title_text
+    'Custom validation of the resource'
+  end
+
+  def self.custom_validation_test_input_text
+    'FHIR resource in JSON format (custom validation)'
+  end
+
+  def self.custom_validation_test_description_text
+    %(
+      This test automatically identifies and validates any provided FHIR resource.
+      Users are required to input the FHIR resource in JSON format, referred to as 'resource_json'.
+      The test extracts the applicable profile for validation from the first element in the 'meta.profile' array, located at the path: resource.meta.profile.0.
+      This profile serves as the benchmark for the validation process.
+
+      Given the optional nature of this test, its results do not influence the final outcome of the test report.
+    )
+  end
+
+  def self.custom_validation_test_info_resource_type_text(resource_type)
+    "Resource type to validate is #{resource_type}"
+  end
+
+  def self.custom_validation_test_info_profile_text(fhir_resource_profile)
+    "Resource profile to validate is #{fhir_resource_profile}"
+  end
+
+  def self.custom_validation_test_info_ig_text(ig_version)
+    "IG version to validate is #{ig_version}"
+  end
 end

@@ -2,6 +2,7 @@ require 'base64'
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '<%= capability_statement_file_name %>'
+require_relative '<%= custom_validation_file_name %>'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../au_core_options'
 require_relative '../../helpers'
@@ -103,6 +104,7 @@ module AUCoreTestKit
       <% group_id_list.each do |id| %>
         group from: :<%= id %>
       <% end %>
+        group from: :<%= custom_validation_group_id %>
       end
     end
   end
