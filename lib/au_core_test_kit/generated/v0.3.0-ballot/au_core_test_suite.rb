@@ -2,6 +2,7 @@ require 'base64'
 require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
+require_relative '../../custom_groups/v0.3.0-ballot/custom_validation_group'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../au_core_options'
 require_relative '../../helpers'
@@ -158,6 +159,7 @@ module AUCoreTestKit
       
         group from: :au_core_v030_ballot_provenance
       
+        group from: :au_core_v030_custom_validation_group
       end
     end
   end
