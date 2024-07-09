@@ -3,7 +3,6 @@
 require_relative 'encounter/encounter_patient_search_test'
 require_relative 'encounter/encounter_class_search_test'
 require_relative 'encounter/encounter_date_search_test'
-require_relative 'encounter/encounter_identifier_search_test'
 require_relative 'encounter/encounter_location_search_test'
 require_relative 'encounter/encounter_status_search_test'
 require_relative 'encounter/encounter_date_patient_search_test'
@@ -94,7 +93,6 @@ read succeeds.
       test from: :au_core_v050_ci_build_encounter_patient_search_test
       test from: :au_core_v050_ci_build_encounter_class_search_test
       test from: :au_core_v050_ci_build_encounter_date_search_test
-      test from: :au_core_v050_ci_build_encounter_identifier_search_test
       test from: :au_core_v050_ci_build_encounter_location_search_test
       test from: :au_core_v050_ci_build_encounter_status_search_test
       test from: :au_core_v050_ci_build_encounter_date_patient_search_test

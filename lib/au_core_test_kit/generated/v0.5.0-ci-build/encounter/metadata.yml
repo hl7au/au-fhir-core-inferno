@@ -45,12 +45,6 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
-  - identifier
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - identifier
-  :must_support_or_mandatory: false
-- :names:
   - location
   :expectation: MAY
   :names_not_must_support_or_mandatory: []
@@ -115,15 +109,6 @@
     :type: Period
     :contains_multiple: false
     :multiple_and: SHOULD
-  :identifier:
-    :paths:
-    - identifier
-    :full_paths:
-    - Encounter.identifier
-    :comparators: {}
-    :values: []
-    :type: Identifier
-    :contains_multiple: true
   :location:
     :paths:
     - location.location
@@ -279,8 +264,6 @@
   :file_name: encounter_class_search_test.rb
 - :id: au_core_v050_ci_build_encounter_date_search_test
   :file_name: encounter_date_search_test.rb
-- :id: au_core_v050_ci_build_encounter_identifier_search_test
-  :file_name: encounter_identifier_search_test.rb
 - :id: au_core_v050_ci_build_encounter_location_search_test
   :file_name: encounter_location_search_test.rb
 - :id: au_core_v050_ci_build_encounter_status_search_test

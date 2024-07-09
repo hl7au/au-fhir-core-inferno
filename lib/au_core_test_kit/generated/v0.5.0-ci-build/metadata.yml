@@ -3284,12 +3284,6 @@
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :names:
-    - identifier
-    :expectation: MAY
-    :names_not_must_support_or_mandatory:
-    - identifier
-    :must_support_or_mandatory: false
-  - :names:
     - location
     :expectation: MAY
     :names_not_must_support_or_mandatory: []
@@ -3354,15 +3348,6 @@
       :type: Period
       :contains_multiple: false
       :multiple_and: SHOULD
-    :identifier:
-      :paths:
-      - identifier
-      :full_paths:
-      - Encounter.identifier
-      :comparators: {}
-      :values: []
-      :type: Identifier
-      :contains_multiple: true
     :location:
       :paths:
       - location.location
