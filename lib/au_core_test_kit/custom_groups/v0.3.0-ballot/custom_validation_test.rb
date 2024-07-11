@@ -12,7 +12,8 @@ module AUCoreTestKit
     optional
     input :resource_json,
           title: Helpers.custom_validation_test_input_text,
-          optional: true
+          optional: true,
+          type: 'textarea'
     description Helpers.custom_validation_test_description_text
 
     def resource_type
