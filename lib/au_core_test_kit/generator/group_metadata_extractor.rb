@@ -104,7 +104,6 @@ module AUCoreTestKit
 
       ALL_VERSION_PATIENT_FIRST_PROFILES = [
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-observation',
-        'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult'
       ].freeze
 
       ALL_VERSION_ID_FIRST_PROFILES = [
