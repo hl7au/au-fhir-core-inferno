@@ -1,3 +1,11 @@
+# 0.0.10
+* Add new default patient id by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/146
+* Update read tests to use Practitioner, PractitionerRole, Location, Organization by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/157
+* Add test group to validate any resource by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/156
+* Add default values for diagnostic result Observation by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/160
+* Ingress update: remove validator path, update validatorapi path by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/145
+* Convert postgres deployment to statefulset, add liveness and readiness probe by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/149
+
 # 0.0.9
 * Fix search for the extension value by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/139
 * Fix multiple date search by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/141
