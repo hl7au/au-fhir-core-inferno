@@ -2471,9 +2471,10 @@
     :expectation: MAY
   :operations: []
   :searches:
-  - :names:
+  - :expectation: SHALL
+    :names:
     - patient
-    :expectation: SHALL
+    - code
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :names:
@@ -2496,6 +2497,11 @@
     :expectation: MAY
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
+  - :names:
+    - patient
+    :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :expectation: SHALL
     :names:
     - patient
@@ -2507,12 +2513,6 @@
     - patient
     - category
     - date
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :expectation: SHALL
-    :names:
-    - patient
-    - code
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :expectation: SHALL
@@ -2545,7 +2545,9 @@
       :full_paths:
       - Observation.code
       :comparators: {}
-      :values: []
+      :values:
+      - '251739003'
+      - 24701-5
       :type: CodeableConcept
       :contains_multiple: false
       :multiple_or: SHOULD

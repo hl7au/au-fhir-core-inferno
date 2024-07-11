@@ -29,9 +29,10 @@
   :expectation: MAY
 :operations: []
 :searches:
-- :names:
+- :expectation: SHALL
+  :names:
   - patient
-  :expectation: SHALL
+  - code
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
@@ -54,6 +55,11 @@
   :expectation: MAY
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -65,12 +71,6 @@
   - patient
   - category
   - date
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :expectation: SHALL
-  :names:
-  - patient
-  - code
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :expectation: SHOULD
@@ -103,7 +103,9 @@
     :full_paths:
     - Observation.code
     :comparators: {}
-    :values: []
+    :values:
+    - '251739003'
+    - 24701-5
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: SHOULD
@@ -262,8 +264,8 @@
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence
 :tests:
-- :id: au_core_v040_preview_diagnosticresult_patient_search_test
-  :file_name: diagnosticresult_patient_search_test.rb
+- :id: au_core_v040_preview_diagnosticresult_patient_code_search_test
+  :file_name: diagnosticresult_patient_code_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_category_search_test
   :file_name: diagnosticresult_category_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_code_search_test
@@ -272,12 +274,12 @@
   :file_name: diagnosticresult_date_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_status_search_test
   :file_name: diagnosticresult_status_search_test.rb
+- :id: au_core_v040_preview_diagnosticresult_patient_search_test
+  :file_name: diagnosticresult_patient_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_patient_category_search_test
   :file_name: diagnosticresult_patient_category_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_patient_category_date_search_test
   :file_name: diagnosticresult_patient_category_date_search_test.rb
-- :id: au_core_v040_preview_diagnosticresult_patient_code_search_test
-  :file_name: diagnosticresult_patient_code_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_patient_category_status_search_test
   :file_name: diagnosticresult_patient_category_status_search_test.rb
 - :id: au_core_v040_preview_diagnosticresult_patient_code_date_search_test

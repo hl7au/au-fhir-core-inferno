@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative 'diagnosticresult/diagnosticresult_patient_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_category_search_test'
 require_relative 'diagnosticresult/diagnosticresult_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_date_search_test'
 require_relative 'diagnosticresult/diagnosticresult_status_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_date_search_test'
-require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_status_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_code_date_search_test'
 require_relative 'diagnosticresult/diagnosticresult_code_multiple_or_search_test'
@@ -41,10 +41,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
+* patient + code
 * patient
 * patient + category
 * patient + category + date
-* patient + code
 
 ### Search Parameters
 The first search uses the selected patient(s) from the prior launch
@@ -95,14 +95,14 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v040_preview_diagnosticresult_patient_search_test
+      test from: :au_core_v040_preview_diagnosticresult_patient_code_search_test
       test from: :au_core_v040_preview_diagnosticresult_category_search_test
       test from: :au_core_v040_preview_diagnosticresult_code_search_test
       test from: :au_core_v040_preview_diagnosticresult_date_search_test
       test from: :au_core_v040_preview_diagnosticresult_status_search_test
+      test from: :au_core_v040_preview_diagnosticresult_patient_search_test
       test from: :au_core_v040_preview_diagnosticresult_patient_category_search_test
       test from: :au_core_v040_preview_diagnosticresult_patient_category_date_search_test
-      test from: :au_core_v040_preview_diagnosticresult_patient_code_search_test
       test from: :au_core_v040_preview_diagnosticresult_patient_category_status_search_test
       test from: :au_core_v040_preview_diagnosticresult_patient_code_date_search_test
       test from: :au_core_v040_preview_diagnosticresult_code_multiple_or_search_test
