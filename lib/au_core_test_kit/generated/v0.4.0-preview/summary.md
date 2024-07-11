@@ -6836,10 +6836,10 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
+* patient + code
 * patient
 * patient + category
 * patient + category + date
-* patient + code
 
 ### Search Parameters
 The first search uses the selected patient(s
@@ -6849,13 +6849,13 @@ The first search uses the selected patient(s
 ### Tests
 
 
-#### 1.11.1 (SHALL) Server returns valid results for Observation search by patient
+#### 1.11.1 (SHALL) Server returns valid results for Observation search by patient + code
 <details>
 
 <summary>Show details</summary>
 
 A server SHALL support searching by
-patient on the Observation resource. This test
+patient + code on the Observation resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
@@ -6881,7 +6881,7 @@ requirement of AU Core v0.4.0-preview.
 **HTTP GET**
 
 ```bash
-GET /Observation?patient={patient} HTTP/1.1
+GET /Observation?patient code={patient code} HTTP/1.1
 User-Agent: {agent}
 Host: {host}
 Accept: application/fhir+json
@@ -6890,7 +6890,7 @@ Accept: application/fhir+json
 **For browser based calls:**
 
 ```bash
-{test endpoint}/Observation?patient={patient}
+{test endpoint}/Observation?patient code={patient code}
 ```
 
 
@@ -7047,7 +7047,44 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.6 (SHALL) Server returns valid results for Observation search by patient + category
+#### 1.11.6 (SHALL) Server returns valid results for Observation search by patient
+<details>
+
+<summary>Show details</summary>
+
+A server SHALL support searching by
+patient on the Observation resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Observation?patient={patient} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Observation?patient={patient}
+```
+
+
+
+</details>
+
+
+
+#### 1.11.7 (SHALL) Server returns valid results for Observation search by patient + category
 <details>
 
 <summary>Show details</summary>
@@ -7084,7 +7121,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.11.7 (SHALL) Server returns valid results for Observation search by patient + category + date
+#### 1.11.8 (SHALL) Server returns valid results for Observation search by patient + category + date
 <details>
 
 <summary>Show details</summary>
@@ -7113,43 +7150,6 @@ Accept: application/fhir+json
 
 ```bash
 {test endpoint}/Observation?patient category date={patient category date}
-```
-
-
-
-</details>
-
-
-
-#### 1.11.8 (SHALL) Server returns valid results for Observation search by patient + code
-<details>
-
-<summary>Show details</summary>
-
-A server SHALL support searching by
-patient + code on the Observation resource. This test
-will pass if resources are returned and match the search criteria. If
-none are returned, the test is skipped.
-
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
-
-
-
-##### Requests
-
-**HTTP GET**
-
-```bash
-GET /Observation?patient code={patient code} HTTP/1.1
-User-Agent: {agent}
-Host: {host}
-Accept: application/fhir+json
-```
-
-**For browser based calls:**
-
-```bash
-{test endpoint}/Observation?patient code={patient code}
 ```
 
 
