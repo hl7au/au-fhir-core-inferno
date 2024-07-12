@@ -200,4 +200,8 @@ module Helpers
   def self.custom_validation_test_info_ig_text(ig_version)
     "IG version to validate is #{ig_version}"
   end
+
+  def self.default_patient_ids_string
+    'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
+  end
 end

@@ -1,5 +1,6 @@
 require_relative '../../../chained_search_test'
 require_relative '../../../generator/group_metadata'
+require_relative '../../../helpers'
 
 module AUCoreTestKit
   module <%= module_name %>
@@ -16,7 +17,7 @@ module AUCoreTestKit
       input :patient_ids,
         title: 'Patient IDs',
         description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-        default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li, hayes-maria'
+        default: '<%= Helpers.default_patient_ids_string %>'
 
       def self.properties
         @properties ||= SearchTestProperties.new(
