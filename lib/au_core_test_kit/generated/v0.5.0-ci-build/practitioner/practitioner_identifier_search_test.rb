@@ -2,6 +2,7 @@
 
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
+require_relative '../../../helpers'
 
 module AUCoreTestKit
   module AUCoreV050_CI_BUILD

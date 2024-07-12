@@ -2,6 +2,7 @@
 
 require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
+require_relative '../../../helpers'
 
 module AUCoreTestKit
   module AUCoreV030_BALLOT
@@ -27,7 +28,7 @@ Medications, the search will be repeated with
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
-            default: 'bennelong-anne, smith-emma, baby-smith-john, dan-harry, italia-sofia, wang-li, hayes-maria'
+            default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
         @properties ||= SearchTestProperties.new(
