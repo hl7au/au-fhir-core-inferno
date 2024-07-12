@@ -1,93 +1,80 @@
 # Pre-requisites
 ## Test data
 To pass tests demo data on the server should be consistent and valid according to the specification.
-
-### Patient ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-patient.html))
-1. Patients whose IDs are used as input should exist on the FHIR server.
-2. At least one Provenance resource should exist there target is a patient.
-3. Must support elements (MS) according to the specification should be filled.
-
+### 1. CapabilityStatement
+### 2. Patient ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-patient.html))
+* Patients whose IDs are used as input should exist on the FHIR server.
+* Must support elements (MS) according to the specification should be filled.
 ### Observation
-#### Body Weight Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodyweight.html))
-1. At least one Provenance resource should exist there target is a body weight test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Blood Pressure Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bloodpressure.html))
-1. At least one Provenance resource should exist there target is a blood pressure test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Body Height Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodyheight.html))
-1. At least one Provenance resource should exist there target is a body height test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Pathology Result Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-diagnosticresult-path.html))
-1. At least one Provenance resource should exist there target is a pathology result test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Body Temperature Test ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodytemp.html))
-1. At least one Provenance resource should exist there target is a body temperature test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Heart Rate Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-heartrate.html))
-1. At least one Provenance resource should exist there target is a heart rate test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Waist Circumference Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-waistcircum.html))
-1. At least one Provenance resource should exist there target is a waist circumference test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Respiration Rate Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-resprate.html))
-1. At least one Provenance resource should exist there target is a respiration rate test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Diagnostic Result Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-diagnosticresult.html))
-1. At least one Provenance resource should exist there target is a smoking status test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-#### Smoking Status Tests ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-smokingstatus.html))
-1. At least one Provenance resource should exist there target is a smoking status test that is related to the patient from the patient_ids input.
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### AllergyIntolerance ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-allergyintolerance.html))
-1. At least one Provenance resource should exist there target is a allergy intolerance that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### Condition ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-condition.html))
-1. At least one Provenance resource should exist there target is a allergy intolerance that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-4. Please use reference to the practitioner resource in the asserter attribute at least in one resource. It is necessary for the Practitioner test group.
+#### 3. Body Weight ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodyweight.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 4. Blood Pressure ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bloodpressure.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 5. Body Height ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodyheight.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 6. Pathology Result ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-diagnosticresult-path.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 7. Body Temperature  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-bodytemp.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 8. Heart Rate  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-heartrate.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 9. Waist Circumference  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-waistcircum.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 10. Respiration Rate  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-resprate.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 11. Diagnostic Result  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-diagnosticresult.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+#### 12. Smoking Status  ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-smokingstatus.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+### 13. AllergyIntolerance ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-allergyintolerance.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+### 14. Condition ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-condition.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+* Please use reference to the practitioner resource in the asserter attribute at least in one resource. It is necessary for the Practitioner test group.
 
-### Encounter ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-encounter.html))
-1. At least one Provenance resource should exist there target is a encounter that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-4. Please use reference to the organization resource in the serviceProvider attribute at least in one resource. It is necessary for the Organization test group.
-### Immunization ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-immunization.html))
-1. At least one Provenance resource should exist there target is a immunization that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### MedicationRequest ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-medicationrequest.html))
-1. At least one Provenance resource should exist there target is a practitioner that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### MedicationStatement ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-medicationstatement.html))
-1. At least one Provenance resource should exist there target is a medication statement that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### Procedure ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-procedure.html))
-1. At least one Provenance resource should exist there target is a procedure that is related to the patient from the patient_ids input
-2. Must support elements (MS) according to the specification should be filled.
-3. All must-support references in the resource should be valid.
-### Organization ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-organization.html))
-1. At least one Provenance resource should exist there target.
-2. Must support elements (MS) according to the specification should be filled.
-3. The test group for this resource is not independent. It means that the test group can't run by itself and it depends on the data from another test group. (see Encounter description)
-### Practitioner ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-practitioner.html))
-1. Must support elements (MS) according to the specification should be filled.
-2. All must-support references in the resource should be valid.
-3. The test group for this resource is not independent. It means that the test group can't run by itself and it depends on the data from another test group. (See conditions description)
-### Provenance ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-provenance.html))
-1. Must support elements (MS) according to the specification should be filled.
-2. All must-support references in the resource should be valid.
-3. The test group for this resource is not independent. It means that the test group can't run by itself and it depends on the data from another test group.
+### 15. Encounter ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-encounter.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+* Please use reference to the organization resource in the serviceProvider attribute at least in one resource. It is necessary for the Organization test group.
+* Please use reference to the Location resource in the location attribute at least in one resource. It is necessary for the Location test group.
+### 16. Immunization ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-immunization.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+### 17. MedicationRequest ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-medicationrequest.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+* Please use reference to the PractitionerRole resource in the requester attribute at least in one resource. It is necessary for the PractitionerRole test group.
+### 18. Procedure ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-procedure.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+### 19. Location ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-location.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+* You can test a specific resource with this test group by running it separately and using the ID's input field.
+* If you run all test groups, the result for this group will depend on the data from the previous test groups. (see Encounter description)
+### 20. Organization ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-organization.html))
+* Must support elements (MS) according to the specification should be filled.
+* If you run all test groups, the result for this group will depend on the data from the previous test groups. (see Encounter description)
+* You can test a specific resource with this test group by running it separately and using the ID's input field.
+### 21. Practitioner ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-practitioner.html))
+* All must-support references in the resource should be valid.
+* If you run all test groups, the result for this group will depend on the data from the previous test groups. (See conditions description)
+* You can test a specific resource with this test group by running it separately and using the ID's input field.
+### 22. PractitionerRole ([StructureDefinition](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-practitionerrole.html))
+* Must support elements (MS) according to the specification should be filled.
+* All must-support references in the resource should be valid.
+* You can test a specific resource with this test group by running it separately and using the ID's input field.
+* If you run all test groups, the result for this group will depend on the data from the previous test groups. (See MedicationRequest description)
+
