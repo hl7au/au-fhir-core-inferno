@@ -745,6 +745,10 @@ module AUCoreTestKit
       extension_elements = resource.extension.filter { |ext| ext.url == extension_url }
       extension_element = extension_elements.first
 
+      if extension_url == "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity"
+        return extension_element.extension.first.valueCodeableConcept.coding.first.code
+      end
+
       extension_element.valueCoding.code
     end
 
