@@ -6,7 +6,7 @@
 
 ## Additional Pre-requisites and Test Suite Dependencies
 
-**If running all tests, please note the following additional pre-requisites due to dependecies between test suites:**
+**If running all tests, please note the following additional pre-requisites due to dependencies between test suites:**
 
 * ### Condition
     * Use a reference to the **Practitioner** resource in the **asserter** attribute in at least one resource. This is necessary for the **Practitioner** test group.
