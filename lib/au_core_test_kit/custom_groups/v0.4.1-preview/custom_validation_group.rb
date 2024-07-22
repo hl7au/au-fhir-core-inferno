@@ -4,9 +4,9 @@ require_relative './custom_validation_test'
 require_relative '../../helpers'
 
 module AUCoreTestKit
-  module AUCoreV040_BALLOT
+  module AUCoreV041_PREVIEW
     class CustomValidationGroup < Inferno::TestGroup
-      id :au_core_v040_custom_validation_group
+      id :au_core_v041_custom_validation_group
       title Helpers.custom_validation_group_title_text
       description Helpers.custom_validation_group_description_text
       optional

@@ -23,7 +23,7 @@ module AUCoreTestKit
     run do
       skip_if resource_json.blank?
 
-      ig_version = '0.4.0-preview'
+      ig_version = '0.4.1-preview'
       fhir_resource_hash = JSON.parse(resource_json)
       resource_type = fhir_resource_hash['resourceType']
       fhir_resource_profile = fhir_resource_hash['meta']['profile'].first
