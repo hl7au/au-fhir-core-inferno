@@ -106,11 +106,11 @@ module AUCoreTestKit
         case ig_version
         when 'v0.3.0-ballot'
           '../../custom_groups/v0.3.0-ballot/custom_validation_group'
-        when 'v0.4.0-preview'
-          '../../custom_groups/v0.4.0-preview/custom_validation_group'
+        when 'v0.4.1-preview'
+          '../../custom_groups/v0.4.1-preview/custom_validation_group'
         else
           puts "You should add custom validation group for the #{ig_version}"
-          '../../custom_groups/v0.4.0-preview/custom_validation_group'
+          '../../custom_groups/v0.4.1-preview/custom_validation_group'
         end
       end
 
@@ -120,10 +120,10 @@ module AUCoreTestKit
         case ig_version
         when 'v0.3.0-ballot'
           'au_core_v030_custom_validation_group'
-        when 'v0.4.0-preview'
-          'au_core_v040_custom_validation_group'
+        when 'v0.4.1-preview'
+          'au_core_v041_custom_validation_group'
         else
-          'au_core_v040_custom_validation_group'
+          'au_core_v041_custom_validation_group'
         end
       end
     end
