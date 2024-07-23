@@ -99,33 +99,6 @@ module AUCoreTestKit
         # "au_core_#{ig_metadata.reformatted_version}_capability_statement"
         'au_core_v030_ballot_capability_statement'
       end
-
-      def custom_validation_file_name
-        ig_version = ig_metadata.ig_version
-
-        case ig_version
-        when 'v0.3.0-ballot'
-          '../../custom_groups/v0.3.0-ballot/custom_validation_group'
-        when 'v0.4.1-preview'
-          '../../custom_groups/v0.4.1-preview/custom_validation_group'
-        else
-          puts "You should add custom validation group for the #{ig_version}"
-          '../../custom_groups/v0.4.1-preview/custom_validation_group'
-        end
-      end
-
-      def custom_validation_group_id
-        ig_version = ig_metadata.ig_version
-
-        case ig_version
-        when 'v0.3.0-ballot'
-          'au_core_v030_custom_validation_group'
-        when 'v0.4.1-preview'
-          'au_core_v041_custom_validation_group'
-        else
-          'au_core_v041_custom_validation_group'
-        end
-      end
     end
   end
 end
