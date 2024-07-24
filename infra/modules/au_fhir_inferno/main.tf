@@ -8,12 +8,6 @@ locals {
   validator_base_path    = var.validator_base_path
 }
 
-
-resource "random_password" "postgres_password" {
-  length  = 32
-  special = false
-}
-
 resource "kubernetes_secret" "postgres_database" {
   metadata {
     name      = "postgres-database"
@@ -22,9 +16,23 @@ resource "kubernetes_secret" "postgres_database" {
 
   data = {
     POSTGRES_DB       = "inferno"
-    POSTGRES_PASSWORD = random_password.postgres_password.result
+    POSTGRES_PASSWORD = jsondecode(data.aws_secretsmanager_secret_version.rds.secret_string)["password"]
   }
 }
+
+
+
+data "aws_secretsmanager_secret" "rds" { ## if secret or db is created outside of module without state lookup available
+  arn = "arn:aws:secretsmanager:ap-southeast-2:471112546300:secret:rds!db-9fc631ab-b769-40f7-8666-efefab4f45c8-BUES5u"
+
+  # filter is not available for this datasource
+}
+
+
+data "aws_secretsmanager_secret_version" "rds" {
+  secret_id = data.aws_secretsmanager_secret.rds.id
+}
+
 
 resource "kubernetes_config_map" "postgres" {
   metadata {
@@ -33,7 +41,7 @@ resource "kubernetes_config_map" "postgres" {
   }
 
   data = {
-    POSTGRES_HOST = "inferno-postgres"
+    POSTGRES_HOST = "inferno-postgresql.creaskuwcgs3.ap-southeast-2.rds.amazonaws.com"
     POSTRGES_PORT = 5432
     POSTGRES_USER = "postgres"
   }
