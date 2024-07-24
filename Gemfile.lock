@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/beda-software/validation-test-kit.git
+  revision: 3438159ae5860216d37c559725fbfdc316ad745c
+  ref: 3438159ae5860216d37c559725fbfdc316ad745c
+  specs:
+    validation_test_kit (0.0.1)
+      inferno_core (>= 0.4.2)
+
 PATH
   remote: .
   specs:
@@ -354,6 +362,7 @@ DEPENDENCIES
   rubocop (~> 1.63.2)
   rubocop-erb (~> 0.3.0)
   sqlite3 (~> 1.4)
+  validation_test_kit!
   webmock (~> 3.11)
 
 BUNDLED WITH
