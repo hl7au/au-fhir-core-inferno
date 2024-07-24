@@ -46,7 +46,7 @@ resource "kubernetes_config_map" "inferno" {
   }
 
   data = {
-    FHIR_RESOURCE_VALIDATOR_URL = "http://validator-api:4567"
+    FHIR_RESOURCE_VALIDATOR_URL = "http://validator-api:3500"
     REDIS_URL                   = "redis://inferno-redis:6379"
     RAILS_ENV                   = "production"
   }
