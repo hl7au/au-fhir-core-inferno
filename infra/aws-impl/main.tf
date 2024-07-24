@@ -1,5 +1,5 @@
 locals {
-  name = "inferno"
+  name      = "inferno"
   manifests = fileset(path.module, "manifests/*.yaml")
   namespace = local.name
 
