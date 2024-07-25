@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-app
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-app
+  template:
+    metadata:
+      labels:
+        app: inferno-app
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      initContainers:
+      - name: run-migrations
+        image: {{ .Values.inferno.imageUrl }}
+        imagePullPolicy: Always
+        command: ["bundle", "exec", "rake", "db:migrate"]
+        env:
+          - name: TX_SERVER_URL
+            value: {{ .Values.inferno.terminologyServer }}
+        envFrom:
+        - configMapRef:
+            name: inferno
+        - configMapRef:
+            name: postgresql-configmap
+        - secretRef:
+            name: postgresql-secret
+      containers:
+      - name: inferno-app
+        image: {{ .Values.inferno.imageUrl }}
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 4567
+        env:
+          - name: TX_SERVER_URL
+            value: {{ .Values.inferno.terminologyServer }}
+        envFrom:
+        - configMapRef:
+            name: inferno
+        - configMapRef:
+            name: postgresql-configmap
+        - secretRef:
+            name: postgresql-secret

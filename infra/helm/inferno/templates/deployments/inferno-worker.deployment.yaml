@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-worker
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-worker
+  template:
+    metadata:
+      labels:
+        app: inferno-worker
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      containers:
+      - name: inferno-worker
+        image: {{ .Values.inferno.imageUrl }}
+        command: ["bundle", "exec", "sidekiq", "-r", "./worker.rb"]
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: inferno
+        - configMapRef:
+            name: postgresql-configmap
+        - secretRef:
+            name: postgresql-secret
+ 

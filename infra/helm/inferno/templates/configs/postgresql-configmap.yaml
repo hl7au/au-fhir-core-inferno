@@ -1,0 +1,10 @@
+# templates/postgresql-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgresql-configmap
+  namespace: {{ .Values.namespace }}
+data:
+  POSTGRES_HOST: {{ default (printf "%s-postgresql" .Release.Name | quote) (index .Values.postgresql "externaldbhost") | quote }} # Use the release name as the default host if no external db override is given
+  POSTGRES_USER: {{ .Values.postgresql.global.postgresql.auth.username | quote }}
+  POSTGRES_PORT: {{ .Values.postgresql.containerPorts.postgresql | quote }}

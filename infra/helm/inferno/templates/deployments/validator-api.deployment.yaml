@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validator-api
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: validator-api
+  template:
+    metadata:
+      labels:
+        app: validator-api
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      volumes:
+      - name: igs
+        emptyDir:
+          sizeLimit: "10M"
+      initContainers:
+      - name: copy-ig
+        image: {{ .Values.inferno.imageUrl }}
+        imagePullPolicy: Always
+        command: ["bash", "-c", "cp /opt/inferno/lib/au_core_test_kit/igs/*.tgz /home/igs"]
+        volumeMounts:
+        - name: igs
+          mountPath: /home/igs
+      containers:
+      - name: validator-api
+        image: pavelrozhkov/wrapper:6.3.11
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3500
+        volumeMounts:
+        - name: igs
+          mountPath: /home/igs
+          readOnly: true
