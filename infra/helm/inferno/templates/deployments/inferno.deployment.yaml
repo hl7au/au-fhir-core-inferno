@@ -20,11 +20,22 @@ spec:
         image: {{ .Values.inferno.imageUrl }}
         imagePullPolicy: Always
         command: ["bundle", "exec", "rake", "db:migrate"]
+        env:
+          - name: TX_SERVER_URL
+            value: {{ .Values.inferno.terminologyServer }}
+          {{- if .Values.postgresql.enabled }}
+          - name: POSTGRES_HOST
+            value: "my-inferno-postgresql"
+          - name: POSTGRES_DB
+            value: {{ .Values.postgresql.global.postgresql.auth.database | quote }}
+          - name: POSTGRES_PASSWORD
+            value: {{ .Values.postgresql.global.postgresql.auth.password | quote }}
+          - name: POSTGRES_USER
+            value: {{ .Values.postgresql.global.postgresql.auth.username | quote }}
+          - name: POSTGRES_PORT
+            value: {{ .Values.postgresql.containerPorts.postgresql | quote }}
+          {{- end }}
         envFrom:
-        - secretRef:
-            name: postgres-database
-        - configMapRef:
-            name: postgres
         - configMapRef:
             name: inferno
       containers:
@@ -34,13 +45,21 @@ spec:
         ports:
           - containerPort: 4567
         env:
-        - name: TX_SERVER_URL
-          value: {{ .Values.inferno.terminologyServer }}
+          - name: TX_SERVER_URL
+            value: {{ .Values.inferno.terminologyServer }}
+        {{- if .Values.postgresql.enabled }}
+          - name: POSTGRES_HOST
+            value: "my-inferno-postgresql"
+          - name: POSTGRES_DB
+            value: {{ .Values.postgresql.global.postgresql.auth.database | quote }}
+          - name: POSTGRES_PASSWORD
+            value: {{ .Values.postgresql.global.postgresql.auth.password | quote }}
+          - name: POSTGRES_USER
+            value: {{ .Values.postgresql.global.postgresql.auth.username | quote }}
+          - name: POSTGRES_PORT
+            value: {{ .Values.postgresql.containerPorts.postgresql | quote }}
+          {{- end }}
         envFrom:
-        - secretRef:
-            name: postgres-database
-        - configMapRef:
-            name: postgres
         - configMapRef:
             name: inferno
 
