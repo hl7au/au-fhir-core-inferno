@@ -30,8 +30,6 @@
 *.tfstate
 *.tfstate.*
 
-# Ignore providers version lock
-*.terraform.lock.hcl
 
 # Crash log files
 crash.log

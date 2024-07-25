@@ -34,7 +34,7 @@ resource "helm_release" "inferno" {
 
   set_sensitive {
     name  = "postgresql.externaldbhost"
-    value = module.rds.db_instance_endpoint
+    value = split(":", module.rds.db_instance_endpoint)[0] # rds module provides endpoint with the port but inferno expects only the hostname
   }
 
   depends_on = [
