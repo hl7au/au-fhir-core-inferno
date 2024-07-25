@@ -107,7 +107,6 @@ jobs:
     - name: Push Terraform Output to PR
       if: github.ref != 'refs/heads/main'
       uses: actions/github-script@v7
-      working-directory: ${{ env.working-dir }}
       env:
         SUMMARY: "${{ steps.tf-plan-string.outputs.summary }}"
       with:
