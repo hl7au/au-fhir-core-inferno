@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: inferno-ingress
+  namespace: {{ .Values.namespace }}
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/allow-snippet-annotations: "true"
+spec:
+  ingressClassName: {{ .Values.controller.ingressClass }}
+  tls:
+    - hosts:
+        -  {{ .Values.externalDomain }}
+      secretName: inferno-tls
+  rules:
+    - host: {{ .Values.externalDomain }}
+      http:
+        paths:
+          - path: /hl7validatorapi
+            pathType: Prefix
+            backend:
+              service:
+                name: validator-api
+                port:
+                  number: 3500
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: inferno
+                port:
+                  number: 4567

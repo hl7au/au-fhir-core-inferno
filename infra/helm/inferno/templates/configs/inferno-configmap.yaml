@@ -5,6 +5,6 @@ metadata:
   name: inferno
   namespace: {{ .Values.namespace }}
 data:
-  FHIR_RESOURCE_VALIDATOR_URL: {{ default "http://validator-api:4567" .Values.inferno.externalValidatorUrl }}
-  REDIS_URL: "redis://inferno-redis:6379"
-  RAILS_ENV: "production"
+  FHIR_RESOURCE_VALIDATOR_URL: {{ default "http://validator-api:4567" .Values.inferno.externalValidatorUrl | quote }}
+  REDIS_URL: {{ default "redis://inferno-redis:6379" .Values.inferno.redisUrl | quote }}
+  RAILS_ENV: {{ default "production" .Values.inferno.railsEnv | quote }}

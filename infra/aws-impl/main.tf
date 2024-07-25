@@ -12,29 +12,29 @@ locals {
   }
 }
 
+## Inferno Application
+resource "helm_release" "example" {
+  name             = "inferno"
+  chart            = "../helm/inferno"
+  namespace        = local.namespace
+  create_namespace = true
 
-module "inferno" {
-  # source = "./au_fhir_inferno"
-  # source = "github.com/hl7au/au-fhir-core-inferno/infra/modules/au_fhir_inferno"
-  source = "../modules/au_fhir_inferno"
+  values = [
+    file("../helm/inferno/values.yaml"),
+  ]
 
-  base_url = "https://inferno.hl7.org.au/"
-}
-
-resource "kubernetes_manifest" "ingress" {
-  for_each = { for m in local.manifests : m => "${path.module}/${m}" }
-
-  manifest = yamldecode(templatefile(each.value, {
-    namespace = local.namespace
-
-  }))
-
-  field_manager {
-    name = "ingress-${local.namespace}"
-    # force_conflicts = true
+  set_sensitive {
+    name  = "postgresql.global.postgresql.auth.username"
+    value = jsondecode(data.aws_secretsmanager_secret_version.rds.secret_string)["username"]
+  }
+  set_sensitive {
+    name  = "postgresql.global.postgresql.auth.password"
+    value = jsondecode(data.aws_secretsmanager_secret_version.rds.secret_string)["password"]
   }
 
-  depends_on = [module.inferno]
+  depends_on = [
+    module.rds,
+  ]
 }
 
 
