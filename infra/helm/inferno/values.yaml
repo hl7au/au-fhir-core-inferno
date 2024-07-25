@@ -19,7 +19,9 @@ controller:
         
 postgresql:
   enabled: false # enable if not using rds from aws-impl
-  containerPorts.postgresql: 5432
+  externaldbhost: null # This can be overridden during chart deployment
+  containerPorts:
+    postgresql: 5432
   global:
     postgresql:
       auth:

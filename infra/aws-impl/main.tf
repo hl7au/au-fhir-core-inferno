@@ -13,7 +13,7 @@ locals {
 }
 
 ## Inferno Application
-resource "helm_release" "example" {
+resource "helm_release" "inferno" {
   name             = "inferno"
   chart            = "../helm/inferno"
   namespace        = local.namespace
@@ -30,6 +30,11 @@ resource "helm_release" "example" {
   set_sensitive {
     name  = "postgresql.global.postgresql.auth.password"
     value = jsondecode(data.aws_secretsmanager_secret_version.rds.secret_string)["password"]
+  }
+
+  set_sensitive {
+    name  = "postgresql.externaldbhost"
+    value = module.rds.db_instance_endpoint
   }
 
   depends_on = [

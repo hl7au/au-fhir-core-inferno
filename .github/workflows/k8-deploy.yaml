@@ -95,7 +95,7 @@ jobs:
         echo "</details>" >> $GITHUB_OUTPUT
         echo "${delimiter}" >> $GITHUB_OUTPUT
         
-    # Publish Terraform Plan as task summary
+    # Publish Terraform Plan as task summary, fails when over 7k characters
     - name: Publish Terraform Plan to Task Summary
       working-directory: ${{ env.working-dir }}
       env:
