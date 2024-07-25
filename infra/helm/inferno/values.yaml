@@ -1,7 +1,7 @@
 externalDomain: "inferno.hl7.org.au"
 
 inferno:
-  imageUrl: "ghcr.io/hl7au/au-fhir-core-inferno:d37ffc4a2baf28ee7628d582f093ac48cb28b207"
+  imageUrl: "ghcr.io/hl7au/au-fhir-core-inferno:2d719570593f5eb6933e3c9ee8617027137b12ca"
   terminologyServer: "https://tx.dev.hl7.org.au/fhir"
   externalValidatorUrl: null  # This can be overridden during chart deployment
 
