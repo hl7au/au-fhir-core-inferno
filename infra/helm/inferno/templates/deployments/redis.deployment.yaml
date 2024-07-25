@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inferno-redis
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inferno-redis
+  template:
+    metadata:
+      labels:
+        app: inferno-redis
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      containers:
+      - name: redis
+        image: redis:7.0.5-bullseye
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 6379
+        env:
+          - name: MASTER
+            value: "true"
+        volumeMounts:
+          - mountPath: "/data"
+            name: redis-data
+      volumes:
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: redis-data

@@ -1,6 +1,7 @@
 apiVersion: v2
-name: inferno
-description: A Helm chart for Kubernetes
+name: inferno-helmd
+description: Inferno Helm Chart
+icon: hhttps://static-00.iconduck.com/assets.00/fire-icon-1513x2048-1ztytpky.png # might be too large
 
 # A chart can be either an 'application' or a 'library' chart.
 #
