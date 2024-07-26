@@ -87,6 +87,10 @@ module AUCoreTestKit
           end
       end
 
+      def use_read_instead_of_search?
+        first_search? && resource_type == 'Patient' && search_metadata[:names].first == '_id'
+      end
+
       def first_search?
         group_metadata.searches.first == search_metadata
       end

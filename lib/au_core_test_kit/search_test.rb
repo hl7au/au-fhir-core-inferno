@@ -3,12 +3,14 @@
 require_relative 'date_search_validation'
 require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
+require_relative 'read_test'
 
 module AUCoreTestKit
   module SearchTest
     extend Forwardable
     include DateSearchValidation
     include FHIRResourceNavigation
+    include ReadTest
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
@@ -84,6 +86,12 @@ module AUCoreTestKit
       # skip_if provenance_resources.empty?, no_resources_skip_message('Provenance')
     end
 
+    def skip_first_search_use_read
+      return false unless respond_to? :use_read_instead_of_search
+
+      use_read_instead_of_search == 'true'
+    end
+
     def run_search_test
       run_search_test_common(method(:perform_search))
     end
@@ -92,7 +100,16 @@ module AUCoreTestKit
       run_search_test_common(method(:perform_search_with_system))
     end
 
+    def run_read_test_and_skip_first_search(patient_id)
+        resources = get_resources_to_read_from_arr_ids([patient_id], 'Patient')
+        perform_read_test(resources)
+        info "This test was run as a read test. The search functionality is missing in this test, so the test will fail. However, the obtained data will be available."
+        assert false
+    end
+
     def perform_search(params, patient_id)
+      return run_read_test_and_skip_first_search(patient_id) if skip_first_search_use_read
+
       fhir_search(resource_type, params:)
 
       perform_search_with_status(params, patient_id) if response[:status] == 400 && possible_status_search?

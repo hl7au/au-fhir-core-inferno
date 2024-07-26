@@ -25,6 +25,10 @@ module AUCoreTestKit
         description: 'Enter the code for an Implantable Device type, or multiple codes separated by commas. '\
                     'If blank, Inferno will validate all Device resources against the Implantable Device profile',
         optional: true
+  <% end %><% if use_read_instead_of_search? %>
+      input :use_read_instead_of_search,
+      title: 'Use read instead of search?',
+      default: 'false'
   <% end %>
       def self.properties
         @properties ||= SearchTestProperties.new(
