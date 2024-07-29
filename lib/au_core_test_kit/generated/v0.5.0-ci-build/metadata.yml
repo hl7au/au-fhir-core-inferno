@@ -3641,23 +3641,7 @@
   :required_concepts: []
   :must_supports:
     :extensions: []
-    :slices:
-    - :slice_id: Immunization.vaccineCode.coding:amtVaccineCode
-      :slice_name: amtVaccineCode
-      :path: vaccineCode.coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: http://snomed.info/sct
-    - :slice_id: Immunization.vaccineCode.coding:airVaccineCode
-      :slice_name: airVaccineCode
-      :path: vaccineCode.coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
+    :slices: []
     :elements:
     - :path: status
     - :path: vaccineCode
@@ -3672,7 +3656,6 @@
   :mandatory_elements:
   - Immunization.status
   - Immunization.vaccineCode
-  - Immunization.vaccineCode.coding.system
   - Immunization.patient
   - Immunization.occurrence[x]
   - Immunization.performer.actor
@@ -3927,28 +3910,11 @@
   :required_concepts: []
   :must_supports:
     :extensions: []
-    :slices:
-    - :slice_id: Medication.code.coding:pbs
-      :slice_name: pbs
-      :path: code.coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: http://pbs.gov.au/code/item
-    - :slice_id: Medication.code.coding:amt
-      :slice_name: amt
-      :path: code.coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: http://snomed.info/sct
+    :slices: []
     :elements:
     - :path: code
   :mandatory_elements:
   - Medication.code
-  - Medication.code.coding.system
   - Medication.ingredient.item[x]
   :bindings:
   - :type: code
@@ -4115,23 +4081,7 @@
   :required_concepts: []
   :must_supports:
     :extensions: []
-    :slices:
-    - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
-      :slice_name: pbs
-      :path: medication[x].coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: http://pbs.gov.au/code/item
-    - :slice_id: MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
-      :slice_name: amt
-      :path: medication[x].coding
-      :discriminator:
-        :type: value
-        :values:
-        - :path: system
-          :value: http://snomed.info/sct
+    :slices: []
     :elements:
     - :path: status
     - :path: intent
@@ -4161,7 +4111,6 @@
   - MedicationRequest.status
   - MedicationRequest.intent
   - MedicationRequest.medication[x]
-  - MedicationRequest.medication[x].coding.system
   - MedicationRequest.subject
   - MedicationRequest.authoredOn
   - MedicationRequest.requester
