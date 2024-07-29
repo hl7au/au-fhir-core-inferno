@@ -131,23 +131,7 @@
 :required_concepts: []
 :must_supports:
   :extensions: []
-  :slices:
-  - :slice_id: Immunization.vaccineCode.coding:amtVaccineCode
-    :slice_name: amtVaccineCode
-    :path: vaccineCode.coding
-    :discriminator:
-      :type: value
-      :values:
-      - :path: system
-        :value: http://snomed.info/sct
-  - :slice_id: Immunization.vaccineCode.coding:airVaccineCode
-    :slice_name: airVaccineCode
-    :path: vaccineCode.coding
-    :discriminator:
-      :type: value
-      :values:
-      - :path: system
-        :value: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
+  :slices: []
   :elements:
   - :path: status
   - :path: vaccineCode
@@ -162,7 +146,6 @@
 :mandatory_elements:
 - Immunization.status
 - Immunization.vaccineCode
-- Immunization.vaccineCode.coding.system
 - Immunization.patient
 - Immunization.occurrence[x]
 - Immunization.performer.actor

@@ -20,8 +20,6 @@ module AUCoreTestKit
         * Immunization.primarySource
         * Immunization.status
         * Immunization.vaccineCode
-        * Immunization.vaccineCode.coding:airVaccineCode
-        * Immunization.vaccineCode.coding:amtVaccineCode
       )
 
       id :au_core_v050_ci_build_immunization_must_support_test

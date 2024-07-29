@@ -19,8 +19,6 @@ module AUCoreTestKit
         * MedicationRequest.encounter
         * MedicationRequest.intent
         * MedicationRequest.medication[x]
-        * MedicationRequest.medication[x]:medicationCodeableConcept.coding:amt
-        * MedicationRequest.medication[x]:medicationCodeableConcept.coding:pbs
         * MedicationRequest.reasonCode
         * MedicationRequest.reasonReference
         * MedicationRequest.requester

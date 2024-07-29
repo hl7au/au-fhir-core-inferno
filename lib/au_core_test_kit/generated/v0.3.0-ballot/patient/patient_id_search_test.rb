@@ -34,6 +34,24 @@ requirement of AU Core v0.3.0-ballot.
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
+      input :use_read_instead_of_search,
+            title: 'Use read instead of search?',
+            description: 'For cases when the search by _id for the Patient is not available, the search test will fail, but data from the read test will be available.',
+            type: 'radio',
+            default: 'false',
+            options: {
+              list_options: [
+                {
+                  label: 'True',
+                  value: 'true'
+                },
+                {
+                  label: 'False',
+                  value: 'false'
+                }
+              ]
+            }
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
