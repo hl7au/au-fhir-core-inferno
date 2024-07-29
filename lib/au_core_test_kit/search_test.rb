@@ -92,6 +92,12 @@ module AUCoreTestKit
       use_read_instead_of_search == 'true'
     end
 
+    def count_search_param
+      return false unless respond_to? :count_limit
+
+      count_limit === 'false' ? false : Integer(count_limit)
+    end
+
     def run_search_test
       run_search_test_common(method(:perform_search))
     end
@@ -108,7 +114,8 @@ module AUCoreTestKit
     def perform_search(params, patient_id)
       return run_read_test_and_skip_first_search(patient_id) if skip_first_search_use_read
 
-      fhir_search(resource_type, params:)
+      search_params = count_search_param == false ? params : params.merge({:_count => count_search_param})
+      fhir_search(resource_type, params: search_params)
 
       perform_search_with_status(params, patient_id) if response[:status] == 400 && possible_status_search?
 
