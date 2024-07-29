@@ -103,8 +103,6 @@ module AUCoreTestKit
     def run_read_test_and_skip_first_search(patient_id)
         resources = get_resources_to_read_from_arr_ids([patient_id], 'Patient')
         perform_read_test(resources)
-        info "This test was run as a read test. The search functionality is missing in this test, so the test will fail. However, the obtained data will be available."
-        assert false
     end
 
     def perform_search(params, patient_id)
@@ -890,6 +888,11 @@ module AUCoreTestKit
         end
 
       skip_if resources_returned.empty?, no_resources_skip_message
+
+      if skip_first_search_use_read
+        info "This test was run as a read test. The search functionality is missing in this test, so the test will fail. However, the obtained data will be available."
+        assert false
+      end
     end
   end
 end
