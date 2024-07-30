@@ -1,3 +1,16 @@
+# 0.0.11
+## AU Core Test Kit changes
+* Update 0.4.0-preview to 0.4.1-preview by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/171
+* Use gem as validation test suite by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/168
+* Add an ability to run the first search for Patient as read test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/174
+* Add optional _count search parameter by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/176
+* Update test suite sources by @projkov https://github.com/hl7au/au-fhir-core-inferno/pull/162, https://github.com/hl7au/au-fhir-core-inferno/pull/175, https://github.com/hl7au/au-fhir-core-inferno/pull/177
+## Documentation
+* 152 update pre requisites by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/169
+## Other
+* Allow direct manifests to use rds during db migration by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/173
+* Implement Helm Chart for AU FHIR Inferno with Optional NGINX Ingress and Bitnami PostgreSQL by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/167
+
 # 0.0.10
 * Add new default patient id by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/146
 * Update read tests to use Practitioner, PractitionerRole, Location, Organization by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/157
