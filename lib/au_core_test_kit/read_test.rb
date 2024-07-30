@@ -53,11 +53,15 @@ module AUCoreTestKit
 
     def get_resources_to_read_from_arr_ids(resource_ids_arr, resource_type)
       resource_ids_arr.map do |resource_id|
-        FHIR::Reference.new(
-          reference: "#{resource_type}/#{resource_id}",
-          type: resource_type
-        )
+        create_reference(resource_type, resource_id)
       end
+    end
+
+    def create_reference(resource_type, resource_id)
+      FHIR::Reference.new(
+        reference: "#{resource_type}/#{resource_id}",
+        type: resource_type
+      )
     end
 
     def readable_resources(resources)
@@ -80,6 +84,21 @@ module AUCoreTestKit
       return unless resource_to_read.is_a? FHIR::Reference
 
       all_scratch_resources << resource
+    end
+
+    def read_and_validate_as_first(resource_to_read, patient_id)
+      id = resource_id(resource_to_read)
+
+      fhir_read resource_type, id
+
+      assert_response_status(200)
+      assert_resource_type(resource_type)
+      assert resource.id.present? && resource.id == id, bad_resource_id_message(id)
+
+      return unless resource_to_read.is_a? FHIR::Reference
+
+      all_scratch_resources.concat([resource]).uniq!
+      scratch_resources_for_patient(patient_id).concat([resource]).uniq!
     end
 
     def resource_id(resource)

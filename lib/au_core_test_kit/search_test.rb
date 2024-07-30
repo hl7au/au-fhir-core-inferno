@@ -107,8 +107,8 @@ module AUCoreTestKit
     end
 
     def run_read_test_and_skip_first_search(patient_id)
-      resources = get_resources_to_read_from_arr_ids([patient_id], 'Patient')
-      perform_read_test(resources)
+      resource = create_reference('Patient', patient_id)
+      read_and_validate_as_first(resource, patient_id)
     end
 
     def perform_search(params, patient_id)
