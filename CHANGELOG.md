@@ -6,7 +6,7 @@
 * Add optional _count search parameter by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/176
 * Update test suite sources by @projkov https://github.com/hl7au/au-fhir-core-inferno/pull/162, https://github.com/hl7au/au-fhir-core-inferno/pull/175, https://github.com/hl7au/au-fhir-core-inferno/pull/177
 ## Documentation
-* 152 update pre requisites by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/169
+* Update prerequisites by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/169
 ## Other
 * Allow direct manifests to use rds during db migration by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/173
 * Implement Helm Chart for AU FHIR Inferno with Optional NGINX Ingress and Bitnami PostgreSQL by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/167
