@@ -107,20 +107,20 @@ module AUCoreTestKit
     end
 
     def run_read_test_and_skip_first_search(patient_id)
-        resources = get_resources_to_read_from_arr_ids([patient_id], 'Patient')
-        perform_read_test(resources)
+      resources = get_resources_to_read_from_arr_ids([patient_id], 'Patient')
+      perform_read_test(resources)
     end
 
     def perform_search(params, patient_id)
       return run_read_test_and_skip_first_search(patient_id) if skip_first_search_use_read
 
-      search_params = count_search_param == false ? params : params.merge({:_count => count_search_param})
+      search_params = count_search_param == false ? params : params.merge({ _count: count_search_param })
       fhir_search(resource_type, params: search_params)
 
       perform_search_with_status(params, patient_id) if response[:status] == 400 && possible_status_search?
 
       check_search_response
-
+      fetch_all_bundled_resources = count_search_param == false ? fetch_all_bundled_resources() : fetch_all_bundled_resources(max_pages: 2)
       resources_returned =
         fetch_all_bundled_resources.select { |resource| resource.resourceType == resource_type }
 
@@ -767,9 +767,7 @@ module AUCoreTestKit
       extension_elements = resource.extension.filter { |ext| ext.url == extension_url }
       extension_element = extension_elements.first
 
-      if extension_url == "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity"
-        return extension_element.extension.first.valueCodeableConcept.coding.first.code
-      end
+      return extension_element.extension.first.valueCodeableConcept.coding.first.code if extension_url == 'http://hl7.org/fhir/StructureDefinition/individual-genderIdentity'
 
       extension_element.valueCoding.code
     end
@@ -896,10 +894,10 @@ module AUCoreTestKit
 
       skip_if resources_returned.empty?, no_resources_skip_message
 
-      if skip_first_search_use_read
-        info "This test was run as a read test. The search functionality is missing in this test, so the test will fail. However, the obtained data will be available."
-        assert false
-      end
+      return unless skip_first_search_use_read
+
+      info 'This test was run as a read test. The search functionality is missing in this test, so the test will fail. However, the obtained data will be available.'
+      assert false
     end
   end
 end
