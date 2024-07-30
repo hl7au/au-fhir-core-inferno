@@ -72,7 +72,7 @@ module AUCoreTestKit
         .uniq { |resource| resource.is_a?(FHIR::Reference) ? resource.reference.split('/').last : resource.id }
     end
 
-    def read_and_validate(resource_to_read)
+    def basic_read_and_validate(resource_to_read)
       id = resource_id(resource_to_read)
 
       fhir_read resource_type, id
@@ -81,21 +81,17 @@ module AUCoreTestKit
       assert_resource_type(resource_type)
       assert resource.id.present? && resource.id == id, bad_resource_id_message(id)
 
-      return unless resource_to_read.is_a? FHIR::Reference
+      nil unless resource_to_read.is_a? FHIR::Reference
+    end
+
+    def read_and_validate(resource_to_read)
+      basic_read_and_validate(resource_to_read)
 
       all_scratch_resources << resource
     end
 
     def read_and_validate_as_first(resource_to_read, patient_id)
-      id = resource_id(resource_to_read)
-
-      fhir_read resource_type, id
-
-      assert_response_status(200)
-      assert_resource_type(resource_type)
-      assert resource.id.present? && resource.id == id, bad_resource_id_message(id)
-
-      return unless resource_to_read.is_a? FHIR::Reference
+      basic_read_and_validate(resource_to_read)
 
       all_scratch_resources.concat([resource]).uniq!
       scratch_resources_for_patient(patient_id).concat([resource]).uniq!
