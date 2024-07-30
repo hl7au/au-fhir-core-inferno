@@ -29,6 +29,39 @@ requirement of AU Core v0.4.1-preview.
       )
 
       id :au_core_v041_preview_practitioner__id_search_test
+      input :count_limit,
+            title: 'Use _count search parameter for search tests.',
+            description: 'If your server has a lot of data, you can decrease the number of resources in server responses by limiting via _count.',
+            type: 'radio',
+            default: 'false',
+            options: {
+              list_options: [
+                {
+                  label: '1',
+                  value: '1'
+                },
+                {
+                  label: '10',
+                  value: '10'
+                },
+                {
+                  label: '20',
+                  value: '20'
+                },
+                {
+                  label: '50',
+                  value: '50'
+                },
+                {
+                  label: '100',
+                  value: '100'
+                },
+                {
+                  label: 'False',
+                  value: 'false'
+                }
+              ]
+            }
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
