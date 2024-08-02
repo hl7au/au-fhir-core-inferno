@@ -87,7 +87,7 @@ module AUCoreTestKit
           end
       end
 
-      def use_read_instead_of_search?
+      def first_search_for_patient_by_patient_id
         first_search? && resource_type == 'Patient' && search_metadata[:names].first == '_id'
       end
 
@@ -252,6 +252,7 @@ module AUCoreTestKit
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?
           properties[:test_post_search] = 'true' if first_search?
+          properties[:first_search_for_patient_by_patient_id] = 'true' if first_search_for_patient_by_patient_id
         end
       end
 
