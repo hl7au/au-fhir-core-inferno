@@ -111,16 +111,39 @@ module AUCoreTestKit
       read_and_validate_as_first(resource, patient_id)
     end
 
+    def check_availability_of_count_search_parameter(resource_type, params)
+      search_params = params.merge({ _count: 10 })
+
+      fhir_search(resource_type, params: search_params)
+
+      response[:status] == 200
+    end
+
+    def is_count_available_for_resource_type?(resource_type, params)
+      resource_sym = resource_type.to_sym
+      count = scratch&.dig(:info, resource_sym, :count)
+
+      return count if count
+
+      result = check_availability_of_count_search_parameter(resource_type, params)
+
+      scratch[:info] ||= {}
+      scratch[:info][resource_sym] ||= {}
+      scratch[:info][resource_sym][:count] ||= result
+
+      result
+    end
+
     def perform_search(params, patient_id)
       return run_read_test_and_skip_first_search(patient_id) if skip_first_search_use_read
 
-      search_params = count_search_param == false ? params : params.merge({ _count: count_search_param })
+      search_params = is_count_available_for_resource_type?(resource_type, params) == false ? params : params.merge({ _count: 10 })
       fhir_search(resource_type, params: search_params)
 
       perform_search_with_status(params, patient_id) if response[:status] == 400 && possible_status_search?
 
       check_search_response
-      fetch_all_bundled_resources = count_search_param == false ? fetch_all_bundled_resources() : fetch_all_bundled_resources(max_pages: 2)
+      fetch_all_bundled_resources = is_count_available_for_resource_type?(resource_type, params) == false ? fetch_all_bundled_resources() : fetch_all_bundled_resources(max_pages: 2)
       resources_returned =
         fetch_all_bundled_resources.select { |resource| resource.resourceType == resource_type }
 
