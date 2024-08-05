@@ -87,15 +87,9 @@ module AUCoreTestKit
       # skip_if provenance_resources.empty?, no_resources_skip_message('Provenance')
     end
 
-    def search_by_patient_id_is_available(resource_type, params)
-      fhir_search(resource_type, params:)
+    def search_by_patient_id_is_available(patient_id)
+      fhir_search('Patient', params: {:_id => patient_id})
       response[:status] == 200
-    end
-
-    def count_search_param
-      return false unless respond_to? :count_limit
-
-      count_limit === 'false' ? false : Integer(count_limit)
     end
 
     def run_search_test
@@ -123,7 +117,7 @@ module AUCoreTestKit
       resource_sym = resource_type.to_sym
       count = scratch&.dig(:info, resource_sym, :count)
 
-      return count if count
+      return count if !count.nil?
 
       result = check_availability_of_count_search_parameter(resource_type, params)
 
@@ -135,8 +129,6 @@ module AUCoreTestKit
     end
 
     def perform_search(params, patient_id)
-      return run_read_test_and_skip_first_search(patient_id) if skip_first_search_use_read
-
       search_params = is_count_available_for_resource_type?(resource_type, params) == false ? params : params.merge({ _count: 10 })
       fhir_search(resource_type, params: search_params)
 
@@ -917,7 +909,7 @@ module AUCoreTestKit
         params_list.flat_map do |params|
           if first_search_for_patient_by_patient_id
             unless ability_to_search_is_checked
-              search_is_available = search_by_patient_id_is_available(resource_type, params)
+              search_is_available = search_by_patient_id_is_available(patient_id)
               ability_to_search_is_checked = true
             end
 
