@@ -20,6 +20,7 @@ module AUCoreTestKit
       test_post_search
       attr_paths
       target_identifier
+      first_search_for_patient_by_patient_id
     ].freeze
 
     ATTRIBUTES.each { |name| attr_reader name }

@@ -25,24 +25,6 @@ module AUCoreTestKit
         description: 'Enter the code for an Implantable Device type, or multiple codes separated by commas. '\
                     'If blank, Inferno will validate all Device resources against the Implantable Device profile',
         optional: true
-  <% end %><% if use_read_instead_of_search? %>
-      input :use_read_instead_of_search,
-            title: 'Use read instead of search?',
-            description: 'For cases when the search by _id for the Patient is not available, the search test will fail, but data from the read test will be available.',
-            type: 'radio',
-            default: 'false',
-            options: {
-              list_options: [
-                {
-                  label: 'True',
-                  value: 'true'
-                },
-                {
-                  label: 'False',
-                  value: 'false'
-                }
-              ]
-            }
   <% end %>
       def self.properties
         @properties ||= SearchTestProperties.new(
