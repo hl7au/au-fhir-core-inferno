@@ -78,7 +78,7 @@ module Helpers
       specified in the AU Core #{group_version} Implementation Guide.
 
       #{testing_methodology_title}
-      #{search_description(required_searches, search_param_name_string, search_validation_resource_type, for_group_description)}
+      #{search_description(required_searches, search_param_name_string, search_validation_resource_type, for_group_description, resource_type)}
 
       #{must_support_title}
       Each profile contains elements marked as "must support". This test
@@ -104,8 +104,13 @@ module Helpers
     DESCRIPTION
   end
 
-  def self.search_description(required_searches, search_param_name_string, search_validation_resource_type, for_group_description)
+  def self.search_description(required_searches, search_param_name_string, search_validation_resource_type, for_group_description, resource_type)
     return '' if required_searches.blank?
+
+    is_independant_group = ['Practitioner', 'PractitionerRole', 'Location', 'Organization'].include? resource_type
+    basic_search_parameters_text = 'The first search uses the selected patient(s) from the prior launch sequence. Any subsequent searches will look for its parameter values from the results of the first search. For example, the `identifier` search in the patient sequence is performed by looking for an existing `Patient.identifier` from any of the resources returned in the `_id` search. If a value cannot be found this way, the search is skipped.'
+    independant_search_parameters_text = 'Resources for this test group can\'t be found using patient search parameters. This means that in this particular case, the first test will be a read test, not a search. To ensure that this resource will be available for reading, please review the [prerequisites](https://github.com/hl7au/au-fhir-core-inferno/blob/master/docs/pre-requisites.md). Additionally, you can run this test group separately by using specific resource IDs.'
+    search_parameters_text = is_independant_group ? independant_search_parameters_text : basic_search_parameters_text
 
     searching_title = for_group_description ? '## Searching' : '##### Searching'
     search_parameters_title = for_group_description ? '### Search Parameters' : '###### Search Parameters'
@@ -120,12 +125,7 @@ module Helpers
       #{search_param_name_string}
 
       #{search_parameters_title}
-      The first search uses the selected patient(s) from the prior launch
-      sequence. Any subsequent searches will look for its parameter values
-      from the results of the first search. For example, the `identifier`
-      search in the patient sequence is performed by looking for an existing
-      `Patient.identifier` from any of the resources returned in the `_id`
-      search. If a value cannot be found this way, the search is skipped.
+      #{search_parameters_text}
 
       #{search_validation_title}
       Inferno will retrieve up to the first 20 bundle pages of the reply for
