@@ -11,12 +11,11 @@ description: >-
   describe features supported by the API by using the [Capability
   Statement](https://www.hl7.org/fhir/capabilitystatement.html) resource. The
   features described in the Capability Statement must be consistent with the
-  required capabilities of a AU Core server. The Capability Statement
+  required capabilities of a AU Core **Responder**. The Capability Statement
   resource allows clients to determine which resources are supported by a FHIR
   Server. Not all servers are expected to implement all possible queries and
-  data elements described in the AU Core API. For example, the AU Core
-  Implementation Guide requires that the Patient resource and only one
-  additional resource profile from the AU Core Profiles.
+  data elements described in the AU Core API. The **AU Core Responder Capability Statement** requires that
+      the Patient resource and **at least** one additional resource profile from the AU Core profiles.
 
   # Testing Methodology
 
