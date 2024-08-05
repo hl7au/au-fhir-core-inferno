@@ -106,7 +106,7 @@ module AUCoreTestKit
     end
 
     def check_availability_of_count_search_parameter(resource_type, params)
-      search_params = params.merge({ _count: 10 })
+      search_params = params.merge({ _count: 1 })
 
       fhir_search(resource_type, params: search_params)
 
