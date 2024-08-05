@@ -1,0 +1,120 @@
+---
+:name: au_core_practitioner
+:class_name: AuCorePractitionerSequence
+:version: v1.0.0-ballot
+:reformatted_version: v100_ballot
+:resource: Practitioner
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+:profile_name: AU Core Practitioner
+:profile_version: 1.0.0-ballot
+:title: Practitioner
+:short_description: Verify support for the server capabilities required by the AU
+  Core Practitioner.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - _id
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - identifier
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - name
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - Practitioner.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+  :identifier:
+    :paths:
+    - identifier
+    :full_paths:
+    - Practitioner.identifier
+    :comparators: {}
+    :values: []
+    :type: Identifier
+    :contains_multiple: true
+  :name:
+    :paths:
+    - name
+    :full_paths:
+    - Practitioner.name
+    :comparators: {}
+    :values: []
+    :type: HumanName
+    :contains_multiple: true
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: name
+  - :path: name.family
+  - :path: name.given
+:mandatory_elements:
+- Practitioner.name
+- Practitioner.name.family
+- Practitioner.qualification.code
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/name-use
+  :path: name.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/administrative-gender
+  :path: gender
+:references:
+- :path: Practitioner.qualification.issuer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+:tests:
+- :id: au_core_v100_ballot_practitioner_read_test
+  :file_name: practitioner_read_test.rb
+- :id: au_core_v100_ballot_practitioner__id_search_test
+  :file_name: practitioner_id_search_test.rb
+- :id: au_core_v100_ballot_practitioner_identifier_search_test
+  :file_name: practitioner_identifier_search_test.rb
+- :id: au_core_v100_ballot_practitioner_name_search_test
+  :file_name: practitioner_name_search_test.rb
+- :id: au_core_v100_ballot_practitioner_identifier_hpii_search_test
+  :file_name: practitioner_identifier_hpii_search_test.rb
+- :id: au_core_v100_ballot_practitioner_validation_test
+  :file_name: practitioner_validation_test.rb
+- :id: au_core_v100_ballot_practitioner_must_support_test
+  :file_name: practitioner_must_support_test.rb
+:id: au_core_v100_ballot_practitioner
+:file_name: practitioner_group.rb
+:delayed_references: []

@@ -35,12 +35,7 @@ following parameters:
 * name
 
 ### Search Parameters
-The first search uses the selected patient(s) from the prior launch
-sequence. Any subsequent searches will look for its parameter values
-from the results of the first search. For example, the `identifier`
-search in the patient sequence is performed by looking for an existing
-`Patient.identifier` from any of the resources returned in the `_id`
-search. If a value cannot be found this way, the search is skipped.
+Resources for this test group can't be found using patient search parameters. This means that in this particular case, the first test will be a read test, not a search. To ensure that this resource will be available for reading, please review the [prerequisites](https://github.com/hl7au/au-fhir-core-inferno/blob/master/docs/pre-requisites.md). Additionally, you can run this test group separately by using specific resource IDs.
 
 ### Search Validation
 Inferno will retrieve up to the first 20 bundle pages of the reply for
