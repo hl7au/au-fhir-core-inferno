@@ -136,7 +136,7 @@ module AUCoreTestKit
 
       def description
         Helpers.get_group_description_text(title, resource_type, profile_name, group_metadata.version, profile_url,
-                                           required_searches, search_param_name_string, search_validation_resource_type)
+                                           required_searches, search_param_name_string, search_validation_resource_type, resource_type)
       end
     end
   end
