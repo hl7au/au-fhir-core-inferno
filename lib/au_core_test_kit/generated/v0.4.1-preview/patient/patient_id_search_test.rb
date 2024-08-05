@@ -34,64 +34,14 @@ requirement of AU Core v0.4.1-preview.
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
-      input :use_read_instead_of_search,
-            title: 'Use read instead of search?',
-            description: 'For cases when the search by _id for the Patient is not available, the search test will fail, but data from the read test will be available.',
-            type: 'radio',
-            default: 'false',
-            options: {
-              list_options: [
-                {
-                  label: 'True',
-                  value: 'true'
-                },
-                {
-                  label: 'False',
-                  value: 'false'
-                }
-              ]
-            }
-
-      input :count_limit,
-            title: 'Use _count search parameter for search tests.',
-            description: 'If your server has a lot of data, you can decrease the number of resources in server responses by limiting via _count.',
-            type: 'radio',
-            default: 'false',
-            options: {
-              list_options: [
-                {
-                  label: '1',
-                  value: '1'
-                },
-                {
-                  label: '10',
-                  value: '10'
-                },
-                {
-                  label: '20',
-                  value: '20'
-                },
-                {
-                  label: '50',
-                  value: '50'
-                },
-                {
-                  label: '100',
-                  value: '100'
-                },
-                {
-                  label: 'False',
-                  value: 'false'
-                }
-              ]
-            }
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,
           resource_type: 'Patient',
           search_param_names: ['_id'],
           possible_status_search: true,
-          test_post_search: true
+          test_post_search: true,
+          first_search_for_patient_by_patient_id: true
         )
       end
 
