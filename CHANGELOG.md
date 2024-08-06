@@ -1,3 +1,10 @@
+# 0.0.12
+## AU Core Test Kit changes
+* Add auto _count search parameter by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/184
+* Add an ability to activate read for first _id search automatically by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/1830.0.11
+* Update description for the CapabilityStatement group by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/182
+* Update group description for Practitioner, PractitionerRole, Location, and Organization by @proj0.0.11kov in https://github.com/hl7au/au-fhir-core-inferno/pull/181
+
 # 0.0.11
 ## AU Core Test Kit changes
 * Update 0.4.0-preview to 0.4.1-preview by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/171
