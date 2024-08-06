@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    au_core_test_kit (0.0.11)
+    au_core_test_kit (0.0.12)
       inferno_core (>= 0.4.2)
       smart_app_launch_test_kit (>= 0.4.0)
       tls_test_kit (~> 0.2.0)
