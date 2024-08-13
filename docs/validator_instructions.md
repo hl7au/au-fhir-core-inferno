@@ -1,24 +1,16 @@
 # Step-by-Step Guide to Using the FHIR Resources Validator
 
-The validator is available at this [link](https://validator.fhir.org/).
-
-1. Open the Validator UI.
-![Open the Validator UI](/docs/assets/1_empty_validator.png "Open the Validator UI")
-2. Paste the FHIR resource into the validator window.
-![Paste the FHIR resource into the validator window](/docs/assets/2_validator_with_resource.png "Paste the FHIR resource into the validator window")
-3. In the Options tab, select the Implementation Guide.
-![In the Options tab, select the Implementation Guide](/docs/assets/3_select_ig.png "In the Options tab, select the Implementation Guide")
-4. Choose the specific version of the Implementation Guide.
-![Choose the specific version of the Implementation Guide](/docs/assets/4_select_ig_version.png "Choose the specific version of the Implementation Guide")
-5. Click the "Add" button.
-![Click the "Add" button](/docs/assets/5_select_ig_click_add.png "Click the 'Add' button")
-6. The Implementation Guide with the selected version should now be active.
-![The Implementation Guide with the selected version should now be active](/docs/assets/6_selected_ig.png "The Implementation Guide with the selected version should now be active")
-7. Set up the terminology server. You can use https://tx.dev.hl7.org.au/fhir. Then click "Verify."
-![Set up the terminology server. You can use https://tx.dev.hl7.org.au/fhir. Then click "Verify"](/docs/assets/7_set_terminology_server.png "Set up the terminology server. You can use https://tx.dev.hl7.org.au/fhir. Then click 'Verify'")
-8. The terminology server should now be verified.
-![The terminology server should now be verified](/docs/assets/8_terminology_server_verified.png "The terminology server should now be verified")
-9. Return to the Validate tab and click the "Validate" button.
-![Return to the Validate tab and click the "Validate" button](/docs/assets/9_validator_validate.png "Return to the Validate tab and click the 'Validate' button")
-10. The validation results will be displayed.
-![The validation results will be displayed](/docs/assets/10_validator_result.png "The validation results will be displayed")
+1. In the suites list, select the **Validation Test Suite**.
+![In the suites list, select the Validation Test Suite](/docs/assets/1_select_test_suite.png "In the suites list, select the Validation Test Suite")
+2. To run the validation, click the **RUN ALL TESTS** button.
+![To run the validation, click the RUN ALL TESTS button](/docs/assets/2_click_run_all_tests.png "To run the validation, click the RUN ALL TESTS button")
+3. A modal window will appear with an empty field for the resource data.
+![A modal window will appear with an empty field for the resource data](/docs/assets/3_empty_modal_window.png "A modal window will appear with an empty field for the resource data")
+4. Paste the resource data in JSON format, then click the **SUBMIT** button.
+![Paste the resource data in JSON format, then click the SUBMIT button](/docs/assets/4_paste_resource.png "Paste the resource data in JSON format, then click the SUBMIT button")
+5. The modal window will close, and a progress bar will appear at the bottom right corner of the application.
+![The modal window will close, and a progress bar will appear at the bottom right corner of the application](/docs/assets/5_wait_for_the_result.png "The modal window will close, and a progress bar will appear at the bottom right corner of the application")
+6. When the validation is complete, the progress bar will disappear, and a success icon will be displayed.
+![When the validation is complete, the progress bar will disappear, and a success icon will be displayed](/docs/assets/6_result.png "When the validation is complete, the progress bar will disappear, and a success icon will be displayed")
+7. By clicking on the test, you can view all the information about the resource validation.
+![By clicking on the test, you can view all the information about the resource validation](/docs/assets/7_check_details.png "By clicking on the test, you can view all the information about the resource validation")
