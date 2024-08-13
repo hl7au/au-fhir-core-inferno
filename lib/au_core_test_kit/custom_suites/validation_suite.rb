@@ -26,7 +26,7 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs 'hl7.fhir.au.core#0.4.1-preview'
+        igs 'hl7.fhir.au.core#1.0.0-ballot'
         message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         cli_context do
@@ -44,7 +44,7 @@ module AUCoreTestKit
         test from: :validation_test,
              config: {
                options: {
-                 ig_version: '0.4.1-preview'
+                 ig_version: '1.0.0-ballot'
                }
              }
       end
