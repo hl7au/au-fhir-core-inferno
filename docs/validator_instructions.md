@@ -4,10 +4,10 @@ This is a special Test Kit that provides a comfortable user experience for FHIR 
 
 The implementation guide, version, and terminology server are already configured; you just need to paste your FHIR resource in JSON format and run the Test Kit.
 
-The implementation guide is **hl7.fhir.au.core**
-The implementation guide version is **1.0.0-ballot**
-The TX server is **https://tx.dev.hl7.org.au/fhir**
-The official HL7 validator fhirCore version is: **6.3.11**
+* The implementation guide is **hl7.fhir.au.core**
+* The implementation guide version is **1.0.0-ballot**
+* The TX server is **https://tx.dev.hl7.org.au/fhir**
+* The official HL7 validator fhirCore version is: **6.3.11**
 
 1. In the suites list, select the **Validation Test Suite**.
 ![In the suites list, select the Validation Test Suite](/docs/assets/1_select_test_suite.png "In the suites list, select the Validation Test Suite")
