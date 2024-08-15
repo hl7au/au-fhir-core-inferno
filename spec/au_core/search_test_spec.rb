@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe AUCoreTestKit::SearchTest do
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v030_ballot') }
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v100_ballot') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:url) { 'http://example.com/fhir' }
@@ -138,7 +138,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
   # describe 'search with Encounter status with optional multiple-or requirement' do
   #   let(:patient_id) { '123' }
   #   let(:test_class) do
-  #     Class.new(AUCoreTestKit::AUCoreV030_BALLOT::EncounterDatePatientSearchTest) do
+  #     Class.new(AUCoreTestKit::AUCoreV100_BALLOT::EncounterDatePatientSearchTest) do
   #       fhir_client { url :url }
   #       input :url, :patient_ids
   #     end
@@ -375,7 +375,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
 
   describe '#search_param_value' do
     context 'Array element having DAR extension' do
-      let(:test_class) { AUCoreTestKit::AUCoreV030_BALLOT::PatientNameSearchTest }
+      let(:test_class) { AUCoreTestKit::AUCoreV100_BALLOT::PatientNameSearchTest }
       let(:test) { test_class.new }
       let(:search_value) { 'family_name' }
       let(:patient) do
@@ -410,7 +410,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
   # TODO: Fix it
   # describe '#perform_comparator_searches' do
   #   let(:test_class) do
-  #     Class.new(AUCoreTestKit::AUCoreV030_BALLOT::ImmunizationPatientDateSearchTest) do
+  #     Class.new(AUCoreTestKit::AUCoreV100_BALLOT::ImmunizationPatientDateSearchTest) do
   #       fhir_client { url :url }
   #       input :url
   #     end
@@ -459,7 +459,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
   # TODO: Fix it
   # describe '#test_medication_inclusion' do
   #   let(:test_class) do
-  #     Class.new(AUCoreTestKit::AUCoreV030_BALLOT::MedicationRequestPatientIntentSearchTest) do
+  #     Class.new(AUCoreTestKit::AUCoreV100_BALLOT::MedicationRequestPatientIntentSearchTest) do
   #       fhir_client { url :url }
   #       input :url
   #     end
@@ -582,7 +582,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
   # end
 
   describe '#is_reference_match' do
-    let(:test_class) { AUCoreTestKit::AUCoreV030_BALLOT::MedicationRequestPatientIntentSearchTest }
+    let(:test_class) { AUCoreTestKit::AUCoreV100_BALLOT::MedicationRequestPatientIntentSearchTest }
     let(:test) { test_class.new }
     let(:pattern_reference) { 'Medication/1' }
 

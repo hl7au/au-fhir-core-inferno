@@ -1,3 +1,7 @@
+# 0.0.13
+## AU Core Test Kit changes
+* AU Core 1.0.0-preview
+
 # 0.0.12
 ## AU Core Test Kit changes
 * Add auto _count search parameter by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/184
