@@ -168,7 +168,7 @@ module AUCoreTestKit
       return true if target_profile.blank?
 
       # NOTE: Special case: terminology server don't have a specimen v0.3.0
-      target_profile = "#{target_profile}|4.2.0-preview" if metadata.profile_version == '0.3.0-ballot' && target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
+      target_profile = "#{target_profile}|4.2.2-ballot" if target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
 
       # Only need to know if the resource is valid.
       # Calling resource_is_valid? causes validation errors to be logged.
