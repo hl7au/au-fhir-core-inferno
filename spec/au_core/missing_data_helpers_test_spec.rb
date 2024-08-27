@@ -12,28 +12,6 @@ RSpec.describe 'Missing data helpers' do
         'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path'
       ]
     },
-    "status": 'final',
-    "category": [
-      {
-        "coding": [
-          {
-            "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-            "code": 'laboratory',
-            "display": 'Laboratory'
-          }
-        ]
-      },
-      {
-        "coding": [
-          {
-            "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-            "code": 'CH',
-            "display": 'Chemistry'
-          }
-        ],
-        "text": 'Chemistry'
-      }
-    ],
     "code": {
       "coding": [
         {
@@ -44,10 +22,6 @@ RSpec.describe 'Missing data helpers' do
       ],
       "text": 'Unknown'
     },
-    "subject": {
-      "reference": 'Patient/banks-mia-leanne'
-    },
-    "effectiveDateTime": '2023-01-17',
     "valueQuantity": {
       "extension": [
         {
@@ -55,33 +29,7 @@ RSpec.describe 'Missing data helpers' do
           "valueCode": 'masked'
         }
       ]
-    },
-    "interpretation": [
-      {
-        "coding": [
-          {
-            "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
-            "code": 'H',
-            "display": 'High'
-          }
-        ]
-      }
-    ],
-    "note": [
-      {
-        "text": 'This quantity test result is suppressed'
-      }
-    ],
-    "referenceRange": [
-      {
-        "high": {
-          "value": 5.6,
-          "unit": 'mmol/L',
-          "system": 'http://unitsofmeasure.org',
-          "code": 'mmol/L'
-        }
-      }
-    ]
+    }
   }
 
   resource_content_without_dar = resource_content.dup
