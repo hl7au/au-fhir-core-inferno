@@ -42,6 +42,12 @@ module AUCoreTestKit
         checked for the presence of missing data. These tests will pass if the
         specified method of representing missing data was observed in the earlier
         tests.
+
+        These tests check the capability to support the
+        [DataAbsentReason extension](http://hl7.org/fhir/R4/extension-data-absent-reason.html),
+        and the “unknown” concept code from the [DataAbsentReason Code System](http://terminology.hl7.org/CodeSystem/data-absent-reason).
+        It is intended to support manual verification (or other testing mechanism)
+        to fully test conformance to AU Core Missing Data and Suppressed Data requirements.
       )
       run_as_group
 
