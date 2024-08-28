@@ -1,0 +1,309 @@
+---
+:name: au_core_encounter
+:class_name: AuCoreEncounterSequence
+:version: v1.0.0-ci-build
+:reformatted_version: v100_ci_build
+:resource: Encounter
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+:profile_name: AU Core Encounter
+:profile_version: 1.0.0-ci-build
+:title: Encounter
+:short_description: Verify support for the server capabilities required by the AU
+  Core Encounter.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - class
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - location
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - date
+  - patient
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - class
+  - patient
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - location
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :class:
+    :paths:
+    - class
+    :full_paths:
+    - Encounter.class
+    :comparators: {}
+    :values: []
+    :type: Coding
+    :contains_multiple: false
+  :date:
+    :paths:
+    - period
+    :full_paths:
+    - Encounter.period
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - ge1950-01-01
+    - le2050-01-01
+    :type: Period
+    :contains_multiple: false
+    :multiple_and: SHOULD
+  :location:
+    :paths:
+    - location.location
+    :full_paths:
+    - Encounter.location.location
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Encounter.status
+    :comparators: {}
+    :values:
+    - planned
+    - arrived
+    - triaged
+    - in-progress
+    - onleave
+    - finished
+    - cancelled
+    - entered-in-error
+    - unknown
+    :type: code
+    :contains_multiple: false
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Encounter.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: status
+  - :path: class
+  - :path: serviceType
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: participant
+  - :path: participant.type
+  - :path: participant.individual
+    :types:
+    - Reference
+  - :path: period
+  - :path: reasonCode
+  - :path: reasonReference
+    :types:
+    - Reference
+  - :path: location
+  - :path: location.location
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  - :path: serviceProvider
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+:mandatory_elements:
+- Encounter.status
+- Encounter.statusHistory.status
+- Encounter.statusHistory.period
+- Encounter.class
+- Encounter.classHistory.class
+- Encounter.classHistory.period
+- Encounter.subject
+- Encounter.diagnosis.condition
+- Encounter.location.location
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/encounter-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/encounter-status
+  :path: statusHistory.status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/encounter-location-status
+  :path: location.status
+:references:
+- :path: Encounter.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Encounter.episodeOfCare
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+- :path: Encounter.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+- :path: Encounter.participant.individual
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - http://hl7.org.au/fhir/StructureDefinition/au-relatedperson
+- :path: Encounter.appointment
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Appointment
+- :path: Encounter.reasonReference
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+  - http://hl7.org/fhir/StructureDefinition/Observation
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+- :path: Encounter.diagnosis.condition
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  - http://hl7.org/fhir/StructureDefinition/Procedure
+- :path: Encounter.account
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Account
+- :path: Encounter.hospitalization.origin
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Encounter.hospitalization.destination
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Encounter.location.location
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+- :path: Encounter.serviceProvider
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+- :path: Encounter.partOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter
+:tests:
+- :id: au_core_v100_ci_build_encounter_patient_search_test
+  :file_name: encounter_patient_search_test.rb
+- :id: au_core_v100_ci_build_encounter_class_search_test
+  :file_name: encounter_class_search_test.rb
+- :id: au_core_v100_ci_build_encounter_date_search_test
+  :file_name: encounter_date_search_test.rb
+- :id: au_core_v100_ci_build_encounter_location_search_test
+  :file_name: encounter_location_search_test.rb
+- :id: au_core_v100_ci_build_encounter_status_search_test
+  :file_name: encounter_status_search_test.rb
+- :id: au_core_v100_ci_build_encounter_date_patient_search_test
+  :file_name: encounter_date_patient_search_test.rb
+- :id: au_core_v100_ci_build_encounter_class_patient_search_test
+  :file_name: encounter_class_patient_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_location_search_test
+  :file_name: encounter_patient_location_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_status_search_test
+  :file_name: encounter_patient_status_search_test.rb
+- :id: au_core_v100_ci_build_encounter_date_multiple_and_search_test
+  :file_name: encounter_date_multiple_and_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_chain_search_test
+  :file_name: encounter_patient_chain_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_ihi_chain_search_test
+  :file_name: encounter_patient_ihi_chain_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_medicare_chain_search_test
+  :file_name: encounter_patient_medicare_chain_search_test.rb
+- :id: au_core_v100_ci_build_encounter_patient_dva_chain_search_test
+  :file_name: encounter_patient_dva_chain_search_test.rb
+- :id: au_core_v100_ci_build_encounter_read_test
+  :file_name: encounter_read_test.rb
+- :id: au_core_v100_ci_build_encounter_validation_test
+  :file_name: encounter_validation_test.rb
+- :id: au_core_v100_ci_build_encounter_must_support_test
+  :file_name: encounter_must_support_test.rb
+- :id: au_core_v100_ci_build_encounter_reference_resolution_test
+  :file_name: encounter_reference_resolution_test.rb
+:id: au_core_v100_ci_build_encounter
+:file_name: encounter_group.rb
+:delayed_references:
+- :path: participant.individual
+  :resources:
+  - Practitioner
+  - PractitionerRole
+- :path: location.location
+  :resources:
+  - Location
+- :path: serviceProvider
+  :resources:
+  - Organization
