@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Helpers
+  DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
+  DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+
   def self.multiple_test_description(multiple_type, conformance_expectation, search_param_name_string, resource_type, url_version)
     multiple_type_str = multiple_type == 'OR' ? 'multipleOr' : 'multipleAnd' 
     <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
@@ -202,5 +205,19 @@ module Helpers
 
   def self.default_patient_ids_string
     'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
+  end
+
+  def self.check_for_dar(resource)
+    resource.each_element do |element, _meta, path|
+      next unless element.is_a?(FHIR::Coding)
+
+      return true if element.code == 'unknown' && element.system == DAR_CODE_SYSTEM_URL
+    end
+
+    false
+  end
+
+  def self.check_for_dar_extension(resource)
+    return resource.source_contents&.include? DAR_EXTENSION_URL
   end
 end
