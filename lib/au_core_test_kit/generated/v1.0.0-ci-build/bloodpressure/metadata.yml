@@ -1,0 +1,373 @@
+---
+:name: au_core_bloodpressure
+:class_name: AuCoreBloodpressureSequence
+:version: v1.0.0-ci-build
+:reformatted_version: v100_ci_build
+:resource: Observation
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+:profile_name: AU Core Blood Pressure
+:profile_version: 1.0.0-ci-build
+:title: Observation Blood Pressure
+:short_description: Verify support for the server capabilities required by the AU
+  Core Blood Pressure.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+- :code: delete
+  :expectation: MAY
+- :code: vread
+  :expectation: MAY
+- :code: patch
+  :expectation: MAY
+- :code: history-instance
+  :expectation: MAY
+:operations: []
+:searches:
+- :expectation: SHALL
+  :names:
+  - patient
+  - code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - category
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :category:
+    :paths:
+    - category
+    :full_paths:
+    - Observation.category
+    :comparators: {}
+    :values:
+    - vital-signs
+    :type: CodeableConcept
+    :contains_multiple: true
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Observation.code
+    :comparators: {}
+    :values:
+    - 85354-9
+    - '75367002'
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
+  :date:
+    :paths:
+    - effective
+    :full_paths:
+    - Observation.effective
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - ge1950-01-01
+    - le2050-01-01
+    :type: date
+    :contains_multiple: false
+    :multiple_and: SHOULD
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Observation.status
+    :comparators: {}
+    :values:
+    - registered
+    - preliminary
+    - final
+    - amended
+    - corrected
+    - cancelled
+    - entered-in-error
+    - unknown
+    :type: code
+    :contains_multiple: false
+    :multiple_or: SHALL
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Observation.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices:
+  - :slice_id: Observation.category:VSCat
+    :slice_name: VSCat
+    :path: category
+    :discriminator:
+      :type: value
+      :values:
+      - :path: coding.code
+        :value: vital-signs
+      - :path: coding.system
+        :value: http://terminology.hl7.org/CodeSystem/observation-category
+  - :slice_id: Observation.component:SystolicBP
+    :slice_name: SystolicBP
+    :path: component
+    :discriminator:
+      :type: value
+      :values:
+      - :path: code.coding.code
+        :value: 8480-6
+      - :path: code.coding.system
+        :value: http://loinc.org
+  - :slice_id: Observation.component:DiastolicBP
+    :slice_name: DiastolicBP
+    :path: component
+    :discriminator:
+      :type: value
+      :values:
+      - :path: code.coding.code
+        :value: 8462-4
+      - :path: code.coding.system
+        :value: http://loinc.org
+  :elements:
+  - :path: status
+  - :path: category
+  - :path: category:VSCat.coding
+  - :path: category:VSCat.coding.system
+    :fixed_value: http://terminology.hl7.org/CodeSystem/observation-category
+  - :path: category:VSCat.coding.code
+    :fixed_value: vital-signs
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: effective[x]
+  - :path: component
+  - :path: component.code
+  - :path: component.value[x]
+  - :path: component.dataAbsentReason
+  - :path: component:SystolicBP.code
+  - :path: component:SystolicBP.value[x]
+  - :path: component:SystolicBP.value[x].value
+  - :path: component:SystolicBP.value[x].unit
+  - :path: component:SystolicBP.value[x].system
+    :fixed_value: http://unitsofmeasure.org
+  - :path: component:SystolicBP.value[x].code
+    :fixed_value: mm[Hg]
+  - :path: component:SystolicBP.dataAbsentReason
+  - :path: component:DiastolicBP.code
+  - :path: component:DiastolicBP.value[x]
+  - :path: component:DiastolicBP.value[x].value
+  - :path: component:DiastolicBP.value[x].unit
+  - :path: component:DiastolicBP.value[x].system
+    :fixed_value: http://unitsofmeasure.org
+  - :path: component:DiastolicBP.value[x].code
+    :fixed_value: mm[Hg]
+  - :path: component:DiastolicBP.dataAbsentReason
+:mandatory_elements:
+- Observation.status
+- Observation.category
+- Observation.category.coding
+- Observation.category.coding.system
+- Observation.category.coding.code
+- Observation.code
+- Observation.code.coding
+- Observation.code.coding.system
+- Observation.code.coding.code
+- Observation.subject
+- Observation.effective[x]
+- Observation.component
+- Observation.component.code
+- Observation.component.code.coding
+- Observation.component.code.coding.system
+- Observation.component.code.coding.code
+- Observation.component.value[x].value
+- Observation.component.value[x].unit
+- Observation.component.value[x].system
+- Observation.component.value[x].code
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/observation-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+  :path: component.value.comparator
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+  :path: component.value.comparator
+:references:
+- :path: Observation.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - http://hl7.org/fhir/StructureDefinition/DeviceRequest
+  - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - http://hl7.org/fhir/StructureDefinition/NutritionOrder
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+- :path: Observation.partOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+  - http://hl7.org/fhir/StructureDefinition/MedicationDispense
+  - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+  - http://hl7.org/fhir/StructureDefinition/Procedure
+  - http://hl7.org/fhir/StructureDefinition/Immunization
+  - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+- :path: Observation.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Observation.focus
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource
+- :path: Observation.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter
+- :path: Observation.performer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :path: Observation.specimen
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Specimen
+- :path: Observation.device
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Device
+  - http://hl7.org/fhir/StructureDefinition/DeviceMetric
+- :path: Observation.hasMember
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+  - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  - http://hl7.org/fhir/StructureDefinition/vitalsigns
+- :path: Observation.derivedFrom
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+  - http://hl7.org/fhir/StructureDefinition/Media
+  - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+  - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  - http://hl7.org/fhir/StructureDefinition/vitalsigns
+:tests:
+- :id: au_core_v100_ci_build_bloodpressure_patient_code_search_test
+  :file_name: bloodpressure_patient_code_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_category_search_test
+  :file_name: bloodpressure_category_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_code_search_test
+  :file_name: bloodpressure_code_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_date_search_test
+  :file_name: bloodpressure_date_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_status_search_test
+  :file_name: bloodpressure_status_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_search_test
+  :file_name: bloodpressure_patient_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_category_search_test
+  :file_name: bloodpressure_patient_category_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_category_date_search_test
+  :file_name: bloodpressure_patient_category_date_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_category_status_search_test
+  :file_name: bloodpressure_patient_category_status_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_code_date_search_test
+  :file_name: bloodpressure_patient_code_date_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_code_multiple_or_search_test
+  :file_name: bloodpressure_code_multiple_or_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_status_multiple_or_search_test
+  :file_name: bloodpressure_status_multiple_or_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_date_multiple_and_search_test
+  :file_name: bloodpressure_date_multiple_and_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_chain_search_test
+  :file_name: bloodpressure_patient_chain_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_ihi_chain_search_test
+  :file_name: bloodpressure_patient_ihi_chain_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_medicare_chain_search_test
+  :file_name: bloodpressure_patient_medicare_chain_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_patient_dva_chain_search_test
+  :file_name: bloodpressure_patient_dva_chain_search_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_read_test
+  :file_name: bloodpressure_read_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_validation_test
+  :file_name: bloodpressure_validation_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_must_support_test
+  :file_name: bloodpressure_must_support_test.rb
+- :id: au_core_v100_ci_build_bloodpressure_reference_resolution_test
+  :file_name: bloodpressure_reference_resolution_test.rb
+:id: au_core_v100_ci_build_bloodpressure
+:file_name: bloodpressure_group.rb
+:delayed_references: []

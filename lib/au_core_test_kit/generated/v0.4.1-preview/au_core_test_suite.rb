@@ -5,6 +5,7 @@ require 'inferno/dsl/oauth_credentials'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/smart_app_launch_group'
+require_relative '../../custom_groups/missing_data_group'
 require_relative '../../au_core_options'
 require_relative '../../helpers'
 
@@ -148,6 +149,8 @@ module AUCoreTestKit
         group from: :au_core_v041_preview_practitioner
 
         group from: :au_core_v041_preview_practitioner_role
+
+        group from: :au_core_missing_data_group
       end
     end
   end
