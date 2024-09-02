@@ -220,4 +220,8 @@ module Helpers
   def self.check_for_dar_extension(resource)
     return resource.source_contents&.include? DAR_EXTENSION_URL
   end
+
+  def self.is_message_exist_in_list(message_list, message)
+    message_list.any? { |list_message| message.include? list_message }
+  end
 end
