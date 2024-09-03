@@ -8,6 +8,7 @@ require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../custom_groups/missing_data_group'
 require_relative '../../au_core_options'
 require_relative '../../helpers'
+require_relative '../../constants'
 
 require_relative 'patient_group'
 require_relative 'bodyweight_group'
@@ -44,15 +45,6 @@ module AUCoreTestKit
       )
       version VERSION
 
-      VALIDATION_MESSAGE_FILTERS = [
-        %r{Sub-extension url 'introspect' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
-        %r{Sub-extension url 'revoke' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
-        /Observation\.effective\.ofType\(Period\): .*vs-1:/, # Invalid invariant in FHIR v4.0.1
-        /Observation\.effective\.ofType\(Period\): .*us-core-1:/, # Invalid invariant in AU Core v3.1.1
-        /Provenance.agent\[\d*\]: Rule provenance-1/, # Invalid invariant in AU Core v5.0.1
-        /\A\S+: \S+: URL value '.*' does not resolve/
-      ].freeze
-
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
       def self.metadata
@@ -63,7 +55,7 @@ module AUCoreTestKit
 
       fhir_resource_validator do
         igs 'hl7.fhir.au.core#0.4.1-preview'
-        message_filters = VALIDATION_MESSAGE_FILTERS + VERSION_SPECIFIC_MESSAGE_FILTERS
+        message_filters = Constants.validation_message_filters + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
@@ -71,7 +63,7 @@ module AUCoreTestKit
         end
 
         exclude_message do |message|
-          message_filters.any? { |filter| filter.match? message.message }
+          Helpers.is_message_exist_in_list(message_filters, message.message)
         end
 
         perform_additional_validation do |resource, _profile_url|
