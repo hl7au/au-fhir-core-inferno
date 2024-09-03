@@ -8,7 +8,7 @@ Documented changes do not include:
 2. Renamed files;
 3. Renamed content inside of files.
 
-## 1/12
+## 1/25
 **File:** [generator.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb)
 
 ### Adding the MDSummaryGenerator and using it in the generator workflow.
@@ -19,7 +19,7 @@ Documented changes do not include:
 1. [Insert generator into the generator pipeline at the end](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb#L46)
 2. [Add a method to run MDSummaryGenerator](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator.rb#L99)
 
-## 2/12
+## 2/25
 **File:** [group_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/group_metadata_extractor.rb)
 ### Updated the "ALL_VERSION_CATEGORY_FIRST_PROFILES" constant
 
@@ -67,7 +67,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/group_metadata_extractor.rb#L174
 
-## 3/12
+## 3/25
 **File:** [ig_loader.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_loader.rb)
 
 ### Updated the load_ig method
@@ -78,7 +78,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_loader.rb#L53
 
-## 4/12
+## 4/25
 **File:** [ig_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_metadata_extractor.rb)
 
 ### Updated the add_metadata_from_resources method
@@ -89,7 +89,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_metadata_extractor.rb#L63
 
-## 5/12
+## 5/25
 **File:** [ig_resources.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_resources.rb)
 
 ### Updated the search_param_by_resource_and_name method
@@ -100,7 +100,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/ig_resources.rb#L93
 
-## 6/12
+## 6/25
 **File:** [must_support_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb)
 
 ### Updated the handle_special_cases method by adding new remove_observation_method_attribute method
@@ -127,7 +127,7 @@ Documented changes do not include:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb#L337
 2. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/must_support_metadata_extractor.rb#L353
 
-## 7/12
+## 7/25
 **File**: [must_support_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/must_support_test.rb)
 
 ### Updated the missing_extensions method
@@ -136,7 +136,7 @@ Documented changes do not include:
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/must_support_test.rb#L87
 
-## 8/12
+## 8/25
 **File**: [naming.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/naming.rb)
 
 ### Updated naming constants
@@ -147,7 +147,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/naming.rb#L4
 
-## 9/12
+## 9/25
 **File**: [reference_resolution_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/reference_resolution_test.rb)
 
 ### Add a hardcoded profile with the version for the reference resolution
@@ -156,7 +156,7 @@ Documented changes do not include:
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/reference_resolution_test.rb#L162
 
-## 10/12
+## 10/25
 **File**: [special_cases.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/special_cases.rb)
 
 ### Add RelatedPerson to constant called RESOURCES_TO_EXCLUDE
@@ -165,7 +165,7 @@ Documented changes do not include:
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/special_cases.rb#L8
 
-## 11/12
+## 11/25
 **File**: [search_definition_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb)
 
 ### full_paths method refactoring
@@ -188,7 +188,7 @@ Documented changes do not include:
 **Detailed changes**:
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_definition_metadata_extractor.rb#L182
 
-## 12/12
+## 12/25
 **File**: [search_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/search_test.rb)
 
 ### run_provenance_revinclude_search_test method update
@@ -198,7 +198,7 @@ Documented changes do not include:
 **Commit message:**
 1. https://github.com/hl7au/au-fhir-core-inferno/commit/2077b3e9c16a3562add7d56640c506df00893154
 
-## 13/13
+## 13/25
 **File**: [search_metadata_extractor.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/search_metadata_extractor.rb)
 
 ### basic_searches method update
@@ -214,3 +214,154 @@ Documented changes do not include:
 
 **Detailed changes:**
 1. https://github.com/hl7au/au-fhir-core-inferno/blob/74d586fc1ae5d73109371053f5a949bb9a34ebb2/lib/au_core_test_kit/generator/search_metadata_extractor.rb#L52
+
+## 14/25
+
+### Chained search test
+
+**Files:**
+
+* [chain_search_test_generator.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/chain_search_test_generator.rb)
+* [templates/chain_search.rb.erb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/templates/chain_search.rb.erb)
+* [chained_search_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/chained_search_test.rb)
+
+**Reason:** Support chain search for identifiers. This feature was implemented from zero.
+
+## 15/25
+
+### Add conformance expectation prefix for all read/search tests
+
+**Reason:** The US Core test kit doesn't create tests for MAY expectations. In this case, it is clear to the user that all required read/search tests have SHALL expectations, while those that are not necessary have SHOULD expectations.
+
+For the AU Core, we decided to create tests for MAY expectations. In this case, it is unclear which expectations are SHOULD and which are MAY, because none of them are required. To provide more clarity for the user, we decided to use prefixes with the expectations.
+
+**Detailed changes**
+https://github.com/hl7au/au-fhir-core-inferno/commit/658cf26403088e6843e317d717dfd059953af0b3
+
+## 16/25
+### Update FHIR version test
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/95
+
+**Reason:** This problem is related to the FHIR client. If there is no value in the CapabilityStatement, it defaults to R4. Additionally, the resource may not be a CapabilityStatement. We fixed this by adding a status check and verifying the resource type.
+
+**Detailed changes**
+https://github.com/hl7au/au-fhir-core-inferno/commit/2d3c7de2432e896c563308a91868f8f91f7bd577
+
+## 17/25
+
+### Update optional? method
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/47
+
+**Reason:** The method optional? returns either true or false for read/search tests. In our case, it doesn't work correctly out of the box because it considers not only the expectations from the CapabilityStatement but also the must_support_or_mandatory data generated by the metadata generator.
+
+We decided to use only the expectations.
+
+
+**Detailed changes:**
+https://github.com/hl7au/au-fhir-core-inferno/commit/f5d4d6b383324ee5af156646125cafcfa0963069
+
+## 18/25
+
+### Multiple OR search tests
+
+**Files:**
+* [multiple_or_search_test_generator.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/multiple_or_search_test_generator.rb)
+* [templates/multiple_or_search.rb.erb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/templates/multiple_or_search.rb.erb)
+* [search_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/9bbb183e80e26f1b3767bbdc562c89c1b65f2400/lib/au_core_test_kit/search_test.rb#L420)
+
+**Reason:** Because the functionality for multiple *OR* searches is not implemented out of the box, we decided to implement it.
+
+### Multiple AND search tests
+
+**Files:**
+* [multiple_and_search_test_generator.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/multiple_and_search_test_generator.rb)
+* [templates/multiple_and_search.rb.erb](https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/templates/multiple_and_search.rb.erb)
+* [search_test.rb](https://github.com/hl7au/au-fhir-core-inferno/blob/9bbb183e80e26f1b3767bbdc562c89c1b65f2400/lib/au_core_test_kit/search_test.rb#L420)
+
+**Reason:** Because the functionality for multiple *AND* searches is not implemented out of the box, we decided to implement it.
+
+## 19/25
+
+### Use the read test as the first test for the Patient test group instead of the search.
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/163
+
+**Reason:** The default implementation of the suite is patient-centric, requiring users to use patient IDs to retrieve patient-related data. Initially, patient data was retrieved by searching for the patient using the _id parameter. However, some FHIR server implementations do not support searching for patients by _id, but do support the read interaction. We decided to add the ability to use the read interaction instead of search for the initial patient retrieval. The test will still fail, but the data will be retrieved.
+
+**Detailed changes:**
+* https://github.com/hl7au/au-fhir-core-inferno/blob/9bbb183e80e26f1b3767bbdc562c89c1b65f2400/lib/au_core_test_kit/search_test.rb#L902
+* https://github.com/hl7au/au-fhir-core-inferno/blob/9bbb183e80e26f1b3767bbdc562c89c1b65f2400/lib/au_core_test_kit/search_test.rb#L103
+
+
+## 20/25
+
+### Add search by DVA, IHI, Medicare, HPI-I, HPI-O, ABN
+
+**Reason:** Search by identifier works fine out of the box. However, in the case of AU Core, specific identifiers are important. We decided to implement a separate search for each specific identifier.
+
+**Detailed changes:**
+* https://github.com/hl7au/au-fhir-core-inferno/blob/9bbb183e80e26f1b3767bbdc562c89c1b65f2400/lib/au_core_test_kit/generator/special_cases.rb#L13
+* https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/special_identifier_search_test_generator.rb
+* https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/generator/templates/special_identifier_search.rb.erb
+
+## 21/25
+
+### Read all resource to read instead of single resource
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/144
+
+**Reason:** By default, the US Core suite reads only a single resource retrieved from the first search. This was problematic in our case, as we didn't get all the data needed for subsequent tests. We decided to read all resources instead of just one.
+
+**Detailed changes:**
+https://github.com/hl7au/au-fhir-core-inferno/commit/17fe0e968c9963eaa3cd97647d000a685d0fca08
+
+## 22/25
+
+### Add suite for resource validation
+
+**Reason:** Implementers need a tool to validate resources conveniently, without the need to manually set up the IG, IG version, TX server, etc. This suite was implemented to address that need. Users don't need to configure the validator—it's already set up.
+
+**Files:**
+* https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/custom_suites/validation_suite.rb
+* https://github.com/beda-software/validation-test-kit/blob/main/lib/validation_test_kit/validation_test.rb
+
+## 23/25
+
+### Use specific HL7 validator wrapper build
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/110
+
+**Reason:** Inferno removed its specific validator wrapper and started using the official version. However, the official wrapper was not updated to the latest validator core, which caused problems. We decided to use a custom build with the core version that works for us.
+
+**Detailed changes:**
+https://github.com/hl7au/au-fhir-core-inferno/commit/9c31f98a1b4837085efd6401dd15eb5f5f3d5c63
+
+## 24/25
+
+### Add test to check for support XML by Capability Statement
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/97
+
+**Reason:** According to the IG, the responder SHOULD support XML. We decide to add this test.
+
+**File:**
+https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/custom_groups/capability_statement/xml_support_test.rb
+
+## 25/25
+
+### Change test to check missing data
+
+**Issue:** https://github.com/hl7au/au-fhir-core-inferno/issues/151
+**Reason:** This check consists of two steps in us-core:
+1. Check each element of the resource for the DAR code:
+This involves iterating through each element of the resource. If an element is identified as an FHIR Coding element, it will be sent to a method that checks whether the coding.code is equal to 'unknown' and the coding.system is equal to DAR_CODE_SYSTEM. If both conditions are met, the test sets a global variable related to code to TRUE, indicating that the DAR code test is successful.
+2. Check the entire resource for the presence of the DAR extension:
+This step involves checking if the DAR extension URL is present in the resource. If found, the test sets the global variable related to an extension to TRUE, indicating that the DAR extension test is successful.
+
+To pass this test, only a single resource with DAR is required.
+
+We decided to change the default behavior of the test. Our implementation now checks all resources from previous tests and notifies the user about which resources have DAR core or DAR extensions.
+
+**File:**
+https://github.com/beda-software/validation-test-kit/blob/main/lib/validation_test_kit/validation_test.rb
