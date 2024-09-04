@@ -69,7 +69,8 @@ module AUCoreTestKit
           profiles.each do |profile|
             resource_type_key_string = "#{profile}_resources"
             resources = scratch[resource_type_key_string.to_sym] || {}
-            all_resources = Helpers.return_uniq_list_resources_by_id(resources[:all] || [])
+            all_resources = resources[:all] || []
+            all_resources = Helpers.return_uniq_list_resources(all_resources)
             next unless all_resources.count.positive?
 
             all_resources.each do |resource|

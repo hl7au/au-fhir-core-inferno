@@ -94,10 +94,11 @@ RSpec.describe 'Missing data helpers' do
     resources = [
       FHIR::Condition.new({ "id": 'condition-1' }),
       FHIR::Condition.new({ "id": 'condition-1' }),
+      FHIR::Condition.new({ "id": 'condition-2' }),
       FHIR::Patient.new({ "id": 'condition-1' })
     ]
 
-    result = Helpers.return_uniq_list_resources_by_id(
+    result = Helpers.return_uniq_list_resources(
       resources
     ).sort_by(
       &:resourceType
@@ -105,7 +106,7 @@ RSpec.describe 'Missing data helpers' do
       &:resourceType
     )
 
-    expect(result.count).to eq(2)
-    expect(result).to eq(%w[Condition Patient])
+    expect(result.count).to eq(3)
+    expect(result).to eq(%w[Condition Condition Patient])
   end
 end

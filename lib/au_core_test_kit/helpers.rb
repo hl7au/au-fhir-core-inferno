@@ -221,8 +221,8 @@ module Helpers
     return resource.source_contents&.include? DAR_EXTENSION_URL
   end
 
-  def self.return_uniq_list_resources_by_id(resource_list)
-    return resource_list.uniq { |resource| resource.id && resource.resourceType}
+  def self.return_uniq_list_resources(resource_list)
+    return resource_list.uniq
   end
 
   def self.is_message_exist_in_list(message_list, message)
