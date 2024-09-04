@@ -36,6 +36,10 @@ RSpec.describe 'Missing data helpers' do
   resource_content_without_dar.delete(:valueQuantity)
   resource_content_without_dar.delete(:code)
 
+  resource_content_masked = resource_content.dup
+  resource_content_masked[:code][:coding][0][:code] = 'masked'
+  resource_content_masked[:code][:coding][0][:display] = 'Masked'
+
   it 'Should return true when DAR extension is exist in the resource' do
     expect(
       Helpers.check_for_dar_extension(
@@ -74,5 +78,34 @@ RSpec.describe 'Missing data helpers' do
         )
       )
     ).to eq(false)
+  end
+
+  it 'Should return true when DAR code (masked) is exist in the resource' do
+    expect(
+      Helpers.check_for_dar(
+        FHIR::Observation.new(
+          resource_content_masked
+        )
+      )
+    ).to eq(true)
+  end
+
+  it 'Should correct filter resources by id' do
+    resources = [
+      FHIR::Condition.new({ "id": 'condition-1' }),
+      FHIR::Condition.new({ "id": 'condition-1' }),
+      FHIR::Patient.new({ "id": 'condition-1' })
+    ]
+
+    result = Helpers.return_uniq_list_resources_by_id(
+      resources
+    ).sort_by(
+      &:resourceType
+    ).map(
+      &:resourceType
+    )
+
+    expect(result.count).to eq(2)
+    expect(result).to eq(%w[Condition Patient])
   end
 end

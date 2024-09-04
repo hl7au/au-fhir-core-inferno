@@ -211,7 +211,7 @@ module Helpers
     resource.each_element do |element, _meta, path|
       next unless element.is_a?(FHIR::Coding)
 
-      return true if element.code == 'unknown' && element.system == DAR_CODE_SYSTEM_URL
+      return true if (element.code == 'masked' || element.code == 'unknown') && element.system == DAR_CODE_SYSTEM_URL
     end
 
     false
@@ -219,6 +219,10 @@ module Helpers
 
   def self.check_for_dar_extension(resource)
     return resource.source_contents&.include? DAR_EXTENSION_URL
+  end
+
+  def self.return_uniq_list_resources_by_id(resource_list)
+    return resource_list.uniq { |resource| resource.id && resource.resourceType}
   end
 
   def self.is_message_exist_in_list(message_list, message)
