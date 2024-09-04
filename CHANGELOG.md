@@ -1,3 +1,13 @@
+# 0.0.14
+## AU Core Test Kit changes
+* Update target_profile modification for au-specimen by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/194
+* Add missing data tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/195
+* Add validator messages filter by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/202
+## Documentation
+* Update us_core_diffs.md by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/198
+## Other
+* remove old manifest implementation and update ngnix dependency by @KyleOps in https://github.com/hl7au/au-fhir-core-inferno/pull/188
+
 # 0.0.13
 ## AU Core Test Kit changes
 * AU Core 1.0.0-preview
