@@ -34,16 +34,6 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - effective
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - status
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -57,6 +47,38 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - MedicationStatement.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - MedicationStatement.status
+    :comparators: {}
+    :values:
+    - active
+    - completed
+    - entered-in-error
+    - intended
+    - stopped
+    - on-hold
+    - unknown
+    - not-taken
+    :type: code
+    :contains_multiple: false
   :effective:
     :paths:
     - effective
@@ -75,38 +97,6 @@
     :values: []
     :type: date
     :contains_multiple: false
-  :status:
-    :paths:
-    - status
-    :full_paths:
-    - MedicationStatement.status
-    :comparators: {}
-    :values:
-    - active
-    - completed
-    - entered-in-error
-    - intended
-    - stopped
-    - on-hold
-    - unknown
-    - not-taken
-    :type: code
-    :contains_multiple: false
-  :patient:
-    :paths:
-    - subject
-    :full_paths:
-    - MedicationStatement.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
 :include_params:
 - MedicationStatement:medication
 :revincludes:
@@ -208,10 +198,6 @@
 :tests:
 - :id: au_core_v030_ballot_medication_statement_patient_search_test
   :file_name: medication_statement_patient_search_test.rb
-- :id: au_core_v030_ballot_medication_statement_effective_search_test
-  :file_name: medication_statement_effective_search_test.rb
-- :id: au_core_v030_ballot_medication_statement_status_search_test
-  :file_name: medication_statement_status_search_test.rb
 - :id: au_core_v030_ballot_medication_statement_patient_status_search_test
   :file_name: medication_statement_patient_status_search_test.rb
 - :id: au_core_v030_ballot_medication_statement_patient_effective_search_test

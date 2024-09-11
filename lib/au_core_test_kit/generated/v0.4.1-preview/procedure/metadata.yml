@@ -34,21 +34,6 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - code
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - date
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - status
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -69,16 +54,21 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
-  :code:
+  :patient:
     :paths:
-    - code
+    - subject
     :full_paths:
-    - Procedure.code
+    - Procedure.subject
     :comparators: {}
     :values: []
-    :type: CodeableConcept
+    :type: Reference
     :contains_multiple: false
-    :multiple_or: SHOULD
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
   :date:
     :paths:
     - performed
@@ -97,6 +87,16 @@
     :values: []
     :type: date
     :contains_multiple: false
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Procedure.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
   :status:
     :paths:
     - status
@@ -115,21 +115,6 @@
     :type: code
     :contains_multiple: false
     :multiple_or: SHALL
-  :patient:
-    :paths:
-    - subject
-    :full_paths:
-    - Procedure.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
 :include_params: []
 :revincludes: []
 :required_concepts: []
@@ -232,12 +217,6 @@
 :tests:
 - :id: au_core_v041_preview_procedure_patient_search_test
   :file_name: procedure_patient_search_test.rb
-- :id: au_core_v041_preview_procedure_code_search_test
-  :file_name: procedure_code_search_test.rb
-- :id: au_core_v041_preview_procedure_date_search_test
-  :file_name: procedure_date_search_test.rb
-- :id: au_core_v041_preview_procedure_status_search_test
-  :file_name: procedure_status_search_test.rb
 - :id: au_core_v041_preview_procedure_patient_date_search_test
   :file_name: procedure_patient_date_search_test.rb
 - :id: au_core_v041_preview_procedure_patient_code_date_search_test

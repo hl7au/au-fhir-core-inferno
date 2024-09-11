@@ -34,27 +34,6 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - category
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - clinical-status
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - code
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - onset-date
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - onset-date
-  :must_support_or_mandatory: false
 - :expectation: SHALL
   :names:
   - patient
@@ -88,6 +67,21 @@
   - onset-date
   :must_support_or_mandatory: false
 :search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Condition.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
   :category:
     :paths:
     - category
@@ -144,21 +138,6 @@
     :type: date
     :contains_multiple: false
     :multiple_and: SHOULD
-  :patient:
-    :paths:
-    - subject
-    :full_paths:
-    - Condition.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
 :include_params: []
 :revincludes:
 - Provenance:target
@@ -236,14 +215,6 @@
 :tests:
 - :id: au_core_v030_ballot_condition_patient_search_test
   :file_name: condition_patient_search_test.rb
-- :id: au_core_v030_ballot_condition_category_search_test
-  :file_name: condition_category_search_test.rb
-- :id: au_core_v030_ballot_condition_clinical_status_search_test
-  :file_name: condition_clinical_status_search_test.rb
-- :id: au_core_v030_ballot_condition_code_search_test
-  :file_name: condition_code_search_test.rb
-- :id: au_core_v030_ballot_condition_onset_date_search_test
-  :file_name: condition_onset_date_search_test.rb
 - :id: au_core_v030_ballot_condition_patient_category_search_test
   :file_name: condition_patient_category_search_test.rb
 - :id: au_core_v030_ballot_condition_patient_clinical_status_search_test

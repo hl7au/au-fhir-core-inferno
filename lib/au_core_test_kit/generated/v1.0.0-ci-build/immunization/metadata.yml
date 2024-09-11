@@ -34,21 +34,6 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - date
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - status
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - vaccine-code
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -61,13 +46,34 @@
   - date
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :expectation: MAY
-  :names:
-  - patient
-  - vaccine-code
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
 :search_definitions:
+  :patient:
+    :paths:
+    - patient
+    :full_paths:
+    - Immunization.patient
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Immunization.status
+    :comparators: {}
+    :values:
+    - completed
+    - entered-in-error
+    - not-done
+    :type: code
+    :contains_multiple: false
   :date:
     :paths:
     - occurrence
@@ -89,43 +95,6 @@
     :type: date
     :contains_multiple: false
     :multiple_and: SHOULD
-  :status:
-    :paths:
-    - status
-    :full_paths:
-    - Immunization.status
-    :comparators: {}
-    :values:
-    - completed
-    - entered-in-error
-    - not-done
-    :type: code
-    :contains_multiple: false
-  :vaccine-code:
-    :paths:
-    - vaccineCode
-    :full_paths:
-    - Immunization.vaccineCode
-    :comparators: {}
-    :values: []
-    :type: CodeableConcept
-    :contains_multiple: false
-    :multiple_or: SHOULD
-  :patient:
-    :paths:
-    - patient
-    :full_paths:
-    - Immunization.patient
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
 :include_params: []
 :revincludes: []
 :required_concepts: []
@@ -198,20 +167,10 @@
 :tests:
 - :id: au_core_v100_ci_build_immunization_patient_search_test
   :file_name: immunization_patient_search_test.rb
-- :id: au_core_v100_ci_build_immunization_date_search_test
-  :file_name: immunization_date_search_test.rb
-- :id: au_core_v100_ci_build_immunization_status_search_test
-  :file_name: immunization_status_search_test.rb
-- :id: au_core_v100_ci_build_immunization_vaccine_code_search_test
-  :file_name: immunization_vaccine_code_search_test.rb
 - :id: au_core_v100_ci_build_immunization_patient_status_search_test
   :file_name: immunization_patient_status_search_test.rb
 - :id: au_core_v100_ci_build_immunization_patient_date_search_test
   :file_name: immunization_patient_date_search_test.rb
-- :id: au_core_v100_ci_build_immunization_patient_vaccine_code_search_test
-  :file_name: immunization_patient_vaccine_code_search_test.rb
-- :id: au_core_v100_ci_build_immunization_vaccine_code_multiple_or_search_test
-  :file_name: immunization_vaccine_code_multiple_or_search_test.rb
 - :id: au_core_v100_ci_build_immunization_date_multiple_and_search_test
   :file_name: immunization_date_multiple_and_search_test.rb
 - :id: au_core_v100_ci_build_immunization_patient_chain_search_test
