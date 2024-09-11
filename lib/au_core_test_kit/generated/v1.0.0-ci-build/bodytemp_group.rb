@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'bodytemp/bodytemp_patient_code_search_test'
-require_relative 'bodytemp/bodytemp_category_search_test'
-require_relative 'bodytemp/bodytemp_code_search_test'
-require_relative 'bodytemp/bodytemp_date_search_test'
-require_relative 'bodytemp/bodytemp_status_search_test'
 require_relative 'bodytemp/bodytemp_patient_search_test'
 require_relative 'bodytemp/bodytemp_patient_category_search_test'
 require_relative 'bodytemp/bodytemp_patient_category_date_search_test'
@@ -91,10 +87,6 @@ read succeeds.
       end
 
       test from: :au_core_v100_ci_build_bodytemp_patient_code_search_test
-      test from: :au_core_v100_ci_build_bodytemp_category_search_test
-      test from: :au_core_v100_ci_build_bodytemp_code_search_test
-      test from: :au_core_v100_ci_build_bodytemp_date_search_test
-      test from: :au_core_v100_ci_build_bodytemp_status_search_test
       test from: :au_core_v100_ci_build_bodytemp_patient_search_test
       test from: :au_core_v100_ci_build_bodytemp_patient_category_search_test
       test from: :au_core_v100_ci_build_bodytemp_patient_category_date_search_test

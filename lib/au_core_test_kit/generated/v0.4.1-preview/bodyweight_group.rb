@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'bodyweight/bodyweight_patient_code_search_test'
-require_relative 'bodyweight/bodyweight_category_search_test'
-require_relative 'bodyweight/bodyweight_code_search_test'
-require_relative 'bodyweight/bodyweight_date_search_test'
-require_relative 'bodyweight/bodyweight_status_search_test'
 require_relative 'bodyweight/bodyweight_patient_search_test'
 require_relative 'bodyweight/bodyweight_patient_category_search_test'
 require_relative 'bodyweight/bodyweight_patient_category_date_search_test'
@@ -91,10 +87,6 @@ read succeeds.
       end
 
       test from: :au_core_v041_preview_bodyweight_patient_code_search_test
-      test from: :au_core_v041_preview_bodyweight_category_search_test
-      test from: :au_core_v041_preview_bodyweight_code_search_test
-      test from: :au_core_v041_preview_bodyweight_date_search_test
-      test from: :au_core_v041_preview_bodyweight_status_search_test
       test from: :au_core_v041_preview_bodyweight_patient_search_test
       test from: :au_core_v041_preview_bodyweight_patient_category_search_test
       test from: :au_core_v041_preview_bodyweight_patient_category_date_search_test

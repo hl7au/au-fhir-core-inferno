@@ -35,26 +35,10 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
-  - birthdate
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
   - family
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - gender
-  :expectation: MAY
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - indigenous-status
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - indigenous-status
-  :must_support_or_mandatory: false
 - :names:
   - identifier
   :expectation: SHALL
@@ -65,12 +49,6 @@
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
-- :names:
-  - gender-identity
-  :expectation: MAY
-  :names_not_must_support_or_mandatory:
-  - gender-identity
-  :must_support_or_mandatory: false
 - :expectation: SHOULD
   :names:
   - birthdate
@@ -105,24 +83,6 @@
     :values: []
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-  :birthdate:
-    :paths:
-    - birthDate
-    :full_paths:
-    - Patient.birthDate
-    :comparators:
-      :eq: MAY
-      :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
-      :sa: MAY
-      :eb: MAY
-      :ap: MAY
-    :values: []
-    :type: date
-    :contains_multiple: false
   :family:
     :paths:
     - name.family
@@ -132,26 +92,6 @@
     :values: []
     :type: string
     :contains_multiple: false
-  :gender:
-    :paths:
-    - gender
-    :full_paths:
-    - Patient.gender
-    :comparators: {}
-    :values: []
-    :type: code
-    :contains_multiple: false
-  :indigenous-status:
-    :paths:
-    - extension('http://hl7.org.au/fhir/StructureDefinition/indigenous-status').value
-    :full_paths:
-    - Patient.extension('http://hl7.org.au/fhir/StructureDefinition/indigenous-status').value
-    :comparators: {}
-    :values: []
-    :type: token
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
   :identifier:
     :paths:
     - identifier
@@ -170,17 +110,33 @@
     :values: []
     :type: HumanName
     :contains_multiple: true
-  :gender-identity:
+  :birthdate:
     :paths:
-    - extension('http://hl7.org/fhir/StructureDefinition/individual-genderIdentity').value
+    - birthDate
     :full_paths:
-    - Patient.extension('http://hl7.org/fhir/StructureDefinition/individual-genderIdentity').value
+    - Patient.birthDate
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: date
+    :contains_multiple: false
+  :gender:
+    :paths:
+    - gender
+    :full_paths:
+    - Patient.gender
     :comparators: {}
     :values: []
-    :type: token
+    :type: code
     :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
 :include_params: []
 :revincludes: []
 :required_concepts: []
@@ -251,20 +207,12 @@
 :tests:
 - :id: au_core_v041_preview_patient__id_search_test
   :file_name: patient_id_search_test.rb
-- :id: au_core_v041_preview_patient_birthdate_search_test
-  :file_name: patient_birthdate_search_test.rb
 - :id: au_core_v041_preview_patient_family_search_test
   :file_name: patient_family_search_test.rb
-- :id: au_core_v041_preview_patient_gender_search_test
-  :file_name: patient_gender_search_test.rb
-- :id: au_core_v041_preview_patient_indigenous_status_search_test
-  :file_name: patient_indigenous_status_search_test.rb
 - :id: au_core_v041_preview_patient_identifier_search_test
   :file_name: patient_identifier_search_test.rb
 - :id: au_core_v041_preview_patient_name_search_test
   :file_name: patient_name_search_test.rb
-- :id: au_core_v041_preview_patient_gender_identity_search_test
-  :file_name: patient_gender_identity_search_test.rb
 - :id: au_core_v041_preview_patient_birthdate_family_search_test
   :file_name: patient_birthdate_family_search_test.rb
 - :id: au_core_v041_preview_patient_birthdate_name_search_test
@@ -273,14 +221,6 @@
   :file_name: patient_family_gender_search_test.rb
 - :id: au_core_v041_preview_patient_gender_name_search_test
   :file_name: patient_gender_name_search_test.rb
-- :id: au_core_v041_preview_patient_indigenous_status_multiple_or_search_test
-  :file_name: patient_indigenous_status_multiple_or_search_test.rb
-- :id: au_core_v041_preview_patient_gender_identity_multiple_or_search_test
-  :file_name: patient_gender_identity_multiple_or_search_test.rb
-- :id: au_core_v041_preview_patient_indigenous_status_multiple_and_search_test
-  :file_name: patient_indigenous_status_multiple_and_search_test.rb
-- :id: au_core_v041_preview_patient_gender_identity_multiple_and_search_test
-  :file_name: patient_gender_identity_multiple_and_search_test.rb
 - :id: au_core_v041_preview_patient_identifier_ihi_search_test
   :file_name: patient_identifier_ihi_search_test.rb
 - :id: au_core_v041_preview_patient_identifier_medicare_search_test

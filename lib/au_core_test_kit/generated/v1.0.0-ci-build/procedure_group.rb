@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'procedure/procedure_patient_search_test'
-require_relative 'procedure/procedure_code_search_test'
-require_relative 'procedure/procedure_date_search_test'
-require_relative 'procedure/procedure_status_search_test'
 require_relative 'procedure/procedure_patient_date_search_test'
 require_relative 'procedure/procedure_patient_code_date_search_test'
 require_relative 'procedure/procedure_patient_status_search_test'
@@ -85,9 +82,6 @@ read succeeds.
       end
 
       test from: :au_core_v100_ci_build_procedure_patient_search_test
-      test from: :au_core_v100_ci_build_procedure_code_search_test
-      test from: :au_core_v100_ci_build_procedure_date_search_test
-      test from: :au_core_v100_ci_build_procedure_status_search_test
       test from: :au_core_v100_ci_build_procedure_patient_date_search_test
       test from: :au_core_v100_ci_build_procedure_patient_code_date_search_test
       test from: :au_core_v100_ci_build_procedure_patient_status_search_test

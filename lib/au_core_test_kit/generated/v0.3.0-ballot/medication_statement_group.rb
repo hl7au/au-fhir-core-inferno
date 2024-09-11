@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'medication_statement/medication_statement_patient_search_test'
-require_relative 'medication_statement/medication_statement_effective_search_test'
-require_relative 'medication_statement/medication_statement_status_search_test'
 require_relative 'medication_statement/medication_statement_patient_status_search_test'
 require_relative 'medication_statement/medication_statement_patient_effective_search_test'
 require_relative 'medication_statement/medication_statement_patient_chain_search_test'
@@ -82,8 +80,6 @@ read succeeds.
       end
 
       test from: :au_core_v030_ballot_medication_statement_patient_search_test
-      test from: :au_core_v030_ballot_medication_statement_effective_search_test
-      test from: :au_core_v030_ballot_medication_statement_status_search_test
       test from: :au_core_v030_ballot_medication_statement_patient_status_search_test
       test from: :au_core_v030_ballot_medication_statement_patient_effective_search_test
       test from: :au_core_v030_ballot_medication_statement_patient_chain_search_test
