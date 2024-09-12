@@ -37,21 +37,9 @@ Content from these files will only be used when the corresponding content is not
 * [Validator instructions](https://github.com/hl7au/au-fhir-core-inferno/blob/master/docs/validator_instructions.md)
 
 
-## Validation of suite correctness
+## Validation of test suites
 
-* Manual validation session by the team
-* Manual running of the test suite before and after release on the Sparked reference server
-* Some functionality covered by tests.
-
-
-## Announces
-
-We notify users through:
-
-* [Release notes](https://github.com/hl7au/au-fhir-core-inferno/releases)
-* [README section](https://github.com/hl7au/au-fhir-core-inferno?tab=readme-ov-file#au-fhir-core-inferno-)
-
-Other ways to notify:
-
-* FHIR chat in Zulip?
-* Email notifications?
+* Manual functional testing to verify:
+    1. Generated tests accurately reflect the conformance requirements of the Implementation Guide (IG), and
+    2. Inferno tests behave as expected by validating test data inputs, outputs (comparing actual (reported) results against the expected results), and evaluating the interactions with different components (FHIR validator, Terminology Server, and target FHIR Server) to confirm the test is fit-for-purpose.
+* Regression testing: run tests to detect any regressions or unintended changes in functionality after updates.
