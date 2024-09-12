@@ -1,4 +1,9 @@
 # Pre-requisites and Test Suite dependencies
+
+## Dataset for testing
+
+You can download the AU Core test dataset and use it for testing. The dataset is available at the following link: https://github.com/hl7au/au-fhir-test-data/tree/master/generated
+
 ## Test Data Pre-requisites
 
 **For ALL test groups/suites on Profiles:**
