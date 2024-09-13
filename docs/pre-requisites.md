@@ -2,7 +2,11 @@
 
 ## Dataset for testing
 
-You can download the AU Core test dataset and use it for testing. The dataset is available at the following link: https://github.com/hl7au/au-fhir-test-data/tree/master/generated
+An AU Core test data set that can be loaded and used in conjunction with Inferno is available at: https://github.com/hl7au/au-fhir-test-data
+
+This repo contains FHIR resources (JSON files) and Postman collections for testing purposes.
+
+The TestDataClient CLI tool can be used to upload FHIR resources to a target FHIR server. Refer to [au-fhir-test-data README.md#upload-data](https://github.com/hl7au/au-fhir-test-data?tab=readme-ov-file#upload-data) for more information.
 
 ## Test Data Pre-requisites
 
