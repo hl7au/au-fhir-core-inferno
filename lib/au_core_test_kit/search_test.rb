@@ -12,7 +12,6 @@ module AUCoreTestKit
     include DateSearchValidation
     include FHIRResourceNavigation
     include ReadTest
-    include Helpers
     include AssertHelpers
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties

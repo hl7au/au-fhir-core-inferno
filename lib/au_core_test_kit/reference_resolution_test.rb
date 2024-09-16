@@ -7,7 +7,6 @@ module AUCoreTestKit
   module ReferenceResolutionTest
     extend Forwardable
     include FHIRResourceNavigation
-    include Helpers
     include AssertHelpers
 
     def_delegators 'self.class', :metadata

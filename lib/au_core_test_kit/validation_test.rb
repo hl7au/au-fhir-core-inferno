@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'helpers'
 require_relative 'assert_helpers'
 
 module AUCoreTestKit

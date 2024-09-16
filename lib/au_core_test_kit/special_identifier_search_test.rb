@@ -2,7 +2,6 @@
 
 require_relative 'search_test_properties'
 require_relative 'search_test'
-require_relative 'helpers'
 require_relative 'assert_helpers'
 
 module AUCoreTestKit
