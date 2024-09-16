@@ -4,7 +4,7 @@ require_relative 'date_search_validation'
 require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
 require_relative 'read_test'
-require_relative 'helpers'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module SearchTest
@@ -13,6 +13,7 @@ module AUCoreTestKit
     include FHIRResourceNavigation
     include ReadTest
     include Helpers
+    include AssertHelpers
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',

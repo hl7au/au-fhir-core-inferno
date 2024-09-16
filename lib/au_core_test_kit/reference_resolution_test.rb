@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require_relative 'fhir_resource_navigation'
-require_relative 'helpers'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module ReferenceResolutionTest
     extend Forwardable
     include FHIRResourceNavigation
     include Helpers
+    include AssertHelpers
 
     def_delegators 'self.class', :metadata
 

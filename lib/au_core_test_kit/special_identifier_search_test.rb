@@ -3,12 +3,13 @@
 require_relative 'search_test_properties'
 require_relative 'search_test'
 require_relative 'helpers'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module SpecialIdentifierSearchTest
     extend Forwardable
     include SearchTest
-    include Helpers
+    include AssertHelpers
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',

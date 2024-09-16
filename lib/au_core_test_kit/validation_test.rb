@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'helpers'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module ValidationTest
-    include Helpers
+    include AssertHelpers
+
     DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
 
