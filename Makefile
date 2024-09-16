@@ -6,6 +6,7 @@ inferno = run inferno
 setup: pull build migrate
 
 generate:
+	rm -rf lib/au_core_test_kit/generated/
 	$(compose) $(inferno) bundle exec rake au_core:generate
 	$(compose) $(inferno) rubocop -A lib/au_core_test_kit/
 
