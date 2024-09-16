@@ -4,6 +4,7 @@ require_relative 'date_search_validation'
 require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
 require_relative 'read_test'
+require_relative 'helpers'
 
 module AUCoreTestKit
   module SearchTest
@@ -11,6 +12,7 @@ module AUCoreTestKit
     include DateSearchValidation
     include FHIRResourceNavigation
     include ReadTest
+    include Helpers
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
@@ -62,7 +64,7 @@ module AUCoreTestKit
 
     def run_provenance_revinclude_search_test
       # TODO: skip if not supported?
-      skip_if !any_valid_search_params?(all_provenance_revinclude_search_params), unable_to_resolve_params_message
+      conditional_skip_with_msg !any_valid_search_params?(all_provenance_revinclude_search_params), unable_to_resolve_params_message
 
       provenance_resources =
         all_provenance_revinclude_search_params.flat_map do |_patient_id, params_list|
@@ -900,7 +902,7 @@ module AUCoreTestKit
     private
 
     def run_search_test_common(search_method)
-      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
+      conditional_skip_with_msg !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
 
       ability_to_search_is_checked = false
       search_is_available = true
@@ -924,7 +926,7 @@ module AUCoreTestKit
         end
       end
 
-      skip_if resources_returned.empty?, no_resources_skip_message
+      conditional_skip_with_msg resources_returned.empty?, no_resources_skip_message
 
       return unless search_is_available == false
 
