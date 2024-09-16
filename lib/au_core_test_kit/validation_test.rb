@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'assert_helpers'
+
 module AUCoreTestKit
   module ValidationTest
+    include AssertHelpers
+
     DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
 
@@ -10,8 +14,8 @@ module AUCoreTestKit
                                 profile_version,
                                 skip_if_empty: true)
 
-      skip_if skip_if_empty && resources.blank?,
-              "No #{resource_type} resources conforming to the #{profile_url} profile were returned"
+      conditional_skip_with_msg skip_if_empty && resources.blank?,
+                                "No #{resource_type} resources conforming to the #{profile_url} profile were returned"
 
       omit_if resources.blank?,
               "No #{resource_type} resources provided so the #{profile_url} profile does not apply"

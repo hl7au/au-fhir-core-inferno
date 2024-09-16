@@ -2,11 +2,13 @@
 
 require_relative 'search_test_properties'
 require_relative 'search_test'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module SpecialIdentifierSearchTest
     extend Forwardable
     include SearchTest
+    include AssertHelpers
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
@@ -78,15 +80,15 @@ module AUCoreTestKit
     end
 
     def run_special_identifier_search_test
-      skip_if scratch_resources[:all].empty?, no_resources_skip_message
-      skip_if !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
+      conditional_skip_with_msg scratch_resources[:all].empty?, no_resources_skip_message
+      conditional_skip_with_msg !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
 
       resources_returned =
         all_search_params.flat_map do |patient_id, params_list|
           params_list.flat_map { |params| perform_search_with_system(params, patient_id) }
         end
 
-      skip_if resources_returned.empty?, no_resources_skip_message
+      conditional_skip_with_msg resources_returned.empty?, no_resources_skip_message
     end
   end
 end

@@ -1,20 +1,22 @@
 # frozen_string_literal: true
 
 require_relative 'fhir_resource_navigation'
+require_relative 'assert_helpers'
 
 module AUCoreTestKit
   module ReferenceResolutionTest
     extend Forwardable
     include FHIRResourceNavigation
+    include AssertHelpers
 
     def_delegators 'self.class', :metadata
 
     def perform_reference_resolution_test(resources)
-      skip_if resources.blank?, no_resources_skip_message
+      conditional_skip_with_msg resources.blank?, no_resources_skip_message
 
       pass if unresolved_references(resources).empty?
 
-      skip "Could not resolve and validate any Must Support references for #{unresolved_references_strings.join(', ')}"
+      skip_with_msg "Could not resolve and validate any Must Support references for #{unresolved_references_strings.join(', ')}"
     end
 
     def unresolved_references_strings
