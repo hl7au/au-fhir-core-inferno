@@ -260,8 +260,12 @@ module AUCoreTestKit
         comparator + (DateTime.xmlschema(date) + 1).xmlschema
       when 'gt', 'ge'
         comparator + (DateTime.xmlschema(date) - 1).xmlschema
+      when 'exact'
+        # NOTE: exact is not a part of the IG.
+        # This is a custom comparator to test exact date searches
+        # https://github.com/hl7au/au-fhir-core-inferno/issues/106
+        DateTime.xmlschema(date).xmlschema
       else
-        # ''
         raise "Unsupported comparator '#{comparator}'"
       end
     end
@@ -279,7 +283,9 @@ module AUCoreTestKit
       params_with_comparators.each do |name|
         next if search_variant_test_records[:comparator_searches].include? name
 
-        required_comparators(name).each do |comparator|
+        req_comparators = required_comparators(name) << "exact"
+
+        req_comparators.each do |comparator|
           paths = search_param_paths(name).first
           date_element = find_a_value_at(scratch_resources_for_patient(patient_id), paths)
           params_with_comparator = params.merge(name => date_comparator_value(comparator, date_element))
