@@ -248,6 +248,7 @@ module AUCoreTestKit
           properties[:saves_delayed_references] = 'true' if saves_delayed_references?
           properties[:possible_status_search] = 'true' if possible_status_search?
           properties[:test_medication_inclusion] = 'true' if test_medication_inclusion?
+          properties[:includes] = group_metadata.include_params if group_metadata.include_params.present?
           properties[:token_search_params] = token_search_params_string if token_search_params.present?
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?

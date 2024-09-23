@@ -227,7 +227,7 @@ RSpec.describe AUCoreTestKit::SearchTest do
               resource_type: 'MedicationRequest',
               search_param_names: ['patient'],
               possible_status_search: true,
-              test_medication_inclusion: true
+              includes: ['MedicationRequest:medication']
             )
           end
 

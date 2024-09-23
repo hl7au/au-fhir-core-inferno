@@ -31,7 +31,8 @@ module AUCoreTestKit
                    :optional_multiple_or_search_params,
                    :multiple_and_search_params,
                    :optional_multiple_and_search_params,
-                   :first_search_for_patient_by_patient_id
+                   :first_search_for_patient_by_patient_id,
+                   :includes
 
     def all_search_params
       @all_search_params ||=
@@ -162,7 +163,11 @@ module AUCoreTestKit
       return resources_returned if all_search_variants_tested?
 
       perform_post_search(resources_returned, params) if test_post_search?
-      test_medication_inclusion(resources_returned, params, patient_id) if test_medication_inclusion?
+      if includes.present?
+        includes.each do |include_param|
+          test_medication_inclusion(resources_returned, params, patient_id, include_param)
+        end
+      end
       perform_reference_with_type_search(params, resources_returned.count) if test_reference_variants?
       perform_search_with_system(params, patient_id) if token_search_params.present?
 
@@ -445,49 +450,98 @@ module AUCoreTestKit
       end
     end
 
-    def test_medication_inclusion(base_resources, params, patient_id)
-      return if search_variant_test_records[:medication_inclusion]
+    def test_medication_inclusion(base_resources, params, patient_id, include_param)
+      # return if search_variant_test_records[:medication_inclusion]
+      mapped_keys_by_include_param = {
+        'MedicationRequest:medication' => 'medication_resources'.to_sym,
+        'PractitionerRole:practitioner' => 'practitioner_resources'.to_sym
+      }
 
-      scratch[:medication_resources] ||= {}
-      scratch[:medication_resources][:all] ||= []
-      scratch[:medication_resources][patient_id] ||= []
-      scratch[:medication_resources][:contained] ||= []
+      mapped_resource_type_by_include_param = {
+        'MedicationRequest:medication' => 'Medication',
+        'PractitionerRole:practitioner' => 'Practitioner'
+      }
+
+      resources_to_check = mapped_keys_by_include_param[include_param]
+      target_resource_type = mapped_resource_type_by_include_param[include_param]
+
+      scratch[resources_to_check] ||= {}
+      scratch[resources_to_check][:all] ||= []
+      scratch[resources_to_check][patient_id] ||= []
+      scratch[resources_to_check][:contained] ||= []
 
       base_resources_with_external_reference =
         base_resources
-        .select { |request| request&.medicationReference&.present? }
-        .reject { |request| request&.medicationReference&.reference&.start_with? '#' }
+        .select do |request|
+          case include_param
+          when 'MedicationRequest:medication'
+            request&.medicationReference&.present?
+          when 'PractitionerRole:practitioner'
+            request&.practitionerReference&.present?
+          else
+            false
+          end
+        end
+        .reject do |request|
+          case include_param
+          when 'MedicationRequest:medication'
+            request&.medicationReference&.reference&.start_with?('#')
+          when 'PractitionerRole:practitioner'
+            request&.practitionerReference&.reference&.start_with?('#')
+          else
+            false
+          end
+        end
 
       contained_medications =
         base_resources
-        .select { |request| request&.medicationReference&.reference&.start_with? '#' }
+        .select do |request|
+          case include_param
+          when 'MedicationRequest:medication'
+            request&.medicationReference&.reference&.start_with? '#'
+          when 'PractitionerRole:practitioner'
+            request&.practitionerReference&.reference&.start_with? '#'
+          else
+            false
+          end
+        end
         .flat_map(&:contained)
-        .select { |resource| resource.resourceType == 'Medication' }
+        .select { |resource| resource.resourceType == target_resource_type }
 
-      scratch[:medication_resources][:all] += contained_medications
-      scratch[:medication_resources][patient_id] += contained_medications
-      scratch[:medication_resources][:contained] += contained_medications
+      scratch[resources_to_check][:all] += contained_medications
+      scratch[resources_to_check][patient_id] += contained_medications
+      scratch[resources_to_check][:contained] += contained_medications
 
       return if base_resources_with_external_reference.blank?
 
-      search_params = params.merge(_include: "#{resource_type}:medication")
+      search_params = params.merge(_include: include_param)
 
       search_and_check_response(search_params)
 
-      medications = fetch_all_bundled_resources.select { |resource| resource.resourceType == 'Medication' }
+      medications = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type}
       assert medications.present?, 'No Medications were included in the search results'
 
       included_medications = medications.map { |medication| "#{medication.resourceType}/#{medication.id}" }
 
       matched_base_resources = base_resources_with_external_reference.select do |base_resource|
         included_medications.any? do |medication_reference|
-          is_reference_match?(base_resource.medicationReference.reference, medication_reference)
+          case include_param
+          when 'MedicationRequest:medication'
+            is_reference_match?(base_resource.medicationReference.reference, medication_reference)
+          when 'PractitionerRole:practitioner'
+            is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
+          end
         end
       end
 
       not_matched_included_medications = included_medications.select do |medication_reference|
         matched_base_resources.none? do |base_resource|
-          is_reference_match?(base_resource.medicationReference.reference, medication_reference)
+          case include_param
+          when 'MedicationRequest:medication'
+            is_reference_match?(base_resource.medicationReference.reference, medication_reference)
+          when 'PractitionerRole:practitioner'
+            is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
+          end
         end
       end
 
@@ -497,10 +551,10 @@ module AUCoreTestKit
 
       medications.uniq!(&:id)
 
-      scratch[:medication_resources][:all] += medications
-      scratch[:medication_resources][patient_id] += medications
+      scratch[resources_to_check][:all] += medications
+      scratch[resources_to_check][patient_id] += medications
 
-      search_variant_test_records[:medication_inclusion] = true
+      # search_variant_test_records[:medication_inclusion] = true
     end
 
     def is_reference_match?(reference, local_reference)
