@@ -239,6 +239,26 @@ module AUCoreTestKit
         first_search?
       end
 
+      def includes
+        include_params_list = group_metadata.include_params
+        references = group_metadata.references
+
+        include_params_list.map do |include_param|
+          target_resource = ''
+          references.each do |reference_conf|
+            if reference_conf[:path].gsub('[x]', '').split('.') == include_param.split(':')
+              target_resource = reference_conf[:resource_types].first
+              break
+            end
+          end
+
+          {
+            'parameter' => include_param,
+            'target_resource' => target_resource
+          }
+        end
+      end
+
       def search_properties
         {}.tap do |properties|
           properties[:first_search] = 'true' if first_search?
@@ -248,7 +268,7 @@ module AUCoreTestKit
           properties[:saves_delayed_references] = 'true' if saves_delayed_references?
           properties[:possible_status_search] = 'true' if possible_status_search?
           properties[:test_medication_inclusion] = 'true' if test_medication_inclusion?
-          properties[:includes] = group_metadata.include_params if group_metadata.include_params.present?
+          properties[:includes] = includes if group_metadata.include_params.present?
           properties[:token_search_params] = token_search_params_string if token_search_params.present?
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?

@@ -325,9 +325,12 @@ module AUCoreTestKit
           profile_elements
           .select { |element| element.type&.first&.code == 'Reference' }
           .map do |reference_definition|
+            profiles = reference_definition.type.first.targetProfile
+            resource_types = ig_resources.capability_statement.rest.first.resource.filter { |resource| profiles.include?(resource.profile) }.map(&:type)
             {
               path: reference_definition.path,
-              profiles: reference_definition.type.first.targetProfile
+              profiles:,
+              resource_types:
             }
           end
       end

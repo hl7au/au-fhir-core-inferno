@@ -451,19 +451,8 @@ module AUCoreTestKit
     end
 
     def test_medication_inclusion(base_resources, params, patient_id, include_param)
-      # return if search_variant_test_records[:medication_inclusion]
-      mapped_keys_by_include_param = {
-        'MedicationRequest:medication' => 'medication_resources'.to_sym,
-        'PractitionerRole:practitioner' => 'practitioner_resources'.to_sym
-      }
-
-      mapped_resource_type_by_include_param = {
-        'MedicationRequest:medication' => 'Medication',
-        'PractitionerRole:practitioner' => 'Practitioner'
-      }
-
-      resources_to_check = mapped_keys_by_include_param[include_param]
-      target_resource_type = mapped_resource_type_by_include_param[include_param]
+      resources_to_check = "#{include_param["target_resource"].downcase}_resources".to_sym
+      target_resource_type = include_param["target_resource"]
 
       scratch[resources_to_check] ||= {}
       scratch[resources_to_check][:all] ||= []
@@ -473,20 +462,20 @@ module AUCoreTestKit
       base_resources_with_external_reference =
         base_resources
         .select do |request|
-          case include_param
-          when 'MedicationRequest:medication'
+          case include_param["target_resource"]
+          when 'Medication'
             request&.medicationReference&.present?
-          when 'PractitionerRole:practitioner'
+          when 'Practitioner'
             request&.practitionerReference&.present?
           else
             false
           end
         end
         .reject do |request|
-          case include_param
-          when 'MedicationRequest:medication'
+          case include_param["target_resource"]
+          when 'Medication'
             request&.medicationReference&.reference&.start_with?('#')
-          when 'PractitionerRole:practitioner'
+          when 'Practitioner'
             request&.practitionerReference&.reference&.start_with?('#')
           else
             false
@@ -496,10 +485,10 @@ module AUCoreTestKit
       contained_medications =
         base_resources
         .select do |request|
-          case include_param
-          when 'MedicationRequest:medication'
+          case include_param["target_resource"]
+          when 'Medication'
             request&.medicationReference&.reference&.start_with? '#'
-          when 'PractitionerRole:practitioner'
+          when 'Practitioner'
             request&.practitionerReference&.reference&.start_with? '#'
           else
             false
@@ -514,7 +503,7 @@ module AUCoreTestKit
 
       return if base_resources_with_external_reference.blank?
 
-      search_params = params.merge(_include: include_param)
+      search_params = params.merge(_include: include_param["parameter"])
 
       search_and_check_response(search_params)
 
@@ -525,10 +514,10 @@ module AUCoreTestKit
 
       matched_base_resources = base_resources_with_external_reference.select do |base_resource|
         included_medications.any? do |medication_reference|
-          case include_param
-          when 'MedicationRequest:medication'
+          case include_param["target_resource"]
+          when 'Medication'
             is_reference_match?(base_resource.medicationReference.reference, medication_reference)
-          when 'PractitionerRole:practitioner'
+          when 'Practitioner'
             is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
           end
         end
@@ -536,10 +525,10 @@ module AUCoreTestKit
 
       not_matched_included_medications = included_medications.select do |medication_reference|
         matched_base_resources.none? do |base_resource|
-          case include_param
-          when 'MedicationRequest:medication'
+          case include_param["target_resource"]
+          when 'Medication'
             is_reference_match?(base_resource.medicationReference.reference, medication_reference)
-          when 'PractitionerRole:practitioner'
+          when 'Practitioner'
             is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
           end
         end
@@ -553,8 +542,6 @@ module AUCoreTestKit
 
       scratch[resources_to_check][:all] += medications
       scratch[resources_to_check][patient_id] += medications
-
-      # search_variant_test_records[:medication_inclusion] = true
     end
 
     def is_reference_match?(reference, local_reference)
