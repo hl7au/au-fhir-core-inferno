@@ -466,7 +466,7 @@ module AUCoreTestKit
           when 'Medication'
             request&.medicationReference&.present?
           when 'Practitioner'
-            request&.practitionerReference&.present?
+            request&.practitioner&.present?
           else
             false
           end
@@ -476,7 +476,7 @@ module AUCoreTestKit
           when 'Medication'
             request&.medicationReference&.reference&.start_with?('#')
           when 'Practitioner'
-            request&.practitionerReference&.reference&.start_with?('#')
+            request&.practitioner&.reference&.start_with?('#')
           else
             false
           end
@@ -489,7 +489,7 @@ module AUCoreTestKit
           when 'Medication'
             request&.medicationReference&.reference&.start_with? '#'
           when 'Practitioner'
-            request&.practitionerReference&.reference&.start_with? '#'
+            request&.practitioner&.reference&.start_with? '#'
           else
             false
           end
@@ -518,7 +518,7 @@ module AUCoreTestKit
           when 'Medication'
             is_reference_match?(base_resource.medicationReference.reference, medication_reference)
           when 'Practitioner'
-            is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
+            is_reference_match?(base_resource.practitioner.reference, medication_reference)
           end
         end
       end
@@ -529,7 +529,7 @@ module AUCoreTestKit
           when 'Medication'
             is_reference_match?(base_resource.medicationReference.reference, medication_reference)
           when 'Practitioner'
-            is_reference_match?(base_resource.practitionerReference.reference, medication_reference)
+            is_reference_match?(base_resource.practitioner.reference, medication_reference)
           end
         end
       end
