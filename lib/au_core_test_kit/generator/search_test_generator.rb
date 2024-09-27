@@ -225,9 +225,8 @@ module AUCoreTestKit
       end
 
       def test_reference_variants?
-        if resource_type == 'PractitionerRole' && search_param_names.include?('practitioner')
-          return true
-        end
+        return true if resource_type == 'PractitionerRole' && search_param_names.include?('practitioner')
+
         first_search? && search_param_names.include?('patient')
       end
 
@@ -240,14 +239,30 @@ module AUCoreTestKit
       end
 
       def includes
+        # The medication SearchParameter does not exist for the MedicationStatement
+        # resource in the current version of the IG, we shall keep special cases to
+        # provide functionality for the "_include" tests.
+        # https://jira.csiro.au/browse/ST-400
+        special_cases = {
+          'MedicationRequest:medication' => 'Medication'
+        }
         include_params_list = group_metadata.include_params
-        references = group_metadata.references
+        search_definitions = group_metadata.search_definitions
 
         include_params_list.map do |include_param|
+          puts "Special case for include_param: #{include_param}"
+          if special_cases.key?(include_param)
+            return {
+              'parameter' => include_param,
+              'target_resource' => special_cases[include_param]
+            }
+          end
+
           target_resource = ''
-          references.each do |reference_conf|
-            if reference_conf[:path].gsub('[x]', '').split('.') == include_param.split(':')
-              target_resource = reference_conf[:resource_types].first
+          search_definitions.each_key do |search_def_key|
+            current_search_def_path = search_definitions[search_def_key]
+            if current_search_def_path[:full_paths].first.split('.') == include_param.split(':')
+              target_resource = current_search_def_path[:target_resource]
               break
             end
           end
