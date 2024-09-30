@@ -9,6 +9,7 @@ generate:
 	rm -rf lib/au_core_test_kit/generated/
 	$(compose) $(inferno) bundle exec rake au_core:generate
 	$(compose) $(inferno) rubocop -A lib/au_core_test_kit/
+	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
 
 summary: build
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
