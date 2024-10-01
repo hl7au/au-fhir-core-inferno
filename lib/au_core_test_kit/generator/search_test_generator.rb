@@ -244,32 +244,34 @@ module AUCoreTestKit
         # provide functionality for the "_include" tests.
         # https://jira.csiro.au/browse/ST-400
         special_cases = {
-          'MedicationRequest:medication' => 'Medication'
+          'MedicationRequest:medication' => { 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] },
+          'MedicationStatement:medication' => { 'parameter' => 'MedicationStatement:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }
         }
         include_params_list = group_metadata.include_params
         search_definitions = group_metadata.search_definitions
 
         include_params_list.map do |include_param|
-          puts "Special case for include_param: #{include_param}"
           if special_cases.key?(include_param)
-            return {
-              'parameter' => include_param,
-              'target_resource' => special_cases[include_param]
-            }
+            puts "Special case for include_param: #{include_param}"
+
+            return [special_cases[include_param]]
           end
 
           target_resource = ''
+          paths = ''
           search_definitions.each_key do |search_def_key|
             current_search_def_path = search_definitions[search_def_key]
-            if current_search_def_path[:full_paths].first.split('.') == include_param.split(':')
-              target_resource = current_search_def_path[:target_resource]
-              break
-            end
+            next unless current_search_def_path[:full_paths].first.split('.') == include_param.split(':')
+
+            target_resource = current_search_def_path[:target_resource]
+            paths = current_search_def_path[:paths]
+            break
           end
 
           {
             'parameter' => include_param,
-            'target_resource' => target_resource
+            'target_resource' => target_resource,
+            'paths' => paths
           }
         end
       end

@@ -91,7 +91,7 @@ module AUCoreTestKit
     end
 
     def search_by_patient_id_is_available(patient_id)
-      fhir_search('Patient', params: {:_id => patient_id})
+      fhir_search('Patient', params: { _id: patient_id })
       response[:status] == 200
     end
 
@@ -120,7 +120,7 @@ module AUCoreTestKit
       resource_sym = resource_type.to_sym
       count = scratch&.dig(:info, resource_sym, :count)
 
-      return count if !count.nil?
+      return count unless count.nil?
 
       result = check_availability_of_count_search_parameter(resource_type, params)
 
@@ -165,7 +165,7 @@ module AUCoreTestKit
       perform_post_search(resources_returned, params) if test_post_search?
       if includes.present?
         includes.each do |include_param|
-          test_medication_inclusion(resources_returned, params, patient_id, include_param)
+          test_include_param(resources_returned, params, patient_id, include_param)
         end
       end
       perform_reference_with_type_search(params, resources_returned.count) if test_reference_variants?
@@ -450,9 +450,9 @@ module AUCoreTestKit
       end
     end
 
-    def test_medication_inclusion(base_resources, params, patient_id, include_param)
-      resources_to_check = "#{include_param["target_resource"].downcase}_resources".to_sym
-      target_resource_type = include_param["target_resource"]
+    def test_include_param(base_resources, params, patient_id, include_param)
+      resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
+      target_resource_type = include_param['target_resource']
 
       scratch[resources_to_check] ||= {}
       scratch[resources_to_check][:all] ||= []
@@ -461,87 +461,50 @@ module AUCoreTestKit
 
       base_resources_with_external_reference =
         base_resources
-        .select do |request|
-          case include_param["target_resource"]
-          when 'Medication'
-            request&.medicationReference&.present?
-          when 'Practitioner'
-            request&.practitioner&.present?
-          else
-            false
-          end
-        end
-        .reject do |request|
-          case include_param["target_resource"]
-          when 'Medication'
-            request&.medicationReference&.reference&.start_with?('#')
-          when 'Practitioner'
-            request&.practitioner&.reference&.start_with?('#')
-          else
-            false
-          end
-        end
+        .select { |resource| resource&.to_hash&.[](include_param['paths'].first)&.present? }
+        .reject { |resource| resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', '')&.start_with?('#') }
 
-      contained_medications =
+      contained_resources =
         base_resources
-        .select do |request|
-          case include_param["target_resource"]
-          when 'Medication'
-            request&.medicationReference&.reference&.start_with? '#'
-          when 'Practitioner'
-            request&.practitioner&.reference&.start_with? '#'
-          else
-            false
-          end
-        end
+        .select { |resource| resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', '')&.start_with?('#') }
         .flat_map(&:contained)
         .select { |resource| resource.resourceType == target_resource_type }
 
-      scratch[resources_to_check][:all] += contained_medications
-      scratch[resources_to_check][patient_id] += contained_medications
-      scratch[resources_to_check][:contained] += contained_medications
+      scratch[resources_to_check][:all] += contained_resources
+      scratch[resources_to_check][patient_id] += contained_resources
+      scratch[resources_to_check][:contained] += contained_resources
 
       return if base_resources_with_external_reference.blank?
 
-      search_params = params.merge(_include: include_param["parameter"])
+      search_params = params.merge(_include: include_param['parameter'])
 
       search_and_check_response(search_params)
 
-      medications = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type}
-      assert medications.present?, 'No Medications were included in the search results'
+      resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
+      assert resources.present?, "No #{resource_type} were included in the search results"
 
-      included_medications = medications.map { |medication| "#{medication.resourceType}/#{medication.id}" }
+      included_resources = resources.map { |resource| "#{resource.resourceType}/#{resource.id}" }
 
       matched_base_resources = base_resources_with_external_reference.select do |base_resource|
-        included_medications.any? do |medication_reference|
-          case include_param["target_resource"]
-          when 'Medication'
-            is_reference_match?(base_resource.medicationReference.reference, medication_reference)
-          when 'Practitioner'
-            is_reference_match?(base_resource.practitioner.reference, medication_reference)
-          end
+        included_resources.any? do |resource_reference|
+            is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
         end
       end
 
-      not_matched_included_medications = included_medications.select do |medication_reference|
+      not_matched_included_resources = included_resources.select do |resource_reference|
         matched_base_resources.none? do |base_resource|
-          case include_param["target_resource"]
-          when 'Medication'
-            is_reference_match?(base_resource.medicationReference.reference, medication_reference)
-          when 'Practitioner'
-            is_reference_match?(base_resource.practitioner.reference, medication_reference)
-          end
+            is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
         end
       end
 
-      not_matched_included_medications_string = not_matched_included_medications.join(',')
-      assert not_matched_included_medications.empty?,
+      not_matched_included_medications_string = not_matched_included_resources.join(',')
+      assert not_matched_included_resources.empty?,
              "No #{resource_type} references #{not_matched_included_medications_string} in the search result."
 
-      medications.uniq!(&:id)
+      resources.uniq!(&:id)
 
-      scratch[resources_to_check][:all] += medications
-      scratch[resources_to_check][patient_id] += medications
+      scratch[resources_to_check][:all] += resources
+      scratch[resources_to_check][patient_id] += resources
     end
 
     def is_reference_match?(reference, local_reference)
