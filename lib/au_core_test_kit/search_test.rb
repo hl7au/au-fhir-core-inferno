@@ -167,7 +167,6 @@ module AUCoreTestKit
         includes.each do |include_param|
           test_include_param(resources_returned, params, patient_id, include_param)
         end
-        search_variant_test_records[:inclusion] = true
       end
       perform_reference_with_type_search(params, resources_returned.count) if test_reference_variants?
       perform_search_with_system(params, patient_id) if token_search_params.present?
@@ -507,6 +506,8 @@ module AUCoreTestKit
 
       scratch[resources_to_check][:all] += resources
       scratch[resources_to_check][patient_id] += resources
+
+      search_variant_test_records[:inclusion] = true
     end
 
     def is_reference_match?(reference, local_reference)
