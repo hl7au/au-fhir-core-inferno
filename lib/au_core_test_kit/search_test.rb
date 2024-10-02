@@ -241,7 +241,7 @@ module AUCoreTestKit
     def initial_search_variant_test_records
       {}.tap do |records|
         records[:post_variant] = false if test_post_search?
-        records[:inclusion] = false if includes.length.positive?
+        records[:inclusion] = false if includes&.length&.positive?
         records[:reference_variants] = false if test_reference_variants?
         records[:token_variants] = false if token_search_params.present?
         records[:comparator_searches] = Set.new if params_with_comparators.present?
