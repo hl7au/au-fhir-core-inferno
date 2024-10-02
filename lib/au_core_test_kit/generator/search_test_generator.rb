@@ -240,8 +240,8 @@ module AUCoreTestKit
 
       def includes
         # The medication SearchParameter does not exist for the MedicationStatement
-        # resource in the current version of the IG, we shall keep special cases to
-        # provide functionality for the "_include" tests.
+        # and MedicationRequest resources in the current version of the IG,
+        # we shall keep special cases to provide functionality for the "_include" tests.
         # https://jira.csiro.au/browse/ST-400
         special_cases = {
           'MedicationRequest:medication' => { 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] },
