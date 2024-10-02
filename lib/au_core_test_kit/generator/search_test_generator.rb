@@ -225,9 +225,8 @@ module AUCoreTestKit
       end
 
       def test_reference_variants?
-        if resource_type == 'PractitionerRole' && search_param_names.include?('practitioner')
-          return true
-        end
+        return true if resource_type == 'PractitionerRole' && search_param_names.include?('practitioner')
+
         first_search? && search_param_names.include?('patient')
       end
 
@@ -239,6 +238,44 @@ module AUCoreTestKit
         first_search?
       end
 
+      def includes
+        # The medication SearchParameter does not exist for the MedicationStatement
+        # and MedicationRequest resources in the current version of the IG,
+        # we shall keep special cases to provide functionality for the "_include" tests.
+        # https://jira.csiro.au/browse/ST-400
+        special_cases = {
+          'MedicationRequest:medication' => { 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] },
+          'MedicationStatement:medication' => { 'parameter' => 'MedicationStatement:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }
+        }
+        include_params_list = group_metadata.include_params
+        search_definitions = group_metadata.search_definitions
+
+        include_params_list.map do |include_param|
+          if special_cases.key?(include_param)
+            puts "Special case for include_param: #{include_param}"
+
+            return [special_cases[include_param]]
+          end
+
+          target_resource = ''
+          paths = ''
+          search_definitions.each_key do |search_def_key|
+            current_search_def_path = search_definitions[search_def_key]
+            next unless current_search_def_path[:full_paths].first.split('.') == include_param.split(':')
+
+            target_resource = current_search_def_path[:target_resource]
+            paths = current_search_def_path[:paths]
+            break
+          end
+
+          {
+            'parameter' => include_param,
+            'target_resource' => target_resource,
+            'paths' => paths
+          }
+        end
+      end
+
       def search_properties
         {}.tap do |properties|
           properties[:first_search] = 'true' if first_search?
@@ -248,6 +285,7 @@ module AUCoreTestKit
           properties[:saves_delayed_references] = 'true' if saves_delayed_references?
           properties[:possible_status_search] = 'true' if possible_status_search?
           properties[:test_medication_inclusion] = 'true' if test_medication_inclusion?
+          properties[:includes] = includes if group_metadata.include_params.present?
           properties[:token_search_params] = token_search_params_string if token_search_params.present?
           properties[:test_reference_variants] = 'true' if test_reference_variants?
           properties[:params_with_comparators] = required_comparators_string if required_comparators.present?

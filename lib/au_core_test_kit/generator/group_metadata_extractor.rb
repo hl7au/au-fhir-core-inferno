@@ -327,7 +327,7 @@ module AUCoreTestKit
           .map do |reference_definition|
             {
               path: reference_definition.path,
-              profiles: reference_definition.type.first.targetProfile
+              profiles: reference_definition.type.first.targetProfile,
             }
           end
       end

@@ -25,7 +25,8 @@ module AUCoreTestKit
             contains_multiple: contains_multiple?,
             multiple_or: multiple_or_expectation,
             multiple_and: multiple_and_expectation,
-            chain:
+            chain:,
+            target_resource:
           }.compact
       end
 
@@ -39,6 +40,10 @@ module AUCoreTestKit
 
       def param_hash
         param.source_hash
+      end
+
+      def target_resource
+        param.target.first
       end
 
       def full_paths
