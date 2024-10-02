@@ -51,6 +51,7 @@ requirement of AU Core v0.4.1-preview.
           saves_delayed_references: true,
           possible_status_search: true,
           test_medication_inclusion: true,
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
           test_reference_variants: true,
           test_post_search: true
         )

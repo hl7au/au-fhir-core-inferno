@@ -32,7 +32,8 @@ none are returned, the test is skipped.
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationStatement',
           search_param_names: %w[patient effective],
-          possible_status_search: true
+          possible_status_search: true,
+          includes: [{ 'parameter' => 'MedicationStatement:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }]
         )
       end
 
