@@ -167,6 +167,7 @@ module AUCoreTestKit
         includes.each do |include_param|
           test_include_param(resources_returned, params, patient_id, include_param)
         end
+        search_variant_test_records[:medication_inclusion] = true
       end
       perform_reference_with_type_search(params, resources_returned.count) if test_reference_variants?
       perform_search_with_system(params, patient_id) if token_search_params.present?
@@ -240,7 +241,7 @@ module AUCoreTestKit
     def initial_search_variant_test_records
       {}.tap do |records|
         records[:post_variant] = false if test_post_search?
-        records[:medication_inclusion] = false if test_medication_inclusion?
+        records[:medication_inclusion] = false if includes.length.positive?
         records[:reference_variants] = false if test_reference_variants?
         records[:token_variants] = false if token_search_params.present?
         records[:comparator_searches] = Set.new if params_with_comparators.present?
@@ -451,6 +452,7 @@ module AUCoreTestKit
     end
 
     def test_include_param(base_resources, params, patient_id, include_param)
+      return if search_variant_test_records[:medication_inclusion]
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
       target_resource_type = include_param['target_resource']
 
