@@ -25,6 +25,7 @@ none are returned, the test is skipped.
         @properties ||= SearchTestProperties.new(
           resource_type: 'PractitionerRole',
           search_param_names: ['identifier'],
+          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
           token_search_params: ['identifier']
         )
       end

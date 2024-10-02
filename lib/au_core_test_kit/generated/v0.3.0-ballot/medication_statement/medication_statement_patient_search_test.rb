@@ -46,6 +46,7 @@ requirement of AU Core v0.3.0-ballot.
           search_param_names: ['patient'],
           saves_delayed_references: true,
           possible_status_search: true,
+          includes: [{ 'parameter' => 'MedicationStatement:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
           test_reference_variants: true,
           test_post_search: true
         )

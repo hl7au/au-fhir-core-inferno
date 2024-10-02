@@ -34,7 +34,8 @@ Medications, the search will be repeated with
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationRequest',
           search_param_names: %w[patient intent status],
-          test_medication_inclusion: true
+          test_medication_inclusion: true,
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }]
         )
       end
 

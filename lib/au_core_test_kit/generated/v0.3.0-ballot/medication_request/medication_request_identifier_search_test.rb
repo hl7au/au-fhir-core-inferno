@@ -31,6 +31,7 @@ Medications, the search will be repeated with
           search_param_names: ['identifier'],
           possible_status_search: true,
           test_medication_inclusion: true,
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
           token_search_params: ['identifier']
         )
       end

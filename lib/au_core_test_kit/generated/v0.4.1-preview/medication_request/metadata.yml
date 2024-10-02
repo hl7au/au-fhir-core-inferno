@@ -84,6 +84,7 @@
     - :chain: identifier
       :expectation: SHOULD
       :target: Patient
+    :target_resource: Patient
   :intent:
     :paths:
     - intent
