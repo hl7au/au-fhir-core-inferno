@@ -35,7 +35,8 @@ Medications, the search will be repeated with
           resource_type: 'MedicationRequest',
           search_param_names: %w[patient intent],
           possible_status_search: true,
-          test_medication_inclusion: true
+          test_medication_inclusion: true,
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }]
         )
       end
 

@@ -29,7 +29,8 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'MedicationStatement',
-          search_param_names: %w[patient status]
+          search_param_names: %w[patient status],
+          includes: [{ 'parameter' => 'MedicationStatement:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }]
         )
       end
 

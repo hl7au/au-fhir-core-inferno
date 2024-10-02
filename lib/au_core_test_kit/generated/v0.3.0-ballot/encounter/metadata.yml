@@ -86,6 +86,7 @@
     - :chain: identifier
       :expectation: SHOULD
       :target: Patient
+    :target_resource: Patient
   :date:
     :paths:
     - period
@@ -136,6 +137,7 @@
     :values: []
     :type: Reference
     :contains_multiple: false
+    :target_resource: Location
   :status:
     :paths:
     - status

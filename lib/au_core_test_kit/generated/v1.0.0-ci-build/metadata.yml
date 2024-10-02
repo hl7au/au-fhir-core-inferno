@@ -85,6 +85,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -358,6 +359,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -665,6 +667,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -938,6 +941,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -1196,6 +1200,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -1469,6 +1474,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -1739,6 +1745,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -2007,6 +2014,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -2277,6 +2285,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -2527,6 +2536,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -2730,6 +2740,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :clinical-status:
       :paths:
       - clinicalStatus
@@ -2895,6 +2906,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :category:
       :paths:
       - category
@@ -3089,6 +3101,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :date:
       :paths:
       - period
@@ -3128,6 +3141,7 @@
       :values: []
       :type: Reference
       :contains_multiple: false
+      :target_resource: Location
     :status:
       :paths:
       - status
@@ -3326,6 +3340,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :status:
       :paths:
       - status
@@ -3720,6 +3735,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :intent:
       :paths:
       - intent
@@ -4400,6 +4416,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Practitioner
+      :target_resource: Practitioner
     :specialty:
       :paths:
       - specialty
@@ -4532,6 +4549,7 @@
       - :chain: identifier
         :expectation: SHOULD
         :target: Patient
+      :target_resource: Patient
     :date:
       :paths:
       - performed

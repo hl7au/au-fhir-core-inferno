@@ -83,6 +83,7 @@
     - :chain: identifier
       :expectation: SHOULD
       :target: Patient
+    :target_resource: Patient
   :category:
     :paths:
     - category

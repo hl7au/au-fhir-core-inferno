@@ -71,6 +71,21 @@ module AUCoreTestKit
         end
       end
 
+      links [
+        {
+          label: 'Report Issue',
+          url: 'https://github.com/hl7au/au-fhir-core-inferno/issues'
+        },
+        {
+          label: 'Open Source',
+          url: 'https://github.com/hl7au/au-fhir-core-inferno'
+        },
+        {
+          label: 'AU Core Implementation Guide',
+          url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/'
+        }
+      ]
+
       id :au_core_v100_ci_build
 
       input :url,
