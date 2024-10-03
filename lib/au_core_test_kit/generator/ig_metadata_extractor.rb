@@ -58,8 +58,14 @@ module AUCoreTestKit
       def add_metadata_from_resources
         profile_arr_to_skip = [
           'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire',
-          'http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding'
+          'http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding',
+          'http://hl7.org/fhir/StructureDefinition/DocumentReference' # https://github.com/hl7au/au-fhir-core-inferno/issues/216
         ]
+
+        # NOTE: We use two different groups because of CapabilityStatement.rest.resource
+        # in AU Core IG supports two ways to describe the profile:
+        # 1. "profile" element which is a string
+        # 2. "supportedProfile" element which is an array of strings
 
         supported_profile_groups = resources_in_capability_statement.flat_map do |resource|
           resource.supportedProfile&.map do |supported_profile|
@@ -72,6 +78,7 @@ module AUCoreTestKit
 
         profile_groups = resources_in_capability_statement.flat_map do |resource|
           next unless resource.profile.present?
+          next if profile_arr_to_skip.include?(resource.profile)
 
           GroupMetadataExtractor.new(resource, resource.profile, metadata, ig_resources).group_metadata
         end.compact

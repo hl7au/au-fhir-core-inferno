@@ -11,6 +11,11 @@ generate:
 	$(compose) $(inferno) rubocop -A lib/au_core_test_kit/
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
 
+generate_local:
+	rm -rf lib/au_core_test_kit/generated/
+	bundle exec rake au_core:generate
+	rubocop -A lib/au_core_test_kit/
+
 summary: build
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
 
