@@ -54,7 +54,7 @@ make run
 * Generate a new IG package.tgz file.
 ```bash
 cd ../
-java -jar ../publisher.jar ../au-fhir-core/ig.ini
+java -jar publisher.jar au-fhir-core/ig.ini
 ```
 * Move the files to the AU FHIR Core Inferno folder.
 ```bash
