@@ -60,6 +60,7 @@ java -jar publisher.jar au-fhir-core/ig.ini
 ```bash
 cp au-fhir-core/output/package.tgz au-fhir-core-inferno/lib/au_core_test_kit/igs/
 cd au-fhir-core-inferno/
+sudo rm -rf lib/au_core_test_kit/generated
 make generate
 ```
 * Run the project.
