@@ -42,7 +42,7 @@ cd au-fhir-core-inferno/
 make setup
 make generate
 ```
-* In file lib/au-core-test-kit.rb you need to comment **require_relative 'au_core_test_kit/generated/v1.0.0-ballot/au_core_test_suite'** and uncomment **require_relative 'au_core_test_kit/generated/v1.0.0-ci-build/au_core_test_suite'**
+* In file lib/au_core_test_kit.rb you need to comment **require_relative 'au_core_test_kit/generated/v1.0.0-ballot/au_core_test_suite'** and uncomment **require_relative 'au_core_test_kit/generated/v1.0.0-ci-build/au_core_test_suite'**
 * Run the project.
 ```bash
 make run
