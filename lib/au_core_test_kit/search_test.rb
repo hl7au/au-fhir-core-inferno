@@ -103,6 +103,12 @@ module AUCoreTestKit
       run_search_test_common(method(:perform_search_with_system))
     end
 
+    def run_include_test
+      includes.each do |include_param|
+        test_include_param(resources_returned, params, patient_id, include_param)
+      end
+    end
+
     def run_read_test_and_skip_first_search(patient_id)
       resource = create_reference('Patient', patient_id)
       read_and_validate_as_first(resource, patient_id)
