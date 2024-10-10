@@ -18,6 +18,7 @@ require_relative 'generator/multiple_and_search_test_generator'
 require_relative 'generator/chain_search_test_generator'
 require_relative 'generator/special_identifier_search_test_generator'
 require_relative 'generator/special_identifiers_chain_search_test_generator'
+require_relative 'generator/include_search_test_generator'
 
 module AUCoreTestKit
   class Generator
@@ -42,6 +43,7 @@ module AUCoreTestKit
       generate_search_tests
       generate_read_tests
       generate_provenance_revinclude_search_tests
+      generate_include_search_tests
       generate_validation_tests
       generate_must_support_tests
       generate_reference_resolution_tests
@@ -91,6 +93,10 @@ module AUCoreTestKit
       generate_chain_search_tests
       generate_special_identifier_search_tests
       generate_special_identifiers_chain_search_tests
+    end
+
+    def generate_include_search_tests
+      IncludeSearchTestGenerator.generate(ig_metadata, base_output_dir)
     end
 
     def generate_provenance_revinclude_search_tests
