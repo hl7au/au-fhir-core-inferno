@@ -244,9 +244,26 @@ module AUCoreTestKit
         )
       end
 
+      def target_resources_string
+        includes.map { |include| include['target_resource'] }.join(', ')
+      end
+
+      def include_params_string
+        includes.map { |include| include['parameter'] }.join(', ')
+      end
+
+      def search_param_names_string
+        search_param_names.join(', ')
+      end
+
+      def title
+        "Server returns #{target_resources_string} resources from #{resource_type} search by #{search_param_names_string} and #{include_params_string}"
+      end
+
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-          Hello, World
+        This test will perform a search by #{search_param_names_string} and #{include_params_string}
+        Test will pass if a #{target_resources_string} resources are found in the response.
         DESCRIPTION
       end
 
