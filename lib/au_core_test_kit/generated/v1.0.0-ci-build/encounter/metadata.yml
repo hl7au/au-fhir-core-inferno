@@ -275,6 +275,7 @@
   :resources:
   - Practitioner
   - PractitionerRole
+  - RelatedPerson
 - :path: location.location
   :resources:
   - Location

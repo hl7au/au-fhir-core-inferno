@@ -13,6 +13,7 @@ require_relative 'medication_request/medication_request_patient_ihi_chain_search
 require_relative 'medication_request/medication_request_patient_medicare_chain_search_test'
 require_relative 'medication_request/medication_request_patient_dva_chain_search_test'
 require_relative 'medication_request/medication_request_read_test'
+require_relative 'medication_request/medication_request_medication_include_test'
 require_relative 'medication_request/medication_request_validation_test'
 require_relative 'medication_request/medication_validation_test'
 require_relative 'medication_request/medication_request_must_support_test'
@@ -99,6 +100,7 @@ read succeeds.
       test from: :au_core_v041_preview_medication_request_patient_medicare_chain_search_test
       test from: :au_core_v041_preview_medication_request_patient_dva_chain_search_test
       test from: :au_core_v041_preview_medication_request_read_test
+      test from: :au_core_v041_preview_medication_request_Medication_search_test
       test from: :au_core_v041_preview_medication_request_validation_test
       test from: :au_core_v041_preview_medication_validation_test
       test from: :au_core_v041_preview_medication_request_must_support_test

@@ -150,7 +150,6 @@
   :extensions: []
   :slices: []
   :elements:
-  - :path: identifier
   - :path: status
   - :path: category
   - :path: code
@@ -165,7 +164,6 @@
     - Reference
   - :path: value[x]
   - :path: interpretation
-  - :path: note
   - :path: specimen
     :types:
     - Reference
@@ -193,8 +191,6 @@
 - Observation.code
 - Observation.subject
 - Observation.effective[x]
-- Observation.specimen.reference
-- Observation.hasMember.reference
 - Observation.component.code
 :bindings:
 - :type: code
@@ -295,3 +291,4 @@
   - Practitioner
   - PractitionerRole
   - Organization
+  - RelatedPerson

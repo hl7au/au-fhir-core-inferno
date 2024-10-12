@@ -9,6 +9,7 @@ require_relative 'medication_statement/medication_statement_patient_medicare_cha
 require_relative 'medication_statement/medication_statement_patient_dva_chain_search_test'
 require_relative 'medication_statement/medication_statement_read_test'
 require_relative 'medication_statement/medication_statement_provenance_revinclude_search_test'
+require_relative 'medication_statement/medication_statement_medication_include_test'
 require_relative 'medication_statement/medication_statement_validation_test'
 require_relative 'medication_statement/medication_statement_must_support_test'
 require_relative 'medication_statement/medication_statement_reference_resolution_test'
@@ -88,6 +89,7 @@ read succeeds.
       test from: :au_core_v030_ballot_medication_statement_patient_dva_chain_search_test
       test from: :au_core_v030_ballot_medication_statement_read_test
       test from: :au_core_v030_ballot_medication_statement_provenance_revinclude_search_test
+      test from: :au_core_v030_ballot_medication_statement_Medication_search_test
       test from: :au_core_v030_ballot_medication_statement_validation_test
       test from: :au_core_v030_ballot_medication_statement_must_support_test
       test from: :au_core_v030_ballot_medication_statement_reference_resolution_test
