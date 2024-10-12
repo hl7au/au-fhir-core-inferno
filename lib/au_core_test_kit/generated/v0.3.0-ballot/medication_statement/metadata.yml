@@ -215,6 +215,8 @@
   :file_name: medication_statement_read_test.rb
 - :id: au_core_v030_ballot_medication_statement_provenance_revinclude_search_test
   :file_name: medication_statement_provenance_revinclude_search_test.rb
+- :id: au_core_v030_ballot_medication_statement_Medication_search_test
+  :file_name: medication_statement_medication_include_test.rb
 - :id: au_core_v030_ballot_medication_statement_validation_test
   :file_name: medication_statement_validation_test.rb
 - :id: au_core_v030_ballot_medication_statement_must_support_test

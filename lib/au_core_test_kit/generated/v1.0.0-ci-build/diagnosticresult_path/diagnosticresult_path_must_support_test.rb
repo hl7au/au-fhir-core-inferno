@@ -21,9 +21,7 @@ module AUCoreTestKit
         * Observation.component.value[x]
         * Observation.effective[x]
         * Observation.hasMember
-        * Observation.identifier
         * Observation.interpretation
-        * Observation.note
         * Observation.performer
         * Observation.referenceRange
         * Observation.referenceRange.high

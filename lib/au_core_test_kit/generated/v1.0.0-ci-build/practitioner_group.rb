@@ -27,7 +27,6 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* _id
 * identifier
 
 ### Search Parameters

@@ -9,9 +9,9 @@ module AUCoreTestKit
     class PractitionerIdSearchTest < Inferno::Test
       include AUCoreTestKit::SearchTest
 
-      title '(SHALL) Server returns valid results for Practitioner search by _id'
+      title '(SHOULD) Server returns valid results for Practitioner search by _id'
       description %(
-A server SHALL support searching by
+A server SHOULD support searching by
 _id on the Practitioner resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
@@ -29,6 +29,8 @@ requirement of AU Core v1.0.0-ci-build.
       )
 
       id :au_core_v100_ci_build_practitioner__id_search_test
+      optional
+
       def self.properties
         @properties ||= SearchTestProperties.new(
           first_search: true,

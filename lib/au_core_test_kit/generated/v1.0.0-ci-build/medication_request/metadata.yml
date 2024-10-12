@@ -279,6 +279,8 @@
   :file_name: medication_request_patient_dva_chain_search_test.rb
 - :id: au_core_v100_ci_build_medication_request_read_test
   :file_name: medication_request_read_test.rb
+- :id: au_core_v100_ci_build_medication_request_Medication_search_test
+  :file_name: medication_request_medication_include_test.rb
 - :id: au_core_v100_ci_build_medication_request_validation_test
   :file_name: medication_request_validation_test.rb
 - :id: au_core_v100_ci_build_medication_validation_test
@@ -298,3 +300,4 @@
   - Practitioner
   - PractitionerRole
   - Organization
+  - RelatedPerson
