@@ -105,10 +105,12 @@ module AUCoreTestKit
 
     def run_include_test
       all_search_params.flat_map do |patient_id, params_list|
+        patient_resources = scratch_resources_for_patient(patient_id)
+        next if patient_resources.blank?
         params_list.flat_map do |params|
           includes.each do |include_param|
             test_include_param(
-              scratch_resources_for_patient(patient_id),
+              patient_resources,
               params,
               patient_id,
               include_param,
