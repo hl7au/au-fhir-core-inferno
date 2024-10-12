@@ -1,0 +1,48 @@
+require_relative '../../../search_test'
+require_relative '../../../generator/group_metadata'
+require_relative '../../../helpers'
+
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::Test
+      include AUCoreTestKit::SearchTest
+      title '<%= title %>'
+      description %(
+<%= description %>
+      )
+
+      id :<%= test_id %><% if optional? %>
+      optional
+  <% end %><% if needs_patient_id? %>
+      input :patient_ids,
+        title: 'Patient IDs',
+        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+        default: '<%= Helpers.default_patient_ids_string %>'
+  <% end %><% if resource_type == 'Device' %>
+      input :implantable_device_codes,
+        title: 'Implantable Device Type Code',
+        description: 'Enter the code for an Implantable Device type, or multiple codes separated by commas. '\
+                    'If blank, Inferno will validate all Device resources against the Implantable Device profile',
+        optional: true
+  <% end %>
+      def self.properties
+        @properties ||= SearchTestProperties.new(
+  <%= search_test_properties_string %>
+        )
+      end
+
+      def self.metadata
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      run do
+        <%= search_method %>
+      end
+    end
+  end
+end
+

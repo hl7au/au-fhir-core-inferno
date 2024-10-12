@@ -103,6 +103,24 @@ module AUCoreTestKit
       run_search_test_common(method(:perform_search_with_system))
     end
 
+    def run_include_test
+      all_search_params.flat_map do |patient_id, params_list|
+        patient_resources = scratch_resources_for_patient(patient_id)
+        next if patient_resources.blank?
+        params_list.flat_map do |params|
+          includes.each do |include_param|
+            test_include_param(
+              patient_resources,
+              params,
+              patient_id,
+              include_param,
+              false
+            )
+          end
+        end
+      end
+    end
+
     def run_read_test_and_skip_first_search(patient_id)
       resource = create_reference('Patient', patient_id)
       read_and_validate_as_first(resource, patient_id)
@@ -450,8 +468,8 @@ module AUCoreTestKit
       end
     end
 
-    def test_include_param(base_resources, params, patient_id, include_param)
-      return if search_variant_test_records[:inclusion]
+    def test_include_param(base_resources, params, patient_id, include_param, keep_search_variant = true)
+      return if keep_search_variant && search_variant_test_records[:inclusion]
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
       target_resource_type = include_param['target_resource']
 
@@ -507,7 +525,9 @@ module AUCoreTestKit
       scratch[resources_to_check][:all] += resources
       scratch[resources_to_check][patient_id] += resources
 
-      search_variant_test_records[:inclusion] = true
+      if keep_search_variant
+        search_variant_test_records[:inclusion] = true
+      end
     end
 
     def is_reference_match?(reference, local_reference)
