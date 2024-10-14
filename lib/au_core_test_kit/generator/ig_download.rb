@@ -21,7 +21,7 @@ begin
 
   script_tag = doc.at('script:contains("var pageJSON")')
 
-  ig_versions_to_skip = ['0.1.0-draft', '0.2.0-preview', '0.2.1-preview', '0.2.2-preview']
+  ig_versions_to_skip = ['0.1.0-draft', '0.2.0-preview', '0.2.1-preview', '0.2.2-preview', '0.3.0-ballot', '0.4.1-preview', 'current']
 
   if script_tag&.content
     json_data = script_tag.content[/\{.*\}/m]
