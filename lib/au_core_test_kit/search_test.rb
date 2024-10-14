@@ -105,12 +105,9 @@ module AUCoreTestKit
 
     def run_include_test
       all_search_params.flat_map do |patient_id, params_list|
-        patient_resources = scratch_resources_for_patient(patient_id)
-        next if patient_resources.blank?
         params_list.flat_map do |params|
           includes.each do |include_param|
-            test_include_param(
-              patient_resources,
+            test_include_param_clean(
               params,
               patient_id,
               include_param,
@@ -237,7 +234,6 @@ module AUCoreTestKit
 
     def search_and_check_response(params, resource_type = self.resource_type)
       fhir_search(resource_type, params:)
-
       check_search_response
     end
 
@@ -468,6 +464,26 @@ module AUCoreTestKit
       end
     end
 
+    def test_include_param_clean(params, patient_id, include_param, keep_search_variant = true)
+      resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
+      target_resource_type = include_param['target_resource']
+      scratch[resources_to_check] ||= {}
+      scratch[resources_to_check][:all] ||= []
+      scratch[resources_to_check][patient_id] ||= []
+      scratch[resources_to_check][:contained] ||= []
+
+      search_params = params.merge(_include: include_param['parameter'])
+      search_and_check_response(search_params)
+
+      resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
+      assert resources.present?, "No #{target_resource_type} were included in the search results"
+
+      resources.uniq!(&:id)
+      scratch[resources_to_check][:all] += resources
+      scratch[resources_to_check][patient_id] += resources
+      scratch[resources_to_check][:contained] += resources
+    end
+
     def test_include_param(base_resources, params, patient_id, include_param, keep_search_variant = true)
       return if keep_search_variant && search_variant_test_records[:inclusion]
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
@@ -498,6 +514,8 @@ module AUCoreTestKit
       search_params = params.merge(_include: include_param['parameter'])
 
       search_and_check_response(search_params)
+      
+      puts "fetch_all_bundled_resources #{fetch_all_bundled_resources}"
 
       resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
       assert resources.present?, "No #{resource_type} were included in the search results"
