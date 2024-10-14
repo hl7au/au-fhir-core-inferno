@@ -100,7 +100,7 @@ read succeeds.
       test from: :au_core_v100_ballot_medication_request_patient_medicare_chain_search_test
       test from: :au_core_v100_ballot_medication_request_patient_dva_chain_search_test
       test from: :au_core_v100_ballot_medication_request_read_test
-      test from: :au_core_v100_ballot_medication_request_Medication_search_test
+      test from: :au_core_v100_ballot_medication_request_include_medication_search_test
       test from: :au_core_v100_ballot_medication_request_validation_test
       test from: :au_core_v100_ballot_medication_validation_test
       test from: :au_core_v100_ballot_medication_request_must_support_test

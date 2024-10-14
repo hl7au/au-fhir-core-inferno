@@ -90,7 +90,7 @@ read succeeds.
       test from: :au_core_v100_ballot_practitioner_role_practitioner_multiple_and_search_test
       test from: :au_core_v100_ballot_practitioner_role_practitioner_chain_search_test
       test from: :au_core_v100_ballot_practitioner_role_identifier_medicare_search_test
-      test from: :au_core_v100_ballot_practitioner_role_Practitioner_search_test
+      test from: :au_core_v100_ballot_practitioner_role_include_practitioner_search_test
       test from: :au_core_v100_ballot_practitioner_role_validation_test
       test from: :au_core_v100_ballot_practitioner_role_must_support_test
       test from: :au_core_v100_ballot_practitioner_role_reference_resolution_test
