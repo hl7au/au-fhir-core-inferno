@@ -8,15 +8,15 @@ module AUCoreTestKit
   module AUCoreV100_BALLOT
     class PractitionerRolePractitionerIncludeTest < Inferno::Test
       include AUCoreTestKit::SearchTest
-      title 'Server returns Practitioner resources from PractitionerRole search by _id and PractitionerRole:practitioner'
+      title 'Server returns Practitioner resources from PractitionerRole search by identifier and PractitionerRole:practitioner'
       description %(
-This test will perform a search by _id and PractitionerRole:practitioner
+This test will perform a search by identifier and PractitionerRole:practitioner
 
 Test will pass if a Practitioner resources are found in the response.
 
       )
 
-      id :au_core_v100_ballot_practitioner_role_Practitioner_search_test
+      id :au_core_v100_ballot_practitioner_role_include_practitioner_search_test
       optional
 
       input :patient_ids,
@@ -27,8 +27,7 @@ Test will pass if a Practitioner resources are found in the response.
       def self.properties
         @properties ||= SearchTestProperties.new(
           resource_type: 'PractitionerRole',
-          saves_delayed_references: true,
-          search_param_names: ['_id'],
+          search_param_names: ['identifier'],
           includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }]
         )
       end

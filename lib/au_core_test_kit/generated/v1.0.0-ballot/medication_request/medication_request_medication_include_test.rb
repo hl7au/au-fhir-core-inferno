@@ -16,7 +16,7 @@ Test will pass if a Medication resources are found in the response.
 
       )
 
-      id :au_core_v100_ballot_medication_request_Medication_search_test
+      id :au_core_v100_ballot_medication_request_include_medication_search_test
       optional
 
       input :patient_ids,
