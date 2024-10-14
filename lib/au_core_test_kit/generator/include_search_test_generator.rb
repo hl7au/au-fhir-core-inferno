@@ -36,7 +36,7 @@ module AUCoreTestKit
       end
 
       def test_id
-        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_include_#{search_identifier}_search_test"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_include_#{search_identifier.downcase}_search_test"
       end
 
       def class_name
