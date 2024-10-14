@@ -13,7 +13,7 @@ module AUCoreTestKit
                      .reject { |group| SpecialCases.exclude_group? group }
                      .select { |group| group.include_params.present? }
                      .each do |group|
-            group.include_params.each { |include_param| new(group, group.searches.first, base_output_dir, include_param).generate }
+            group.include_params.each { |include_param| new(group, group.searches.find { |search_element| search_element[:names].first != '_id'}, base_output_dir, include_param).generate }
           end
         end
       end
@@ -33,6 +33,10 @@ module AUCoreTestKit
 
       def search_identifier
         includes.first['target_resource']
+      end
+
+      def test_id
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_include_#{search_identifier}_search_test"
       end
 
       def class_name

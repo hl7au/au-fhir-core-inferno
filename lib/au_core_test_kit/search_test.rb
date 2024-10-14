@@ -104,18 +104,25 @@ module AUCoreTestKit
     end
 
     def run_include_test
-      all_search_params.flat_map do |patient_id, params_list|
-        params_list.flat_map do |params|
+      resources = []
+      all_search_params.each do |patient_id, params_list|
+        params_list.each do |params|
           includes.each do |include_param|
-            test_include_param_clean(
+            patient_resources = find_include_resources(
               params,
               patient_id,
               include_param,
               false
             )
+            if patient_resources.length.positive?
+              resources.concat(patient_resources)
+              break
+            end
           end
         end
+        break if resources.length.positive?
       end
+      assert resources.length.positive?, "No resources were included in the search results"
     end
 
     def run_read_test_and_skip_first_search(patient_id)
@@ -464,7 +471,7 @@ module AUCoreTestKit
       end
     end
 
-    def test_include_param_clean(params, patient_id, include_param, keep_search_variant = true)
+    def find_include_resources(params, patient_id, include_param, keep_search_variant = true)
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
       target_resource_type = include_param['target_resource']
       scratch[resources_to_check] ||= {}
@@ -476,12 +483,13 @@ module AUCoreTestKit
       search_and_check_response(search_params)
 
       resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
-      assert resources.present?, "No #{target_resource_type} were included in the search results"
 
       resources.uniq!(&:id)
       scratch[resources_to_check][:all] += resources
       scratch[resources_to_check][patient_id] += resources
       scratch[resources_to_check][:contained] += resources
+
+      resources
     end
 
     def test_include_param(base_resources, params, patient_id, include_param, keep_search_variant = true)
@@ -588,6 +596,12 @@ module AUCoreTestKit
       if resources.empty?
         return search_param_names.each_with_object({}) do |name, params|
           value = patient_id_param?(name) ? patient_id : nil
+          if value.nil?
+            scratch_resources[:all].each do |resource|
+              value = search_param_value(name, resource, include_system: include_system)
+              break if value.present?
+            end
+          end
           params[name] = value
         end
       end
