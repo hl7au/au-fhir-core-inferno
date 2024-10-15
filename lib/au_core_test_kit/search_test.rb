@@ -32,7 +32,8 @@ module AUCoreTestKit
                    :multiple_and_search_params,
                    :optional_multiple_and_search_params,
                    :first_search_for_patient_by_patient_id,
-                   :includes
+                   :includes,
+                   :use_any_data_for_search
 
     def all_search_params
       @all_search_params ||=
@@ -596,7 +597,7 @@ module AUCoreTestKit
       if resources.empty?
         return search_param_names.each_with_object({}) do |name, params|
           value = patient_id_param?(name) ? patient_id : nil
-          if value.nil?
+          if value.nil? && use_any_data_for_search
             scratch_resources[:all].each do |resource|
               value = search_param_value(name, resource, include_system: include_system)
               break if value.present?
