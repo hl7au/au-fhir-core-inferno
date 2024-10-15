@@ -1,3 +1,8 @@
+# 0.0.15
+* Add conditional/basic skip with a message by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/209
+* Update _include tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/212
+* Add separate _include tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/217
+
 # 0.0.14
 ## AU Core Test Kit changes
 * Update target_profile modification for au-specimen by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/194
