@@ -28,7 +28,8 @@ Test will pass if a Practitioner resources are found in the response.
         @properties ||= SearchTestProperties.new(
           resource_type: 'PractitionerRole',
           search_param_names: ['identifier'],
-          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }]
+          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
+          use_any_data_for_search: true
         )
       end
 

@@ -29,7 +29,8 @@ Test will pass if a Medication resources are found in the response.
           resource_type: 'MedicationRequest',
           saves_delayed_references: true,
           search_param_names: ['patient'],
-          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }]
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
+          use_any_data_for_search: true
         )
       end
 
