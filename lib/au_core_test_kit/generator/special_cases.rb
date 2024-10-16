@@ -29,6 +29,14 @@ module AUCoreTestKit
         { display: 'ABN', url: 'http://hl7.org.au/id/abn' }
       ].freeze
 
+      # In the current implementation (2024.10.16/1.0.0-ci-build) there is no way
+      # to get information on what search/combo search parameters SHOULD be supported
+      # with the _include parameter. This information exists only in narratives.
+
+      # https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-medicationrequest.html#mandatory-search-parameters
+      # https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-practitionerrole.html#mandatory-search-parameters
+      # https://github.com/hl7au/au-fhir-core-inferno/issues/199
+
       SEARCH_PARAMS_FOR_INCLUDE_BY_RESOURCE = {
         'MedicationRequest' => [
           ['patient'],
