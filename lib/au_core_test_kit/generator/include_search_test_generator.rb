@@ -83,7 +83,7 @@ module AUCoreTestKit
 
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-        This test will perform a search by #{search_param_names_string} and #{include_params_string}
+        This test will perform a search by #{search_param_names_string} and the _include=#{include_params_string}
 
         Test will pass if a #{target_resources_string} resources are found in the response.
         DESCRIPTION
