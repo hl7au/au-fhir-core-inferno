@@ -6,17 +6,17 @@ require_relative '../../../helpers'
 
 module AUCoreTestKit
   module AUCoreV100_BALLOT
-    class MedicationRequestMedicationIncludeTest < Inferno::Test
+    class PractitionerRoleIdIncludePractitionerTest < Inferno::Test
       include AUCoreTestKit::SearchTest
-      title 'Server returns Medication resources from MedicationRequest search by patient and MedicationRequest:medication'
+      title 'Server returns Practitioner resources from PractitionerRole search by _id and PractitionerRole:practitioner'
       description %(
-This test will perform a search by patient and MedicationRequest:medication
+This test will perform a search by _id and the _include=PractitionerRole:practitioner
 
-Test will pass if a Medication resources are found in the response.
+Test will pass if a Practitioner resources are found in the response.
 
       )
 
-      id :au_core_v100_ballot_medication_request_include_medication_search_test
+      id :au_core_v100_ballot_practitioner_role__id_include__id_search_test
       optional
 
       input :patient_ids,
@@ -26,10 +26,10 @@ Test will pass if a Medication resources are found in the response.
 
       def self.properties
         @properties ||= SearchTestProperties.new(
-          resource_type: 'MedicationRequest',
+          resource_type: 'PractitionerRole',
           saves_delayed_references: true,
-          search_param_names: ['patient'],
-          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
+          search_param_names: ['_id'],
+          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
           use_any_data_for_search: true
         )
       end
@@ -39,7 +39,7 @@ Test will pass if a Medication resources are found in the response.
       end
 
       def scratch_resources
-        scratch[:medication_request_resources] ||= {}
+        scratch[:practitioner_role_resources] ||= {}
       end
 
       run do

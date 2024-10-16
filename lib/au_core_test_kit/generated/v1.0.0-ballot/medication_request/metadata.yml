@@ -279,8 +279,16 @@
   :file_name: medication_request_patient_dva_chain_search_test.rb
 - :id: au_core_v100_ballot_medication_request_read_test
   :file_name: medication_request_read_test.rb
-- :id: au_core_v100_ballot_medication_request_include_medication_search_test
-  :file_name: medication_request_medication_include_test.rb
+- :id: au_core_v100_ballot_medication_request_patient_include_patient_search_test
+  :file_name: medication_request_patient_include_medication_test.rb
+- :id: au_core_v100_ballot_medication_request__id_include__id_search_test
+  :file_name: medication_request_id_include_medication_test.rb
+- :id: au_core_v100_ballot_medication_request_patient_intent_include_patient_intent_search_test
+  :file_name: medication_request_patient_intent_include_medication_test.rb
+- :id: au_core_v100_ballot_medication_request_patient_intent_status_include_patient_intent_status_search_test
+  :file_name: medication_request_patient_intent_status_include_medication_test.rb
+- :id: au_core_v100_ballot_medication_request_patient_intent_authoredon_include_patient_intent_authoredon_search_test
+  :file_name: medication_request_patient_intent_authoredon_include_medication_test.rb
 - :id: au_core_v100_ballot_medication_request_validation_test
   :file_name: medication_request_validation_test.rb
 - :id: au_core_v100_ballot_medication_validation_test
