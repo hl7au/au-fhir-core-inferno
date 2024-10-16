@@ -29,6 +29,22 @@ module AUCoreTestKit
         { display: 'ABN', url: 'http://hl7.org.au/id/abn' }
       ].freeze
 
+      SEARCH_PARAMS_FOR_INCLUDE_BY_RESOURCE = {
+        'MedicationRequest' => [
+          ['patient'],
+          %w[patient intent],
+          %w[patient intent status],
+          ['_id'],
+          %w[patient intent authoredon]
+        ],
+        'PractitionerRole' => [
+          ['identifier'],
+          ['practitioner'],
+          ['_id'],
+          ['specialty']
+        ]
+      }.freeze
+
       class << self
         def exclude_group?(group)
           RESOURCES_TO_EXCLUDE.include?(group.resource)
@@ -48,6 +64,10 @@ module AUCoreTestKit
 
         def organization_au_identifiers
           ORGANIZATION_IDENTIFIERS
+        end
+
+        def search_params_for_include_by_resource
+          SEARCH_PARAMS_FOR_INCLUDE_BY_RESOURCE
         end
       end
     end

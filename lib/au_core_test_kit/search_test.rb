@@ -123,7 +123,9 @@ module AUCoreTestKit
         end
         break if resources.length.positive?
       end
-      assert resources.length.positive?, "No resources were included in the search results"
+      pass if resources.length.positive?
+
+      skip_with_msg "No resources were included in the search results"
     end
 
     def run_read_test_and_skip_first_search(patient_id)

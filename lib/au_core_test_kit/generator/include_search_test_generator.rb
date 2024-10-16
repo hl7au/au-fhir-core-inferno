@@ -13,7 +13,13 @@ module AUCoreTestKit
                      .reject { |group| SpecialCases.exclude_group? group }
                      .select { |group| group.include_params.present? }
                      .each do |group|
-            group.include_params.each { |include_param| new(group, group.searches.find { |search_element| search_element[:names].first != '_id'}, base_output_dir, include_param).generate }
+            group.searches.each do |search|
+              next unless SpecialCases.search_params_for_include_by_resource[group.resource].include? search[:names]
+
+              group.include_params.each do |include_param|
+                new(group, search, base_output_dir, include_param).generate
+              end
+            end
           end
         end
       end
@@ -32,15 +38,19 @@ module AUCoreTestKit
       end
 
       def search_identifier
-        includes.first['target_resource']
+        search_metadata[:names].join('_').tr('-', '_')
       end
 
       def test_id
-        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_include_#{search_identifier.downcase}_search_test"
+        "au_core_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_param_names_lodash_string}_include_#{search_identifier.downcase}_search_test"
+      end
+
+      def search_title
+        search_identifier.camelize
       end
 
       def class_name
-        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title}IncludeTest"
+        "#{Naming.upper_camel_case_for_profile(group_metadata)}#{search_title}Include#{includes.first['target_resource']}Test"
       end
 
       def conformance_expectation
@@ -77,15 +87,19 @@ module AUCoreTestKit
         search_param_names.join(', ')
       end
 
+      def search_param_names_lodash_string
+        search_param_names.join('_')
+      end
+
       def title
         "Server returns #{target_resources_string} resources from #{resource_type} search by #{search_param_names_string} and #{include_params_string}"
       end
 
       def description
         <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
-        This test will perform a search by #{search_param_names_string} and the _include=#{include_params_string}
+          This test will perform a search by #{search_param_names_string} and the _include=#{include_params_string}
 
-        Test will pass if a #{target_resources_string} resources are found in the response.
+          Test will pass if a #{target_resources_string} resources are found in the response.
         DESCRIPTION
       end
 
