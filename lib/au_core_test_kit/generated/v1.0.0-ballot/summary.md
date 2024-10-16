@@ -8752,7 +8752,7 @@ A server SHALL support the MedicationRequest read interaction.
 
 <summary>Show details</summary>
 
-This test will perform a search by patient and MedicationRequest:medication
+This test will perform a search by patient and the _include=MedicationRequest:medication
 
 Test will pass if a Medication resources are found in the response.
 
@@ -8781,7 +8781,143 @@ Accept: application/fhir+json
 
 
 
-#### 1.17.15 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
+#### 1.17.15 Server returns Medication resources from MedicationRequest search by _id and MedicationRequest:medication
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by _id and the _include=MedicationRequest:medication
+
+Test will pass if a Medication resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?_id={_id}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.16 Server returns Medication resources from MedicationRequest search by patient, intent and MedicationRequest:medication
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by patient, intent and the _include=MedicationRequest:medication
+
+Test will pass if a Medication resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient intent={patient intent} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient intent={patient intent}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.17 Server returns Medication resources from MedicationRequest search by patient, intent, status and MedicationRequest:medication
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by patient, intent, status and the _include=MedicationRequest:medication
+
+Test will pass if a Medication resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient intent status={patient intent status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient intent status={patient intent status}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.18 Server returns Medication resources from MedicationRequest search by patient, intent, authoredon and MedicationRequest:medication
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by patient, intent, authoredon and the _include=MedicationRequest:medication
+
+Test will pass if a Medication resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /MedicationRequest?patient intent authoredon={patient intent authoredon} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/MedicationRequest?patient intent authoredon={patient intent authoredon}
+```
+
+
+
+</details>
+
+
+
+#### 1.17.19 MedicationRequest resources returned during previous tests conform to the AU Core MedicationRequest
 <details>
 
 <summary>Show details</summary>
@@ -8795,7 +8931,7 @@ the [AU Core MedicationRequest](http://hl7.org.au/fhir/core/StructureDefinition/
 
 
 
-#### 1.17.16 Medication resources returned during previous tests conform to the AU Core Medication
+#### 1.17.20 Medication resources returned during previous tests conform to the AU Core Medication
 <details>
 
 <summary>Show details</summary>
@@ -8809,7 +8945,7 @@ the [AU Core Medication](http://hl7.org.au/fhir/core/StructureDefinition/au-core
 
 
 
-#### 1.17.17 All must support elements are provided in the MedicationRequest resources returned
+#### 1.17.21 All must support elements are provided in the MedicationRequest resources returned
 <details>
 
 <summary>Show details</summary>
@@ -8836,7 +8972,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.17.18 MustSupport references within MedicationRequest resources are valid
+#### 1.17.22 MustSupport references within MedicationRequest resources are valid
 <details>
 
 <summary>Show details</summary>
@@ -10508,12 +10644,46 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.10 Server returns Practitioner resources from PractitionerRole search by identifier and PractitionerRole:practitioner
+#### 1.22.10 Server returns Practitioner resources from PractitionerRole search by _id and PractitionerRole:practitioner
 <details>
 
 <summary>Show details</summary>
 
-This test will perform a search by identifier and PractitionerRole:practitioner
+This test will perform a search by _id and the _include=PractitionerRole:practitioner
+
+Test will pass if a Practitioner resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?_id={_id} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?_id={_id}
+```
+
+
+
+</details>
+
+
+
+#### 1.22.11 Server returns Practitioner resources from PractitionerRole search by identifier and PractitionerRole:practitioner
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by identifier and the _include=PractitionerRole:practitioner
 
 Test will pass if a Practitioner resources are found in the response.
 
@@ -10542,7 +10712,75 @@ Accept: application/fhir+json
 
 
 
-#### 1.22.11 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
+#### 1.22.12 Server returns Practitioner resources from PractitionerRole search by practitioner and PractitionerRole:practitioner
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by practitioner and the _include=PractitionerRole:practitioner
+
+Test will pass if a Practitioner resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?practitioner={practitioner} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?practitioner={practitioner}
+```
+
+
+
+</details>
+
+
+
+#### 1.22.13 Server returns Practitioner resources from PractitionerRole search by specialty and PractitionerRole:practitioner
+<details>
+
+<summary>Show details</summary>
+
+This test will perform a search by specialty and the _include=PractitionerRole:practitioner
+
+Test will pass if a Practitioner resources are found in the response.
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /PractitionerRole?specialty={specialty} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/PractitionerRole?specialty={specialty}
+```
+
+
+
+</details>
+
+
+
+#### 1.22.14 PractitionerRole resources returned during previous tests conform to the AU Core PractitionerRole
 <details>
 
 <summary>Show details</summary>
@@ -10556,7 +10794,7 @@ the [AU Core PractitionerRole](http://hl7.org.au/fhir/core/StructureDefinition/a
 
 
 
-#### 1.22.12 All must support elements are provided in the PractitionerRole resources returned
+#### 1.22.15 All must support elements are provided in the PractitionerRole resources returned
 <details>
 
 <summary>Show details</summary>
@@ -10579,7 +10817,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.22.13 MustSupport references within PractitionerRole resources are valid
+#### 1.22.16 MustSupport references within PractitionerRole resources are valid
 <details>
 
 <summary>Show details</summary>

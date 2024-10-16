@@ -6,17 +6,17 @@ require_relative '../../../helpers'
 
 module AUCoreTestKit
   module AUCoreV100_BALLOT
-    class PractitionerRolePractitionerIncludeTest < Inferno::Test
+    class MedicationRequestPatientIncludeMedicationTest < Inferno::Test
       include AUCoreTestKit::SearchTest
-      title 'Server returns Practitioner resources from PractitionerRole search by identifier and PractitionerRole:practitioner'
+      title 'Server returns Medication resources from MedicationRequest search by patient and MedicationRequest:medication'
       description %(
-This test will perform a search by identifier and PractitionerRole:practitioner
+This test will perform a search by patient and the _include=MedicationRequest:medication
 
-Test will pass if a Practitioner resources are found in the response.
+Test will pass if a Medication resources are found in the response.
 
       )
 
-      id :au_core_v100_ballot_practitioner_role_include_practitioner_search_test
+      id :au_core_v100_ballot_medication_request_patient_include_patient_search_test
       optional
 
       input :patient_ids,
@@ -26,9 +26,10 @@ Test will pass if a Practitioner resources are found in the response.
 
       def self.properties
         @properties ||= SearchTestProperties.new(
-          resource_type: 'PractitionerRole',
-          search_param_names: ['identifier'],
-          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
+          resource_type: 'MedicationRequest',
+          saves_delayed_references: true,
+          search_param_names: ['patient'],
+          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => 'Medication', 'paths' => ['medicationReference'] }],
           use_any_data_for_search: true
         )
       end
@@ -38,7 +39,7 @@ Test will pass if a Practitioner resources are found in the response.
       end
 
       def scratch_resources
-        scratch[:practitioner_role_resources] ||= {}
+        scratch[:medication_request_resources] ||= {}
       end
 
       run do
