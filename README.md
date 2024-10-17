@@ -54,7 +54,14 @@ Then you need to create a tag for this version. The tag name should start with `
 Once a tag is created, you need to create a GitHub release for this newly published version.
 The release creation triggers the pipeline that deploys a new version to the cloud environment.
 
-## Reporting Issues
+## Contributing to Inferno and Reporting Issues
+
+1. Discuss an issue in chat.fhir.org
+If you have a question, feature request, or proposed change, the best place to start is Zulip i.e. the https://chat.fhir.org/#narrow/stream/179173-australia/topic/Inferno.20Test.20Kit.20feedback.20and.20queries
+
+If you're unable to find an open request, please create a GitHub to:
+contribute Test suites or Code to the repository: state your details and the nature of the changes to be contributed
+suggest improvements or enhancements to the project
 
 We appreciate your contributions to improving this test suite. **If you encounter any issues or have suggestions for enhancements, please follow the steps below to report them**:
 
