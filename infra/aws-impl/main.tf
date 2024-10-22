@@ -80,6 +80,7 @@ module "rds" {
   performance_insights_retention_period = 7
 
   tags = local.tags
+  manage_master_user_password_rotation = true
 }
 
 ################################################################################
