@@ -289,8 +289,12 @@ module AUCoreTestKit
         comparator + (DateTime.xmlschema(date) + 1).xmlschema
       when 'gt', 'ge'
         comparator + (DateTime.xmlschema(date) - 1).xmlschema
+      when 'exact'
+        # NOTE: exact is not a part of the IG.
+        # This is a custom comparator to test exact date searches
+        # https://github.com/hl7au/au-fhir-core-inferno/issues/106
+        DateTime.xmlschema(date).xmlschema
       else
-        # ''
         raise "Unsupported comparator '#{comparator}'"
       end
     end
@@ -308,7 +312,9 @@ module AUCoreTestKit
       params_with_comparators.each do |name|
         next if search_variant_test_records[:comparator_searches].include? name
 
-        required_comparators(name).each do |comparator|
+        req_comparators = required_comparators(name) << "exact"
+
+        req_comparators.each do |comparator|
           paths = search_param_paths(name).first
           date_element = find_a_value_at(scratch_resources_for_patient(patient_id), paths)
           params_with_comparator = params.merge(name => date_comparator_value(comparator, date_element))
@@ -443,9 +449,7 @@ module AUCoreTestKit
     end
 
     def modify_value_by_multiple_type(values, multiple_type)
-      return [values.join(',')] if multiple_type == 'or'
-
-      Array.wrap(values)
+      multiple_type == 'or' ? [values.join(',')] : Array.wrap(values)
     end
 
     def perform_multiple_search_test(multiple_type)
@@ -456,10 +460,19 @@ module AUCoreTestKit
       else
         param_name = search_param_names[0]
         default_search_values = default_search_values_clean(param_name.to_sym)
+        req_comparators = required_comparators(param_name)
 
         if default_search_values.length > 1
-          search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
-          search_and_check_response(search_params)
+          if req_comparators.length.positive?
+            combo_values_to_search = [["ge", "le"], ["gt", "lt"]].map { |combo_comp| [date_comparator_value(combo_comp[0], default_search_values[0]), date_comparator_value(combo_comp[1], default_search_values[1])] }
+            combo_values_to_search.each do |combo_values|
+              search_params = { param_name => modify_value_by_multiple_type(combo_values, multiple_type) }
+              search_and_check_response(search_params)
+            end
+          else
+            search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
+            search_and_check_response(search_params)
+          end
         else
           resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
           existing_values = extract_existing_values_safety(resources_arr, param_name)

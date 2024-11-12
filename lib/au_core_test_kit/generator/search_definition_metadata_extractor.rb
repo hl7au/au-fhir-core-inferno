@@ -241,7 +241,7 @@ module AUCoreTestKit
 
       def values
         fixed_diagnostic_result_values = %w[251739003 24701-5]
-        fixed_date_value = %w[ge1950-01-01 le2050-01-01]
+        fixed_date_value = %w[1950-01-01 2050-01-01]
         # NOTE: In the current step we don't need to check the correct content of the response.
         # We should care about the correct structure of the request. In this current case we use dates just
         # to check that server can make a response for the request.
