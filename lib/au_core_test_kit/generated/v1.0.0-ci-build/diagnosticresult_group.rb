@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require_relative 'diagnosticresult/diagnosticresult_patient_code_search_test'
+require_relative 'diagnosticresult/diagnosticresult_category_search_test'
+require_relative 'diagnosticresult/diagnosticresult_code_search_test'
+require_relative 'diagnosticresult/diagnosticresult_date_search_test'
+require_relative 'diagnosticresult/diagnosticresult_status_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_date_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_category_status_search_test'
@@ -85,6 +90,11 @@ read succeeds.
       end
 
       test from: :au_core_v100_ci_build_diagnosticresult_patient_code_search_test
+      test from: :au_core_v100_ci_build_diagnosticresult_category_search_test
+      test from: :au_core_v100_ci_build_diagnosticresult_code_search_test
+      test from: :au_core_v100_ci_build_diagnosticresult_date_search_test
+      test from: :au_core_v100_ci_build_diagnosticresult_status_search_test
+      test from: :au_core_v100_ci_build_diagnosticresult_patient_search_test
       test from: :au_core_v100_ci_build_diagnosticresult_patient_category_search_test
       test from: :au_core_v100_ci_build_diagnosticresult_patient_category_date_search_test
       test from: :au_core_v100_ci_build_diagnosticresult_patient_category_status_search_test

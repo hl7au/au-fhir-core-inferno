@@ -36,6 +36,26 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
   - patient
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
@@ -68,22 +88,6 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
-  :patient:
-    :paths:
-    - subject
-    :full_paths:
-    - Observation.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
-    :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
-    :target_resource: Patient
   :category:
     :paths:
     - category
@@ -94,6 +98,18 @@
     - vital-signs
     :type: CodeableConcept
     :contains_multiple: true
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Observation.code
+    :comparators: {}
+    :values:
+    - 8302-2
+    - '50373000'
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
   :date:
     :paths:
     - effective
@@ -115,18 +131,6 @@
     :type: date
     :contains_multiple: false
     :multiple_and: SHOULD
-  :code:
-    :paths:
-    - code
-    :full_paths:
-    - Observation.code
-    :comparators: {}
-    :values:
-    - 8302-2
-    - '50373000'
-    :type: CodeableConcept
-    :contains_multiple: false
-    :multiple_or: SHOULD
   :status:
     :paths:
     - status
@@ -145,6 +149,22 @@
     :type: code
     :contains_multiple: false
     :multiple_or: SHALL
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Observation.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
 :include_params: []
 :revincludes: []
 :required_concepts: []
@@ -275,6 +295,14 @@
 :tests:
 - :id: au_core_v100_ballot_bodyheight_patient_code_search_test
   :file_name: bodyheight_patient_code_search_test.rb
+- :id: au_core_v100_ballot_bodyheight_category_search_test
+  :file_name: bodyheight_category_search_test.rb
+- :id: au_core_v100_ballot_bodyheight_code_search_test
+  :file_name: bodyheight_code_search_test.rb
+- :id: au_core_v100_ballot_bodyheight_date_search_test
+  :file_name: bodyheight_date_search_test.rb
+- :id: au_core_v100_ballot_bodyheight_status_search_test
+  :file_name: bodyheight_status_search_test.rb
 - :id: au_core_v100_ballot_bodyheight_patient_search_test
   :file_name: bodyheight_patient_search_test.rb
 - :id: au_core_v100_ballot_bodyheight_patient_category_search_test
