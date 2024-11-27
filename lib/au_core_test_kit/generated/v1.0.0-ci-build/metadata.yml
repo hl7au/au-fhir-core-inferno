@@ -4210,16 +4210,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - ge1950-01-01
+      - le2050-01-01
       :type: date
       :contains_multiple: false
+      :multiple_and: MAY
     :family:
       :paths:
       - name.family

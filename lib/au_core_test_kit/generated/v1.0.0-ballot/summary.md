@@ -640,7 +640,44 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.15 (MAY) Server returns valid results for Patient multipleAnd search by indigenous-status
+#### 2.2.15 (MAY) Server returns valid results for Patient multipleAnd search by birthdate
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+birthdate on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?birthdate={birthdate} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?birthdate={birthdate}
+```
+
+
+
+</details>
+
+
+
+#### 2.2.16 (MAY) Server returns valid results for Patient multipleAnd search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -677,7 +714,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.16 (MAY) Server returns valid results for Patient multipleAnd search by gender-identity
+#### 2.2.17 (MAY) Server returns valid results for Patient multipleAnd search by gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -714,7 +751,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.17 (SHOULD) Server returns valid results for Patient search by identifier (IHI)
+#### 2.2.18 (SHOULD) Server returns valid results for Patient search by identifier (IHI)
 <details>
 
 <summary>Show details</summary>
@@ -747,7 +784,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.18 (SHOULD) Server returns valid results for Patient search by identifier (Medicare)
+#### 2.2.19 (SHOULD) Server returns valid results for Patient search by identifier (Medicare)
 <details>
 
 <summary>Show details</summary>
@@ -780,7 +817,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.19 (SHOULD) Server returns valid results for Patient search by identifier (DVA)
+#### 2.2.20 (SHOULD) Server returns valid results for Patient search by identifier (DVA)
 <details>
 
 <summary>Show details</summary>
@@ -813,7 +850,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.2.20 (SHALL) Server returns correct Patient resource from Patient read interaction
+#### 2.2.21 (SHALL) Server returns correct Patient resource from Patient read interaction
 <details>
 
 <summary>Show details</summary>
@@ -826,7 +863,7 @@ A server SHALL support the Patient read interaction.
 
 
 
-#### 2.2.21 Patient resources returned during previous tests conform to the AU Core Patient
+#### 2.2.22 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 
 <summary>Show details</summary>
@@ -840,7 +877,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 
 
 
-#### 2.2.22 All must support elements are provided in the Patient resources returned
+#### 2.2.23 All must support elements are provided in the Patient resources returned
 <details>
 
 <summary>Show details</summary>

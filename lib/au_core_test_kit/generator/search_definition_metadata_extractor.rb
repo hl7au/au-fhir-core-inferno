@@ -136,9 +136,9 @@ module AUCoreTestKit
         # NOTE: Hard-coded values are used because the comparator expectation
         # does not exist in the machine-readable files, but it does exist in the narrative.
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/48
-        special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest]
+        special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest Patient]
         special_cases_comparators = %w[gt lt ge le]
-        special_cases_param_ids = %w[clinical-date Condition-onset-date clinical-date MedicationRequest-authoredon]
+        special_cases_param_ids = %w[clinical-date Condition-onset-date clinical-date MedicationRequest-authoredon individual-birthdate]
 
         {}.tap do |comparators|
           param.comparator&.each_with_index do |comparator, index|
@@ -233,6 +233,8 @@ module AUCoreTestKit
           return 'SHOULD' if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
           return 'SHOULD' if param_hash['id'] == 'MedicationRequest-authoredon'
+        when 'Patient'
+          return 'MAY' if param_hash['id'] == 'individual-birthdate'
         end
         return unless param_hash['_multipleAnd']
 
@@ -257,6 +259,8 @@ module AUCoreTestKit
           return fixed_date_value if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
           return fixed_date_value if param_hash['id'] == 'MedicationRequest-authoredon'
+        when 'Patient'
+          return fixed_date_value if param_hash['id'] == 'individual-birthdate'
         end
 
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
