@@ -211,6 +211,8 @@ module AUCoreTestKit
           return 'SHOULD' if param_hash['id'] == 'MedicationRequest-intent'
         when 'Immunization'
           return 'SHOULD' if param_hash['id'] == 'Immunization-vaccine-code'
+        when 'Condition'
+          return 'MAY' if param_hash['id'] == 'clinical-code'
         end
 
         return unless param_hash['_multipleOr']
