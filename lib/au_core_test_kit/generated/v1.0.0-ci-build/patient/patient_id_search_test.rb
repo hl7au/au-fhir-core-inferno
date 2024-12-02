@@ -39,6 +39,7 @@ requirement of AU Core v1.0.0-ci-build.
           first_search: true,
           resource_type: 'Patient',
           search_param_names: ['_id'],
+          possible_status_search: true,
           test_post_search: true,
           first_search_for_patient_by_patient_id: true
         )

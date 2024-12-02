@@ -15,18 +15,6 @@
   :expectation: SHALL
 - :code: search-type
   :expectation: SHALL
-- :code: create
-  :expectation: MAY
-- :code: update
-  :expectation: MAY
-- :code: delete
-  :expectation: MAY
-- :code: vread
-  :expectation: MAY
-- :code: patch
-  :expectation: MAY
-- :code: history-instance
-  :expectation: MAY
 :operations: []
 :searches:
 - :names:

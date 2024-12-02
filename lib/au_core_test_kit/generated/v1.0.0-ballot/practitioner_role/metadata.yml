@@ -49,6 +49,11 @@
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - organization
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :_id:
     :paths:
@@ -93,6 +98,16 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: true
+  :organization:
+    :paths:
+    - organization
+    :full_paths:
+    - PractitionerRole.organization
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :target_resource: Organization
 :include_params:
 - PractitionerRole:practitioner
 :revincludes: []
@@ -150,6 +165,8 @@
   :file_name: practitioner_role_practitioner_search_test.rb
 - :id: au_core_v100_ballot_practitioner_role_specialty_search_test
   :file_name: practitioner_role_specialty_search_test.rb
+- :id: au_core_v100_ballot_practitioner_role_organization_search_test
+  :file_name: practitioner_role_organization_search_test.rb
 - :id: au_core_v100_ballot_practitioner_role_practitioner_multiple_or_search_test
   :file_name: practitioner_role_practitioner_multiple_or_search_test.rb
 - :id: au_core_v100_ballot_practitioner_role_practitioner_multiple_and_search_test

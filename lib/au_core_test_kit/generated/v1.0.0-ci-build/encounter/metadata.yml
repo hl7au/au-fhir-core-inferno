@@ -15,23 +15,31 @@
   :expectation: SHALL
 - :code: search-type
   :expectation: SHALL
-- :code: create
-  :expectation: MAY
-- :code: update
-  :expectation: MAY
-- :code: delete
-  :expectation: MAY
-- :code: vread
-  :expectation: MAY
-- :code: patch
-  :expectation: MAY
-- :code: history-instance
-  :expectation: MAY
 :operations: []
 :searches:
 - :names:
   - patient
   :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - class
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - location
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :expectation: SHALL
@@ -59,22 +67,15 @@
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
-  :patient:
+  :class:
     :paths:
-    - subject
+    - class
     :full_paths:
-    - Encounter.subject
+    - Encounter.class
     :comparators: {}
     :values: []
-    :type: Reference
+    :type: Coding
     :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
-    :target_resource: Patient
   :date:
     :paths:
     - period
@@ -93,18 +94,11 @@
     :values:
     - ge1950-01-01
     - le2050-01-01
+    - gt1950-01-01
+    - lt2050-01-01
     :type: Period
     :contains_multiple: false
     :multiple_and: SHOULD
-  :class:
-    :paths:
-    - class
-    :full_paths:
-    - Encounter.class
-    :comparators: {}
-    :values: []
-    :type: Coding
-    :contains_multiple: false
   :location:
     :paths:
     - location.location
@@ -133,6 +127,22 @@
     - unknown
     :type: code
     :contains_multiple: false
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Encounter.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
 :include_params: []
 :revincludes: []
 :required_concepts: []
@@ -242,6 +252,14 @@
 :tests:
 - :id: au_core_v100_ci_build_encounter_patient_search_test
   :file_name: encounter_patient_search_test.rb
+- :id: au_core_v100_ci_build_encounter_class_search_test
+  :file_name: encounter_class_search_test.rb
+- :id: au_core_v100_ci_build_encounter_date_search_test
+  :file_name: encounter_date_search_test.rb
+- :id: au_core_v100_ci_build_encounter_location_search_test
+  :file_name: encounter_location_search_test.rb
+- :id: au_core_v100_ci_build_encounter_status_search_test
+  :file_name: encounter_status_search_test.rb
 - :id: au_core_v100_ci_build_encounter_date_patient_search_test
   :file_name: encounter_date_patient_search_test.rb
 - :id: au_core_v100_ci_build_encounter_class_patient_search_test
