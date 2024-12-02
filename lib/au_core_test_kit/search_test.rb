@@ -161,7 +161,7 @@ module AUCoreTestKit
       search_params = is_count_available_for_resource_type?(resource_type, params) == false ? params : params.merge({ _count: 10 })
       fhir_search(resource_type, params: search_params)
 
-      if SearchTestHelpers.is_search_by_reference?(search_params)
+      if SearchTestHelpers.search_by_reference?(search_params)
         search_params = SearchTestHelpers.replace_full_reference_search_param_to_id(search_params)
         fhir_search(resource_type, params: search_params)
       end
@@ -532,7 +532,7 @@ module AUCoreTestKit
       search_params = params.merge(_include: include_param['parameter'])
 
       search_and_check_response(search_params)
-      
+
       puts "fetch_all_bundled_resources #{fetch_all_bundled_resources}"
 
       resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }

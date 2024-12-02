@@ -44,6 +44,9 @@ down:
 rubocop:
 	$(compose) $(inferno) rubocop
 
+rubocop-fix:
+	$(compose) $(inferno) rubocop -A
+
 migrate:
 	$(compose) $(inferno) bundle exec rake db:migrate
 
