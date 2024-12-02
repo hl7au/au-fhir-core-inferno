@@ -640,7 +640,44 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.15 (MAY) Server returns valid results for Patient multipleAnd search by indigenous-status
+#### 3.2.15 (MAY) Server returns valid results for Patient multipleAnd search by birthdate
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+birthdate on the Patient resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Patient?birthdate={birthdate} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Patient?birthdate={birthdate}
+```
+
+
+
+</details>
+
+
+
+#### 3.2.16 (MAY) Server returns valid results for Patient multipleAnd search by indigenous-status
 <details>
 
 <summary>Show details</summary>
@@ -677,7 +714,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.16 (MAY) Server returns valid results for Patient multipleAnd search by gender-identity
+#### 3.2.17 (MAY) Server returns valid results for Patient multipleAnd search by gender-identity
 <details>
 
 <summary>Show details</summary>
@@ -714,7 +751,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.17 (SHOULD) Server returns valid results for Patient search by identifier (IHI)
+#### 3.2.18 (SHOULD) Server returns valid results for Patient search by identifier (IHI)
 <details>
 
 <summary>Show details</summary>
@@ -747,7 +784,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.18 (SHOULD) Server returns valid results for Patient search by identifier (Medicare)
+#### 3.2.19 (SHOULD) Server returns valid results for Patient search by identifier (Medicare)
 <details>
 
 <summary>Show details</summary>
@@ -780,7 +817,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.19 (SHOULD) Server returns valid results for Patient search by identifier (DVA)
+#### 3.2.20 (SHOULD) Server returns valid results for Patient search by identifier (DVA)
 <details>
 
 <summary>Show details</summary>
@@ -813,7 +850,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.2.20 (SHALL) Server returns correct Patient resource from Patient read interaction
+#### 3.2.21 (SHALL) Server returns correct Patient resource from Patient read interaction
 <details>
 
 <summary>Show details</summary>
@@ -826,7 +863,7 @@ A server SHALL support the Patient read interaction.
 
 
 
-#### 3.2.21 Patient resources returned during previous tests conform to the AU Core Patient
+#### 3.2.22 Patient resources returned during previous tests conform to the AU Core Patient
 <details>
 
 <summary>Show details</summary>
@@ -840,7 +877,7 @@ the [AU Core Patient](http://hl7.org.au/fhir/core/StructureDefinition/au-core-pa
 
 
 
-#### 3.2.22 All must support elements are provided in the Patient resources returned
+#### 3.2.23 All must support elements are provided in the Patient resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9074,7 +9111,44 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.11 (SHOULD) Server returns valid results for Condition multipleAnd search by onset-date
+#### 3.14.11 (MAY) Server returns valid results for Condition multipleOr search by code
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+code on the Condition resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Condition?code={code} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Condition?code={code}
+```
+
+
+
+</details>
+
+
+
+#### 3.14.12 (SHOULD) Server returns valid results for Condition multipleAnd search by onset-date
 <details>
 
 <summary>Show details</summary>
@@ -9111,7 +9185,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.12 (SHOULD) Server returns valid results for Condition search by patient (chained parameters)
+#### 3.14.13 (SHOULD) Server returns valid results for Condition search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9147,7 +9221,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.13 (SHOULD) Server returns valid results for Condition search by patient (IHI) (chained parameters)
+#### 3.14.14 (SHOULD) Server returns valid results for Condition search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9180,7 +9254,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.14 (SHOULD) Server returns valid results for Condition search by patient (Medicare) (chained parameters)
+#### 3.14.15 (SHOULD) Server returns valid results for Condition search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9213,7 +9287,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.15 (SHOULD) Server returns valid results for Condition search by patient (DVA) (chained parameters)
+#### 3.14.16 (SHOULD) Server returns valid results for Condition search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9246,7 +9320,7 @@ Accept: application/fhir+json
 
 
 
-#### 3.14.16 (SHALL) Server returns correct Condition resource from Condition read interaction
+#### 3.14.17 (SHALL) Server returns correct Condition resource from Condition read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9259,7 +9333,7 @@ A server SHALL support the Condition read interaction.
 
 
 
-#### 3.14.17 Condition resources returned during previous tests conform to the AU Core Condition
+#### 3.14.18 Condition resources returned during previous tests conform to the AU Core Condition
 <details>
 
 <summary>Show details</summary>
@@ -9273,7 +9347,7 @@ the [AU Core Condition](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 3.14.18 All must support elements are provided in the Condition resources returned
+#### 3.14.19 All must support elements are provided in the Condition resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9299,7 +9373,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 3.14.19 MustSupport references within Condition resources are valid
+#### 3.14.20 MustSupport references within Condition resources are valid
 <details>
 
 <summary>Show details</summary>

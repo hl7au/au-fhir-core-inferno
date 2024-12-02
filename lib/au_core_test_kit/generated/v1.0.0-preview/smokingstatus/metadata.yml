@@ -114,8 +114,6 @@
     :values:
     - ge1950-01-01
     - le2050-01-01
-    - gt1950-01-01
-    - lt2050-01-01
     :type: date
     :contains_multiple: false
     :multiple_and: SHOULD

@@ -118,8 +118,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -402,8 +400,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -720,8 +716,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1002,8 +996,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1270,8 +1262,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1554,8 +1544,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1835,8 +1823,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2114,8 +2100,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2394,8 +2378,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2646,8 +2628,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3015,6 +2995,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: MAY
     :onset-date:
       :paths:
       - onsetDateTime
@@ -3035,8 +3016,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3214,8 +3193,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: Period
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3456,8 +3433,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3844,8 +3819,6 @@
       :values:
       - ge1950-01-01
       - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
       :type: dateTime
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -4223,16 +4196,19 @@
       :comparators:
         :eq: MAY
         :ne: MAY
-        :gt: MAY
-        :ge: MAY
-        :lt: MAY
-        :le: MAY
+        :gt: SHALL
+        :ge: SHALL
+        :lt: SHALL
+        :le: SHALL
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values: []
+      :values:
+      - ge1950-01-01
+      - le2050-01-01
       :type: date
       :contains_multiple: false
+      :multiple_and: MAY
     :family:
       :paths:
       - name.family

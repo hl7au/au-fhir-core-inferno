@@ -10,6 +10,7 @@ require_relative 'condition/condition_patient_clinical_status_search_test'
 require_relative 'condition/condition_patient_category_clinical_status_search_test'
 require_relative 'condition/condition_patient_code_search_test'
 require_relative 'condition/condition_patient_onset_date_search_test'
+require_relative 'condition/condition_code_multiple_or_search_test'
 require_relative 'condition/condition_onset_date_multiple_and_search_test'
 require_relative 'condition/condition_patient_chain_search_test'
 require_relative 'condition/condition_patient_ihi_chain_search_test'
@@ -97,6 +98,7 @@ read succeeds.
       test from: :au_core_v100_ballot_condition_patient_category_clinical_status_search_test
       test from: :au_core_v100_ballot_condition_patient_code_search_test
       test from: :au_core_v100_ballot_condition_patient_onset_date_search_test
+      test from: :au_core_v100_ballot_condition_code_multiple_or_search_test
       test from: :au_core_v100_ballot_condition_onset_date_multiple_and_search_test
       test from: :au_core_v100_ballot_condition_patient_chain_search_test
       test from: :au_core_v100_ballot_condition_patient_ihi_chain_search_test
