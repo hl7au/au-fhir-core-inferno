@@ -5,6 +5,7 @@ require_relative 'fhir_resource_navigation'
 require_relative 'search_test_properties'
 require_relative 'read_test'
 require_relative 'assert_helpers'
+require_relative 'search_test_helpers'
 
 module AUCoreTestKit
   module SearchTest
@@ -160,6 +161,11 @@ module AUCoreTestKit
       search_params = is_count_available_for_resource_type?(resource_type, params) == false ? params : params.merge({ _count: 10 })
       fhir_search(resource_type, params: search_params)
 
+      if SearchTestHelpers.search_by_reference?(search_params)
+        search_params = SearchTestHelpers.replace_full_reference_search_param_to_id(search_params)
+        fhir_search(resource_type, params: search_params)
+      end
+
       perform_search_with_status(params, patient_id) if response[:status] == 400 && possible_status_search?
 
       check_search_response
@@ -193,6 +199,7 @@ module AUCoreTestKit
           test_include_param(resources_returned, params, patient_id, include_param)
         end
       end
+
       perform_reference_with_type_search(params, resources_returned.count) if test_reference_variants?
       perform_search_with_system(params, patient_id) if token_search_params.present?
 
@@ -525,7 +532,7 @@ module AUCoreTestKit
       search_params = params.merge(_include: include_param['parameter'])
 
       search_and_check_response(search_params)
-      
+
       puts "fetch_all_bundled_resources #{fetch_all_bundled_resources}"
 
       resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
