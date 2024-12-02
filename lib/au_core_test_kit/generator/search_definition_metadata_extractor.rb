@@ -136,9 +136,9 @@ module AUCoreTestKit
         # NOTE: Hard-coded values are used because the comparator expectation
         # does not exist in the machine-readable files, but it does exist in the narrative.
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/48
-        special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest]
+        special_cases_resources = %w[Observation Condition Encounter Immunization MedicationRequest Patient]
         special_cases_comparators = %w[gt lt ge le]
-        special_cases_param_ids = %w[clinical-date Condition-onset-date clinical-date MedicationRequest-authoredon]
+        special_cases_param_ids = %w[clinical-date Condition-onset-date clinical-date MedicationRequest-authoredon individual-birthdate]
 
         {}.tap do |comparators|
           param.comparator&.each_with_index do |comparator, index|
@@ -211,6 +211,10 @@ module AUCoreTestKit
           return 'SHOULD' if param_hash['id'] == 'MedicationRequest-intent'
         when 'Immunization'
           return 'SHOULD' if param_hash['id'] == 'Immunization-vaccine-code'
+        when 'Condition'
+          return 'MAY' if param_hash['id'] == 'clinical-code'
+        when 'Encounter'
+          return 'MAY' if param_hash['id'] == 'status'
         end
 
         return unless param_hash['_multipleOr']
@@ -233,6 +237,8 @@ module AUCoreTestKit
           return 'SHOULD' if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
           return 'SHOULD' if param_hash['id'] == 'MedicationRequest-authoredon'
+        when 'Patient'
+          return 'MAY' if param_hash['id'] == 'individual-birthdate'
         end
         return unless param_hash['_multipleAnd']
 
@@ -241,7 +247,7 @@ module AUCoreTestKit
 
       def values
         fixed_diagnostic_result_values = %w[251739003 24701-5]
-        fixed_date_value = %w[ge1950-01-01 le2050-01-01 gt1950-01-01 lt2050-01-01]
+        fixed_date_value = %w[ge1950-01-01 le2050-01-01]
         # NOTE: In the current step we don't need to check the correct content of the response.
         # We should care about the correct structure of the request. In this current case we use dates just
         # to check that server can make a response for the request.
@@ -257,6 +263,8 @@ module AUCoreTestKit
           return fixed_date_value if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
           return fixed_date_value if param_hash['id'] == 'MedicationRequest-authoredon'
+        when 'Patient'
+          return fixed_date_value if param_hash['id'] == 'individual-birthdate'
         end
 
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
@@ -324,3 +332,4 @@ module AUCoreTestKit
     end
   end
 end
+
