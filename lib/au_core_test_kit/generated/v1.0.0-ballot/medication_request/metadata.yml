@@ -39,6 +39,21 @@
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
+- :names:
+  - authoredon
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - intent
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 - :expectation: SHALL
   :names:
   - patient
@@ -69,22 +84,29 @@
     :values: []
     :type: http://hl7.org/fhirpath/System.String
     :contains_multiple: false
-  :patient:
+  :authoredon:
     :paths:
-    - subject
+    - authoredOn
     :full_paths:
-    - MedicationRequest.subject
-    :comparators: {}
-    :values: []
-    :type: Reference
+    - MedicationRequest.authoredOn
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - ge1950-01-01
+    - le2050-01-01
+    - gt1950-01-01
+    - lt2050-01-01
+    :type: dateTime
     :contains_multiple: false
-    :multiple_or: MAY
-    :multiple_and: MAY
-    :chain:
-    - :chain: identifier
-      :expectation: SHOULD
-      :target: Patient
-    :target_resource: Patient
+    :multiple_and: SHOULD
   :intent:
     :paths:
     - intent
@@ -113,27 +135,22 @@
     :type: code
     :contains_multiple: false
     :multiple_or: SHALL
-  :authoredon:
+  :patient:
     :paths:
-    - authoredOn
+    - subject
     :full_paths:
-    - MedicationRequest.authoredOn
-    :comparators:
-      :eq: MAY
-      :ne: MAY
-      :gt: SHALL
-      :ge: SHALL
-      :lt: SHALL
-      :le: SHALL
-      :sa: MAY
-      :eb: MAY
-      :ap: MAY
-    :values:
-    - ge1950-01-01
-    - le2050-01-01
-    :type: dateTime
+    - MedicationRequest.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
     :contains_multiple: false
-    :multiple_and: SHOULD
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
 :include_params:
 - MedicationRequest:medication
 :revincludes: []
@@ -257,6 +274,12 @@
   :file_name: medication_request_patient_search_test.rb
 - :id: au_core_v100_ballot_medication_request__id_search_test
   :file_name: medication_request_id_search_test.rb
+- :id: au_core_v100_ballot_medication_request_authoredon_search_test
+  :file_name: medication_request_authoredon_search_test.rb
+- :id: au_core_v100_ballot_medication_request_intent_search_test
+  :file_name: medication_request_intent_search_test.rb
+- :id: au_core_v100_ballot_medication_request_status_search_test
+  :file_name: medication_request_status_search_test.rb
 - :id: au_core_v100_ballot_medication_request_patient_intent_search_test
   :file_name: medication_request_patient_intent_search_test.rb
 - :id: au_core_v100_ballot_medication_request_patient_intent_status_search_test

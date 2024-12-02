@@ -6,6 +6,7 @@ require_relative 'location/location_name_search_test'
 require_relative 'location/location_address_city_search_test'
 require_relative 'location/location_address_state_search_test'
 require_relative 'location/location_address_postalcode_search_test'
+require_relative 'location/location_identifier_search_test'
 require_relative 'location/location_validation_test'
 require_relative 'location/location_must_support_test'
 require_relative 'location/location_reference_resolution_test'
@@ -82,6 +83,7 @@ read succeeds.
       test from: :au_core_v100_ballot_location_address_city_search_test
       test from: :au_core_v100_ballot_location_address_state_search_test
       test from: :au_core_v100_ballot_location_address_postalcode_search_test
+      test from: :au_core_v100_ballot_location_identifier_search_test
       test from: :au_core_v100_ballot_location_validation_test
       test from: :au_core_v100_ballot_location_must_support_test
       test from: :au_core_v100_ballot_location_reference_resolution_test

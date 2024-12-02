@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require_relative 'waistcircum/waistcircum_patient_code_search_test'
+require_relative 'waistcircum/waistcircum_category_search_test'
+require_relative 'waistcircum/waistcircum_code_search_test'
+require_relative 'waistcircum/waistcircum_date_search_test'
+require_relative 'waistcircum/waistcircum_status_search_test'
+require_relative 'waistcircum/waistcircum_patient_search_test'
 require_relative 'waistcircum/waistcircum_patient_category_search_test'
 require_relative 'waistcircum/waistcircum_patient_category_date_search_test'
 require_relative 'waistcircum/waistcircum_patient_category_status_search_test'
@@ -85,6 +90,11 @@ read succeeds.
       end
 
       test from: :au_core_v100_ci_build_waistcircum_patient_code_search_test
+      test from: :au_core_v100_ci_build_waistcircum_category_search_test
+      test from: :au_core_v100_ci_build_waistcircum_code_search_test
+      test from: :au_core_v100_ci_build_waistcircum_date_search_test
+      test from: :au_core_v100_ci_build_waistcircum_status_search_test
+      test from: :au_core_v100_ci_build_waistcircum_patient_search_test
       test from: :au_core_v100_ci_build_waistcircum_patient_category_search_test
       test from: :au_core_v100_ci_build_waistcircum_patient_category_date_search_test
       test from: :au_core_v100_ci_build_waistcircum_patient_category_status_search_test
