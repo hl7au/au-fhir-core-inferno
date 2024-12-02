@@ -14,6 +14,7 @@ require_relative 'patient/patient_family_gender_search_test'
 require_relative 'patient/patient_gender_name_search_test'
 require_relative 'patient/patient_indigenous_status_multiple_or_search_test'
 require_relative 'patient/patient_gender_identity_multiple_or_search_test'
+require_relative 'patient/patient_birthdate_multiple_and_search_test'
 require_relative 'patient/patient_indigenous_status_multiple_and_search_test'
 require_relative 'patient/patient_gender_identity_multiple_and_search_test'
 require_relative 'patient/patient_identifier_ihi_search_test'
@@ -103,6 +104,7 @@ read succeeds.
       test from: :au_core_v100_ci_build_patient_gender_name_search_test
       test from: :au_core_v100_ci_build_patient_indigenous_status_multiple_or_search_test
       test from: :au_core_v100_ci_build_patient_gender_identity_multiple_or_search_test
+      test from: :au_core_v100_ci_build_patient_birthdate_multiple_and_search_test
       test from: :au_core_v100_ci_build_patient_indigenous_status_multiple_and_search_test
       test from: :au_core_v100_ci_build_patient_gender_identity_multiple_and_search_test
       test from: :au_core_v100_ci_build_patient_identifier_ihi_search_test
