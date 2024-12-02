@@ -465,8 +465,18 @@ module AUCoreTestKit
         default_search_values = default_search_values_clean(param_name.to_sym)
 
         if default_search_values.length > 1
-          search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
-          search_and_check_response(search_params)
+          if default_search_values.length == 2
+            search_params = { param_name => modify_value_by_multiple_type(default_search_values, multiple_type) }
+            search_and_check_response(search_params)
+          else
+            chunk_size = 2
+            search_params_slices = default_search_values.each_slice(chunk_size).to_a
+            search_params_slices.pop if search_params_slices.last.length < chunk_size
+            search_params_slices.each do |values_slice|
+              search_params = { param_name => modify_value_by_multiple_type(values_slice, multiple_type) }
+              search_and_check_response(search_params)
+            end
+          end
         else
           resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
           existing_values = extract_existing_values_safety(resources_arr, param_name)
