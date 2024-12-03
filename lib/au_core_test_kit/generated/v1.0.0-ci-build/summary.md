@@ -11883,7 +11883,44 @@ Accept: application/fhir+json
 
 
 
-#### 2.18.10 (SHOULD) Server returns valid results for Procedure search by patient (chained parameters)
+#### 2.18.10 (MAY) Server returns valid results for Procedure multipleAnd search by date
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleAnd
+date on the Procedure resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Procedure?date={date} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Procedure?date={date}
+```
+
+
+
+</details>
+
+
+
+#### 2.18.11 (SHOULD) Server returns valid results for Procedure search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11919,7 +11956,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.18.11 (SHOULD) Server returns valid results for Procedure search by patient (IHI) (chained parameters)
+#### 2.18.12 (SHOULD) Server returns valid results for Procedure search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11952,7 +11989,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.18.12 (SHOULD) Server returns valid results for Procedure search by patient (Medicare) (chained parameters)
+#### 2.18.13 (SHOULD) Server returns valid results for Procedure search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -11985,7 +12022,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.18.13 (SHOULD) Server returns valid results for Procedure search by patient (DVA) (chained parameters)
+#### 2.18.14 (SHOULD) Server returns valid results for Procedure search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -12018,7 +12055,7 @@ Accept: application/fhir+json
 
 
 
-#### 2.18.14 (SHALL) Server returns correct Procedure resource from Procedure read interaction
+#### 2.18.15 (SHALL) Server returns correct Procedure resource from Procedure read interaction
 <details>
 
 <summary>Show details</summary>
@@ -12031,7 +12068,7 @@ A server SHALL support the Procedure read interaction.
 
 
 
-#### 2.18.15 Procedure resources returned during previous tests conform to the AU Core Procedure
+#### 2.18.16 Procedure resources returned during previous tests conform to the AU Core Procedure
 <details>
 
 <summary>Show details</summary>
@@ -12045,7 +12082,7 @@ the [AU Core Procedure](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 2.18.16 All must support elements are provided in the Procedure resources returned
+#### 2.18.17 All must support elements are provided in the Procedure resources returned
 <details>
 
 <summary>Show details</summary>
@@ -12069,7 +12106,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 2.18.17 MustSupport references within Procedure resources are valid
+#### 2.18.18 MustSupport references within Procedure resources are valid
 <details>
 
 <summary>Show details</summary>
