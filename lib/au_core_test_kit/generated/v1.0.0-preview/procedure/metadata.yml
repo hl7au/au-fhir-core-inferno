@@ -75,16 +75,17 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: MAY
-      :ge: MAY
-      :lt: MAY
-      :le: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
       :sa: MAY
       :eb: MAY
       :ap: MAY
     :values: []
     :type: date
     :contains_multiple: false
+    :multiple_and: MAY
   :status:
     :paths:
     - status
@@ -237,6 +238,8 @@
   :file_name: procedure_code_multiple_or_search_test.rb
 - :id: au_core_v100_preview_procedure_status_multiple_or_search_test
   :file_name: procedure_status_multiple_or_search_test.rb
+- :id: au_core_v100_preview_procedure_date_multiple_and_search_test
+  :file_name: procedure_date_multiple_and_search_test.rb
 - :id: au_core_v100_preview_procedure_patient_chain_search_test
   :file_name: procedure_patient_chain_search_test.rb
 - :id: au_core_v100_preview_procedure_patient_ihi_chain_search_test

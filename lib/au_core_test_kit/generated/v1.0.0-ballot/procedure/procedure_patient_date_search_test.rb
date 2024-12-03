@@ -30,7 +30,8 @@ none are returned, the test is skipped.
         @properties ||= SearchTestProperties.new(
           resource_type: 'Procedure',
           search_param_names: %w[patient date],
-          possible_status_search: true
+          possible_status_search: true,
+          params_with_comparators: ['date']
         )
       end
 
