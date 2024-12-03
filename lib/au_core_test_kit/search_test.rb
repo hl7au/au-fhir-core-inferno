@@ -311,6 +311,17 @@ module AUCoreTestKit
         .map(&:to_s)
     end
 
+    def birthdate_comparator_value(comparator, date)
+      case comparator
+      when 'lt', 'le'
+        comparator + (DateTime.xmlschema(date) + 1).strftime("%F")
+      when 'gt', 'ge'
+        comparator + (DateTime.xmlschema(date) - 1).strftime("%F")
+      else
+        raise "Unsupported comparator '#{comparator}'"
+      end
+    end
+
     def perform_comparator_searches(params, patient_id)
       params_with_comparators.each do |name|
         next if search_variant_test_records[:comparator_searches].include? name
@@ -318,7 +329,7 @@ module AUCoreTestKit
         required_comparators(name).each do |comparator|
           paths = search_param_paths(name).first
           date_element = find_a_value_at(scratch_resources_for_patient(patient_id), paths)
-          params_with_comparator = params.merge(name => date_comparator_value(comparator, date_element))
+          params_with_comparator = params.merge(name => name != 'birthdate' ? date_comparator_value(comparator, date_element) : birthdate_comparator_value(comparator, date_element))
 
           search_and_check_response(params_with_comparator)
 
@@ -542,8 +553,6 @@ module AUCoreTestKit
       search_params = params.merge(_include: include_param['parameter'])
 
       search_and_check_response(search_params)
-
-      puts "fetch_all_bundled_resources #{fetch_all_bundled_resources}"
 
       resources = fetch_all_bundled_resources.select { |resource| resource.resourceType == target_resource_type }
       assert resources.present?, "No #{resource_type} were included in the search results"
@@ -795,7 +804,11 @@ module AUCoreTestKit
               #   All others have second + time offset precision
               if /^\d{4}(-\d{2})?$/.match?(element) || # YYYY or YYYY-MM
                  (/^\d{4}-\d{2}-\d{2}$/.match?(element) && resource_type != 'Goal') # YYY-MM-DD AND Resource is NOT Goal
-                "gt#{(DateTime.xmlschema(element) - 1).xmlschema}"
+                if !(path == "birthDate" && resource_type == "Patient")
+                  "gt#{(DateTime.xmlschema(element) - 1).xmlschema}"
+                else
+                  "gt#{(DateTime.xmlschema(element) - 1).strftime("%F")}"
+                end
               else
                 element
               end
@@ -806,7 +819,6 @@ module AUCoreTestKit
 
         break if search_value.present?
       end
-
       search_value&.gsub(',', '\\,')
     end
 
