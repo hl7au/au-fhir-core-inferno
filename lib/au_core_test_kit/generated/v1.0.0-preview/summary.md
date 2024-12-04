@@ -9750,7 +9750,44 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.10 (SHOULD) Server returns valid results for Encounter multipleAnd search by date
+#### 1.15.10 (MAY) Server returns valid results for Encounter multipleOr search by status
+<details>
+
+<summary>Show details</summary>
+
+A server MAY support searching by multipleOr
+status on the Encounter resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html
+
+
+
+##### Requests
+
+**HTTP GET**
+
+```bash
+GET /Encounter?status={status} HTTP/1.1
+User-Agent: {agent}
+Host: {host}
+Accept: application/fhir+json
+```
+
+**For browser based calls:**
+
+```bash
+{test endpoint}/Encounter?status={status}
+```
+
+
+
+</details>
+
+
+
+#### 1.15.11 (SHOULD) Server returns valid results for Encounter multipleAnd search by date
 <details>
 
 <summary>Show details</summary>
@@ -9787,7 +9824,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.11 (SHOULD) Server returns valid results for Encounter search by patient (chained parameters)
+#### 1.15.12 (SHOULD) Server returns valid results for Encounter search by patient (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9823,7 +9860,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.12 (SHOULD) Server returns valid results for Encounter search by patient (IHI) (chained parameters)
+#### 1.15.13 (SHOULD) Server returns valid results for Encounter search by patient (IHI) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9856,7 +9893,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.13 (SHOULD) Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
+#### 1.15.14 (SHOULD) Server returns valid results for Encounter search by patient (Medicare) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9889,7 +9926,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.14 (SHOULD) Server returns valid results for Encounter search by patient (DVA) (chained parameters)
+#### 1.15.15 (SHOULD) Server returns valid results for Encounter search by patient (DVA) (chained parameters)
 <details>
 
 <summary>Show details</summary>
@@ -9922,7 +9959,7 @@ Accept: application/fhir+json
 
 
 
-#### 1.15.15 (SHALL) Server returns correct Encounter resource from Encounter read interaction
+#### 1.15.16 (SHALL) Server returns correct Encounter resource from Encounter read interaction
 <details>
 
 <summary>Show details</summary>
@@ -9935,7 +9972,7 @@ A server SHALL support the Encounter read interaction.
 
 
 
-#### 1.15.16 Encounter resources returned during previous tests conform to the AU Core Encounter
+#### 1.15.17 Encounter resources returned during previous tests conform to the AU Core Encounter
 <details>
 
 <summary>Show details</summary>
@@ -9949,7 +9986,7 @@ the [AU Core Encounter](http://hl7.org.au/fhir/core/StructureDefinition/au-core-
 
 
 
-#### 1.15.17 All must support elements are provided in the Encounter resources returned
+#### 1.15.18 All must support elements are provided in the Encounter resources returned
 <details>
 
 <summary>Show details</summary>
@@ -9979,7 +10016,7 @@ AU Core Responders SHALL be capable of populating all data elements as
 
 
 
-#### 1.15.18 MustSupport references within Encounter resources are valid
+#### 1.15.19 MustSupport references within Encounter resources are valid
 <details>
 
 <summary>Show details</summary>

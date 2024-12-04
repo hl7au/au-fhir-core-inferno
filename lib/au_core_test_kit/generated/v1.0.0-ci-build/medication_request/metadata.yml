@@ -94,10 +94,10 @@
       :eb: MAY
       :ap: MAY
     :values:
-    - ge1950-01-01
-    - le2050-01-01
-    - gt1950-01-01
-    - lt2050-01-01
+    - ge1950-01-01T00:00:00.000Z
+    - le2050-01-01T23:59:59.999Z
+    - gt1950-01-01T00:00:00.000Z
+    - lt2050-01-01T23:59:59.999Z
     :type: dateTime
     :contains_multiple: false
     :multiple_and: SHOULD
