@@ -214,7 +214,7 @@ module AUCoreTestKit
         when 'Condition'
           return 'MAY' if param_hash['id'] == 'clinical-code'
         when 'Encounter'
-          return 'MAY' if param_hash['id'] == 'status'
+          return 'MAY' if param_hash['id'] == 'Encounter-status'
         end
 
         return unless param_hash['_multipleOr']
@@ -250,23 +250,26 @@ module AUCoreTestKit
       def values
         fixed_diagnostic_result_values = %w[251739003 24701-5]
         fixed_date_value = %w[ge1950-01-01 le2050-01-01 gt1950-01-01 lt2050-01-01]
+        fixed_datetime_value = %w[ge1950-01-01T00:00:00.000Z le2050-01-01T23:59:59.999Z gt1950-01-01T00:00:00.000Z lt2050-01-01T23:59:59.999Z]
         # NOTE: In the current step we don't need to check the correct content of the response.
         # We should care about the correct structure of the request. In this current case we use dates just
         # to check that server can make a response for the request.
         case group_metadata[:resource]
         when 'Observation'
-          return fixed_date_value if param_hash['id'] == 'clinical-date'
+          return fixed_datetime_value if param_hash['id'] == 'clinical-date'
           return fixed_diagnostic_result_values if param_hash['id'] =='clinical-code' && group_metadata[:profile_url] == 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult'
         when 'Condition'
-          return fixed_date_value if param_hash['id'] == 'Condition-onset-date'
+          return fixed_datetime_value if param_hash['id'] == 'Condition-onset-date'
         when 'Encounter'
-          return fixed_date_value if param_hash['id'] == 'clinical-date'
+          return fixed_datetime_value if param_hash['id'] == 'clinical-date'
         when 'Immunization'
-          return fixed_date_value if param_hash['id'] == 'clinical-date'
+          return fixed_datetime_value if param_hash['id'] == 'clinical-date'
         when 'MedicationRequest'
-          return fixed_date_value if param_hash['id'] == 'MedicationRequest-authoredon'
+          return fixed_datetime_value if param_hash['id'] == 'MedicationRequest-authoredon'
         when 'Patient'
           return fixed_date_value if param_hash['id'] == 'individual-birthdate'
+        when 'Procedure'
+          return fixed_datetime_value if param_hash['id'] == 'clinical-date'
         end
 
         values_from_fixed_codes = value_extractor.values_from_fixed_codes(profile_element, type).presence
