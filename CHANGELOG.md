@@ -1,3 +1,9 @@
+# 0.0.16
+* Remove infrastructure configs and build, deploy workflows by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/223
+* Fix reference search by ID by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/226
+* Add all required comparators for search by date in multiple or and tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/228
+* Add tests with the "MAY" expectation
+
 # 0.0.15
 * Add conditional/basic skip with a message by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/209
 * Update _include tests by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/212
