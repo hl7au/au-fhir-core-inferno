@@ -6,6 +6,7 @@ require_relative 'search_test_properties'
 require_relative 'read_test'
 require_relative 'assert_helpers'
 require_relative 'search_test_helpers'
+require_relative 'generator/special_cases'
 
 module AUCoreTestKit
   module SearchTest
@@ -490,6 +491,11 @@ module AUCoreTestKit
           end
         else
           resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
+          if resources_arr.length == 0 and (SpecialCases.multiple_or_and_search_by_target_resource.keys.include? resource_type)
+            if SpecialCases.multiple_or_and_search_by_target_resource[resource_type].include? search_param_names
+              resources_arr = scratch_resources.dig(:all).filter { |r| r.resourceType == resource_type }
+            end
+          end
           existing_values = extract_existing_values_safety(resources_arr, param_name)
 
           if existing_values.length > 1
