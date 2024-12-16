@@ -164,6 +164,13 @@ module AUCoreTestKit
         first_search?
       end
 
+      def test_on_target_resource_data?
+        multiple_or_and_search_by_target_resource = SpecialCases.multiple_or_and_search_by_target_resource
+        if multiple_or_and_search_by_target_resource.keys.include? resource_type
+          multiple_or_and_search_by_target_resource[resource_type].include? search_param_names
+        end
+      end
+
       def search_properties
         {}.tap do |properties|
           properties[:first_search] = 'true' if first_search?
@@ -178,6 +185,7 @@ module AUCoreTestKit
               required_multiple_and_search_params_string
           end
           properties[:optional_multiple_and_search_params] = optional_multiple_and_search_params_string if optional_multiple_and_search_params.present?
+          properties[:search_by_target_resource_data] = 'true' if test_on_target_resource_data?
         end
       end
 

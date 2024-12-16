@@ -23,6 +23,7 @@ module AUCoreTestKit
       first_search_for_patient_by_patient_id
       includes
       use_any_data_for_search
+      search_by_target_resource_data
     ].freeze
 
     ATTRIBUTES.each { |name| attr_reader name }

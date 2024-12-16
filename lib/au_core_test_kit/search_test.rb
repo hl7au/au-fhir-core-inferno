@@ -35,7 +35,8 @@ module AUCoreTestKit
                    :optional_multiple_and_search_params,
                    :first_search_for_patient_by_patient_id,
                    :includes,
-                   :use_any_data_for_search
+                   :use_any_data_for_search,
+                   :search_by_target_resource_data
 
     def all_search_params
       @all_search_params ||=
@@ -491,10 +492,8 @@ module AUCoreTestKit
           end
         else
           resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
-          if resources_arr.length == 0 and (SpecialCases.multiple_or_and_search_by_target_resource.keys.include? resource_type)
-            if SpecialCases.multiple_or_and_search_by_target_resource[resource_type].include? search_param_names
-              resources_arr = scratch_resources.dig(:all).filter { |r| r.resourceType == resource_type }
-            end
+          if resources_arr.length == 0 and search_by_target_resource_data
+            resources_arr = scratch_resources.dig(:all).filter { |r| r.resourceType == resource_type }
           end
           existing_values = extract_existing_values_safety(resources_arr, param_name)
 

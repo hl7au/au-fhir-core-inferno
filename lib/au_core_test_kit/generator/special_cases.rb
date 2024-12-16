@@ -54,7 +54,7 @@ module AUCoreTestKit
       }.freeze
 
       MULTIPLE_OR_AND_SEARCH_BY_TARGET_RESOURCE = {
-      'PractitionerRole' => [['practitioner']]
+        'PractitionerRole' => [['practitioner']]
       }.freeze
 
       class << self
