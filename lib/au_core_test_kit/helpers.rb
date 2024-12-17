@@ -4,6 +4,12 @@ module Helpers
   DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
   DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
 
+  def self.test_on_target_resource_data?(special_cases_hash, resource_type, search_param_names)
+    if special_cases_hash.keys.include? resource_type
+      special_cases_hash[resource_type].include? search_param_names
+    end
+  end
+
   def self.multiple_test_description(multiple_type, conformance_expectation, search_param_name_string, resource_type, url_version)
     multiple_type_str = multiple_type == 'OR' ? 'multipleOr' : 'multipleAnd' 
     <<~DESCRIPTION.gsub(/\n{3,}/, "\n\n")
@@ -15,6 +21,7 @@ module Helpers
     [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/#{url_version}/CapabilityStatement-au-core-server.html)
     DESCRIPTION
   end
+
   def self.get_http_header(header_name, header_value)
     (header_name && header_value) ? {header_name => header_value} : {}
   end
