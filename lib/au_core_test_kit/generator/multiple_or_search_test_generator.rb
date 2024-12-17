@@ -78,9 +78,7 @@ module AUCoreTestKit
 
       def conformance_expectation
         # NOTE: https://github.com/hl7au/au-fhir-core-inferno/issues/61
-        if search_name == 'status' && (resource_type == 'Procedure' || resource_type == 'Observation')
-          return 'SHOULD'
-        end
+        return 'SHOULD' if search_name == 'status' && (resource_type == 'Procedure' || resource_type == 'Observation')
 
         search_metadata[:multiple_or]
       end
@@ -183,6 +181,10 @@ module AUCoreTestKit
               required_multiple_or_search_params_string
           end
           properties[:optional_multiple_or_search_params] = optional_multiple_or_search_params_string if optional_multiple_or_search_params.present?
+          properties[:search_by_target_resource_data] = 'true' if Helpers.test_on_target_resource_data?(
+            SpecialCases.multiple_or_and_search_by_target_resource,
+            resource_type, search_param_names
+          )
         end
       end
 

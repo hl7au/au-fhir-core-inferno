@@ -53,6 +53,10 @@ module AUCoreTestKit
         ]
       }.freeze
 
+      MULTIPLE_OR_AND_SEARCH_BY_TARGET_RESOURCE = {
+        'PractitionerRole' => [['practitioner']]
+      }.freeze
+
       class << self
         def exclude_group?(group)
           RESOURCES_TO_EXCLUDE.include?(group.resource)
@@ -76,6 +80,10 @@ module AUCoreTestKit
 
         def search_params_for_include_by_resource
           SEARCH_PARAMS_FOR_INCLUDE_BY_RESOURCE
+        end
+
+        def multiple_or_and_search_by_target_resource
+          MULTIPLE_OR_AND_SEARCH_BY_TARGET_RESOURCE
         end
       end
     end

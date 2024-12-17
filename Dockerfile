@@ -9,7 +9,7 @@ WORKDIR $INSTALL_PATH
 ADD *.gemspec $INSTALL_PATH
 ADD Gemfile* $INSTALL_PATH
 ADD lib/au_core_test_kit/version.rb $INSTALL_PATH/lib/au_core_test_kit/version.rb
-RUN gem install bundler
+RUN gem install 'bundler:<2.6.0'
 # The below RUN line is commented out for development purposes, because any change to the 
 # required gems will break the dockerfile build process.
 # If you want to run in Deploy mode, just run `bundle install` locally to update 

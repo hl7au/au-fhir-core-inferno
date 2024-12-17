@@ -6,6 +6,7 @@ require_relative 'search_test_properties'
 require_relative 'read_test'
 require_relative 'assert_helpers'
 require_relative 'search_test_helpers'
+require_relative 'generator/special_cases'
 
 module AUCoreTestKit
   module SearchTest
@@ -34,7 +35,8 @@ module AUCoreTestKit
                    :optional_multiple_and_search_params,
                    :first_search_for_patient_by_patient_id,
                    :includes,
-                   :use_any_data_for_search
+                   :use_any_data_for_search,
+                   :search_by_target_resource_data
 
     def all_search_params
       @all_search_params ||=
@@ -126,7 +128,7 @@ module AUCoreTestKit
       end
       pass if resources.length.positive?
 
-      skip_with_msg "No resources were included in the search results"
+      skip_with_msg 'No resources were included in the search results'
     end
 
     def run_read_test_and_skip_first_search(patient_id)
@@ -314,9 +316,9 @@ module AUCoreTestKit
     def birthdate_comparator_value(comparator, date)
       case comparator
       when 'lt', 'le'
-        comparator + (DateTime.xmlschema(date) + 1).strftime("%F")
+        comparator + (DateTime.xmlschema(date) + 1).strftime('%F')
       when 'gt', 'ge'
-        comparator + (DateTime.xmlschema(date) - 1).strftime("%F")
+        comparator + (DateTime.xmlschema(date) - 1).strftime('%F')
       else
         raise "Unsupported comparator '#{comparator}'"
       end
@@ -490,6 +492,7 @@ module AUCoreTestKit
           end
         else
           resources_arr = all_search_params.map { |patient_id, _params_list| scratch_resources_for_patient(patient_id) }.flatten
+          resources_arr = scratch_resources[:all].filter { |r| r.resourceType == resource_type } if resources_arr.empty? && search_by_target_resource_data
           existing_values = extract_existing_values_safety(resources_arr, param_name)
 
           if existing_values.length > 1
@@ -502,7 +505,7 @@ module AUCoreTestKit
       end
     end
 
-    def find_include_resources(params, patient_id, include_param, keep_search_variant = true)
+    def find_include_resources(params, patient_id, include_param, _keep_search_variant = true)
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
       target_resource_type = include_param['target_resource']
       scratch[resources_to_check] ||= {}
@@ -525,6 +528,7 @@ module AUCoreTestKit
 
     def test_include_param(base_resources, params, patient_id, include_param, keep_search_variant = true)
       return if keep_search_variant && search_variant_test_records[:inclusion]
+
       resources_to_check = "#{include_param['target_resource'].downcase}_resources".to_sym
       target_resource_type = include_param['target_resource']
 
@@ -561,13 +565,13 @@ module AUCoreTestKit
 
       matched_base_resources = base_resources_with_external_reference.select do |base_resource|
         included_resources.any? do |resource_reference|
-            is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
+          is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
         end
       end
 
       not_matched_included_resources = included_resources.select do |resource_reference|
         matched_base_resources.none? do |base_resource|
-            is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
+          is_reference_match?(base_resource&.to_hash&.[](include_param['paths'].first)&.fetch('reference', ''), resource_reference)
         end
       end
 
@@ -580,9 +584,9 @@ module AUCoreTestKit
       scratch[resources_to_check][:all] += resources
       scratch[resources_to_check][patient_id] += resources
 
-      if keep_search_variant
-        search_variant_test_records[:inclusion] = true
-      end
+      return unless keep_search_variant
+
+      search_variant_test_records[:inclusion] = true
     end
 
     def is_reference_match?(reference, local_reference)
@@ -627,7 +631,7 @@ module AUCoreTestKit
           value = patient_id_param?(name) ? patient_id : nil
           if value.nil? && use_any_data_for_search
             scratch_resources[:all].each do |resource|
-              value = search_param_value(name, resource, include_system: include_system)
+              value = search_param_value(name, resource, include_system:)
               break if value.present?
             end
           end
@@ -804,10 +808,10 @@ module AUCoreTestKit
               #   All others have second + time offset precision
               if /^\d{4}(-\d{2})?$/.match?(element) || # YYYY or YYYY-MM
                  (/^\d{4}-\d{2}-\d{2}$/.match?(element) && resource_type != 'Goal') # YYY-MM-DD AND Resource is NOT Goal
-                if !(path == "birthDate" && resource_type == "Patient")
+                if !(path == 'birthDate' && resource_type == 'Patient')
                   "gt#{(DateTime.xmlschema(element) - 1).xmlschema}"
                 else
-                  "gt#{(DateTime.xmlschema(element) - 1).strftime("%F")}"
+                  "gt#{(DateTime.xmlschema(element) - 1).strftime('%F')}"
                 end
               else
                 element
