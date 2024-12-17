@@ -29,7 +29,8 @@ none are returned, the test is skipped.
 
       def self.properties
         @properties ||= SearchTestProperties.new(resource_type: 'PractitionerRole',
-                                                 search_param_names: ['practitioner'])
+                                                 search_param_names: ['practitioner'],
+                                                 search_by_target_resource_data: true)
       end
 
       def self.metadata
