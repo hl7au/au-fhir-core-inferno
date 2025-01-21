@@ -11,11 +11,6 @@ jobs:
       contents: read
     steps:
     - uses: actions/checkout@v2
-    - name: GitHub release
-      uses: jstastny/publish-gem-to-github@master
-      with:
-       token: ${{ secrets.GITHUB_TOKEN }}
-       owner: ${{ github.repository_owner }}
     - name: Rubygems release
       uses: ActionsToolbox/gem-build-and-release-action@master
       env:
