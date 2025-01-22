@@ -23,7 +23,8 @@ jobs:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
         run: |
           mkdir -p ~/.gem
-          printf "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > ~/.gem/credentials
+          echo "---" > ~/.gem/credentials
+          echo ":rubygems_api_key: ${RUBYGEMS_API_KEY}" >> ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
       - name: Build gem
         run: gem build *.gemspec
