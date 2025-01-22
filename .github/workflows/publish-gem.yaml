@@ -20,7 +20,7 @@ jobs:
         run: bundle install
       - name: Configure RubyGems credentials
         env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMSKEY }}
         run: |
           mkdir -p ~/.gem
           echo "---" > ~/.gem/credentials
@@ -29,7 +29,5 @@ jobs:
       - name: Build gem
         run: gem build *.gemspec
       - name: Push to RubyGems
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
         run: |
           gem push *.gem
