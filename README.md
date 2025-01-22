@@ -1,4 +1,5 @@
-# AU FHIR Core Inferno 🔥
+# AU FHIR Core Inferno 🔥 [![Gem Version](https://badge.fury.io/rb/au_core_test_kit.svg)](https://badge.fury.io/rb/au_core_test_kit)
+
 This is an [Inferno](https://inferno-framework.github.io/inferno-core/) test kit for the [AU Core Implementation Guide](http://hl7.org.au/fhir/core/)
 
 **Currently available versions:**
