@@ -57,6 +57,7 @@ module AUCoreTestKit
 
       def add_metadata_from_resources
         profile_arr_to_skip = [
+          'http://hl7.org.au/fhir/StructureDefinition/au-specimen',
           'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire',
           'http://hl7.org.au/fhir/core/StructureDefinition/au-core-norelevantfinding',
           'http://hl7.org/fhir/StructureDefinition/DocumentReference' # https://github.com/hl7au/au-fhir-core-inferno/issues/216
