@@ -5,8 +5,8 @@ require_relative 'lib/au_core_test_kit/version'
 Gem::Specification.new do |spec|
   spec.name          = 'au_core_test_kit'
   spec.version       = AUCoreTestKit::VERSION
-  spec.authors       = ['Ilya Beda']
-  spec.email         = ['ilya@beda.software']
+  spec.authors       = ['Ilya Beda', 'Pavel Rozhkov']
+  spec.email         = ['ilya@beda.software', 'pavel.r@beda.software']
   spec.summary       = 'AU Core Inferno tests'
   spec.description   = 'AU Core Inferno tests'
   spec.homepage      = 'https://github.com/hl7au/au-fhir-core-inferno'
