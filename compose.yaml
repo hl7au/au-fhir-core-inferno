@@ -35,8 +35,7 @@ services:
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
   validator-api:
-    # image: infernocommunity/inferno-resource-validator:1.0.52
-    image: pavelrozhkov/wrapper:6.3.11
+    image: ghcr.io/beda-software/validator-wrapper:latest
     environment:
       SESSION_CACHE_DURATION: -1
     volumes:
