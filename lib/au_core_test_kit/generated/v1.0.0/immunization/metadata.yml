@@ -1,0 +1,226 @@
+---
+:name: au_core_immunization
+:class_name: AuCoreImmunizationSequence
+:version: v1.0.0
+:reformatted_version: v100
+:resource: Immunization
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+:profile_name: AU Core Immunization
+:profile_version: 1.0.0
+:title: Immunization
+:short_description: Verify support for the server capabilities required by the AU
+  Core Immunization.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - vaccine-code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: MAY
+  :names:
+  - patient
+  - vaccine-code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :date:
+    :paths:
+    - occurrence
+    :full_paths:
+    - Immunization.occurrence
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - ge1950-01-01T00:00:00.000Z
+    - le2050-01-01T23:59:59.999Z
+    - gt1950-01-01T00:00:00.000Z
+    - lt2050-01-01T23:59:59.999Z
+    :type: date
+    :contains_multiple: false
+    :multiple_and: SHOULD
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Immunization.status
+    :comparators: {}
+    :values:
+    - completed
+    - entered-in-error
+    - not-done
+    :type: code
+    :contains_multiple: false
+  :vaccine-code:
+    :paths:
+    - vaccineCode
+    :full_paths:
+    - Immunization.vaccineCode
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
+  :patient:
+    :paths:
+    - patient
+    :full_paths:
+    - Immunization.patient
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: status
+  - :path: vaccineCode
+  - :path: patient
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: occurrence[x]
+  - :path: primarySource
+  - :path: note
+:mandatory_elements:
+- Immunization.status
+- Immunization.vaccineCode
+- Immunization.patient
+- Immunization.occurrence[x]
+- Immunization.performer.actor
+- Immunization.performer.function
+- Immunization.protocolApplied.doseNumber[x]
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/immunization-status
+  :path: status
+:references:
+- :path: Immunization.patient
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Immunization.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter
+- :path: Immunization.location
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+- :path: Immunization.manufacturer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Immunization.performer.actor
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Immunization.performer.actor
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Immunization.performer.actor
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Immunization.reasonReference
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Condition
+  - http://hl7.org/fhir/StructureDefinition/Observation
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+- :path: Immunization.reaction.detail
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Observation
+- :path: Immunization.protocolApplied.authority
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+:tests:
+- :id: au_core_v100_immunization_patient_search_test
+  :file_name: immunization_patient_search_test.rb
+- :id: au_core_v100_immunization_date_search_test
+  :file_name: immunization_date_search_test.rb
+- :id: au_core_v100_immunization_status_search_test
+  :file_name: immunization_status_search_test.rb
+- :id: au_core_v100_immunization_vaccine_code_search_test
+  :file_name: immunization_vaccine_code_search_test.rb
+- :id: au_core_v100_immunization_patient_status_search_test
+  :file_name: immunization_patient_status_search_test.rb
+- :id: au_core_v100_immunization_patient_date_search_test
+  :file_name: immunization_patient_date_search_test.rb
+- :id: au_core_v100_immunization_patient_vaccine_code_search_test
+  :file_name: immunization_patient_vaccine_code_search_test.rb
+- :id: au_core_v100_immunization_vaccine_code_multiple_or_search_test
+  :file_name: immunization_vaccine_code_multiple_or_search_test.rb
+- :id: au_core_v100_immunization_date_multiple_and_search_test
+  :file_name: immunization_date_multiple_and_search_test.rb
+- :id: au_core_v100_immunization_patient_chain_search_test
+  :file_name: immunization_patient_chain_search_test.rb
+- :id: au_core_v100_immunization_patient_ihi_chain_search_test
+  :file_name: immunization_patient_ihi_chain_search_test.rb
+- :id: au_core_v100_immunization_patient_medicare_chain_search_test
+  :file_name: immunization_patient_medicare_chain_search_test.rb
+- :id: au_core_v100_immunization_patient_dva_chain_search_test
+  :file_name: immunization_patient_dva_chain_search_test.rb
+- :id: au_core_v100_immunization_read_test
+  :file_name: immunization_read_test.rb
+- :id: au_core_v100_immunization_validation_test
+  :file_name: immunization_validation_test.rb
+- :id: au_core_v100_immunization_must_support_test
+  :file_name: immunization_must_support_test.rb
+- :id: au_core_v100_immunization_reference_resolution_test
+  :file_name: immunization_reference_resolution_test.rb
+:id: au_core_v100_immunization
+:file_name: immunization_group.rb
+:delayed_references: []
