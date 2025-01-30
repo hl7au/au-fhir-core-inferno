@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe AUCoreTestKit::SearchTest do
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v100_preview') }
+  let(:suite) { Inferno::Repositories::TestSuites.new.find('au_core_v100') }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:test_session) { repo_create(:test_session, test_suite_id: suite.id) }
   let(:url) { 'http://example.com/fhir' }
