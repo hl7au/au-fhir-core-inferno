@@ -1,3 +1,8 @@
+# 0.0.17
+* Add Special case for multiple test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/239
+* Add 1.0.0 test suite by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/247
+* Remove 1.0.0-preview test suite and IG by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/248
+
 # 0.0.16
 * Remove infrastructure configs and build, deploy workflows by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/223
 * Fix reference search by ID by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/226
