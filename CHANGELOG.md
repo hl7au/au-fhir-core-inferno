@@ -1,3 +1,15 @@
+# 0.0.18
+
+## Fixes:
+
+* A bug related to saving delayed references by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/250
+* A bug related to Must Support tests for the Specimen resource by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/252
+
+## Versions updated:
+
+* Ruby upgraded to 3.3.6
+* inferno_core upgraded to 0.6.1
+
 # 0.0.17
 * Add Special case for multiple test by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/239
 * Add 1.0.0 test suite by @projkov in https://github.com/hl7au/au-fhir-core-inferno/pull/247
