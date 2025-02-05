@@ -861,7 +861,7 @@ module AUCoreTestKit
       resources.each do |resource|
         references_to_save(containing_resource_type).each do |reference_to_save|
           resolve_path(resource, reference_to_save[:path])
-            .select { |reference| reference.is_a?(FHIR::Reference) && !reference.contained? }
+            .select { |reference| reference.is_a?(FHIR::Reference) && !reference.contained? && reference.reference.present?}
             .each do |reference|
               resource_type = reference.resource_class.name.demodulize
               need_to_save = reference_to_save[:resources].include?(resource_type)
