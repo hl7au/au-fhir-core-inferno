@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../read_test'
+require 'inferno_suite_generator/read_test'
 
 module AUCoreTestKit
   module AUCoreV100
     class ProcedureReadTest < Inferno::Test
-      include AUCoreTestKit::ReadTest
+      include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct Procedure resource from Procedure read interaction'
       description 'A server SHALL support the Procedure read interaction.'

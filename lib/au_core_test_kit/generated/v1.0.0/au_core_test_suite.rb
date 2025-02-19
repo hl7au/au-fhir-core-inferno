@@ -2,12 +2,13 @@
 
 require 'base64'
 require 'inferno/dsl/oauth_credentials'
+require 'inferno_suite_generator/helpers'
+
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../custom_groups/missing_data_group'
 require_relative '../../au_core_options'
-require_relative '../../helpers'
 require_relative '../../constants'
 
 require_relative 'patient_group'
@@ -49,7 +50,7 @@ module AUCoreTestKit
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
-          Generator::GroupMetadata.new(raw_metadata)
+          InfernoSuiteGenerator::Generator::GroupMetadata.new(raw_metadata)
         end
       end
 
