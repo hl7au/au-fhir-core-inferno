@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../../../special_identifier_search_test'
-require_relative '../../../generator/group_metadata'
+require 'inferno_suite_generator/special_identifier_search_test'
+require 'inferno_suite_generator/generator/group_metadata'
+require 'inferno_suite_generator/search_test_properties'
 
 module AUCoreTestKit
   module AUCoreV100
     class OrganizationIdentifierHPIOSearchTest < Inferno::Test
-      include AUCoreTestKit::SpecialIdentifierSearchTest
+      include InfernoSuiteGenerator::SpecialIdentifierSearchTest
 
       title '(SHOULD) Server returns valid results for Organization search by identifier (HPI-O)'
       description %(A server SHOULD support searching by
@@ -21,7 +22,7 @@ none are returned, the test is skipped.
       optional
 
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'Organization',
           search_param_names: ['identifier'],
           token_search_params: ['identifier'],
@@ -30,7 +31,7 @@ none are returned, the test is skipped.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

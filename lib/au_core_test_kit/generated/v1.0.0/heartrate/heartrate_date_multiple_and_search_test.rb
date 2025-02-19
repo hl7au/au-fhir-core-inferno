@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/search_test'
+require 'inferno_suite_generator/search_test_properties'
+require 'inferno_suite_generator/generator/group_metadata'
+require 'inferno_suite_generator/helpers'
 
 module AUCoreTestKit
   module AUCoreV100
     class HeartrateDateMultipleAndSearchTest < Inferno::Test
-      include AUCoreTestKit::SearchTest
+      include InfernoSuiteGenerator::SearchTest
 
       title '(SHOULD) Server returns valid results for Observation multipleAnd search by date'
       description %(A server SHOULD support searching by multipleAnd
@@ -28,13 +29,13 @@ none are returned, the test is skipped.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(resource_type: 'Observation',
-                                                 search_param_names: ['date'],
-                                                 optional_multiple_and_search_params: true)
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(resource_type: 'Observation',
+                                                                        search_param_names: ['date'],
+                                                                        optional_multiple_and_search_params: true)
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

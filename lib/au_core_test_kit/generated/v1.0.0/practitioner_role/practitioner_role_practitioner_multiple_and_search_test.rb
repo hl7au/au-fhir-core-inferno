@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/search_test'
+require 'inferno_suite_generator/search_test_properties'
+require 'inferno_suite_generator/generator/group_metadata'
+require 'inferno_suite_generator/helpers'
 
 module AUCoreTestKit
   module AUCoreV100
     class PractitionerRolePractitionerMultipleAndSearchTest < Inferno::Test
-      include AUCoreTestKit::SearchTest
+      include InfernoSuiteGenerator::SearchTest
 
       title '(MAY) Server returns valid results for PractitionerRole multipleAnd search by practitioner'
       description %(A server MAY support searching by multipleAnd
@@ -28,13 +29,13 @@ none are returned, the test is skipped.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(resource_type: 'PractitionerRole',
-                                                 search_param_names: ['practitioner'],
-                                                 search_by_target_resource_data: true)
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(resource_type: 'PractitionerRole',
+                                                                        search_param_names: ['practitioner'],
+                                                                        search_by_target_resource_data: true)
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

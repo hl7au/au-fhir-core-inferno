@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../../chained_search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/chained_search_test'
+require 'inferno_suite_generator/search_test_properties'
+require 'inferno_suite_generator/generator/group_metadata'
+require 'inferno_suite_generator/helpers'
 
 module AUCoreTestKit
   module AUCoreV100
     class EncounterPatientChainSearchTest < Inferno::Test
-      include AUCoreTestKit::ChainedSearchTest
+      include InfernoSuiteGenerator::ChainedSearchTest
 
       title '(SHOULD) Server returns valid results for Encounter search by patient (chained parameters)'
       description %(A server SHOULD support searching by
@@ -27,7 +28,7 @@ will pass if the server returns a success response to the request.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'Encounter',
           search_param_names: ['patient:Patient.identifier'],
           attr_paths: ['subject']
@@ -35,7 +36,7 @@ will pass if the server returns a success response to the request.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

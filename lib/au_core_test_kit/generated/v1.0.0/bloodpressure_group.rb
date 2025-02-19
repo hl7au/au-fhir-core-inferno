@@ -86,7 +86,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bloodpressure', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bloodpressure', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v100_bloodpressure_patient_code_search_test
