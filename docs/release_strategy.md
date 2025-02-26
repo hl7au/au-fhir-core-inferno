@@ -26,10 +26,11 @@ Each release is also marked with a Git tag using the format `v<MAJOR>.<MINOR>.<P
 ### 3.3 Preparing the Release 
 - Perform final testing and apply necessary fixes before proceeding with the release.
 - Assign a release version based on the **versioning strategy** outlined above.  
-- Create a **Git tag** (e.g., `v1.0.0`) from `master` to mark the release based on the assigned version.
+- Create a release branch
 - Notes:
-  - Release artifacts: Releases do not include test generator tools, however, the generator remains in the repository to support test suite generation.
-  - Release branching: A dedicated release branch is not required, git tags is used instead. However, release branches may be introduced in the future if needed.  
+  - Release artifacts: Releases do not include test generator tools, however, the generator remains in the repository to support test suite generation. 
+- Create a **Git tag** (e.g., `v1.0.0`) from release branch.
+- Create GitHub release.
 - Finalise **release notes** which includes a summary of features, updates, fixes, and a release-specific README.md.
 
 ### 3.4 Post-Release Development and Community Involvement 
