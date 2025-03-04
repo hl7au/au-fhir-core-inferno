@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../must_support_test'
+require 'inferno_suite_generator/must_support_test'
 
 module AUCoreTestKit
   module AUCoreV100
     class EncounterMustSupportTest < Inferno::Test
-      include AUCoreTestKit::MustSupportTest
+      include InfernoSuiteGenerator::MustSupportTest
 
       title 'All must support elements are provided in the Encounter resources returned'
       description %(
@@ -36,7 +36,7 @@ module AUCoreTestKit
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

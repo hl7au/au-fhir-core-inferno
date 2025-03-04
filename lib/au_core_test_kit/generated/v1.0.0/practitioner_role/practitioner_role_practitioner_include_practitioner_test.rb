@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/search_test'
+require 'inferno_suite_generator/search_test_properties'
+require 'inferno_suite_generator/generator/group_metadata'
+require 'inferno_suite_generator/helpers'
 
 module AUCoreTestKit
   module AUCoreV100
     class PractitionerRolePractitionerIncludePractitionerTest < Inferno::Test
-      include AUCoreTestKit::SearchTest
+      include InfernoSuiteGenerator::SearchTest
       title 'Server returns Practitioner resources from PractitionerRole search by practitioner and PractitionerRole:practitioner'
       description %(
 This test will perform a search by practitioner and the _include=PractitionerRole:practitioner
@@ -25,7 +26,7 @@ Test will pass if a Practitioner resources are found in the response.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'PractitionerRole',
           search_param_names: ['practitioner'],
           includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
@@ -34,7 +35,7 @@ Test will pass if a Practitioner resources are found in the response.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

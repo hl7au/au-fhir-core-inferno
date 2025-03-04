@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../reference_resolution_test'
+require 'inferno_suite_generator/reference_resolution_test'
 
 module AUCoreTestKit
   module AUCoreV100
     class BloodpressureReferenceResolutionTest < Inferno::Test
-      include AUCoreTestKit::ReferenceResolutionTest
+      include InfernoSuiteGenerator::ReferenceResolutionTest
 
       title 'MustSupport references within Observation resources are valid'
       description %(
@@ -27,7 +27,7 @@ module AUCoreTestKit
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources
