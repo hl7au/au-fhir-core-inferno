@@ -5,7 +5,7 @@ module AUCoreTestKit
     module SpecialCases
       RESOURCES_TO_EXCLUDE = %w[
         Medication
-        RelatedPerson
+        DiagnosticReport
       ].freeze
 
       PROFILES_TO_EXCLUDE = [].freeze
@@ -38,6 +38,9 @@ module AUCoreTestKit
       # https://github.com/hl7au/au-fhir-core-inferno/issues/199
 
       SEARCH_PARAMS_FOR_INCLUDE_BY_RESOURCE = {
+        'MedicationStatement' => [
+          ['medication']
+        ],
         'MedicationRequest' => [
           ['patient'],
           %w[patient intent],
@@ -59,7 +62,12 @@ module AUCoreTestKit
 
       class << self
         def exclude_group?(group)
-          RESOURCES_TO_EXCLUDE.include?(group.resource)
+          case group.version
+          when 'v1.0.0'
+            %w[Medication RelatedPerson].include?(group.resource)
+          else
+            RESOURCES_TO_EXCLUDE.include?(group.resource)
+          end
         end
 
         def patient_au_identifiers

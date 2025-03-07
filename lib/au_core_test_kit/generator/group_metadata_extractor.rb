@@ -173,9 +173,7 @@ module AUCoreTestKit
       ### END SPECIAL CASES ###
 
       def profile
-        # It's a temporary solution. Discuss it with the team
-        new_profile_url = profile_url == 'http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson' ? 'http://hl7.org.au/fhir/StructureDefinition/au-relatedperson' : profile_url
-        @profile ||= ig_resources.profile_by_url(new_profile_url)
+        @profile ||= ig_resources.profile_by_url(profile_url)
       end
 
       def profile_elements
