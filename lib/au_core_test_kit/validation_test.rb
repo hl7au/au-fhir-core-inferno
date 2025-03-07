@@ -13,7 +13,6 @@ module AUCoreTestKit
                                 profile_url,
                                 profile_version,
                                 skip_if_empty: true)
-
       conditional_skip_with_msg skip_if_empty && resources.blank?,
                                 "No #{resource_type} resources conforming to the #{profile_url} profile were returned"
 
