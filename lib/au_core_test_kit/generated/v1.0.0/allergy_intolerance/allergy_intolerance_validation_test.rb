@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../validation_test'
+require 'inferno_suite_generator/validation_test'
 
 module AUCoreTestKit
   module AUCoreV100
     class AllergyIntoleranceValidationTest < Inferno::Test
-      include AUCoreTestKit::ValidationTest
+      include InfernoSuiteGenerator::ValidationTest
 
       id :au_core_v100_allergy_intolerance_validation_test
       title 'AllergyIntolerance resources returned during previous tests conform to the AU Core AllergyIntolerance'

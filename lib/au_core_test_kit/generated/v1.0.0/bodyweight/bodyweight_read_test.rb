@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../read_test'
+require 'inferno_suite_generator/read_test'
 
 module AUCoreTestKit
   module AUCoreV100
     class BodyweightReadTest < Inferno::Test
-      include AUCoreTestKit::ReadTest
+      include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct Observation resource from Observation read interaction'
       description 'A server SHALL support the Observation read interaction.'
