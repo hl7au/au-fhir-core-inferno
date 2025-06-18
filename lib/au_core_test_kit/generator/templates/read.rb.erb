@@ -40,6 +40,14 @@ module AUCoreTestKit
         optional: true
       <% end %>
 
+      <% if needs_healthcare_service_id? %>
+      input :healthcare_service_ids,
+        title: 'HealthcareService IDs',
+        description: 'Comma separated list of healthcare services IDs that in sum contain all MUST SUPPORT elements',
+        default: 'generalpractice-bungabbee-medical-clinic, communityhealth-southedge-practice, dentalpractice-annandale-dental, pathologylaboratory-woodcroft-pathology',
+        optional: true
+      <% end %>
+
       id :<%= test_id %>
 
       def resource_type

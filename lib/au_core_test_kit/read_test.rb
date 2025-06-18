@@ -36,6 +36,8 @@ module AUCoreTestKit
         practitioner_ids
       when 'PractitionerRole'
         practitioner_role_ids
+      when 'HealthcareService'
+        healthcare_service_ids
       else
         ''
       end

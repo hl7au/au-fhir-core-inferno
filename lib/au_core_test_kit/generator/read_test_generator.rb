@@ -98,6 +98,10 @@ module AUCoreTestKit
         resource_type == 'PractitionerRole'
       end
 
+      def needs_healthcare_service_id?
+        resource_type == 'HealthcareService'
+      end
+
       def generate
         FileUtils.mkdir_p(output_file_directory)
         File.open(output_file_name, 'w') { |f| f.write(output) }
