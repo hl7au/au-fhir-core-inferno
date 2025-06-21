@@ -169,14 +169,11 @@ module AUCoreTestKit
     def resource_is_valid_with_target_profile?(resource, target_profile)
       return true if target_profile.blank?
 
-      # NOTE: Special case: terminology server don't have a specimen v0.3.0
-      target_profile = "#{target_profile}|5.1.0-preview" if target_profile == 'http://hl7.org.au/fhir/StructureDefinition/au-specimen'
-
       # Only need to know if the resource is valid.
       # Calling resource_is_valid? causes validation errors to be logged.
       validator = find_validator(:default)
 
-      target_profile_with_version = target_profile.include?('|') ? target_profile : "#{target_profile}|#{metadata.profile_version}"
+      target_profile_with_version = target_profile == "http://hl7.org.au/fhir/StructureDefinition/au-specimen" ? target_profile : "#{target_profile}|#{metadata.profile_version}"
 
       validator_response = validator.validate(resource, target_profile_with_version)
       outcome = validator.operation_outcome_from_hl7_wrapped_response(validator_response)
