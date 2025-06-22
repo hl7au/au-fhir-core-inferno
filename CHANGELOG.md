@@ -1,3 +1,8 @@
+# 1.1.0
+
+* Add a suite for AU Core 2.0.0-draft.
+
+
 # 0.0.18
 
 ## Fixes:
