@@ -1,0 +1,330 @@
+---
+:name: au_core_bodyweight
+:class_name: AuCoreBodyweightSequence
+:version: v2.0.0-ballot
+:reformatted_version: v200_ballot
+:resource: Observation
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
+:profile_name: AU Core Body Weight
+:profile_version: 2.0.0-ballot
+:title: Observation Body Weight
+:short_description: Verify support for the server capabilities required by the AU
+  Core Body Weight.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :expectation: SHALL
+  :names:
+  - patient
+  - code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - patient
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - category
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :category:
+    :paths:
+    - category
+    :full_paths:
+    - Observation.category
+    :comparators: {}
+    :values:
+    - vital-signs
+    :type: CodeableConcept
+    :contains_multiple: true
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - Observation.code
+    :comparators: {}
+    :values:
+    - 29463-7
+    - '27113001'
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: SHOULD
+  :date:
+    :paths:
+    - effective
+    :full_paths:
+    - Observation.effective
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: SHALL
+      :ge: SHALL
+      :lt: SHALL
+      :le: SHALL
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values:
+    - ge1950-01-01T00:00:00.000Z
+    - le2050-01-01T23:59:59.999Z
+    - gt1950-01-01T00:00:00.000Z
+    - lt2050-01-01T23:59:59.999Z
+    :type: date
+    :contains_multiple: false
+    :multiple_and: SHOULD
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Observation.status
+    :comparators: {}
+    :values:
+    - registered
+    - preliminary
+    - final
+    - amended
+    - corrected
+    - cancelled
+    - entered-in-error
+    - unknown
+    :type: code
+    :contains_multiple: false
+    :multiple_or: SHALL
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Observation.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices:
+  - :slice_id: Observation.value[x]:valueQuantity
+    :slice_name: valueQuantity
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Quantity
+  - :slice_id: Observation.category:VSCat
+    :slice_name: VSCat
+    :path: category
+    :discriminator:
+      :type: value
+      :values:
+      - :path: coding.code
+        :value: vital-signs
+      - :path: coding.system
+        :value: http://terminology.hl7.org/CodeSystem/observation-category
+  :elements:
+  - :path: status
+  - :path: category
+  - :path: category:VSCat.coding
+  - :path: category:VSCat.coding.system
+    :fixed_value: http://terminology.hl7.org/CodeSystem/observation-category
+  - :path: category:VSCat.coding.code
+    :fixed_value: vital-signs
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: effective[x]
+  - :path: value[x]
+  - :path: value[x]:valueQuantity.value
+  - :path: value[x]:valueQuantity.unit
+  - :path: value[x]:valueQuantity.system
+    :fixed_value: http://unitsofmeasure.org
+  - :path: value[x]:valueQuantity.code
+:mandatory_elements:
+- Observation.status
+- Observation.category
+- Observation.category.coding
+- Observation.category.coding.system
+- Observation.category.coding.code
+- Observation.code
+- Observation.code.coding
+- Observation.code.coding.system
+- Observation.code.coding.code
+- Observation.subject
+- Observation.effective[x]
+- Observation.value[x].value
+- Observation.value[x].unit
+- Observation.value[x].system
+- Observation.value[x].code
+- Observation.component.code
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/observation-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+  :path: value.comparator
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/ucum-bodyweight
+  :path: value.code
+:references:
+- :path: Observation.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - http://hl7.org/fhir/StructureDefinition/DeviceRequest
+  - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - http://hl7.org/fhir/StructureDefinition/NutritionOrder
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+- :path: Observation.partOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+  - http://hl7.org/fhir/StructureDefinition/MedicationDispense
+  - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+  - http://hl7.org/fhir/StructureDefinition/Procedure
+  - http://hl7.org/fhir/StructureDefinition/Immunization
+  - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+- :path: Observation.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+- :path: Observation.focus
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource
+- :path: Observation.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter
+- :path: Observation.performer
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :path: Observation.specimen
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Specimen
+- :path: Observation.device
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Device
+  - http://hl7.org/fhir/StructureDefinition/DeviceMetric
+- :path: Observation.hasMember
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+  - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  - http://hl7.org/fhir/StructureDefinition/vitalsigns
+- :path: Observation.derivedFrom
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  - http://hl7.org/fhir/StructureDefinition/ImagingStudy
+  - http://hl7.org/fhir/StructureDefinition/Media
+  - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+  - http://hl7.org/fhir/StructureDefinition/MolecularSequence
+  - http://hl7.org/fhir/StructureDefinition/vitalsigns
+:tests:
+- :id: au_core_v200_ballot_bodyweight_patient_code_search_test
+  :file_name: bodyweight_patient_code_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_category_search_test
+  :file_name: bodyweight_category_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_code_search_test
+  :file_name: bodyweight_code_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_date_search_test
+  :file_name: bodyweight_date_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_status_search_test
+  :file_name: bodyweight_status_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_search_test
+  :file_name: bodyweight_patient_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_category_search_test
+  :file_name: bodyweight_patient_category_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_category_date_search_test
+  :file_name: bodyweight_patient_category_date_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_category_status_search_test
+  :file_name: bodyweight_patient_category_status_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_code_date_search_test
+  :file_name: bodyweight_patient_code_date_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_code_multiple_or_search_test
+  :file_name: bodyweight_code_multiple_or_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_status_multiple_or_search_test
+  :file_name: bodyweight_status_multiple_or_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_date_multiple_and_search_test
+  :file_name: bodyweight_date_multiple_and_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_chain_search_test
+  :file_name: bodyweight_patient_chain_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_ihi_chain_search_test
+  :file_name: bodyweight_patient_ihi_chain_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_medicare_chain_search_test
+  :file_name: bodyweight_patient_medicare_chain_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_patient_dva_chain_search_test
+  :file_name: bodyweight_patient_dva_chain_search_test.rb
+- :id: au_core_v200_ballot_bodyweight_read_test
+  :file_name: bodyweight_read_test.rb
+- :id: au_core_v200_ballot_bodyweight_validation_test
+  :file_name: bodyweight_validation_test.rb
+- :id: au_core_v200_ballot_bodyweight_must_support_test
+  :file_name: bodyweight_must_support_test.rb
+- :id: au_core_v200_ballot_bodyweight_reference_resolution_test
+  :file_name: bodyweight_reference_resolution_test.rb
+:id: au_core_v200_ballot_bodyweight
+:file_name: bodyweight_group.rb
+:delayed_references: []

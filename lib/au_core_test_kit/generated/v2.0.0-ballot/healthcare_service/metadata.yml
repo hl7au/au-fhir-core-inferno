@@ -1,0 +1,126 @@
+---
+:name: au_core_healthcareservice
+:class_name: AuCoreHealthcareserviceSequence
+:version: v2.0.0-ballot
+:reformatted_version: v200_ballot
+:resource: HealthcareService
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+:profile_name: AU Core HealthcareService
+:profile_version: 2.0.0-ballot
+:title: HealthcareService
+:short_description: Verify support for the server capabilities required by the AU
+  Core HealthcareService.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - name
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - identifier
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - _id
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - service-type
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :name:
+    :paths:
+    - name
+    :full_paths:
+    - HealthcareService.name
+    :comparators: {}
+    :values: []
+    :type: string
+    :contains_multiple: false
+  :identifier:
+    :paths:
+    - identifier
+    :full_paths:
+    - HealthcareService.identifier
+    :comparators: {}
+    :values: []
+    :type: Identifier
+    :contains_multiple: true
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - HealthcareService.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+  :service-type:
+    :paths:
+    - type
+    :full_paths:
+    - HealthcareService.type
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: true
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: type
+  - :path: name
+  - :path: telecom
+:mandatory_elements:
+- HealthcareService.name
+- HealthcareService.notAvailable.description
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/days-of-week
+  :path: availableTime.daysOfWeek
+:references:
+- :path: HealthcareService.providedBy
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: HealthcareService.location
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+- :path: HealthcareService.coverageArea
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Location
+- :path: HealthcareService.endpoint
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Endpoint
+:tests:
+- :id: au_core_v200_ballot_healthcare_service_read_test
+  :file_name: healthcare_service_read_test.rb
+- :id: au_core_v200_ballot_healthcare_service_name_search_test
+  :file_name: healthcare_service_name_search_test.rb
+- :id: au_core_v200_ballot_healthcare_service_identifier_search_test
+  :file_name: healthcare_service_identifier_search_test.rb
+- :id: au_core_v200_ballot_healthcare_service__id_search_test
+  :file_name: healthcare_service_id_search_test.rb
+- :id: au_core_v200_ballot_healthcare_service_service_type_search_test
+  :file_name: healthcare_service_service_type_search_test.rb
+- :id: au_core_v200_ballot_healthcare_service_validation_test
+  :file_name: healthcare_service_validation_test.rb
+- :id: au_core_v200_ballot_healthcare_service_must_support_test
+  :file_name: healthcare_service_must_support_test.rb
+:id: au_core_v200_ballot_healthcare_service
+:file_name: healthcare_service_group.rb
+:delayed_references: []
