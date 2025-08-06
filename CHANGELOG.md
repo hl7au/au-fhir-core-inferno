@@ -1,3 +1,7 @@
+# 1.2.0
+
+* Add a suite for AU Core 2.0.0-ballot.
+
 # 1.1.0
 
 * Add a suite for AU Core 2.0.0-draft.
