@@ -21,7 +21,6 @@ require_relative 'waistcircum_group'
 require_relative 'resprate_group'
 require_relative 'diagnosticresult_group'
 require_relative 'smokingstatus_group'
-require_relative 'au_imagingresult_group'
 require_relative 'allergy_intolerance_group'
 require_relative 'condition_group'
 require_relative 'encounter_group'
@@ -140,8 +139,6 @@ module AUCoreTestKit
         group from: :au_core_v200_preview_diagnosticresult
 
         group from: :au_core_v200_preview_smokingstatus
-
-        group from: :au_core_v200_preview_au_imagingresult
 
         group from: :au_core_v200_preview_allergy_intolerance
 
