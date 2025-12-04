@@ -44,9 +44,7 @@ module ValidatorHelpers
 
     version_data = parse_response(response_body)
 
-    unless response_valid?(version_data)
-      return warning "Invalid response from validator at #{validator_url}: #{version_data}"
-    end
+    return warning "Invalid response from validator at #{validator_url}: #{version_data}" unless response_valid?(version_data)
 
     cache_versions(version_data[RESPONSE_VALIDATOR_KEY], version_data[RESPONSE_WRAPPER_KEY])
     build_version_hash(version_data[RESPONSE_VALIDATOR_KEY], version_data[RESPONSE_WRAPPER_KEY])
