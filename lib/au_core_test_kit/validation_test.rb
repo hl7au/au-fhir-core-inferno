@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'assert_helpers'
+require_relative 'validator_helpers'
 
 module AUCoreTestKit
   module ValidationTest
     include AssertHelpers
+    include ValidatorHelpers
 
     DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
@@ -18,6 +20,8 @@ module AUCoreTestKit
 
       omit_if resources.blank?,
               "No #{resource_type} resources provided so the #{profile_url} profile does not apply"
+
+      show_validator_version
 
       profile_with_version = "#{profile_url}|#{profile_version}"
       resources.each do |resource|
