@@ -1,3 +1,7 @@
+# 1.3.1
+
+* Display validator versions
+
 # 1.3.0
 
 * Add a suite for AU Core 2.0.0-preview.
