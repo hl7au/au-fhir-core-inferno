@@ -65,10 +65,8 @@ module AUCoreTestKit
       end
 
       def ig_link
-        case ig_metadata.ig_version
-        when 'v0.3.0-ballot'
-          'http://hl7.org.au/fhir/core/0.3.0-ballot'
-        end
+        version = ig_metadata.ig_version[1..] # Remove leading 'v'
+        "https://hl7.org.au/fhir/core/#{version}"
       end
 
       def generate
