@@ -40,7 +40,7 @@ module AUCoreTestKit
       title 'AU Core v1.1.0-preview'
       description %(
         The AU Core Test Kit tests systems for their conformance to the [AU Core
-        Implementation Guide]().
+        Implementation Guide](https://hl7.org.au/fhir/core/1.1.0-preview).
 
         HL7® FHIR® resources are validated with the Java validator using
         `#{ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')}` as the terminology server.
