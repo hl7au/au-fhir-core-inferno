@@ -58,3 +58,8 @@ ig_download:
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/ig_download.rb
 
 full_develop_restart: stop down generate setup run
+
+debug_generator:
+	rm -rf lib/au_core_test_kit/generated/v2.0.0/
+	bundle exec rake au_core:generate
+	rubocop -A .
