@@ -1,0 +1,68 @@
+{
+  "ig": {
+    "id": "hl7.fhir.au.core",
+    "name": "AU Core Implementation Guide",
+    "cs_profile_url": "http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder",
+    "cs_version_specific_url": "http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder"
+  },
+  "suite": {
+    "title": "AU Core",
+    "extra_json_paths": [],
+    "tx_server_url": "https://tx.dev.hl7.org.au/fhir",
+    "extra_imports": [],
+    "outer_groups": [],
+    "links": [
+      {
+        "label": "Report Issue",
+        "url": "https://github.com/hl7au/au-fhir-core-inferno/issues"
+      },
+      {
+        "label": "Source Code",
+        "url": "https://github.com/hl7au/au-fhir-core-inferno"
+      },
+      {
+        "label": "Implementation Guide",
+        "url": "https://build.fhir.org/ig/hl7au/au-fhir-core/index.html"
+      }
+    ]
+  },
+  "constants": {
+    "default_fhir_server": "https://fhir.hl7.org.au/aucore/fhir/DEFAULT",
+    "read_ids.patient": "baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne",
+    "read_ids.location": "bobrester-medical-center, au-hospital",
+    "read_ids.organization": "dva-au, organization-medical-center-tc",
+    "read_ids.practitioner": "alderson-helene",
+    "read_ids.practitionerrole": "cardiologist-sallie-sutherland, bobrester-bob-gp"
+  },
+  "configs": {
+    "generic": {
+      "expectation": ["SHALL", "SHOULD", "MAY"],
+      "search_params_to_ignore": ["_count", "_sort"]
+    },
+    "profiles": {
+      "http://hl7.org.au/fhir/core/StructureDefinition/au-core-location": {
+        "first_class_profile": "read"
+      },
+      "http://hl7.org.au/fhir/StructureDefinition/au-specimen": {
+        "skip": true
+      },
+      "http://hl7.org.au/fhir/StructureDefinition/au-imagingresult": {
+        "skip": true
+      }
+    },
+    "resources": {
+      "Medication": {
+        "skip": true
+      },
+      "DiagnosticReport": {
+        "skip": true
+      },
+      "Bundle": {
+        "skip": true
+      },
+      "Parameters": {
+        "skip": true
+      }
+    }
+  }
+}
