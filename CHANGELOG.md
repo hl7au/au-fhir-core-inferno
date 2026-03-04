@@ -1,19 +1,25 @@
+# 1.4.0
+* Add a suite for AU Core 2.0.0.
+* Fix IG link in test suite generator.
+
 # 1.3.1
 
-* Display validator versions
+* Display validator versions in validation results.
 
 # 1.3.0
 
 * Add a suite for AU Core 2.0.0-preview.
+* Update dependencies of inferno core and fhir validator wrapper.
 
 # 1.2.0
 
 * Add a suite for AU Core 2.0.0-ballot.
+* Exclude AU Base profiles from test generation.
 
 # 1.1.0
 
 * Add a suite for AU Core 2.0.0-draft.
-
+* Fix Redis permission issue when running locally.
 
 # 0.0.18
 
