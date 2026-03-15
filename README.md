@@ -4,6 +4,7 @@ This is an [Inferno](https://inferno-framework.github.io/inferno-core/) test kit
 
 **Currently available versions:**
 1. [v1.0.0](https://hl7.org.au/fhir/core/1.0.0)
+2. [v2.0.0](https://hl7.org.au/fhir/core/2.0.0)
 
 ## Use Inferno as a service
 You can test your FHIR server using this link [https://inferno.hl7.org.au/test-kits/au-core](https://inferno.hl7.org.au/test-kits/au-core/)
