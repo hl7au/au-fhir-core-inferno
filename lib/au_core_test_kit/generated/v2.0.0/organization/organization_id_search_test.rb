@@ -16,6 +16,14 @@ _id on the Organization resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
+Because this is the first search of the sequence, resources in the
+response will be used for subsequent tests.
+
+Additionally, this test will check that GET and POST search methods
+return the same number of results. Search by POST is required by the
+FHIR R4 specification, and these tests interpret search by GET as a
+requirement of AU Core v2.0.0.
+
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
 
       )
@@ -31,8 +39,10 @@ none are returned, the test is skipped.
 
       def self.properties
         @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
+          first_search: true,
           resource_type: 'Organization',
-          search_param_names: ['_id']
+          search_param_names: ['_id'],
+          test_post_search: true
         )
       end
 

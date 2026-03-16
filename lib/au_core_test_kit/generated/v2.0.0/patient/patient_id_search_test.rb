@@ -30,6 +30,11 @@ requirement of AU Core v2.0.0.
 
       id :au_core_v200_patient__id_search_test
 
+      input :patient_ids,
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
+
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(
           YAML.load_file(File.join(File.dirname(__dir__), 'demodata.yml'), aliases: true)

@@ -18,6 +18,11 @@
 :operations: []
 :searches:
 - :names:
+  - _id
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
   - address
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
@@ -30,11 +35,6 @@
 - :names:
   - name
   :expectation: SHALL
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - _id
-  :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 :search_definitions:
@@ -115,14 +115,14 @@
 :tests:
 - :id: au_core_v200_organization_read_test
   :file_name: organization_read_test.rb
+- :id: au_core_v200_organization__id_search_test
+  :file_name: organization_id_search_test.rb
 - :id: au_core_v200_organization_address_search_test
   :file_name: organization_address_search_test.rb
 - :id: au_core_v200_organization_identifier_search_test
   :file_name: organization_identifier_search_test.rb
 - :id: au_core_v200_organization_name_search_test
   :file_name: organization_name_search_test.rb
-- :id: au_core_v200_organization__id_search_test
-  :file_name: organization_id_search_test.rb
 - :id: au_core_v200_organization_validation_test
   :file_name: organization_validation_test.rb
 - :id: au_core_v200_organization_must_support_test
