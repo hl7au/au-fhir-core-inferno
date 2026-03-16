@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../reference_resolution_test'
+require 'inferno_suite_generator/test_modules/reference_resolution_test'
 
 module AUCoreTestKit
   module AUCoreV200
     class MedicationStatementReferenceResolutionTest < Inferno::Test
-      include AUCoreTestKit::ReferenceResolutionTest
+      include InfernoSuiteGenerator::ReferenceResolutionTest
 
       title 'MustSupport references within MedicationStatement resources are valid'
       description %(
@@ -29,7 +29,7 @@ module AUCoreTestKit
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources
@@ -37,7 +37,7 @@ module AUCoreTestKit
       end
 
       run do
-        perform_reference_resolution_test(scratch_resources[:all])
+        perform_reference_resolution_test(scratch_resources[:all], { 'http://hl7.org.au/fhir/StructureDefinition/au-specimen' => 'http://hl7.org.au/fhir/StructureDefinition/au-specimen|5.1.0-preview' })
       end
     end
   end

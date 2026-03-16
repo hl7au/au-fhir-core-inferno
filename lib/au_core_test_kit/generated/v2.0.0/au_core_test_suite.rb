@@ -2,13 +2,8 @@
 
 require 'base64'
 require 'inferno/dsl/oauth_credentials'
+require 'inferno_suite_generator/utils/helpers'
 require_relative '../../version'
-require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
-require_relative '../../custom_groups/smart_app_launch_group'
-require_relative '../../custom_groups/missing_data_group'
-require_relative '../../au_core_options'
-require_relative '../../helpers'
-require_relative '../../constants'
 
 require_relative 'patient_group'
 require_relative 'bodyweight_group'
@@ -40,11 +35,12 @@ module AUCoreTestKit
     class AUCoreTestSuite < Inferno::TestSuite
       title 'AU Core v2.0.0'
       description %(
-        The AU Core Test Kit tests systems for their conformance to the [AU Core
-        Implementation Guide](https://hl7.org.au/fhir/core/2.0.0).
+        The AU Core Test Kit tests systems for their conformance to the [AU Core Implementation Guide](https://hl7.org.au/fhir/core/2.0.0/index.html).
 
         HL7® FHIR® resources are validated with the Java validator using
-        `#{ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')}` as the terminology server.
+        https://tx.dev.hl7.org.au/fhir as the terminology server.
+
+        The test suite is generated using the [InfernoSuiteGenerator](https://github.com/hl7au/inferno_suite_generator) gem version 0.1.0.
       )
       version VERSION
 
@@ -57,8 +53,12 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs 'hl7.fhir.au.core#2.0.0'
-        message_filters = Constants.validation_message_filters + VERSION_SPECIFIC_MESSAGE_FILTERS
+        igs '/home/igs/2.0.0.tgz'
+        message_filters = [
+          "The value provided ('xml') was not found in the value set 'MimeType'",
+          "The value provided ('json') was not found in the value set 'MimeType'",
+          "The value provided ('ttl') was not found in the value set 'MimeType'"
+        ] + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
@@ -80,12 +80,12 @@ module AUCoreTestKit
           url: 'https://github.com/hl7au/au-fhir-core-inferno/issues'
         },
         {
-          label: 'Open Source',
+          label: 'Source Code',
           url: 'https://github.com/hl7au/au-fhir-core-inferno'
         },
         {
-          label: 'AU Core Implementation Guide',
-          url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/'
+          label: 'Implementation Guide',
+          url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/index.html'
         }
       ]
 
@@ -115,8 +115,6 @@ module AUCoreTestKit
       group do
         title 'AU Core FHIR API'
         id :au_core_v200_fhir_api
-
-        group from: :au_core_v030_ballot_capability_statement
 
         group from: :au_core_v200_patient
 
@@ -165,8 +163,6 @@ module AUCoreTestKit
         group from: :au_core_v200_practitioner
 
         group from: :au_core_v200_practitioner_role
-
-        group from: :au_core_missing_data_group
       end
     end
   end

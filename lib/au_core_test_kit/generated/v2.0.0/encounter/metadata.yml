@@ -84,21 +84,16 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: SHALL
-      :ge: SHALL
-      :lt: SHALL
-      :le: SHALL
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values:
-    - ge1950-01-01T00:00:00.000Z
-    - le2050-01-01T23:59:59.999Z
-    - gt1950-01-01T00:00:00.000Z
-    - lt2050-01-01T23:59:59.999Z
+    :values: []
     :type: Period
     :contains_multiple: false
-    :multiple_and: SHOULD
   :location:
     :paths:
     - location.location
@@ -127,7 +122,6 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: MAY
   :patient:
     :paths:
     - subject
@@ -207,49 +201,79 @@
 - :path: Encounter.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Encounter.episodeOfCare
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.basedOn
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.participant.individual
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - RelatedPerson
 - :path: Encounter.appointment
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Appointment|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.reasonReference
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+  :resource_types:
+  - Condition
+  -
+  - Procedure
 - :path: Encounter.diagnosis.condition
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.account
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Account|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.hospitalization.origin
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.hospitalization.destination
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: Encounter.location.location
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  :resource_types:
+  - Location
 - :path: Encounter.serviceProvider
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Organization
 - :path: Encounter.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_encounter_patient_search_test
   :file_name: encounter_patient_search_test.rb
@@ -269,18 +293,8 @@
   :file_name: encounter_patient_location_search_test.rb
 - :id: au_core_v200_encounter_patient_status_search_test
   :file_name: encounter_patient_status_search_test.rb
-- :id: au_core_v200_encounter_status_multiple_or_search_test
-  :file_name: encounter_status_multiple_or_search_test.rb
-- :id: au_core_v200_encounter_date_multiple_and_search_test
-  :file_name: encounter_date_multiple_and_search_test.rb
 - :id: au_core_v200_encounter_patient_chain_search_test
   :file_name: encounter_patient_chain_search_test.rb
-- :id: au_core_v200_encounter_patient_ihi_chain_search_test
-  :file_name: encounter_patient_ihi_chain_search_test.rb
-- :id: au_core_v200_encounter_patient_medicare_chain_search_test
-  :file_name: encounter_patient_medicare_chain_search_test.rb
-- :id: au_core_v200_encounter_patient_dva_chain_search_test
-  :file_name: encounter_patient_dva_chain_search_test.rb
 - :id: au_core_v200_encounter_read_test
   :file_name: encounter_read_test.rb
 - :id: au_core_v200_encounter_validation_test
@@ -302,3 +316,4 @@
 - :path: serviceProvider
   :resources:
   - Organization
+:ig_id: hl7.fhir.au.core

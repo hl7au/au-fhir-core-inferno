@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'encounter/encounter_patient_search_test'
 require_relative 'encounter/encounter_class_search_test'
 require_relative 'encounter/encounter_date_search_test'
@@ -9,12 +10,7 @@ require_relative 'encounter/encounter_date_patient_search_test'
 require_relative 'encounter/encounter_class_patient_search_test'
 require_relative 'encounter/encounter_patient_location_search_test'
 require_relative 'encounter/encounter_patient_status_search_test'
-require_relative 'encounter/encounter_status_multiple_or_search_test'
-require_relative 'encounter/encounter_date_multiple_and_search_test'
 require_relative 'encounter/encounter_patient_chain_search_test'
-require_relative 'encounter/encounter_patient_ihi_chain_search_test'
-require_relative 'encounter/encounter_patient_medicare_chain_search_test'
-require_relative 'encounter/encounter_patient_dva_chain_search_test'
 require_relative 'encounter/encounter_read_test'
 require_relative 'encounter/encounter_validation_test'
 require_relative 'encounter/encounter_must_support_test'
@@ -83,7 +79,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'encounter', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'encounter', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_encounter_patient_search_test
@@ -95,12 +91,7 @@ read succeeds.
       test from: :au_core_v200_encounter_class_patient_search_test
       test from: :au_core_v200_encounter_patient_location_search_test
       test from: :au_core_v200_encounter_patient_status_search_test
-      test from: :au_core_v200_encounter_status_multiple_or_search_test
-      test from: :au_core_v200_encounter_date_multiple_and_search_test
       test from: :au_core_v200_encounter_patient_chain_search_test
-      test from: :au_core_v200_encounter_patient_ihi_chain_search_test
-      test from: :au_core_v200_encounter_patient_medicare_chain_search_test
-      test from: :au_core_v200_encounter_patient_dva_chain_search_test
       test from: :au_core_v200_encounter_read_test
       test from: :au_core_v200_encounter_validation_test
       test from: :au_core_v200_encounter_must_support_test

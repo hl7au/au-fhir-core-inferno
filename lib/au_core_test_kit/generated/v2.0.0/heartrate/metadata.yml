@@ -199,6 +199,11 @@
     :fixed_value: http://unitsofmeasure.org
   - :path: value[x]:valueQuantity.code
     :fixed_value: "/min"
+  - :path: dataAbsentReason
+  - :path: component
+  - :path: component.code
+  - :path: component.value[x]
+  - :path: component.dataAbsentReason
 :mandatory_elements:
 - Observation.status
 - Observation.category
@@ -234,6 +239,8 @@
   - http://hl7.org/fhir/StructureDefinition/MedicationRequest|4.0.1
   - http://hl7.org/fhir/StructureDefinition/NutritionOrder|4.0.1
   - http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1
+  :resource_types:
+  -
 - :path: Observation.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/MedicationAdministration|4.0.1
@@ -242,15 +249,23 @@
   - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Immunization|4.0.1
   - http://hl7.org/fhir/StructureDefinition/ImagingStudy|4.0.1
+  :resource_types:
+  -
 - :path: Observation.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Observation.focus
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+  :resource_types:
+  -
 - :path: Observation.encounter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  :resource_types:
+  -
 - :path: Observation.performer
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
@@ -259,18 +274,26 @@
   - http://hl7.org/fhir/StructureDefinition/CareTeam|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
+  :resource_types:
+  -
 - :path: Observation.specimen
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1
+  :resource_types:
+  -
 - :path: Observation.device
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
   - http://hl7.org/fhir/StructureDefinition/DeviceMetric|4.0.1
+  :resource_types:
+  -
 - :path: Observation.hasMember
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse|4.0.1
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1
   - http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1
+  :resource_types:
+  -
 - :path: Observation.derivedFrom
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/DocumentReference|4.0.1
@@ -279,6 +302,8 @@
   - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse|4.0.1
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1
   - http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_heartrate_patient_code_search_test
   :file_name: heartrate_patient_code_search_test.rb
@@ -308,12 +333,6 @@
   :file_name: heartrate_date_multiple_and_search_test.rb
 - :id: au_core_v200_heartrate_patient_chain_search_test
   :file_name: heartrate_patient_chain_search_test.rb
-- :id: au_core_v200_heartrate_patient_ihi_chain_search_test
-  :file_name: heartrate_patient_ihi_chain_search_test.rb
-- :id: au_core_v200_heartrate_patient_medicare_chain_search_test
-  :file_name: heartrate_patient_medicare_chain_search_test.rb
-- :id: au_core_v200_heartrate_patient_dva_chain_search_test
-  :file_name: heartrate_patient_dva_chain_search_test.rb
 - :id: au_core_v200_heartrate_read_test
   :file_name: heartrate_read_test.rb
 - :id: au_core_v200_heartrate_validation_test
@@ -325,3 +344,4 @@
 :id: au_core_v200_heartrate
 :file_name: heartrate_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

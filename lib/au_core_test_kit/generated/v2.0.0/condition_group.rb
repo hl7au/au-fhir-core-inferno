@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'condition/condition_patient_search_test'
 require_relative 'condition/condition_category_search_test'
 require_relative 'condition/condition_clinical_status_search_test'
@@ -10,12 +11,7 @@ require_relative 'condition/condition_patient_clinical_status_search_test'
 require_relative 'condition/condition_patient_category_clinical_status_search_test'
 require_relative 'condition/condition_patient_code_search_test'
 require_relative 'condition/condition_patient_onset_date_search_test'
-require_relative 'condition/condition_code_multiple_or_search_test'
-require_relative 'condition/condition_onset_date_multiple_and_search_test'
 require_relative 'condition/condition_patient_chain_search_test'
-require_relative 'condition/condition_patient_ihi_chain_search_test'
-require_relative 'condition/condition_patient_medicare_chain_search_test'
-require_relative 'condition/condition_patient_dva_chain_search_test'
 require_relative 'condition/condition_read_test'
 require_relative 'condition/condition_validation_test'
 require_relative 'condition/condition_must_support_test'
@@ -85,7 +81,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_condition_patient_search_test
@@ -98,12 +94,7 @@ read succeeds.
       test from: :au_core_v200_condition_patient_category_clinical_status_search_test
       test from: :au_core_v200_condition_patient_code_search_test
       test from: :au_core_v200_condition_patient_onset_date_search_test
-      test from: :au_core_v200_condition_code_multiple_or_search_test
-      test from: :au_core_v200_condition_onset_date_multiple_and_search_test
       test from: :au_core_v200_condition_patient_chain_search_test
-      test from: :au_core_v200_condition_patient_ihi_chain_search_test
-      test from: :au_core_v200_condition_patient_medicare_chain_search_test
-      test from: :au_core_v200_condition_patient_dva_chain_search_test
       test from: :au_core_v200_condition_read_test
       test from: :au_core_v200_condition_validation_test
       test from: :au_core_v200_condition_must_support_test

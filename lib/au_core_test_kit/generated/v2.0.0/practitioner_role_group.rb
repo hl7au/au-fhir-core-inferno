@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'practitioner_role/practitioner_role_read_test'
 require_relative 'practitioner_role/practitioner_role_id_search_test'
 require_relative 'practitioner_role/practitioner_role_identifier_search_test'
@@ -10,11 +11,6 @@ require_relative 'practitioner_role/practitioner_role_organization_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_multiple_or_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_multiple_and_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_chain_search_test'
-require_relative 'practitioner_role/practitioner_role_identifier_medicare_search_test'
-require_relative 'practitioner_role/practitioner_role_id_include_practitioner_test'
-require_relative 'practitioner_role/practitioner_role_identifier_include_practitioner_test'
-require_relative 'practitioner_role/practitioner_role_practitioner_include_practitioner_test'
-require_relative 'practitioner_role/practitioner_role_specialty_include_practitioner_test'
 require_relative 'practitioner_role/practitioner_role_validation_test'
 require_relative 'practitioner_role/practitioner_role_must_support_test'
 require_relative 'practitioner_role/practitioner_role_reference_resolution_test'
@@ -82,7 +78,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner_role', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner_role', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_practitioner_role_read_test
@@ -95,11 +91,6 @@ read succeeds.
       test from: :au_core_v200_practitioner_role_practitioner_multiple_or_search_test
       test from: :au_core_v200_practitioner_role_practitioner_multiple_and_search_test
       test from: :au_core_v200_practitioner_role_practitioner_chain_search_test
-      test from: :au_core_v200_practitioner_role_identifier_medicare_search_test
-      test from: :au_core_v200_practitioner_role__id_include__id_search_test
-      test from: :au_core_v200_practitioner_role_identifier_include_identifier_search_test
-      test from: :au_core_v200_practitioner_role_practitioner_include_practitioner_search_test
-      test from: :au_core_v200_practitioner_role_specialty_include_specialty_search_test
       test from: :au_core_v200_practitioner_role_validation_test
       test from: :au_core_v200_practitioner_role_must_support_test
       test from: :au_core_v200_practitioner_role_reference_resolution_test

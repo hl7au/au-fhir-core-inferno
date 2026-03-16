@@ -154,18 +154,28 @@
 - :path: PractitionerRole.practitioner
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  :resource_types:
+  - Practitioner
 - :path: PractitionerRole.organization
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Organization
 - :path: PractitionerRole.location
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
+  :resource_types:
+  -
 - :path: PractitionerRole.healthcareService
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/HealthcareService|4.0.1
+  :resource_types:
+  -
 - :path: PractitionerRole.endpoint
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_practitioner_role_read_test
   :file_name: practitioner_role_read_test.rb
@@ -187,16 +197,6 @@
   :file_name: practitioner_role_practitioner_multiple_and_search_test.rb
 - :id: au_core_v200_practitioner_role_practitioner_chain_search_test
   :file_name: practitioner_role_practitioner_chain_search_test.rb
-- :id: au_core_v200_practitioner_role_identifier_medicare_search_test
-  :file_name: practitioner_role_identifier_medicare_search_test.rb
-- :id: au_core_v200_practitioner_role__id_include__id_search_test
-  :file_name: practitioner_role_id_include_practitioner_test.rb
-- :id: au_core_v200_practitioner_role_identifier_include_identifier_search_test
-  :file_name: practitioner_role_identifier_include_practitioner_test.rb
-- :id: au_core_v200_practitioner_role_practitioner_include_practitioner_search_test
-  :file_name: practitioner_role_practitioner_include_practitioner_test.rb
-- :id: au_core_v200_practitioner_role_specialty_include_specialty_search_test
-  :file_name: practitioner_role_specialty_include_practitioner_test.rb
 - :id: au_core_v200_practitioner_role_validation_test
   :file_name: practitioner_role_validation_test.rb
 - :id: au_core_v200_practitioner_role_must_support_test
@@ -212,3 +212,4 @@
 - :path: organization
   :resources:
   - Organization
+:ig_id: hl7.fhir.au.core

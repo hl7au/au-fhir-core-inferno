@@ -32,7 +32,9 @@
     "read_ids.location": "bobrester-medical-center, au-hospital",
     "read_ids.organization": "dva-au, organization-medical-center-tc",
     "read_ids.practitioner": "alderson-helene",
-    "read_ids.practitionerrole": "cardiologist-sallie-sutherland, bobrester-bob-gp"
+    "read_ids.practitionerrole": "cardiologist-sallie-sutherland, bobrester-bob-gp",
+    "search_default_values.datetime": ["ge1950-01-01T00:00:00.000Z", "le2050-01-01T23:59:59.999Z", "gt1950-01-01T00:00:00.000Z", "lt2050-01-01T23:59:59.999Z"],
+    "search.comparators": ["gt", "lt", "ge", "le"]
   },
   "configs": {
     "generic": {
@@ -51,6 +53,22 @@
       }
     },
     "resources": {
+      "Observation": {
+        "forced_initial_search": ["patient", "code"],
+        "search_param": {
+          "clinical-date": {
+            "default_values": "search_default_values.datetime",
+            "multiple_and_expectation": "SHOULD",
+            "comparators": "search.comparators"
+          },
+          "Observation-status": {
+            "multiple_or_expectation": "SHALL"
+          },
+          "clinical-code": {
+            "multiple_or_expectation": "SHOULD"
+          }
+        }
+      },
       "Medication": {
         "skip": true
       },

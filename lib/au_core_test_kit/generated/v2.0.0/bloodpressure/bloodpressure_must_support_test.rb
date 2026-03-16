@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../must_support_test'
+require 'inferno_suite_generator/test_modules/must_support_test'
 
 module AUCoreTestKit
   module AUCoreV200
     class BloodpressureMustSupportTest < Inferno::Test
-      include AUCoreTestKit::MustSupportTest
+      include InfernoSuiteGenerator::MustSupportTest
 
       title 'All must support elements are provided in the Observation resources returned'
       description %(
@@ -40,9 +40,12 @@ module AUCoreTestKit
         * Observation.component:SystolicBP.value[x].system
         * Observation.component:SystolicBP.value[x].unit
         * Observation.component:SystolicBP.value[x].value
+        * Observation.dataAbsentReason
         * Observation.effective[x]
         * Observation.status
         * Observation.subject
+        * Observation.value[x]
+        * Observation.value[x]:valueQuantity
       )
 
       id :au_core_v200_bloodpressure_must_support_test
@@ -52,7 +55,7 @@ module AUCoreTestKit
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

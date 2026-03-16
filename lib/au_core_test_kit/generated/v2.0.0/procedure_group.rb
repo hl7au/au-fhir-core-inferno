@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'procedure/procedure_patient_search_test'
 require_relative 'procedure/procedure_code_search_test'
 require_relative 'procedure/procedure_date_search_test'
@@ -7,13 +8,7 @@ require_relative 'procedure/procedure_status_search_test'
 require_relative 'procedure/procedure_patient_date_search_test'
 require_relative 'procedure/procedure_patient_code_date_search_test'
 require_relative 'procedure/procedure_patient_status_search_test'
-require_relative 'procedure/procedure_code_multiple_or_search_test'
-require_relative 'procedure/procedure_status_multiple_or_search_test'
-require_relative 'procedure/procedure_date_multiple_and_search_test'
 require_relative 'procedure/procedure_patient_chain_search_test'
-require_relative 'procedure/procedure_patient_ihi_chain_search_test'
-require_relative 'procedure/procedure_patient_medicare_chain_search_test'
-require_relative 'procedure/procedure_patient_dva_chain_search_test'
 require_relative 'procedure/procedure_read_test'
 require_relative 'procedure/procedure_validation_test'
 require_relative 'procedure/procedure_must_support_test'
@@ -82,7 +77,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'procedure', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'procedure', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_procedure_patient_search_test
@@ -92,13 +87,7 @@ read succeeds.
       test from: :au_core_v200_procedure_patient_date_search_test
       test from: :au_core_v200_procedure_patient_code_date_search_test
       test from: :au_core_v200_procedure_patient_status_search_test
-      test from: :au_core_v200_procedure_code_multiple_or_search_test
-      test from: :au_core_v200_procedure_status_multiple_or_search_test
-      test from: :au_core_v200_procedure_date_multiple_and_search_test
       test from: :au_core_v200_procedure_patient_chain_search_test
-      test from: :au_core_v200_procedure_patient_ihi_chain_search_test
-      test from: :au_core_v200_procedure_patient_medicare_chain_search_test
-      test from: :au_core_v200_procedure_patient_dva_chain_search_test
       test from: :au_core_v200_procedure_read_test
       test from: :au_core_v200_procedure_validation_test
       test from: :au_core_v200_procedure_must_support_test

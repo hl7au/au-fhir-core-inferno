@@ -101,21 +101,16 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: SHALL
-      :ge: SHALL
-      :lt: SHALL
-      :le: SHALL
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values:
-    - ge1950-01-01
-    - le2050-01-01
-    - gt1950-01-01
-    - lt2050-01-01
+    :values: []
     :type: date
     :contains_multiple: false
-    :multiple_and: MAY
   :family:
     :paths:
     - name.family
@@ -240,18 +235,26 @@
 - :path: Patient.contact.organization
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: Patient.generalPractitioner
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  :resource_types:
+  -
 - :path: Patient.managingOrganization
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: Patient.link.other
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_patient__id_search_test
   :file_name: patient_id_search_test.rb
@@ -281,18 +284,10 @@
   :file_name: patient_indigenous_status_multiple_or_search_test.rb
 - :id: au_core_v200_patient_gender_identity_multiple_or_search_test
   :file_name: patient_gender_identity_multiple_or_search_test.rb
-- :id: au_core_v200_patient_birthdate_multiple_and_search_test
-  :file_name: patient_birthdate_multiple_and_search_test.rb
 - :id: au_core_v200_patient_indigenous_status_multiple_and_search_test
   :file_name: patient_indigenous_status_multiple_and_search_test.rb
 - :id: au_core_v200_patient_gender_identity_multiple_and_search_test
   :file_name: patient_gender_identity_multiple_and_search_test.rb
-- :id: au_core_v200_patient_identifier_ihi_search_test
-  :file_name: patient_identifier_ihi_search_test.rb
-- :id: au_core_v200_patient_identifier_medicare_search_test
-  :file_name: patient_identifier_medicare_search_test.rb
-- :id: au_core_v200_patient_identifier_dva_search_test
-  :file_name: patient_identifier_dva_search_test.rb
 - :id: au_core_v200_patient_read_test
   :file_name: patient_read_test.rb
 - :id: au_core_v200_patient_validation_test
@@ -302,3 +297,4 @@
 :id: au_core_v200_patient
 :file_name: patient_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

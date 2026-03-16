@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'patient/patient_id_search_test'
 require_relative 'patient/patient_birthdate_search_test'
 require_relative 'patient/patient_family_search_test'
@@ -14,12 +15,8 @@ require_relative 'patient/patient_family_gender_search_test'
 require_relative 'patient/patient_gender_name_search_test'
 require_relative 'patient/patient_indigenous_status_multiple_or_search_test'
 require_relative 'patient/patient_gender_identity_multiple_or_search_test'
-require_relative 'patient/patient_birthdate_multiple_and_search_test'
 require_relative 'patient/patient_indigenous_status_multiple_and_search_test'
 require_relative 'patient/patient_gender_identity_multiple_and_search_test'
-require_relative 'patient/patient_identifier_ihi_search_test'
-require_relative 'patient/patient_identifier_medicare_search_test'
-require_relative 'patient/patient_identifier_dva_search_test'
 require_relative 'patient/patient_read_test'
 require_relative 'patient/patient_validation_test'
 require_relative 'patient/patient_must_support_test'
@@ -87,7 +84,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'patient', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'patient', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_patient__id_search_test
@@ -104,12 +101,8 @@ read succeeds.
       test from: :au_core_v200_patient_gender_name_search_test
       test from: :au_core_v200_patient_indigenous_status_multiple_or_search_test
       test from: :au_core_v200_patient_gender_identity_multiple_or_search_test
-      test from: :au_core_v200_patient_birthdate_multiple_and_search_test
       test from: :au_core_v200_patient_indigenous_status_multiple_and_search_test
       test from: :au_core_v200_patient_gender_identity_multiple_and_search_test
-      test from: :au_core_v200_patient_identifier_ihi_search_test
-      test from: :au_core_v200_patient_identifier_medicare_search_test
-      test from: :au_core_v200_patient_identifier_dva_search_test
       test from: :au_core_v200_patient_read_test
       test from: :au_core_v200_patient_validation_test
       test from: :au_core_v200_patient_must_support_test

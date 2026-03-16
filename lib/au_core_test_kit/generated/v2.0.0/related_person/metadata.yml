@@ -123,6 +123,8 @@
 - :path: RelatedPerson.patient
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 :tests:
 - :id: au_core_v200_related_person_patient_search_test
   :file_name: related_person_patient_search_test.rb
@@ -147,3 +149,4 @@
 :id: au_core_v200_related_person
 :file_name: related_person_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

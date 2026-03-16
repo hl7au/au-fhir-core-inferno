@@ -107,7 +107,6 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: MAY
   :onset-date:
     :paths:
     - onsetDateTime
@@ -118,21 +117,16 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: SHALL
-      :ge: SHALL
-      :lt: SHALL
-      :le: SHALL
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values:
-    - ge1950-01-01T00:00:00.000Z
-    - le2050-01-01T23:59:59.999Z
-    - gt1950-01-01T00:00:00.000Z
-    - lt2050-01-01T23:59:59.999Z
+    :values: []
     :type: date
     :contains_multiple: false
-    :multiple_and: SHOULD
   :patient:
     :paths:
     - subject
@@ -189,29 +183,41 @@
 - :path: Condition.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Condition.encounter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  :resource_types:
+  -
 - :path: Condition.recorder
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
+  :resource_types:
+  -
 - :path: Condition.asserter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
+  :resource_types:
+  -
 - :path: Condition.stage.assessment
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/ClinicalImpression|4.0.1
   - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
+  :resource_types:
+  -
 - :path: Condition.evidence.detail
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_condition_patient_search_test
   :file_name: condition_patient_search_test.rb
@@ -233,18 +239,8 @@
   :file_name: condition_patient_code_search_test.rb
 - :id: au_core_v200_condition_patient_onset_date_search_test
   :file_name: condition_patient_onset_date_search_test.rb
-- :id: au_core_v200_condition_code_multiple_or_search_test
-  :file_name: condition_code_multiple_or_search_test.rb
-- :id: au_core_v200_condition_onset_date_multiple_and_search_test
-  :file_name: condition_onset_date_multiple_and_search_test.rb
 - :id: au_core_v200_condition_patient_chain_search_test
   :file_name: condition_patient_chain_search_test.rb
-- :id: au_core_v200_condition_patient_ihi_chain_search_test
-  :file_name: condition_patient_ihi_chain_search_test.rb
-- :id: au_core_v200_condition_patient_medicare_chain_search_test
-  :file_name: condition_patient_medicare_chain_search_test.rb
-- :id: au_core_v200_condition_patient_dva_chain_search_test
-  :file_name: condition_patient_dva_chain_search_test.rb
 - :id: au_core_v200_condition_read_test
   :file_name: condition_read_test.rb
 - :id: au_core_v200_condition_validation_test
@@ -256,3 +252,4 @@
 :id: au_core_v200_condition
 :file_name: condition_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

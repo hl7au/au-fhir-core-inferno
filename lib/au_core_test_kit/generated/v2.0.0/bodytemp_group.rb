@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'bodytemp/bodytemp_patient_code_search_test'
 require_relative 'bodytemp/bodytemp_category_search_test'
 require_relative 'bodytemp/bodytemp_code_search_test'
@@ -14,9 +15,6 @@ require_relative 'bodytemp/bodytemp_code_multiple_or_search_test'
 require_relative 'bodytemp/bodytemp_status_multiple_or_search_test'
 require_relative 'bodytemp/bodytemp_date_multiple_and_search_test'
 require_relative 'bodytemp/bodytemp_patient_chain_search_test'
-require_relative 'bodytemp/bodytemp_patient_ihi_chain_search_test'
-require_relative 'bodytemp/bodytemp_patient_medicare_chain_search_test'
-require_relative 'bodytemp/bodytemp_patient_dva_chain_search_test'
 require_relative 'bodytemp/bodytemp_read_test'
 require_relative 'bodytemp/bodytemp_validation_test'
 require_relative 'bodytemp/bodytemp_must_support_test'
@@ -86,7 +84,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bodytemp', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bodytemp', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_bodytemp_patient_code_search_test
@@ -103,9 +101,6 @@ read succeeds.
       test from: :au_core_v200_bodytemp_status_multiple_or_search_test
       test from: :au_core_v200_bodytemp_date_multiple_and_search_test
       test from: :au_core_v200_bodytemp_patient_chain_search_test
-      test from: :au_core_v200_bodytemp_patient_ihi_chain_search_test
-      test from: :au_core_v200_bodytemp_patient_medicare_chain_search_test
-      test from: :au_core_v200_bodytemp_patient_dva_chain_search_test
       test from: :au_core_v200_bodytemp_read_test
       test from: :au_core_v200_bodytemp_validation_test
       test from: :au_core_v200_bodytemp_must_support_test

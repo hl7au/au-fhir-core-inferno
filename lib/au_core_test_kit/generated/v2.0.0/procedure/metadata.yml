@@ -66,7 +66,6 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
-    :multiple_or: SHOULD
   :date:
     :paths:
     - performed
@@ -75,21 +74,16 @@
     :comparators:
       :eq: MAY
       :ne: MAY
-      :gt: SHALL
-      :ge: SHALL
-      :lt: SHALL
-      :le: SHALL
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
       :sa: MAY
       :eb: MAY
       :ap: MAY
-    :values:
-    - ge1950-01-01T00:00:00.000Z
-    - le2050-01-01T23:59:59.999Z
-    - gt1950-01-01T00:00:00.000Z
-    - lt2050-01-01T23:59:59.999Z
+    :values: []
     :type: date
     :contains_multiple: false
-    :multiple_and: MAY
   :status:
     :paths:
     - status
@@ -107,7 +101,6 @@
     - unknown
     :type: code
     :contains_multiple: false
-    :multiple_or: SHALL
   :patient:
     :paths:
     - subject
@@ -165,29 +158,41 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/CarePlan|4.0.1
   - http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
   - http://hl7.org/fhir/StructureDefinition/MedicationAdministration|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Procedure.encounter
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  :resource_types:
+  - Encounter
 - :path: Procedure.recorder
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.asserter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.performer.actor
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
@@ -196,34 +201,52 @@
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.performer.onBehalfOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.location
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.reasonReference
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
   - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  :resource_types:
+  - Condition
+  -
+  - Procedure
 - :path: Procedure.report
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
   - http://hl7.org/fhir/StructureDefinition/DocumentReference|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Composition|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.complicationDetail
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.focalDevice.manipulated
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
+  :resource_types:
+  -
 - :path: Procedure.usedReference
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Medication|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Substance|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_procedure_patient_search_test
   :file_name: procedure_patient_search_test.rb
@@ -239,20 +262,8 @@
   :file_name: procedure_patient_code_date_search_test.rb
 - :id: au_core_v200_procedure_patient_status_search_test
   :file_name: procedure_patient_status_search_test.rb
-- :id: au_core_v200_procedure_code_multiple_or_search_test
-  :file_name: procedure_code_multiple_or_search_test.rb
-- :id: au_core_v200_procedure_status_multiple_or_search_test
-  :file_name: procedure_status_multiple_or_search_test.rb
-- :id: au_core_v200_procedure_date_multiple_and_search_test
-  :file_name: procedure_date_multiple_and_search_test.rb
 - :id: au_core_v200_procedure_patient_chain_search_test
   :file_name: procedure_patient_chain_search_test.rb
-- :id: au_core_v200_procedure_patient_ihi_chain_search_test
-  :file_name: procedure_patient_ihi_chain_search_test.rb
-- :id: au_core_v200_procedure_patient_medicare_chain_search_test
-  :file_name: procedure_patient_medicare_chain_search_test.rb
-- :id: au_core_v200_procedure_patient_dva_chain_search_test
-  :file_name: procedure_patient_dva_chain_search_test.rb
 - :id: au_core_v200_procedure_read_test
   :file_name: procedure_read_test.rb
 - :id: au_core_v200_procedure_validation_test
@@ -264,3 +275,4 @@
 :id: au_core_v200_procedure
 :file_name: procedure_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

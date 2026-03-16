@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 
-require_relative 'diagnosticresult_path/diagnosticresult_path_patient_category_search_test'
+require 'inferno_suite_generator/core/ig_demodata'
+require_relative 'diagnosticresult_path/diagnosticresult_path_patient_code_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_category_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_code_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_date_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_status_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_search_test'
+require_relative 'diagnosticresult_path/diagnosticresult_path_patient_category_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_category_date_search_test'
-require_relative 'diagnosticresult_path/diagnosticresult_path_patient_code_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_category_status_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_code_date_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_code_multiple_or_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_status_multiple_or_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_date_multiple_and_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_patient_chain_search_test'
-require_relative 'diagnosticresult_path/diagnosticresult_path_patient_ihi_chain_search_test'
-require_relative 'diagnosticresult_path/diagnosticresult_path_patient_medicare_chain_search_test'
-require_relative 'diagnosticresult_path/diagnosticresult_path_patient_dva_chain_search_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_read_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_validation_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_must_support_test'
@@ -41,9 +39,9 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
+* patient + code
 * patient + category
 * patient + category + date
-* patient + code
 
 ### Search Parameters
 The first search uses the selected patient(s) from the prior launch sequence. Any subsequent searches will look for its parameter values from the results of the first search. For example, the `identifier` search in the patient sequence is performed by looking for an existing `Patient.identifier` from any of the resources returned in the `_id` search. If a value cannot be found this way, the search is skipped.
@@ -86,26 +84,23 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult_path', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult_path', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v200_diagnosticresult_path_patient_category_search_test
+      test from: :au_core_v200_diagnosticresult_path_patient_code_search_test
       test from: :au_core_v200_diagnosticresult_path_category_search_test
       test from: :au_core_v200_diagnosticresult_path_code_search_test
       test from: :au_core_v200_diagnosticresult_path_date_search_test
       test from: :au_core_v200_diagnosticresult_path_status_search_test
       test from: :au_core_v200_diagnosticresult_path_patient_search_test
+      test from: :au_core_v200_diagnosticresult_path_patient_category_search_test
       test from: :au_core_v200_diagnosticresult_path_patient_category_date_search_test
-      test from: :au_core_v200_diagnosticresult_path_patient_code_search_test
       test from: :au_core_v200_diagnosticresult_path_patient_category_status_search_test
       test from: :au_core_v200_diagnosticresult_path_patient_code_date_search_test
       test from: :au_core_v200_diagnosticresult_path_code_multiple_or_search_test
       test from: :au_core_v200_diagnosticresult_path_status_multiple_or_search_test
       test from: :au_core_v200_diagnosticresult_path_date_multiple_and_search_test
       test from: :au_core_v200_diagnosticresult_path_patient_chain_search_test
-      test from: :au_core_v200_diagnosticresult_path_patient_ihi_chain_search_test
-      test from: :au_core_v200_diagnosticresult_path_patient_medicare_chain_search_test
-      test from: :au_core_v200_diagnosticresult_path_patient_dva_chain_search_test
       test from: :au_core_v200_diagnosticresult_path_read_test
       test from: :au_core_v200_diagnosticresult_path_validation_test
       test from: :au_core_v200_diagnosticresult_path_must_support_test

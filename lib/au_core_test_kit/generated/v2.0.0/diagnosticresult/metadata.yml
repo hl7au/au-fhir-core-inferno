@@ -91,9 +91,7 @@
     :full_paths:
     - Observation.code
     :comparators: {}
-    :values:
-    - '251739003'
-    - 24701-5
+    :values: []
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: SHOULD
@@ -174,6 +172,7 @@
     :types:
     - Reference
   - :path: value[x]
+  - :path: dataAbsentReason
   - :path: bodySite
   - :path: hasMember
     :types:
@@ -181,6 +180,7 @@
   - :path: component
   - :path: component.code
   - :path: component.value[x]
+  - :path: component.dataAbsentReason
 :mandatory_elements:
 - Observation.status
 - Observation.category
@@ -202,6 +202,8 @@
   - http://hl7.org/fhir/StructureDefinition/MedicationRequest|4.0.1
   - http://hl7.org/fhir/StructureDefinition/NutritionOrder|4.0.1
   - http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1
+  :resource_types:
+  -
 - :path: Observation.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/MedicationAdministration|4.0.1
@@ -210,15 +212,23 @@
   - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Immunization|4.0.1
   - http://hl7.org/fhir/StructureDefinition/ImagingStudy|4.0.1
+  :resource_types:
+  -
 - :path: Observation.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Observation.focus
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+  :resource_types:
+  -
 - :path: Observation.encounter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  :resource_types:
+  -
 - :path: Observation.performer
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
@@ -226,18 +236,30 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+  - Patient
+  - RelatedPerson
 - :path: Observation.specimen
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1
+  :resource_types:
+  -
 - :path: Observation.device
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
   - http://hl7.org/fhir/StructureDefinition/DeviceMetric|4.0.1
+  :resource_types:
+  -
 - :path: Observation.hasMember
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
   - http://hl7.org.au/fhir/StructureDefinition/au-imagingresult
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+  :resource_types:
+  - Observation
 - :path: Observation.derivedFrom
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/DocumentReference|4.0.1
@@ -246,6 +268,8 @@
   - http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_diagnosticresult_patient_code_search_test
   :file_name: diagnosticresult_patient_code_search_test.rb
@@ -275,12 +299,6 @@
   :file_name: diagnosticresult_date_multiple_and_search_test.rb
 - :id: au_core_v200_diagnosticresult_patient_chain_search_test
   :file_name: diagnosticresult_patient_chain_search_test.rb
-- :id: au_core_v200_diagnosticresult_patient_ihi_chain_search_test
-  :file_name: diagnosticresult_patient_ihi_chain_search_test.rb
-- :id: au_core_v200_diagnosticresult_patient_medicare_chain_search_test
-  :file_name: diagnosticresult_patient_medicare_chain_search_test.rb
-- :id: au_core_v200_diagnosticresult_patient_dva_chain_search_test
-  :file_name: diagnosticresult_patient_dva_chain_search_test.rb
 - :id: au_core_v200_diagnosticresult_read_test
   :file_name: diagnosticresult_read_test.rb
 - :id: au_core_v200_diagnosticresult_validation_test
@@ -297,3 +315,4 @@
   - Practitioner
   - PractitionerRole
   - Organization
+:ig_id: hl7.fhir.au.core

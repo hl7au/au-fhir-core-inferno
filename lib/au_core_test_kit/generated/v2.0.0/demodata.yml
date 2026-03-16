@@ -1,0 +1,2109 @@
+---
+:resource_ids:
+  AllergyIntolerance:
+  - lactose
+  - noneknown
+  - penicillin
+  Observation:
+  - bloodpressure-1
+  - bloodpressure-data-absent
+  - bodyheight-1
+  - bodytemp-1
+  - bodyweight-1
+  - hearing-threshold-1
+  - heartrate-1
+  - lipid-hdl-1
+  - lipid-ldl-1
+  - lipid-total-chol-1
+  - lipid-triglyceride-1
+  - observation-masked
+  - pathresult-covid-1
+  - pulserate-1
+  - resprate-1
+  - smokingstatus-current-smoker
+  - waistcircum-1
+  Condition:
+  - ckd
+  - condition-masked
+  - noknown
+  - uti
+  Encounter:
+  - covid-admin-1
+  - discharge-1
+  - telehealth
+  HealthcareService:
+  - murrabit-crisis-hotline
+  - physiotherapy
+  Immunization:
+  - covid-1
+  - zoster-notgiven
+  Location:
+  - bobrester-medical-center
+  - murrabit-hospital
+  - patient-home
+  Medication:
+  - 1active-ingredient
+  - 2active-ingredients
+  - simvastatin
+  MedicationRequest:
+  - paracetamol-codeine
+  - reaptan
+  - simvastatin
+  MedicationStatement:
+  - active-bisoprolol
+  - completed-bactrim
+  - completed-chloramphenicol
+  - previous-use-diflucan
+  Organization:
+  - bobrester-medical-center
+  - mitchells-hill-audiology
+  - murrabit-hospital
+  Patient:
+  - banks-mia-leanne
+  - bennelong-anne
+  - howe-deangelo
+  - ronny-irvine
+  - wang-li
+  Practitioner:
+  - bobrester-bob
+  - chau-fryer
+  - darleen-mackay
+  - sallie-sutherland
+  PractitionerRole:
+  - bobrester-bob-gp
+  - cardiologist-sallie-sutherland
+  - nephrologist-darleen-mackay
+  - surgeon-chau-fryer
+  Procedure:
+  - dialysis
+  - stentinsertion
+  RelatedPerson:
+  - banks-mia-leanne-father
+  - wang-li-friend
+  Specimen:
+  - nasoswab
+:resource_body_list:
+  AllergyIntolerance:
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+        code: confirmed
+        display: Confirmed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '782415009'
+        display: Intolerance to lactose
+    patient:
+      reference: Patient/banks-mia-leanne
+    onsetDateTime: '2022'
+    recordedDate: '2023-03-14'
+    recorder:
+      reference: PractitionerRole/bobrester-bob-gp
+    reaction:
+    - manifestation:
+      - coding:
+        - system: http://snomed.info/sct
+          code: '21522001'
+          display: Abdominal pain
+      - coding:
+        - system: http://snomed.info/sct
+          code: '116289008'
+          display: Abdominal bloating
+      - coding:
+        - system: http://snomed.info/sct
+          code: '62315008'
+          display: Diarrhoea
+      severity: mild
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '716186003'
+        display: No known allergy
+    patient:
+      reference: Patient/wang-li
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    criticality: high
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '764146007'
+        display: Penicillin
+    patient:
+      reference: Patient/howe-deangelo
+    recordedDate: '1999-08-25'
+    note:
+    - text: The criticality is high due to a documented episode of hives following
+        penicillin administration.
+    reaction:
+    - manifestation:
+      - coding:
+        - system: http://snomed.info/sct
+          code: '247472004'
+          display: Hives
+  Observation:
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 85354-9
+        display: Blood pressure panel with all children optional
+      - system: http://snomed.info/sct
+        code: '75367002'
+      text: Blood pressure systolic and diastolic
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    component:
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8480-6
+          display: Systolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271649006'
+        text: Systolic blood pressure
+      valueQuantity:
+        value: 109
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8462-4
+          display: Diastolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271650006'
+        text: Diastolic blood pressure
+      valueQuantity:
+        value: 44
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 85354-9
+        display: Blood pressure panel with all children optional
+      - system: http://snomed.info/sct
+        code: '75367002'
+      text: Blood pressure systolic and diastolic
+    subject:
+      reference: Patient/ronny-irvine
+    encounter:
+      reference: Encounter/discharge-1
+    effectiveDateTime: '2023-02-20T06:20:00+10:00'
+    component:
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8480-6
+          display: Systolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271649006'
+        text: Systolic blood pressure
+      valueQuantity:
+        value: 109
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8462-4
+          display: Diastolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271650006'
+        text: Diastolic blood pressure
+      dataAbsentReason:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+          code: unknown
+          display: Unknown
+        text: Unknown
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8302-2
+        display: Body height
+      - system: http://snomed.info/sct
+        code: '50373000'
+      text: height
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueQuantity:
+      value: 175
+      unit: cm
+      system: http://unitsofmeasure.org
+      code: cm
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8310-5
+        display: Body temperature
+      - system: http://snomed.info/sct
+        code: '386725007'
+      text: Body temperature
+    subject:
+      reference: Patient/bennelong-anne
+    effectiveDateTime: '2022-02-10'
+    valueQuantity:
+      value: 36.5
+      unit: C
+      system: http://unitsofmeasure.org
+      code: Cel
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 29463-7
+        display: Body weight
+      - system: http://snomed.info/sct
+        code: '27113001'
+      text: weight
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-03-14'
+    valueQuantity:
+      value: 59
+      unit: kg
+      system: http://unitsofmeasure.org
+      code: kg
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+      - http://hl7.org.au/fhir/StructureDefinition/au-diagnosticresult
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: AU
+        display: Audiology
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 89024-4
+        display: Hearing threshold Ear - left --500 Hz
+      text: Hearing threshold Ear - left --500 Hz
+    subject:
+      reference: Patient/ronny-irvine
+    effectiveDateTime: '2020-11-06T10:45:00-05:00'
+    performer:
+    - reference: Organization/mitchells-hill-audiology
+    valueQuantity:
+      value: 45
+      unit: dB
+      system: http://unitsofmeasure.org
+      code: dB
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8867-4
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '364075005'
+        display: Heart rate
+      text: Heart rate
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    valueQuantity:
+      value: 80
+      unit: beats/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 14646-4
+        display: Cholesterol in HDL [Moles/volume] in Serum or Plasma
+      text: HDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 1.5
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - low:
+        value: 1.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+      high:
+        value: 2.2
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 22748-8
+        display: Cholesterol in LDL [Moles/volume] in Serum or Plasma
+      text: LDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 4.1
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: H
+        display: High
+    referenceRange:
+    - low:
+        value: 2.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+      high:
+        value: 3.4
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 32309-7
+        display: Cholesterol.total/Cholesterol in HDL [Molar ratio] in Serum or Plasma
+      text: Total Chol/HDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 3.93
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - high:
+        value: 4.6
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 14927-8
+        display: Triglyceride [Moles/volume] in Serum or Plasma
+      text: Triglyceride
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 1.9
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - high:
+        value: 2.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    code:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    subject:
+      reference: Patient/ronny-irvine
+    effectivePeriod:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: masked
+    valueQuantity:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: masked
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: MB
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 94309-2
+      text: 2019-Novel Coronavirus PCR
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2021-02-15T12:00:00+10:00'
+    performer:
+    - display: PATHOLOGY LAB
+    valueCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '260415000'
+        display: Not detected
+      text: Not detected
+    specimen:
+      reference: Specimen/nasoswab
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8867-4
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '364075005'
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '78564009'
+        display: Pulse rate
+      text: Pulse rate
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueQuantity:
+      value: 80
+      unit: beats/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 9279-1
+        display: Respiratory rate
+      - system: http://snomed.info/sct
+        code: '86290005'
+      text: Respiratory rate
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2022-02-17'
+    valueQuantity:
+      value: 22
+      unit: breaths/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: social-history
+        display: Social History
+      text: Social History
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '1747861000168109'
+      - system: http://loinc.org
+        code: 72166-2
+      text: Smoking status
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '77176002'
+        display: Current smoker
+      - system: http://loinc.org
+        code: LA18979-7
+      text: Smoker
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8280-0
+        display: Waist Circumference at umbilicus by Tape measure
+      - system: http://snomed.info/sct
+        code: '276361009'
+        display: Waist circumference
+      text: Waist Circumference
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-03-14'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    valueQuantity:
+      value: 78.6
+      unit: cm
+      system: http://unitsofmeasure.org
+      code: cm
+  Condition:
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+        display: Active
+      text: Active
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+        code: confirmed
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+      text: Problem
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '709044004'
+        display: Chronic kidney disease
+    subject:
+      reference: Patient/ronny-irvine
+    onsetAge:
+      value: 52
+      unit: years
+      system: http://unitsofmeasure.org
+      code: a
+    recordedDate: '2018-12-01'
+    evidence:
+    - detail:
+      - reference: Procedure/dialysis
+        display: Patient receives regular dialysis
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    code:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    subject:
+      reference: Patient/bennelong-anne
+      display: Anne Bennelong
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+        display: Active
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '160245001'
+        display: No current problems or disability
+    subject:
+      reference: Patient/howe-deangelo
+    recordedDate: '2020-12-21'
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: resolved
+        display: Resolved
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+        code: confirmed
+        display: Confirmed
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+    severity:
+      coding:
+      - system: http://snomed.info/sct
+        code: '24484000'
+        display: Severe
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '68566005'
+        display: Urinary tract infection
+    subject:
+      reference: Patient/banks-mia-leanne
+    onsetDateTime: '2020-05-10'
+    abatementDateTime: '2020-05-24'
+  Encounter:
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: AMB
+      display: ambulatory
+    serviceType:
+      coding:
+      - system: http://snomed.info/sct
+        code: '1575161000168105'
+        display: COVID-19 vaccination service
+    subject:
+      reference: Patient/bennelong-anne
+      identifier:
+        type:
+          coding:
+          - system: http://terminology.hl7.org/CodeSystem/v2-0203
+            code: MR
+        system: http://mossypointmc.example.com/mrn/
+        value: '872038020'
+        assigner:
+          display: Albion Hospital
+    participant:
+    - type:
+      - coding:
+        - system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+          code: PPRF
+          display: primary performer
+      individual:
+        reference: PractitionerRole/bobrester-bob-gp
+        identifier:
+          type:
+            coding:
+            - system: http://terminology.hl7.org/CodeSystem/v2-0203
+              code: EI
+              display: Employee number
+            text: Employee Number
+          system: http://ns.electronichealth.net.au/id/abn-scoped/service-provider-individual/1.0/12345678901
+          value: '12345678'
+          assigner:
+            display: Bobrester Medical Center
+    period:
+      start: '2021-06-17T09:20:00+10:00'
+      end: '2021-06-17T09:35:00+10:00'
+    serviceProvider:
+      reference: Organization/bobrester-medical-center
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: EMER
+      display: emergency
+    subject:
+      reference: Patient/ronny-irvine
+    period:
+      start: '2023-02-20T06:15:00+10:00'
+      end: '2023-02-20T18:19:00+10:00'
+    location:
+    - location:
+        reference: Location/murrabit-hospital
+    serviceProvider:
+      reference: Organization/murrabit-hospital
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: VR
+      display: virtual
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '1479961000168103'
+        display: Telehealth encounter
+    serviceType:
+      coding:
+      - system: http://snomed.info/sct
+        code: '788007007'
+        display: General practice service
+    subject:
+      reference: Patient/bennelong-anne
+    participant:
+    - type:
+      - coding:
+        - system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+          code: PPRF
+      individual:
+        reference: PractitionerRole/bobrester-bob-gp
+    period:
+      start: '2023-02-10T11:20:00+10:00'
+      end: '2023-02-10T11:35:00+10:00'
+    location:
+    - location:
+        reference: Location/patient-home
+    serviceProvider:
+      reference: Organization/bobrester-medical-center
+  HealthcareService:
+  - resourceType: HealthcareService
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+    identifier:
+    - system: http://pca.digitalhealth.gov.au/id/pca-healthcare-service
+      value: 4d00ad2659cb4b54bd8028798af62631
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '1244561000168107'
+        display: Crisis counselling
+    - coding:
+      - system: http://snomed.info/sct
+        code: '310026003'
+        display: Counselling service
+    name: Murrabit Crisis Hotline
+    telecom:
+    - system: phone
+      value: '1800975708'
+  - resourceType: HealthcareService
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '722140001'
+        display: Physiotherapy service
+    name: CoreStrength Physiotherapy
+    telecom:
+    - system: phone
+      value: '0755504444'
+      use: work
+    - system: email
+      value: reception@corestrength.example.org.
+      use: work
+  Immunization:
+  - resourceType: Immunization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+    status: completed
+    vaccineCode:
+      coding:
+      - system: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
+        code: COMIRN
+      - system: http://snomed.info/sct
+        code: '1525011000168107'
+        display: Comirnaty
+      text: Pfizer Comirnaty
+    patient:
+      reference: Patient/bennelong-anne
+    encounter:
+      reference: Encounter/covid-admin-1
+    occurrenceDateTime: '2021-06-17'
+    recorded: '2021-06-17'
+    primarySource: true
+    location:
+      reference: Location/bobrester-medical-center
+    manufacturer:
+      display: Pfizer Australia Ltd
+    lotNumber: 200000000P
+    site:
+      coding:
+      - system: http://snomed.info/sct
+        code: '368208006'
+        display: Structure of left upper arm
+      text: Left upper arm
+  - resourceType: Immunization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+    status: not-done
+    vaccineCode:
+      coding:
+      - system: http://snomed.info/sct
+        code: '830851000168105'
+        display: Varicella-zoster live vaccine
+    patient:
+      reference: Patient/howe-deangelo
+      display: Deangelo HOWE
+    occurrenceDateTime: '2017-08-15'
+    primarySource: true
+    note:
+    - text: Patient refused administration of Zostavax
+  Location:
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    status: active
+    name: Tindal Building
+    alias:
+    - Bobrester Medical Center
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FMC
+        display: Family medicine clinic
+      - system: http://snomed.info/sct
+        code: '288565001'
+        display: Medical centre
+    address:
+      line:
+      - 87 Western Esp
+      city: Tindal RAAF
+      state: QLD
+      postalCode: '4655'
+      country: AU
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: bu
+        display: Building
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    name: Murrabit Public Hospital
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: HOSP
+        display: Hospital
+      - system: http://snomed.info/sct
+        code: '22232009'
+        display: Hospital
+    telecom:
+    - system: phone
+      value: "(03) 5550 3333"
+    address:
+      line:
+      - 144 Central Gdns
+      city: Murrabit
+      state: VIC
+      postalCode: '3579'
+      country: AU
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: si
+        display: Site
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    status: active
+    name: Patient's home
+    mode: kind
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: PTRES
+        display: Patient's Residence
+      - system: http://snomed.info/sct
+        code: '394778007'
+        display: Client's or patient's home
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: ho
+        display: House
+  Medication:
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - extension:
+        - url: http://hl7.org.au/fhir/StructureDefinition/medication-type
+          valueCoding:
+            system: http://terminology.hl7.org.au/CodeSystem/medication-type
+            code: BPD
+            display: Branded product with no strengths or form
+        system: http://snomed.info/sct
+        code: '4445011000036103'
+        display: Chlorsig
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - system: http://pbs.gov.au/code/item
+        code: 13382H
+        display: PERINDOPRIL + AMLODIPINE
+      text: perindopril arginine 10 mg + amlodipine 10 mg tablet, 30
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '23525011000036109'
+        display: Simvastatin 40 mg tablet
+      text: Simvastatin 40 MG Disintegrating Oral Tablet
+  MedicationRequest:
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    status: unknown
+    intent: order
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '79115011000036100'
+        display: Paracetamol 500 mg + codeine phosphate hemihydrate 30 mg tablet
+    subject:
+      reference: Patient/bennelong-anne
+    authoredOn: '2018-07-15'
+    requester:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: unknown
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '278414003'
+        display: Pain management
+      text: Pain management
+    dosageInstruction:
+    - text: 1-2 tablets every 4-6 hours as needed for pain
+      timing:
+        repeat:
+          frequency: 1
+          frequencyMax: 2
+          period: 4
+          periodMax: 6
+          periodUnit: h
+      asNeededBoolean: true
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    contained:
+    - resourceType: Medication
+      id: med1
+      code:
+        coding:
+        - system: http://snomed.info/sct
+          code: '926213011000036100'
+        text: Reaptan 10 mg/10 mg (perindopril arginine/amlodipine) tablet, 10
+    status: active
+    intent: order
+    medicationReference:
+      reference: "#med1"
+    subject:
+      reference: Patient/wang-li
+    authoredOn: '2018-07-15'
+    requester:
+      reference: PractitionerRole/surgeon-chau-fryer
+    reasonCode:
+    - text: Hypertension
+    dosageInstruction:
+    - text: 1 tablet daily
+      timing:
+        repeat:
+          frequency: 1
+          period: 1
+          periodUnit: d
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    status: active
+    intent: order
+    medicationReference:
+      reference: Medication/simvastatin
+    subject:
+      reference: Patient/wang-li
+    authoredOn: '2020-07-15'
+    requester:
+      reference: PractitionerRole/surgeon-chau-fryer
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '13644009'
+        display: Hypercholesterolaemia
+      text: High cholesterol
+    dosageInstruction:
+    - text: Take one tablet daily
+      timing:
+        repeat:
+          frequency: 1
+          period: 1
+          periodUnit: d
+      asNeededBoolean: true
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  MedicationStatement:
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    contained:
+    - resourceType: Medication
+      id: bisoprolol
+      code:
+        coding:
+        - system: http://snomed.info/sct
+          code: '23281011000036106'
+          display: Bisoprolol fumarate 2.5 mg tablet
+        text: Bisoprolol 2.5mg tab
+    status: active
+    medicationReference:
+      reference: "#bisoprolol"
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2019-02-05'
+    dosage:
+    - text: 1/2 tablet in the morning
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '6632011000036102'
+        display: Bactrim DS tablet
+      - system: http://pbs.gov.au/code/item
+        code: 2951H
+      text: Bactrim DS - tablet
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2020-05-30T10:00:00+10:00'
+    reasonReference:
+    - reference: Condition/uti
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '22717011000036101'
+        display: Chloramphenicol 1% eye ointment
+      text: Chloramphenicol 1% eye ointment
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2019-02-05'
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '719755001'
+      text: Adult gonococcal conjunctivitis
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - extension:
+        - url: http://hl7.org.au/fhir/StructureDefinition/medication-type
+          valueCoding:
+            system: http://terminology.hl7.org.au/CodeSystem/medication-type
+            code: BPDSF
+            display: Branded product with strengths and form
+        system: http://snomed.info/sct
+        code: '5232011000036102'
+        display: Diflucan 200 mg/100 mL injection, 100 mL vial
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectivePeriod:
+      start: '2018-06-25'
+      end: '2018-07-05'
+    dateAsserted: '2018-07-10'
+    dosage:
+    - text: Every 1-10 days at 10am for 30 minutes
+      timing:
+        repeat:
+          duration: 30
+          durationUnit: min
+          frequency: 1
+          period: 1
+          periodMax: 10
+          periodUnit: d
+          timeOfDay:
+          - '10:00:00'
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '47625008'
+          display: Intravenous route
+      doseAndRate:
+      - doseQuantity:
+          value: 200
+          unit: mg
+          system: http://unitsofmeasure.org
+          code: mg
+  Organization:
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: XX
+        text: ABN
+      system: http://hl7.org.au/id/abn
+      value: '12345678901'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '288565001'
+        display: Medical centre
+      text: Medical Center
+    name: Bobrester Medical Center
+    telecom:
+    - system: email
+      value: info@bobrestermedical.example.com
+      use: work
+    - system: phone
+      value: "(07) 5550 2427"
+      use: work
+    address:
+    - line:
+      - 87 Western Esp
+      city: Tindal RAAF
+      state: QLD
+      postalCode: '4655'
+      country: AU
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: NOI
+          display: National Organisation Identifier
+        text: HPI-O
+      system: http://ns.electronichealth.net.au/id/hi/hpio/1.0
+      value: '8003626566707032'
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: XX
+        text: ABN
+      system: http://hl7.org.au/id/abn
+      value: '81129842694'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '702824005'
+        display: Audiology clinic
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1292.0
+        code: '8539'
+        display: Other Allied Health Services
+    name: Mitchells Hill Audiology
+    telecom:
+    - system: phone
+      value: "(03) 5550 3095"
+    - system: email
+      value: reception@mitchellshillaudiology.example.com.au
+      use: work
+    address:
+    - type: physical
+      line:
+      - 87 Freedom Pnt
+      city: Mitchells Hill
+      state: VIC
+      postalCode: '3478'
+      country: AU
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: NOI
+          display: National Organisation Identifier
+        text: HPI-O
+      system: http://ns.electronichealth.net.au/id/hi/hpio/1.0
+      value: '8003626566706976'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '22232009'
+        display: Hospital
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1292.0
+        code: '8401'
+        display: Hospitals (Except Psychiatric Hospitals)
+    name: Murrabit Public Hospital
+    telecom:
+    - system: phone
+      value: '0355509111'
+    - system: phone
+      value: '0355508677'
+    - system: email
+      value: reception@murrabitph.example.com.au
+    address:
+    - line:
+      - 144 Central Gdns
+      city: Murrabit
+      state: VIC
+      postalCode: '3579'
+      country: AU
+  Patient:
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org/fhir/StructureDefinition/individual-genderIdentity
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '446141000124107'
+            display: Identifies as female gender
+    - url: http://hl7.org/fhir/StructureDefinition/individual-pronouns
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://loinc.org
+            code: LA29519-8
+            display: she/her/her/hers/herself
+    - url: http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '248152002'
+          text: Female
+      - url: type
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '1515311000168102'
+            display: Biological sex at birth
+    identifier:
+    - extension:
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1
+          code: active
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-record-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-record-status-1
+          code: verified
+          display: verified
+      type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NI
+        text: IHI
+      system: http://ns.electronichealth.net.au/id/hi/ihi/1.0
+      value: '8003608333647261'
+    name:
+    - use: usual
+      family: Banks
+      given:
+      - Mia
+      - Leanne
+    telecom:
+    - system: phone
+      value: '0270102724'
+      use: work
+    - system: phone
+      value: '0491574632'
+      use: mobile
+    - system: phone
+      value: '0270107520'
+      use: home
+    - system: email
+      value: mia.banks@myownpersonaldomain.com
+    - system: phone
+      value: '270107520'
+      use: home
+    gender: female
+    birthDate: '1983-08-25'
+    address:
+    - line:
+      - 50 Sebastien St
+      city: Minjary
+      state: NSW
+      postalCode: '2720'
+      country: AU
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '1'
+        display: Aboriginal but not Torres Strait Islander origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: MR
+      system: http://mossypointmc.example.com/mrn/
+      value: '872038020'
+      assigner:
+        display: Mossy Point Medical Centre
+    name:
+    - use: official
+      text: Mrs. Anne Mary Bennelong
+      family: Bennelong
+      given:
+      - Anne
+      prefix:
+      - Mrs
+    telecom:
+    - system: phone
+      value: '0491 572 665'
+      use: mobile
+    gender: female
+    birthDate: '1968-10-11'
+    address:
+    - use: home
+      line:
+      - 144 Otho Street
+      city: Inverell
+      state: NSW
+      postalCode: '2360'
+      country: AU
+    communication:
+    - language:
+        coding:
+        - system: urn:ietf:bcp:47
+          code: yub
+        text: Yugambal
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '4'
+        display: Neither Aboriginal nor Torres Strait Islander origin
+    identifier:
+    - extension:
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1
+          code: active
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-record-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-record-status-1
+          code: verified
+          display: verified
+      type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NI
+        text: IHI
+      system: http://ns.electronichealth.net.au/id/hi/ihi/1.0
+      value: '8003608000311621'
+    name:
+    - use: usual
+      family: HOWE
+      given:
+      - Deangelo
+    telecom:
+    - system: phone
+      value: '0770105770'
+      use: work
+    - system: phone
+      value: '0491570156'
+      use: mobile
+    - system: email
+      value: deangelo.howe@example.net
+    - system: phone
+      value: '0770109269'
+      use: home
+    gender: male
+    birthDate: '1975-06-21'
+    address:
+    - line:
+      - 134 Copper Hts
+      city: Curra
+      state: QLD
+      postalCode: '4570'
+      country: AU
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '2'
+        display: Torres Strait Islander but not Aboriginal origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: DVAU
+          display: DVA Number
+        text: DVA Number
+      system: http://ns.electronichealth.net.au/id/dva
+      value: QX827261
+    name:
+    - use: usual
+      family: Irvine
+      given:
+      - Ronny
+      - Lawrence
+    telecom:
+    - system: email
+      value: ronny.irvine@myownpersonaldomain.com
+      use: home
+    gender: male
+    _birthDate:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: unknown
+    address:
+    - use: home
+      line:
+      - 180 Hermann Rd
+      city: Belmore River
+      state: NSW
+      postalCode: '2440'
+      country: Australia
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '4'
+        display: Neither Aboriginal nor Torres Strait Islander origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: MR
+          display: Medical record number
+        text: Medical Record Number
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734
+      value: '22421441'
+      assigner:
+        display: Mount Mitchell Private Hospital
+    name:
+    - family: Wang
+      given:
+      - Li
+      prefix:
+      - Mr
+    gender: male
+    birthDate: '1975-05-03'
+    address:
+    - use: home
+      line:
+      - 29 Gadsby Street
+      city: Blacktown
+      state: NSW
+      postalCode: '2148'
+      country: AU
+    communication:
+    - language:
+        coding:
+        - system: urn:ietf:bcp:47
+          code: yue
+        text: Cantonese
+      preferred: true
+  Practitioner:
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    name:
+    - family: Bobrester
+      given:
+      - Bob
+      prefix:
+      - Dr.
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003616566719020'
+    name:
+    - use: official
+      family: Fryer
+      given:
+      - Chau
+      prefix:
+      - Dr.
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003613233385129'
+    name:
+    - family: Darleen
+      given:
+      - MACKAY
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003618233385086'
+    name:
+    - use: official
+      family: Sutherland
+      given:
+      - Sallie
+      prefix:
+      - Dr.
+  PractitionerRole:
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: EI
+          display: Employee number
+        text: Employee Number
+      system: http://ns.electronichealth.net.au/id/abn-scoped/service-provider-individual/1.0/12345678901
+      value: '12345678'
+      assigner:
+        display: Bobrester Medical Center
+    practitioner:
+      reference: Practitioner/bobrester-bob
+    organization:
+      reference: Organization/bobrester-medical-center
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '62247001'
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253111'
+      text: General Practitioner
+    telecom:
+    - system: phone
+      value: '0491579760'
+    - system: email
+      value: drbob@bobrestermedical.example.com
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: UPIN
+        text: Medicare Provider Number
+      system: http://ns.electronichealth.net.au/id/medicare-provider-number
+      value: 2449001X
+    practitioner:
+      reference: Practitioner/sallie-sutherland
+    organization:
+      reference: Organization/murrabit-hospital
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '17561000'
+        display: Cardiologist
+      text: Cardiologist
+    location:
+    - reference: Location/murrabit-hospital
+    telecom:
+    - system: phone
+      value: '0370102880'
+    - system: email
+      value: sallie.sutherland@murrabitph.example.com.au
+      use: work
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: EI
+        text: Employee number
+      system: http://nephrologyclinic.org.example.com/employee-id
+      value: N765009-mackay-darleen
+      assigner:
+        display: Docker River Nephrology Clinic
+    practitioner:
+      reference: Practitioner/darleen-mackay
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '11911009'
+        display: Nephrologist
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253322'
+        display: Renal Medicine Specialist
+      text: Nephrologist
+    telecom:
+    - system: phone
+      value: "(03) 7010 8625"
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: UPIN
+        text: Medicare Provider Number
+      system: http://ns.electronichealth.net.au/id/medicare-provider-number
+      value: 2449211J
+    practitioner:
+      reference: Practitioner/chau-fryer
+    organization:
+      reference: Organization/murrabit-hospital
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '304292004'
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253511'
+        display: Surgeon (General)
+      text: Surgeon
+    location:
+    - reference: Location/murrabit-hospital
+    telecom:
+    - system: phone
+      value: "(03) 7010 8625"
+    - system: email
+      value: chau.fryer@murrabitph.example.com.au
+      use: work
+  Procedure:
+  - resourceType: Procedure
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    status: completed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '302497006'
+        display: Haemodialysis
+      text: Haemodialysis
+    subject:
+      reference: Patient/ronny-irvine
+    performedDateTime: '2012-08-05'
+    performer:
+    - actor:
+        reference: PractitionerRole/nephrologist-darleen-mackay
+    reasonReference:
+    - reference: Condition/ckd
+      display: Chronic Kidney Disease
+  - resourceType: Procedure
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    status: completed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '36969009'
+        display: Placement of stent in coronary artery
+      text: Placement of stent in right coronary artery
+    subject:
+      reference: Patient/wang-li
+    performedDateTime: '2021-09-25'
+    performer:
+    - actor:
+        reference: PractitionerRole/surgeon-chau-fryer
+    location:
+      reference: Location/murrabit-hospital
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '876856005'
+        display: Stenosis of right coronary artery
+      text: Occlusion of right coronary artery
+    bodySite:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '13647002'
+        display: Right coronary artery structure
+      text: Right coronary artery
+    focalDevice:
+    - action:
+        coding:
+        - system: http://snomed.info/sct
+          code: '425362007'
+          display: Surgical insertion - action
+      manipulated:
+        display: coronary stent
+  RelatedPerson:
+  - resourceType: RelatedPerson
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    patient:
+      reference: Patient/banks-mia-leanne
+    relationship:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FTH
+      text: Father
+    name:
+    - family: Banks
+      given:
+      - Bob
+  - resourceType: RelatedPerson
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    patient:
+      reference: Patient/wang-li
+    relationship:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FRND
+        display: unrelated friend
+      - system: http://terminology.hl7.org/CodeSystem/v2-0131
+        code: C
+        display: Emergency Contact
+    name:
+    - use: usual
+      family: Rabbit
+      given:
+      - Peter
+      - Rabbit
+    telecom:
+    - system: phone
+      value: 07 853 9191
+      use: home
+    address:
+    - use: home
+      line:
+      - 29 Gadsby Street
+      city: Blacktown
+      state: NSW
+      postalCode: '2148'
+      country: AU
+  Specimen:
+  - resourceType: Specimen
+    type:
+      coding:
+      - system: http://snomed.info/sct
+        code: '257261003'
+        display: Swab
+    subject:
+      reference: Patient/wang-li
+    collection:
+      collectedDateTime: '2021-02-15T12:00:00+10:00'
+      bodySite:
+        coding:
+        - system: http://snomed.info/sct
+          code: '71836000'
+          display: Nasopharyngeal structure
+        text: Nasopharyngeal
+    note:
+    - text: Collection Setting COVID HSC Assessment Clinic
+:patch_body_list:
+  :FHIRPATHPatchJson: {}
+  :JSONPatch: {}
+:resource_types_to_search:
+-
+- Patient
+- Practitioner
+- PractitionerRole
+- Organization
+- RelatedPerson
+- Observation
+- Condition
+- Procedure
+- Location
+- Medication
+- Encounter
+- DiagnosticReport

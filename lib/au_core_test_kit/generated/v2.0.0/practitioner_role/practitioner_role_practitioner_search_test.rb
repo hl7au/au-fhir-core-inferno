@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/test_modules/search_test'
+require 'inferno_suite_generator/core/group_metadata'
+require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
   module AUCoreV200
     class PractitionerRolePractitionerSearchTest < Inferno::Test
-      include AUCoreTestKit::SearchTest
+      include InfernoSuiteGenerator::SearchTest
 
       title '(SHALL) Server returns valid results for PractitionerRole search by practitioner'
       description %(
@@ -18,16 +18,22 @@ none are returned, the test is skipped.
 
 This test verifies that the server supports searching by reference using
 the form `practitioner=[id]` as well as `practitioner=Practitioner/[id]`. The two
-different forms are expected to return the same number of results. AU
-Core requires that both forms are supported by AU Core responders.
+different forms are expected to return the same number of results. AU Core requires that both forms are supported by AU Core responders.
 
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html)
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
 
       )
 
       id :au_core_v200_practitioner_role_practitioner_search_test
+
+      def self.demodata
+        @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(
+          YAML.load_file(File.join(File.dirname(__dir__), 'demodata.yml'), aliases: true)
+        )
+      end
+
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'PractitionerRole',
           search_param_names: ['practitioner'],
           includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
@@ -36,11 +42,15 @@ Core requires that both forms are supported by AU Core responders.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources
         scratch[:practitioner_role_resources] ||= {}
+      end
+
+      def keep_all_search_results?
+        false
       end
 
       run do

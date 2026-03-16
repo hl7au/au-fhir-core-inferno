@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'medication_request/medication_request_patient_search_test'
 require_relative 'medication_request/medication_request_id_search_test'
 require_relative 'medication_request/medication_request_authoredon_search_test'
@@ -9,21 +10,9 @@ require_relative 'medication_request/medication_request_patient_intent_search_te
 require_relative 'medication_request/medication_request_patient_intent_status_search_test'
 require_relative 'medication_request/medication_request_patient_status_search_test'
 require_relative 'medication_request/medication_request_patient_intent_authoredon_search_test'
-require_relative 'medication_request/medication_request_intent_multiple_or_search_test'
-require_relative 'medication_request/medication_request_status_multiple_or_search_test'
-require_relative 'medication_request/medication_request_authoredon_multiple_and_search_test'
 require_relative 'medication_request/medication_request_patient_chain_search_test'
-require_relative 'medication_request/medication_request_patient_ihi_chain_search_test'
-require_relative 'medication_request/medication_request_patient_medicare_chain_search_test'
-require_relative 'medication_request/medication_request_patient_dva_chain_search_test'
 require_relative 'medication_request/medication_request_read_test'
-require_relative 'medication_request/medication_request_patient_include_medication_test'
-require_relative 'medication_request/medication_request_id_include_medication_test'
-require_relative 'medication_request/medication_request_patient_intent_include_medication_test'
-require_relative 'medication_request/medication_request_patient_intent_status_include_medication_test'
-require_relative 'medication_request/medication_request_patient_intent_authoredon_include_medication_test'
 require_relative 'medication_request/medication_request_validation_test'
-require_relative 'medication_request/medication_validation_test'
 require_relative 'medication_request/medication_request_must_support_test'
 require_relative 'medication_request/medication_request_reference_resolution_test'
 
@@ -90,7 +79,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_request', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_request', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_medication_request_patient_search_test
@@ -102,21 +91,9 @@ read succeeds.
       test from: :au_core_v200_medication_request_patient_intent_status_search_test
       test from: :au_core_v200_medication_request_patient_status_search_test
       test from: :au_core_v200_medication_request_patient_intent_authoredon_search_test
-      test from: :au_core_v200_medication_request_intent_multiple_or_search_test
-      test from: :au_core_v200_medication_request_status_multiple_or_search_test
-      test from: :au_core_v200_medication_request_authoredon_multiple_and_search_test
       test from: :au_core_v200_medication_request_patient_chain_search_test
-      test from: :au_core_v200_medication_request_patient_ihi_chain_search_test
-      test from: :au_core_v200_medication_request_patient_medicare_chain_search_test
-      test from: :au_core_v200_medication_request_patient_dva_chain_search_test
       test from: :au_core_v200_medication_request_read_test
-      test from: :au_core_v200_medication_request_patient_include_patient_search_test
-      test from: :au_core_v200_medication_request__id_include__id_search_test
-      test from: :au_core_v200_medication_request_patient_intent_include_patient_intent_search_test
-      test from: :au_core_v200_medication_request_patient_intent_status_include_patient_intent_status_search_test
-      test from: :au_core_v200_medication_request_patient_intent_authoredon_include_patient_intent_authoredon_search_test
       test from: :au_core_v200_medication_request_validation_test
-      test from: :au_core_v200_medication_validation_test
       test from: :au_core_v200_medication_request_must_support_test
       test from: :au_core_v200_medication_request_reference_resolution_test
     end

@@ -97,15 +97,23 @@
 - :path: HealthcareService.providedBy
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 - :path: HealthcareService.location
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
+  :resource_types:
+  -
 - :path: HealthcareService.coverageArea
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
+  :resource_types:
+  -
 - :path: HealthcareService.endpoint
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_healthcare_service_read_test
   :file_name: healthcare_service_read_test.rb
@@ -124,3 +132,4 @@
 :id: au_core_v200_healthcare_service
 :file_name: healthcare_service_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

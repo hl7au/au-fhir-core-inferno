@@ -129,12 +129,18 @@
 - :path: Location.managingOrganization
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Organization
 - :path: Location.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
+  :resource_types:
+  -
 - :path: Location.endpoint
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_location_read_test
   :file_name: location_read_test.rb
@@ -160,3 +166,4 @@
 - :path: managingOrganization
   :resources:
   - Organization
+:ig_id: hl7.fhir.au.core

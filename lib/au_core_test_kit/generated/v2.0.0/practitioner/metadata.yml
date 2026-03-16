@@ -88,6 +88,8 @@
 - :path: Practitioner.qualification.issuer
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  :resource_types:
+  -
 :tests:
 - :id: au_core_v200_practitioner_read_test
   :file_name: practitioner_read_test.rb
@@ -97,8 +99,6 @@
   :file_name: practitioner_identifier_search_test.rb
 - :id: au_core_v200_practitioner_name_search_test
   :file_name: practitioner_name_search_test.rb
-- :id: au_core_v200_practitioner_identifier_hpii_search_test
-  :file_name: practitioner_identifier_hpii_search_test.rb
 - :id: au_core_v200_practitioner_validation_test
   :file_name: practitioner_validation_test.rb
 - :id: au_core_v200_practitioner_must_support_test
@@ -106,3 +106,4 @@
 :id: au_core_v200_practitioner
 :file_name: practitioner_group.rb
 :delayed_references: []
+:ig_id: hl7.fhir.au.core

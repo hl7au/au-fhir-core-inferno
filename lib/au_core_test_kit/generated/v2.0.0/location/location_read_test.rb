@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../read_test'
+require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
   module AUCoreV200
     class LocationReadTest < Inferno::Test
-      include AUCoreTestKit::ReadTest
+      include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct Location resource from Location read interaction'
       description 'A server SHALL support the Location read interaction.'
@@ -17,6 +17,12 @@ module AUCoreTestKit
             optional: true
 
       id :au_core_v200_location_read_test
+
+      def self.demodata
+        @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(
+          YAML.load_file(File.join(File.dirname(__dir__), 'demodata.yml'), aliases: true)
+        )
+      end
 
       def resource_type
         'Location'
