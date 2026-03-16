@@ -10,7 +10,20 @@
     "extra_json_paths": [],
     "tx_server_url": "https://tx.dev.hl7.org.au/fhir",
     "extra_imports": [],
-    "outer_groups": [],
+    "outer_groups": [
+      {
+        "import_type": "relative",
+        "import_path": "../../custom_groups/v0.3.0-ballot/capability_statement_group",
+        "group_position": "before",
+        "group_id": "au_core_v030_ballot_capability_statement"
+      },
+      {
+        "import_type": "relative",
+        "import_path": "../../custom_groups/missing_data_group",
+        "group_position": "after",
+        "group_id": "au_core_missing_data_group"
+      }
+    ],
     "links": [
       {
         "label": "Report Issue",
