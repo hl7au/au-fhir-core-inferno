@@ -5,6 +5,9 @@ require_relative 'allergy_intolerance/allergy_intolerance_patient_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_clinical_status_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_patient_clinical_status_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_patient_chain_search_test'
+require_relative 'allergy_intolerance/allergy_intolerance_patient_ihi_chain_search_test'
+require_relative 'allergy_intolerance/allergy_intolerance_patient_medicare_chain_search_test'
+require_relative 'allergy_intolerance/allergy_intolerance_patient_dva_chain_search_test'
 require_relative 'allergy_intolerance/allergy_intolerance_read_test'
 require_relative 'allergy_intolerance/allergy_intolerance_validation_test'
 require_relative 'allergy_intolerance/allergy_intolerance_must_support_test'
@@ -79,6 +82,9 @@ read succeeds.
       test from: :au_core_v200_allergy_intolerance_clinical_status_search_test
       test from: :au_core_v200_allergy_intolerance_patient_clinical_status_search_test
       test from: :au_core_v200_allergy_intolerance_patient_chain_search_test
+      test from: :au_core_v200_allergy_intolerance_patient_ihi_chain_search_test
+      test from: :au_core_v200_allergy_intolerance_patient_medicare_chain_search_test
+      test from: :au_core_v200_allergy_intolerance_patient_dva_chain_search_test
       test from: :au_core_v200_allergy_intolerance_read_test
       test from: :au_core_v200_allergy_intolerance_validation_test
       test from: :au_core_v200_allergy_intolerance_must_support_test

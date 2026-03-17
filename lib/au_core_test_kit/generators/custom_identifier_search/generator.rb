@@ -2,7 +2,7 @@
 
 require 'inferno_suite_generator'
 
-require_relative 'special_cases'
+require_relative '../special_cases'
 
 module InfernoSuiteGenerator
   class Generator

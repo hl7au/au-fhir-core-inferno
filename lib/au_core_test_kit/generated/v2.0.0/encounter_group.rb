@@ -11,6 +11,9 @@ require_relative 'encounter/encounter_class_patient_search_test'
 require_relative 'encounter/encounter_patient_location_search_test'
 require_relative 'encounter/encounter_patient_status_search_test'
 require_relative 'encounter/encounter_patient_chain_search_test'
+require_relative 'encounter/encounter_patient_ihi_chain_search_test'
+require_relative 'encounter/encounter_patient_medicare_chain_search_test'
+require_relative 'encounter/encounter_patient_dva_chain_search_test'
 require_relative 'encounter/encounter_read_test'
 require_relative 'encounter/encounter_validation_test'
 require_relative 'encounter/encounter_must_support_test'
@@ -92,6 +95,9 @@ read succeeds.
       test from: :au_core_v200_encounter_patient_location_search_test
       test from: :au_core_v200_encounter_patient_status_search_test
       test from: :au_core_v200_encounter_patient_chain_search_test
+      test from: :au_core_v200_encounter_patient_ihi_chain_search_test
+      test from: :au_core_v200_encounter_patient_medicare_chain_search_test
+      test from: :au_core_v200_encounter_patient_dva_chain_search_test
       test from: :au_core_v200_encounter_read_test
       test from: :au_core_v200_encounter_validation_test
       test from: :au_core_v200_encounter_must_support_test

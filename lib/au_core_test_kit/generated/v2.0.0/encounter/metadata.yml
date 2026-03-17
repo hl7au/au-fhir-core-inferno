@@ -295,6 +295,12 @@
   :file_name: encounter_patient_status_search_test.rb
 - :id: au_core_v200_encounter_patient_chain_search_test
   :file_name: encounter_patient_chain_search_test.rb
+- :id: au_core_v200_encounter_patient_ihi_chain_search_test
+  :file_name: encounter_patient_ihi_chain_search_test.rb
+- :id: au_core_v200_encounter_patient_medicare_chain_search_test
+  :file_name: encounter_patient_medicare_chain_search_test.rb
+- :id: au_core_v200_encounter_patient_dva_chain_search_test
+  :file_name: encounter_patient_dva_chain_search_test.rb
 - :id: au_core_v200_encounter_read_test
   :file_name: encounter_read_test.rb
 - :id: au_core_v200_encounter_validation_test

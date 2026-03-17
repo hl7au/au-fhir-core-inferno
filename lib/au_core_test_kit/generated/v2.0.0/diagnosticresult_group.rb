@@ -15,6 +15,9 @@ require_relative 'diagnosticresult/diagnosticresult_code_multiple_or_search_test
 require_relative 'diagnosticresult/diagnosticresult_status_multiple_or_search_test'
 require_relative 'diagnosticresult/diagnosticresult_date_multiple_and_search_test'
 require_relative 'diagnosticresult/diagnosticresult_patient_chain_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_ihi_chain_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_medicare_chain_search_test'
+require_relative 'diagnosticresult/diagnosticresult_patient_dva_chain_search_test'
 require_relative 'diagnosticresult/diagnosticresult_read_test'
 require_relative 'diagnosticresult/diagnosticresult_validation_test'
 require_relative 'diagnosticresult/diagnosticresult_must_support_test'
@@ -101,6 +104,9 @@ read succeeds.
       test from: :au_core_v200_diagnosticresult_status_multiple_or_search_test
       test from: :au_core_v200_diagnosticresult_date_multiple_and_search_test
       test from: :au_core_v200_diagnosticresult_patient_chain_search_test
+      test from: :au_core_v200_diagnosticresult_patient_ihi_chain_search_test
+      test from: :au_core_v200_diagnosticresult_patient_medicare_chain_search_test
+      test from: :au_core_v200_diagnosticresult_patient_dva_chain_search_test
       test from: :au_core_v200_diagnosticresult_read_test
       test from: :au_core_v200_diagnosticresult_validation_test
       test from: :au_core_v200_diagnosticresult_must_support_test

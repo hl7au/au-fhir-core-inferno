@@ -59,6 +59,12 @@
           "generator_class": "InfernoSuiteGenerator::Generator::SpecialIdentifierSearchTestGenerator",
           "path_to_template": "lib/au_core_test_kit/generators/custom_identifier_search/template.rb.erb",
           "test_type": "search"
+        },
+        {
+          "path_to_generator": "lib/au_core_test_kit/generators/custom_identifier_chain_search/generator.rb",
+          "generator_class": "InfernoSuiteGenerator::Generator::SpecialIdentifiersChainSearchTestGenerator",
+          "path_to_template": "",
+          "test_type": "search"
         }
       ]
     },
