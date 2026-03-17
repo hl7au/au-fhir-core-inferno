@@ -52,7 +52,15 @@
   "configs": {
     "generic": {
       "expectation": ["SHALL", "SHOULD", "MAY"],
-      "search_params_to_ignore": ["_count", "_sort"]
+      "search_params_to_ignore": ["_count", "_sort"],
+      "register_generators": [
+        {
+          "path_to_generator": "lib/au_core_test_kit/generators/custom_identifier_search/generator.rb",
+          "generator_class": "InfernoSuiteGenerator::Generator::SpecialIdentifierSearchTestGenerator",
+          "path_to_template": "lib/au_core_test_kit/generators/custom_identifier_search/template.rb.erb",
+          "test_type": "search"
+        }
+      ]
     },
     "profiles": {
       "http://hl7.org.au/fhir/core/StructureDefinition/au-core-location": {

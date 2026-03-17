@@ -11,6 +11,7 @@ require_relative 'practitioner_role/practitioner_role_organization_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_multiple_or_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_multiple_and_search_test'
 require_relative 'practitioner_role/practitioner_role_practitioner_chain_search_test'
+require_relative 'practitioner_role/practitioner_role_identifier_medicare_search_test'
 require_relative 'practitioner_role/practitioner_role_validation_test'
 require_relative 'practitioner_role/practitioner_role_must_support_test'
 require_relative 'practitioner_role/practitioner_role_reference_resolution_test'
@@ -91,6 +92,7 @@ read succeeds.
       test from: :au_core_v200_practitioner_role_practitioner_multiple_or_search_test
       test from: :au_core_v200_practitioner_role_practitioner_multiple_and_search_test
       test from: :au_core_v200_practitioner_role_practitioner_chain_search_test
+      test from: :au_core_v200_practitioner_role_identifier_medicare_search_test
       test from: :au_core_v200_practitioner_role_validation_test
       test from: :au_core_v200_practitioner_role_must_support_test
       test from: :au_core_v200_practitioner_role_reference_resolution_test
