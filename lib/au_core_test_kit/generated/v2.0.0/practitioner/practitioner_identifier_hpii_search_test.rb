@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../../special_identifier_search_test'
-require_relative '../../../generator/group_metadata'
+require_relative '../../../generators/custom_identifier_search/special_identifier_search_test'
 
 module AUCoreTestKit
   module AUCoreV200
-    class PractitionerIdentifierHPIISearchTest < Inferno::Test
-      include AUCoreTestKit::SpecialIdentifierSearchTest
-
+    class PractitionerIdentifierHPIISearchTest < InfernoSuiteGenerator::SpecialIdentifierSearchTest
       title '(SHOULD) Server returns valid results for Practitioner search by identifier (HPI-I)'
       description %(A server SHOULD support searching by
 identifier (HPI-I) on the Practitioner resource. This test
@@ -30,7 +27,7 @@ none are returned, the test is skipped.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

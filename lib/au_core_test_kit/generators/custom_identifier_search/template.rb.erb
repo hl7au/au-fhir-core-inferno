@@ -1,10 +1,8 @@
-require_relative '../../../special_identifier_search_test'
-require_relative '../../../generator/group_metadata'
+require_relative '../../../generators/custom_identifier_search/special_identifier_search_test'
 
 module AUCoreTestKit
   module <%= module_name %>
-    class <%= class_name %> < Inferno::Test
-      include AUCoreTestKit::SpecialIdentifierSearchTest
+    class <%= class_name %> < InfernoSuiteGenerator::SpecialIdentifierSearchTest
 
       title '(SHOULD) <%= title %>'
       description %(<%= description %>)
@@ -19,7 +17,7 @@ module AUCoreTestKit
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources
