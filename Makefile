@@ -1,4 +1,10 @@
+MODE ?= default
+ifeq ($(MODE), default)
 compose = docker compose
+else ifeq ($(MODE), aidbox)
+compose = docker compose -f compose.aidbox.yaml
+endif
+
 inferno = run inferno
 
 .PHONY: setup generate summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download

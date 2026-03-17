@@ -1,0 +1,48 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ihi-status-1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2026-02-24T00:08:20.754+00:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "https://healthterminologies.gov.au/fhir/StructureDefinition/composed-value-set-4"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Individual Healthcare Identifier Status</h2><tt>https://healthterminologies.gov.au/fhir/ValueSet/ihi-status-1</tt><p>The Individual Healthcare Identifier Status value set includes values that may be used to describe the classification status of an Individual Healthcare Identifier.</p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+      "valueUrl": "https://api.healthterminologies.gov.au/integration/R4/fhir/ValueSet/ihi-status-1"
+    }
+  ],
+  "url": "https://healthterminologies.gov.au/fhir/ValueSet/ihi-status-1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:1.2.36.1.2001.1004.201.10021"
+    }
+  ],
+  "version": "1.0.2",
+  "name": "IndividualHealthcareIdentifierStatus",
+  "title": "Individual Healthcare Identifier Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2020-05-31",
+  "publisher": "Australian Digital Health Agency",
+  "contact": [
+    { "telecom": [{ "system": "email", "value": "help@digitalhealth.gov.au" }] }
+  ],
+  "description": "The Individual Healthcare Identifier Status value set includes values that may be used to describe the classification status of an Individual Healthcare Identifier.",
+  "copyright": "Copyright © 2018 Australian Digital Health Agency - All rights reserved. This content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "resourceType": "ValueSet",
+  "id": "australian-indigenous-status-1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2026-01-26T23:08:08.184+00:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "https://healthterminologies.gov.au/fhir/StructureDefinition/composed-value-set-4"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Australian Indigenous Status</h2><tt>https://healthterminologies.gov.au/fhir/ValueSet/australian-indigenous-status-1</tt><p>The Australian Indigenous Status value set includes values to support the representation of a person's Indigenous status. That is, whether a person identifies as being of Aboriginal or Torres Strait Islander origin. The values are those concepts defined in the Australian Indigenous Status code system (https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1).</p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+      "valueUrl": "https://api.healthterminologies.gov.au/integration/R4/fhir/ValueSet/australian-indigenous-status-1"
+    }
+  ],
+  "url": "https://healthterminologies.gov.au/fhir/ValueSet/australian-indigenous-status-1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:1.2.36.1.2001.1004.201.10001"
+    }
+  ],
+  "version": "1.0.2",
+  "name": "AustralianIndigenousStatus",
+  "title": "Australian Indigenous Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2020-05-31",
+  "publisher": "Australian Digital Health Agency",
+  "contact": [
+    { "telecom": [{ "system": "email", "value": "help@digitalhealth.gov.au" }] }
+  ],
+  "description": "The Australian Indigenous Status value set includes values to support the representation of a person's Indigenous status. That is, whether a person identifies as being of Aboriginal or Torres Strait Islander origin. The values are those concepts defined in the Australian Indigenous Status code system (https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1).",
+  "copyright": "Copyright © 2018 Australian Digital Health Agency – All rights reserved. Except for the material identified below, this content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/. \n\nThis resource includes material that is based on Australian Institute of Health and Welfare material. \n\nAll copies of this resource must include this copyright statement and all information contained in this statement.",
+  "compose": {
+    "include": [
+      {
+        "system": "https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1"
+      }
+    ]
+  }
+}
