@@ -10,6 +10,8 @@ require_relative 'medication_request/medication_request_patient_intent_search_te
 require_relative 'medication_request/medication_request_patient_intent_status_search_test'
 require_relative 'medication_request/medication_request_patient_status_search_test'
 require_relative 'medication_request/medication_request_patient_intent_authoredon_search_test'
+require_relative 'medication_request/medication_request_intent_multiple_or_search_test'
+require_relative 'medication_request/medication_request_status_multiple_or_search_test'
 require_relative 'medication_request/medication_request_authoredon_multiple_and_search_test'
 require_relative 'medication_request/medication_request_patient_chain_search_test'
 require_relative 'medication_request/medication_request_patient_ihi_chain_search_test'
@@ -95,6 +97,8 @@ read succeeds.
       test from: :au_core_v200_medication_request_patient_intent_status_search_test
       test from: :au_core_v200_medication_request_patient_status_search_test
       test from: :au_core_v200_medication_request_patient_intent_authoredon_search_test
+      test from: :au_core_v200_medication_request_intent_multiple_or_search_test
+      test from: :au_core_v200_medication_request_status_multiple_or_search_test
       test from: :au_core_v200_medication_request_authoredon_multiple_and_search_test
       test from: :au_core_v200_medication_request_patient_chain_search_test
       test from: :au_core_v200_medication_request_patient_ihi_chain_search_test

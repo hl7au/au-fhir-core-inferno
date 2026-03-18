@@ -92,11 +92,23 @@
         "search_param": {
           "MedicationRequest-authoredon": {
             "multiple_and_expectation": "SHOULD"
+          },
+          "MedicationRequest-intent": {
+            "multiple_or_expectation": "SHOULD"
+          },
+          "medications-status": {
+            "multiple_or_expectation": "SHALL"
           }
         }
       },
       "Procedure": {
         "search_param": {
+          "Procedure-status": {
+            "multiple_or_expectation": "SHOULD"
+          },
+          "clinical-code": {
+            "multiple_or_expectation": "SHOULD"
+          },
           "clinical-date": {
             "multiple_and_expectation": "SHOULD"
           }
@@ -104,6 +116,9 @@
       },
       "Immunization": {
         "search_param": {
+          "Immunization-vaccine-code": {
+            "multiple_or_expectation": "SHOULD"
+          },
           "clinical-date": {
             "multiple_and_expectation": "SHOULD"
           }
@@ -113,11 +128,17 @@
         "search_param": {
           "clinical-date": {
             "multiple_and_expectation": "SHOULD"
+          },
+          "Encounter-status": {
+            "multiple_or_expectation": "MAY"
           }
         }
       },
       "Condition": {
         "search_param": {
+          "clinical-code": {
+            "multiple_or_expectation": "MAY"
+          },
           "Condition-onset-date": {
             "multiple_and_expectation": "SHOULD"
           }

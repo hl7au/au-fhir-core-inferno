@@ -66,6 +66,7 @@
     :values: []
     :type: CodeableConcept
     :contains_multiple: false
+    :multiple_or: SHOULD
   :date:
     :paths:
     - performed
@@ -102,6 +103,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: SHOULD
   :patient:
     :paths:
     - subject
@@ -263,6 +265,10 @@
   :file_name: procedure_patient_code_date_search_test.rb
 - :id: au_core_v200_procedure_patient_status_search_test
   :file_name: procedure_patient_status_search_test.rb
+- :id: au_core_v200_procedure_code_multiple_or_search_test
+  :file_name: procedure_code_multiple_or_search_test.rb
+- :id: au_core_v200_procedure_status_multiple_or_search_test
+  :file_name: procedure_status_multiple_or_search_test.rb
 - :id: au_core_v200_procedure_date_multiple_and_search_test
   :file_name: procedure_date_multiple_and_search_test.rb
 - :id: au_core_v200_procedure_patient_chain_search_test

@@ -123,6 +123,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: MAY
   :patient:
     :paths:
     - subject
@@ -294,6 +295,8 @@
   :file_name: encounter_patient_location_search_test.rb
 - :id: au_core_v200_encounter_patient_status_search_test
   :file_name: encounter_patient_status_search_test.rb
+- :id: au_core_v200_encounter_status_multiple_or_search_test
+  :file_name: encounter_status_multiple_or_search_test.rb
 - :id: au_core_v200_encounter_date_multiple_and_search_test
   :file_name: encounter_date_multiple_and_search_test.rb
 - :id: au_core_v200_encounter_patient_chain_search_test

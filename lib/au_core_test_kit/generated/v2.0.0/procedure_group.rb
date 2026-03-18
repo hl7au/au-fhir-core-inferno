@@ -8,6 +8,8 @@ require_relative 'procedure/procedure_status_search_test'
 require_relative 'procedure/procedure_patient_date_search_test'
 require_relative 'procedure/procedure_patient_code_date_search_test'
 require_relative 'procedure/procedure_patient_status_search_test'
+require_relative 'procedure/procedure_code_multiple_or_search_test'
+require_relative 'procedure/procedure_status_multiple_or_search_test'
 require_relative 'procedure/procedure_date_multiple_and_search_test'
 require_relative 'procedure/procedure_patient_chain_search_test'
 require_relative 'procedure/procedure_patient_ihi_chain_search_test'
@@ -91,6 +93,8 @@ read succeeds.
       test from: :au_core_v200_procedure_patient_date_search_test
       test from: :au_core_v200_procedure_patient_code_date_search_test
       test from: :au_core_v200_procedure_patient_status_search_test
+      test from: :au_core_v200_procedure_code_multiple_or_search_test
+      test from: :au_core_v200_procedure_status_multiple_or_search_test
       test from: :au_core_v200_procedure_date_multiple_and_search_test
       test from: :au_core_v200_procedure_patient_chain_search_test
       test from: :au_core_v200_procedure_patient_ihi_chain_search_test

@@ -106,6 +106,7 @@
     :values: []
     :type: code
     :contains_multiple: false
+    :multiple_or: SHOULD
   :status:
     :paths:
     - status
@@ -123,6 +124,7 @@
     - unknown
     :type: code
     :contains_multiple: false
+    :multiple_or: SHALL
   :patient:
     :paths:
     - subject
@@ -326,6 +328,10 @@
   :file_name: medication_request_patient_status_search_test.rb
 - :id: au_core_v200_medication_request_patient_intent_authoredon_search_test
   :file_name: medication_request_patient_intent_authoredon_search_test.rb
+- :id: au_core_v200_medication_request_intent_multiple_or_search_test
+  :file_name: medication_request_intent_multiple_or_search_test.rb
+- :id: au_core_v200_medication_request_status_multiple_or_search_test
+  :file_name: medication_request_status_multiple_or_search_test.rb
 - :id: au_core_v200_medication_request_authoredon_multiple_and_search_test
   :file_name: medication_request_authoredon_multiple_and_search_test.rb
 - :id: au_core_v200_medication_request_patient_chain_search_test

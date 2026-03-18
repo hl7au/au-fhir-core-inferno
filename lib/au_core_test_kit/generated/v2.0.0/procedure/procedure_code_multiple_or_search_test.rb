@@ -1,0 +1,49 @@
+# frozen_string_literal: true
+
+require 'inferno_suite_generator/test_modules/search_test'
+require 'inferno_suite_generator/core/group_metadata'
+require 'inferno_suite_generator/utils/helpers'
+
+module AUCoreTestKit
+  module AUCoreV200
+    class ProcedureCodeMultipleOrSearchTest < Inferno::Test
+      include InfernoSuiteGenerator::SearchTest
+
+      title '(SHOULD) Server returns valid results for Procedure multipleOr search by code'
+      description %(A server SHOULD support searching by multipleOr
+code on the Procedure resource. This test
+will pass if resources are returned and match the search criteria. If
+none are returned, the test is skipped.
+
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
+)
+
+      id :au_core_v200_procedure_code_multiple_or_search_test
+
+      optional
+
+      input :patient_ids,
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',
+            default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
+
+      def self.properties
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(resource_type: 'Procedure',
+                                                                        search_param_names: ['code'],
+                                                                        optional_multiple_or_search_params: true)
+      end
+
+      def self.metadata
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:procedure_resources] ||= {}
+      end
+
+      run do
+        perform_multiple_or_search_test
+      end
+    end
+  end
+end

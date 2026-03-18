@@ -3270,6 +3270,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: MAY
     :onset-date:
       :paths:
       - onsetDateTime
@@ -3508,6 +3509,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: MAY
     :patient:
       :paths:
       - subject
@@ -3886,6 +3888,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :patient:
       :paths:
       - patient
@@ -4249,6 +4252,7 @@
       :values: []
       :type: code
       :contains_multiple: false
+      :multiple_or: SHOULD
     :status:
       :paths:
       - status
@@ -4266,6 +4270,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHALL
     :patient:
       :paths:
       - subject
@@ -5391,6 +5396,7 @@
       :values: []
       :type: CodeableConcept
       :contains_multiple: false
+      :multiple_or: SHOULD
     :date:
       :paths:
       - performed
@@ -5427,6 +5433,7 @@
       - unknown
       :type: code
       :contains_multiple: false
+      :multiple_or: SHOULD
     :patient:
       :paths:
       - subject
