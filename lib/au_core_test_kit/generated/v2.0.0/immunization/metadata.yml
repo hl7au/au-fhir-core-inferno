@@ -74,6 +74,7 @@
     :values: []
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :status:
     :paths:
     - status
@@ -217,6 +218,8 @@
   :file_name: immunization_patient_date_search_test.rb
 - :id: au_core_v200_immunization_patient_vaccine_code_search_test
   :file_name: immunization_patient_vaccine_code_search_test.rb
+- :id: au_core_v200_immunization_date_multiple_and_search_test
+  :file_name: immunization_date_multiple_and_search_test.rb
 - :id: au_core_v200_immunization_patient_chain_search_test
   :file_name: immunization_patient_chain_search_test.rb
 - :id: au_core_v200_immunization_patient_ihi_chain_search_test

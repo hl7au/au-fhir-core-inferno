@@ -3290,6 +3290,7 @@
       :values: []
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :patient:
       :paths:
       - subject
@@ -3478,6 +3479,7 @@
       :values: []
       :type: Period
       :contains_multiple: false
+      :multiple_and: SHOULD
     :location:
       :paths:
       - location.location
@@ -3862,6 +3864,7 @@
       :values: []
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status
@@ -4236,6 +4239,7 @@
       :values: []
       :type: dateTime
       :contains_multiple: false
+      :multiple_and: SHOULD
     :intent:
       :paths:
       - intent
@@ -4895,6 +4899,7 @@
       :values: []
       :type: date
       :contains_multiple: false
+      :multiple_and: MAY
     :family:
       :paths:
       - name.family
@@ -5404,6 +5409,7 @@
       :values: []
       :type: date
       :contains_multiple: false
+      :multiple_and: SHOULD
     :status:
       :paths:
       - status

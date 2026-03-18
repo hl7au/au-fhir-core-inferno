@@ -127,6 +127,7 @@
     :values: []
     :type: date
     :contains_multiple: false
+    :multiple_and: SHOULD
   :patient:
     :paths:
     - subject
@@ -239,6 +240,8 @@
   :file_name: condition_patient_code_search_test.rb
 - :id: au_core_v200_condition_patient_onset_date_search_test
   :file_name: condition_patient_onset_date_search_test.rb
+- :id: au_core_v200_condition_onset_date_multiple_and_search_test
+  :file_name: condition_onset_date_multiple_and_search_test.rb
 - :id: au_core_v200_condition_patient_chain_search_test
   :file_name: condition_patient_chain_search_test.rb
 - :id: au_core_v200_condition_patient_ihi_chain_search_test

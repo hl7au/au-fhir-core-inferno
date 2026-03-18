@@ -80,6 +80,49 @@
       }
     },
     "resources": {
+      "Patient": {
+        "first_class_profile": "search",
+        "search_param": {
+          "individual-birthdate": {
+            "multiple_and_expectation": "MAY"
+          }
+        }
+      },
+      "MedicationRequest": {
+        "search_param": {
+          "MedicationRequest-authoredon": {
+            "multiple_and_expectation": "SHOULD"
+          }
+        }
+      },
+      "Procedure": {
+        "search_param": {
+          "clinical-date": {
+            "multiple_and_expectation": "SHOULD"
+          }
+        }
+      },
+      "Immunization": {
+        "search_param": {
+          "clinical-date": {
+            "multiple_and_expectation": "SHOULD"
+          }
+        }
+      },
+      "Encounter": {
+        "search_param": {
+          "clinical-date": {
+            "multiple_and_expectation": "SHOULD"
+          }
+        }
+      },
+      "Condition": {
+        "search_param": {
+          "Condition-onset-date": {
+            "multiple_and_expectation": "SHOULD"
+          }
+        }
+      },
       "Organization": {
         "first_class_profile": "read"
       },
@@ -88,9 +131,6 @@
       },
       "PractitionerRole": {
         "first_class_profile": "read"
-      },
-      "Patient": {
-        "first_class_profile": "search"
       },
       "Observation": {
         "forced_initial_search": ["patient", "code"],

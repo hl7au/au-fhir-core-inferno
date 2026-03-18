@@ -111,6 +111,7 @@
     :values: []
     :type: date
     :contains_multiple: false
+    :multiple_and: MAY
   :family:
     :paths:
     - name.family
@@ -284,6 +285,8 @@
   :file_name: patient_indigenous_status_multiple_or_search_test.rb
 - :id: au_core_v200_patient_gender_identity_multiple_or_search_test
   :file_name: patient_gender_identity_multiple_or_search_test.rb
+- :id: au_core_v200_patient_birthdate_multiple_and_search_test
+  :file_name: patient_birthdate_multiple_and_search_test.rb
 - :id: au_core_v200_patient_indigenous_status_multiple_and_search_test
   :file_name: patient_indigenous_status_multiple_and_search_test.rb
 - :id: au_core_v200_patient_gender_identity_multiple_and_search_test

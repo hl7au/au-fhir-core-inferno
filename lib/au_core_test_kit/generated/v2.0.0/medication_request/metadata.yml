@@ -96,6 +96,7 @@
     :values: []
     :type: dateTime
     :contains_multiple: false
+    :multiple_and: SHOULD
   :intent:
     :paths:
     - intent
@@ -325,6 +326,8 @@
   :file_name: medication_request_patient_status_search_test.rb
 - :id: au_core_v200_medication_request_patient_intent_authoredon_search_test
   :file_name: medication_request_patient_intent_authoredon_search_test.rb
+- :id: au_core_v200_medication_request_authoredon_multiple_and_search_test
+  :file_name: medication_request_authoredon_multiple_and_search_test.rb
 - :id: au_core_v200_medication_request_patient_chain_search_test
   :file_name: medication_request_patient_chain_search_test.rb
 - :id: au_core_v200_medication_request_patient_ihi_chain_search_test

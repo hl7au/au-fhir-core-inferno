@@ -8,6 +8,7 @@ require_relative 'immunization/immunization_vaccine_code_search_test'
 require_relative 'immunization/immunization_patient_status_search_test'
 require_relative 'immunization/immunization_patient_date_search_test'
 require_relative 'immunization/immunization_patient_vaccine_code_search_test'
+require_relative 'immunization/immunization_date_multiple_and_search_test'
 require_relative 'immunization/immunization_patient_chain_search_test'
 require_relative 'immunization/immunization_patient_ihi_chain_search_test'
 require_relative 'immunization/immunization_patient_medicare_chain_search_test'
@@ -90,6 +91,7 @@ read succeeds.
       test from: :au_core_v200_immunization_patient_status_search_test
       test from: :au_core_v200_immunization_patient_date_search_test
       test from: :au_core_v200_immunization_patient_vaccine_code_search_test
+      test from: :au_core_v200_immunization_date_multiple_and_search_test
       test from: :au_core_v200_immunization_patient_chain_search_test
       test from: :au_core_v200_immunization_patient_ihi_chain_search_test
       test from: :au_core_v200_immunization_patient_medicare_chain_search_test
