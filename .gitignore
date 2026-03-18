@@ -4,6 +4,7 @@
 /data/redis/*.aof
 /data/redis/appendonlydir
 /tmp
+.env
 .env.local
 .env.*.local
 **/.DS_Store
