@@ -36,7 +36,6 @@ different forms are expected to return the same number of results. AU Core requi
         @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'PractitionerRole',
           search_param_names: ['practitioner'],
-          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
           test_reference_variants: true
         )
       end

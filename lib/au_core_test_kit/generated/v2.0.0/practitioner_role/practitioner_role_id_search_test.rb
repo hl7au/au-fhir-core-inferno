@@ -43,7 +43,6 @@ requirement of AU Core v2.0.0.
           resource_type: 'PractitionerRole',
           search_param_names: ['_id'],
           saves_delayed_references: true,
-          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }],
           test_post_search: true
         )
       end

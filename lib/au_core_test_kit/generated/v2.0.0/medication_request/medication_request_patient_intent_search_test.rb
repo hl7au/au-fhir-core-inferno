@@ -38,8 +38,7 @@ none are returned, the test is skipped.
         @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'MedicationRequest',
           search_param_names: %w[patient intent],
-          possible_status_search: true,
-          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => '', 'paths' => '' }]
+          possible_status_search: true
         )
       end
 

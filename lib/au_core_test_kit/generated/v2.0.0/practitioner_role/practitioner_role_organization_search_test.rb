@@ -32,8 +32,7 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'PractitionerRole',
-          search_param_names: ['organization'],
-          includes: [{ 'parameter' => 'PractitionerRole:practitioner', 'target_resource' => 'Practitioner', 'paths' => ['practitioner'] }]
+          search_param_names: ['organization']
         )
       end
 

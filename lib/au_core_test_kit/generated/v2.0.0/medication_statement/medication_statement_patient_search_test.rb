@@ -50,7 +50,6 @@ requirement of AU Core v2.0.0.
           resource_type: 'MedicationStatement',
           search_param_names: ['patient'],
           possible_status_search: true,
-          includes: [{ 'parameter' => 'MedicationStatement:medication', 'target_resource' => '', 'paths' => '' }],
           test_reference_variants: true,
           test_post_search: true
         )

@@ -35,8 +35,7 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'MedicationStatement',
-          search_param_names: %w[patient status],
-          includes: [{ 'parameter' => 'MedicationStatement:medication', 'target_resource' => '', 'paths' => '' }]
+          search_param_names: %w[patient status]
         )
       end
 

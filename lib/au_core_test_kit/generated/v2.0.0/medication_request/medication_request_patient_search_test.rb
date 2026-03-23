@@ -51,7 +51,6 @@ requirement of AU Core v2.0.0.
           search_param_names: ['patient'],
           saves_delayed_references: true,
           possible_status_search: true,
-          includes: [{ 'parameter' => 'MedicationRequest:medication', 'target_resource' => '', 'paths' => '' }],
           test_reference_variants: true,
           test_post_search: true
         )
