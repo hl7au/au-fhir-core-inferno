@@ -151,7 +151,37 @@
         "first_class_profile": "read"
       },
       "PractitionerRole": {
-        "first_class_profile": "read"
+        "first_class_profile": "read",
+        "extra_searches": [
+          {
+            "names": ["_id"],
+            "type": "include",
+            "param": "PractitionerRole:practitioner",
+            "target_resource": "Practitioner",
+            "paths": ["practitioner"]
+          },
+          {
+            "names": ["identifier"],
+            "type": "include",
+            "param": "PractitionerRole:practitioner",
+            "target_resource": "Practitioner",
+            "paths": ["practitioner"]
+          },
+          {
+            "names": ["practitioner"],
+            "type": "include",
+            "param": "PractitionerRole:practitioner",
+            "target_resource": "Practitioner",
+            "paths": ["practitioner"]
+          },
+          {
+            "names": ["specialty"],
+            "type": "include",
+            "param": "PractitionerRole:practitioner",
+            "target_resource": "Practitioner",
+            "paths": ["practitioner"]
+          }
+        ]
       },
       "Observation": {
         "forced_initial_search": ["patient", "code"],
