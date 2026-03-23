@@ -18,6 +18,11 @@ require_relative 'medication_request/medication_request_patient_ihi_chain_search
 require_relative 'medication_request/medication_request_patient_medicare_chain_search_test'
 require_relative 'medication_request/medication_request_patient_dva_chain_search_test'
 require_relative 'medication_request/medication_request_read_test'
+require_relative 'medication_request/medication_request_patient_include_medication_test'
+require_relative 'medication_request/medication_request_id_include_medication_test'
+require_relative 'medication_request/medication_request_patient_intent_include_medication_test'
+require_relative 'medication_request/medication_request_patient_intent_status_include_medication_test'
+require_relative 'medication_request/medication_request_patient_intent_authoredon_include_medication_test'
 require_relative 'medication_request/medication_request_validation_test'
 require_relative 'medication_request/medication_request_must_support_test'
 require_relative 'medication_request/medication_request_reference_resolution_test'
@@ -105,6 +110,11 @@ read succeeds.
       test from: :au_core_v200_medication_request_patient_medicare_chain_search_test
       test from: :au_core_v200_medication_request_patient_dva_chain_search_test
       test from: :au_core_v200_medication_request_read_test
+      test from: :au_core_v200_medication_request_patient_include_patient_search_test
+      test from: :au_core_v200_medication_request__id_include__id_search_test
+      test from: :au_core_v200_medication_request_patient_intent_include_patient_intent_search_test
+      test from: :au_core_v200_medication_request_patient_intent_status_include_patient_intent_status_search_test
+      test from: :au_core_v200_medication_request_patient_intent_authoredon_include_patient_intent_authoredon_search_test
       test from: :au_core_v200_medication_request_validation_test
       test from: :au_core_v200_medication_request_must_support_test
       test from: :au_core_v200_medication_request_reference_resolution_test

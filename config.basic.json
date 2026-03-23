@@ -99,7 +99,44 @@
           "medications-status": {
             "multiple_or_expectation": "SHALL"
           }
-        }
+        },
+        "extra_searches": [
+          {
+            "names": ["patient"],
+            "type": "include",
+            "param": "MedicationRequest:medication",
+            "target_resource": "Medication",
+            "paths": ["medicationReference"]
+          },
+          {
+            "names": ["_id"],
+            "type": "include",
+            "param": "MedicationRequest:medication",
+            "target_resource": "Medication",
+            "paths": ["medicationReference"]
+          },
+          {
+            "names": ["patient", "intent"],
+            "type": "include",
+            "param": "MedicationRequest:medication",
+            "target_resource": "Medication",
+            "paths": ["medicationReference"]
+          },
+          {
+            "names": ["patient", "intent", "status"],
+            "type": "include",
+            "param": "MedicationRequest:medication",
+            "target_resource": "Medication",
+            "paths": ["medicationReference"]
+          },
+          {
+            "names": ["patient", "intent", "authoredon"],
+            "type": "include",
+            "param": "MedicationRequest:medication",
+            "target_resource": "Medication",
+            "paths": ["medicationReference"]
+          }
+        ]
       },
       "Procedure": {
         "search_param": {
