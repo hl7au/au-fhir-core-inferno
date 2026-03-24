@@ -356,6 +356,8 @@
   :file_name: medication_request_patient_intent_authoredon_include_medication_test.rb
 - :id: au_core_v200_medication_request_validation_test
   :file_name: medication_request_validation_test.rb
+- :id: au_core_v200_medication_request_medication_validation_test_1
+  :file_name: medication_request_medication_inclusion_validation_test.rb
 - :id: au_core_v200_medication_request_must_support_test
   :file_name: medication_request_must_support_test.rb
 - :id: au_core_v200_medication_request_reference_resolution_test

@@ -24,6 +24,7 @@ require_relative 'medication_request/medication_request_patient_intent_include_m
 require_relative 'medication_request/medication_request_patient_intent_status_include_medication_test'
 require_relative 'medication_request/medication_request_patient_intent_authoredon_include_medication_test'
 require_relative 'medication_request/medication_request_validation_test'
+require_relative 'medication_request/medication_request_medication_inclusion_validation_test'
 require_relative 'medication_request/medication_request_must_support_test'
 require_relative 'medication_request/medication_request_reference_resolution_test'
 
@@ -116,6 +117,7 @@ read succeeds.
       test from: :au_core_v200_medication_request_patient_intent_status_include_patient_intent_status_search_test
       test from: :au_core_v200_medication_request_patient_intent_authoredon_include_patient_intent_authoredon_search_test
       test from: :au_core_v200_medication_request_validation_test
+      test from: :au_core_v200_medication_request_medication_validation_test_1
       test from: :au_core_v200_medication_request_must_support_test
       test from: :au_core_v200_medication_request_reference_resolution_test
     end

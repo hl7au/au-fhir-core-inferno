@@ -65,6 +65,12 @@
           "generator_class": "InfernoSuiteGenerator::Generator::SpecialIdentifiersChainSearchTestGenerator",
           "path_to_template": "",
           "test_type": "search"
+        },
+        {
+          "path_to_generator": "lib/au_core_test_kit/generators/medication_inclusion_test/generator.rb",
+          "generator_class": "InfernoSuiteGenerator::Generator::MedicationInclusionTestGenerator",
+          "path_to_template": "",
+          "test_type": "validation"
         }
       ]
     },
