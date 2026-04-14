@@ -1,0 +1,74 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "australian-indigenous-status-1",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2026-01-26T23:08:13.494+00:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem",
+      "https://healthterminologies.gov.au/fhir/StructureDefinition/complete-code-system-4"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Australian Indigenous Status</h2><tt>https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1</tt><p>The Australian Indigenous Status code system defines concepts to support the representation of a person's indigenous status. That is, whether a person identifies as being of Aboriginal or Torres Strait Islander origin, as represented by a code. The concepts defined in this code system are equivalent to those defined in the value domain for the METEOR data element Person—Indigenous status, code N (https://meteor.aihw.gov.au/content/602543)</p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+      "valueUrl": "https://api.healthterminologies.gov.au/integration/R4/fhir/CodeSystem/australian-indigenous-status-1"
+    }
+  ],
+  "url": "https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:1.2.36.1.2001.1004.200.10012"
+    }
+  ],
+  "version": "1.0.5",
+  "name": "AustralianIndigenousStatus",
+  "title": "Australian Indigenous Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2025-08-31",
+  "publisher": "Australian Digital Health Agency",
+  "contact": [
+    { "telecom": [{ "system": "email", "value": "help@digitalhealth.gov.au" }] }
+  ],
+  "description": "The Australian Indigenous Status code system defines concepts to support the representation of a person's indigenous status. That is, whether a person identifies as being of Aboriginal or Torres Strait Islander origin, as represented by a code. The concepts defined in this code system are equivalent to those defined in the value domain for the METEOR data element Person—Indigenous status, code N (https://meteor.aihw.gov.au/content/602543)",
+  "copyright": "Copyright © 2018 Australian Digital Health Agency – All rights reserved. Except for the material identified below, this content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/. \n\nThis resource includes material that is based on Australian Institute of Health and Welfare material. \n\nAll copies of this resource must include this copyright statement and all information contained in this statement.",
+  "caseSensitive": false,
+  "valueSet": "https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1/vs",
+  "compositional": false,
+  "versionNeeded": false,
+  "content": "complete",
+  "count": 5,
+  "concept": [
+    {
+      "code": "1",
+      "display": "Aboriginal but not Torres Strait Islander origin",
+      "definition": "Aboriginal but not Torres Strait Islander origin"
+    },
+    {
+      "code": "2",
+      "display": "Torres Strait Islander but not Aboriginal origin",
+      "definition": "Torres Strait Islander but not Aboriginal origin"
+    },
+    {
+      "code": "3",
+      "display": "Both Aboriginal and Torres Strait Islander origin",
+      "definition": "Both Aboriginal and Torres Strait Islander origin"
+    },
+    {
+      "code": "4",
+      "display": "Neither Aboriginal nor Torres Strait Islander origin",
+      "definition": "Neither Aboriginal nor Torres Strait Islander origin"
+    },
+    {
+      "code": "9",
+      "display": "Not stated/inadequately described",
+      "definition": "Not stated/inadequately described"
+    }
+  ]
+}
