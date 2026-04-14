@@ -1,0 +1,12 @@
+APP_INIT_CLIENT_ID=root
+APP_INIT_CLIENT_SECRET=secret
+APP_INIT_URL=http://validator-api:3500
+
+APP_ID=aidbox_validator
+APP_SECRET=secret
+APP_URL=http://validator-api-worker:8081
+APP_PORT=8081
+AIO_PORT=8081
+AIO_HOST=0.0.0.0
+
+REQUEST_DEBUG=True
