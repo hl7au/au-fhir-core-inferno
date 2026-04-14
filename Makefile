@@ -69,3 +69,6 @@ debug_generator:
 	rm -rf lib/au_core_test_kit/generated/v2.0.0/
 	bundle exec rake au_core:generate
 	rubocop -A .
+
+run_inferno_cli:
+	$(compose) $(inferno) bundle exec inferno execute --suite au_core_v200 --inputs "url:https://fhir.hl7.org.au/aucore/fhir/DEFAULT" "patient_ids:baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne" "location_ids:bobrester-medical-center, au-hospital" "organization_ids:dva-au, organization-medical-center-tc" "practitioner_ids:alderson-helene" "practitioner_role_ids:cardiologist-sallie-sutherland, bobrester-bob-gp"
