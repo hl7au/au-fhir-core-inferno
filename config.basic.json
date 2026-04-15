@@ -83,6 +83,9 @@
       },
       "http://hl7.org.au/fhir/StructureDefinition/au-imagingresult": {
         "skip": true
+      },
+      "http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path": {
+        "forced_initial_search": ["patient", "category"]
       }
     },
     "resources": {
@@ -153,7 +156,7 @@
             "multiple_or_expectation": "SHOULD"
           },
           "clinical-date": {
-            "multiple_and_expectation": "SHOULD"
+            "multiple_and_expectation": "MAY"
           }
         }
       },
