@@ -1,0 +1,32 @@
+require_relative '../../../generators/custom_identifier_search/special_identifier_search_test'
+
+module AUCoreTestKit
+  module <%= module_name %>
+    class <%= class_name %> < InfernoSuiteGenerator::SpecialIdentifierSearchTest
+
+      title '(SHOULD) <%= title %>'
+      description %(<%= description %>)
+
+      id :<%= test_id %><% if optional? %>
+        optional
+        <% end %>
+      def self.properties
+        @properties ||= SearchTestProperties.new(
+          <%= search_test_properties_string %>
+        )
+      end
+
+      def self.metadata
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      run do
+        run_special_identifier_search_test
+      end
+    end
+  end
+end
