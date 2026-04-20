@@ -88,7 +88,8 @@
         "skip": true
       },
       "http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path": {
-        "forced_initial_search": ["patient", "category"],
+        "fixed_values_to_search": [],
+        "forced_initial_search": ["patient", "category"]
       },
       "http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult": {
         "search_param": {
@@ -245,6 +246,7 @@
         ]
       },
       "Observation": {
+        "fixed_values_to_search": ["code"],
         "exclude_elements_from_must_support": ["dataAbsentReason"],
         "forced_initial_search": ["patient", "code"],
         "search_param": {
