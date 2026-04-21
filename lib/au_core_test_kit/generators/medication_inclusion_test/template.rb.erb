@@ -1,0 +1,39 @@
+require 'inferno_suite_generator/test_modules/validation_test'
+
+module <%= suite_module_name %>
+  module <%= module_name %>
+    class <%= class_name %> < Inferno::Test
+      include InfernoSuiteGenerator::ValidationTest
+
+      id :<%= test_id %>
+      title '<%= resource_type %> resources returned during previous tests conform to the AU Core Medication'
+      description %(
+<%= description %>
+      )
+      output :dar_code_found, :dar_extension_found
+
+      def resource_type
+        '<%= resource_type %>'
+      end
+
+      def scratch_resources
+        scratch[:<%= profile_identifier %>_resources] ||= {}
+      end
+
+      def filter_set
+        <% if filter_set.length.positive? %>
+        <%= filter_set %>
+        <% else %>
+        []
+        <% end %>
+      end
+
+      run do
+        perform_validation_test(scratch_resources[:all] || [],
+                                '<%= profile_url %>',
+                                '<%= profile_version %>',
+                                skip_if_empty: <%= skip_if_empty %>)
+      end
+    end
+  end
+end
