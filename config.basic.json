@@ -97,6 +97,9 @@
             "default_values": "search_default_values.diagnostic_result"
           }
         }
+      },
+      "http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate": {
+        "exclude_elements_from_must_support": ["component", "component.code", "component.value[x]", "component.dataAbsentReason", "dataAbsentReason"]
       }
     },
     "resources": {
@@ -111,7 +114,8 @@
         }
       },
       "HealthcareService": {
-        "first_class_profile": "read"
+        "first_class_profile": "read",
+        "forced_initial_search": ["HealthcareService-name"]
       },
       "MedicationRequest": {
         "search_param": {
@@ -214,6 +218,7 @@
       },
       "PractitionerRole": {
         "first_class_profile": "read",
+        "search_multiple_or_and_by_target_resource": ["practitioner"],
         "extra_searches": [
           {
             "names": ["_id"],
