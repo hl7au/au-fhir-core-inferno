@@ -15,7 +15,7 @@ module InfernoSuiteGenerator
       attr_accessor :group_metadata, :search_metadata, :base_output_dir, :special_identifier, :absolute_template_path, :ig_metadata
 
       def initialize(group_metadata, ig_metadata, base_output_dir, absolute_template_path)
-        super(group_metadata, ig_metadata, nil, base_output_dir: base_output_dir)
+        super(group_metadata, ig_metadata, nil, base_output_dir:)
         self.absolute_template_path = absolute_template_path
       end
 

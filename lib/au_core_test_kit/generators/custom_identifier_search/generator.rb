@@ -9,38 +9,61 @@ module InfernoSuiteGenerator
     class SpecialIdentifierSearchTestGenerator < InfernoSuiteGenerator::Generator::SearchTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir, absolute_template_path)
-          ig_metadata.groups.reject { |group| SpecialCases.exclude_group? group }
-                            .select { |group| %w[au_core_patient au_core_practitioner au_core_organization au_core_practitionerrole].include? group.name }
-                            .select { |group| group.searches.present? }
-                            .each do |group|
-            group.searches.each do |search|
-              next unless search[:names].include? 'identifier'
+          eligible_groups(ig_metadata).each do |group|
+            generate_for_group(group, ig_metadata, base_output_dir, absolute_template_path)
+          end
+        end
 
-              identifier_arr =
-                case group.name
-                when 'au_core_patient'
-                  SpecialCases.patient_au_identifiers
-                when 'au_core_practitioner'
-                  SpecialCases.practitioner_au_identifiers
-                when 'au_core_practitionerrole'
-                  SpecialCases.practitionerrole_au_identifiers
-                when 'au_core_organization'
-                  SpecialCases.organization_au_identifiers
-                end
-              identifier_arr.each do |special_identifier|
-                new(group, search, base_output_dir, special_identifier, ig_metadata, absolute_template_path).generate
-              end
+        private
+
+        def eligible_groups(ig_metadata)
+          ig_metadata.groups
+                     .reject { |group| SpecialCases.exclude_group? group }
+                     .select { |group| supported_group_names.include?(group.name) }
+                     .select { |group| group.searches.present? }
+        end
+
+        def supported_group_names
+          %w[au_core_patient au_core_practitioner au_core_organization au_core_practitionerrole]
+        end
+
+        def generate_for_group(group, ig_metadata, base_output_dir, absolute_template_path)
+          group.searches.each do |search|
+            next unless search[:names].include?('identifier')
+
+            generation_context = {
+              group_metadata: group,
+              search_metadata: search,
+              base_output_dir:,
+              ig_metadata:,
+              absolute_template_path:
+            }
+            identifiers_for_group(group.name).each do |special_identifier|
+              new(generation_context.merge(special_identifier:)).generate
             end
+          end
+        end
+
+        def identifiers_for_group(group_name)
+          case group_name
+          when 'au_core_patient'
+            SpecialCases.patient_au_identifiers
+          when 'au_core_practitioner'
+            SpecialCases.practitioner_au_identifiers
+          when 'au_core_practitionerrole'
+            SpecialCases.practitionerrole_au_identifiers
+          when 'au_core_organization'
+            SpecialCases.organization_au_identifiers
           end
         end
       end
 
       attr_accessor :group_metadata, :search_metadata, :base_output_dir, :special_identifier, :absolute_template_path, :ig_metadata
 
-      def initialize(group_metadata, search_metadata, base_output_dir, special_identifier, ig_metadata, absolute_template_path)
-        super(group_metadata, search_metadata, base_output_dir, ig_metadata)
-        self.special_identifier = special_identifier
-        self.absolute_template_path = absolute_template_path
+      def initialize(options)
+        super(options[:group_metadata], options[:search_metadata], options[:base_output_dir], options[:ig_metadata])
+        self.special_identifier = options[:special_identifier]
+        self.absolute_template_path = options[:absolute_template_path]
       end
 
       def template

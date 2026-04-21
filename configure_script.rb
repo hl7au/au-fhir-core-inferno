@@ -48,27 +48,44 @@ class AidboxConfigStep
     ].join
   end
 
+  def multipart_upload?
+    @body.is_a?(Hash) && @body[:__multipart_file]
+  end
+
+  def prepare_request_payload(request_headers)
+    return multipart_request_payload(request_headers) if multipart_upload?
+    return hash_request_payload if @body.is_a?(Hash)
+
+    [@body.to_s, false]
+  end
+
+  def multipart_request_payload(request_headers)
+    file_path = @body[:__multipart_file]
+    form_field = @body[:__form_field] || 'file'
+    boundary = "----RubyFormBoundary#{SecureRandom.hex(16)}"
+    request_headers['Content-Type'] = "multipart/form-data; boundary=#{boundary}"
+
+    [build_multipart_body(file_path, form_field, boundary), true]
+  end
+
+  def hash_request_payload
+    @body.empty? ? ['', false] : [@body.to_json, false]
+  end
+
+  def log_post_attempt(uri, multipart, request_headers, body)
+    puts "Attempting to POST #{uri}#{' (multipart/form-data)' if multipart} with headers #{request_headers.to_json}"
+    puts "(body size: #{body.bytesize} bytes)" if multipart
+  end
+
   def post
     uri = URI.parse(@base_url + @path)
     request_headers = @headers.dup
-
-    body, multipart = if @body.is_a?(Hash) && @body[:__multipart_file]
-                        file_path = @body[:__multipart_file]
-                        form_field = @body[:__form_field] || 'file'
-                        boundary = "----RubyFormBoundary#{SecureRandom.hex(16)}"
-                        request_headers['Content-Type'] = "multipart/form-data; boundary=#{boundary}"
-                        [build_multipart_body(file_path, form_field, boundary), true]
-                      elsif @body.is_a?(Hash)
-                        @body.empty? ? ['', false] : [@body.to_json, false]
-                      else
-                        [@body.to_s, false]
-                      end
+    body, multipart = prepare_request_payload(request_headers)
 
     request = Net::HTTP::Post.new(uri, request_headers)
     request.body = body
     Net::HTTP.start(uri.hostname, uri.port) do |http|
-      puts "Attempting to POST #{uri}#{' (multipart/form-data)' if multipart} with headers #{request_headers.to_json}"
-      puts "(body size: #{body.bytesize} bytes)" if multipart
+      log_post_attempt(uri, multipart, request_headers, body)
       response = http.request(request)
       puts response.body
     end

@@ -81,15 +81,20 @@ module InfernoSuiteGenerator
       search_value&.gsub(',', '\\,')
     end
 
-    def run_special_identifier_search_test
+    def ensure_special_identifier_prerequisites!
       conditional_skip_with_msg scratch_resources[:all].empty?, no_resources_skip_message
       conditional_skip_with_msg !any_valid_search_params?(all_search_params), unable_to_resolve_params_message
+    end
 
-      resources_returned =
-        all_search_params.flat_map do |patient_id, params_list|
-          params_list.flat_map { |params| perform_search_with_system(params, patient_id) }
-        end
+    def perform_special_identifier_searches
+      all_search_params.flat_map do |patient_id, params_list|
+        params_list.flat_map { |params| perform_search_with_system(params, patient_id) }
+      end
+    end
 
+    def run_special_identifier_search_test
+      ensure_special_identifier_prerequisites!
+      resources_returned = perform_special_identifier_searches
       conditional_skip_with_msg resources_returned.empty?, no_resources_skip_message
     end
   end

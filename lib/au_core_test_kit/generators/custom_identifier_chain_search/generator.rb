@@ -8,38 +8,60 @@ module InfernoSuiteGenerator
     class SpecialIdentifiersChainSearchTestGenerator < InfernoSuiteGenerator::Generator::ChainSearchTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir, _absolute_template_path)
-          ig_metadata.groups
-                     .select { |group| group.searches.present? }
-                     .each do |group|
-            group.search_definitions.each_key do |search_key|
-              current_search_definition = group.search_definitions[search_key]
-              next unless current_search_definition.key?(:chain) && current_search_definition[:chain].length.positive?
+          groups_with_searches(ig_metadata).each do |group|
+            generate_for_group(group, ig_metadata, base_output_dir)
+          end
+        end
 
-              current_search_definition[:chain].each do |chain_item|
-                next unless chain_item[:target] == 'Patient'
+        private
 
-                SpecialCases.patient_au_identifiers.each do |target_identifier|
-                  new(
-                    search_key.to_s,
-                    group,
-                    group.search_definitions[search_key],
-                    base_output_dir,
-                    chain_item,
-                    target_identifier,
-                    ig_metadata
-                  ).generate
-                end
-              end
+        def groups_with_searches(ig_metadata)
+          ig_metadata.groups.select { |group| group.searches.present? }
+        end
+
+        def generate_for_group(group, ig_metadata, base_output_dir)
+          group.search_definitions.each do |search_key, current_search_definition|
+            each_patient_chain_item(current_search_definition) do |chain_item|
+              generation_context = {
+                search_name: search_key.to_s,
+                group_metadata: group,
+                search_metadata: current_search_definition,
+                base_output_dir:,
+                chain_item:,
+                ig_metadata:
+              }
+              generate_for_identifiers(generation_context)
             end
+          end
+        end
+
+        def each_patient_chain_item(search_definition)
+          return unless search_definition.key?(:chain) && search_definition[:chain].length.positive?
+
+          search_definition[:chain].each do |chain_item|
+            yield chain_item if chain_item[:target] == 'Patient'
+          end
+        end
+
+        def generate_for_identifiers(generation_context)
+          SpecialCases.patient_au_identifiers.each do |target_identifier|
+            new(generation_context.merge(target_identifier:)).generate
           end
         end
       end
 
       attr_accessor :search_name, :group_metadata, :search_metadata, :base_output_dir, :chain_item, :target_identifier, :ig_metadata
 
-      def initialize(search_name, group_metadata, search_metadata, base_output_dir, chain_item, target_identifier, ig_metadata)
-        super(search_name, group_metadata, search_metadata, base_output_dir, chain_item, ig_metadata)
-        self.target_identifier = target_identifier
+      def initialize(options)
+        super(
+          options[:search_name],
+          options[:group_metadata],
+          options[:search_metadata],
+          options[:base_output_dir],
+          options[:chain_item],
+          options[:ig_metadata]
+        )
+        self.target_identifier = options[:target_identifier]
       end
 
       def test_id
