@@ -36,8 +36,8 @@ module InfernoSuiteGenerator
         patient_id_list.each_with_object({}) do |patient_id, params|
           params[patient_id] ||= []
           new_params = [search_params_with_values(search_param_names, patient_id)]
-          new_params.reject! do |params|
-            params.any? { |_key, value| value.blank? }
+          new_params.reject! do |n_params|
+            n_params.any? { |_key, value| value.blank? }
           end
           params[patient_id].concat(new_params)
         end
