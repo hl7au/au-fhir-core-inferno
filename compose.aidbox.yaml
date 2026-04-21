@@ -38,10 +38,6 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: inferno
       POSTGRES_USER: postgres
-  fhirpath:
-    image: infernocommunity/fhirpath-service
-    ports:
-      - "6789:6789"
   validator-api-worker:
     image: ghcr.io/beda-software/aidbox-validator/aidbox-validator:main-891628f
     depends_on:
