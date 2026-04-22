@@ -284,10 +284,10 @@
         }
       },
       "Medication": {
-        "skip": false
+        "skip_generation": true 
       },
       "DiagnosticReport": {
-        "skip": false
+        "skip_generation": true 
       },
       "Bundle": {
         "skip": true
