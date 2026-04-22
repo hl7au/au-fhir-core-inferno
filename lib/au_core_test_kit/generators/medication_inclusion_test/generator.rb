@@ -54,7 +54,7 @@ fail if their code/system are not found in the valueset.
       end
 
       def test_id
-        "au_core_#{group_metadata.reformatted_version}_medication_request_medication_validation_test_1"
+        "au_core_#{group_metadata.reformatted_version}_medication_request_medication_validation_test"
       end
     end
   end
