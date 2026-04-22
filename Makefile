@@ -12,13 +12,13 @@ inferno = run inferno
 setup: pull build migrate
 
 generate:
-	rm -rf lib/au_core_test_kit/generated/
+	rm -rf lib/au_core_test_kit/generated/v2.0.0/
 	$(compose) $(inferno) bundle exec rake au_core:generate
 	$(compose) $(inferno) rubocop -A lib/au_core_test_kit/
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/summary_generator.rb
 
 generate_local:
-	rm -rf lib/au_core_test_kit/generated/
+	rm -rf lib/au_core_test_kit/generated/v2.0.0/
 	bundle exec rake au_core:generate
 	rubocop -A lib/au_core_test_kit/
 
@@ -57,18 +57,10 @@ migrate:
 	$(compose) $(inferno) bundle exec rake db:migrate
 
 clean_generated:
-	sudo rm -rf lib/au_core_test_kit/generated/
-	git checkout lib/au_core_test_kit/generated/
+	sudo rm -rf lib/au_core_test_kit/generated/v2.0.0/
+	git checkout lib/au_core_test_kit/generated/v2.0.0/
 
 ig_download:
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/ig_download.rb
 
 full_develop_restart: stop down generate setup run
-
-debug_generator:
-	rm -rf lib/au_core_test_kit/generated/v2.0.0/
-	bundle exec rake au_core:generate
-	rubocop -A .
-
-run_inferno_cli:
-	$(compose) $(inferno) bundle exec inferno execute --suite au_core_v200 --inputs "url:https://fhir.hl7.org.au/aucore/fhir/DEFAULT" "patient_ids:baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne" "location_ids:bobrester-medical-center, au-hospital" "organization_ids:dva-au, organization-medical-center-tc" "practitioner_ids:alderson-helene" "practitioner_role_ids:cardiologist-sallie-sutherland, bobrester-bob-gp"
