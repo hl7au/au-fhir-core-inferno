@@ -10,7 +10,7 @@
   "configs": {
     "generic": {
       "rewrite_profile_url": {
-        "http://hl7.org.au/fhir/StructureDefinition/au-specimen": "http://hl7.org.au/fhir/StructureDefinition/au-specimen|5.1.0-preview"
+        "http://hl7.org.au/fhir/StructureDefinition/au-specimen": "http://hl7.org.au/fhir/StructureDefinition/au-specimen"
       }
     }
   }
