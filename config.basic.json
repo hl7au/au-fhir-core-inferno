@@ -79,7 +79,8 @@
     },
     "profiles": {
       "http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure": {
-        "exclude_elements_from_must_support": ["value[x]", "Observation.value[x]:valueQuantity", "dataAbsentReason"]
+        "exclude_elements_from_must_support": ["value[x]", "dataAbsentReason"],
+        "exclude_slices_from_must_support": ["Observation.value[x]:valueQuantity"]
       },
       "http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate": {
         "exclude_elements_from_must_support": ["component", "component.code", "component.value[x]", "component.dataAbsentReason", "dataAbsentReason"]
