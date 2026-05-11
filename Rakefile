@@ -22,8 +22,11 @@ end
 namespace :au_core do
   desc 'Generate tests'
   task :generate do
-    require_relative 'lib/au_core_test_kit/generator'
-
-    AUCoreTestKit::Generator.generate
+    require 'inferno_suite_generator'
+    basic_config_file = './config.basic.json'
+    config_files = ['./config.200.json']
+    config_files.each do |config_file|
+      InfernoSuiteGenerator::Generator.generate([basic_config_file, config_file])
+    end
   end
 end

@@ -4,10 +4,6 @@ module AUCoreTestKit
   module AssertHelpers
     extend Forwardable
 
-    def_delegators 'properties',
-                   :conditional_skip_with_msg,
-                   :skip_with_msg
-
     def act_if_with_message(act_func, condition, message)
       info message if condition
 
