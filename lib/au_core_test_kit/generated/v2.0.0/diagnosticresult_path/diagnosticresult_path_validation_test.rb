@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../../../validation_test'
+require 'inferno_suite_generator/test_modules/validation_test'
 
 module AUCoreTestKit
   module AUCoreV200
     class DiagnosticresultPathValidationTest < Inferno::Test
-      include AUCoreTestKit::ValidationTest
+      include InfernoSuiteGenerator::ValidationTest
 
       id :au_core_v200_diagnosticresult_path_validation_test
       title 'Observation resources returned during previous tests conform to the AU Core Pathology Result Observation'
@@ -29,6 +29,10 @@ fail if their code/system are not found in the valueset.
 
       def scratch_resources
         scratch[:diagnosticresult_path_resources] ||= {}
+      end
+
+      def filter_set
+        []
       end
 
       run do

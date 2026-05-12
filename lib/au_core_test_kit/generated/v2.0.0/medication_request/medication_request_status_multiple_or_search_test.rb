@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/test_modules/search_test'
+require 'inferno_suite_generator/core/group_metadata'
+require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
   module AUCoreV200
     class MedicationRequestStatusMultipleOrSearchTest < Inferno::Test
-      include AUCoreTestKit::SearchTest
+      include InfernoSuiteGenerator::SearchTest
 
       title '(SHALL) Server returns valid results for MedicationRequest multipleOr search by status'
       description %(A server SHALL support searching by multipleOr
@@ -15,7 +15,7 @@ status on the MedicationRequest resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html)
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
 )
 
       id :au_core_v200_medication_request_status_multiple_or_search_test
@@ -26,14 +26,14 @@ none are returned, the test is skipped.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(resource_type: 'MedicationRequest',
-                                                 search_param_names: ['status'],
-                                                 test_medication_inclusion: true,
-                                                 multiple_or_search_params: true)
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(resource_type: 'MedicationRequest',
+                                                                        search_param_names: ['status'],
+                                                                        test_medication_inclusion: true,
+                                                                        multiple_or_search_params: true)
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

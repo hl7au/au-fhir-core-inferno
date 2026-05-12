@@ -94,10 +94,10 @@
       :eb: MAY
       :ap: MAY
     :values:
-    - ge1950-01-01T00:00:00.000Z
-    - le2050-01-01T23:59:59.999Z
-    - gt1950-01-01T00:00:00.000Z
-    - lt2050-01-01T23:59:59.999Z
+    - ge1950-01-01
+    - le2050-01-01
+    - gt1950-01-01
+    - lt2050-01-01
     :type: dateTime
     :contains_multiple: false
     :multiple_and: SHOULD
@@ -215,12 +215,18 @@
 - :path: MedicationRequest.medication[x]
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+  :resource_types:
+  - Medication
 - :path: MedicationRequest.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: MedicationRequest.encounter
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+  :resource_types:
+  - Encounter
 - :path: MedicationRequest.supportingInformation
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -237,6 +243,12 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+  - Patient
+  - RelatedPerson
 - :path: MedicationRequest.performer
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
@@ -254,6 +266,8 @@
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   - http://hl7.org/fhir/StructureDefinition/Observation
+  :resource_types:
+  - Condition
 - :path: MedicationRequest.basedOn
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/CarePlan|4.0.1
@@ -323,8 +337,8 @@
   :file_name: medication_request_patient_intent_authoredon_include_medication_test.rb
 - :id: au_core_v200_medication_request_validation_test
   :file_name: medication_request_validation_test.rb
-- :id: au_core_v200_medication_validation_test
-  :file_name: medication_validation_test.rb
+- :id: au_core_v200_medication_request_medication_validation_test
+  :file_name: medication_request_medication_inclusion_validation_test.rb
 - :id: au_core_v200_medication_request_must_support_test
   :file_name: medication_request_must_support_test.rb
 - :id: au_core_v200_medication_request_reference_resolution_test

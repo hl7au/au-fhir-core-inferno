@@ -1,20 +1,17 @@
 # frozen_string_literal: true
 
-require_relative '../../../special_identifier_search_test'
-require_relative '../../../generator/group_metadata'
+require_relative '../../../generators/custom_identifier_search/special_identifier_search_test'
 
 module AUCoreTestKit
   module AUCoreV200
-    class OrganizationIdentifierABNSearchTest < Inferno::Test
-      include AUCoreTestKit::SpecialIdentifierSearchTest
-
+    class OrganizationIdentifierABNSearchTest < InfernoSuiteGenerator::SpecialIdentifierSearchTest
       title '(SHOULD) Server returns valid results for Organization search by identifier (ABN)'
       description %(A server SHOULD support searching by
 identifier (ABN) on the Organization resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html)
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/2.0.0/CapabilityStatement-au-core-server.html)
 )
 
       id :au_core_v200_organization_identifier_abn_search_test
@@ -30,7 +27,7 @@ none are returned, the test is skipped.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources
