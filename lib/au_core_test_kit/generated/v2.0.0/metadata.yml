@@ -1,4 +1,8 @@
 ---
+:ig_id: hl7.fhir.au.core
+:ig_title: AU Core
+:ig_module_name_prefix: AUCore
+:ig_test_id_prefix: au_core
 :ig_version: v2.0.0
 :groups:
 - :name: au_core_bodyweight
@@ -115,7 +119,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
+      :values: &1
       - ge1950-01-01T00:00:00.000Z
       - le2050-01-01T23:59:59.999Z
       - gt1950-01-01T00:00:00.000Z
@@ -157,8 +161,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: &1 []
-  :revincludes: &2 []
+  :include_params: &2 []
+  :revincludes: &3 []
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -250,6 +254,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -399,11 +405,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -441,8 +443,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -568,6 +570,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -717,11 +721,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -759,8 +759,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -852,6 +852,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -999,11 +1001,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1041,8 +1039,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -1135,6 +1133,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -1148,6 +1148,12 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    :resource_types:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+    - Patient
+    - RelatedPerson
   - :path: Observation.specimen
     :profiles:
     - http://hl7.org.au/fhir/StructureDefinition/au-specimen
@@ -1158,6 +1164,8 @@
   - :path: Observation.hasMember
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    :resource_types:
+    - Observation
   - :path: Observation.derivedFrom
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/DocumentReference|4.0.1
@@ -1286,11 +1294,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1328,8 +1332,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -1421,6 +1425,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -1570,11 +1576,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1612,8 +1614,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -1702,6 +1704,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -1851,11 +1855,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -1893,8 +1893,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -1981,6 +1981,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -2130,11 +2132,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2172,8 +2170,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -2262,6 +2260,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -2410,11 +2410,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2452,8 +2448,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -2511,6 +2507,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -2524,6 +2522,12 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    :resource_types:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+    - Patient
+    - RelatedPerson
   - :path: Observation.specimen
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Specimen|4.0.1
@@ -2536,6 +2540,8 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
     - http://hl7.org.au/fhir/StructureDefinition/au-imagingresult
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    :resource_types:
+    - Observation
   - :path: Observation.derivedFrom
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/DocumentReference|4.0.1
@@ -2662,11 +2668,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *1
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -2704,8 +2706,8 @@
         :expectation: SHOULD
         :target: Patient
       :target_resource: Patient
-  :include_params: *1
-  :revincludes: *2
+  :include_params: *2
+  :revincludes: *3
   :required_concepts: []
   :must_supports:
     :extensions: []
@@ -2756,6 +2758,8 @@
   - :path: Observation.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Observation.focus
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -2910,6 +2914,8 @@
   - :path: AllergyIntolerance.patient
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: AllergyIntolerance.encounter
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -3052,11 +3058,11 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: &4
+      - ge1950-01-01
+      - le2050-01-01
+      - gt1950-01-01
+      - lt2050-01-01
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3116,6 +3122,8 @@
   - :path: Condition.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Condition.encounter
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -3210,6 +3218,8 @@
     - http://hl7.org.au/fhir/StructureDefinition/au-diagnosticresult
     - http://hl7.org.au/fhir/StructureDefinition/au-imagingresult
     - http://hl7.org.au/fhir/StructureDefinition/au-pathologyresult
+    :resource_types:
+    - Observation
   - :path: DiagnosticReport.imagingStudy
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/ImagingStudy
@@ -3309,11 +3319,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *4
       :type: Period
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3425,6 +3431,8 @@
   - :path: Encounter.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Encounter.episodeOfCare
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
@@ -3436,6 +3444,10 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    :resource_types:
+    - Practitioner
+    - PractitionerRole
+    - RelatedPerson
   - :path: Encounter.appointment
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Appointment|4.0.1
@@ -3444,6 +3456,9 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    :resource_types:
+    - Condition
+    - Procedure
   - :path: Encounter.diagnosis.condition
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
@@ -3462,9 +3477,13 @@
   - :path: Encounter.location.location
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    :resource_types:
+    - Location
   - :path: Encounter.serviceProvider
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    :resource_types:
+    - Organization
   - :path: Encounter.partOf
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -3498,17 +3517,17 @@
   :operations: []
   :searches:
   - :names:
+    - _id
+    :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
+  - :names:
     - name
     :expectation: SHALL
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
   - :names:
     - identifier
-    :expectation: SHOULD
-    :names_not_must_support_or_mandatory: []
-    :must_support_or_mandatory: true
-  - :names:
-    - _id
     :expectation: SHOULD
     :names_not_must_support_or_mandatory: []
     :must_support_or_mandatory: true
@@ -3659,11 +3678,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *4
       :type: date
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -3741,6 +3756,8 @@
   - :path: Immunization.patient
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Immunization.encounter
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -3907,6 +3924,8 @@
   - :path: Location.managingOrganization
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    :resource_types:
+    - Organization
   - :path: Location.partOf
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
@@ -4049,11 +4068,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *4
       :type: dateTime
       :contains_multiple: false
       :multiple_and: SHOULD
@@ -4171,12 +4186,18 @@
   - :path: MedicationRequest.medication[x]
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    :resource_types:
+    - Medication
   - :path: MedicationRequest.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: MedicationRequest.encounter
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    :resource_types:
+    - Encounter
   - :path: MedicationRequest.supportingInformation
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
@@ -4193,6 +4214,12 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    :resource_types:
+    - Practitioner
+    - PractitionerRole
+    - Organization
+    - Patient
+    - RelatedPerson
   - :path: MedicationRequest.performer
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
@@ -4210,6 +4237,8 @@
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
     - http://hl7.org/fhir/StructureDefinition/Observation
+    :resource_types:
+    - Condition
   - :path: MedicationRequest.basedOn
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/CarePlan|4.0.1
@@ -4414,9 +4443,13 @@
   - :path: MedicationStatement.medication[x]
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    :resource_types:
+    - Medication
   - :path: MedicationStatement.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: MedicationStatement.context
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -4436,6 +4469,9 @@
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org.au/fhir/StructureDefinition/au-diagnosticreport
+    :resource_types:
+    - Condition
+    - DiagnosticReport
   :delayed_references:
   - :path: medication[x]
     :resources:
@@ -4662,11 +4698,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01
-      - le2050-01-01
-      - gt1950-01-01
-      - lt2050-01-01
+      :values: *4
       :type: date
       :contains_multiple: false
       :multiple_and: MAY
@@ -5052,9 +5084,13 @@
   - :path: PractitionerRole.practitioner
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    :resource_types:
+    - Practitioner
   - :path: PractitionerRole.organization
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    :resource_types:
+    - Organization
   - :path: PractitionerRole.location
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Location|4.0.1
@@ -5154,11 +5190,7 @@
         :sa: MAY
         :eb: MAY
         :ap: MAY
-      :values:
-      - ge1950-01-01T00:00:00.000Z
-      - le2050-01-01T23:59:59.999Z
-      - gt1950-01-01T00:00:00.000Z
-      - lt2050-01-01T23:59:59.999Z
+      :values: *4
       :type: date
       :contains_multiple: false
       :multiple_and: MAY
@@ -5245,9 +5277,13 @@
   - :path: Procedure.subject
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   - :path: Procedure.encounter
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    :resource_types:
+    - Encounter
   - :path: Procedure.recorder
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
@@ -5280,6 +5316,9 @@
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
     - http://hl7.org/fhir/StructureDefinition/DocumentReference
+    :resource_types:
+    - Condition
+    - Procedure
   - :path: Procedure.report
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
@@ -5421,4 +5460,6 @@
   - :path: RelatedPerson.patient
     :profiles:
     - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    :resource_types:
+    - Patient
   :delayed_references: []

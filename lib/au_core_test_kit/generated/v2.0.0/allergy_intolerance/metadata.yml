@@ -118,6 +118,8 @@
 - :path: AllergyIntolerance.patient
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: AllergyIntolerance.encounter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1

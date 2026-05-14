@@ -92,10 +92,10 @@
       :eb: MAY
       :ap: MAY
     :values:
-    - ge1950-01-01T00:00:00.000Z
-    - le2050-01-01T23:59:59.999Z
-    - gt1950-01-01T00:00:00.000Z
-    - lt2050-01-01T23:59:59.999Z
+    - ge1950-01-01
+    - le2050-01-01
+    - gt1950-01-01
+    - lt2050-01-01
     :type: Period
     :contains_multiple: false
     :multiple_and: SHOULD
@@ -207,6 +207,8 @@
 - :path: Encounter.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Encounter.episodeOfCare
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
@@ -218,6 +220,10 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - RelatedPerson
 - :path: Encounter.appointment
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Appointment|4.0.1
@@ -226,6 +232,9 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+  :resource_types:
+  - Condition
+  - Procedure
 - :path: Encounter.diagnosis.condition
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
@@ -244,9 +253,13 @@
 - :path: Encounter.location.location
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+  :resource_types:
+  - Location
 - :path: Encounter.serviceProvider
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Organization
 - :path: Encounter.partOf
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1

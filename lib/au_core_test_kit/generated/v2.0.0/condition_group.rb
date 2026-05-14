@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'condition/condition_patient_search_test'
 require_relative 'condition/condition_category_search_test'
 require_relative 'condition/condition_clinical_status_search_test'
@@ -85,7 +86,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_condition_patient_search_test

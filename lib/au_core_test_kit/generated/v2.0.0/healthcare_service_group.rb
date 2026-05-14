@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'healthcare_service/healthcare_service_read_test'
+require_relative 'healthcare_service/healthcare_service_id_search_test'
 require_relative 'healthcare_service/healthcare_service_name_search_test'
 require_relative 'healthcare_service/healthcare_service_identifier_search_test'
-require_relative 'healthcare_service/healthcare_service_id_search_test'
 require_relative 'healthcare_service/healthcare_service_service_type_search_test'
 require_relative 'healthcare_service/healthcare_service_validation_test'
 require_relative 'healthcare_service/healthcare_service_must_support_test'
@@ -70,13 +71,13 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'healthcare_service', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'healthcare_service', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_healthcare_service_read_test
+      test from: :au_core_v200_healthcare_service__id_search_test
       test from: :au_core_v200_healthcare_service_name_search_test
       test from: :au_core_v200_healthcare_service_identifier_search_test
-      test from: :au_core_v200_healthcare_service__id_search_test
       test from: :au_core_v200_healthcare_service_service_type_search_test
       test from: :au_core_v200_healthcare_service_validation_test
       test from: :au_core_v200_healthcare_service_must_support_test

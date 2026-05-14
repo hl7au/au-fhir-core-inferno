@@ -172,9 +172,13 @@
 - :path: MedicationStatement.medication[x]
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+  :resource_types:
+  - Medication
 - :path: MedicationStatement.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: MedicationStatement.context
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
@@ -194,6 +198,9 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org.au/fhir/StructureDefinition/au-diagnosticreport
+  :resource_types:
+  - Condition
+  - DiagnosticReport
 :tests:
 - :id: au_core_v200_medication_statement_patient_search_test
   :file_name: medication_statement_patient_search_test.rb

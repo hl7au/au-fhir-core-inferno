@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative '../../../chained_search_test'
-require_relative '../../../generator/group_metadata'
-require_relative '../../../helpers'
+require 'inferno_suite_generator/test_modules/chained_search_test'
+require 'inferno_suite_generator/core/group_metadata'
+require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
   module AUCoreV200
     class DiagnosticresultPatientChainSearchTest < Inferno::Test
-      include AUCoreTestKit::ChainedSearchTest
+      include InfernoSuiteGenerator::ChainedSearchTest
 
       title '(SHOULD) Server returns valid results for Observation search by patient (chained parameters)'
       description %(A server SHOULD support searching by
 patient:Patient.identifier on the Observation resource. This test
 will pass if the server returns a success response to the request.
 
-[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core//CapabilityStatement-au-core-server.html)
+[AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
 )
 
       id :au_core_v200_diagnosticresult_patient_chain_search_test
@@ -27,7 +27,7 @@ will pass if the server returns a success response to the request.
             default: 'baratz-toni, irvine-ronny-lawrence, italia-sofia, howe-deangelo, hayes-arianne, baby-banks-john, banks-mia-leanne'
 
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= InfernoSuiteGenerator::SearchTestProperties.new(
           resource_type: 'Observation',
           search_param_names: ['patient:Patient.identifier'],
           attr_paths: ['subject']
@@ -35,7 +35,7 @@ will pass if the server returns a success response to the request.
       end
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
       end
 
       def scratch_resources

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'inferno_suite_generator/core/ig_demodata'
 require_relative 'waistcircum/waistcircum_patient_code_search_test'
 require_relative 'waistcircum/waistcircum_category_search_test'
 require_relative 'waistcircum/waistcircum_code_search_test'
@@ -86,7 +87,7 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'waistcircum', 'metadata.yml'), aliases: true))
+        @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'waistcircum', 'metadata.yml'), aliases: true))
       end
 
       test from: :au_core_v200_waistcircum_patient_code_search_test

@@ -18,17 +18,17 @@
 :operations: []
 :searches:
 - :names:
+  - _id
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
   - name
   :expectation: SHALL
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
 - :names:
   - identifier
-  :expectation: SHOULD
-  :names_not_must_support_or_mandatory: []
-  :must_support_or_mandatory: true
-- :names:
-  - _id
   :expectation: SHOULD
   :names_not_must_support_or_mandatory: []
   :must_support_or_mandatory: true
@@ -109,12 +109,12 @@
 :tests:
 - :id: au_core_v200_healthcare_service_read_test
   :file_name: healthcare_service_read_test.rb
+- :id: au_core_v200_healthcare_service__id_search_test
+  :file_name: healthcare_service_id_search_test.rb
 - :id: au_core_v200_healthcare_service_name_search_test
   :file_name: healthcare_service_name_search_test.rb
 - :id: au_core_v200_healthcare_service_identifier_search_test
   :file_name: healthcare_service_identifier_search_test.rb
-- :id: au_core_v200_healthcare_service__id_search_test
-  :file_name: healthcare_service_id_search_test.rb
 - :id: au_core_v200_healthcare_service_service_type_search_test
   :file_name: healthcare_service_service_type_search_test.rb
 - :id: au_core_v200_healthcare_service_validation_test

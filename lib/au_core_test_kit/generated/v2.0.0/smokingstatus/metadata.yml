@@ -205,6 +205,8 @@
 - :path: Observation.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Observation.focus
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
