@@ -21,3 +21,6 @@
 .yardoc
 node_modules
 package_archive_bundle.json
+
+
+.terraform

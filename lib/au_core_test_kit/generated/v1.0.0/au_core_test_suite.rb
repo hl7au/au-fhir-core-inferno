@@ -61,6 +61,7 @@ module AUCoreTestKit
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
           disableDefaultResourceFetcher false
           noEcosystem true
+          baseEngine 'AU_CORE_V1_0_0'
         end
 
         exclude_message do |message|

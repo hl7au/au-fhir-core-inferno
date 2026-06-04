@@ -55,7 +55,7 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs '/home/igs/2.0.0.tgz'
+        igs 'hl7.fhir.au.core#2.0.0'
         message_filters = [
           "The value provided ('xml') was not found in the value set 'MimeType'",
           "The value provided ('json') was not found in the value set 'MimeType'",
@@ -66,6 +66,7 @@ module AUCoreTestKit
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
           disableDefaultResourceFetcher false
           noEcosystem true
+          baseEngine 'AU_CORE_V2_0_0'
         end
 
         exclude_message do |message|
