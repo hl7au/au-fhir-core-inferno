@@ -1,3 +1,11 @@
+# 1.4.2
+* Correct the validation suite `baseEngine` and IG path configuration.
+
+# 1.4.1
+* Regenerate the AU Core 2.0.0 suite using the new external `inferno_suite_generator`.
+* Pin the tx.dev terminology server ecosystem to work around a tx-registry bug in the validator.
+* Refine test generation: must-support slice handling, search-parameter comparators and defaults, and skip-generation for Medication and DiagnosticReport resources.
+
 # 1.4.0
 * Add a suite for AU Core 2.0.0.
 * Fix IG link in test suite generator.
