@@ -16,6 +16,17 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.6
+      # Guard against version drift: a release tag must match lib/.../version.rb so we
+      # never publish (or tag) a version that doesn't match the code.
+      - name: Verify tag matches gem version
+        if: github.event_name == 'release'
+        run: |
+          GEM_VERSION="v$(ruby -r ./lib/au_core_test_kit/version -e 'print AUCoreTestKit::VERSION')"
+          echo "Release tag: ${{ github.ref_name }} | gem version: ${GEM_VERSION}"
+          if [ "${GEM_VERSION}" != "${{ github.ref_name }}" ]; then
+            echo "::error::Release tag ${{ github.ref_name }} does not match gem version ${GEM_VERSION} (lib/au_core_test_kit/version.rb)"
+            exit 1
+          fi
       - name: Install dependencies
         run: bundle install
       - name: Configure RubyGems credentials
