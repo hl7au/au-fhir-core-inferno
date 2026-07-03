@@ -1,0 +1,2519 @@
+---
+:resource_ids:
+  AllergyIntolerance:
+  - lactose
+  - noneknown
+  - penicillin
+  Observation:
+  - bloodpressure-1
+  - bloodpressure-data-absent
+  - bodyheight-1
+  - bodytemp-1
+  - bodyweight-1
+  - hearing-threshold-1
+  - heartrate-1
+  - lipid-hdl-1
+  - lipid-ldl-1
+  - lipid-total-chol-1
+  - lipid-triglyceride-1
+  - observation-masked
+  - pathresult-covid-1
+  - pulserate-1
+  - resprate-1
+  - smokingstatus-current-smoker
+  - waistcircum-1
+  Composition:
+  - aups-minimal
+  Condition:
+  - ckd
+  - condition-masked
+  - noknown
+  - uti
+  DiagnosticReport:
+  - covid-report
+  - lipid-panel-report
+  DocumentReference:
+  - aups-basicsummary-data
+  - aups-section-emptyreason
+  Encounter:
+  - covid-admin-1
+  - discharge-1
+  - telehealth
+  Endpoint:
+  - bobrester-fhir-rest
+  - mh-audiology-smd
+  - murrabit-hospital-hl7-v2-mllp
+  HealthcareService:
+  - murrabit-crisis-hotline
+  - physiotherapy
+  Immunization:
+  - covid-1
+  - zoster-notgiven
+  Location:
+  - bobrester-medical-center
+  - murrabit-hospital
+  - patient-home
+  Medication:
+  - 1active-ingredient
+  - 2active-ingredients
+  - simvastatin
+  MedicationDispense:
+  - paracetamol-codeine
+  - reaptan
+  - simvastatin
+  MedicationRequest:
+  - paracetamol-codeine
+  - reaptan
+  - simvastatin
+  MedicationStatement:
+  - active-bisoprolol
+  - completed-bactrim
+  - completed-chloramphenicol
+  - previous-use-diflucan
+  Organization:
+  - bobrester-medical-center
+  - mitchells-hill-audiology
+  - murrabit-hospital
+  - pullabooka-pathology
+  Patient:
+  - banks-mia-leanne
+  - bennelong-anne
+  - howe-deangelo
+  - ronny-irvine
+  - wang-li
+  Practitioner:
+  - bobrester-bob
+  - chau-fryer
+  - darleen-mackay
+  - sallie-sutherland
+  PractitionerRole:
+  - bobrester-bob-gp
+  - cardiologist-sallie-sutherland
+  - nephrologist-darleen-mackay
+  - surgeon-chau-fryer
+  Procedure:
+  - dialysis
+  - stentinsertion
+  RelatedPerson:
+  - banks-mia-leanne-father
+  - wang-li-friend
+  Specimen:
+  - nasoswab
+:resource_body_list:
+  AllergyIntolerance:
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+        code: confirmed
+        display: Confirmed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '782415009'
+        display: Intolerance to lactose
+    patient:
+      reference: Patient/banks-mia-leanne
+    onsetDateTime: '2022'
+    recordedDate: '2023-03-14'
+    recorder:
+      reference: PractitionerRole/bobrester-bob-gp
+    reaction:
+    - manifestation:
+      - coding:
+        - system: http://snomed.info/sct
+          code: '21522001'
+          display: Abdominal pain
+      - coding:
+        - system: http://snomed.info/sct
+          code: '116289008'
+          display: Abdominal bloating
+      - coding:
+        - system: http://snomed.info/sct
+          code: '62315008'
+          display: Diarrhoea
+      severity: mild
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '716186003'
+        display: No known allergy
+    patient:
+      reference: Patient/wang-li
+  - resourceType: AllergyIntolerance
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-allergyintolerance
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+        code: active
+        display: Active
+    criticality: high
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '764146007'
+        display: Penicillin
+    patient:
+      reference: Patient/howe-deangelo
+    recordedDate: '1999-08-25'
+    note:
+    - text: The criticality is high due to a documented episode of hives following
+        penicillin administration.
+    reaction:
+    - manifestation:
+      - coding:
+        - system: http://snomed.info/sct
+          code: '247472004'
+          display: Hives
+  Observation:
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 85354-9
+        display: Blood pressure panel with all children optional
+      - system: http://snomed.info/sct
+        code: '75367002'
+      text: Blood pressure systolic and diastolic
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    component:
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8480-6
+          display: Systolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271649006'
+        text: Systolic blood pressure
+      valueQuantity:
+        value: 109
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8462-4
+          display: Diastolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271650006'
+        text: Diastolic blood pressure
+      valueQuantity:
+        value: 44
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bloodpressure
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 85354-9
+        display: Blood pressure panel with all children optional
+      - system: http://snomed.info/sct
+        code: '75367002'
+      text: Blood pressure systolic and diastolic
+    subject:
+      reference: Patient/ronny-irvine
+    encounter:
+      reference: Encounter/discharge-1
+    effectiveDateTime: '2023-02-20T06:20:00+10:00'
+    component:
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8480-6
+          display: Systolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271649006'
+        text: Systolic blood pressure
+      valueQuantity:
+        value: 109
+        unit: mmHg
+        system: http://unitsofmeasure.org
+        code: mm[Hg]
+    - code:
+        coding:
+        - system: http://loinc.org
+          code: 8462-4
+          display: Diastolic blood pressure
+        - system: http://snomed.info/sct
+          code: '271650006'
+        text: Diastolic blood pressure
+      dataAbsentReason:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+          code: unknown
+          display: Unknown
+        text: Unknown
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyheight
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8302-2
+        display: Body height
+      - system: http://snomed.info/sct
+        code: '50373000'
+      text: height
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueQuantity:
+      value: 175
+      unit: cm
+      system: http://unitsofmeasure.org
+      code: cm
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodytemp
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8310-5
+        display: Body temperature
+      - system: http://snomed.info/sct
+        code: '386725007'
+      text: Body temperature
+    subject:
+      reference: Patient/bennelong-anne
+    effectiveDateTime: '2022-02-10'
+    valueQuantity:
+      value: 36.5
+      unit: C
+      system: http://unitsofmeasure.org
+      code: Cel
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-bodyweight
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 29463-7
+        display: Body weight
+      - system: http://snomed.info/sct
+        code: '27113001'
+      text: weight
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-03-14'
+    valueQuantity:
+      value: 59
+      unit: kg
+      system: http://unitsofmeasure.org
+      code: kg
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+      - http://hl7.org.au/fhir/StructureDefinition/au-diagnosticresult
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: AU
+        display: Audiology
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 89024-4
+        display: Hearing threshold Ear - left --500 Hz
+      text: Hearing threshold Ear - left --500 Hz
+    subject:
+      reference: Patient/ronny-irvine
+    effectiveDateTime: '2020-11-06T10:45:00-05:00'
+    performer:
+    - reference: Organization/mitchells-hill-audiology
+    valueQuantity:
+      value: 45
+      unit: dB
+      system: http://unitsofmeasure.org
+      code: dB
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8867-4
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '364075005'
+        display: Heart rate
+      text: Heart rate
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    valueQuantity:
+      value: 80
+      unit: beats/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 14646-4
+        display: Cholesterol in HDL [Moles/volume] in Serum or Plasma
+      text: HDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 1.5
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - low:
+        value: 1.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+      high:
+        value: 2.2
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 22748-8
+        display: Cholesterol in LDL [Moles/volume] in Serum or Plasma
+      text: LDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 4.1
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: H
+        display: High
+    referenceRange:
+    - low:
+        value: 2.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+      high:
+        value: 3.4
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 32309-7
+        display: Cholesterol.total/Cholesterol in HDL [Molar ratio] in Serum or Plasma
+      text: Total Chol/HDL
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 3.93
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - high:
+        value: 4.6
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+        display: Laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: CH
+        display: Chemistry
+      text: Chemistry
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 14927-8
+        display: Triglyceride [Moles/volume] in Serum or Plasma
+      text: Triglyceride
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17'
+    valueQuantity:
+      value: 1.9
+      unit: mmol/L
+      system: http://unitsofmeasure.org
+      code: mmol/L
+    interpretation:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        code: "N"
+        display: Normal
+    referenceRange:
+    - high:
+        value: 2.0
+        unit: mmol/L
+        system: http://unitsofmeasure.org
+        code: mmol/L
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    code:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    subject:
+      reference: Patient/ronny-irvine
+    effectivePeriod:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: masked
+    valueQuantity:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: masked
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: laboratory
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: MB
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 94309-2
+      text: 2019-Novel Coronavirus PCR
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2021-02-15T12:00:00+10:00'
+    performer:
+    - display: PATHOLOGY LAB
+    valueCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '260415000'
+        display: Not detected
+      text: Not detected
+    specimen:
+      reference: Specimen/nasoswab
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-heartrate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8867-4
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '364075005'
+        display: Heart rate
+      - system: http://snomed.info/sct
+        code: '78564009'
+        display: Pulse rate
+      text: Pulse rate
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueQuantity:
+      value: 80
+      unit: beats/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-resprate
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 9279-1
+        display: Respiratory rate
+      - system: http://snomed.info/sct
+        code: '86290005'
+      text: Respiratory rate
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2022-02-17'
+    valueQuantity:
+      value: 22
+      unit: breaths/minute
+      system: http://unitsofmeasure.org
+      code: "/min"
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-smokingstatus
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: social-history
+        display: Social History
+      text: Social History
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '1747861000168109'
+      - system: http://loinc.org
+        code: 72166-2
+      text: Smoking status
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2016-07-02'
+    valueCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '77176002'
+        display: Current smoker
+      - system: http://loinc.org
+        code: LA18979-7
+      text: Smoker
+  - resourceType: Observation
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-waistcircum
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/observation-category
+        code: vital-signs
+        display: Vital Signs
+      text: Vital Signs
+    code:
+      coding:
+      - system: http://loinc.org
+        code: 8280-0
+        display: Waist Circumference at umbilicus by Tape measure
+      - system: http://snomed.info/sct
+        code: '276361009'
+        display: Waist circumference
+      text: Waist Circumference
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-03-14'
+    performer:
+    - reference: PractitionerRole/bobrester-bob-gp
+    valueQuantity:
+      value: 78.6
+      unit: cm
+      system: http://unitsofmeasure.org
+      code: cm
+  Composition:
+  - resourceType: Composition
+    meta:
+      versionId: '1'
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-composition
+    language: en-AU
+    identifier:
+      system: urn:ietf:rfc:3986
+      value: urn:uuid:8f0c263a-b43a-4c65-957a-7121fc57dd64
+    status: final
+    type:
+      coding:
+      - system: http://loinc.org
+        code: 60591-5
+        display: Patient summary Document
+    subject:
+      reference: Patient/banks-mia-leanne
+    date: '2025-02-03'
+    author:
+    - reference: PractitionerRole/bobrester-bob-gp
+    title: Australian Patient Summary
+    attester:
+    - mode: professional
+      time: '2025-02-03'
+      party:
+        reference: PractitionerRole/bobrester-bob-gp
+    custodian:
+      reference: Organization/bobrester-medical-center
+    section:
+    - title: Active Allergies or Intolerances
+      code:
+        coding:
+        - system: http://loinc.org
+          code: 48765-2
+          display: Allergies and adverse reactions Document
+      entry:
+      - reference: AllergyIntolerance/lactose
+    - title: Problem List
+      code:
+        coding:
+        - system: http://loinc.org
+          code: 11450-4
+          display: Problem list - Reported
+      text:
+        status: generated
+        div: <div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en-AU">There
+          is no information available about the consumer's health problems or disabilities.</div>
+      emptyReason:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/list-empty-reason
+          code: unavailable
+          display: Unavailable
+        text: No information available
+    - title: Current Medicines
+      code:
+        coding:
+        - system: http://loinc.org
+          code: 10160-0
+          display: History of Medication use Narrative
+      entry:
+      - reference: MedicationStatement/active-bisoprolol
+  Condition:
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+        display: Active
+      text: Active
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+        code: confirmed
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+      text: Problem
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '709044004'
+        display: Chronic kidney disease
+    subject:
+      reference: Patient/ronny-irvine
+    onsetAge:
+      value: 52
+      unit: years
+      system: http://unitsofmeasure.org
+      code: a
+    recordedDate: '2018-12-01'
+    evidence:
+    - detail:
+      - reference: Procedure/dialysis
+        display: Patient receives regular dialysis
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    code:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        code: masked
+    subject:
+      reference: Patient/bennelong-anne
+      display: Anne Bennelong
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: active
+        display: Active
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '160245001'
+        display: No current problems or disability
+    subject:
+      reference: Patient/howe-deangelo
+    recordedDate: '2020-12-21'
+  - resourceType: Condition
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-condition
+    clinicalStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        code: resolved
+        display: Resolved
+    verificationStatus:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+        code: confirmed
+        display: Confirmed
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/condition-category
+        code: problem-list-item
+        display: Problem List Item
+    severity:
+      coding:
+      - system: http://snomed.info/sct
+        code: '24484000'
+        display: Severe
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '68566005'
+        display: Urinary tract infection
+    subject:
+      reference: Patient/banks-mia-leanne
+    onsetDateTime: '2020-05-10'
+    abatementDateTime: '2020-05-24'
+  DiagnosticReport:
+  - resourceType: DiagnosticReport
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: FILL
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/report/1.0/8003628233373131
+      value: 26-155299-COV-01
+      assigner:
+        reference: Organization/pullabooka-pathology
+        display: Pullabooka Pathology
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: FGN
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/report/1.0/8003628233373131
+      value: 26-155299-COV-01
+      assigner:
+        reference: Organization/pullabooka-pathology
+        display: Pullabooka Pathology
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: LAB
+        display: Laboratory
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '1445431000168101'
+        display: SARS-CoV-2 nucleic acid assay
+    subject:
+      reference: Patient/wang-li
+    effectiveDateTime: '2021-02-15T12:00:00+10:00'
+    issued: '2021-02-16T10:00:00+10:00'
+    performer:
+    - reference: Organization/pullabooka-pathology
+    result:
+    - reference: Observation/pathresult-covid-1
+      display: Covid-19 PCR
+    presentedForm:
+    - contentType: application/pdf
+      url: http://example.org.au/fhir/reports/covid-report-123.pdf
+      hash: d3b07384d113edec49eaa6238ad5ff00
+  - resourceType: DiagnosticReport
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: FILL
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/report/1.0/8003628233373131
+      value: 26-1552642-HDL-01
+      assigner:
+        reference: Organization/pullabooka-pathology
+        display: Pullabooka Pathology
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: FGN
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/report/1.0/8003628233373131
+      value: 26-1552642
+      assigner:
+        reference: Organization/pullabooka-pathology
+        display: Pullabooka Pathology
+    status: final
+    category:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v2-0074
+        code: LAB
+        display: Laboratory
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '16254007'
+        display: Lipid panel
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectiveDateTime: '2023-01-17T08:30:00+10:00'
+    issued: '2023-01-18T09:30:00+10:00'
+    performer:
+    - reference: Organization/pullabooka-pathology
+    result:
+    - reference: Observation/lipid-hdl-1
+      display: HDL
+    - reference: Observation/lipid-ldl-1
+      display: LDL
+    - reference: Observation/lipid-total-chol-1
+      display: Total cholesterol
+    - reference: Observation/lipid-triglyceride-1
+      display: Triglyceride
+  DocumentReference:
+  - resourceType: DocumentReference
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
+    identifier:
+    - system: urn:ietf:rfc:3986
+      value: urn:uuid:b8b5a649-d339-4fd4-8da9-77d7c326ae87
+    status: current
+    type:
+      coding:
+      - system: http://loinc.org
+        code: 60591-5
+        display: Patient summary Document
+    category:
+    - coding:
+      - system: http://loinc.org
+        code: 107903-7
+        display: Clinical note
+    subject:
+      reference: Patient/banks-mia-leanne
+    date: '2025-02-03T15:08:15+10:00'
+    author:
+    - reference: PractitionerRole/bobrester-bob-gp
+    content:
+    - attachment:
+        contentType: application/fhir+xml
+        data: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEJ1bmRsZSB4bWxucz0iaHR0cDovL2hsNy5vcmcvZmhpciI+CiAgPGlkIHZhbHVlPSJhdXBzLWJhc2ljc3VtbWFyeSIvPgogIDxtZXRhPgogICAgPHByb2ZpbGUgdmFsdWU9Imh0dHA6Ly9obDcub3JnLmF1L2ZoaXIvcHMvU3RydWN0dXJlRGVmaW5pdGlvbi9hdS1wcy1idW5kbGUiLz4KICA8L21ldGE+CiAgPGxhbmd1YWdlIHZhbHVlPSJlbi1BVSIvPgogIDxpZGVudGlmaWVyPgogICAgPHN5c3RlbSB2YWx1ZT0idXJuOmlldGY6cmZjOjM5ODYiLz4KICAgIDx2YWx1ZSB2YWx1ZT0idXJuOnV1aWQ6MGJkMjdmZWQtNWYxMS00MzQ0LWJlZWItYzNiNzhjMDBmNjA0Ii8+CiAgPC9pZGVudGlmaWVyPgogIDx0eXBlIHZhbHVlPSJkb2N1bWVudCIvPgogIDx0aW1lc3RhbXAgdmFsdWU9IjIwMjUtMDItMDVUMTk6MzM6MTEuMDYwNzcwMSsxMDowMCIvPgogIDxlbnRyeT4KICAgIDxmdWxsVXJsIHZhbHVlPSJ1cm46dXVpZDpjNTM1OWVmMi1lZjI3LTQ0NWEtODMzYS1jNTNlNmJiNDM3YzUiLz4KICAgIDxyZXNvdXJjZT4KICAgICAgPENvbXBvc2l0aW9uPgogICAgICAgIDxpZCB2YWx1ZT0iYzUzNTllZjItZWYyNy00NDVhLTgzM2EtYzUzZTZiYjQzN2M1Ii8+CiAgICAgICAgPG1ldGE+CiAgICAgICAgICA8dmVyc2lvbklkIHZhbHVlPSIxIi8+CiAgICAgICAgPC9tZXRhPgogICAgICAgIDxsYW5ndWFnZSB2YWx1ZT0iZW4tQVUiLz4KICAgICAgICA8c3RhdHVzIHZhbHVlPSJmaW5hbCIvPgogICAgICAgIDx0eXBlPgogICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL2xvaW5jLm9yZyIvPgogICAgICAgICAgICA8Y29kZSB2YWx1ZT0iNjA1OTEtNSIvPgogICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iUGF0aWVudCBzdW1tYXJ5IERvY3VtZW50Ii8+CiAgICAgICAgICA8L2NvZGluZz4KICAgICAgICA8L3R5cGU+CiAgICAgICAgPHN1YmplY3Q+CiAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo5YmU4OGNjNi0wOWU4LTRkYzYtYjA1OC04ODY3NjI0MGRiYzciLz4KICAgICAgICA8L3N1YmplY3Q+CiAgICAgICAgPGRhdGUgdmFsdWU9IjIwMjUtMDItMDMiLz4KICAgICAgICA8YXV0aG9yPgogICAgICAgICAgPHJlZmVyZW5jZSB2YWx1ZT0idXJuOnV1aWQ6NDYzYzI5ODItMzc1OS00MDIyLWI0MGUtNTIxYmJlNTRkNTQ0Ii8+CiAgICAgICAgPC9hdXRob3I+CiAgICAgICAgPHRpdGxlIHZhbHVlPSJBdXN0cmFsaWFuIFBhdGllbnQgU3VtbWFyeSIvPgogICAgICAgIDxjdXN0b2RpYW4+CiAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo3MGE3NTZlMy0yMGIzLTQ2MzctODYwMS1hMjIyOTgzZTI5NWEiLz4KICAgICAgICA8L2N1c3RvZGlhbj4KICAgICAgICA8c2VjdGlvbj4KICAgICAgICAgIDx0aXRsZSB2YWx1ZT0iQWN0aXZlIFByb2JsZW1zIi8+CiAgICAgICAgICA8Y29kZT4KICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vbG9pbmMub3JnIi8+CiAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjExNDUwLTQiLz4KICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iUHJvYmxlbSBsaXN0IC0gUmVwb3J0ZWQiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICA8L2NvZGU+CiAgICAgICAgICA8dGV4dD4KICAgICAgICAgICAgPHN0YXR1cyB2YWx1ZT0iZ2VuZXJhdGVkIi8+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgbGFuZz0iZW4tQVUiIHhtbDpsYW5nPSJlbi1BVSI+MjEvMTIvMjAyNCBObyBjdXJyZW50IHByb2JsZW0gb3IgZGlzYWJpbGl0eS48L2Rpdj4KICAgICAgICAgIDwvdGV4dD4KICAgICAgICAgIDxlbnRyeT4KICAgICAgICAgICAgPHJlZmVyZW5jZSB2YWx1ZT0idXJuOnV1aWQ6MzEwZjE1OTMtZDYxMC00MTQ0LWE2ZTgtMWY4MjNkOTU1ZTBkIi8+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgICA8c2VjdGlvbj4KICAgICAgICAgIDx0aXRsZSB2YWx1ZT0iQWN0aXZlIEFsbGVyZ2llcyBvciBJbnRvbGVyYW5jZXMiLz4KICAgICAgICAgIDxjb2RlPgogICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9sb2luYy5vcmciLz4KICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iNDg3NjUtMiIvPgogICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJBbGxlcmdpZXMgYW5kIGFkdmVyc2UgcmVhY3Rpb25zIERvY3VtZW50Ii8+CiAgICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPC9jb2RlPgogICAgICAgICAgPHRleHQ+CiAgICAgICAgICAgIDxzdGF0dXMgdmFsdWU9ImdlbmVyYXRlZCIvPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGxhbmc9ImVuLUFVIiB4bWw6bGFuZz0iZW4tQVUiPgogICAgICAgICAgICA8dGFibGUgYm9yZGVyPSIxIj4KICAgICAgICAgICAgICA8dGhlYWQ+CiAgICAgICAgICAgICAgICA8dHI+CiAgICAgICAgICAgICAgICAgIDx0aD5BbGxlcmd5LCBJbnRvbGVyYW5jZSwgU3Vic3RhbmNlPC90aD4KICAgICAgICAgICAgICAgICAgPHRoPk9uc2V0PC90aD4KICAgICAgICAgICAgICAgICAgPHRoPlJlY29yZGVkPC90aD4KICAgICAgICAgICAgICAgICAgPHRoPk1hbmlmZXN0YXRpb248L3RoPgogICAgICAgICAgICAgICAgICA8dGg+TWFuaWZlc3RhdGlvbiBTZXZlcml0eTwvdGg+CiAgICAgICAgICAgICAgICA8L3RyPgogICAgICAgICAgICAgIDwvdGhlYWQ+CiAgICAgICAgICAgICAgPHRib2R5PgogICAgICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgICA8dGQ+SW50b2xlcmFuY2UgdG8gbGFjdG9zZTwvdGQ+CiAgICAgICAgICAgICAgICAgIDx0ZD4yMDIyPC90ZD4KICAgICAgICAgICAgICAgICAgPHRkPjE0LzAzLzIwMjM8L3RkPgogICAgICAgICAgICAgICAgICA8dGQ+QWJkb21pbmFsIHBhaW4sIEFiZG9taW5hbCBibG9hdGluZywgRGlhcnJob2VhPC90ZD4KICAgICAgICAgICAgICAgICAgPHRkPk1pbGQ8L3RkPgogICAgICAgICAgICAgICAgPC90cj4KICAgICAgICAgICAgICAgIDx0cj4KICAgICAgICAgICAgICAgICAgPHRkPkdsdXRlbiBpbnRvbGVyYW5jZTwvdGQ+CiAgICAgICAgICAgICAgICAgIDx0ZD4xOTk5PC90ZD4KICAgICAgICAgICAgICAgICAgPHRkPjEyLzAxLzIwMjM8L3RkPgogICAgICAgICAgICAgICAgICA8dGQ+RmF0aWd1ZTwvdGQ+CiAgICAgICAgICAgICAgICAgIDx0ZD5NaWxkPC90ZD4KICAgICAgICAgICAgICAgIDwvdHI+CiAgICAgICAgICAgICAgICA8dHI+CiAgICAgICAgICAgICAgICAgIDx0ZD5DaGxvcmhleGlkaW5lPC90ZD4KICAgICAgICAgICAgICAgICAgPHRkPjEyLzAxLzIwMjM8L3RkPgogICAgICAgICAgICAgICAgICA8dGQ+MDkvMDkvMjAyMzwvdGQ+CiAgICAgICAgICAgICAgICAgIDx0ZD5IaXZlczwvdGQ+CiAgICAgICAgICAgICAgICAgIDx0ZD5NaWxkPC90ZD4KICAgICAgICAgICAgICAgIDwvdHI+CiAgICAgICAgICAgICAgPC90Ym9keT4KICAgICAgICAgICAgPC90YWJsZT4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8L3RleHQ+CiAgICAgICAgICA8ZW50cnk+CiAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9InVybjp1dWlkOmFkNmZiN2I3LWM3NmYtNDQxZS04OGE1LTkwNTFlNzk1ZGIyNiIvPgogICAgICAgICAgPC9lbnRyeT4KICAgICAgICAgIDxlbnRyeT4KICAgICAgICAgICAgPHJlZmVyZW5jZSB2YWx1ZT0idXJuOnV1aWQ6MDZiYTk1ZjUtMzQ1Yi00MTJkLWFhNjYtOTllMzU0NDcwMDE1Ii8+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgICAgPGVudHJ5PgogICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDpkMjRkYjJkNS0zNDAwLTQxNTgtODkyYy1kMDE4YWNkZWJhMDkiLz4KICAgICAgICAgIDwvZW50cnk+CiAgICAgICAgPC9zZWN0aW9uPgogICAgICAgIDxzZWN0aW9uPgogICAgICAgICAgPHRpdGxlIHZhbHVlPSJDdXJyZW50IE1lZGljaW5lcyIvPgogICAgICAgICAgPGNvZGU+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL2xvaW5jLm9yZyIvPgogICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIxMDE2MC0wIi8+CiAgICAgICAgICAgICAgPGRpc3BsYXkgdmFsdWU9Ikhpc3Rvcnkgb2YgTWVkaWNhdGlvbiB1c2UgTmFycmF0aXZlIi8+CiAgICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPC9jb2RlPgogICAgICAgICAgPHRleHQ+CiAgICAgICAgICAgIDxzdGF0dXMgdmFsdWU9ImdlbmVyYXRlZCIvPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGxhbmc9ImVuLUFVIiB4bWw6bGFuZz0iZW4tQVUiPgogICAgICAgICAgICAgIDx0YWJsZSBib3JkZXI9IjEiPgogICAgICAgICAgICAgICAgPHRoZWFkPgogICAgICAgICAgICAgICAgICA8dHI+CiAgICAgICAgICAgICAgICAgICAgPHRoPk1lZGljaW5lPC90aD4KICAgICAgICAgICAgICAgICAgICA8dGg+RGlyZWN0aW9uczwvdGg+CiAgICAgICAgICAgICAgICAgICAgPHRoPkRhdGUgYXNzZXJ0ZWQ8L3RoPgogICAgICAgICAgICAgICAgICA8L3RyPgogICAgICAgICAgICAgICAgPC90aGVhZD4KICAgICAgICAgICAgICAgIDx0Ym9keT4KICAgICAgICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgICAgIDx0ZD48Yj5CaXNvcHJvbG9sPC9iPiAyLjVtZyB0YWI8L3RkPgogICAgICAgICAgICAgICAgICAgIDx0ZD5UYWtlIDEvMiB0YWJsZXQgaW4gdGhlIG1vcm5pbmc8L3RkPgogICAgICAgICAgICAgICAgICAgIDx0ZD4wNS8wMS8yMDI1PC90ZD4KICAgICAgICAgICAgICAgICAgPC90cj4KICAgICAgICAgICAgICAgIDwvdGJvZHk+CiAgICAgICAgICAgICAgPC90YWJsZT4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8L3RleHQ+CiAgICAgICAgICA8ZW50cnk+CiAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9InVybjp1dWlkOjM0N2U4NDM1LWNlYTEtNGU5NC05NzU1LWFiYjAyNzkyNmJiMSIvPgogICAgICAgICAgPC9lbnRyeT4KICAgICAgICA8L3NlY3Rpb24+CiAgICAgIDwvQ29tcG9zaXRpb24+CiAgICA8L3Jlc291cmNlPgogIDwvZW50cnk+CiAgPGVudHJ5PgogICAgPGZ1bGxVcmwgdmFsdWU9InVybjp1dWlkOjliZTg4Y2M2LTA5ZTgtNGRjNi1iMDU4LTg4Njc2MjQwZGJjNyIvPgogICAgPHJlc291cmNlPgogICAgICA8UGF0aWVudD4KICAgICAgICA8aWQgdmFsdWU9IjliZTg4Y2M2LTA5ZTgtNGRjNi1iMDU4LTg4Njc2MjQwZGJjNyIvPgogICAgICAgIDxleHRlbnNpb24gdXJsPSJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vaW5kaXZpZHVhbC1nZW5kZXJJZGVudGl0eSI+CiAgICAgICAgICA8ZXh0ZW5zaW9uIHVybD0idmFsdWUiPgogICAgICAgICAgICAgIDx2YWx1ZUNvZGVhYmxlQ29uY2VwdD4KICAgICAgICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSI0NDYxNDEwMDAxMjQxMDciLz4KICAgICAgICAgICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJJZGVudGlmaWVzIGFzIGZlbWFsZSBnZW5kZXIiLz4KICAgICAgICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgICAgPC92YWx1ZUNvZGVhYmxlQ29uY2VwdD4KICAgICAgICAgIDwvZXh0ZW5zaW9uPgogICAgICAgIDwvZXh0ZW5zaW9uPgogICAgICAgIDxleHRlbnNpb24gdXJsPSJodHRwOi8vaGw3Lm9yZy9maGlyL1N0cnVjdHVyZURlZmluaXRpb24vaW5kaXZpZHVhbC1wcm9ub3VucyI+CiAgICAgICAgICA8ZXh0ZW5zaW9uIHVybD0idmFsdWUiPgogICAgICAgICAgICAgIDx2YWx1ZUNvZGVhYmxlQ29uY2VwdD4KICAgICAgICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9sb2luYy5vcmciLz4KICAgICAgICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJMQTI5NTE5LTgiLz4KICAgICAgICAgICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJzaGUvaGVyL2hlci9oZXJzL2hlcnNlbGYiLz4KICAgICAgICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgICAgPC92YWx1ZUNvZGVhYmxlQ29uY2VwdD4KICAgICAgICAgIDwvZXh0ZW5zaW9uPgogICAgICAgIDwvZXh0ZW5zaW9uPgogICAgICAgIDxpZGVudGlmaWVyPgogICAgICAgICAgPGV4dGVuc2lvbiB1cmw9Imh0dHA6Ly9obDcub3JnLmF1L2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi9paGktc3RhdHVzIj4KICAgICAgICAgICAgICA8dmFsdWVDb2Rpbmc+CiAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHBzOi8vaGVhbHRodGVybWlub2xvZ2llcy5nb3YuYXUvZmhpci9Db2RlU3lzdGVtL2loaS1zdGF0dXMtMSIvPgogICAgICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iYWN0aXZlIi8+CiAgICAgICAgICAgICAgPC92YWx1ZUNvZGluZz4KICAgICAgICAgIDwvZXh0ZW5zaW9uPgogICAgICAgICAgPGV4dGVuc2lvbiB1cmw9Imh0dHA6Ly9obDcub3JnLmF1L2ZoaXIvU3RydWN0dXJlRGVmaW5pdGlvbi9paGktcmVjb3JkLXN0YXR1cyI+CiAgICAgICAgICAgICAgPHZhbHVlQ29kaW5nPgogICAgICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwczovL2hlYWx0aHRlcm1pbm9sb2dpZXMuZ292LmF1L2ZoaXIvQ29kZVN5c3RlbS9paGktcmVjb3JkLXN0YXR1cy0xIi8+CiAgICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJ2ZXJpZmllZCIvPgogICAgICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0idmVyaWZpZWQiLz4KICAgICAgICAgICAgICA8L3ZhbHVlQ29kaW5nPgogICAgICAgICAgPC9leHRlbnNpb24+CiAgICAgICAgICA8dHlwZT4KICAgICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL3YyLTAyMDMiLz4KICAgICAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9Ik5JIi8+CiAgICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgICAgPHRleHQgdmFsdWU9IklISSIvPgogICAgICAgICAgPC90eXBlPgogICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL25zLmVsZWN0cm9uaWNoZWFsdGgubmV0LmF1L2lkL2hpL2loaS8xLjAiLz4KICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iODAwMzYwODMzMzY0NzI2MSIvPgogICAgICAgIDwvaWRlbnRpZmllcj4KICAgICAgICA8bmFtZT4KICAgICAgICAgICAgPHVzZSB2YWx1ZT0idXN1YWwiLz4KICAgICAgICAgICAgPGZhbWlseSB2YWx1ZT0iQmFua3MiLz4KICAgICAgICAgICAgPGdpdmVuIHZhbHVlPSJNaWEiLz4KICAgICAgICAgICAgPGdpdmVuIHZhbHVlPSJMZWFubmUiLz4KICAgICAgICA8L25hbWU+CiAgICAgICAgPHRlbGVjb20+CiAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9InBob25lIi8+CiAgICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iMDI3MDEwMjcyNCIvPgogICAgICAgICAgICA8dXNlIHZhbHVlPSJ3b3JrIi8+CiAgICAgICAgPC90ZWxlY29tPgogICAgICAgIDx0ZWxlY29tPgogICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJwaG9uZSIvPgogICAgICAgICAgICA8dmFsdWUgdmFsdWU9IjA0OTE1NzQ2MzIiLz4KICAgICAgICAgICAgPHVzZSB2YWx1ZT0ibW9iaWxlIi8+CiAgICAgICAgPC90ZWxlY29tPgogICAgICAgIDx0ZWxlY29tPgogICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJwaG9uZSIvPgogICAgICAgICAgICA8dmFsdWUgdmFsdWU9IjAyNzAxMDc1MjAiLz4KICAgICAgICAgICAgPHVzZSB2YWx1ZT0iaG9tZSIvPgogICAgICAgIDwvdGVsZWNvbT4KICAgICAgICA8dGVsZWNvbT4KICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iZW1haWwiLz4KICAgICAgICAgICAgPHZhbHVlIHZhbHVlPSJtaWEuYmFua3NAbXlvd25wZXJzb25hbGRvbWFpbi5jb20iLz4KICAgICAgICA8L3RlbGVjb20+CiAgICAgICAgPHRlbGVjb20+CiAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9InBob25lIi8+CiAgICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iMjcwMTA3NTIwIi8+CiAgICAgICAgICAgIDx1c2UgdmFsdWU9ImhvbWUiLz4KICAgICAgICA8L3RlbGVjb20+CiAgICAgICAgPGdlbmRlciB2YWx1ZT0iZmVtYWxlIi8+CiAgICAgICAgPGJpcnRoRGF0ZSB2YWx1ZT0iMTk4My0wOC0yNSIvPgogICAgICAgIDxhZGRyZXNzPgogICAgICAgICAgICA8bGluZSB2YWx1ZT0iNTAgU2ViYXN0aWVuIFN0Ii8+CiAgICAgICAgICAgIDxjaXR5IHZhbHVlPSJNaW5qYXJ5Ii8+CiAgICAgICAgICAgIDxzdGF0ZSB2YWx1ZT0iTlNXIi8+CiAgICAgICAgICAgIDxwb3N0YWxDb2RlIHZhbHVlPSIyNzIwIi8+CiAgICAgICAgICAgIDxjb3VudHJ5IHZhbHVlPSJBVSIvPgogICAgICAgIDwvYWRkcmVzcz4KICAgICAgPC9QYXRpZW50PgogICAgPC9yZXNvdXJjZT4KICA8L2VudHJ5PgogIDxlbnRyeT4KICAgIDxmdWxsVXJsIHZhbHVlPSJ1cm46dXVpZDo3MGE3NTZlMy0yMGIzLTQ2MzctODYwMS1hMjIyOTgzZTI5NWEiLz4KICAgIDxyZXNvdXJjZT4KICAgICAgPE9yZ2FuaXphdGlvbj4KICAgICAgICA8aWQgdmFsdWU9IjcwYTc1NmUzLTIwYjMtNDYzNy04NjAxLWEyMjI5ODNlMjk1YSIvPgogICAgICAgIDxpZGVudGlmaWVyPgogICAgICAgICAgPHR5cGU+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL3YyLTAyMDMiLz4KICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJYWCIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgICAgPHRleHQgdmFsdWU9IkFCTiIvPgogICAgICAgICAgPC90eXBlPgogICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL2hsNy5vcmcuYXUvaWQvYWJuIi8+CiAgICAgICAgICA8dmFsdWUgdmFsdWU9IjEyMzQ1Njc4OTAxIi8+CiAgICAgICAgPC9pZGVudGlmaWVyPgogICAgICAgIDx0eXBlPgogICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vc25vbWVkLmluZm8vc2N0Ii8+CiAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjI4ODU2NTAwMSIvPgogICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJNZWRpY2FsIGNlbnRyZSIvPgogICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICA8dGV4dCB2YWx1ZT0iTWVkaWNhbCBDZW50ZXIiLz4KICAgICAgICA8L3R5cGU+CiAgICAgICAgPG5hbWUgdmFsdWU9IkJvYnJlc3RlciBNZWRpY2FsIENlbnRlciIvPgogICAgICAgIDx0ZWxlY29tPgogICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iZW1haWwiLz4KICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iaW5mb0Bib2JyZXN0ZXJtZWRpY2FsLmV4YW1wbGUuY29tIi8+CiAgICAgICAgICA8dXNlIHZhbHVlPSJ3b3JrIi8+CiAgICAgICAgPC90ZWxlY29tPgogICAgICAgIDx0ZWxlY29tPgogICAgICAgICAgPHN5c3RlbSB2YWx1ZT0icGhvbmUiLz4KICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iKDA3KSA1NTUwIDI0MjciLz4KICAgICAgICAgIDx1c2UgdmFsdWU9IndvcmsiLz4KICAgICAgICA8L3RlbGVjb20+CiAgICAgICAgPGFkZHJlc3M+CiAgICAgICAgICA8bGluZSB2YWx1ZT0iODcgV2VzdGVybiBFc3AiLz4KICAgICAgICAgIDxjaXR5IHZhbHVlPSJUaW5kYWwgUkFBRiIvPgogICAgICAgICAgPHN0YXRlIHZhbHVlPSJRTEQiLz4KICAgICAgICAgIDxwb3N0YWxDb2RlIHZhbHVlPSI0NjU1Ii8+CiAgICAgICAgICA8Y291bnRyeSB2YWx1ZT0iQVUiLz4KICAgICAgICA8L2FkZHJlc3M+CiAgICAgIDwvT3JnYW5pemF0aW9uPgogICAgPC9yZXNvdXJjZT4KICA8L2VudHJ5PgogIDxlbnRyeT4KICAgIDxmdWxsVXJsIHZhbHVlPSJ1cm46dXVpZDo0NjNjMjk4Mi0zNzU5LTQwMjItYjQwZS01MjFiYmU1NGQ1NDQiLz4KICAgIDxyZXNvdXJjZT4KICAgICAgPFByYWN0aXRpb25lclJvbGU+CiAgICAgICAgPGlkIHZhbHVlPSI0NjNjMjk4Mi0zNzU5LTQwMjItYjQwZS01MjFiYmU1NGQ1NDQiLz4KICAgICAgICA8aWRlbnRpZmllcj4KICAgICAgICAgIDx0eXBlPgogICAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly90ZXJtaW5vbG9neS5obDcub3JnL0NvZGVTeXN0ZW0vdjItMDIwMyIvPgogICAgICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iRUkiLz4KICAgICAgICAgICAgICAgICAgPGRpc3BsYXkgdmFsdWU9IkVtcGxveWVlIG51bWJlciIvPgogICAgICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgICAgIDx0ZXh0IHZhbHVlPSJFbXBsb3llZSBOdW1iZXIiLz4KICAgICAgICAgIDwvdHlwZT4KICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9ucy5lbGVjdHJvbmljaGVhbHRoLm5ldC5hdS9pZC9hYm4tc2NvcGVkL3NlcnZpY2UtcHJvdmlkZXItaW5kaXZpZHVhbC8xLjAvMTIzNDU2Nzg5MDEiLz4KICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iMTIzNDU2NzgiLz4KICAgICAgICAgIDxhc3NpZ25lcj4KICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iQm9icmVzdGVyIE1lZGljYWwgQ2VudGVyIi8+CiAgICAgICAgICA8L2Fzc2lnbmVyPgogICAgICAgIDwvaWRlbnRpZmllcj4KICAgICAgICA8cHJhY3RpdGlvbmVyPgogICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDpkY2U1MDQ3Mi0yYTk0LTQ3ZTYtOTUwMS1iNTJmMGRmMGM4MTMiLz4KICAgICAgICA8L3ByYWN0aXRpb25lcj4KICAgICAgICA8b3JnYW5pemF0aW9uPgogICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo3MGE3NTZlMy0yMGIzLTQ2MzctODYwMS1hMjIyOTgzZTI5NWEiLz4KICAgICAgICA8L29yZ2FuaXphdGlvbj4KICAgICAgICA8Y29kZT4KICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSI2MjI0NzAwMSIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly93d3cuYWJzLmdvdi5hdS9hdXNzdGF0cy9hYnNALm5zZi9tZi8xMjIwLjAiLz4KICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIyNTMxMTEiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgIDx0ZXh0IHZhbHVlPSJHZW5lcmFsIFByYWN0aXRpb25lciIvPgogICAgICAgIDwvY29kZT4KICAgICAgICA8dGVsZWNvbT4KICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0icGhvbmUiLz4KICAgICAgICAgICAgPHZhbHVlIHZhbHVlPSIwNDkxNTc5NzYwIi8+CiAgICAgICAgPC90ZWxlY29tPgogICAgICAgIDx0ZWxlY29tPgogICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJlbWFpbCIvPgogICAgICAgICAgICA8dmFsdWUgdmFsdWU9ImRyYm9iQGJvYnJlc3Rlcm1lZGljYWwuZXhhbXBsZS5jb20iLz4KICAgICAgICA8L3RlbGVjb20+CiAgICAgIDwvUHJhY3RpdGlvbmVyUm9sZT4KICAgIDwvcmVzb3VyY2U+CiAgPC9lbnRyeT4KICA8ZW50cnk+CiAgICA8ZnVsbFVybCB2YWx1ZT0idXJuOnV1aWQ6ZGNlNTA0NzItMmE5NC00N2U2LTk1MDEtYjUyZjBkZjBjODEzIi8+CiAgICA8cmVzb3VyY2U+CiAgICAgIDxQcmFjdGl0aW9uZXI+CiAgICAgICAgPGlkIHZhbHVlPSJkY2U1MDQ3Mi0yYTk0LTQ3ZTYtOTUwMS1iNTJmMGRmMGM4MTMiLz4KICAgICAgICA8bmFtZT4KICAgICAgICAgIDxmYW1pbHkgdmFsdWU9IkJvYnJlc3RlciIgLz4KICAgICAgICAgIDxnaXZlbiB2YWx1ZT0iQm9iIiAvPgogICAgICAgICAgPHByZWZpeCB2YWx1ZT0iRHIuIi8+CiAgICAgICAgPC9uYW1lPgogICAgICA8L1ByYWN0aXRpb25lcj4KICAgIDwvcmVzb3VyY2U+CiAgPC9lbnRyeT4KICA8ZW50cnk+CiAgICA8ZnVsbFVybCB2YWx1ZT0idXJuOnV1aWQ6YWQ2ZmI3YjctYzc2Zi00NDFlLTg4YTUtOTA1MWU3OTVkYjI2Ii8+CiAgICA8cmVzb3VyY2U+CiAgICAgIDxBbGxlcmd5SW50b2xlcmFuY2U+CiAgICAgICAgPGlkIHZhbHVlPSJhZDZmYjdiNy1jNzZmLTQ0MWUtODhhNS05MDUxZTc5NWRiMjYiLz4KICAgICAgICA8Y2xpbmljYWxTdGF0dXM+CiAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL2FsbGVyZ3lpbnRvbGVyYW5jZS1jbGluaWNhbCIvPgogICAgICAgICAgICA8Y29kZSB2YWx1ZT0iYWN0aXZlIi8+CiAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJBY3RpdmUiLz4KICAgICAgICAgIDwvY29kaW5nPgogICAgICAgIDwvY2xpbmljYWxTdGF0dXM+CiAgICAgICAgPHZlcmlmaWNhdGlvblN0YXR1cz4KICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly90ZXJtaW5vbG9neS5obDcub3JnL0NvZGVTeXN0ZW0vYWxsZXJneWludG9sZXJhbmNlLXZlcmlmaWNhdGlvbiIvPgogICAgICAgICAgICA8Y29kZSB2YWx1ZT0iY29uZmlybWVkIi8+CiAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJDb25maXJtZWQiLz4KICAgICAgICAgIDwvY29kaW5nPgogICAgICAgIDwvdmVyaWZpY2F0aW9uU3RhdHVzPgogICAgICAgIDxjb2RlPgogICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPgogICAgICAgICAgICA8Y29kZSB2YWx1ZT0iNzgyNDE1MDA5Ii8+CiAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJJbnRvbGVyYW5jZSB0byBsYWN0b3NlIi8+CiAgICAgICAgICA8L2NvZGluZz4KICAgICAgICA8L2NvZGU+CiAgICAgICAgPHBhdGllbnQ+CiAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo5YmU4OGNjNi0wOWU4LTRkYzYtYjA1OC04ODY3NjI0MGRiYzciLz4KICAgICAgICA8L3BhdGllbnQ+CiAgICAgICAgPG9uc2V0RGF0ZVRpbWUgdmFsdWU9IjIwMjIiLz4KICAgICAgICA8cmVjb3JkZWREYXRlIHZhbHVlPSIyMDIzLTAzLTE0Ii8+CiAgICAgICAgPHJlYWN0aW9uPgogICAgICAgICAgPG1hbmlmZXN0YXRpb24+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPgogICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIyMTUyMjAwMSIvPgogICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJBYmRvbWluYWwgcGFpbiIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgIDwvbWFuaWZlc3RhdGlvbj4KICAgICAgICAgIDxtYW5pZmVzdGF0aW9uPgogICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iMTE2Mjg5MDA4Ii8+CiAgICAgICAgICAgICAgPGRpc3BsYXkgdmFsdWU9IkFiZG9taW5hbCBibG9hdGluZyIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgIDwvbWFuaWZlc3RhdGlvbj4KICAgICAgICAgIDxtYW5pZmVzdGF0aW9uPgogICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iNjIzMTUwMDgiLz4KICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iRGlhcnJob2VhIi8+CiAgICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPC9tYW5pZmVzdGF0aW9uPgogICAgICAgICAgPHNldmVyaXR5IHZhbHVlPSJtaWxkIi8+CiAgICAgICAgPC9yZWFjdGlvbj4KICAgICAgPC9BbGxlcmd5SW50b2xlcmFuY2U+CiAgICA8L3Jlc291cmNlPgogIDwvZW50cnk+CiAgPGVudHJ5PgogICAgPGZ1bGxVcmwgdmFsdWU9InVybjp1dWlkOjA2YmE5NWY1LTM0NWItNDEyZC1hYTY2LTk5ZTM1NDQ3MDAxNSIvPgogICAgPHJlc291cmNlPgogICAgICA8QWxsZXJneUludG9sZXJhbmNlPgogICAgICAgIDxpZCB2YWx1ZT0iMDZiYTk1ZjUtMzQ1Yi00MTJkLWFhNjYtOTllMzU0NDcwMDE1Ii8+CiAgICAgICAgPGNsaW5pY2FsU3RhdHVzPgogICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Rlcm1pbm9sb2d5LmhsNy5vcmcvQ29kZVN5c3RlbS9hbGxlcmd5aW50b2xlcmFuY2UtY2xpbmljYWwiLz4KICAgICAgICAgICAgPGNvZGUgdmFsdWU9ImFjdGl2ZSIvPgogICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICA8dGV4dCB2YWx1ZT0iQWN0aXZlIi8+CiAgICAgICAgPC9jbGluaWNhbFN0YXR1cz4KICAgICAgICA8dHlwZSB2YWx1ZT0iaW50b2xlcmFuY2UiLz4KICAgICAgICA8Y29kZT4KICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjEyNjk0MjQwMDYiLz4KICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPHRleHQgdmFsdWU9IkdsdXRlbiBpbnRvbGVyYW5jZSIvPgogICAgICAgIDwvY29kZT4KICAgICAgICA8cGF0aWVudD4KICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9InVybjp1dWlkOjliZTg4Y2M2LTA5ZTgtNGRjNi1iMDU4LTg4Njc2MjQwZGJjNyIvPgogICAgICAgIDwvcGF0aWVudD4KICAgICAgICA8b25zZXREYXRlVGltZSB2YWx1ZT0iMTk5OSIvPgogICAgICAgIDxyZWNvcmRlZERhdGUgdmFsdWU9IjIwMjMtMDEtMTIiLz4KICAgICAgICA8cmVhY3Rpb24+CiAgICAgICAgICA8c3Vic3RhbmNlPgogICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICA8Y29kZSB2YWx1ZT0iODk4MTEwMDQiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgIDx0ZXh0IHZhbHVlPSJHbHV0ZW4iLz4KICAgICAgICAgIDwvc3Vic3RhbmNlPgogICAgICAgICAgPG1hbmlmZXN0YXRpb24+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPgogICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSI4NDIyOTAwMSIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgICAgPHRleHQgdmFsdWU9IkZhdGlndWUiLz4KICAgICAgICAgIDwvbWFuaWZlc3RhdGlvbj4KICAgICAgICAgIDxzZXZlcml0eSB2YWx1ZT0ibWlsZCIvPgogICAgICAgIDwvcmVhY3Rpb24+CiAgICAgIDwvQWxsZXJneUludG9sZXJhbmNlPgogICAgPC9yZXNvdXJjZT4KICA8L2VudHJ5PgogIDxlbnRyeT4KICAgIDxmdWxsVXJsIHZhbHVlPSJ1cm46dXVpZDpkMjRkYjJkNS0zNDAwLTQxNTgtODkyYy1kMDE4YWNkZWJhMDkiLz4KICAgIDxyZXNvdXJjZT4KICAgICAgPEFsbGVyZ3lJbnRvbGVyYW5jZT4KICAgICAgICA8aWQgdmFsdWU9ImQyNGRiMmQ1LTM0MDAtNDE1OC04OTJjLWQwMThhY2RlYmEwOSIvPgogICAgICAgIDxjbGluaWNhbFN0YXR1cz4KICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly90ZXJtaW5vbG9neS5obDcub3JnL0NvZGVTeXN0ZW0vYWxsZXJneWludG9sZXJhbmNlLWNsaW5pY2FsIi8+CiAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJhY3RpdmUiLz4KICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPHRleHQgdmFsdWU9IkFjdGl2ZSIvPgogICAgICAgIDwvY2xpbmljYWxTdGF0dXM+CiAgICAgICAgPGNvZGU+CiAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vc25vbWVkLmluZm8vc2N0Ii8+CiAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIzNzM1NjgwMDciLz4KICAgICAgICAgIDwvY29kaW5nPgogICAgICAgICAgPHRleHQgdmFsdWU9IkNobG9yaGV4aWRpbmUiLz4KICAgICAgICA8L2NvZGU+CiAgICAgICAgPHBhdGllbnQ+CiAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo5YmU4OGNjNi0wOWU4LTRkYzYtYjA1OC04ODY3NjI0MGRiYzciLz4KICAgICAgICA8L3BhdGllbnQ+CiAgICAgICAgPG9uc2V0RGF0ZVRpbWUgdmFsdWU9IjIwMjMtMDEtMTIiLz4KICAgICAgICA8cmVjb3JkZWREYXRlIHZhbHVlPSIyMDIzLTA5LTA5Ii8+CiAgICAgICAgPHJlYWN0aW9uPgogICAgICAgICAgPHN1YnN0YW5jZT4KICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vc25vbWVkLmluZm8vc2N0Ii8+CiAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjM3MzU2ODAwNyIvPgogICAgICAgICAgICA8L2NvZGluZz4KICAgICAgICAgICAgPHRleHQgdmFsdWU9IkNobG9yaGV4aWRpbmUiLz4KICAgICAgICAgIDwvc3Vic3RhbmNlPgogICAgICAgICAgPG1hbmlmZXN0YXRpb24+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPgogICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIyNDc0NzIwMDQiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgIDx0ZXh0IHZhbHVlPSJIaXZlcyIvPgogICAgICAgICAgPC9tYW5pZmVzdGF0aW9uPgogICAgICAgICAgPHNldmVyaXR5IHZhbHVlPSJtaWxkIi8+CiAgICAgICAgPC9yZWFjdGlvbj4KICAgICAgPC9BbGxlcmd5SW50b2xlcmFuY2U+CiAgICA8L3Jlc291cmNlPgogIDwvZW50cnk+CiAgPGVudHJ5PgogICAgPGZ1bGxVcmwgdmFsdWU9InVybjp1dWlkOjM0N2U4NDM1LWNlYTEtNGU5NC05NzU1LWFiYjAyNzkyNmJiMSIvPgogICAgPHJlc291cmNlPgogICAgICA8TWVkaWNhdGlvblN0YXRlbWVudCB4bWxucz0iaHR0cDovL2hsNy5vcmcvZmhpciI+CiAgICAgICAgPGlkIHZhbHVlPSIzNDdlODQzNS1jZWExLTRlOTQtOTc1NS1hYmIwMjc5MjZiYjEiLz4KICAgICAgICA8Y29udGFpbmVkPgogICAgICAgICAgPE1lZGljYXRpb24+CiAgICAgICAgICAgIDxpZCB2YWx1ZT0iYmlzb3Byb2xvbCIvPgogICAgICAgICAgICA8Y29kZT4KICAgICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPgogICAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjIzMjgxMDExMDAwMDM2MTA2Ii8+CiAgICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iQmlzb3Byb2xvbCBmdW1hcmF0ZSAyLjUgbWcgdGFibGV0Ii8+CiAgICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgICAgPHRleHQgdmFsdWU9IkJpc29wcm9sb2wgMi41bWcgdGFiIi8+CiAgICAgICAgICAgIDwvY29kZT4KICAgICAgICAgICAgPGZvcm0+IAogICAgICAgICAgICAgIDxjb2Rpbmc+IAogICAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPiAKICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIzODUwNTUwMDEiLz4gCiAgICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iVGFibGV0Ii8+IAogICAgICAgICAgICAgIDwvY29kaW5nPiAKICAgICAgICAgICAgPC9mb3JtPgogICAgICAgICAgICA8aW5ncmVkaWVudD4KICAgICAgICAgICAgICA8aXRlbUNvZGVhYmxlQ29uY2VwdD4KICAgICAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjM4Njg2OTAwNiIvPgogICAgICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iQmlzb3Byb2xvbCBmdW1hcmF0ZSIvPgogICAgICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgICAgICAgPC9pdGVtQ29kZWFibGVDb25jZXB0PgogICAgICAgICAgICAgIDxzdHJlbmd0aD4gCiAgICAgICAgICAgICAgICA8bnVtZXJhdG9yPiAKICAgICAgICAgICAgICAgICAgPHZhbHVlIHZhbHVlPSIyLjUiLz4gCiAgICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly91bml0c29mbWVhc3VyZS5vcmciLz4gCiAgICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJtZyIvPiAKICAgICAgICAgICAgICAgIDwvbnVtZXJhdG9yPiAKICAgICAgICAgICAgICAgIDxkZW5vbWluYXRvcj4gCiAgICAgICAgICAgICAgICAgIDx2YWx1ZSB2YWx1ZT0iMSIvPiAKICAgICAgICAgICAgICAgICAgPHVuaXQgdmFsdWU9IlRhYmxldCIvPiAKICAgICAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Nub21lZC5pbmZvL3NjdCIvPiAKICAgICAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9IjM4NTA1NTAwMSIvPiAKICAgICAgICAgICAgICAgIDwvZGVub21pbmF0b3I+IAogICAgICAgICAgICAgIDwvc3RyZW5ndGg+IAogICAgICAgICAgICA8L2luZ3JlZGllbnQ+CiAgICAgICAgICA8L01lZGljYXRpb24+CiAgICAgICAgPC9jb250YWluZWQ+CiAgICAgICAgPHN0YXR1cyB2YWx1ZT0iYWN0aXZlIi8+CiAgICAgICAgPG1lZGljYXRpb25SZWZlcmVuY2U+CiAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9IiNiaXNvcHJvbG9sIi8+CiAgICAgICAgPC9tZWRpY2F0aW9uUmVmZXJlbmNlPgogICAgICAgIDxzdWJqZWN0PgogICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo5YmU4OGNjNi0wOWU4LTRkYzYtYjA1OC04ODY3NjI0MGRiYzciLz4KICAgICAgICA8L3N1YmplY3Q+CiAgICAgICAgPGVmZmVjdGl2ZURhdGVUaW1lIHZhbHVlPSIyMDI1LTAxLTA1Ii8+CiAgICAgICAgPGRhdGVBc3NlcnRlZCB2YWx1ZT0iMjAyNS0wMS0wNSIvPgogICAgICAgIDxkb3NhZ2U+CiAgICAgICAgICAgIDx0ZXh0IHZhbHVlPSIxLzIgdGFibGV0IGluIHRoZSBtb3JuaW5nIi8+CiAgICAgICAgPC9kb3NhZ2U+CiAgICAgIDwvTWVkaWNhdGlvblN0YXRlbWVudD4KICAgIDwvcmVzb3VyY2U+CiAgPC9lbnRyeT4KICA8ZW50cnk+CiAgICA8ZnVsbFVybCB2YWx1ZT0idXJuOnV1aWQ6MzEwZjE1OTMtZDYxMC00MTQ0LWE2ZTgtMWY4MjNkOTU1ZTBkIi8+CiAgICA8cmVzb3VyY2U+CiAgICAgIDxDb25kaXRpb24geG1sbnM9Imh0dHA6Ly9obDcub3JnL2ZoaXIiPgogICAgICAgIDxpZCB2YWx1ZT0iMzEwZjE1OTMtZDYxMC00MTQ0LWE2ZTgtMWY4MjNkOTU1ZTBkIi8+CiAgICAgICAgPGNsaW5pY2FsU3RhdHVzPgogICAgICAgICAgICA8Y29kaW5nPgogICAgICAgICAgICAgICAgPHN5c3RlbSB2YWx1ZT0iaHR0cDovL3Rlcm1pbm9sb2d5LmhsNy5vcmcvQ29kZVN5c3RlbS9jb25kaXRpb24tY2xpbmljYWwiLz4KICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSJhY3RpdmUiLz4KICAgICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJBY3RpdmUiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgPC9jbGluaWNhbFN0YXR1cz4KICAgICAgICA8Y2F0ZWdvcnk+CiAgICAgICAgICAgIDxjb2Rpbmc+CiAgICAgICAgICAgICAgICA8c3lzdGVtIHZhbHVlPSJodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL2NvbmRpdGlvbi1jYXRlZ29yeSIvPgogICAgICAgICAgICAgICAgPGNvZGUgdmFsdWU9InByb2JsZW0tbGlzdC1pdGVtIi8+CiAgICAgICAgICAgICAgICA8ZGlzcGxheSB2YWx1ZT0iUHJvYmxlbSBMaXN0IEl0ZW0iLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgPC9jYXRlZ29yeT4KICAgICAgICA8Y29kZT4KICAgICAgICAgICAgPGNvZGluZz4KICAgICAgICAgICAgICAgIDxzeXN0ZW0gdmFsdWU9Imh0dHA6Ly9zbm9tZWQuaW5mby9zY3QiLz4KICAgICAgICAgICAgICAgIDxjb2RlIHZhbHVlPSIxNjAyNDUwMDEiLz4KICAgICAgICAgICAgICAgIDxkaXNwbGF5IHZhbHVlPSJObyBjdXJyZW50IHByb2JsZW1zIG9yIGRpc2FiaWxpdHkiLz4KICAgICAgICAgICAgPC9jb2Rpbmc+CiAgICAgICAgPC9jb2RlPgogICAgICAgIDxzdWJqZWN0PgogICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSJ1cm46dXVpZDo5YmU4OGNjNi0wOWU4LTRkYzYtYjA1OC04ODY3NjI0MGRiYzciLz4KICAgICAgICA8L3N1YmplY3Q+CiAgICAgICAgPHJlY29yZGVkRGF0ZSB2YWx1ZT0iMjAyNC0xMi0yMSIvPgogICAgICA8L0NvbmRpdGlvbj4KICAgIDwvcmVzb3VyY2U+CiAgPC9lbnRyeT4KPC9CdW5kbGU+
+  - resourceType: DocumentReference
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-documentreference
+    status: current
+    type:
+      coding:
+      - system: http://loinc.org
+        code: 60591-5
+        display: Patient summary Document
+    subject:
+      reference: Patient/banks-mia-leanne
+    date: '2025-01-08T15:08:15+10:00'
+    content:
+    - attachment:
+        contentType: application/fhir+json
+        url: https://smile.sparked-fhir.com/aucore/fhir/DEFAULT/Bundle/aups-section-emptyreason
+    context:
+      period:
+        end: '2025-01-08'
+  Encounter:
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: AMB
+      display: ambulatory
+    serviceType:
+      coding:
+      - system: http://snomed.info/sct
+        code: '1575161000168105'
+        display: COVID-19 vaccination service
+    subject:
+      reference: Patient/bennelong-anne
+      identifier:
+        type:
+          coding:
+          - system: http://terminology.hl7.org/CodeSystem/v2-0203
+            code: MR
+        system: http://mossypointmc.example.com/mrn/
+        value: '872038020'
+        assigner:
+          display: Albion Hospital
+    participant:
+    - type:
+      - coding:
+        - system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+          code: PPRF
+          display: primary performer
+      individual:
+        reference: PractitionerRole/bobrester-bob-gp
+        identifier:
+          type:
+            coding:
+            - system: http://terminology.hl7.org/CodeSystem/v2-0203
+              code: EI
+              display: Employee number
+            text: Employee Number
+          system: http://ns.electronichealth.net.au/id/abn-scoped/service-provider-individual/1.0/12345678901
+          value: '12345678'
+          assigner:
+            display: Bobrester Medical Center
+    period:
+      start: '2021-06-17T09:20:00+10:00'
+      end: '2021-06-17T09:35:00+10:00'
+    serviceProvider:
+      reference: Organization/bobrester-medical-center
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: EMER
+      display: emergency
+    subject:
+      reference: Patient/ronny-irvine
+    period:
+      start: '2023-02-20T06:15:00+10:00'
+      end: '2023-02-20T18:19:00+10:00'
+    location:
+    - location:
+        reference: Location/murrabit-hospital
+    serviceProvider:
+      reference: Organization/murrabit-hospital
+  - resourceType: Encounter
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-encounter
+    status: finished
+    class:
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      code: VR
+      display: virtual
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '1479961000168103'
+        display: Telehealth encounter
+    serviceType:
+      coding:
+      - system: http://snomed.info/sct
+        code: '788007007'
+        display: General practice service
+    subject:
+      reference: Patient/bennelong-anne
+    participant:
+    - type:
+      - coding:
+        - system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+          code: PPRF
+      individual:
+        reference: PractitionerRole/bobrester-bob-gp
+    period:
+      start: '2023-02-10T11:20:00+10:00'
+      end: '2023-02-10T11:35:00+10:00'
+    location:
+    - location:
+        reference: Location/patient-home
+    serviceProvider:
+      reference: Organization/bobrester-medical-center
+  Endpoint:
+  - resourceType: Endpoint
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-endpoint
+    status: active
+    connectionType:
+      system: http://terminology.hl7.org/CodeSystem/endpoint-connection-type
+      code: hl7-fhir-rest
+    name: Bobrester Medical Center FHIR Endpoint
+    payloadType:
+    - coding:
+      - system: http://hl7.org/fhir/resource-types
+        code: Patient
+    address: https://api.bobrestermedical.example.com/fhir/R4
+  - resourceType: Endpoint
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-endpoint
+    status: active
+    connectionType:
+      system: http://terminology.hl7.org.au/CodeSystem/endpoint-connection-type
+      code: http://ns.electronichealth.net.au/smd/intf/SealedMessageDelivery/TLS/2010
+    name: Mitchell's Hill Audiology Endpoint
+    payloadType:
+    - coding:
+      - system: http://terminology.hl7.org.au/CodeSystem/endpoint-payload-type
+        code: http://ns.hl7.org.au/hl7v2/profiles/HL7AU-OO-REF-SIMPLIFIED-201706
+    - coding:
+      - system: http://terminology.hl7.org.au/CodeSystem/endpoint-payload-type
+        code: http://ns.electronichealth.net.au/er/sc/deliver/hl7Mdm/2012
+    address: https://smd.mitchellshillaudiology.example.com.au/SealedMessageDelivery.svc
+  - resourceType: Endpoint
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-endpoint
+    status: active
+    connectionType:
+      system: http://terminology.hl7.org/CodeSystem/endpoint-connection-type
+      code: hl7v2-mllp
+      display: HL7 v2 MLLP
+    name: Murrabit Hospital HL7 V2 Endpoint
+    payloadType:
+    - coding:
+      - system: http://terminology.hl7.org.au/CodeSystem/endpoint-payload-type
+        code: http://ns.electronichealth.net.au/ds/sc/deliver/hl7Mdm/2012
+        display: HL7 V2 MDM Discharge Summary
+    - coding:
+      - system: http://terminology.hl7.org.au/CodeSystem/endpoint-payload-type
+        code: http://ns.electronichealth.net.au/er/sc/deliver/hl7Mdm/2012
+        display: HL7 V2 MDM eReferral
+    - coding:
+      - system: http://terminology.hl7.org.au/CodeSystem/endpoint-payload-type
+        code: http://ns.electronichealth.net.au/es/sc/deliver/hl7Mdm/2012
+        display: HL7 V2 MDM Event Summary
+    address: mllp://hl7v2.murrabithospital.example.com:56123
+  HealthcareService:
+  - resourceType: HealthcareService
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+    identifier:
+    - system: http://pca.digitalhealth.gov.au/id/pca-healthcare-service
+      value: 4d00ad2659cb4b54bd8028798af62631
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '1244561000168107'
+        display: Crisis counselling
+    - coding:
+      - system: http://snomed.info/sct
+        code: '310026003'
+        display: Counselling service
+    name: Murrabit Crisis Hotline
+    telecom:
+    - system: phone
+      value: '1800975708'
+  - resourceType: HealthcareService
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-healthcareservice
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '722140001'
+        display: Physiotherapy service
+    name: CoreStrength Physiotherapy
+    telecom:
+    - system: phone
+      value: '0755504444'
+      use: work
+    - system: email
+      value: reception@corestrength.example.org.
+      use: work
+  Immunization:
+  - resourceType: Immunization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+    status: completed
+    vaccineCode:
+      coding:
+      - system: https://www.humanservices.gov.au/organisations/health-professionals/enablers/air-vaccine-code-formats
+        code: COMIRN
+      - system: http://snomed.info/sct
+        code: '1525011000168107'
+        display: Comirnaty
+      text: Pfizer Comirnaty
+    patient:
+      reference: Patient/bennelong-anne
+    encounter:
+      reference: Encounter/covid-admin-1
+    occurrenceDateTime: '2021-06-17'
+    recorded: '2021-06-17'
+    primarySource: true
+    location:
+      reference: Location/bobrester-medical-center
+    manufacturer:
+      display: Pfizer Australia Ltd
+    lotNumber: 200000000P
+    site:
+      coding:
+      - system: http://snomed.info/sct
+        code: '368208006'
+        display: Structure of left upper arm
+      text: Left upper arm
+  - resourceType: Immunization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-immunization
+    status: not-done
+    vaccineCode:
+      coding:
+      - system: http://snomed.info/sct
+        code: '830851000168105'
+        display: Varicella-zoster live vaccine
+    patient:
+      reference: Patient/howe-deangelo
+      display: Deangelo HOWE
+    occurrenceDateTime: '2017-08-15'
+    primarySource: true
+    note:
+    - text: Patient refused administration of Zostavax
+  Location:
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    status: active
+    name: Tindal Building
+    alias:
+    - Bobrester Medical Center
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FMC
+        display: Family medicine clinic
+      - system: http://snomed.info/sct
+        code: '288565001'
+        display: Medical centre
+    address:
+      line:
+      - 87 Western Esp
+      city: Tindal RAAF
+      state: QLD
+      postalCode: '4655'
+      country: AU
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: bu
+        display: Building
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    name: Murrabit Public Hospital
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: HOSP
+        display: Hospital
+      - system: http://snomed.info/sct
+        code: '22232009'
+        display: Hospital
+    telecom:
+    - system: phone
+      value: "(03) 5550 3333"
+    address:
+      line:
+      - 144 Central Gdns
+      city: Murrabit
+      state: VIC
+      postalCode: '3579'
+      country: AU
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: si
+        display: Site
+  - resourceType: Location
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-location
+    status: active
+    name: Patient's home
+    mode: kind
+    type:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: PTRES
+        display: Patient's Residence
+      - system: http://snomed.info/sct
+        code: '394778007'
+        display: Client's or patient's home
+    physicalType:
+      coding:
+      - system: http://terminology.hl7.org/CodeSystem/location-physical-type
+        code: ho
+        display: House
+  Medication:
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - extension:
+        - url: http://hl7.org.au/fhir/StructureDefinition/medication-type
+          valueCoding:
+            system: http://terminology.hl7.org.au/CodeSystem/medication-type
+            code: BPD
+            display: Branded product with no strengths or form
+        system: http://snomed.info/sct
+        code: '4445011000036103'
+        display: Chlorsig
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - system: http://pbs.gov.au/code/item
+        code: 13382H
+        display: PERINDOPRIL + AMLODIPINE
+      text: perindopril arginine 10 mg + amlodipine 10 mg tablet, 30
+  - resourceType: Medication
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medication
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '23525011000036109'
+        display: Simvastatin 40 mg tablet
+      text: Simvastatin 40 MG Disintegrating Oral Tablet
+  MedicationDispense:
+  - resourceType: MedicationDispense
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationdispense
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '79115011000036100'
+        display: Paracetamol 500 mg + codeine phosphate hemihydrate 30 mg tablet
+    subject:
+      reference: Patient/bennelong-anne
+    performer:
+    - actor:
+        display: Main Street Pharmacy
+    authorizingPrescription:
+    - reference: MedicationRequest/paracetamol-codeine
+    quantity:
+      value: 20
+      unit: TAB
+      system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+      code: TAB
+    whenPrepared: '2018-07-15'
+    dosageInstruction:
+    - text: 1-2 tablets every 4-6 hours as needed for pain
+      timing:
+        repeat:
+          frequency: 1
+          frequencyMax: 2
+          period: 4
+          periodMax: 6
+          periodUnit: h
+      asNeededBoolean: true
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  - resourceType: MedicationDispense
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationdispense
+    contained:
+    - resourceType: Medication
+      id: med1
+      code:
+        coding:
+        - system: http://snomed.info/sct
+          code: '926213011000036100'
+        text: Reaptan 10 mg/10 mg (perindopril arginine/amlodipine) tablet, 10
+    status: completed
+    medicationReference:
+      reference: "#med1"
+    subject:
+      reference: Patient/wang-li
+    performer:
+    - actor:
+        display: Main Street Pharmacy
+    authorizingPrescription:
+    - reference: MedicationRequest/reaptan
+    quantity:
+      value: 10
+      unit: TAB
+      system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+      code: TAB
+    whenPrepared: '2018-07-15'
+    dosageInstruction:
+    - text: 1 tablet daily
+  - resourceType: MedicationDispense
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationdispense
+    status: completed
+    medicationReference:
+      reference: Medication/simvastatin
+    subject:
+      reference: Patient/wang-li
+    performer:
+    - actor:
+        display: Main Street Pharmacy
+    authorizingPrescription:
+    - reference: MedicationRequest/simvastatin
+    quantity:
+      value: 30
+      unit: TAB
+      system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+      code: TAB
+    whenPrepared: '2020-07-15'
+    dosageInstruction:
+    - text: Take one tablet daily
+  MedicationRequest:
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    status: unknown
+    intent: order
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '79115011000036100'
+        display: Paracetamol 500 mg + codeine phosphate hemihydrate 30 mg tablet
+    subject:
+      reference: Patient/bennelong-anne
+    authoredOn: '2018-07-15'
+    requester:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: unknown
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '278414003'
+        display: Pain management
+      text: Pain management
+    dosageInstruction:
+    - text: 1-2 tablets every 4-6 hours as needed for pain
+      timing:
+        repeat:
+          frequency: 1
+          frequencyMax: 2
+          period: 4
+          periodMax: 6
+          periodUnit: h
+      asNeededBoolean: true
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    contained:
+    - resourceType: Medication
+      id: med1
+      code:
+        coding:
+        - system: http://snomed.info/sct
+          code: '926213011000036100'
+        text: Reaptan 10 mg/10 mg (perindopril arginine/amlodipine) tablet, 10
+    status: active
+    intent: order
+    medicationReference:
+      reference: "#med1"
+    subject:
+      reference: Patient/wang-li
+    authoredOn: '2018-07-15'
+    requester:
+      reference: PractitionerRole/surgeon-chau-fryer
+    reasonCode:
+    - text: Hypertension
+    dosageInstruction:
+    - text: 1 tablet daily
+      timing:
+        repeat:
+          frequency: 1
+          period: 1
+          periodUnit: d
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  - resourceType: MedicationRequest
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationrequest
+    status: active
+    intent: order
+    medicationReference:
+      reference: Medication/simvastatin
+    subject:
+      reference: Patient/wang-li
+    authoredOn: '2020-07-15'
+    requester:
+      reference: PractitionerRole/surgeon-chau-fryer
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '13644009'
+        display: Hypercholesterolaemia
+      text: High cholesterol
+    dosageInstruction:
+    - text: Take one tablet daily
+      timing:
+        repeat:
+          frequency: 1
+          period: 1
+          periodUnit: d
+      asNeededBoolean: true
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '26643006'
+          display: Oral route
+      doseAndRate:
+      - doseQuantity:
+          value: 1
+          unit: TAB
+          system: http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+          code: TAB
+  MedicationStatement:
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    contained:
+    - resourceType: Medication
+      id: bisoprolol
+      code:
+        coding:
+        - system: http://snomed.info/sct
+          code: '23281011000036106'
+          display: Bisoprolol fumarate 2.5 mg tablet
+        text: Bisoprolol 2.5mg tab
+    status: active
+    medicationReference:
+      reference: "#bisoprolol"
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2019-02-05'
+    dosage:
+    - text: 1/2 tablet in the morning
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '6632011000036102'
+        display: Bactrim DS tablet
+      - system: http://pbs.gov.au/code/item
+        code: 2951H
+      text: Bactrim DS - tablet
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2020-05-30T10:00:00+10:00'
+    reasonReference:
+    - reference: Condition/uti
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - system: http://snomed.info/sct
+        code: '22717011000036101'
+        display: Chloramphenicol 1% eye ointment
+      text: Chloramphenicol 1% eye ointment
+    subject:
+      reference: Patient/banks-mia-leanne
+    dateAsserted: '2019-02-05'
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '719755001'
+      text: Adult gonococcal conjunctivitis
+  - resourceType: MedicationStatement
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-medicationstatement
+    status: completed
+    medicationCodeableConcept:
+      coding:
+      - extension:
+        - url: http://hl7.org.au/fhir/StructureDefinition/medication-type
+          valueCoding:
+            system: http://terminology.hl7.org.au/CodeSystem/medication-type
+            code: BPDSF
+            display: Branded product with strengths and form
+        system: http://snomed.info/sct
+        code: '5232011000036102'
+        display: Diflucan 200 mg/100 mL injection, 100 mL vial
+    subject:
+      reference: Patient/banks-mia-leanne
+    effectivePeriod:
+      start: '2018-06-25'
+      end: '2018-07-05'
+    dateAsserted: '2018-07-10'
+    dosage:
+    - text: Every 1-10 days at 10am for 30 minutes
+      timing:
+        repeat:
+          duration: 30
+          durationUnit: min
+          frequency: 1
+          period: 1
+          periodMax: 10
+          periodUnit: d
+          timeOfDay:
+          - '10:00:00'
+      route:
+        coding:
+        - system: http://snomed.info/sct
+          code: '47625008'
+          display: Intravenous route
+      doseAndRate:
+      - doseQuantity:
+          value: 200
+          unit: mg
+          system: http://unitsofmeasure.org
+          code: mg
+  Organization:
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: ABN
+        text: ABN
+      system: http://hl7.org.au/id/abn
+      value: '12345678901'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '288565001'
+        display: Medical centre
+      text: Medical Center
+    name: Bobrester Medical Center
+    telecom:
+    - system: email
+      value: info@bobrestermedical.example.com
+      use: work
+    - system: phone
+      value: "(07) 5550 2427"
+      use: work
+    address:
+    - line:
+      - 87 Western Esp
+      city: Tindal RAAF
+      state: QLD
+      postalCode: '4655'
+      country: AU
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: NOI
+          display: National Organisation Identifier
+        text: HPI-O
+      system: http://ns.electronichealth.net.au/id/hi/hpio/1.0
+      value: '8003626566707032'
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: ABN
+        text: ABN
+      system: http://hl7.org.au/id/abn
+      value: '81129842694'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '702824005'
+        display: Audiology clinic
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1292.0
+        code: '8539'
+        display: Other Allied Health Services
+    name: Mitchells Hill Audiology
+    telecom:
+    - system: phone
+      value: "(03) 5550 3095"
+    - system: email
+      value: reception@mitchellshillaudiology.example.com.au
+      use: work
+    address:
+    - type: physical
+      line:
+      - 87 Freedom Pnt
+      city: Mitchells Hill
+      state: VIC
+      postalCode: '3478'
+      country: AU
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: NOI
+          display: National Organisation Identifier
+        text: HPI-O
+      system: http://ns.electronichealth.net.au/id/hi/hpio/1.0
+      value: '8003626566706976'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '22232009'
+        display: Hospital
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1292.0
+        code: '8401'
+        display: Hospitals (Except Psychiatric Hospitals)
+    name: Murrabit Public Hospital
+    telecom:
+    - system: phone
+      value: '0355509111'
+    - system: phone
+      value: '0355508677'
+    - system: email
+      value: reception@murrabitph.example.com.au
+    address:
+    - line:
+      - 144 Central Gdns
+      city: Murrabit
+      state: VIC
+      postalCode: '3579'
+      country: AU
+  - resourceType: Organization
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: NOI
+          display: National Organisation Identifier
+        text: HPI-O
+      system: http://ns.electronichealth.net.au/id/hi/hpio/1.0
+      value: '8003628233373131'
+    type:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '310074003'
+        display: Pathology service
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1292.0
+        code: '6925'
+        display: Scientific Testing and Analysis Services
+    name: Pullabooka Pathology
+    telecom:
+    - system: phone
+      value: "(02) 5550 8639"
+    - system: email
+      value: reception@pullabookapathology.example.net
+      use: work
+    address:
+    - state: NSW
+      postalCode: '2810'
+      country: AU
+  Patient:
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org/fhir/StructureDefinition/individual-genderIdentity
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '446141000124107'
+            display: Identifies as female gender
+    - url: http://hl7.org/fhir/StructureDefinition/individual-pronouns
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://loinc.org
+            code: LA29519-8
+            display: she/her/her/hers/herself
+    - url: http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender
+      extension:
+      - url: value
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '248152002'
+          text: Female
+      - url: type
+        valueCodeableConcept:
+          coding:
+          - system: http://snomed.info/sct
+            code: '1515311000168102'
+            display: Biological sex at birth
+    identifier:
+    - extension:
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1
+          code: active
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-record-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-record-status-1
+          code: verified
+          display: verified
+      type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NI
+        text: IHI
+      system: http://ns.electronichealth.net.au/id/hi/ihi/1.0
+      value: '8003608333647261'
+    name:
+    - use: usual
+      family: Banks
+      given:
+      - Mia
+      - Leanne
+    telecom:
+    - system: phone
+      value: '0270102724'
+      use: work
+    - system: phone
+      value: '0491574632'
+      use: mobile
+    - system: phone
+      value: '0270107520'
+      use: home
+    - system: email
+      value: mia.banks@myownpersonaldomain.com
+    - system: phone
+      value: '270107520'
+      use: home
+    gender: female
+    birthDate: '1983-08-25'
+    address:
+    - line:
+      - 50 Sebastien St
+      city: Minjary
+      state: NSW
+      postalCode: '2720'
+      country: AU
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '1'
+        display: Aboriginal but not Torres Strait Islander origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: MR
+      system: http://mossypointmc.example.com/mrn/
+      value: '872038020'
+      assigner:
+        display: Mossy Point Medical Centre
+    name:
+    - use: official
+      text: Mrs. Anne Mary Bennelong
+      family: Bennelong
+      given:
+      - Anne
+      prefix:
+      - Mrs
+    telecom:
+    - system: phone
+      value: '0491 572 665'
+      use: mobile
+    gender: female
+    birthDate: '1968-10-11'
+    address:
+    - use: home
+      line:
+      - 144 Otho Street
+      city: Inverell
+      state: NSW
+      postalCode: '2360'
+      country: AU
+    communication:
+    - language:
+        coding:
+        - system: urn:ietf:bcp:47
+          code: yub
+        text: Yugambal
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '4'
+        display: Neither Aboriginal nor Torres Strait Islander origin
+    identifier:
+    - extension:
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-status-1
+          code: active
+      - url: http://hl7.org.au/fhir/StructureDefinition/ihi-record-status
+        valueCoding:
+          system: https://healthterminologies.gov.au/fhir/CodeSystem/ihi-record-status-1
+          code: verified
+          display: verified
+      type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NI
+        text: IHI
+      system: http://ns.electronichealth.net.au/id/hi/ihi/1.0
+      value: '8003608000311621'
+    name:
+    - use: usual
+      family: HOWE
+      given:
+      - Deangelo
+    telecom:
+    - system: phone
+      value: '0770105770'
+      use: work
+    - system: phone
+      value: '0491570156'
+      use: mobile
+    - system: email
+      value: deangelo.howe@example.net
+    - system: phone
+      value: '0770109269'
+      use: home
+    gender: male
+    birthDate: '1975-06-21'
+    address:
+    - line:
+      - 134 Copper Hts
+      city: Curra
+      state: QLD
+      postalCode: '4570'
+      country: AU
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '2'
+        display: Torres Strait Islander but not Aboriginal origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: DVAU
+          display: DVA Number
+        text: DVA Number
+      system: http://ns.electronichealth.net.au/id/dva
+      value: QX827261
+    name:
+    - use: usual
+      family: Irvine
+      given:
+      - Ronny
+      - Lawrence
+    telecom:
+    - system: email
+      value: ronny.irvine@myownpersonaldomain.com
+      use: home
+    gender: male
+    _birthDate:
+      extension:
+      - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+        valueCode: unknown
+    address:
+    - use: home
+      line:
+      - 180 Hermann Rd
+      city: Belmore River
+      state: NSW
+      postalCode: '2440'
+      country: Australia
+  - resourceType: Patient
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+    extension:
+    - url: http://hl7.org.au/fhir/StructureDefinition/indigenous-status
+      valueCoding:
+        system: https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1
+        code: '4'
+        display: Neither Aboriginal nor Torres Strait Islander origin
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: MR
+          display: Medical record number
+        text: Medical Record Number
+      system: http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734
+      value: '22421441'
+      assigner:
+        display: Mount Mitchell Private Hospital
+    name:
+    - family: Wang
+      given:
+      - Li
+      prefix:
+      - Mr
+    gender: male
+    birthDate: '1975-05-03'
+    address:
+    - use: home
+      line:
+      - 29 Gadsby Street
+      city: Blacktown
+      state: NSW
+      postalCode: '2148'
+      country: AU
+    communication:
+    - language:
+        coding:
+        - system: urn:ietf:bcp:47
+          code: yue
+        text: Cantonese
+      preferred: true
+  Practitioner:
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    name:
+    - family: Bobrester
+      given:
+      - Bob
+      prefix:
+      - Dr.
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003616566719020'
+    name:
+    - use: official
+      family: Fryer
+      given:
+      - Chau
+      prefix:
+      - Dr.
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003613233385129'
+    name:
+    - family: Darleen
+      given:
+      - MACKAY
+  - resourceType: Practitioner
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: NPI
+          display: National provider identifier
+        text: HPI-I
+      system: http://ns.electronichealth.net.au/id/hi/hpii/1.0
+      value: '8003618233385086'
+    name:
+    - use: official
+      family: Sutherland
+      given:
+      - Sallie
+      prefix:
+      - Dr.
+  PractitionerRole:
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: EI
+          display: Employee number
+        text: Employee Number
+      system: http://ns.electronichealth.net.au/id/abn-scoped/service-provider-individual/1.0/12345678901
+      value: '12345678'
+      assigner:
+        display: Bobrester Medical Center
+    practitioner:
+      reference: Practitioner/bobrester-bob
+    organization:
+      reference: Organization/bobrester-medical-center
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '62247001'
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253111'
+      text: General Practitioner
+    telecom:
+    - system: phone
+      value: '0491579760'
+    - system: email
+      value: drbob@bobrestermedical.example.com
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: UPIN
+        text: Medicare Provider Number
+      system: http://ns.electronichealth.net.au/id/medicare-provider-number
+      value: 2449001X
+    practitioner:
+      reference: Practitioner/sallie-sutherland
+    organization:
+      reference: Organization/murrabit-hospital
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '17561000'
+        display: Cardiologist
+      text: Cardiologist
+    location:
+    - reference: Location/murrabit-hospital
+    telecom:
+    - system: phone
+      value: '0370102880'
+    - system: email
+      value: sallie.sutherland@murrabitph.example.com.au
+      use: work
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org/CodeSystem/v2-0203
+          code: EI
+        text: Employee number
+      system: http://nephrologyclinic.org.example.com/employee-id
+      value: N765009-mackay-darleen
+      assigner:
+        display: Docker River Nephrology Clinic
+    practitioner:
+      reference: Practitioner/darleen-mackay
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '11911009'
+        display: Nephrologist
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253322'
+        display: Renal Medicine Specialist
+      text: Nephrologist
+    telecom:
+    - system: phone
+      value: "(03) 7010 8625"
+  - resourceType: PractitionerRole
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+    identifier:
+    - type:
+        coding:
+        - system: http://terminology.hl7.org.au/CodeSystem/v2-0203
+          code: UPIN
+        text: Medicare Provider Number
+      system: http://ns.electronichealth.net.au/id/medicare-provider-number
+      value: 2449211J
+    practitioner:
+      reference: Practitioner/chau-fryer
+    organization:
+      reference: Organization/murrabit-hospital
+    code:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '304292004'
+      - system: http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0
+        code: '253511'
+        display: Surgeon (General)
+      text: Surgeon
+    location:
+    - reference: Location/murrabit-hospital
+    telecom:
+    - system: phone
+      value: "(03) 7010 8625"
+    - system: email
+      value: chau.fryer@murrabitph.example.com.au
+      use: work
+  Procedure:
+  - resourceType: Procedure
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    status: completed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '302497006'
+        display: Haemodialysis
+      text: Haemodialysis
+    subject:
+      reference: Patient/ronny-irvine
+    performedDateTime: '2012-08-05'
+    performer:
+    - actor:
+        reference: PractitionerRole/nephrologist-darleen-mackay
+    reasonReference:
+    - reference: Condition/ckd
+      display: Chronic Kidney Disease
+  - resourceType: Procedure
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-procedure
+    status: completed
+    code:
+      coding:
+      - system: http://snomed.info/sct
+        code: '36969009'
+        display: Placement of stent in coronary artery
+      text: Placement of stent in right coronary artery
+    subject:
+      reference: Patient/wang-li
+    performedDateTime: '2021-09-25'
+    performer:
+    - actor:
+        reference: PractitionerRole/surgeon-chau-fryer
+    location:
+      reference: Location/murrabit-hospital
+    reasonCode:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '876856005'
+        display: Stenosis of right coronary artery
+      text: Occlusion of right coronary artery
+    bodySite:
+    - coding:
+      - system: http://snomed.info/sct
+        code: '13647002'
+        display: Right coronary artery structure
+      text: Right coronary artery
+    focalDevice:
+    - action:
+        coding:
+        - system: http://snomed.info/sct
+          code: '425362007'
+          display: Surgical insertion - action
+      manipulated:
+        display: coronary stent
+  RelatedPerson:
+  - resourceType: RelatedPerson
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    patient:
+      reference: Patient/banks-mia-leanne
+    relationship:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FTH
+      text: Father
+    name:
+    - family: Banks
+      given:
+      - Bob
+  - resourceType: RelatedPerson
+    meta:
+      profile:
+      - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+    patient:
+      reference: Patient/wang-li
+    relationship:
+    - coding:
+      - system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        code: FRND
+        display: unrelated friend
+      - system: http://terminology.hl7.org/CodeSystem/v2-0131
+        code: C
+        display: Emergency Contact
+    name:
+    - use: usual
+      family: Rabbit
+      given:
+      - Peter
+      - Rabbit
+    telecom:
+    - system: phone
+      value: 07 853 9191
+      use: home
+    address:
+    - use: home
+      line:
+      - 29 Gadsby Street
+      city: Blacktown
+      state: NSW
+      postalCode: '2148'
+      country: AU
+  Specimen:
+  - resourceType: Specimen
+    type:
+      coding:
+      - system: http://snomed.info/sct
+        code: '257261003'
+        display: Swab
+    subject:
+      reference: Patient/wang-li
+    collection:
+      collectedDateTime: '2021-02-15T12:00:00+10:00'
+      bodySite:
+        coding:
+        - system: http://snomed.info/sct
+          code: '71836000'
+          display: Nasopharyngeal structure
+        text: Nasopharyngeal
+    note:
+    - text: Collection Setting COVID HSC Assessment Clinic
+:patch_body_list:
+  :FHIRPATHPatchJson: {}
+  :JSONPatch: {}
+:resource_types_to_search:
+- Patient
+- Practitioner
+- PractitionerRole
+- Organization
+- RelatedPerson
+- Observation
+- Condition
+- Procedure
+- Location
+- Medication
+- Encounter
+- MedicationRequest
+- DiagnosticReport
+- DocumentReference
