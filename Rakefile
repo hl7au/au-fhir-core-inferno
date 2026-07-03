@@ -24,7 +24,7 @@ namespace :au_core do
   task :generate do
     require 'inferno_suite_generator'
     basic_config_file = './config.basic.json'
-    config_files = ['./config.200.json']
+    config_files = ['./config.210-draft.json']
     config_files.each do |config_file|
       InfernoSuiteGenerator::Generator.generate([basic_config_file, config_file])
     end
