@@ -75,9 +75,9 @@ module AUCoreTestKit
         }
 
         if delayed? && id.include?('read')
-          self.tests.unshift(test_metadata)
+          tests.unshift(test_metadata)
         else
-          self.tests << test_metadata
+          tests << test_metadata
         end
       end
 
