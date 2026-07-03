@@ -38,7 +38,11 @@ module AUCoreTestKit
       end
 
       run do
-        perform_reference_resolution_test(scratch_resources[:all], { 'http://hl7.org.au/fhir/StructureDefinition/au-specimen' => 'http://hl7.org.au/fhir/StructureDefinition/au-specimen' })
+        perform_reference_resolution_test(
+          scratch_resources[:all],
+          { 'http://hl7.org.au/fhir/StructureDefinition/au-specimen' => 'http://hl7.org.au/fhir/StructureDefinition/au-specimen' },
+          %w[AllergyIntolerance Composition Condition DiagnosticReport DocumentReference Encounter Endpoint HealthcareService Immunization Location Medication MedicationDispense MedicationRequest MedicationStatement Observation Organization Patient Practitioner PractitionerRole Procedure RelatedPerson]
+        )
       end
     end
   end
