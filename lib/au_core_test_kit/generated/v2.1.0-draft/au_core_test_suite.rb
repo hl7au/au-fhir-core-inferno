@@ -21,6 +21,7 @@ require_relative 'smokingstatus_group'
 require_relative 'allergy_intolerance_group'
 require_relative 'composition_group'
 require_relative 'condition_group'
+require_relative 'diagnostic_report_group'
 require_relative 'document_reference_group'
 require_relative 'encounter_group'
 require_relative 'immunization_group'
@@ -59,7 +60,7 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs 'hl7.fhir.au.core#2.1.0-draft'
+        igs '/home/igs/2.1.0-draft.tgz'
         message_filters = [
           "The value provided ('xml') was not found in the value set 'MimeType'",
           "The value provided ('json') was not found in the value set 'MimeType'",
@@ -151,6 +152,8 @@ module AUCoreTestKit
         group from: :au_core_v210_draft_composition
 
         group from: :au_core_v210_draft_condition
+
+        group from: :au_core_v210_draft_diagnostic_report
 
         group from: :au_core_v210_draft_document_reference
 

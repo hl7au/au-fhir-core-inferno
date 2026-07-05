@@ -12,6 +12,11 @@
       "rewrite_profile_url": {
         "http://hl7.org.au/fhir/StructureDefinition/au-specimen": "http://hl7.org.au/fhir/StructureDefinition/au-specimen"
       }
+    },
+    "resources": {
+      "DiagnosticReport": {
+        "skip_generation": false
+      }
     }
   }
 }
