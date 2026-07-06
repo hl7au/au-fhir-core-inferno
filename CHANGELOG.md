@@ -1,3 +1,6 @@
+# 1.4.3
+* Add a suite for AU Core 2.1.0-draft
+
 # 1.4.2
 * Correct the validation suite `baseEngine` and IG path configuration.
 
