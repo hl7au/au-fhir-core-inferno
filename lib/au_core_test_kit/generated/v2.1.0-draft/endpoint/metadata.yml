@@ -1,0 +1,146 @@
+---
+:name: au_core_endpoint
+:class_name: AuCoreEndpointSequence
+:version: v2.1.0-draft
+:reformatted_version: v210_draft
+:resource: Endpoint
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-endpoint
+:profile_name: AU Core Endpoint
+:profile_version: 2.1.0-draft
+:title: Endpoint
+:short_description: Verify support for the server capabilities required by the AU
+  Core Endpoint.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - _id
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - connection-type
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - payload-type
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - name
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - Endpoint.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - Endpoint.status
+    :comparators: {}
+    :values:
+    - active
+    - suspended
+    - error
+    - 'off'
+    - entered-in-error
+    - test
+    :type: code
+    :contains_multiple: false
+  :connection-type:
+    :paths:
+    - connectionType
+    :full_paths:
+    - Endpoint.connectionType
+    :comparators: {}
+    :values: []
+    :type: Coding
+    :contains_multiple: false
+  :payload-type:
+    :paths:
+    - payloadType
+    :full_paths:
+    - Endpoint.payloadType
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: true
+  :name:
+    :paths:
+    - name
+    :full_paths:
+    - Endpoint.name
+    :comparators: {}
+    :values: []
+    :type: string
+    :contains_multiple: false
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: status
+  - :path: connectionType
+  - :path: name
+  - :path: payloadType
+  - :path: address
+:mandatory_elements:
+- Endpoint.status
+- Endpoint.connectionType
+- Endpoint.payloadType
+- Endpoint.address
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/endpoint-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/mimetypes
+  :path: payloadMimeType
+:references:
+- :path: Endpoint.managingOrganization
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+:tests:
+- :id: au_core_v210_draft_endpoint_read_test
+  :file_name: endpoint_read_test.rb
+- :id: au_core_v210_draft_endpoint__id_search_test
+  :file_name: endpoint_id_search_test.rb
+- :id: au_core_v210_draft_endpoint_status_search_test
+  :file_name: endpoint_status_search_test.rb
+- :id: au_core_v210_draft_endpoint_connection_type_search_test
+  :file_name: endpoint_connection_type_search_test.rb
+- :id: au_core_v210_draft_endpoint_payload_type_search_test
+  :file_name: endpoint_payload_type_search_test.rb
+- :id: au_core_v210_draft_endpoint_name_search_test
+  :file_name: endpoint_name_search_test.rb
+- :id: au_core_v210_draft_endpoint_validation_test
+  :file_name: endpoint_validation_test.rb
+- :id: au_core_v210_draft_endpoint_must_support_test
+  :file_name: endpoint_must_support_test.rb
+:id: au_core_v210_draft_endpoint
+:file_name: endpoint_group.rb
+:delayed_references: []

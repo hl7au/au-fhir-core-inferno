@@ -1,0 +1,319 @@
+---
+:name: au_core_diagnosticreport
+:class_name: AuCoreDiagnosticreportSequence
+:version: v2.1.0-draft
+:reformatted_version: v210_draft
+:resource: DiagnosticReport
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticreport
+:profile_name: AU Core DiagnosticReport
+:profile_version: 2.1.0-draft
+:title: DiagnosticReport
+:short_description: Verify support for the server capabilities required by the AU
+  Core DiagnosticReport.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - _id
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - identifier
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - category
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - code
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - category
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - category
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - status
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - code
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - DiagnosticReport.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - DiagnosticReport.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
+  :identifier:
+    :paths:
+    - identifier
+    :full_paths:
+    - DiagnosticReport.identifier
+    :comparators: {}
+    :values: []
+    :type: Identifier
+    :contains_multiple: true
+  :category:
+    :paths:
+    - category
+    :full_paths:
+    - DiagnosticReport.category
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: true
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - DiagnosticReport.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+  :date:
+    :paths:
+    - effective
+    :full_paths:
+    - DiagnosticReport.effective
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: date
+    :contains_multiple: false
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - DiagnosticReport.status
+    :comparators: {}
+    :values:
+    - registered
+    - partial
+    - preliminary
+    - final
+    - amended
+    - corrected
+    - appended
+    - cancelled
+    - entered-in-error
+    - unknown
+    :type: code
+    :contains_multiple: false
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: status
+  - :path: category
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: effective[x]
+  - :path: issued
+  - :path: performer
+    :types:
+    - Reference
+  - :path: result
+    :types:
+    - Reference
+  - :path: presentedForm
+:mandatory_elements:
+- DiagnosticReport.status
+- DiagnosticReport.category
+- DiagnosticReport.code
+- DiagnosticReport.subject
+- DiagnosticReport.media.link
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/diagnostic-report-status
+  :path: status
+:references:
+- :path: DiagnosticReport.basedOn
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - http://hl7.org/fhir/StructureDefinition/NutritionOrder
+  - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+  - http://hl7.org.au/fhir/StructureDefinition/au-servicerequest
+- :path: DiagnosticReport.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
+- :path: DiagnosticReport.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+- :path: DiagnosticReport.performer
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - http://hl7.org/fhir/StructureDefinition/CareTeam
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+- :path: DiagnosticReport.resultsInterpreter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/CareTeam|4.0.1
+- :path: DiagnosticReport.specimen
+  :profiles:
+  - http://hl7.org.au/fhir/StructureDefinition/au-specimen
+- :path: DiagnosticReport.result
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult
+  - http://hl7.org.au/fhir/StructureDefinition/au-imagingresult
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+  :resource_types:
+  - Observation
+- :path: DiagnosticReport.imagingStudy
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/ImagingStudy|4.0.1
+- :path: DiagnosticReport.media.link
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Media|4.0.1
+:tests:
+- :id: au_core_v210_draft_diagnostic_report_patient_search_test
+  :file_name: diagnostic_report_patient_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report__id_search_test
+  :file_name: diagnostic_report_id_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_identifier_search_test
+  :file_name: diagnostic_report_identifier_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_category_search_test
+  :file_name: diagnostic_report_category_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_code_search_test
+  :file_name: diagnostic_report_code_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_date_search_test
+  :file_name: diagnostic_report_date_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_status_search_test
+  :file_name: diagnostic_report_status_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_category_search_test
+  :file_name: diagnostic_report_patient_category_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_category_date_search_test
+  :file_name: diagnostic_report_patient_category_date_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_category_status_search_test
+  :file_name: diagnostic_report_patient_category_status_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_code_search_test
+  :file_name: diagnostic_report_patient_code_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_status_search_test
+  :file_name: diagnostic_report_patient_status_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_code_date_search_test
+  :file_name: diagnostic_report_patient_code_date_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_chain_search_test
+  :file_name: diagnostic_report_patient_chain_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_ihi_chain_search_test
+  :file_name: diagnostic_report_patient_ihi_chain_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_medicare_chain_search_test
+  :file_name: diagnostic_report_patient_medicare_chain_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_patient_dva_chain_search_test
+  :file_name: diagnostic_report_patient_dva_chain_search_test.rb
+- :id: au_core_v210_draft_diagnostic_report_read_test
+  :file_name: diagnostic_report_read_test.rb
+- :id: au_core_v210_draft_diagnostic_report_validation_test
+  :file_name: diagnostic_report_validation_test.rb
+- :id: au_core_v210_draft_diagnostic_report_must_support_test
+  :file_name: diagnostic_report_must_support_test.rb
+- :id: au_core_v210_draft_diagnostic_report_reference_resolution_test
+  :file_name: diagnostic_report_reference_resolution_test.rb
+:id: au_core_v210_draft_diagnostic_report
+:file_name: diagnostic_report_group.rb
+:delayed_references:
+- :path: performer
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization

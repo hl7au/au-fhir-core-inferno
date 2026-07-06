@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+require 'inferno_suite_generator/test_modules/read_test'
+
+module AUCoreTestKit
+  module AUCoreV210_DRAFT
+    class ResprateReadTest < Inferno::Test
+      include InfernoSuiteGenerator::ReadTest
+
+      title '(SHALL) Server returns correct Observation resource from Observation read interaction'
+      description 'A server SHALL support the Observation read interaction.'
+
+      id :au_core_v210_draft_resprate_read_test
+
+      def self.demodata
+        @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(
+          YAML.load_file(File.join(File.dirname(__dir__), 'demodata.yml'), aliases: true)
+        )
+      end
+
+      def resource_type
+        'Observation'
+      end
+
+      def scratch_resources
+        scratch[:resprate_resources] ||= {}
+      end
+
+      run do
+        perform_read_test(all_scratch_resources)
+      end
+    end
+  end
+end

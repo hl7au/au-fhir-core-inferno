@@ -8,18 +8,18 @@ GIT
 
 GIT
   remote: https://github.com/hl7au/inferno_suite_generator.git
-  revision: 55ef2394f4b61bbbd506ae4450b7c3e9dcecb0db
-  ref: 55ef2394f4b61bbbd506ae4450b7c3e9dcecb0db
+  revision: 9b0d17ef2ade2027cce33cca5539f84ab5bf5f85
+  ref: 9b0d17ef2ade2027cce33cca5539f84ab5bf5f85
   specs:
     inferno_suite_generator (0.1.1)
       deep_merge (~> 1.2, >= 1.2.2)
-      inferno_core (>= 0.6.1)
+      inferno_core (>= 1.0.6)
       jsonpath (~> 1.1, >= 1.1.5)
 
 PATH
   remote: .
   specs:
-    au_core_test_kit (1.4.0)
+    au_core_test_kit (1.4.3)
       inferno_core (>= 1.0.6)
       smart_app_launch_test_kit (>= 0.4.0)
       tls_test_kit (~> 0.2.0)

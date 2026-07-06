@@ -1,0 +1,20 @@
+{
+  "ig": {
+    "version": "2.1.0-draft",
+    "link": "https://hl7.org.au/fhir/core/2.1.0-draft/index.html",
+    "package_archive_path": "lib/au_core_test_kit/igs/2.1.0-draft.tgz"
+  },
+  "suite": {},
+  "configs": {
+    "generic": {
+      "rewrite_profile_url": {
+        "http://hl7.org.au/fhir/StructureDefinition/au-specimen": "http://hl7.org.au/fhir/StructureDefinition/au-specimen"
+      }
+    },
+    "resources": {
+      "DiagnosticReport": {
+        "skip_generation": false
+      }
+    }
+  }
+}

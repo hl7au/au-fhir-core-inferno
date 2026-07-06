@@ -1,0 +1,285 @@
+---
+:name: au_core_composition
+:class_name: AuCoreCompositionSequence
+:version: v2.1.0-draft
+:reformatted_version: v210_draft
+:resource: Composition
+:profile_url: http://hl7.org.au/fhir/core/StructureDefinition/au-core-composition
+:profile_name: AU Core Composition
+:profile_version: 2.1.0-draft
+:title: Composition
+:short_description: Verify support for the server capabilities required by the AU
+  Core Composition.
+:interactions:
+- :code: read
+  :expectation: SHALL
+- :code: search-type
+  :expectation: SHALL
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - type
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - date
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - author
+  :expectation: MAY
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - type
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHOULD
+  :names:
+  - patient
+  - author
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :expectation: SHALL
+  :names:
+  - patient
+  - date
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - Composition.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+    :multiple_and: MAY
+    :chain:
+    - :chain: identifier
+      :expectation: SHOULD
+      :target: Patient
+    :target_resource: Patient
+  :type:
+    :paths:
+    - type
+    :full_paths:
+    - Composition.type
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+  :date:
+    :paths:
+    - date
+    :full_paths:
+    - Composition.date
+    :comparators:
+      :eq: MAY
+      :ne: MAY
+      :gt: MAY
+      :ge: MAY
+      :lt: MAY
+      :le: MAY
+      :sa: MAY
+      :eb: MAY
+      :ap: MAY
+    :values: []
+    :type: dateTime
+    :contains_multiple: false
+  :author:
+    :paths:
+    - author
+    :full_paths:
+    - Composition.author
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: true
+    :target_resource: Practitioner
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: text
+  - :path: identifier
+  - :path: status
+  - :path: type
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - :path: date
+  - :path: author
+    :types:
+    - Reference
+  - :path: title
+  - :path: attester
+  - :path: attester.mode
+  - :path: attester.time
+  - :path: attester.party
+    :types:
+    - Reference
+  - :path: custodian
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - :path: section
+  - :path: section.title
+  - :path: section.code
+  - :path: section.text
+:mandatory_elements:
+- Composition.status
+- Composition.type
+- Composition.subject
+- Composition.date
+- Composition.author
+- Composition.title
+- Composition.attester.mode
+- Composition.relatesTo.code
+- Composition.relatesTo.target[x]
+- Composition.section
+- Composition.section.title
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/composition-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification
+  :path: confidentiality
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/composition-attestation-mode
+  :path: attester.mode
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/document-relationship-type
+  :path: relatesTo.code
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/list-mode
+  :path: section.mode
+:references:
+- :path: Composition.subject
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
+- :path: Composition.encounter
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+- :path: Composition.author
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  - http://hl7.org/fhir/StructureDefinition/Device
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - Patient
+  - RelatedPerson
+  - Organization
+- :path: Composition.attester.party
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-relatedperson
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitioner
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-practitionerrole
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Patient
+  - RelatedPerson
+  - Practitioner
+  - PractitionerRole
+  - Organization
+- :path: Composition.custodian
+  :profiles:
+  - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
+  :resource_types:
+  - Organization
+- :path: Composition.event.detail
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+- :path: Composition.section.author
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
+- :path: Composition.section.focus
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+- :path: Composition.section.entry
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+:tests:
+- :id: au_core_v210_draft_composition_patient_search_test
+  :file_name: composition_patient_search_test.rb
+- :id: au_core_v210_draft_composition_type_search_test
+  :file_name: composition_type_search_test.rb
+- :id: au_core_v210_draft_composition_date_search_test
+  :file_name: composition_date_search_test.rb
+- :id: au_core_v210_draft_composition_author_search_test
+  :file_name: composition_author_search_test.rb
+- :id: au_core_v210_draft_composition_patient_type_search_test
+  :file_name: composition_patient_type_search_test.rb
+- :id: au_core_v210_draft_composition_patient_author_search_test
+  :file_name: composition_patient_author_search_test.rb
+- :id: au_core_v210_draft_composition_patient_date_search_test
+  :file_name: composition_patient_date_search_test.rb
+- :id: au_core_v210_draft_composition_patient_chain_search_test
+  :file_name: composition_patient_chain_search_test.rb
+- :id: au_core_v210_draft_composition_patient_ihi_chain_search_test
+  :file_name: composition_patient_ihi_chain_search_test.rb
+- :id: au_core_v210_draft_composition_patient_medicare_chain_search_test
+  :file_name: composition_patient_medicare_chain_search_test.rb
+- :id: au_core_v210_draft_composition_patient_dva_chain_search_test
+  :file_name: composition_patient_dva_chain_search_test.rb
+- :id: au_core_v210_draft_composition_read_test
+  :file_name: composition_read_test.rb
+- :id: au_core_v210_draft_composition_validation_test
+  :file_name: composition_validation_test.rb
+- :id: au_core_v210_draft_composition_must_support_test
+  :file_name: composition_must_support_test.rb
+- :id: au_core_v210_draft_composition_reference_resolution_test
+  :file_name: composition_reference_resolution_test.rb
+:id: au_core_v210_draft_composition
+:file_name: composition_group.rb
+:delayed_references:
+- :path: author
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+- :path: attester.party
+  :resources:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+- :path: custodian
+  :resources:
+  - Organization

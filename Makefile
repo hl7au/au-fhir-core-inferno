@@ -10,7 +10,7 @@ ber = bundle exec rake
 gen = au_core:generate
 kit_path = lib/au_core_test_kit/
 sum_script = $(kit_path)generator/summary_generator.rb
-generated_v2_path = $(kit_path)generated/v2.0.0/
+generated_v2_path = $(kit_path)generated/v2.1.0-draft/
 
 .PHONY: setup generate summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
 
