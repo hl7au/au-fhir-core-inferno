@@ -45,6 +45,14 @@ module AUCoreTestKit
       )
       version VERSION
 
+      # `id` MUST be declared before `fhir_resource_validator`: the validator captures the
+      # suite id eagerly as its `test_suite_id` (Inferno keys validator sessions on it). If
+      # `id` comes after, the capture falls back to the base-class name
+      # "Inferno::Entities::TestSuite", which every affected suite then shares as one
+      # validator session — collapsing AU Core 1.0.0 and 2.0.0 onto a single validator
+      # engine and causing intermittent "Unable to resolve profile ...|<version>" errors.
+      id :au_core_v100
+
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
       def self.metadata
@@ -87,8 +95,6 @@ module AUCoreTestKit
           url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/'
         }
       ]
-
-      id :au_core_v100
 
       input :url,
             title: 'FHIR Endpoint',
