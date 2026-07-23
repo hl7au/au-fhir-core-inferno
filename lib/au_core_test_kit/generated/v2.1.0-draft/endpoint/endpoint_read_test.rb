@@ -10,6 +10,12 @@ module AUCoreTestKit
       title '(SHALL) Server returns correct Endpoint resource from Endpoint read interaction'
       description 'A server SHALL support the Endpoint read interaction.'
 
+      input :endpoint_ids,
+            title: 'Endpoint IDs',
+            description: 'Comma separated list of endpoint IDs that in sum contain all MUST SUPPORT elements',
+            default: '',
+            optional: true
+
       id :au_core_v210_draft_endpoint_read_test
 
       def self.demodata
