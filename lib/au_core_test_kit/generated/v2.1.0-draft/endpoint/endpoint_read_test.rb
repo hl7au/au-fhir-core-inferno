@@ -13,7 +13,7 @@ module AUCoreTestKit
       input :endpoint_ids,
             title: 'Endpoint IDs',
             description: 'Comma separated list of endpoint IDs that in sum contain all MUST SUPPORT elements',
-            default: '',
+            default: 'bobrester-fhir-rest, mh-audiology-smd, murrabit-hospital-hl7-v2-mllp',
             optional: true
 
       id :au_core_v210_draft_endpoint_read_test
