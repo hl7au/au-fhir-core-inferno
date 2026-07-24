@@ -1,3 +1,6 @@
+# 1.4.4
+* Add an optional Endpoint IDs input, with a default value, to the Endpoint read test.
+
 # 1.4.3
 * Add a suite for AU Core 2.1.0-draft
 
