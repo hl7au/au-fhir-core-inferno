@@ -47,6 +47,7 @@
     "read_ids.practitioner": "alderson-helene",
     "read_ids.practitioner_role": "cardiologist-sallie-sutherland, bobrester-bob-gp",
     "read_ids.healthcare_service": "generalpractice-bungabbee-medical-clinic, communityhealth-southedge-practice, dentalpractice-annandale-dental, pathologylaboratory-woodcroft-pathology",
+    "read_ids.endpoint": "bobrester-fhir-rest, mh-audiology-smd, murrabit-hospital-hl7-v2-mllp",
     "search_default_values.diagnostic_result": ["251739003", "24701-5"],
     "search_default_values.date": ["ge1950-01-01", "le2050-01-01", "gt1950-01-01", "lt2050-01-01"],
     "search_default_values.datetime": ["ge1950-01-01T00:00:00.000Z", "le2050-01-01T23:59:59.999Z", "gt1950-01-01T00:00:00.000Z", "lt2050-01-01T23:59:59.999Z"],
