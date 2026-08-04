@@ -1,3 +1,6 @@
+# 1.4.5
+* Add a suite for AU Core 3.0.0-ballot1
+
 # 1.4.4
 * Add an optional Endpoint IDs input, with a default value, to the Endpoint read test.
 
