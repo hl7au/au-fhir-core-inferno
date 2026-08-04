@@ -7,3 +7,5 @@ require_relative 'au_core_test_kit/generated/v1.0.0/au_core_test_suite'
 require_relative 'au_core_test_kit/generated/v2.0.0/au_core_test_suite'
 
 require_relative 'au_core_test_kit/generated/v2.1.0-draft/au_core_test_suite'
+
+require_relative 'au_core_test_kit/generated/v3.0.0-ballot1/au_core_test_suite'

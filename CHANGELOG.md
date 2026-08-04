@@ -1,6 +1,9 @@
 # Unreleased
 * Select the Australian SNOMED CT edition for validation instead of the validator's International default. The AU terminology server carries only the Australian edition, so the default made every SNOMED lookup fail and caused valid codes to be reported as absent from their value sets. Override with the `SNOMED_EDITION` environment variable.
 
+# 1.4.5
+* Add a suite for AU Core 3.0.0-ballot1
+
 # 1.4.4
 * Add an optional Endpoint IDs input, with a default value, to the Endpoint read test.
 
