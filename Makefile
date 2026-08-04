@@ -68,4 +68,6 @@ clean_generated:
 ig_download:
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/ig_download.rb
 
+dev_restart: down setup up
+
 full_develop_restart: stop down build generate setup run
