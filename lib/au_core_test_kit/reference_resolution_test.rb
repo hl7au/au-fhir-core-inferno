@@ -169,22 +169,17 @@ module AUCoreTestKit
     def resource_is_valid_with_target_profile?(resource, target_profile)
       return true if target_profile.blank?
 
-      # Only need to know if the resource is valid.
-      # Calling resource_is_valid? causes validation errors to be logged.
       validator = find_validator(:default)
 
       target_profile_with_version = target_profile == "http://hl7.org.au/fhir/StructureDefinition/au-specimen" ? target_profile : "#{target_profile}|#{metadata.profile_version}"
 
-      validator_response = validator.validate(resource, target_profile_with_version)
-      outcome = validator.operation_outcome_from_hl7_wrapped_response(validator_response)
-
-      message_hashes = outcome.issue&.map { |issue| validator.message_hash_from_issue(issue, resource) } || []
-
-      message_hashes.concat(validator.additional_validation_messages(resource, target_profile_with_version))
-
-      validator.filter_messages(message_hashes)
-
-      message_hashes.none? { |message_hash| message_hash[:type] == 'error' }
+      # Only the boolean matters here, so add_messages_to_runnable is false: logging a
+      # validation message for every reference target would flood the test's messages.
+      # This is the supported way to validate without logging. The previous
+      # implementation hand-rolled the same thing out of Validator internals
+      # (operation_outcome_from_hl7_wrapped_response, message_hash_from_issue,
+      # filter_messages), all of which inferno_core removed in v1.1.0.
+      validator.resource_is_valid?(resource, target_profile_with_version, self, add_messages_to_runnable: false)
     end
   end
 end
