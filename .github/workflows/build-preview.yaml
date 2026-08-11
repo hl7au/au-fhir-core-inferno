@@ -1,11 +1,11 @@
-# Preview images for `preview`-labelled PRs. Pushing the label builds this PR's
-# app and nginx images; the aucore-previews ApplicationSet in aehrc/sparked-argo
-# then provisions aucore-pr-<n>.preview.inferno.sparked-fhir.com from them, and
-# tears it down when the label is removed or the PR closes. New commits rebuild
-# and the environment follows the PR head automatically.
+# Preview image for `preview`-labelled PRs. Pushing the label builds this PR's
+# app image; the aucore-previews ApplicationSet in aehrc/sparked-argo then
+# provisions aucore-pr-<n>.preview.inferno.sparked-fhir.com from it, and tears
+# it down when the label is removed or the PR closes. New commits rebuild and
+# the environment follows the PR head automatically.
 #
-# The image tags MUST stay <head_sha>-pr and <head_sha>-nginx-pr: the
-# ApplicationSet templates exactly those tags from the PR's head commit.
+# The image tag MUST stay <head_sha>-pr: the ApplicationSet templates exactly
+# that tag from the PR's head commit.
 #
 # Note: this only works for branch PRs, not fork PRs. A fork PR's GITHUB_TOKEN is
 # read-only, so the ghcr push fails. The same limitation exists for the aggregator
@@ -21,7 +21,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 # A new commit supersedes any in-flight build for the same PR: the preview always
-# targets the head SHA, so a superseded build's images would never be pulled.
+# targets the head SHA, so a superseded build's image would never be pulled.
 concurrency:
   group: build-preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -52,11 +52,3 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.sha }}-pr
-
-      - name: Build and push nginx image
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          file: ./nginx.Dockerfile
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.sha }}-nginx-pr
