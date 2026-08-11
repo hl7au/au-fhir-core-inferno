@@ -1,0 +1,88 @@
+# Posts (and keeps updated) a single sticky comment on a PR that carries the
+# `preview` label, pointing at its ephemeral preview environment. Polls the URL
+# and flips the comment to "live" once it serves, and notes teardown when the
+# label is removed or the PR closes. The env itself is created by the
+# aucore-previews ApplicationSet in aehrc/sparked-argo; this workflow is purely
+# the PR-side notice.
+name: Preview environment PR comment
+
+on:
+  pull_request:
+    types: [labeled, unlabeled, closed]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+# Don't stack poll jobs if the label is toggled repeatedly on one PR.
+concurrency:
+  group: preview-comment-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  comment:
+    # Only react to the `preview` label (added/removed) or to a labelled PR closing.
+    if: >-
+      ((github.event.action == 'labeled' || github.event.action == 'unlabeled') && github.event.label.name == 'preview') ||
+      (github.event.action == 'closed' && contains(github.event.pull_request.labels.*.name, 'preview'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Upsert preview comment
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const n = context.payload.pull_request.number;
+            const host = `aucore-pr-${n}.preview.inferno.sparked-fhir.com`;
+            const url = `https://${host}`;
+            const marker = '<!-- aucore-preview-env -->';
+            const action = context.payload.action;
+
+            async function upsert(body) {
+              const { data: comments } = await github.rest.issues.listComments({
+                owner, repo, issue_number: n, per_page: 100,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(marker));
+              if (existing) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body: `${marker}\n${body}` });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: n, body: `${marker}\n${body}` });
+              }
+            }
+
+            // Label removed or PR closed: note teardown and stop.
+            if (action !== 'labeled') {
+              await upsert(`### 🧹 Preview environment torn down\n\n\`${host}\` has been removed.`);
+              return;
+            }
+
+            await upsert(
+              `### 🚀 Preview environment\n\nProvisioning at **${url}**: building this PR's images and syncing via ArgoCD. ` +
+              `Usually live within a few minutes; new commits update it automatically. ` +
+              `Remove the \`preview\` label or close the PR to tear it down.`
+            );
+
+            // Poll until it serves (image build + ArgoCD sync + validator startup).
+            const deadline = Date.now() + 12 * 60 * 1000;
+            let live = false;
+            while (Date.now() < deadline) {
+              await new Promise(r => setTimeout(r, 20000));
+              try {
+                const res = await fetch(url, { redirect: 'manual' });
+                if (res.status >= 200 && res.status < 400) { live = true; break; }
+              } catch (e) { /* DNS/connection not ready yet */ }
+            }
+
+            if (live) {
+              await upsert(
+                `### ✅ Preview environment live\n\n**${url}**\n\n` +
+                `Running this PR's image with the stock Inferno UI. New commits update it; ` +
+                `remove the \`preview\` label or close the PR to tear it down.`
+              );
+            } else {
+              await upsert(
+                `### ⏳ Preview environment still provisioning\n\n**${url}** is taking longer than usual ` +
+                `(image build + validator startup can take ~10 min). It should come up shortly.`
+              );
+            }
