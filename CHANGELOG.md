@@ -1,4 +1,5 @@
 # Unreleased
+* Select the Australian SNOMED CT edition for validation instead of the validator's International default. The AU terminology server carries only the Australian edition, so the default made every SNOMED lookup fail and caused valid codes to be reported as absent from their value sets. Override with the `SNOMED_EDITION` environment variable.
 * Validate reference targets through `Validator#resource_is_valid?` instead of the
   `Validator` internals inferno_core removed in v1.1.0, so the kit runs on
   inferno_core 1.1.0 through 1.4.x as well as 1.0.x.

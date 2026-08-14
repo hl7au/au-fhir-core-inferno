@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'validation_test_kit/validation_test'
+require_relative '../constants'
 
 module AUCoreTestKit
   module AUCoreValidationSuite
@@ -31,6 +32,7 @@ module AUCoreTestKit
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
+          snomedCT Constants.snomed_edition
           disableDefaultResourceFetcher false
           noEcosystem true
         end

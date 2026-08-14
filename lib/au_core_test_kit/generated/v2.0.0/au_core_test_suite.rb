@@ -6,6 +6,7 @@ require 'inferno_suite_generator/utils/helpers'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/missing_data_group'
+require_relative '../../constants'
 
 require_relative 'patient_group'
 require_relative 'bodyweight_group'
@@ -72,6 +73,7 @@ module AUCoreTestKit
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
+          snomedCT Constants.snomed_edition
           disableDefaultResourceFetcher false
           noEcosystem true
           baseEngine 'AU_CORE_V2_0_0'

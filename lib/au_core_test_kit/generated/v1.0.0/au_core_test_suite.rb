@@ -67,6 +67,7 @@ module AUCoreTestKit
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
+          snomedCT Constants.snomed_edition
           disableDefaultResourceFetcher false
           noEcosystem true
           baseEngine 'AU_CORE_V1_0_0'
