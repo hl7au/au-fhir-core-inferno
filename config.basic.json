@@ -9,6 +9,7 @@
     "title": "AU Core",
     "extra_json_paths": [],
     "tx_server_url": "https://tx.dev.hl7.org.au/fhir",
+    "resource_keeper_url": "http://resource-keeper:4567",
     "extra_imports": [],
     "outer_groups": [
       {

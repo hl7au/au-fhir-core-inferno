@@ -8,16 +8,6 @@ require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/missing_data_group'
 
 require_relative 'patient_group'
-require_relative 'bodyweight_group'
-require_relative 'bloodpressure_group'
-require_relative 'bodyheight_group'
-require_relative 'diagnosticresult_path_group'
-require_relative 'bodytemp_group'
-require_relative 'heartrate_group'
-require_relative 'waistcircum_group'
-require_relative 'resprate_group'
-require_relative 'diagnosticresult_group'
-require_relative 'smokingstatus_group'
 require_relative 'allergy_intolerance_group'
 require_relative 'composition_group'
 require_relative 'condition_group'
@@ -28,6 +18,16 @@ require_relative 'immunization_group'
 require_relative 'medication_dispense_group'
 require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
+require_relative 'bodyweight_group'
+require_relative 'bloodpressure_group'
+require_relative 'bodyheight_group'
+require_relative 'diagnosticresult_path_group'
+require_relative 'bodytemp_group'
+require_relative 'heartrate_group'
+require_relative 'waistcircum_group'
+require_relative 'resprate_group'
+require_relative 'diagnosticresult_group'
+require_relative 'smokingstatus_group'
 require_relative 'procedure_group'
 require_relative 'related_person_group'
 require_relative 'endpoint_group'
@@ -60,6 +60,11 @@ module AUCoreTestKit
       id :au_core_v300_ballot1
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
+
+      # Base URL of an inferno_resources_keeper service (https://github.com/projkov/inferno_resources_keeper).
+      # When present, every resource this suite reads via read/search/reference resolution is copied there,
+      # keyed by the test session. Blank/nil disables saving entirely.
+      RESOURCE_KEEPER_URL = ENV.fetch('RESOURCE_KEEPER_URL', 'http://resource-keeper:4567').presence
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
@@ -134,26 +139,6 @@ module AUCoreTestKit
 
         group from: :au_core_v300_ballot1_patient
 
-        group from: :au_core_v300_ballot1_bodyweight
-
-        group from: :au_core_v300_ballot1_bloodpressure
-
-        group from: :au_core_v300_ballot1_bodyheight
-
-        group from: :au_core_v300_ballot1_diagnosticresult_path
-
-        group from: :au_core_v300_ballot1_bodytemp
-
-        group from: :au_core_v300_ballot1_heartrate
-
-        group from: :au_core_v300_ballot1_waistcircum
-
-        group from: :au_core_v300_ballot1_resprate
-
-        group from: :au_core_v300_ballot1_diagnosticresult
-
-        group from: :au_core_v300_ballot1_smokingstatus
-
         group from: :au_core_v300_ballot1_allergy_intolerance
 
         group from: :au_core_v300_ballot1_composition
@@ -173,6 +158,26 @@ module AUCoreTestKit
         group from: :au_core_v300_ballot1_medication_request
 
         group from: :au_core_v300_ballot1_medication_statement
+
+        group from: :au_core_v300_ballot1_bodyweight
+
+        group from: :au_core_v300_ballot1_bloodpressure
+
+        group from: :au_core_v300_ballot1_bodyheight
+
+        group from: :au_core_v300_ballot1_diagnosticresult_path
+
+        group from: :au_core_v300_ballot1_bodytemp
+
+        group from: :au_core_v300_ballot1_heartrate
+
+        group from: :au_core_v300_ballot1_waistcircum
+
+        group from: :au_core_v300_ballot1_resprate
+
+        group from: :au_core_v300_ballot1_diagnosticresult
+
+        group from: :au_core_v300_ballot1_smokingstatus
 
         group from: :au_core_v300_ballot1_procedure
 
