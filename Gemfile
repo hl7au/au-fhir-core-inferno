@@ -11,7 +11,7 @@ group :development, :test do
 end
 
 gem 'inferno_suite_generator', github: 'hl7au/inferno_suite_generator',
-                                ref: 'd630b44e76b8656e501c39b3ccd878680af98518'
+                               ref: 'd630b44e76b8656e501c39b3ccd878680af98518'
 gem 'pg', '~> 1.5'
 gem 'rubocop', '~> 1.63.2'
 gem 'rubocop-erb', '~> 0.3.0'

@@ -71,7 +71,7 @@ module AUCoreTestKit
       # locations in validation messages into links testers can use to interactively debug the
       # failing expression. Requires RESOURCE_KEEPER_URL to also be set, since FHIRPath Lab needs
       # somewhere to fetch the resource content from.
-      FHIRPATHLAB_URL = ENV.fetch('FHIRPATHLAB_URL', 'https://fhirpath-lab.com/').presence
+      FHIRPATHLAB_URL = ENV.fetch('FHIRPATHLAB_URL', 'https://fhirpath-lab.com/FhirPath').presence
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
