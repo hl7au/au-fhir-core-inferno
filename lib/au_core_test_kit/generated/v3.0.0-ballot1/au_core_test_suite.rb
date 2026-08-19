@@ -3,6 +3,7 @@
 require 'base64'
 require 'inferno/dsl/oauth_credentials'
 require 'inferno_suite_generator/utils/helpers'
+require 'inferno_suite_generator/utils/fhirpath_lab_message_linker'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/missing_data_group'
@@ -65,6 +66,12 @@ module AUCoreTestKit
       # When present, every resource this suite reads via read/search/reference resolution is copied there,
       # keyed by the test session. Blank/nil disables saving entirely.
       RESOURCE_KEEPER_URL = ENV.fetch('RESOURCE_KEEPER_URL', 'http://resource-keeper:4567').presence
+
+      # Base URL of a FHIRPath Lab instance (https://fhirpath-lab.com/) used to turn FHIRPath
+      # locations in validation messages into links testers can use to interactively debug the
+      # failing expression. Requires RESOURCE_KEEPER_URL to also be set, since FHIRPath Lab needs
+      # somewhere to fetch the resource content from.
+      FHIRPATHLAB_URL = ENV.fetch('FHIRPATHLAB_URL', 'https://fhirpath-lab.com/').presence
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
