@@ -2,7 +2,7 @@ MODE ?= default
 ifeq ($(MODE), default)
 compose = docker compose
 else ifeq ($(MODE), aidbox)
-compose = docker compose -f compose.aidbox.yaml
+compose = docker compose -f compose.yaml -f compose.aidbox.yaml
 endif
 
 inferno = run inferno
