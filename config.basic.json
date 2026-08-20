@@ -9,6 +9,7 @@
     "title": "AU Core",
     "extra_json_paths": [],
     "tx_server_url": "https://tx.dev.hl7.org.au/fhir",
+    "fhirpathlab_url": "https://fhirpath-lab.com/FhirPath",
     "extra_imports": [],
     "outer_groups": [
       {

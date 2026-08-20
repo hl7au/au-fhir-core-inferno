@@ -1,0 +1,44 @@
+services:
+  inferno:
+    depends_on:
+      validator-api-worker:
+        condition: service_started
+    environment:
+      FHIR_RESOURCE_VALIDATOR_URL: http://validator-api:3500
+  inferno-worker:
+    depends_on:
+      validator-api-worker:
+        condition: service_started
+    environment:
+      FHIR_RESOURCE_VALIDATOR_URL: http://validator-api:3500
+  validator-api: !override
+    image: healthsamurai/aidboxone:2512.2
+    depends_on:
+      postgres:
+        condition: service_healthy
+    links:
+      - "postgres:database"
+    ports:
+      - "127.0.0.1:3500:3500"
+    env_file:
+      - ./env/aidbox
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      interval: 5s
+      timeout: 20s
+      retries: 20
+      start_period: 120s
+      test: curl --fail http://validator-api:3500/health || exit 1
+  validator-api-worker:
+    image: ghcr.io/beda-software/aidbox-validator/aidbox-validator:main-891628f
+    depends_on:
+      validator-api:
+        condition: service_healthy
+    links:
+      - validator-api
+    env_file:
+      - ./env/app
+      - .env
+    tty: true
