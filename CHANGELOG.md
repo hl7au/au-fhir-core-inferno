@@ -1,7 +1,9 @@
-# Unreleased
+# 1.4.6
 * Validate reference targets through `Validator#resource_is_valid?` instead of the
   `Validator` internals inferno_core removed in v1.1.0, so the kit runs on
   inferno_core 1.1.0 through 1.4.x as well as 1.0.x.
+* Declare the suite `id` before `fhir_resource_validator` in the v1.0.0 and v2.0.0
+  suites, so the two no longer collide on a shared validator session key.
 
 # 1.4.5
 * Add a suite for AU Core 3.0.0-ballot1
