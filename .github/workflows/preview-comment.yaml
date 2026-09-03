@@ -2,7 +2,7 @@
 # `preview` label, pointing at its ephemeral preview environment. Polls the URL
 # and flips the comment to "live" once it serves, and notes teardown when the
 # label is removed or the PR closes. The env itself is created by the
-# aucore-previews ApplicationSet in aehrc/sparked-argo; this workflow is purely
+# kit-previews ApplicationSet in aehrc/sparked-argo; this workflow is purely
 # the PR-side notice.
 name: Preview environment PR comment
 
@@ -58,7 +58,7 @@ jobs:
             }
 
             await upsert(
-              `### 🚀 Preview environment\n\nProvisioning at **${url}**: building this PR's images and syncing via ArgoCD. ` +
+              `### 🚀 Preview environment\n\nProvisioning at **${url}**: building this PR's image and syncing via ArgoCD. ` +
               `Usually live within a few minutes; new commits update it automatically. ` +
               `Remove the \`preview\` label or close the PR to tear it down.`
             );

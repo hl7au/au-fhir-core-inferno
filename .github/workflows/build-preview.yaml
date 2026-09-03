@@ -1,5 +1,5 @@
 # Preview image for `preview`-labelled PRs. Pushing the label builds this PR's
-# app image; the aucore-previews ApplicationSet in aehrc/sparked-argo then
+# app image; the kit-previews ApplicationSet in aehrc/sparked-argo then
 # provisions aucore-pr-<n>.preview.inferno.sparked-fhir.com from it, and tears
 # it down when the label is removed or the PR closes. New commits rebuild and
 # the environment follows the PR head automatically.
@@ -10,7 +10,7 @@
 # Note: this only works for branch PRs, not fork PRs. A fork PR's GITHUB_TOKEN is
 # read-only, so the ghcr push fails. The same limitation exists for the aggregator
 # previews in au-fhir-inferno.
-name: Build Preview Images
+name: Build Preview Image
 
 on:
   pull_request:
