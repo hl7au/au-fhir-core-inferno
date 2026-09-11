@@ -63,7 +63,7 @@ module AUCoreTestKit
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
-      FHIRPATHLAB_URL = ENV.fetch('FHIRPATHLAB_URL', 'https://fhirpath-lab.com/FhirPath').presence
+      FHIRPATHLAB_URL = 'https://fhirpath-lab.com/FhirPath'
 
       suite_endpoint :get, '/resources/:session_id/:resource_type/:resource_id',
                      InfernoSuiteGenerator::FetchResourceEndpoint

@@ -2678,8 +2678,8 @@
 - Patient
 - Practitioner
 - PractitionerRole
-- Organization
 - RelatedPerson
+- Organization
 - Observation
 - Condition
 - Procedure
