@@ -1,0 +1,54 @@
+# Preview image for `preview`-labelled PRs. Pushing the label builds this PR's
+# app image; the kit-previews ApplicationSet in aehrc/sparked-argo then
+# provisions aucore-pr-<n>.preview.inferno.sparked-fhir.com from it, and tears
+# it down when the label is removed or the PR closes. New commits rebuild and
+# the environment follows the PR head automatically.
+#
+# The image tag MUST stay <head_sha>-pr: the ApplicationSet templates exactly
+# that tag from the PR's head commit.
+#
+# Note: this only works for branch PRs, not fork PRs. A fork PR's GITHUB_TOKEN is
+# read-only, so the ghcr push fails. The same limitation exists for the aggregator
+# previews in au-fhir-inferno.
+name: Build Preview Image
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+# A new commit supersedes any in-flight build for the same PR: the preview always
+# targets the head SHA, so a superseded build's image would never be pulled.
+concurrency:
+  group: build-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-push-images:
+    if: contains(github.event.pull_request.labels.*.name, 'preview')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push app image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.sha }}-pr

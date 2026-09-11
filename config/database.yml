@@ -10,10 +10,10 @@ development:
 production:
   adapter: postgres
   host: <%= ENV['POSTGRES_HOST'] %>
-  post: <%= ENV['POSTGRES_PORT'] %>
+  port: <%= ENV.fetch('POSTGRES_PORT', 5432).to_i %>
   database: <%= ENV['POSTGRES_DB'] %>
   username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  password: "<%= ENV['POSTGRES_PASSWORD'] %>"
 
 test:
   adapter: sqlite

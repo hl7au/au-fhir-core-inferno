@@ -1,0 +1,115 @@
+# Posts (and keeps updated) a single sticky comment on a PR that carries the
+# `preview` label, pointing at its ephemeral preview environment. The env itself
+# is created by the `kit-previews` ApplicationSet in aehrc/sparked-argo; this workflow
+# is purely the PR-side notice.
+#
+# The comment is event driven rather than polled. Argo CD Notifications in
+# aehrc/sparked-argo (the `github-dispatch` webhook service) sends a
+# `repository_dispatch` to this repo every time the preview Application changes
+# state, and this workflow rewrites the sticky comment to match. The payload
+# contract is:
+#
+#   event_type: preview-status
+#   client_payload:
+#     state:      "provisioning" | "live" | "degraded" | "torn-down"
+#     pr:         <integer PR number>
+#     sha:        "<PR head sha the environment is running>"
+#     url:        "https://<host>"
+#     app:        "<argo application name, e.g. aucore-pr-307>"
+#     argocd_url: "https://argo.sparked-fhir.com/applications/<app>"
+#
+# Those keys must change in lockstep with the notification templates in
+# aehrc/sparked-argo. Renaming one there without renaming it here leaves the
+# comment stale with no error anywhere.
+#
+# The `pull_request: labeled` trigger stays as an immediate acknowledgement that
+# the label was seen: Argo CD's first event can lag when the label is applied
+# within a second or two of opening the PR. Teardown is no longer driven from
+# here, because Argo CD reports the Application deletion itself.
+name: Preview environment PR comment
+
+on:
+  repository_dispatch:
+    types: [preview-status]
+  pull_request:
+    types: [labeled]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+# Serialise per PR so two states never race on the same comment. Do not cancel
+# in progress: each event is a quick upsert, and cancelling could drop a later
+# state and leave the comment wrong.
+concurrency:
+  group: preview-comment-${{ github.event.pull_request.number || github.event.client_payload.pr }}
+  cancel-in-progress: false
+
+jobs:
+  comment:
+    # Any Argo CD state change, plus the `preview` label being applied.
+    if: >-
+      github.event_name == 'repository_dispatch' ||
+      (github.event.action == 'labeled' && github.event.label.name == 'preview')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Upsert preview comment
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const marker = '<!-- aucore-preview-env -->';
+
+            // Both events feed the same upsert; only the source of the facts differs.
+            const dispatch = context.eventName === 'repository_dispatch';
+            const payload = context.payload.client_payload || {};
+
+            const n = dispatch ? Number(payload.pr) : context.payload.pull_request.number;
+            const state = dispatch ? payload.state : 'provisioning';
+            const url = dispatch
+              ? payload.url
+              : `https://aucore-pr-${n}.preview.inferno.sparked-fhir.com`;
+            const sha = dispatch ? (payload.sha || '') : context.payload.pull_request.head.sha;
+            const argocdUrl = dispatch ? (payload.argocd_url || '') : '';
+
+            const host = String(url || '').replace(/^https:\/\//, '');
+            const sha7 = String(sha).slice(0, 7);
+
+            async function upsert(body) {
+              const { data: comments } = await github.rest.issues.listComments({
+                owner, repo, issue_number: n, per_page: 100,
+              });
+              const existing = comments.find(c => c.body && c.body.includes(marker));
+              if (existing) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body: `${marker}\n${body}` });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: n, body: `${marker}\n${body}` });
+              }
+            }
+
+            if (state === 'provisioning') {
+              await upsert(
+                `### 🚀 Preview environment\n\nProvisioning at **${url}**: building this PR's image and syncing via Argo CD. ` +
+                `Usually live within a few minutes; new commits update it automatically. ` +
+                `Remove the \`preview\` label or close the PR to tear it down.`
+              );
+            } else if (state === 'live') {
+              // The labeled path has no Argo CD link to offer, so drop that line there.
+              const argoLine = argocdUrl ? `\n\nArgo CD: ${argocdUrl}` : '';
+              await upsert(
+                `### ✅ Preview environment live\n\n**${url}**\n\n` +
+                `Running commit \`${sha7}\` with the stock Inferno UI. New commits update it; ` +
+                `remove the \`preview\` label or close the PR to tear it down.${argoLine}`
+              );
+            } else if (state === 'degraded') {
+              await upsert(
+                `### ⚠️ Preview environment degraded\n\n**${url}**\n\n` +
+                `Argo CD reports the environment as Degraded (a pod is crash-looping or a rollout stalled). ` +
+                `Details: ${argocdUrl}. This comment flips back to live once it recovers.`
+              );
+            } else if (state === 'torn-down') {
+              await upsert(`### 🧹 Preview environment torn down\n\n\`${host}\` has been removed.`);
+            } else {
+              core.info(`Ignoring preview-status event with unknown state: ${state}`);
+            }
