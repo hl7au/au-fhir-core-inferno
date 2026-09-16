@@ -63,8 +63,8 @@ module AUCoreTestKit
 
     def missing_must_support_strings
       result = missing_elements.map { |element_definition| missing_element_string(element_definition) } +
-        missing_slices.map { |slice_definition| slice_definition[:slice_id] } +
-        missing_extensions.map { |extension_definition| extension_definition[:id] }
+               missing_slices.map { |slice_definition| slice_definition[:slice_id] } +
+               missing_extensions.map { |extension_definition| extension_definition[:id] }
 
       result.map { |missing_element| "'#{missing_element}'" }
     end

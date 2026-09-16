@@ -109,7 +109,7 @@ module AUCoreTestKit
         slices.find do |slice|
           case discriminator[:type]
           when 'patternCodeableConcept'
-            slice_value = discriminator[:path].present? ? slice.send((discriminator[:path]).to_s).coding : slice.coding
+            slice_value = discriminator[:path].present? ? slice.send(discriminator[:path].to_s).coding : slice.coding
             slice_value.any? { |coding| coding.code == discriminator[:code] && coding.system == discriminator[:system] }
           when 'patternCoding'
             slice_value = discriminator[:path].present? ? slice.send(discriminator[:path]) : slice
@@ -139,7 +139,7 @@ module AUCoreTestKit
               slice.is_a? FHIR.const_get(discriminator[:code])
             end
           when 'requiredBinding'
-            discriminator[:path].present? ? slice.send((discriminator[:path]).to_s).coding : slice.coding
+            discriminator[:path].present? ? slice.send(discriminator[:path].to_s).coding : slice.coding
             slice_value { |coding| discriminator[:values].include?(coding.code) }
           end
         end
