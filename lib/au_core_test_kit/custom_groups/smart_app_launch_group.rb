@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'smart_app_launch_test_kit'
-require_relative '../au_core_options'
+require_relative './au_core_options'
 
 module AUCoreTestKit
   class SmartAppLaunchGroup < Inferno::TestGroup
