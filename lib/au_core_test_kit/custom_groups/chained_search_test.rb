@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'search_test_properties'
-require_relative 'search_test'
+require 'inferno_suite_generator'
+require 'inferno_suite_generator/core/search_test_properties'
 
 module AUCoreTestKit
   module ChainedSearchTest
     extend Forwardable
-    include SearchTest
+    include InfernoSuiteGenerator::SearchTest
 
     def_delegators 'self.class', :metadata, :provenance_metadata, :properties
     def_delegators 'properties',
