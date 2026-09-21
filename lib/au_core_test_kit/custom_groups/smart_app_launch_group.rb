@@ -5,6 +5,12 @@ require_relative '../au_core_options'
 
 module AUCoreTestKit
   class SmartAppLaunchGroup < Inferno::TestGroup
+    SMART_1 = 'smart_app_launch_1'
+    SMART_2 = 'smart_app_launch_2'
+
+    SMART_1_REQUIREMENT = { smart_app_launch_version: SMART_1 }.freeze
+    SMART_2_REQUIREMENT = { smart_app_launch_version: SMART_2 }.freeze
+
     id :au_core_smart_app_launch
     title 'SMART App Launch'
 
