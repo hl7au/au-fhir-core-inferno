@@ -2,13 +2,12 @@
 
 require 'base64'
 require 'inferno/dsl/oauth_credentials'
+require 'inferno_suite_generator/utils/helpers'
+require 'inferno_suite_generator/utils/fhirpath_lab_message_linker'
+require 'inferno_suite_generator/utils/resource_keeper_endpoints'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
-require_relative '../../custom_groups/smart_app_launch_group'
 require_relative '../../custom_groups/missing_data_group'
-require_relative '../../au_core_options'
-require_relative '../../helpers'
-require_relative '../../constants'
 
 require_relative 'patient_group'
 require_relative 'bodyweight_group'
@@ -37,23 +36,31 @@ module AUCoreTestKit
     class AUCoreTestSuite < Inferno::TestSuite
       title 'AU Core v1.0.0'
       description %(
-        The AU Core Test Kit tests systems for their conformance to the [AU Core
-        Implementation Guide](https://hl7.org.au/fhir/core/1.0.0).
+        The AU Core Test Kit tests systems for their conformance to the [AU Core Implementation Guide](https://hl7.org.au/fhir/core/1.0.0/index.html).
 
         HL7® FHIR® resources are validated with the Java validator using
-        `#{ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')}` as the terminology server.
+        https://tx.dev.hl7.org.au/fhir as the terminology server.
+
+        The test suite is generated using the [InfernoSuiteGenerator](https://github.com/hl7au/inferno_suite_generator) gem version 0.1.0.
       )
       version VERSION
 
-      # `id` MUST be declared before `fhir_resource_validator`: the validator captures the
-      # suite id eagerly as its `test_suite_id` (Inferno keys validator sessions on it). If
-      # `id` comes after, the capture falls back to the base-class name
-      # "Inferno::Entities::TestSuite", which every affected suite then shares as one
-      # validator session — collapsing AU Core 1.0.0 and 2.0.0 onto a single validator
-      # engine and causing intermittent "Unable to resolve profile ...|<version>" errors.
+      # `id` MUST be declared before `fhir_resource_validator`. The validator captures the
+      # suite id eagerly as its `test_suite_id`, and Inferno keys validator sessions on it.
+      # If `id` comes after, the capture falls back to the base-class name
+      # "Inferno::Entities::TestSuite", which every affected suite then shares as a single
+      # validator session, collapsing separate IG versions onto one validator engine and
+      # causing intermittent "Unable to resolve profile ...|<version>" errors.
       id :au_core_v100
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
+
+      FHIRPATHLAB_URL = 'https://fhirpath-lab.com/FhirPath'
+
+      suite_endpoint :get, '/resources/:session_id/:resource_type/:resource_id',
+                     InfernoSuiteGenerator::FetchResourceEndpoint
+      suite_endpoint :delete, '/resources/:session_id',
+                     InfernoSuiteGenerator::DeleteSessionResourcesEndpoint
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
@@ -62,14 +69,17 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs 'hl7.fhir.au.core#1.0.0'
-        message_filters = Constants.validation_message_filters + VERSION_SPECIFIC_MESSAGE_FILTERS
+        igs '/home/igs/1.0.0.tgz'
+        message_filters = [
+          "The value provided ('xml') was not found in the value set 'MimeType'",
+          "The value provided ('json') was not found in the value set 'MimeType'",
+          "The value provided ('ttl') was not found in the value set 'MimeType'"
+        ] + VERSION_SPECIFIC_MESSAGE_FILTERS
 
         cli_context do
           txServer ENV.fetch('TX_SERVER_URL', 'https://tx.dev.hl7.org.au/fhir')
+          snomedCT ENV.fetch('SNOMED_EDITION', 'au')
           disableDefaultResourceFetcher false
-          noEcosystem true
-          baseEngine 'AU_CORE_V1_0_0'
         end
 
         exclude_message do |message|
@@ -87,12 +97,12 @@ module AUCoreTestKit
           url: 'https://github.com/hl7au/au-fhir-core-inferno/issues'
         },
         {
-          label: 'Open Source',
+          label: 'Source Code',
           url: 'https://github.com/hl7au/au-fhir-core-inferno'
         },
         {
-          label: 'AU Core Implementation Guide',
-          url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/'
+          label: 'Implementation Guide',
+          url: 'https://build.fhir.org/ig/hl7au/au-fhir-core/index.html'
         }
       ]
 
