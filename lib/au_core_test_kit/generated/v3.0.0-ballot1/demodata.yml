@@ -464,7 +464,7 @@
     interpretation:
     - coding:
       - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
-        code: "N"
+        code: N
         display: Normal
     referenceRange:
     - low:
@@ -551,7 +551,7 @@
     interpretation:
     - coding:
       - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
-        code: "N"
+        code: N
         display: Normal
     referenceRange:
     - high:
@@ -588,7 +588,7 @@
     interpretation:
     - coding:
       - system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
-        code: "N"
+        code: N
         display: Normal
     referenceRange:
     - high:
