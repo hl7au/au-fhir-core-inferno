@@ -227,6 +227,8 @@
 - :path: Observation.subject
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+  :resource_types:
+  - Patient
 - :path: Observation.focus
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource
@@ -240,6 +242,12 @@
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
   - http://hl7.org.au/fhir/StructureDefinition/au-relatedperson
+  :resource_types:
+  - Practitioner
+  - PractitionerRole
+  - Organization
+  - Patient
+  - RelatedPerson
 - :path: Observation.specimen
   :profiles:
   - http://hl7.org.au/fhir/StructureDefinition/au-specimen
@@ -250,6 +258,8 @@
 - :path: Observation.hasMember
   :profiles:
   - http://hl7.org.au/fhir/core/StructureDefinition/au-core-diagnosticresult-path
+  :resource_types:
+  - Observation
 - :path: Observation.derivedFrom
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/DocumentReference
@@ -309,4 +319,3 @@
   - Practitioner
   - PractitionerRole
   - Organization
-  - RelatedPerson
