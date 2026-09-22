@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../helpers'
+require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
   module AUCoreV100

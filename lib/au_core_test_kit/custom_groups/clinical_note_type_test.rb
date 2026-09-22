@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../search_test'
+require 'inferno_suite_generator'
 
 module AUCoreTestKit
   class ClinicalNoteTypeTest < Inferno::Test
-    include SearchTest
+    include InfernoSuiteGenerator::SearchTest 
 
     id :au_core_clinical_note_types
     title 'Server demonstrates support for the required DocumentReference types and DiagnosticReport categories.'
