@@ -1,0 +1,45 @@
+name: Bug report
+description: A test fails when it should pass, passes when it should fail, errors, or the kit misbehaves.
+type: Bug
+labels: ["bug"]
+projects: ["hl7au/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Enough detail to reproduce the problem is the most useful thing you can give us.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the suite, the test ID (for example 1.17.11) and the message you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: Cite the IG requirement or profile if the expectation comes from one.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Server under test, inputs you entered, and the steps to trigger the problem.
+      placeholder: |
+        1. Start a new session of ...
+        2. Enter ...
+        3. Run test ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Where and which version
+      description: Deployment (for example inferno.hl7.org.au or local) and the test kit or suite version.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Request and response, logs or screenshots. Remove anything sensitive first.
