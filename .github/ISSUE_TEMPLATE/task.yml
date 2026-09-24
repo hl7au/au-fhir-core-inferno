@@ -1,0 +1,32 @@
+name: Task or enhancement
+description: Work to do, or an improvement to the test kit or generator.
+type: Task
+projects: ["hl7au/2"]
+body:
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this matters
+      description: The problem or need, and who it affects. A reader should be able to judge priority from this alone.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What to do
+      description: The change you have in mind. Leave it open if the approach still needs analysis.
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: Checkable outcomes that mean this can be closed.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Where this came from
+      description: Link the conversation, review, advisory or issue that raised it, if any.
