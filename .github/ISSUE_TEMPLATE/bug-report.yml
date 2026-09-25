@@ -1,0 +1,52 @@
+name: Bug or test problem
+description: Report a reproducible AU Core kit issue or a test that appears incorrect.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Use synthetic examples. Do not include patient data,
+        FHIR payloads, request or response bodies, headers, credentials, or full
+        session URLs. For feedback from a run without GitHub sign-in, use the
+        [Inferno feedback form](https://inferno.hl7.org.au/feedback/).
+  - type: input
+    id: versions
+    attributes:
+      label: AU Core and kit version
+      placeholder: AU Core v2.0.0, kit 1.4.6
+  - type: input
+    id: test_id
+    attributes:
+      label: Test ID or feedback reference
+      description: Include an internal test ID or fb- reference, never a full session URL.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use synthetic inputs and describe the smallest reproducible case.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Supporting reference
+      description: Link the relevant AU Core rule or an existing issue, if available.
+  - type: checkboxes
+    id: privacy_check
+    attributes:
+      label: Public report check
+      options:
+        - label: I have removed sensitive data and full session URLs from this public issue.
+          required: true

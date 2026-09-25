@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Give feedback without signing in
+    url: https://inferno.hl7.org.au/feedback/
+    about: Report a specific result or share general feedback through the public Inferno form.
+  - name: Ask the community on Zulip
+    url: https://chat.fhir.org/#narrow/channel/179173-australia/topic/Inferno.20Test.20Kit.20feedback.20and.20queries
+    about: Discuss questions and ideas with the Australian FHIR community.
