@@ -40,7 +40,7 @@ require_relative 'practitioner_group'
 require_relative 'practitioner_role_group'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class AUCoreTestSuite < Inferno::TestSuite
       title 'AU Core v3.0.0-ci-build (tracks the CI build)'
       description %(
@@ -66,7 +66,7 @@ module AUCoreTestKit
       # "Inferno::Entities::TestSuite", which every affected suite then shares as a single
       # validator session, collapsing separate IG versions onto one validator engine and
       # causing intermittent "Unable to resolve profile ...|<version>" errors.
-      id :au_core_v300_ci_build
+      id :au_core_ci_build
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
@@ -144,67 +144,67 @@ module AUCoreTestKit
 
       group do
         title 'AU Core FHIR API'
-        id :au_core_v300_ci_build_fhir_api
+        id :au_core_ci_build_fhir_api
 
         group from: :au_core_v030_ballot_capability_statement
 
-        group from: :au_core_v300_ci_build_patient
+        group from: :au_core_ci_build_patient
 
-        group from: :au_core_v300_ci_build_bodyweight
+        group from: :au_core_ci_build_bodyweight
 
-        group from: :au_core_v300_ci_build_bloodpressure
+        group from: :au_core_ci_build_bloodpressure
 
-        group from: :au_core_v300_ci_build_bodyheight
+        group from: :au_core_ci_build_bodyheight
 
-        group from: :au_core_v300_ci_build_diagnosticresult_path
+        group from: :au_core_ci_build_diagnosticresult_path
 
-        group from: :au_core_v300_ci_build_bodytemp
+        group from: :au_core_ci_build_bodytemp
 
-        group from: :au_core_v300_ci_build_heartrate
+        group from: :au_core_ci_build_heartrate
 
-        group from: :au_core_v300_ci_build_waistcircum
+        group from: :au_core_ci_build_waistcircum
 
-        group from: :au_core_v300_ci_build_resprate
+        group from: :au_core_ci_build_resprate
 
-        group from: :au_core_v300_ci_build_diagnosticresult
+        group from: :au_core_ci_build_diagnosticresult
 
-        group from: :au_core_v300_ci_build_smokingstatus
+        group from: :au_core_ci_build_smokingstatus
 
-        group from: :au_core_v300_ci_build_allergy_intolerance
+        group from: :au_core_ci_build_allergy_intolerance
 
-        group from: :au_core_v300_ci_build_composition
+        group from: :au_core_ci_build_composition
 
-        group from: :au_core_v300_ci_build_condition
+        group from: :au_core_ci_build_condition
 
-        group from: :au_core_v300_ci_build_diagnostic_report
+        group from: :au_core_ci_build_diagnostic_report
 
-        group from: :au_core_v300_ci_build_document_reference
+        group from: :au_core_ci_build_document_reference
 
-        group from: :au_core_v300_ci_build_encounter
+        group from: :au_core_ci_build_encounter
 
-        group from: :au_core_v300_ci_build_immunization
+        group from: :au_core_ci_build_immunization
 
-        group from: :au_core_v300_ci_build_medication_dispense
+        group from: :au_core_ci_build_medication_dispense
 
-        group from: :au_core_v300_ci_build_medication_request
+        group from: :au_core_ci_build_medication_request
 
-        group from: :au_core_v300_ci_build_medication_statement
+        group from: :au_core_ci_build_medication_statement
 
-        group from: :au_core_v300_ci_build_procedure
+        group from: :au_core_ci_build_procedure
 
-        group from: :au_core_v300_ci_build_related_person
+        group from: :au_core_ci_build_related_person
 
-        group from: :au_core_v300_ci_build_endpoint
+        group from: :au_core_ci_build_endpoint
 
-        group from: :au_core_v300_ci_build_healthcare_service
+        group from: :au_core_ci_build_healthcare_service
 
-        group from: :au_core_v300_ci_build_location
+        group from: :au_core_ci_build_location
 
-        group from: :au_core_v300_ci_build_organization
+        group from: :au_core_ci_build_organization
 
-        group from: :au_core_v300_ci_build_practitioner
+        group from: :au_core_ci_build_practitioner
 
-        group from: :au_core_v300_ci_build_practitioner_role
+        group from: :au_core_ci_build_practitioner_role
 
         group from: :au_core_missing_data_group
       end

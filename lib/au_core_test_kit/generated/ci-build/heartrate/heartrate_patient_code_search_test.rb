@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class HeartratePatientCodeSearchTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
 
@@ -32,7 +32,7 @@ requirement of AU Core v3.0.0-ci-build.
 
       )
 
-      id :au_core_v300_ci_build_heartrate_patient_code_search_test
+      id :au_core_ci_build_heartrate_patient_code_search_test
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements',

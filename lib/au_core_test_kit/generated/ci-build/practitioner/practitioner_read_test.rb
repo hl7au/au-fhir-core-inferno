@@ -3,7 +3,7 @@
 require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerReadTest < Inferno::Test
       include InfernoSuiteGenerator::ReadTest
 
@@ -16,7 +16,7 @@ module AUCoreTestKit
             default: 'alderson-helene',
             optional: true
 
-      id :au_core_v300_ci_build_practitioner_read_test
+      id :au_core_ci_build_practitioner_read_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

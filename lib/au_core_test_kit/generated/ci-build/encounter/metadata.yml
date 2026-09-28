@@ -264,45 +264,45 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_encounter_patient_search_test
+- :id: au_core_ci_build_encounter_patient_search_test
   :file_name: encounter_patient_search_test.rb
-- :id: au_core_v300_ci_build_encounter_class_search_test
+- :id: au_core_ci_build_encounter_class_search_test
   :file_name: encounter_class_search_test.rb
-- :id: au_core_v300_ci_build_encounter_date_search_test
+- :id: au_core_ci_build_encounter_date_search_test
   :file_name: encounter_date_search_test.rb
-- :id: au_core_v300_ci_build_encounter_location_search_test
+- :id: au_core_ci_build_encounter_location_search_test
   :file_name: encounter_location_search_test.rb
-- :id: au_core_v300_ci_build_encounter_status_search_test
+- :id: au_core_ci_build_encounter_status_search_test
   :file_name: encounter_status_search_test.rb
-- :id: au_core_v300_ci_build_encounter_date_patient_search_test
+- :id: au_core_ci_build_encounter_date_patient_search_test
   :file_name: encounter_date_patient_search_test.rb
-- :id: au_core_v300_ci_build_encounter_class_patient_search_test
+- :id: au_core_ci_build_encounter_class_patient_search_test
   :file_name: encounter_class_patient_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_location_search_test
+- :id: au_core_ci_build_encounter_patient_location_search_test
   :file_name: encounter_patient_location_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_status_search_test
+- :id: au_core_ci_build_encounter_patient_status_search_test
   :file_name: encounter_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_encounter_status_multiple_or_search_test
+- :id: au_core_ci_build_encounter_status_multiple_or_search_test
   :file_name: encounter_status_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_encounter_date_multiple_and_search_test
+- :id: au_core_ci_build_encounter_date_multiple_and_search_test
   :file_name: encounter_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_chain_search_test
+- :id: au_core_ci_build_encounter_patient_chain_search_test
   :file_name: encounter_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_ihi_chain_search_test
+- :id: au_core_ci_build_encounter_patient_ihi_chain_search_test
   :file_name: encounter_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_medicare_chain_search_test
+- :id: au_core_ci_build_encounter_patient_medicare_chain_search_test
   :file_name: encounter_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_encounter_patient_dva_chain_search_test
+- :id: au_core_ci_build_encounter_patient_dva_chain_search_test
   :file_name: encounter_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_encounter_read_test
+- :id: au_core_ci_build_encounter_read_test
   :file_name: encounter_read_test.rb
-- :id: au_core_v300_ci_build_encounter_validation_test
+- :id: au_core_ci_build_encounter_validation_test
   :file_name: encounter_validation_test.rb
-- :id: au_core_v300_ci_build_encounter_must_support_test
+- :id: au_core_ci_build_encounter_must_support_test
   :file_name: encounter_must_support_test.rb
-- :id: au_core_v300_ci_build_encounter_reference_resolution_test
+- :id: au_core_ci_build_encounter_reference_resolution_test
   :file_name: encounter_reference_resolution_test.rb
-:id: au_core_v300_ci_build_encounter
+:id: au_core_ci_build_encounter
 :file_name: encounter_group.rb
 :delayed_references:
 - :path: participant.individual

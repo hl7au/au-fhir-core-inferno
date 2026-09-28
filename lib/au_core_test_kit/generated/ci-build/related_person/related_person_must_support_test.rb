@@ -3,7 +3,7 @@
 require 'inferno_suite_generator/test_modules/must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class RelatedPersonMustSupportTest < Inferno::Test
       include InfernoSuiteGenerator::MustSupportTest
 
@@ -25,7 +25,7 @@ module AUCoreTestKit
         * RelatedPerson.telecom
       )
 
-      id :au_core_v300_ci_build_related_person_must_support_test
+      id :au_core_ci_build_related_person_must_support_test
 
       def resource_type
         'RelatedPerson'

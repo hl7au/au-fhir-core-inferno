@@ -24,7 +24,7 @@ require_relative 'bloodpressure/bloodpressure_must_support_test'
 require_relative 'bloodpressure/bloodpressure_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class BloodpressureGroup < Inferno::TestGroup
       title 'Observation Blood Pressure Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Blood Pressure.'
@@ -83,34 +83,34 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_bloodpressure
+      id :au_core_ci_build_bloodpressure
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bloodpressure', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_bloodpressure_patient_code_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_category_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_code_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_date_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_status_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_category_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_category_date_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_category_status_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_code_date_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_code_multiple_or_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_status_multiple_or_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_chain_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_bloodpressure_read_test
-      test from: :au_core_v300_ci_build_bloodpressure_validation_test
-      test from: :au_core_v300_ci_build_bloodpressure_must_support_test
-      test from: :au_core_v300_ci_build_bloodpressure_reference_resolution_test
+      test from: :au_core_ci_build_bloodpressure_patient_code_search_test
+      test from: :au_core_ci_build_bloodpressure_category_search_test
+      test from: :au_core_ci_build_bloodpressure_code_search_test
+      test from: :au_core_ci_build_bloodpressure_date_search_test
+      test from: :au_core_ci_build_bloodpressure_status_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_category_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_category_date_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_category_status_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_code_date_search_test
+      test from: :au_core_ci_build_bloodpressure_code_multiple_or_search_test
+      test from: :au_core_ci_build_bloodpressure_status_multiple_or_search_test
+      test from: :au_core_ci_build_bloodpressure_date_multiple_and_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_chain_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_bloodpressure_patient_dva_chain_search_test
+      test from: :au_core_ci_build_bloodpressure_read_test
+      test from: :au_core_ci_build_bloodpressure_validation_test
+      test from: :au_core_ci_build_bloodpressure_must_support_test
+      test from: :au_core_ci_build_bloodpressure_reference_resolution_test
     end
   end
 end

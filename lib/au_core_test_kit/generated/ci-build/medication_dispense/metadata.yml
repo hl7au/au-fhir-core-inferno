@@ -198,31 +198,31 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Provenance|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_medication_dispense_patient_search_test
+- :id: au_core_ci_build_medication_dispense_patient_search_test
   :file_name: medication_dispense_patient_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_status_search_test
+- :id: au_core_ci_build_medication_dispense_status_search_test
   :file_name: medication_dispense_status_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_prescription_search_test
+- :id: au_core_ci_build_medication_dispense_prescription_search_test
   :file_name: medication_dispense_prescription_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_patient_status_search_test
+- :id: au_core_ci_build_medication_dispense_patient_status_search_test
   :file_name: medication_dispense_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_patient_chain_search_test
+- :id: au_core_ci_build_medication_dispense_patient_chain_search_test
   :file_name: medication_dispense_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_patient_ihi_chain_search_test
+- :id: au_core_ci_build_medication_dispense_patient_ihi_chain_search_test
   :file_name: medication_dispense_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_patient_medicare_chain_search_test
+- :id: au_core_ci_build_medication_dispense_patient_medicare_chain_search_test
   :file_name: medication_dispense_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_patient_dva_chain_search_test
+- :id: au_core_ci_build_medication_dispense_patient_dva_chain_search_test
   :file_name: medication_dispense_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_read_test
+- :id: au_core_ci_build_medication_dispense_read_test
   :file_name: medication_dispense_read_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_validation_test
+- :id: au_core_ci_build_medication_dispense_validation_test
   :file_name: medication_dispense_validation_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_must_support_test
+- :id: au_core_ci_build_medication_dispense_must_support_test
   :file_name: medication_dispense_must_support_test.rb
-- :id: au_core_v300_ci_build_medication_dispense_reference_resolution_test
+- :id: au_core_ci_build_medication_dispense_reference_resolution_test
   :file_name: medication_dispense_reference_resolution_test.rb
-:id: au_core_v300_ci_build_medication_dispense
+:id: au_core_ci_build_medication_dispense
 :file_name: medication_dispense_group.rb
 :delayed_references:
 - :path: medication[x]

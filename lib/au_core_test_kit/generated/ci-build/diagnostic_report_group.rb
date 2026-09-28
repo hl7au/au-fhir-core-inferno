@@ -24,7 +24,7 @@ require_relative 'diagnostic_report/diagnostic_report_must_support_test'
 require_relative 'diagnostic_report/diagnostic_report_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DiagnosticReportGroup < Inferno::TestGroup
       title 'DiagnosticReport Tests'
       short_description 'Verify support for the server capabilities required by the AU Core DiagnosticReport.'
@@ -84,34 +84,34 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_diagnostic_report
+      id :au_core_ci_build_diagnostic_report
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnostic_report', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report__id_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_identifier_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_category_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_code_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_date_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_status_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_category_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_category_date_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_category_status_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_code_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_status_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_code_date_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_chain_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_diagnostic_report_read_test
-      test from: :au_core_v300_ci_build_diagnostic_report_validation_test
-      test from: :au_core_v300_ci_build_diagnostic_report_must_support_test
-      test from: :au_core_v300_ci_build_diagnostic_report_reference_resolution_test
+      test from: :au_core_ci_build_diagnostic_report_patient_search_test
+      test from: :au_core_ci_build_diagnostic_report__id_search_test
+      test from: :au_core_ci_build_diagnostic_report_identifier_search_test
+      test from: :au_core_ci_build_diagnostic_report_category_search_test
+      test from: :au_core_ci_build_diagnostic_report_code_search_test
+      test from: :au_core_ci_build_diagnostic_report_date_search_test
+      test from: :au_core_ci_build_diagnostic_report_status_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_category_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_category_date_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_category_status_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_code_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_status_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_code_date_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_chain_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_diagnostic_report_patient_dva_chain_search_test
+      test from: :au_core_ci_build_diagnostic_report_read_test
+      test from: :au_core_ci_build_diagnostic_report_validation_test
+      test from: :au_core_ci_build_diagnostic_report_must_support_test
+      test from: :au_core_ci_build_diagnostic_report_reference_resolution_test
     end
   end
 end

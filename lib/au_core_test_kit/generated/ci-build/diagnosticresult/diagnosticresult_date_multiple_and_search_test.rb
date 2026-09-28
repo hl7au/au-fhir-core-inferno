@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DiagnosticresultDateMultipleAndSearchTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
 
@@ -18,7 +18,7 @@ none are returned, the test is skipped.
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder)
 )
 
-      id :au_core_v300_ci_build_diagnosticresult_date_multiple_and_search_test
+      id :au_core_ci_build_diagnosticresult_date_multiple_and_search_test
 
       optional
 

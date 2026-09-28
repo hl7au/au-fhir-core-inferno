@@ -10,12 +10,15 @@ require 'zlib'
 module AUCoreTestKit
   # Keeps the ci-build suite in step with the AU Core CI build published on build.fhir.org.
   #
-  # The generator names its output directory, suite title and validator IG after
-  # `ig.version`, which suits released versions. The ci-build suite instead needs a stable
-  # directory (so lib/au_core_test_kit.rb can require it behind INFERNO_CI_BUILD_SUITES), a
-  # validator IG of hl7.fhir.au.core#current (which the validator refreshes from
-  # build.fhir.org) and a title and description that say it tracks the CI build. So this
-  # class generates into the versioned directory as usual, then moves and annotates it.
+  # The generator names its output directory, runnable ids, module, suite title and
+  # validator IG after `ig.version`, which suits released versions. The ci-build suite
+  # instead needs a stable directory (so lib/au_core_test_kit.rb can require it behind
+  # INFERNO_CI_BUILD_SUITES), stable runnable ids (so sessions and the aggregator's kit page
+  # entry survive a CI version bump), a validator IG of hl7.fhir.au.core#current (which the
+  # validator refreshes from build.fhir.org) and a title and description that say it tracks
+  # the CI build. The title and profile versions keep the IG package version, so the suite
+  # never claims a version ahead of the IG. This class generates into the versioned
+  # directory as usual, then moves, renames and annotates it.
   class CIBuild
     CONFIG_FILE = 'config.ci-build.json'
     BASIC_CONFIG_FILE = 'config.basic.json'
@@ -25,6 +28,8 @@ module AUCoreTestKit
     SUITE_FILE = 'au_core_test_suite.rb'
     IG_PACKAGE_ID = 'hl7.fhir.au.core'
     VALIDATOR_IG = "#{IG_PACKAGE_ID}#current".freeze
+    SUITE_ID = 'au_core_ci_build'
+    MODULE_NAME = 'AUCoreCIBuild'
     CI_BUILD_VERSION_SUFFIX = '-ci-build'
     MAX_REDIRECTS = 3
 
@@ -107,8 +112,22 @@ module AUCoreTestKit
       run_generator(versioned_dir)
       FileUtils.rm_rf(path(OUTPUT_DIR))
       FileUtils.mv(versioned_dir, path(OUTPUT_DIR))
+      fix_runnable_ids(path(OUTPUT_DIR))
       suite_path = path(OUTPUT_DIR, SUITE_FILE)
       File.write(suite_path, annotate_suite(File.read(suite_path)))
+    end
+
+    # Replaces the version-derived id prefix (e.g. au_core_v300_ci_build) and module name
+    # (e.g. AUCoreV300_CI_BUILD) in every generated file with the fixed ones.
+    def fix_runnable_ids(dir)
+      renames = versioned_names.zip([SUITE_ID, MODULE_NAME])
+      ensure_versioned_names!(File.read(File.join(dir, SUITE_FILE)))
+
+      Dir.glob(File.join(dir, '**', '*.{rb,yml}')).each do |file|
+        source = File.read(file)
+        renamed = renames.reduce(source) { |text, (from, to)| text.gsub(from, to) }
+        File.write(file, renamed) unless renamed == source
+      end
     end
 
     def annotate_suite(source)
@@ -154,6 +173,19 @@ module AUCoreTestKit
       # The generator appends an unconditional require for the suite it wrote; the ci-build
       # suite is required behind INFERNO_CI_BUILD_SUITES instead.
       File.write(path(KIT_ENTRY_FILE), kit_entry)
+    end
+
+    def versioned_names
+      reformatted = "v#{version}".delete('.').tr('-', '_')
+      ["au_core_#{reformatted}", "AUCore#{reformatted.upcase}"]
+    end
+
+    def ensure_versioned_names!(suite_source)
+      versioned_id, versioned_module = versioned_names
+      return if suite_source.scan("id :#{versioned_id}\n").one? && suite_source.include?("module #{versioned_module}\n")
+
+      raise Error, "Expected `id :#{versioned_id}` and `module #{versioned_module}` in the generated ci-build suite; " \
+                   'the generator output has changed, so update AUCoreTestKit::CIBuild#fix_runnable_ids.'
     end
 
     # Also guards the rm_rf of generated/v<version> against ever removing a released suite.

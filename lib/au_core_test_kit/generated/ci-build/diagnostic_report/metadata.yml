@@ -267,49 +267,49 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Media|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_diagnostic_report_patient_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_search_test
   :file_name: diagnostic_report_patient_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report__id_search_test
+- :id: au_core_ci_build_diagnostic_report__id_search_test
   :file_name: diagnostic_report_id_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_identifier_search_test
+- :id: au_core_ci_build_diagnostic_report_identifier_search_test
   :file_name: diagnostic_report_identifier_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_category_search_test
+- :id: au_core_ci_build_diagnostic_report_category_search_test
   :file_name: diagnostic_report_category_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_code_search_test
+- :id: au_core_ci_build_diagnostic_report_code_search_test
   :file_name: diagnostic_report_code_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_date_search_test
+- :id: au_core_ci_build_diagnostic_report_date_search_test
   :file_name: diagnostic_report_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_status_search_test
+- :id: au_core_ci_build_diagnostic_report_status_search_test
   :file_name: diagnostic_report_status_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_category_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_category_search_test
   :file_name: diagnostic_report_patient_category_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_category_date_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_category_date_search_test
   :file_name: diagnostic_report_patient_category_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_category_status_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_category_status_search_test
   :file_name: diagnostic_report_patient_category_status_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_code_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_code_search_test
   :file_name: diagnostic_report_patient_code_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_status_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_status_search_test
   :file_name: diagnostic_report_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_code_date_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_code_date_search_test
   :file_name: diagnostic_report_patient_code_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_chain_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_chain_search_test
   :file_name: diagnostic_report_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_ihi_chain_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_ihi_chain_search_test
   :file_name: diagnostic_report_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_medicare_chain_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_medicare_chain_search_test
   :file_name: diagnostic_report_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_patient_dva_chain_search_test
+- :id: au_core_ci_build_diagnostic_report_patient_dva_chain_search_test
   :file_name: diagnostic_report_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_read_test
+- :id: au_core_ci_build_diagnostic_report_read_test
   :file_name: diagnostic_report_read_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_validation_test
+- :id: au_core_ci_build_diagnostic_report_validation_test
   :file_name: diagnostic_report_validation_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_must_support_test
+- :id: au_core_ci_build_diagnostic_report_must_support_test
   :file_name: diagnostic_report_must_support_test.rb
-- :id: au_core_v300_ci_build_diagnostic_report_reference_resolution_test
+- :id: au_core_ci_build_diagnostic_report_reference_resolution_test
   :file_name: diagnostic_report_reference_resolution_test.rb
-:id: au_core_v300_ci_build_diagnostic_report
+:id: au_core_ci_build_diagnostic_report
 :file_name: diagnostic_report_group.rb
 :delayed_references:
 - :path: performer

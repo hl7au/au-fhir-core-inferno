@@ -11,7 +11,7 @@ require_relative 'endpoint/endpoint_validation_test'
 require_relative 'endpoint/endpoint_must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class EndpointGroup < Inferno::TestGroup
       title 'Endpoint Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Endpoint.'
@@ -50,21 +50,21 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_endpoint
+      id :au_core_ci_build_endpoint
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'endpoint', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_endpoint_read_test
-      test from: :au_core_v300_ci_build_endpoint__id_search_test
-      test from: :au_core_v300_ci_build_endpoint_status_search_test
-      test from: :au_core_v300_ci_build_endpoint_connection_type_search_test
-      test from: :au_core_v300_ci_build_endpoint_payload_type_search_test
-      test from: :au_core_v300_ci_build_endpoint_name_search_test
-      test from: :au_core_v300_ci_build_endpoint_validation_test
-      test from: :au_core_v300_ci_build_endpoint_must_support_test
+      test from: :au_core_ci_build_endpoint_read_test
+      test from: :au_core_ci_build_endpoint__id_search_test
+      test from: :au_core_ci_build_endpoint_status_search_test
+      test from: :au_core_ci_build_endpoint_connection_type_search_test
+      test from: :au_core_ci_build_endpoint_payload_type_search_test
+      test from: :au_core_ci_build_endpoint_name_search_test
+      test from: :au_core_ci_build_endpoint_validation_test
+      test from: :au_core_ci_build_endpoint_must_support_test
     end
   end
 end

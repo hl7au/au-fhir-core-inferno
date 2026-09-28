@@ -14,7 +14,7 @@ require_relative 'allergy_intolerance/allergy_intolerance_must_support_test'
 require_relative 'allergy_intolerance/allergy_intolerance_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class AllergyIntoleranceGroup < Inferno::TestGroup
       title 'AllergyIntolerance Tests'
       short_description 'Verify support for the server capabilities required by the AU Core AllergyIntolerance.'
@@ -71,24 +71,24 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_allergy_intolerance
+      id :au_core_ci_build_allergy_intolerance
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'allergy_intolerance', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_clinical_status_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_clinical_status_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_chain_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_read_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_validation_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_must_support_test
-      test from: :au_core_v300_ci_build_allergy_intolerance_reference_resolution_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_search_test
+      test from: :au_core_ci_build_allergy_intolerance_clinical_status_search_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_clinical_status_search_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_chain_search_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_allergy_intolerance_patient_dva_chain_search_test
+      test from: :au_core_ci_build_allergy_intolerance_read_test
+      test from: :au_core_ci_build_allergy_intolerance_validation_test
+      test from: :au_core_ci_build_allergy_intolerance_must_support_test
+      test from: :au_core_ci_build_allergy_intolerance_reference_resolution_test
     end
   end
 end

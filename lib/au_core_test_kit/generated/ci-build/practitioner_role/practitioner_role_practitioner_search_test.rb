@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerRolePractitionerSearchTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
 
@@ -24,7 +24,7 @@ different forms are expected to return the same number of results. AU Core requi
 
       )
 
-      id :au_core_v300_ci_build_practitioner_role_practitioner_search_test
+      id :au_core_ci_build_practitioner_role_practitioner_search_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

@@ -234,41 +234,41 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_document_reference_patient_search_test
+- :id: au_core_ci_build_document_reference_patient_search_test
   :file_name: document_reference_patient_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_author_search_test
+- :id: au_core_ci_build_document_reference_author_search_test
   :file_name: document_reference_author_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_type_search_test
+- :id: au_core_ci_build_document_reference_type_search_test
   :file_name: document_reference_type_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_date_search_test
+- :id: au_core_ci_build_document_reference_date_search_test
   :file_name: document_reference_date_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_period_search_test
+- :id: au_core_ci_build_document_reference_period_search_test
   :file_name: document_reference_period_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_type_search_test
+- :id: au_core_ci_build_document_reference_patient_type_search_test
   :file_name: document_reference_patient_type_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_type_period_search_test
+- :id: au_core_ci_build_document_reference_patient_type_period_search_test
   :file_name: document_reference_patient_type_period_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_type_date_search_test
+- :id: au_core_ci_build_document_reference_patient_type_date_search_test
   :file_name: document_reference_patient_type_date_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_author_search_test
+- :id: au_core_ci_build_document_reference_patient_author_search_test
   :file_name: document_reference_patient_author_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_chain_search_test
+- :id: au_core_ci_build_document_reference_patient_chain_search_test
   :file_name: document_reference_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_ihi_chain_search_test
+- :id: au_core_ci_build_document_reference_patient_ihi_chain_search_test
   :file_name: document_reference_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_medicare_chain_search_test
+- :id: au_core_ci_build_document_reference_patient_medicare_chain_search_test
   :file_name: document_reference_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_patient_dva_chain_search_test
+- :id: au_core_ci_build_document_reference_patient_dva_chain_search_test
   :file_name: document_reference_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_document_reference_read_test
+- :id: au_core_ci_build_document_reference_read_test
   :file_name: document_reference_read_test.rb
-- :id: au_core_v300_ci_build_document_reference_validation_test
+- :id: au_core_ci_build_document_reference_validation_test
   :file_name: document_reference_validation_test.rb
-- :id: au_core_v300_ci_build_document_reference_must_support_test
+- :id: au_core_ci_build_document_reference_must_support_test
   :file_name: document_reference_must_support_test.rb
-- :id: au_core_v300_ci_build_document_reference_reference_resolution_test
+- :id: au_core_ci_build_document_reference_reference_resolution_test
   :file_name: document_reference_reference_resolution_test.rb
-:id: au_core_v300_ci_build_document_reference
+:id: au_core_ci_build_document_reference
 :file_name: document_reference_group.rb
 :delayed_references:
 - :path: author

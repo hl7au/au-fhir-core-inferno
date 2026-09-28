@@ -3,11 +3,11 @@
 require 'inferno_suite_generator/test_modules/validation_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class MedicationStatementValidationTest < Inferno::Test
       include InfernoSuiteGenerator::ValidationTest
 
-      id :au_core_v300_ci_build_medication_statement_validation_test
+      id :au_core_ci_build_medication_statement_validation_test
       title 'MedicationStatement resources returned during previous tests conform to the AU Core MedicationStatement'
       description %(
 This test verifies resources returned from the first search conform to

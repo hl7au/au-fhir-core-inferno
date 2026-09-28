@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class ImmunizationStatusSearchTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
 
@@ -20,7 +20,7 @@ none are returned, the test is skipped.
 
       )
 
-      id :au_core_v300_ci_build_immunization_status_search_test
+      id :au_core_ci_build_immunization_status_search_test
       optional
 
       def self.demodata

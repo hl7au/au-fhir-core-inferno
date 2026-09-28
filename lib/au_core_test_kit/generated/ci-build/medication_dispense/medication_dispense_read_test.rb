@@ -3,14 +3,14 @@
 require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class MedicationDispenseReadTest < Inferno::Test
       include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct MedicationDispense resource from MedicationDispense read interaction'
       description 'A server SHALL support the MedicationDispense read interaction.'
 
-      id :au_core_v300_ci_build_medication_dispense_read_test
+      id :au_core_ci_build_medication_dispense_read_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

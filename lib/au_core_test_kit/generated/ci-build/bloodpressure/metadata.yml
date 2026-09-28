@@ -319,48 +319,48 @@
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1
   - http://hl7.org/fhir/StructureDefinition/vitalsigns|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_bloodpressure_patient_code_search_test
+- :id: au_core_ci_build_bloodpressure_patient_code_search_test
   :file_name: bloodpressure_patient_code_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_category_search_test
+- :id: au_core_ci_build_bloodpressure_category_search_test
   :file_name: bloodpressure_category_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_code_search_test
+- :id: au_core_ci_build_bloodpressure_code_search_test
   :file_name: bloodpressure_code_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_date_search_test
+- :id: au_core_ci_build_bloodpressure_date_search_test
   :file_name: bloodpressure_date_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_status_search_test
+- :id: au_core_ci_build_bloodpressure_status_search_test
   :file_name: bloodpressure_status_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_search_test
+- :id: au_core_ci_build_bloodpressure_patient_search_test
   :file_name: bloodpressure_patient_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_category_search_test
+- :id: au_core_ci_build_bloodpressure_patient_category_search_test
   :file_name: bloodpressure_patient_category_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_category_date_search_test
+- :id: au_core_ci_build_bloodpressure_patient_category_date_search_test
   :file_name: bloodpressure_patient_category_date_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_category_status_search_test
+- :id: au_core_ci_build_bloodpressure_patient_category_status_search_test
   :file_name: bloodpressure_patient_category_status_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_code_date_search_test
+- :id: au_core_ci_build_bloodpressure_patient_code_date_search_test
   :file_name: bloodpressure_patient_code_date_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_code_multiple_or_search_test
+- :id: au_core_ci_build_bloodpressure_code_multiple_or_search_test
   :file_name: bloodpressure_code_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_status_multiple_or_search_test
+- :id: au_core_ci_build_bloodpressure_status_multiple_or_search_test
   :file_name: bloodpressure_status_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_date_multiple_and_search_test
+- :id: au_core_ci_build_bloodpressure_date_multiple_and_search_test
   :file_name: bloodpressure_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_chain_search_test
+- :id: au_core_ci_build_bloodpressure_patient_chain_search_test
   :file_name: bloodpressure_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_ihi_chain_search_test
+- :id: au_core_ci_build_bloodpressure_patient_ihi_chain_search_test
   :file_name: bloodpressure_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_medicare_chain_search_test
+- :id: au_core_ci_build_bloodpressure_patient_medicare_chain_search_test
   :file_name: bloodpressure_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_patient_dva_chain_search_test
+- :id: au_core_ci_build_bloodpressure_patient_dva_chain_search_test
   :file_name: bloodpressure_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_read_test
+- :id: au_core_ci_build_bloodpressure_read_test
   :file_name: bloodpressure_read_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_validation_test
+- :id: au_core_ci_build_bloodpressure_validation_test
   :file_name: bloodpressure_validation_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_must_support_test
+- :id: au_core_ci_build_bloodpressure_must_support_test
   :file_name: bloodpressure_must_support_test.rb
-- :id: au_core_v300_ci_build_bloodpressure_reference_resolution_test
+- :id: au_core_ci_build_bloodpressure_reference_resolution_test
   :file_name: bloodpressure_reference_resolution_test.rb
-:id: au_core_v300_ci_build_bloodpressure
+:id: au_core_ci_build_bloodpressure
 :file_name: bloodpressure_group.rb
 :delayed_references: []

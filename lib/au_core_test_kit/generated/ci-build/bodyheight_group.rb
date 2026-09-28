@@ -24,7 +24,7 @@ require_relative 'bodyheight/bodyheight_must_support_test'
 require_relative 'bodyheight/bodyheight_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class BodyheightGroup < Inferno::TestGroup
       title 'Observation Body Height Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Body Height.'
@@ -83,34 +83,34 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_bodyheight
+      id :au_core_ci_build_bodyheight
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'bodyheight', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_bodyheight_patient_code_search_test
-      test from: :au_core_v300_ci_build_bodyheight_category_search_test
-      test from: :au_core_v300_ci_build_bodyheight_code_search_test
-      test from: :au_core_v300_ci_build_bodyheight_date_search_test
-      test from: :au_core_v300_ci_build_bodyheight_status_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_category_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_category_date_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_category_status_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_code_date_search_test
-      test from: :au_core_v300_ci_build_bodyheight_code_multiple_or_search_test
-      test from: :au_core_v300_ci_build_bodyheight_status_multiple_or_search_test
-      test from: :au_core_v300_ci_build_bodyheight_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_chain_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_bodyheight_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_bodyheight_read_test
-      test from: :au_core_v300_ci_build_bodyheight_validation_test
-      test from: :au_core_v300_ci_build_bodyheight_must_support_test
-      test from: :au_core_v300_ci_build_bodyheight_reference_resolution_test
+      test from: :au_core_ci_build_bodyheight_patient_code_search_test
+      test from: :au_core_ci_build_bodyheight_category_search_test
+      test from: :au_core_ci_build_bodyheight_code_search_test
+      test from: :au_core_ci_build_bodyheight_date_search_test
+      test from: :au_core_ci_build_bodyheight_status_search_test
+      test from: :au_core_ci_build_bodyheight_patient_search_test
+      test from: :au_core_ci_build_bodyheight_patient_category_search_test
+      test from: :au_core_ci_build_bodyheight_patient_category_date_search_test
+      test from: :au_core_ci_build_bodyheight_patient_category_status_search_test
+      test from: :au_core_ci_build_bodyheight_patient_code_date_search_test
+      test from: :au_core_ci_build_bodyheight_code_multiple_or_search_test
+      test from: :au_core_ci_build_bodyheight_status_multiple_or_search_test
+      test from: :au_core_ci_build_bodyheight_date_multiple_and_search_test
+      test from: :au_core_ci_build_bodyheight_patient_chain_search_test
+      test from: :au_core_ci_build_bodyheight_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_bodyheight_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_bodyheight_patient_dva_chain_search_test
+      test from: :au_core_ci_build_bodyheight_read_test
+      test from: :au_core_ci_build_bodyheight_validation_test
+      test from: :au_core_ci_build_bodyheight_must_support_test
+      test from: :au_core_ci_build_bodyheight_reference_resolution_test
     end
   end
 end

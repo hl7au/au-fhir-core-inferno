@@ -7,9 +7,7 @@ require_relative '../../rakelib/ci_build'
 
 RSpec.describe AUCoreTestKit::CIBuild do
   repo_root = File.expand_path('../..', __dir__)
-  recorded_version = JSON.parse(File.read(File.join(repo_root, described_class::CONFIG_FILE))).dig('ig', 'version')
-  # The id the generator derives from the recorded version, e.g. au_core_v300_ci_build.
-  ci_build_suite_id = "au_core_v#{recorded_version.delete('.').tr('-', '_')}"
+  ci_build_suite_id = described_class::SUITE_ID
   # Captured when the spec files load, before any example requires the suite itself.
   registered_at_boot = Inferno::Repositories::TestSuites.new.find(ci_build_suite_id).present?
 
@@ -65,8 +63,12 @@ RSpec.describe AUCoreTestKit::CIBuild do
         @suite = JSON.parse(output.lines.last)
       end
 
-      it 'registers the suite with an id derived from the recorded CI build version' do
-        expect(@suite['id']).to eq(ci_build_suite_id)
+      it 'registers the suite under the fixed id, whatever the CI build version' do
+        expect(@suite['id']).to eq('au_core_ci_build')
+      end
+
+      it 'shows the IG package version, never one of its own' do
+        expect(@suite['title']).to start_with("AU Core v#{config.dig('ig', 'version')} ")
       end
 
       it 'validates against the CI build package id, never a file path' do
@@ -81,6 +83,16 @@ RSpec.describe AUCoreTestKit::CIBuild do
         expect(@suite['title']).to include('ci-build').and include('tracks the CI build')
         expect(@suite['description']).to include('tracks the AU Core CI build').and include('stop rendering')
       end
+    end
+  end
+
+  describe 'generated runnable ids' do
+    it 'carry no CI build version, so they survive a version bump' do
+      versioned = Dir.glob(File.join(repo_root, described_class::OUTPUT_DIR, '**', '*.{rb,yml}')).select do |file|
+        File.read(file).match?(/au_core_v\d+\w*_ci_build|AUCoreV\d+\w*_CI_BUILD/)
+      end
+
+      expect(versioned).to be_empty
     end
   end
 

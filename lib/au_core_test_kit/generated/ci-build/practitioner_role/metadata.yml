@@ -171,43 +171,43 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_practitioner_role_read_test
+- :id: au_core_ci_build_practitioner_role_read_test
   :file_name: practitioner_role_read_test.rb
-- :id: au_core_v300_ci_build_practitioner_role__id_search_test
+- :id: au_core_ci_build_practitioner_role__id_search_test
   :file_name: practitioner_role_id_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_identifier_search_test
+- :id: au_core_ci_build_practitioner_role_identifier_search_test
   :file_name: practitioner_role_identifier_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_practitioner_search_test
+- :id: au_core_ci_build_practitioner_role_practitioner_search_test
   :file_name: practitioner_role_practitioner_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_specialty_search_test
+- :id: au_core_ci_build_practitioner_role_specialty_search_test
   :file_name: practitioner_role_specialty_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_role_search_test
+- :id: au_core_ci_build_practitioner_role_role_search_test
   :file_name: practitioner_role_role_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_organization_search_test
+- :id: au_core_ci_build_practitioner_role_organization_search_test
   :file_name: practitioner_role_organization_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_practitioner_multiple_or_search_test
+- :id: au_core_ci_build_practitioner_role_practitioner_multiple_or_search_test
   :file_name: practitioner_role_practitioner_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_practitioner_multiple_and_search_test
+- :id: au_core_ci_build_practitioner_role_practitioner_multiple_and_search_test
   :file_name: practitioner_role_practitioner_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_practitioner_chain_search_test
+- :id: au_core_ci_build_practitioner_role_practitioner_chain_search_test
   :file_name: practitioner_role_practitioner_chain_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_identifier_medicare_search_test
+- :id: au_core_ci_build_practitioner_role_identifier_medicare_search_test
   :file_name: practitioner_role_identifier_medicare_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_role__id_include__id_search_test
+- :id: au_core_ci_build_practitioner_role__id_include__id_search_test
   :file_name: practitioner_role_id_include_practitioner_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_identifier_include_identifier_search_test
+- :id: au_core_ci_build_practitioner_role_identifier_include_identifier_search_test
   :file_name: practitioner_role_identifier_include_practitioner_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_practitioner_include_practitioner_search_test
+- :id: au_core_ci_build_practitioner_role_practitioner_include_practitioner_search_test
   :file_name: practitioner_role_practitioner_include_practitioner_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_specialty_include_specialty_search_test
+- :id: au_core_ci_build_practitioner_role_specialty_include_specialty_search_test
   :file_name: practitioner_role_specialty_include_practitioner_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_validation_test
+- :id: au_core_ci_build_practitioner_role_validation_test
   :file_name: practitioner_role_validation_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_must_support_test
+- :id: au_core_ci_build_practitioner_role_must_support_test
   :file_name: practitioner_role_must_support_test.rb
-- :id: au_core_v300_ci_build_practitioner_role_reference_resolution_test
+- :id: au_core_ci_build_practitioner_role_reference_resolution_test
   :file_name: practitioner_role_reference_resolution_test.rb
-:id: au_core_v300_ci_build_practitioner_role
+:id: au_core_ci_build_practitioner_role
 :file_name: practitioner_role_group.rb
 :delayed_references:
 - :path: practitioner

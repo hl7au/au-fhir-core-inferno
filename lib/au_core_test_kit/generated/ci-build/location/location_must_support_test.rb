@@ -3,7 +3,7 @@
 require 'inferno_suite_generator/test_modules/must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class LocationMustSupportTest < Inferno::Test
       include InfernoSuiteGenerator::MustSupportTest
 
@@ -21,7 +21,7 @@ module AUCoreTestKit
         * Location.type
       )
 
-      id :au_core_v300_ci_build_location_must_support_test
+      id :au_core_ci_build_location_must_support_test
 
       def resource_type
         'Location'

@@ -215,46 +215,46 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_condition_patient_search_test
+- :id: au_core_ci_build_condition_patient_search_test
   :file_name: condition_patient_search_test.rb
-- :id: au_core_v300_ci_build_condition_category_search_test
+- :id: au_core_ci_build_condition_category_search_test
   :file_name: condition_category_search_test.rb
-- :id: au_core_v300_ci_build_condition_clinical_status_search_test
+- :id: au_core_ci_build_condition_clinical_status_search_test
   :file_name: condition_clinical_status_search_test.rb
-- :id: au_core_v300_ci_build_condition_code_search_test
+- :id: au_core_ci_build_condition_code_search_test
   :file_name: condition_code_search_test.rb
-- :id: au_core_v300_ci_build_condition_onset_date_search_test
+- :id: au_core_ci_build_condition_onset_date_search_test
   :file_name: condition_onset_date_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_category_search_test
+- :id: au_core_ci_build_condition_patient_category_search_test
   :file_name: condition_patient_category_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_clinical_status_search_test
+- :id: au_core_ci_build_condition_patient_clinical_status_search_test
   :file_name: condition_patient_clinical_status_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_category_clinical_status_search_test
+- :id: au_core_ci_build_condition_patient_category_clinical_status_search_test
   :file_name: condition_patient_category_clinical_status_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_code_search_test
+- :id: au_core_ci_build_condition_patient_code_search_test
   :file_name: condition_patient_code_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_onset_date_search_test
+- :id: au_core_ci_build_condition_patient_onset_date_search_test
   :file_name: condition_patient_onset_date_search_test.rb
-- :id: au_core_v300_ci_build_condition_code_multiple_or_search_test
+- :id: au_core_ci_build_condition_code_multiple_or_search_test
   :file_name: condition_code_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_condition_onset_date_multiple_and_search_test
+- :id: au_core_ci_build_condition_onset_date_multiple_and_search_test
   :file_name: condition_onset_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_chain_search_test
+- :id: au_core_ci_build_condition_patient_chain_search_test
   :file_name: condition_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_ihi_chain_search_test
+- :id: au_core_ci_build_condition_patient_ihi_chain_search_test
   :file_name: condition_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_medicare_chain_search_test
+- :id: au_core_ci_build_condition_patient_medicare_chain_search_test
   :file_name: condition_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_condition_patient_dva_chain_search_test
+- :id: au_core_ci_build_condition_patient_dva_chain_search_test
   :file_name: condition_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_condition_read_test
+- :id: au_core_ci_build_condition_read_test
   :file_name: condition_read_test.rb
-- :id: au_core_v300_ci_build_condition_validation_test
+- :id: au_core_ci_build_condition_validation_test
   :file_name: condition_validation_test.rb
-- :id: au_core_v300_ci_build_condition_must_support_test
+- :id: au_core_ci_build_condition_must_support_test
   :file_name: condition_must_support_test.rb
-- :id: au_core_v300_ci_build_condition_reference_resolution_test
+- :id: au_core_ci_build_condition_reference_resolution_test
   :file_name: condition_reference_resolution_test.rb
-:id: au_core_v300_ci_build_condition
+:id: au_core_ci_build_condition
 :file_name: condition_group.rb
 :delayed_references: []

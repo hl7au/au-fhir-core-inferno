@@ -89,20 +89,20 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_practitioner_read_test
+- :id: au_core_ci_build_practitioner_read_test
   :file_name: practitioner_read_test.rb
-- :id: au_core_v300_ci_build_practitioner__id_search_test
+- :id: au_core_ci_build_practitioner__id_search_test
   :file_name: practitioner_id_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_identifier_search_test
+- :id: au_core_ci_build_practitioner_identifier_search_test
   :file_name: practitioner_identifier_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_name_search_test
+- :id: au_core_ci_build_practitioner_name_search_test
   :file_name: practitioner_name_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_identifier_hpii_search_test
+- :id: au_core_ci_build_practitioner_identifier_hpii_search_test
   :file_name: practitioner_identifier_hpii_search_test.rb
-- :id: au_core_v300_ci_build_practitioner_validation_test
+- :id: au_core_ci_build_practitioner_validation_test
   :file_name: practitioner_validation_test.rb
-- :id: au_core_v300_ci_build_practitioner_must_support_test
+- :id: au_core_ci_build_practitioner_must_support_test
   :file_name: practitioner_must_support_test.rb
-:id: au_core_v300_ci_build_practitioner
+:id: au_core_ci_build_practitioner
 :file_name: practitioner_group.rb
 :delayed_references: []
