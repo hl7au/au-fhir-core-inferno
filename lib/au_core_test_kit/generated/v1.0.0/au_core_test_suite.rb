@@ -69,7 +69,7 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
-        igs '/home/igs/1.0.0.tgz'
+        igs 'hl7.fhir.au.core#1.0.0'
         message_filters = [
           "The value provided ('xml') was not found in the value set 'MimeType'",
           "The value provided ('json') was not found in the value set 'MimeType'",
