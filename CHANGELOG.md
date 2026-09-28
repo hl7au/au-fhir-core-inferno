@@ -1,4 +1,4 @@
-# Unreleased
+# 1.4.7
 * Select the Australian SNOMED CT edition for validation in every kit-owned suite
   (v2.0.0, v2.1.0-draft and the validations suite join v1.0.0 and v3.0.0-ballot1).
   The AU terminology server carries only the Australian edition, so SNOMED codes
@@ -6,6 +6,11 @@
 * Load the AU Core 1.0.0 and 2.0.0 IGs by registry package id instead of a
   validator-local file path, so they resolve on deployed validators.
 * Regenerate the v2.0.0 and v2.1.0-draft suites with the generator used for v1.0.0.
+* Regenerate the v1.0.0 suite with the external inferno_suite_generator and remove the
+  in-kit generator it replaces (#316, #318). Host applications must pin
+  inferno_suite_generator at ce03f930 or later: the generated suites require its
+  `utils/fhirpath_lab_message_linker` and `utils/resource_keeper_endpoints`.
+* Link validation errors to FHIRPath Lab (#315).
 
 # 1.4.6
 * Validate reference targets through `Validator#resource_is_valid?` instead of the
