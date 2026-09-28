@@ -38,6 +38,14 @@ If you visit http://hl7.org.au/fhir/core/history.html and notice that there is a
 4. If there are any new test groups, they will be added to the project automatically;
 5. If there are any changes, the action will create a pull request.
 
+### The CI build suite
+
+`lib/au_core_test_kit/generated/ci-build` holds a suite that tracks the AU Core CI build at https://build.fhir.org/ig/hl7au/au-fhir-core/ rather than a released version. Its suite id comes from the CI package version (for example `au_core_v300_ci_build` for `3.0.0-ci-build`) and it validates against `hl7.fhir.au.core#current`, which the validator refreshes from build.fhir.org. It is loaded only when `INFERNO_CI_BUILD_SUITES=true`, so environments that do not set the flag, such as production, never show it.
+
+The [Refresh CI Build Suite](https://github.com/hl7au/au-fhir-core-inferno/actions/workflows/refresh-ci-build-suite.yaml) workflow runs daily and on demand. It compares the date in the CI build's `package.manifest.json` with the one recorded in `config.ci-build.json` and, when it has changed, regenerates only the ci-build suite and opens or updates a pull request labelled `automated-pr`. Regeneration can change test ids, so ci-build sessions started before a refresh may stop rendering.
+
+To refresh it locally, run `bundle exec rake "au_core:ci_build:refresh[force]"` (or `make generate_ci_build` to regenerate without checking for a newer CI build).
+
 ## Development workflow
 This repository contains both the source code of the tests generator and the generated tests themselves.
 Even a small change in the generator source causes a huge amount of changes in the generated tests.
