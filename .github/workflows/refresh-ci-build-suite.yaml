@@ -1,0 +1,81 @@
+name: Refresh CI Build Suite
+
+# Regenerates the ci-build suite when the AU Core CI build on build.fhir.org changes, by
+# comparing the date in its package.manifest.json with the one recorded in
+# config.ci-build.json, and opens or updates an automated-pr with the result. Only the
+# ci-build suite is regenerated; released suites are untouched.
+on:
+  schedule:
+    # Daily at 19:00 UTC, early morning in eastern Australia.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate even when the CI build date is unchanged
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-ci-build-suite
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install libpq for the pg gem
+        run: sudo apt-get update && sudo apt-get install -y libpq-dev
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Regenerate the ci-build suite if the CI build changed
+        id: refresh
+        run: bundle exec rake "au_core:ci_build:refresh[${{ inputs.force && 'force' || '' }}]"
+
+      # A pull request opened with GITHUB_TOKEN triggers no workflows, so Quality Control would
+      # not run on it. The hl7au kit automation app's token does trigger them. Until the app is
+      # configured (org variable and secret below), the step is skipped and GITHUB_TOKEN is used.
+      - name: Create a GitHub App token
+        id: app-token
+        if: steps.refresh.outputs.changed == 'true' && vars.KIT_AUTOMATION_APP_CLIENT_ID != ''
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.KIT_AUTOMATION_APP_CLIENT_ID }}
+          private-key: ${{ secrets.KIT_AUTOMATION_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Open or update the pull request
+        if: steps.refresh.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ steps.app-token.outputs.token || github.token }}
+          branch: automated/refresh-ci-build-suite
+          base: master
+          delete-branch: true
+          add-paths: |
+            config.ci-build.json
+            lib/au_core_test_kit/generated/ci-build
+          commit-message: Regenerate the ci-build suite from AU Core ${{ steps.refresh.outputs.version }} dated ${{ steps.refresh.outputs.date }}
+          title: Regenerate the ci-build suite from the AU Core CI build
+          body: |
+            Regenerates `lib/au_core_test_kit/generated/ci-build` from the AU Core CI build
+            (https://build.fhir.org/ig/hl7au/au-fhir-core/), package version
+            `${{ steps.refresh.outputs.version }}` dated `${{ steps.refresh.outputs.date }}`.
+
+            Only the ci-build suite changes, and it is loaded only where
+            `INFERNO_CI_BUILD_SUITES=true`. Test ids can change with a regeneration, so ci-build
+            sessions started before this lands may stop rendering.
+
+            Opened by the Refresh CI Build Suite workflow; a later CI build updates this PR.
+          labels: automated-pr

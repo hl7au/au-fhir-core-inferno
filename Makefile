@@ -12,7 +12,7 @@ kit_path = lib/au_core_test_kit/
 sum_script = $(kit_path)generator/summary_generator.rb
 generated_v2_path = $(kit_path)generated/v2.1.0-draft/
 
-.PHONY: setup generate summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
+.PHONY: setup generate generate_ci_build summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
 
 setup: pull build migrate
 
@@ -26,6 +26,9 @@ generate_local:
 	rm -rf $(generated_v2_path)
 	$(ber) $(gen)
 	rubocop -A $(kit_path)
+
+generate_ci_build:
+	$(compose) $(inferno) $(ber) "$(gen)[ci-build]"
 
 summary: build
 	$(compose) $(inferno) ruby $(sum_script)
