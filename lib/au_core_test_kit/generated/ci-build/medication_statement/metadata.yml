@@ -202,35 +202,35 @@
   - Condition
   - DiagnosticReport
 :tests:
-- :id: au_core_v300_ci_build_medication_statement_patient_search_test
+- :id: au_core_ci_build_medication_statement_patient_search_test
   :file_name: medication_statement_patient_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement__id_search_test
+- :id: au_core_ci_build_medication_statement__id_search_test
   :file_name: medication_statement_id_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_effective_search_test
+- :id: au_core_ci_build_medication_statement_effective_search_test
   :file_name: medication_statement_effective_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_status_search_test
+- :id: au_core_ci_build_medication_statement_status_search_test
   :file_name: medication_statement_status_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_status_search_test
+- :id: au_core_ci_build_medication_statement_patient_status_search_test
   :file_name: medication_statement_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_effective_search_test
+- :id: au_core_ci_build_medication_statement_patient_effective_search_test
   :file_name: medication_statement_patient_effective_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_chain_search_test
+- :id: au_core_ci_build_medication_statement_patient_chain_search_test
   :file_name: medication_statement_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_ihi_chain_search_test
+- :id: au_core_ci_build_medication_statement_patient_ihi_chain_search_test
   :file_name: medication_statement_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_medicare_chain_search_test
+- :id: au_core_ci_build_medication_statement_patient_medicare_chain_search_test
   :file_name: medication_statement_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_patient_dva_chain_search_test
+- :id: au_core_ci_build_medication_statement_patient_dva_chain_search_test
   :file_name: medication_statement_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_medication_statement_read_test
+- :id: au_core_ci_build_medication_statement_read_test
   :file_name: medication_statement_read_test.rb
-- :id: au_core_v300_ci_build_medication_statement_validation_test
+- :id: au_core_ci_build_medication_statement_validation_test
   :file_name: medication_statement_validation_test.rb
-- :id: au_core_v300_ci_build_medication_statement_must_support_test
+- :id: au_core_ci_build_medication_statement_must_support_test
   :file_name: medication_statement_must_support_test.rb
-- :id: au_core_v300_ci_build_medication_statement_reference_resolution_test
+- :id: au_core_ci_build_medication_statement_reference_resolution_test
   :file_name: medication_statement_reference_resolution_test.rb
-:id: au_core_v300_ci_build_medication_statement
+:id: au_core_ci_build_medication_statement
 :file_name: medication_statement_group.rb
 :delayed_references:
 - :path: medication[x]

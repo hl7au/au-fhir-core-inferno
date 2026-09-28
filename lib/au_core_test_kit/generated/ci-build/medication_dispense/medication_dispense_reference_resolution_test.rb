@@ -3,7 +3,7 @@
 require 'inferno_suite_generator/test_modules/reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class MedicationDispenseReferenceResolutionTest < Inferno::Test
       include InfernoSuiteGenerator::ReferenceResolutionTest
 
@@ -23,7 +23,7 @@ module AUCoreTestKit
         * MedicationDispense.subject
       )
 
-      id :au_core_v300_ci_build_medication_dispense_reference_resolution_test
+      id :au_core_ci_build_medication_dispense_reference_resolution_test
 
       def resource_type
         'MedicationDispense'

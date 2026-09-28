@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class MedicationRequestPatientIntentIncludeMedicationTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
       title 'Server returns Medication resources from MedicationRequest search by patient, intent and MedicationRequest:medication'
@@ -16,7 +16,7 @@ Test will pass if a Medication resources are found in the response.
 
       )
 
-      id :au_core_v300_ci_build_medication_request_patient_intent_include_patient_intent_search_test
+      id :au_core_ci_build_medication_request_patient_intent_include_patient_intent_search_test
       optional
 
       input :patient_ids,

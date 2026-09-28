@@ -3,14 +3,14 @@
 require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class EncounterReadTest < Inferno::Test
       include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct Encounter resource from Encounter read interaction'
       description 'A server SHALL support the Encounter read interaction.'
 
-      id :au_core_v300_ci_build_encounter_read_test
+      id :au_core_ci_build_encounter_read_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

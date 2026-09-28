@@ -257,49 +257,49 @@
   - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
   - http://hl7.org/fhir/StructureDefinition/MolecularSequence|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_diagnosticresult_patient_code_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_code_search_test
   :file_name: diagnosticresult_patient_code_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_category_search_test
+- :id: au_core_ci_build_diagnosticresult_category_search_test
   :file_name: diagnosticresult_category_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_code_search_test
+- :id: au_core_ci_build_diagnosticresult_code_search_test
   :file_name: diagnosticresult_code_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_date_search_test
+- :id: au_core_ci_build_diagnosticresult_date_search_test
   :file_name: diagnosticresult_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_status_search_test
+- :id: au_core_ci_build_diagnosticresult_status_search_test
   :file_name: diagnosticresult_status_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_search_test
   :file_name: diagnosticresult_patient_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_category_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_category_search_test
   :file_name: diagnosticresult_patient_category_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_category_date_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_category_date_search_test
   :file_name: diagnosticresult_patient_category_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_category_status_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_category_status_search_test
   :file_name: diagnosticresult_patient_category_status_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_code_date_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_code_date_search_test
   :file_name: diagnosticresult_patient_code_date_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_code_multiple_or_search_test
+- :id: au_core_ci_build_diagnosticresult_code_multiple_or_search_test
   :file_name: diagnosticresult_code_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_status_multiple_or_search_test
+- :id: au_core_ci_build_diagnosticresult_status_multiple_or_search_test
   :file_name: diagnosticresult_status_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_date_multiple_and_search_test
+- :id: au_core_ci_build_diagnosticresult_date_multiple_and_search_test
   :file_name: diagnosticresult_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_chain_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_chain_search_test
   :file_name: diagnosticresult_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_ihi_chain_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_ihi_chain_search_test
   :file_name: diagnosticresult_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_medicare_chain_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_medicare_chain_search_test
   :file_name: diagnosticresult_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_patient_dva_chain_search_test
+- :id: au_core_ci_build_diagnosticresult_patient_dva_chain_search_test
   :file_name: diagnosticresult_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_read_test
+- :id: au_core_ci_build_diagnosticresult_read_test
   :file_name: diagnosticresult_read_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_validation_test
+- :id: au_core_ci_build_diagnosticresult_validation_test
   :file_name: diagnosticresult_validation_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_must_support_test
+- :id: au_core_ci_build_diagnosticresult_must_support_test
   :file_name: diagnosticresult_must_support_test.rb
-- :id: au_core_v300_ci_build_diagnosticresult_reference_resolution_test
+- :id: au_core_ci_build_diagnosticresult_reference_resolution_test
   :file_name: diagnosticresult_reference_resolution_test.rb
-:id: au_core_v300_ci_build_diagnosticresult
+:id: au_core_ci_build_diagnosticresult
 :file_name: diagnosticresult_group.rb
 :delayed_references:
 - :path: performer

@@ -136,28 +136,28 @@
   - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
   - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_search_test
   :file_name: allergy_intolerance_patient_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_clinical_status_search_test
+- :id: au_core_ci_build_allergy_intolerance_clinical_status_search_test
   :file_name: allergy_intolerance_clinical_status_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_clinical_status_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_clinical_status_search_test
   :file_name: allergy_intolerance_patient_clinical_status_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_chain_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_chain_search_test
   :file_name: allergy_intolerance_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_ihi_chain_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_ihi_chain_search_test
   :file_name: allergy_intolerance_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_medicare_chain_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_medicare_chain_search_test
   :file_name: allergy_intolerance_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_patient_dva_chain_search_test
+- :id: au_core_ci_build_allergy_intolerance_patient_dva_chain_search_test
   :file_name: allergy_intolerance_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_read_test
+- :id: au_core_ci_build_allergy_intolerance_read_test
   :file_name: allergy_intolerance_read_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_validation_test
+- :id: au_core_ci_build_allergy_intolerance_validation_test
   :file_name: allergy_intolerance_validation_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_must_support_test
+- :id: au_core_ci_build_allergy_intolerance_must_support_test
   :file_name: allergy_intolerance_must_support_test.rb
-- :id: au_core_v300_ci_build_allergy_intolerance_reference_resolution_test
+- :id: au_core_ci_build_allergy_intolerance_reference_resolution_test
   :file_name: allergy_intolerance_reference_resolution_test.rb
-:id: au_core_v300_ci_build_allergy_intolerance
+:id: au_core_ci_build_allergy_intolerance
 :file_name: allergy_intolerance_group.rb
 :delayed_references: []

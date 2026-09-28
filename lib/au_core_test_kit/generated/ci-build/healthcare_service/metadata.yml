@@ -107,20 +107,20 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_healthcare_service_read_test
+- :id: au_core_ci_build_healthcare_service_read_test
   :file_name: healthcare_service_read_test.rb
-- :id: au_core_v300_ci_build_healthcare_service__id_search_test
+- :id: au_core_ci_build_healthcare_service__id_search_test
   :file_name: healthcare_service_id_search_test.rb
-- :id: au_core_v300_ci_build_healthcare_service_name_search_test
+- :id: au_core_ci_build_healthcare_service_name_search_test
   :file_name: healthcare_service_name_search_test.rb
-- :id: au_core_v300_ci_build_healthcare_service_identifier_search_test
+- :id: au_core_ci_build_healthcare_service_identifier_search_test
   :file_name: healthcare_service_identifier_search_test.rb
-- :id: au_core_v300_ci_build_healthcare_service_service_type_search_test
+- :id: au_core_ci_build_healthcare_service_service_type_search_test
   :file_name: healthcare_service_service_type_search_test.rb
-- :id: au_core_v300_ci_build_healthcare_service_validation_test
+- :id: au_core_ci_build_healthcare_service_validation_test
   :file_name: healthcare_service_validation_test.rb
-- :id: au_core_v300_ci_build_healthcare_service_must_support_test
+- :id: au_core_ci_build_healthcare_service_must_support_test
   :file_name: healthcare_service_must_support_test.rb
-:id: au_core_v300_ci_build_healthcare_service
+:id: au_core_ci_build_healthcare_service
 :file_name: healthcare_service_group.rb
 :delayed_references: []

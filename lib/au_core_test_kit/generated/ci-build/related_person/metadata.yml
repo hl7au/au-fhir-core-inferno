@@ -126,26 +126,26 @@
   :resource_types:
   - Patient
 :tests:
-- :id: au_core_v300_ci_build_related_person_patient_search_test
+- :id: au_core_ci_build_related_person_patient_search_test
   :file_name: related_person_patient_search_test.rb
-- :id: au_core_v300_ci_build_related_person__id_search_test
+- :id: au_core_ci_build_related_person__id_search_test
   :file_name: related_person_id_search_test.rb
-- :id: au_core_v300_ci_build_related_person_name_search_test
+- :id: au_core_ci_build_related_person_name_search_test
   :file_name: related_person_name_search_test.rb
-- :id: au_core_v300_ci_build_related_person_relationship_search_test
+- :id: au_core_ci_build_related_person_relationship_search_test
   :file_name: related_person_relationship_search_test.rb
-- :id: au_core_v300_ci_build_related_person_patient_relationship_search_test
+- :id: au_core_ci_build_related_person_patient_relationship_search_test
   :file_name: related_person_patient_relationship_search_test.rb
-- :id: au_core_v300_ci_build_related_person_patient_name_search_test
+- :id: au_core_ci_build_related_person_patient_name_search_test
   :file_name: related_person_patient_name_search_test.rb
-- :id: au_core_v300_ci_build_related_person_read_test
+- :id: au_core_ci_build_related_person_read_test
   :file_name: related_person_read_test.rb
-- :id: au_core_v300_ci_build_related_person_validation_test
+- :id: au_core_ci_build_related_person_validation_test
   :file_name: related_person_validation_test.rb
-- :id: au_core_v300_ci_build_related_person_must_support_test
+- :id: au_core_ci_build_related_person_must_support_test
   :file_name: related_person_must_support_test.rb
-- :id: au_core_v300_ci_build_related_person_reference_resolution_test
+- :id: au_core_ci_build_related_person_reference_resolution_test
   :file_name: related_person_reference_resolution_test.rb
-:id: au_core_v300_ci_build_related_person
+:id: au_core_ci_build_related_person
 :file_name: related_person_group.rb
 :delayed_references: []

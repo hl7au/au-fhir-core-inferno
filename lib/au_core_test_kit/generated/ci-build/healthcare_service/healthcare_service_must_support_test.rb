@@ -3,7 +3,7 @@
 require 'inferno_suite_generator/test_modules/must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class HealthcareServiceMustSupportTest < Inferno::Test
       include InfernoSuiteGenerator::MustSupportTest
 
@@ -20,7 +20,7 @@ module AUCoreTestKit
         * HealthcareService.type
       )
 
-      id :au_core_v300_ci_build_healthcare_service_must_support_test
+      id :au_core_ci_build_healthcare_service_must_support_test
 
       def resource_type
         'HealthcareService'

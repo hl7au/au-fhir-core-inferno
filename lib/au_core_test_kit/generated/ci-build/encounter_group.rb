@@ -22,7 +22,7 @@ require_relative 'encounter/encounter_must_support_test'
 require_relative 'encounter/encounter_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class EncounterGroup < Inferno::TestGroup
       title 'Encounter Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Encounter.'
@@ -80,32 +80,32 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_encounter
+      id :au_core_ci_build_encounter
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'encounter', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_encounter_patient_search_test
-      test from: :au_core_v300_ci_build_encounter_class_search_test
-      test from: :au_core_v300_ci_build_encounter_date_search_test
-      test from: :au_core_v300_ci_build_encounter_location_search_test
-      test from: :au_core_v300_ci_build_encounter_status_search_test
-      test from: :au_core_v300_ci_build_encounter_date_patient_search_test
-      test from: :au_core_v300_ci_build_encounter_class_patient_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_location_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_status_search_test
-      test from: :au_core_v300_ci_build_encounter_status_multiple_or_search_test
-      test from: :au_core_v300_ci_build_encounter_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_chain_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_encounter_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_encounter_read_test
-      test from: :au_core_v300_ci_build_encounter_validation_test
-      test from: :au_core_v300_ci_build_encounter_must_support_test
-      test from: :au_core_v300_ci_build_encounter_reference_resolution_test
+      test from: :au_core_ci_build_encounter_patient_search_test
+      test from: :au_core_ci_build_encounter_class_search_test
+      test from: :au_core_ci_build_encounter_date_search_test
+      test from: :au_core_ci_build_encounter_location_search_test
+      test from: :au_core_ci_build_encounter_status_search_test
+      test from: :au_core_ci_build_encounter_date_patient_search_test
+      test from: :au_core_ci_build_encounter_class_patient_search_test
+      test from: :au_core_ci_build_encounter_patient_location_search_test
+      test from: :au_core_ci_build_encounter_patient_status_search_test
+      test from: :au_core_ci_build_encounter_status_multiple_or_search_test
+      test from: :au_core_ci_build_encounter_date_multiple_and_search_test
+      test from: :au_core_ci_build_encounter_patient_chain_search_test
+      test from: :au_core_ci_build_encounter_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_encounter_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_encounter_patient_dva_chain_search_test
+      test from: :au_core_ci_build_encounter_read_test
+      test from: :au_core_ci_build_encounter_validation_test
+      test from: :au_core_ci_build_encounter_must_support_test
+      test from: :au_core_ci_build_encounter_reference_resolution_test
     end
   end
 end

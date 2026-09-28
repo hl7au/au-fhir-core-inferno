@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerRoleSpecialtyIncludePractitionerTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
       title 'Server returns Practitioner resources from PractitionerRole search by specialty and PractitionerRole:practitioner'
@@ -16,7 +16,7 @@ Test will pass if a Practitioner resources are found in the response.
 
       )
 
-      id :au_core_v300_ci_build_practitioner_role_specialty_include_specialty_search_test
+      id :au_core_ci_build_practitioner_role_specialty_include_specialty_search_test
       optional
 
       input :patient_ids,

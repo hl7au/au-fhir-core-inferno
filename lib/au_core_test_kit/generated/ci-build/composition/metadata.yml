@@ -237,37 +237,37 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_composition_patient_search_test
+- :id: au_core_ci_build_composition_patient_search_test
   :file_name: composition_patient_search_test.rb
-- :id: au_core_v300_ci_build_composition_type_search_test
+- :id: au_core_ci_build_composition_type_search_test
   :file_name: composition_type_search_test.rb
-- :id: au_core_v300_ci_build_composition_date_search_test
+- :id: au_core_ci_build_composition_date_search_test
   :file_name: composition_date_search_test.rb
-- :id: au_core_v300_ci_build_composition_author_search_test
+- :id: au_core_ci_build_composition_author_search_test
   :file_name: composition_author_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_type_search_test
+- :id: au_core_ci_build_composition_patient_type_search_test
   :file_name: composition_patient_type_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_author_search_test
+- :id: au_core_ci_build_composition_patient_author_search_test
   :file_name: composition_patient_author_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_date_search_test
+- :id: au_core_ci_build_composition_patient_date_search_test
   :file_name: composition_patient_date_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_chain_search_test
+- :id: au_core_ci_build_composition_patient_chain_search_test
   :file_name: composition_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_ihi_chain_search_test
+- :id: au_core_ci_build_composition_patient_ihi_chain_search_test
   :file_name: composition_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_medicare_chain_search_test
+- :id: au_core_ci_build_composition_patient_medicare_chain_search_test
   :file_name: composition_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_composition_patient_dva_chain_search_test
+- :id: au_core_ci_build_composition_patient_dva_chain_search_test
   :file_name: composition_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_composition_read_test
+- :id: au_core_ci_build_composition_read_test
   :file_name: composition_read_test.rb
-- :id: au_core_v300_ci_build_composition_validation_test
+- :id: au_core_ci_build_composition_validation_test
   :file_name: composition_validation_test.rb
-- :id: au_core_v300_ci_build_composition_must_support_test
+- :id: au_core_ci_build_composition_must_support_test
   :file_name: composition_must_support_test.rb
-- :id: au_core_v300_ci_build_composition_reference_resolution_test
+- :id: au_core_ci_build_composition_reference_resolution_test
   :file_name: composition_reference_resolution_test.rb
-:id: au_core_v300_ci_build_composition
+:id: au_core_ci_build_composition
 :file_name: composition_group.rb
 :delayed_references:
 - :path: author

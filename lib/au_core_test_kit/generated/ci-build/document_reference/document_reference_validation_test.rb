@@ -3,11 +3,11 @@
 require 'inferno_suite_generator/test_modules/validation_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DocumentReferenceValidationTest < Inferno::Test
       include InfernoSuiteGenerator::ValidationTest
 
-      id :au_core_v300_ci_build_document_reference_validation_test
+      id :au_core_ci_build_document_reference_validation_test
       title 'DocumentReference resources returned during previous tests conform to the AU Core DocumentReference'
       description %(
 This test verifies resources returned from the first search conform to

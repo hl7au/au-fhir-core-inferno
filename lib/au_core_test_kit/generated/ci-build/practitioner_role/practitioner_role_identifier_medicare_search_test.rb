@@ -3,7 +3,7 @@
 require_relative '../../../generators/custom_identifier_search/special_identifier_search_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerRoleIdentifierMedicareSearchTest < InfernoSuiteGenerator::SpecialIdentifierSearchTest
       title '(SHOULD) Server returns valid results for PractitionerRole search by identifier (Medicare)'
       description %(A server SHOULD support searching by
@@ -14,7 +14,7 @@ none are returned, the test is skipped.
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/3.0.0-ci-build/CapabilityStatement-au-core-server.html)
 )
 
-      id :au_core_v300_ci_build_practitioner_role_identifier_medicare_search_test
+      id :au_core_ci_build_practitioner_role_identifier_medicare_search_test
       optional
 
       def self.properties

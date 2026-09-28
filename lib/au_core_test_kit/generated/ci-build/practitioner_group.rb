@@ -10,7 +10,7 @@ require_relative 'practitioner/practitioner_validation_test'
 require_relative 'practitioner/practitioner_must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerGroup < Inferno::TestGroup
       title 'Practitioner Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Practitioner.'
@@ -67,20 +67,20 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_practitioner
+      id :au_core_ci_build_practitioner
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_practitioner_read_test
-      test from: :au_core_v300_ci_build_practitioner__id_search_test
-      test from: :au_core_v300_ci_build_practitioner_identifier_search_test
-      test from: :au_core_v300_ci_build_practitioner_name_search_test
-      test from: :au_core_v300_ci_build_practitioner_identifier_hpii_search_test
-      test from: :au_core_v300_ci_build_practitioner_validation_test
-      test from: :au_core_v300_ci_build_practitioner_must_support_test
+      test from: :au_core_ci_build_practitioner_read_test
+      test from: :au_core_ci_build_practitioner__id_search_test
+      test from: :au_core_ci_build_practitioner_identifier_search_test
+      test from: :au_core_ci_build_practitioner_name_search_test
+      test from: :au_core_ci_build_practitioner_identifier_hpii_search_test
+      test from: :au_core_ci_build_practitioner_validation_test
+      test from: :au_core_ci_build_practitioner_must_support_test
     end
   end
 end

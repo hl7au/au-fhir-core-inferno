@@ -233,42 +233,42 @@
   - http://hl7.org/fhir/StructureDefinition/Medication|4.0.1
   - http://hl7.org/fhir/StructureDefinition/Substance|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_procedure_patient_search_test
+- :id: au_core_ci_build_procedure_patient_search_test
   :file_name: procedure_patient_search_test.rb
-- :id: au_core_v300_ci_build_procedure_code_search_test
+- :id: au_core_ci_build_procedure_code_search_test
   :file_name: procedure_code_search_test.rb
-- :id: au_core_v300_ci_build_procedure_date_search_test
+- :id: au_core_ci_build_procedure_date_search_test
   :file_name: procedure_date_search_test.rb
-- :id: au_core_v300_ci_build_procedure_status_search_test
+- :id: au_core_ci_build_procedure_status_search_test
   :file_name: procedure_status_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_date_search_test
+- :id: au_core_ci_build_procedure_patient_date_search_test
   :file_name: procedure_patient_date_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_code_date_search_test
+- :id: au_core_ci_build_procedure_patient_code_date_search_test
   :file_name: procedure_patient_code_date_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_status_search_test
+- :id: au_core_ci_build_procedure_patient_status_search_test
   :file_name: procedure_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_procedure_code_multiple_or_search_test
+- :id: au_core_ci_build_procedure_code_multiple_or_search_test
   :file_name: procedure_code_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_procedure_status_multiple_or_search_test
+- :id: au_core_ci_build_procedure_status_multiple_or_search_test
   :file_name: procedure_status_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_procedure_date_multiple_and_search_test
+- :id: au_core_ci_build_procedure_date_multiple_and_search_test
   :file_name: procedure_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_chain_search_test
+- :id: au_core_ci_build_procedure_patient_chain_search_test
   :file_name: procedure_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_ihi_chain_search_test
+- :id: au_core_ci_build_procedure_patient_ihi_chain_search_test
   :file_name: procedure_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_medicare_chain_search_test
+- :id: au_core_ci_build_procedure_patient_medicare_chain_search_test
   :file_name: procedure_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_procedure_patient_dva_chain_search_test
+- :id: au_core_ci_build_procedure_patient_dva_chain_search_test
   :file_name: procedure_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_procedure_read_test
+- :id: au_core_ci_build_procedure_read_test
   :file_name: procedure_read_test.rb
-- :id: au_core_v300_ci_build_procedure_validation_test
+- :id: au_core_ci_build_procedure_validation_test
   :file_name: procedure_validation_test.rb
-- :id: au_core_v300_ci_build_procedure_must_support_test
+- :id: au_core_ci_build_procedure_must_support_test
   :file_name: procedure_must_support_test.rb
-- :id: au_core_v300_ci_build_procedure_reference_resolution_test
+- :id: au_core_ci_build_procedure_reference_resolution_test
   :file_name: procedure_reference_resolution_test.rb
-:id: au_core_v300_ci_build_procedure
+:id: au_core_ci_build_procedure
 :file_name: procedure_group.rb
 :delayed_references: []

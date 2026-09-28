@@ -3,14 +3,14 @@
 require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class AllergyIntoleranceReadTest < Inferno::Test
       include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct AllergyIntolerance resource from AllergyIntolerance read interaction'
       description 'A server SHALL support the AllergyIntolerance read interaction.'
 
-      id :au_core_v300_ci_build_allergy_intolerance_read_test
+      id :au_core_ci_build_allergy_intolerance_read_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

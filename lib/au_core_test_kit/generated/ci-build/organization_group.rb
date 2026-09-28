@@ -12,7 +12,7 @@ require_relative 'organization/organization_validation_test'
 require_relative 'organization/organization_must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class OrganizationGroup < Inferno::TestGroup
       title 'Organization Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Organization.'
@@ -70,22 +70,22 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_organization
+      id :au_core_ci_build_organization
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'organization', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_organization_read_test
-      test from: :au_core_v300_ci_build_organization__id_search_test
-      test from: :au_core_v300_ci_build_organization_address_search_test
-      test from: :au_core_v300_ci_build_organization_identifier_search_test
-      test from: :au_core_v300_ci_build_organization_name_search_test
-      test from: :au_core_v300_ci_build_organization_identifier_hpio_search_test
-      test from: :au_core_v300_ci_build_organization_identifier_abn_search_test
-      test from: :au_core_v300_ci_build_organization_validation_test
-      test from: :au_core_v300_ci_build_organization_must_support_test
+      test from: :au_core_ci_build_organization_read_test
+      test from: :au_core_ci_build_organization__id_search_test
+      test from: :au_core_ci_build_organization_address_search_test
+      test from: :au_core_ci_build_organization_identifier_search_test
+      test from: :au_core_ci_build_organization_name_search_test
+      test from: :au_core_ci_build_organization_identifier_hpio_search_test
+      test from: :au_core_ci_build_organization_identifier_abn_search_test
+      test from: :au_core_ci_build_organization_validation_test
+      test from: :au_core_ci_build_organization_must_support_test
     end
   end
 end

@@ -125,22 +125,22 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_endpoint_read_test
+- :id: au_core_ci_build_endpoint_read_test
   :file_name: endpoint_read_test.rb
-- :id: au_core_v300_ci_build_endpoint__id_search_test
+- :id: au_core_ci_build_endpoint__id_search_test
   :file_name: endpoint_id_search_test.rb
-- :id: au_core_v300_ci_build_endpoint_status_search_test
+- :id: au_core_ci_build_endpoint_status_search_test
   :file_name: endpoint_status_search_test.rb
-- :id: au_core_v300_ci_build_endpoint_connection_type_search_test
+- :id: au_core_ci_build_endpoint_connection_type_search_test
   :file_name: endpoint_connection_type_search_test.rb
-- :id: au_core_v300_ci_build_endpoint_payload_type_search_test
+- :id: au_core_ci_build_endpoint_payload_type_search_test
   :file_name: endpoint_payload_type_search_test.rb
-- :id: au_core_v300_ci_build_endpoint_name_search_test
+- :id: au_core_ci_build_endpoint_name_search_test
   :file_name: endpoint_name_search_test.rb
-- :id: au_core_v300_ci_build_endpoint_validation_test
+- :id: au_core_ci_build_endpoint_validation_test
   :file_name: endpoint_validation_test.rb
-- :id: au_core_v300_ci_build_endpoint_must_support_test
+- :id: au_core_ci_build_endpoint_must_support_test
   :file_name: endpoint_must_support_test.rb
-:id: au_core_v300_ci_build_endpoint
+:id: au_core_ci_build_endpoint
 :file_name: endpoint_group.rb
 :delayed_references: []

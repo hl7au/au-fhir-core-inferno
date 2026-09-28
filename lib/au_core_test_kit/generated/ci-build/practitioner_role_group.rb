@@ -21,7 +21,7 @@ require_relative 'practitioner_role/practitioner_role_must_support_test'
 require_relative 'practitioner_role/practitioner_role_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class PractitionerRoleGroup < Inferno::TestGroup
       title 'PractitionerRole Tests'
       short_description 'Verify support for the server capabilities required by the AU Core PractitionerRole.'
@@ -79,31 +79,31 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_practitioner_role
+      id :au_core_ci_build_practitioner_role
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'practitioner_role', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_practitioner_role_read_test
-      test from: :au_core_v300_ci_build_practitioner_role__id_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_identifier_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_practitioner_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_specialty_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_role_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_organization_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_practitioner_multiple_or_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_practitioner_multiple_and_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_practitioner_chain_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_identifier_medicare_search_test
-      test from: :au_core_v300_ci_build_practitioner_role__id_include__id_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_identifier_include_identifier_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_practitioner_include_practitioner_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_specialty_include_specialty_search_test
-      test from: :au_core_v300_ci_build_practitioner_role_validation_test
-      test from: :au_core_v300_ci_build_practitioner_role_must_support_test
-      test from: :au_core_v300_ci_build_practitioner_role_reference_resolution_test
+      test from: :au_core_ci_build_practitioner_role_read_test
+      test from: :au_core_ci_build_practitioner_role__id_search_test
+      test from: :au_core_ci_build_practitioner_role_identifier_search_test
+      test from: :au_core_ci_build_practitioner_role_practitioner_search_test
+      test from: :au_core_ci_build_practitioner_role_specialty_search_test
+      test from: :au_core_ci_build_practitioner_role_role_search_test
+      test from: :au_core_ci_build_practitioner_role_organization_search_test
+      test from: :au_core_ci_build_practitioner_role_practitioner_multiple_or_search_test
+      test from: :au_core_ci_build_practitioner_role_practitioner_multiple_and_search_test
+      test from: :au_core_ci_build_practitioner_role_practitioner_chain_search_test
+      test from: :au_core_ci_build_practitioner_role_identifier_medicare_search_test
+      test from: :au_core_ci_build_practitioner_role__id_include__id_search_test
+      test from: :au_core_ci_build_practitioner_role_identifier_include_identifier_search_test
+      test from: :au_core_ci_build_practitioner_role_practitioner_include_practitioner_search_test
+      test from: :au_core_ci_build_practitioner_role_specialty_include_specialty_search_test
+      test from: :au_core_ci_build_practitioner_role_validation_test
+      test from: :au_core_ci_build_practitioner_role_must_support_test
+      test from: :au_core_ci_build_practitioner_role_reference_resolution_test
     end
   end
 end

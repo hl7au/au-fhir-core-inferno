@@ -24,7 +24,7 @@ require_relative 'diagnosticresult_path/diagnosticresult_path_must_support_test'
 require_relative 'diagnosticresult_path/diagnosticresult_path_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DiagnosticresultPathGroup < Inferno::TestGroup
       title 'Observation Pathology Result Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Pathology Result Observation.'
@@ -83,34 +83,34 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_diagnosticresult_path
+      id :au_core_ci_build_diagnosticresult_path
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'diagnosticresult_path', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_category_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_category_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_code_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_date_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_status_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_category_date_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_code_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_category_status_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_code_date_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_code_multiple_or_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_status_multiple_or_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_chain_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_read_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_validation_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_must_support_test
-      test from: :au_core_v300_ci_build_diagnosticresult_path_reference_resolution_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_category_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_category_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_code_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_date_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_status_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_category_date_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_code_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_category_status_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_code_date_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_code_multiple_or_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_status_multiple_or_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_date_multiple_and_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_chain_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_patient_dva_chain_search_test
+      test from: :au_core_ci_build_diagnosticresult_path_read_test
+      test from: :au_core_ci_build_diagnosticresult_path_validation_test
+      test from: :au_core_ci_build_diagnosticresult_path_must_support_test
+      test from: :au_core_ci_build_diagnosticresult_path_reference_resolution_test
     end
   end
 end

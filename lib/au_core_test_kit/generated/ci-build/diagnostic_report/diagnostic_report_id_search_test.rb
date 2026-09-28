@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DiagnosticReportIdSearchTest < Inferno::Test
       include InfernoSuiteGenerator::SearchTest
 
@@ -20,7 +20,7 @@ none are returned, the test is skipped.
 
       )
 
-      id :au_core_v300_ci_build_diagnostic_report__id_search_test
+      id :au_core_ci_build_diagnostic_report__id_search_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

@@ -10,7 +10,7 @@ require_relative 'healthcare_service/healthcare_service_validation_test'
 require_relative 'healthcare_service/healthcare_service_must_support_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class HealthcareServiceGroup < Inferno::TestGroup
       title 'HealthcareService Tests'
       short_description 'Verify support for the server capabilities required by the AU Core HealthcareService.'
@@ -67,20 +67,20 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_healthcare_service
+      id :au_core_ci_build_healthcare_service
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'healthcare_service', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_healthcare_service_read_test
-      test from: :au_core_v300_ci_build_healthcare_service__id_search_test
-      test from: :au_core_v300_ci_build_healthcare_service_name_search_test
-      test from: :au_core_v300_ci_build_healthcare_service_identifier_search_test
-      test from: :au_core_v300_ci_build_healthcare_service_service_type_search_test
-      test from: :au_core_v300_ci_build_healthcare_service_validation_test
-      test from: :au_core_v300_ci_build_healthcare_service_must_support_test
+      test from: :au_core_ci_build_healthcare_service_read_test
+      test from: :au_core_ci_build_healthcare_service__id_search_test
+      test from: :au_core_ci_build_healthcare_service_name_search_test
+      test from: :au_core_ci_build_healthcare_service_identifier_search_test
+      test from: :au_core_ci_build_healthcare_service_service_type_search_test
+      test from: :au_core_ci_build_healthcare_service_validation_test
+      test from: :au_core_ci_build_healthcare_service_must_support_test
     end
   end
 end

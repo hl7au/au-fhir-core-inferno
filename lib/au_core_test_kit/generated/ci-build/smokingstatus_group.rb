@@ -24,7 +24,7 @@ require_relative 'smokingstatus/smokingstatus_must_support_test'
 require_relative 'smokingstatus/smokingstatus_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class SmokingstatusGroup < Inferno::TestGroup
       title 'Observation Smoking Status Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Smoking Status.'
@@ -83,34 +83,34 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_smokingstatus
+      id :au_core_ci_build_smokingstatus
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'smokingstatus', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_smokingstatus_patient_code_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_category_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_code_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_date_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_status_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_category_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_category_date_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_category_status_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_code_date_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_code_multiple_or_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_status_multiple_or_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_chain_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_smokingstatus_read_test
-      test from: :au_core_v300_ci_build_smokingstatus_validation_test
-      test from: :au_core_v300_ci_build_smokingstatus_must_support_test
-      test from: :au_core_v300_ci_build_smokingstatus_reference_resolution_test
+      test from: :au_core_ci_build_smokingstatus_patient_code_search_test
+      test from: :au_core_ci_build_smokingstatus_category_search_test
+      test from: :au_core_ci_build_smokingstatus_code_search_test
+      test from: :au_core_ci_build_smokingstatus_date_search_test
+      test from: :au_core_ci_build_smokingstatus_status_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_category_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_category_date_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_category_status_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_code_date_search_test
+      test from: :au_core_ci_build_smokingstatus_code_multiple_or_search_test
+      test from: :au_core_ci_build_smokingstatus_status_multiple_or_search_test
+      test from: :au_core_ci_build_smokingstatus_date_multiple_and_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_chain_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_smokingstatus_patient_dva_chain_search_test
+      test from: :au_core_ci_build_smokingstatus_read_test
+      test from: :au_core_ci_build_smokingstatus_validation_test
+      test from: :au_core_ci_build_smokingstatus_must_support_test
+      test from: :au_core_ci_build_smokingstatus_reference_resolution_test
     end
   end
 end

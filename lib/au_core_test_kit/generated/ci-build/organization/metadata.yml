@@ -109,24 +109,24 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_organization_read_test
+- :id: au_core_ci_build_organization_read_test
   :file_name: organization_read_test.rb
-- :id: au_core_v300_ci_build_organization__id_search_test
+- :id: au_core_ci_build_organization__id_search_test
   :file_name: organization_id_search_test.rb
-- :id: au_core_v300_ci_build_organization_address_search_test
+- :id: au_core_ci_build_organization_address_search_test
   :file_name: organization_address_search_test.rb
-- :id: au_core_v300_ci_build_organization_identifier_search_test
+- :id: au_core_ci_build_organization_identifier_search_test
   :file_name: organization_identifier_search_test.rb
-- :id: au_core_v300_ci_build_organization_name_search_test
+- :id: au_core_ci_build_organization_name_search_test
   :file_name: organization_name_search_test.rb
-- :id: au_core_v300_ci_build_organization_identifier_hpio_search_test
+- :id: au_core_ci_build_organization_identifier_hpio_search_test
   :file_name: organization_identifier_hpio_search_test.rb
-- :id: au_core_v300_ci_build_organization_identifier_abn_search_test
+- :id: au_core_ci_build_organization_identifier_abn_search_test
   :file_name: organization_identifier_abn_search_test.rb
-- :id: au_core_v300_ci_build_organization_validation_test
+- :id: au_core_ci_build_organization_validation_test
   :file_name: organization_validation_test.rb
-- :id: au_core_v300_ci_build_organization_must_support_test
+- :id: au_core_ci_build_organization_must_support_test
   :file_name: organization_must_support_test.rb
-:id: au_core_v300_ci_build_organization
+:id: au_core_ci_build_organization
 :file_name: organization_group.rb
 :delayed_references: []

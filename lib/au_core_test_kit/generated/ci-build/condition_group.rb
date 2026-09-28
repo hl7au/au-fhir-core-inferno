@@ -23,7 +23,7 @@ require_relative 'condition/condition_must_support_test'
 require_relative 'condition/condition_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class ConditionGroup < Inferno::TestGroup
       title 'Condition Tests'
       short_description 'Verify support for the server capabilities required by the AU Core Condition.'
@@ -82,33 +82,33 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_condition
+      id :au_core_ci_build_condition
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'condition', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_condition_patient_search_test
-      test from: :au_core_v300_ci_build_condition_category_search_test
-      test from: :au_core_v300_ci_build_condition_clinical_status_search_test
-      test from: :au_core_v300_ci_build_condition_code_search_test
-      test from: :au_core_v300_ci_build_condition_onset_date_search_test
-      test from: :au_core_v300_ci_build_condition_patient_category_search_test
-      test from: :au_core_v300_ci_build_condition_patient_clinical_status_search_test
-      test from: :au_core_v300_ci_build_condition_patient_category_clinical_status_search_test
-      test from: :au_core_v300_ci_build_condition_patient_code_search_test
-      test from: :au_core_v300_ci_build_condition_patient_onset_date_search_test
-      test from: :au_core_v300_ci_build_condition_code_multiple_or_search_test
-      test from: :au_core_v300_ci_build_condition_onset_date_multiple_and_search_test
-      test from: :au_core_v300_ci_build_condition_patient_chain_search_test
-      test from: :au_core_v300_ci_build_condition_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_condition_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_condition_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_condition_read_test
-      test from: :au_core_v300_ci_build_condition_validation_test
-      test from: :au_core_v300_ci_build_condition_must_support_test
-      test from: :au_core_v300_ci_build_condition_reference_resolution_test
+      test from: :au_core_ci_build_condition_patient_search_test
+      test from: :au_core_ci_build_condition_category_search_test
+      test from: :au_core_ci_build_condition_clinical_status_search_test
+      test from: :au_core_ci_build_condition_code_search_test
+      test from: :au_core_ci_build_condition_onset_date_search_test
+      test from: :au_core_ci_build_condition_patient_category_search_test
+      test from: :au_core_ci_build_condition_patient_clinical_status_search_test
+      test from: :au_core_ci_build_condition_patient_category_clinical_status_search_test
+      test from: :au_core_ci_build_condition_patient_code_search_test
+      test from: :au_core_ci_build_condition_patient_onset_date_search_test
+      test from: :au_core_ci_build_condition_code_multiple_or_search_test
+      test from: :au_core_ci_build_condition_onset_date_multiple_and_search_test
+      test from: :au_core_ci_build_condition_patient_chain_search_test
+      test from: :au_core_ci_build_condition_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_condition_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_condition_patient_dva_chain_search_test
+      test from: :au_core_ci_build_condition_read_test
+      test from: :au_core_ci_build_condition_validation_test
+      test from: :au_core_ci_build_condition_must_support_test
+      test from: :au_core_ci_build_condition_reference_resolution_test
     end
   end
 end

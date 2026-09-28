@@ -20,7 +20,7 @@ require_relative 'document_reference/document_reference_must_support_test'
 require_relative 'document_reference/document_reference_reference_resolution_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class DocumentReferenceGroup < Inferno::TestGroup
       title 'DocumentReference Tests'
       short_description 'Verify support for the server capabilities required by the AU Core DocumentReference.'
@@ -78,30 +78,30 @@ read succeeds.
 
       )
 
-      id :au_core_v300_ci_build_document_reference
+      id :au_core_ci_build_document_reference
       run_as_group
 
       def self.metadata
         @metadata ||= InfernoSuiteGenerator::Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'document_reference', 'metadata.yml'), aliases: true))
       end
 
-      test from: :au_core_v300_ci_build_document_reference_patient_search_test
-      test from: :au_core_v300_ci_build_document_reference_author_search_test
-      test from: :au_core_v300_ci_build_document_reference_type_search_test
-      test from: :au_core_v300_ci_build_document_reference_date_search_test
-      test from: :au_core_v300_ci_build_document_reference_period_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_type_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_type_period_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_type_date_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_author_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_chain_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_ihi_chain_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_medicare_chain_search_test
-      test from: :au_core_v300_ci_build_document_reference_patient_dva_chain_search_test
-      test from: :au_core_v300_ci_build_document_reference_read_test
-      test from: :au_core_v300_ci_build_document_reference_validation_test
-      test from: :au_core_v300_ci_build_document_reference_must_support_test
-      test from: :au_core_v300_ci_build_document_reference_reference_resolution_test
+      test from: :au_core_ci_build_document_reference_patient_search_test
+      test from: :au_core_ci_build_document_reference_author_search_test
+      test from: :au_core_ci_build_document_reference_type_search_test
+      test from: :au_core_ci_build_document_reference_date_search_test
+      test from: :au_core_ci_build_document_reference_period_search_test
+      test from: :au_core_ci_build_document_reference_patient_type_search_test
+      test from: :au_core_ci_build_document_reference_patient_type_period_search_test
+      test from: :au_core_ci_build_document_reference_patient_type_date_search_test
+      test from: :au_core_ci_build_document_reference_patient_author_search_test
+      test from: :au_core_ci_build_document_reference_patient_chain_search_test
+      test from: :au_core_ci_build_document_reference_patient_ihi_chain_search_test
+      test from: :au_core_ci_build_document_reference_patient_medicare_chain_search_test
+      test from: :au_core_ci_build_document_reference_patient_dva_chain_search_test
+      test from: :au_core_ci_build_document_reference_read_test
+      test from: :au_core_ci_build_document_reference_validation_test
+      test from: :au_core_ci_build_document_reference_must_support_test
+      test from: :au_core_ci_build_document_reference_reference_resolution_test
     end
   end
 end

@@ -3,14 +3,14 @@
 require 'inferno_suite_generator/test_modules/read_test'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class CompositionReadTest < Inferno::Test
       include InfernoSuiteGenerator::ReadTest
 
       title '(SHALL) Server returns correct Composition resource from Composition read interaction'
       description 'A server SHALL support the Composition read interaction.'
 
-      id :au_core_v300_ci_build_composition_read_test
+      id :au_core_ci_build_composition_read_test
 
       def self.demodata
         @demodata ||= InfernoSuiteGenerator::Generator::IGDemodata.new(

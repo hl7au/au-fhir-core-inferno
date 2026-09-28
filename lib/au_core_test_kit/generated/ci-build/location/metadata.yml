@@ -138,25 +138,25 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Endpoint|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_location_read_test
+- :id: au_core_ci_build_location_read_test
   :file_name: location_read_test.rb
-- :id: au_core_v300_ci_build_location_address_search_test
+- :id: au_core_ci_build_location_address_search_test
   :file_name: location_address_search_test.rb
-- :id: au_core_v300_ci_build_location_name_search_test
+- :id: au_core_ci_build_location_name_search_test
   :file_name: location_name_search_test.rb
-- :id: au_core_v300_ci_build_location_address_city_search_test
+- :id: au_core_ci_build_location_address_city_search_test
   :file_name: location_address_city_search_test.rb
-- :id: au_core_v300_ci_build_location_address_state_search_test
+- :id: au_core_ci_build_location_address_state_search_test
   :file_name: location_address_state_search_test.rb
-- :id: au_core_v300_ci_build_location_address_postalcode_search_test
+- :id: au_core_ci_build_location_address_postalcode_search_test
   :file_name: location_address_postalcode_search_test.rb
-- :id: au_core_v300_ci_build_location_validation_test
+- :id: au_core_ci_build_location_validation_test
   :file_name: location_validation_test.rb
-- :id: au_core_v300_ci_build_location_must_support_test
+- :id: au_core_ci_build_location_must_support_test
   :file_name: location_must_support_test.rb
-- :id: au_core_v300_ci_build_location_reference_resolution_test
+- :id: au_core_ci_build_location_reference_resolution_test
   :file_name: location_reference_resolution_test.rb
-:id: au_core_v300_ci_build_location
+:id: au_core_ci_build_location
 :file_name: location_group.rb
 :delayed_references:
 - :path: managingOrganization

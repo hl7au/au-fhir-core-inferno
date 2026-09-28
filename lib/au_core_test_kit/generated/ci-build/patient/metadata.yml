@@ -253,52 +253,52 @@
   - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_patient__id_search_test
+- :id: au_core_ci_build_patient__id_search_test
   :file_name: patient_id_search_test.rb
-- :id: au_core_v300_ci_build_patient_birthdate_search_test
+- :id: au_core_ci_build_patient_birthdate_search_test
   :file_name: patient_birthdate_search_test.rb
-- :id: au_core_v300_ci_build_patient_family_search_test
+- :id: au_core_ci_build_patient_family_search_test
   :file_name: patient_family_search_test.rb
-- :id: au_core_v300_ci_build_patient_gender_search_test
+- :id: au_core_ci_build_patient_gender_search_test
   :file_name: patient_gender_search_test.rb
-- :id: au_core_v300_ci_build_patient_indigenous_status_search_test
+- :id: au_core_ci_build_patient_indigenous_status_search_test
   :file_name: patient_indigenous_status_search_test.rb
-- :id: au_core_v300_ci_build_patient_identifier_search_test
+- :id: au_core_ci_build_patient_identifier_search_test
   :file_name: patient_identifier_search_test.rb
-- :id: au_core_v300_ci_build_patient_name_search_test
+- :id: au_core_ci_build_patient_name_search_test
   :file_name: patient_name_search_test.rb
-- :id: au_core_v300_ci_build_patient_gender_identity_search_test
+- :id: au_core_ci_build_patient_gender_identity_search_test
   :file_name: patient_gender_identity_search_test.rb
-- :id: au_core_v300_ci_build_patient_birthdate_family_search_test
+- :id: au_core_ci_build_patient_birthdate_family_search_test
   :file_name: patient_birthdate_family_search_test.rb
-- :id: au_core_v300_ci_build_patient_birthdate_name_search_test
+- :id: au_core_ci_build_patient_birthdate_name_search_test
   :file_name: patient_birthdate_name_search_test.rb
-- :id: au_core_v300_ci_build_patient_family_gender_search_test
+- :id: au_core_ci_build_patient_family_gender_search_test
   :file_name: patient_family_gender_search_test.rb
-- :id: au_core_v300_ci_build_patient_gender_name_search_test
+- :id: au_core_ci_build_patient_gender_name_search_test
   :file_name: patient_gender_name_search_test.rb
-- :id: au_core_v300_ci_build_patient_indigenous_status_multiple_or_search_test
+- :id: au_core_ci_build_patient_indigenous_status_multiple_or_search_test
   :file_name: patient_indigenous_status_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_patient_gender_identity_multiple_or_search_test
+- :id: au_core_ci_build_patient_gender_identity_multiple_or_search_test
   :file_name: patient_gender_identity_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_patient_birthdate_multiple_and_search_test
+- :id: au_core_ci_build_patient_birthdate_multiple_and_search_test
   :file_name: patient_birthdate_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_patient_indigenous_status_multiple_and_search_test
+- :id: au_core_ci_build_patient_indigenous_status_multiple_and_search_test
   :file_name: patient_indigenous_status_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_patient_gender_identity_multiple_and_search_test
+- :id: au_core_ci_build_patient_gender_identity_multiple_and_search_test
   :file_name: patient_gender_identity_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_patient_identifier_ihi_search_test
+- :id: au_core_ci_build_patient_identifier_ihi_search_test
   :file_name: patient_identifier_ihi_search_test.rb
-- :id: au_core_v300_ci_build_patient_identifier_medicare_search_test
+- :id: au_core_ci_build_patient_identifier_medicare_search_test
   :file_name: patient_identifier_medicare_search_test.rb
-- :id: au_core_v300_ci_build_patient_identifier_dva_search_test
+- :id: au_core_ci_build_patient_identifier_dva_search_test
   :file_name: patient_identifier_dva_search_test.rb
-- :id: au_core_v300_ci_build_patient_read_test
+- :id: au_core_ci_build_patient_read_test
   :file_name: patient_read_test.rb
-- :id: au_core_v300_ci_build_patient_validation_test
+- :id: au_core_ci_build_patient_validation_test
   :file_name: patient_validation_test.rb
-- :id: au_core_v300_ci_build_patient_must_support_test
+- :id: au_core_ci_build_patient_must_support_test
   :file_name: patient_must_support_test.rb
-:id: au_core_v300_ci_build_patient
+:id: au_core_ci_build_patient
 :file_name: patient_group.rb
 :delayed_references: []

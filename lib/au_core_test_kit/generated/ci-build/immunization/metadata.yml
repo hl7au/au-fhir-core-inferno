@@ -191,40 +191,40 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Organization|4.0.1
 :tests:
-- :id: au_core_v300_ci_build_immunization_patient_search_test
+- :id: au_core_ci_build_immunization_patient_search_test
   :file_name: immunization_patient_search_test.rb
-- :id: au_core_v300_ci_build_immunization_date_search_test
+- :id: au_core_ci_build_immunization_date_search_test
   :file_name: immunization_date_search_test.rb
-- :id: au_core_v300_ci_build_immunization_status_search_test
+- :id: au_core_ci_build_immunization_status_search_test
   :file_name: immunization_status_search_test.rb
-- :id: au_core_v300_ci_build_immunization_vaccine_code_search_test
+- :id: au_core_ci_build_immunization_vaccine_code_search_test
   :file_name: immunization_vaccine_code_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_status_search_test
+- :id: au_core_ci_build_immunization_patient_status_search_test
   :file_name: immunization_patient_status_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_date_search_test
+- :id: au_core_ci_build_immunization_patient_date_search_test
   :file_name: immunization_patient_date_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_vaccine_code_search_test
+- :id: au_core_ci_build_immunization_patient_vaccine_code_search_test
   :file_name: immunization_patient_vaccine_code_search_test.rb
-- :id: au_core_v300_ci_build_immunization_vaccine_code_multiple_or_search_test
+- :id: au_core_ci_build_immunization_vaccine_code_multiple_or_search_test
   :file_name: immunization_vaccine_code_multiple_or_search_test.rb
-- :id: au_core_v300_ci_build_immunization_date_multiple_and_search_test
+- :id: au_core_ci_build_immunization_date_multiple_and_search_test
   :file_name: immunization_date_multiple_and_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_chain_search_test
+- :id: au_core_ci_build_immunization_patient_chain_search_test
   :file_name: immunization_patient_chain_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_ihi_chain_search_test
+- :id: au_core_ci_build_immunization_patient_ihi_chain_search_test
   :file_name: immunization_patient_ihi_chain_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_medicare_chain_search_test
+- :id: au_core_ci_build_immunization_patient_medicare_chain_search_test
   :file_name: immunization_patient_medicare_chain_search_test.rb
-- :id: au_core_v300_ci_build_immunization_patient_dva_chain_search_test
+- :id: au_core_ci_build_immunization_patient_dva_chain_search_test
   :file_name: immunization_patient_dva_chain_search_test.rb
-- :id: au_core_v300_ci_build_immunization_read_test
+- :id: au_core_ci_build_immunization_read_test
   :file_name: immunization_read_test.rb
-- :id: au_core_v300_ci_build_immunization_validation_test
+- :id: au_core_ci_build_immunization_validation_test
   :file_name: immunization_validation_test.rb
-- :id: au_core_v300_ci_build_immunization_must_support_test
+- :id: au_core_ci_build_immunization_must_support_test
   :file_name: immunization_must_support_test.rb
-- :id: au_core_v300_ci_build_immunization_reference_resolution_test
+- :id: au_core_ci_build_immunization_reference_resolution_test
   :file_name: immunization_reference_resolution_test.rb
-:id: au_core_v300_ci_build_immunization
+:id: au_core_ci_build_immunization
 :file_name: immunization_group.rb
 :delayed_references: []

@@ -5,7 +5,7 @@ require 'inferno_suite_generator/core/group_metadata'
 require 'inferno_suite_generator/utils/helpers'
 
 module AUCoreTestKit
-  module AUCoreV300_CI_BUILD
+  module AUCoreCIBuild
     class WaistcircumPatient_Medicare_ChainSearchTest < Inferno::Test
       include InfernoSuiteGenerator::ChainedSearchTest
 
@@ -17,7 +17,7 @@ will pass if the server returns a success response to the request.
 [AU Core Server CapabilityStatement](http://hl7.org.au/fhir/core/3.0.0-ci-build/CapabilityStatement-au-core-server.html)
 )
 
-      id :au_core_v300_ci_build_waistcircum_patient_medicare_chain_search_test
+      id :au_core_ci_build_waistcircum_patient_medicare_chain_search_test
 
       optional
 
