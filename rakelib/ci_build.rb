@@ -71,17 +71,37 @@ module AUCoreTestKit
 
     # Downloads the CI build package and records its version and date in the ci-build
     # config. Both come from the package itself rather than the manifest, so a CI build
-    # published between the two requests cannot leave them out of step.
+    # published between the two requests cannot leave them out of step. Nothing is written
+    # unless the package is a ci-build version.
     def download
       body = http_get(config.dig('ci_build', 'package_url'))
+      package = package_json(body)
+      ensure_ci_build_version!(package.fetch('version'))
       FileUtils.mkdir_p(File.dirname(package_path))
       File.binwrite(package_path, body)
-      record(package_json(body))
+      record(package)
+    end
+
+    # Downloads when the CI build changed (or when forced) and regenerates the suite. If any
+    # step fails, config.ci-build.json is put back so the next refresh tries again rather
+    # than reporting the CI build as unchanged.
+    def refresh(force: false)
+      return false unless force || changed?
+
+      original_config = File.read(path(CONFIG_FILE))
+      begin
+        download
+        yield
+      rescue StandardError
+        File.write(path(CONFIG_FILE), original_config)
+        raise
+      end
+      true
     end
 
     def generate
-      download unless File.exist?(package_path)
-      ensure_ci_build_version!
+      ensure_package!
+      ensure_ci_build_version!(version)
 
       versioned_dir = path(GENERATED_DIR, "v#{version}")
       run_generator(versioned_dir)
@@ -136,12 +156,24 @@ module AUCoreTestKit
       File.write(path(KIT_ENTRY_FILE), kit_entry)
     end
 
-    def ensure_ci_build_version!
-      return if version.to_s.end_with?(CI_BUILD_VERSION_SUFFIX)
+    # Also guards the rm_rf of generated/v<version> against ever removing a released suite.
+    def ensure_ci_build_version!(candidate)
+      return if candidate.to_s.end_with?(CI_BUILD_VERSION_SUFFIX)
 
-      # Guards the rm_rf of generated/v<version> against ever removing a released suite.
-      raise Error, "#{CONFIG_FILE} ig.version is #{version.inspect}; expected a version ending in " \
-                   "#{CI_BUILD_VERSION_SUFFIX}."
+      raise Error, "CI build version is #{candidate.inspect}; expected a version ending in #{CI_BUILD_VERSION_SUFFIX}."
+    end
+
+    # Downloads the package when it is missing. One downloaded earlier may be older than the
+    # one the config records, e.g. after pulling a refresh, and generating from it would
+    # silently regress the suite.
+    def ensure_package!
+      return download unless File.exist?(package_path)
+
+      package = package_json(File.binread(package_path))
+      return if package.values_at('version', 'date') == [version, recorded_date]
+
+      raise Error, "#{package_path} holds #{package['version']} dated #{package['date']}, but #{CONFIG_FILE} " \
+                   "records #{version} dated #{recorded_date}; run rake au_core:ci_build:download first."
     end
 
     def record(package)
@@ -149,7 +181,6 @@ module AUCoreTestKit
       updated['ig']['version'] = package.fetch('version')
       updated['ci_build']['package_date'] = package.fetch('date')
       File.write(path(CONFIG_FILE), "#{JSON.pretty_generate(updated)}\n")
-      ensure_ci_build_version!
     end
 
     def package_json(tgz)
