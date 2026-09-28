@@ -67,6 +67,11 @@ suggest improvements or enhancements to the project
 
 We appreciate your contributions to improving this test suite. **If you encounter any issues or have suggestions for enhancements, please follow the steps below to report them**:
 
+For feedback about a specific hosted test run, use the
+[Inferno feedback form](https://inferno.hl7.org.au/feedback/), which can publish
+a reviewed report without GitHub sign-in. For kit bugs and test requests, choose
+the matching [repository issue form](https://github.com/hl7au/au-fhir-core-inferno/issues/new/choose).
+
 1. **Search for Existing Issues**:
 Before submitting a new issue, please check the [Issues section](https://github.com/hl7au/au-fhir-core-inferno/issues) to see if the problem or suggestion has already been reported. If you find an existing issue, you can add your comments or additional information to it.
 2. **Open a New Issue:**
