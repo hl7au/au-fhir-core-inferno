@@ -22,10 +22,10 @@ namespace :au_core do
     desc 'Regenerate the ci-build suite when the AU Core CI build has changed (pass "force" to always regenerate)'
     task :refresh, [:force] do |_task, args|
       ci_build = AUCoreTestKit::CIBuild.new
-      changed = args[:force] == 'force' || ci_build.changed?
-      if changed
-        ci_build.download
+      changed = ci_build.refresh(force: args[:force] == 'force') do
         Rake::Task['au_core:generate'].invoke('ci-build')
+      end
+      if changed
         puts "Regenerated the ci-build suite from #{ci_build.version} dated #{ci_build.recorded_date}"
       else
         puts "CI build unchanged since #{ci_build.recorded_date}; nothing to regenerate"

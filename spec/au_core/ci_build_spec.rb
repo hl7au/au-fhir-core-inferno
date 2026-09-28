@@ -7,7 +7,9 @@ require_relative '../../rakelib/ci_build'
 
 RSpec.describe AUCoreTestKit::CIBuild do
   repo_root = File.expand_path('../..', __dir__)
-  ci_build_suite_id = 'au_core_v300_ci_build'
+  recorded_version = JSON.parse(File.read(File.join(repo_root, described_class::CONFIG_FILE))).dig('ig', 'version')
+  # The id the generator derives from the recorded version, e.g. au_core_v300_ci_build.
+  ci_build_suite_id = "au_core_v#{recorded_version.delete('.').tr('-', '_')}"
   # Captured when the spec files load, before any example requires the suite itself.
   registered_at_boot = Inferno::Repositories::TestSuites.new.find(ci_build_suite_id).present?
 
@@ -64,8 +66,7 @@ RSpec.describe AUCoreTestKit::CIBuild do
       end
 
       it 'registers the suite with an id derived from the recorded CI build version' do
-        version = config.dig('ig', 'version')
-        expect(@suite['id']).to eq("au_core_v#{version.delete('.').tr('-', '_')}")
+        expect(@suite['id']).to eq(ci_build_suite_id)
       end
 
       it 'validates against the CI build package id, never a file path' do
@@ -156,11 +157,36 @@ RSpec.describe AUCoreTestKit::CIBuild do
       expect(ci_build.recorded_date).to eq('20991231000000')
     end
 
-    it 'refuses a package whose version is not a ci-build' do
+    it 'refuses a package whose version is not a ci-build, leaving the config untouched' do
       stub_request(:get, package_url)
         .to_return(body: package_tgz(name: 'hl7.fhir.au.core', version: '3.0.0', date: '20991231000000'))
 
       expect { ci_build.download }.to raise_error(described_class::Error, /ci-build/)
+      expect(ci_build.config).to eq(config)
+      expect(File).not_to exist(ci_build.package_path)
+    end
+
+    it 'puts the config back when a refresh fails after downloading' do
+      stub_request(:get, manifest_url).to_return(body: { date: '20991231000000' }.to_json)
+      stub_request(:get, package_url)
+        .to_return(body: package_tgz(name: 'hl7.fhir.au.core', version: '3.1.0-ci-build', date: '20991231000000'))
+
+      expect { ci_build.refresh { raise 'generation failed' } }.to raise_error(RuntimeError, 'generation failed')
+      expect(ci_build.config).to eq(config)
+    end
+
+    it 'does not refresh when the CI build is unchanged' do
+      stub_request(:get, manifest_url).to_return(body: { date: config.dig('ci_build', 'package_date') }.to_json)
+
+      expect(ci_build.refresh { raise 'should not generate' }).to be(false)
+    end
+
+    it 'refuses to generate from a downloaded package older than the recorded one' do
+      FileUtils.mkdir_p(File.dirname(ci_build.package_path))
+      File.binwrite(ci_build.package_path,
+                    package_tgz(name: 'hl7.fhir.au.core', version: config.dig('ig', 'version'), date: '20000101000000'))
+
+      expect { ci_build.generate }.to raise_error(described_class::Error, /au_core:ci_build:download/)
     end
   end
 end
