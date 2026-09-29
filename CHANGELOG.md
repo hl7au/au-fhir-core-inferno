@@ -1,3 +1,12 @@
+# Unreleased
+* Select the Australian SNOMED CT edition for validation in every kit-owned suite
+  (v2.0.0, v2.1.0-draft and the validations suite join v1.0.0 and v3.0.0-ballot1).
+  The AU terminology server carries only the Australian edition, so SNOMED codes
+  previously went unvalidated. Override with `SNOMED_EDITION`.
+* Load the AU Core 1.0.0 and 2.0.0 IGs by registry package id instead of a
+  validator-local file path, so they resolve on deployed validators.
+* Regenerate the v2.0.0 and v2.1.0-draft suites with the generator used for v1.0.0.
+
 # 1.4.6
 * Validate reference targets through `Validator#resource_is_valid?` instead of the
   `Validator` internals inferno_core removed in v1.1.0, so the kit runs on

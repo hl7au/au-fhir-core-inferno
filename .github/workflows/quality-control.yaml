@@ -11,3 +11,5 @@ jobs:
         run: make setup
       - name: Run RuboCop
         run: make rubocop
+      - name: Run Spec
+        run: make tests
