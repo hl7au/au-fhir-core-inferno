@@ -20,13 +20,15 @@ namespace :db do
 end
 
 namespace :au_core do
-  desc 'Generate tests'
+  desc 'Generate every suite, each in its own process'
   task :generate do
-    require 'inferno_suite_generator'
-    basic_config_file = './config.basic.json'
-    config_files = ['./config.300-ballot1.json']
-    config_files.each do |config_file|
-      InfernoSuiteGenerator::Generator.generate([basic_config_file, config_file])
+    require_relative 'lib/au_core_test_kit/suite_configs'
+    generator_script = 'require "inferno_suite_generator"; InfernoSuiteGenerator::Generator.generate(ARGV)'
+
+    # The generator's GeneratorConfigKeeper shares one hash across configs, so a second
+    # config generated in the same process would inherit the first one's settings.
+    AUCoreTestKit::SuiteConfigs::VERSIONS.each do |version_file|
+      ruby '-e', generator_script, AUCoreTestKit::SuiteConfigs::BASIC, version_file
     end
   end
 end
