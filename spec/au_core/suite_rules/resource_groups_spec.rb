@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../../../lib/au_core_test_kit/suite_configs'
+require_relative '../../support/suite_rule_helpers'
 
 RSpec.describe 'Suite Rule: every interactive CapabilityStatement resource has a group' do
-  def groups_within(runnable)
-    runnable.groups.flat_map { |group| [group, *groups_within(group)] }
-  end
+  include SuiteRuleHelpers
 
   # Entries with no interaction (e.g. Specimen, CareTeam) only name a profile for
   # referenced resources; the generator builds no group for them.
@@ -26,8 +24,7 @@ RSpec.describe 'Suite Rule: every interactive CapabilityStatement resource has a
 
   AUCoreTestKit::SuiteConfigs.each do |entry|
     it "holds for #{entry.suite_id}" do
-      suite = Inferno::Repositories::TestSuites.new.find(entry.suite_id)
-      covered = groups_within(suite).select { |group| group.respond_to?(:metadata) }.map { |group| group.metadata.resource }
+      covered = generated_groups(suite_for(entry)).map { |group| group.metadata.resource }
 
       missing = resource_types_needing_a_group(entry) - covered
 
