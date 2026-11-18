@@ -9,28 +9,23 @@ inferno = run inferno
 ber = bundle exec rake
 gen = au_core:generate
 kit_path = lib/au_core_test_kit/
-sum_script = $(kit_path)generator/summary_generator.rb
-generated_v2_path = $(kit_path)generated/v2.1.0-draft/
+generated_path = $(kit_path)generated/
 
-.PHONY: setup generate summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
+.PHONY: setup generate new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
 
 setup: pull build migrate
 
 generate:
-	rm -rf $(generated_v2_path)
+	rm -rf $(generated_path)
 	$(compose) $(inferno) $(ber) $(gen)
 	$(compose) $(inferno) rubocop -A $(kit_path)
-	$(compose) $(inferno) ruby $(sum_script)
 
 generate_local:
-	rm -rf $(generated_v2_path)
+	rm -rf $(generated_path)
 	$(ber) $(gen)
 	rubocop -A $(kit_path)
 
-summary: build
-	$(compose) $(inferno) ruby $(sum_script)
-
-new_release: build ig_download generate summary
+new_release: build ig_download generate
 
 tests:
 	$(compose) run -e APP_ENV=test inferno bundle exec rspec
@@ -62,8 +57,8 @@ migrate:
 	$(compose) $(inferno) $(ber) db:migrate
 
 clean_generated:
-	rm -rf $(generated_v2_path)
-	git restore --source=HEAD -- $(generated_v2_path)
+	rm -rf $(generated_path)
+	git restore --source=HEAD -- $(generated_path)
 
 ig_download:
 	$(compose) $(inferno) ruby lib/au_core_test_kit/generator/ig_download.rb
