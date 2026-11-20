@@ -15,8 +15,9 @@ RSpec.describe 'Scenarios against fhir_stub_server' do
         FHIRStubServer::WebMockAdapter.install(stub, fhir_base_url: Scenario::FHIR_BASE_URL,
                                                      validator_base_url: ENV.fetch('FHIR_RESOURCE_VALIDATOR_URL'))
         inputs = scenario.inputs_with(Scenario::FHIR_BASE_URL).transform_keys(&:to_sym)
+        group = scenario.scenario_group(suite)
         # inferno_core's `run` rejects an input the group doesn't declare.
-        scenario.groups_in(suite).each { |group| run(group, inputs.slice(*group.available_inputs.keys)) }
+        run(group, inputs.slice(*group.available_inputs.keys))
         Scenario::Run.new(stub, results_by_short_id)
       end
 
@@ -38,12 +39,12 @@ RSpec.describe 'Scenarios against fhir_stub_server' do
       end
 
       it 'gets the expected results through inferno execute, with every request answered' do
-        expect_expected_results(scenario.execute_run(suite), scenario)
+        expect_expected_results(scenario.execute_run, scenario)
       end
 
       it 'gets the same results in both modes' do
         in_process = run_in_process(scenario).results
-        executed = scenario.execute_run(suite).results
+        executed = scenario.execute_run.results
         differing = (in_process.keys | executed.keys).reject { |id| in_process[id] == executed[id] }
 
         expect(differing).to be_empty, differing.map { |id|

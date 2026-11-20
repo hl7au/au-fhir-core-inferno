@@ -51,10 +51,10 @@ expected:
   au_core_v300_ballot1_bodyheight_code_multiple_or_search_test: pass
   au_core_v300_ballot1_bodyheight_status_multiple_or_search_test: pass
   au_core_v300_ballot1_bodyheight_date_multiple_and_search_test: pass
-  au_core_v300_ballot1_bodyheight_patient_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_bodyheight_patient_ihi_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_bodyheight_patient_medicare_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_bodyheight_patient_dva_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_bodyheight_patient_chain_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_ihi_chain_search_test: fail # of the two patients only howe-deangelo has an IHI, and he has no Observations; the test fails, not skips, without data
+  au_core_v300_ballot1_bodyheight_patient_medicare_chain_search_test: fail # neither patient has a Medicare number; the test fails, not skips, without data
+  au_core_v300_ballot1_bodyheight_patient_dva_chain_search_test: fail # neither patient has a DVA number; the test fails, not skips, without data
   au_core_v300_ballot1_bodyheight_read_test: pass
   au_core_v300_ballot1_bodyheight_validation_test: pass # its canned issue is one the suite filters out
   au_core_v300_ballot1_bodyheight_must_support_test: pass
@@ -71,10 +71,10 @@ expected:
   au_core_v300_ballot1_medication_request_intent_multiple_or_search_test: skip
   au_core_v300_ballot1_medication_request_status_multiple_or_search_test: pass
   au_core_v300_ballot1_medication_request_authoredon_multiple_and_search_test: pass
-  au_core_v300_ballot1_medication_request_patient_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_medication_request_patient_ihi_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_medication_request_patient_medicare_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
-  au_core_v300_ballot1_medication_request_patient_dva_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_medication_request_patient_chain_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_ihi_chain_search_test: fail # of the two patients only howe-deangelo has an IHI, and he has no MedicationRequests; the test fails, not skips, without data
+  au_core_v300_ballot1_medication_request_patient_medicare_chain_search_test: fail # neither patient has a Medicare number; the test fails, not skips, without data
+  au_core_v300_ballot1_medication_request_patient_dva_chain_search_test: fail # neither patient has a DVA number; the test fails, not skips, without data
   au_core_v300_ballot1_medication_request_read_test: pass
   au_core_v300_ballot1_medication_request_patient_include_patient_search_test: pass
   au_core_v300_ballot1_medication_request__id_include__id_search_test: skip # reaptan contains its Medication, so nothing to include
@@ -207,6 +207,10 @@ server:
         response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and subject.reference = 'Patient/howe-deangelo')" }
       - request: { path: /Observation, query: { code: "50373000", date: "ge1950-01-01T00:00:00.000Z", patient: howe-deangelo } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and effectiveDateTime >= @1950-01-01T00:00:00.000Z and subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /Observation, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734|22421441" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(subject.reference.replace('Patient/', '') in %resource.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734' and value = '22421441').exists()).id)" }
+      - request: { path: /Observation, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hi/ihi/1.0|8003608000311621" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(subject.reference.replace('Patient/', '') in %resource.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0' and value = '8003608000311621').exists()).id)" }
       - request: { path: /Observation, query: { category: vital-signs, patient: wang-li } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and subject.reference = 'Patient/wang-li')" }
       - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", patient: wang-li } }
@@ -315,6 +319,10 @@ server:
         response:
           select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo')"
           include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo').medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734|22421441" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference.replace('Patient/', '') in %resource.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734' and value = '22421441').exists()).id)" }
+      - request: { path: /MedicationRequest, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hi/ihi/1.0|8003608000311621" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference.replace('Patient/', '') in %resource.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0' and value = '8003608000311621').exists()).id)" }
   validator:
     pairs:
       - { profile: CapabilityStatement, resource: CapabilityStatement/au-core-responder, issues: [] }

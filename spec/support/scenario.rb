@@ -11,6 +11,7 @@ class Scenario
   ROOT = File.expand_path('../..', __dir__)
   DIR = File.join(ROOT, 'spec', 'fixtures', 'stub_server')
   FHIR_BASE_URL = 'http://fhir.stub.test/fhir'
+  GROUP_SHORT_ID = 'scenario'
 
   # What one run left behind: the Stub with its reports, and each test's result by short id.
   Run = Struct.new(:stub, :results) do
@@ -71,12 +72,27 @@ class Scenario
     end
   end
 
+  # One group holding copies of the listed groups, so they run as one test run and share
+  # scratch, as in a whole-suite run (chained searches read the Patient group's Patients).
+  # Its parent is the suite, for the suite's inputs and FHIR client, but the suite doesn't list
+  # it, so `suite.groups` is unchanged. Memoized: Inferno's repositories are global.
+  def scenario_group(suite)
+    @scenario_group ||= Class.new(Inferno::TestGroup).tap do |group|
+      group.parent = suite
+      group.id("scenario_#{name}")
+      group.short_id(GROUP_SHORT_ID) # not derived: the suite doesn't list it
+      suite.configure_child_class(group, {})
+      groups_in(suite).each { |listed| group.group(from: listed.id) }
+      group.add_self_to_repository
+    end
+  end
+
   # Runs the groups in a child `inferno execute` against the Stub over HTTP. Memoized: the
   # child boots the whole kit, and its results don't depend on the calling example.
-  def execute_run(suite)
+  def execute_run
     @execute_run ||= begin
       stub = self.stub
-      Run.new(stub, with_http_server(stub) { |base_url| execute(suite, base_url) })
+      Run.new(stub, with_http_server(stub) { |base_url| execute(base_url) })
     end
   end
 
@@ -104,18 +120,18 @@ class Scenario
     nil
   end
 
-  def execute(suite, base_url)
-    env = { 'APP_ENV' => 'test', 'FHIR_RESOURCE_VALIDATOR_URL' => "#{base_url}/validator" }
-    stdout, stderr, status = Open3.capture3(env, *execute_command(suite, base_url), chdir: ROOT)
+  def execute(base_url)
+    env = { 'APP_ENV' => 'test', 'FHIR_RESOURCE_VALIDATOR_URL' => "#{base_url}/validator", 'SCENARIO' => path }
+    stdout, stderr, status = Open3.capture3(env, *execute_command(base_url), chdir: ROOT)
     # inferno execute exits 0 when every result passes and 3 otherwise; anything else is a crash.
     raise "inferno execute exited #{status.exitstatus}:\n#{stdout}\n#{stderr}" unless [0, 3].include?(status.exitstatus)
 
     Scenario.by_short_id(JSON.parse(stdout).map { |result| result.values_at('test_id', 'result') })
   end
 
-  def execute_command(suite, base_url)
+  def execute_command(base_url)
     inputs = inputs_with("#{base_url}/fhir").map { |name, value| "#{name}:#{value}" }
     ['bundle', 'exec', 'ruby', File.join(__dir__, 'inferno_execute.rb'), '--suite', suite_id,
-     '--short-ids', *groups_in(suite).map(&:short_id), '--inputs', *inputs, '--outputter', 'json']
+     '--short-ids', GROUP_SHORT_ID, '--inputs', *inputs, '--outputter', 'json']
   end
 end
