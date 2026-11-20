@@ -24,7 +24,17 @@ module AUCoreTestKit
         * Observation.status
         * Observation.subject
         * Observation.value[x]
+        * Observation.value[x]:valueBoolean
+        * Observation.value[x]:valueCodeableConcept
+        * Observation.value[x]:valueDateTime
+        * Observation.value[x]:valueInteger
+        * Observation.value[x]:valuePeriod
         * Observation.value[x]:valueQuantity
+        * Observation.value[x]:valueRange
+        * Observation.value[x]:valueRatio
+        * Observation.value[x]:valueSampledData
+        * Observation.value[x]:valueString
+        * Observation.value[x]:valueTime
       )
 
       id :au_core_ci_build_waistcircum_must_support_test

@@ -32,6 +32,10 @@ module AUCoreTestKit
         * Observation.component:DiastolicBP.value[x].system
         * Observation.component:DiastolicBP.value[x].unit
         * Observation.component:DiastolicBP.value[x].value
+        * Observation.component:DiastolicBP.value[x]:valueQuantity.code
+        * Observation.component:DiastolicBP.value[x]:valueQuantity.system
+        * Observation.component:DiastolicBP.value[x]:valueQuantity.unit
+        * Observation.component:DiastolicBP.value[x]:valueQuantity.value
         * Observation.component:SystolicBP
         * Observation.component:SystolicBP.code
         * Observation.component:SystolicBP.dataAbsentReason
@@ -40,6 +44,10 @@ module AUCoreTestKit
         * Observation.component:SystolicBP.value[x].system
         * Observation.component:SystolicBP.value[x].unit
         * Observation.component:SystolicBP.value[x].value
+        * Observation.component:SystolicBP.value[x]:valueQuantity.code
+        * Observation.component:SystolicBP.value[x]:valueQuantity.system
+        * Observation.component:SystolicBP.value[x]:valueQuantity.unit
+        * Observation.component:SystolicBP.value[x]:valueQuantity.value
         * Observation.effective[x]
         * Observation.status
         * Observation.subject

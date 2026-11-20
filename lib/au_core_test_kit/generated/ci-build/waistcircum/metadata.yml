@@ -167,6 +167,66 @@
     :discriminator:
       :type: type
       :code: Quantity
+  - :slice_id: Observation.value[x]:valueCodeableConcept
+    :slice_name: valueCodeableConcept
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: CodeableConcept
+  - :slice_id: Observation.value[x]:valueString
+    :slice_name: valueString
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: String
+  - :slice_id: Observation.value[x]:valueBoolean
+    :slice_name: valueBoolean
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Boolean
+  - :slice_id: Observation.value[x]:valueInteger
+    :slice_name: valueInteger
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Integer
+  - :slice_id: Observation.value[x]:valueRange
+    :slice_name: valueRange
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Range
+  - :slice_id: Observation.value[x]:valueRatio
+    :slice_name: valueRatio
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Ratio
+  - :slice_id: Observation.value[x]:valueSampledData
+    :slice_name: valueSampledData
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: SampledData
+  - :slice_id: Observation.value[x]:valueTime
+    :slice_name: valueTime
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Time
+  - :slice_id: Observation.value[x]:valueDateTime
+    :slice_name: valueDateTime
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: DateTime
+  - :slice_id: Observation.value[x]:valuePeriod
+    :slice_name: valuePeriod
+    :path: value[x]
+    :discriminator:
+      :type: type
+      :code: Period
   - :slice_id: Observation.category:VSCat
     :slice_name: VSCat
     :path: category

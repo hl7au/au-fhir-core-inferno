@@ -218,6 +218,12 @@
     :fixed_value: http://unitsofmeasure.org
   - :path: component:SystolicBP.value[x].code
     :fixed_value: mm[Hg]
+  - :path: component:SystolicBP.value[x]:valueQuantity.value
+  - :path: component:SystolicBP.value[x]:valueQuantity.unit
+  - :path: component:SystolicBP.value[x]:valueQuantity.system
+    :fixed_value: http://unitsofmeasure.org
+  - :path: component:SystolicBP.value[x]:valueQuantity.code
+    :fixed_value: mm[Hg]
   - :path: component:SystolicBP.dataAbsentReason
   - :path: component:DiastolicBP.code
   - :path: component:DiastolicBP.value[x]
@@ -226,6 +232,12 @@
   - :path: component:DiastolicBP.value[x].system
     :fixed_value: http://unitsofmeasure.org
   - :path: component:DiastolicBP.value[x].code
+    :fixed_value: mm[Hg]
+  - :path: component:DiastolicBP.value[x]:valueQuantity.value
+  - :path: component:DiastolicBP.value[x]:valueQuantity.unit
+  - :path: component:DiastolicBP.value[x]:valueQuantity.system
+    :fixed_value: http://unitsofmeasure.org
+  - :path: component:DiastolicBP.value[x]:valueQuantity.code
     :fixed_value: mm[Hg]
   - :path: component:DiastolicBP.dataAbsentReason
 :mandatory_elements:
@@ -254,6 +266,14 @@
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/observation-status
   :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+  :path: component.value.comparator
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+  :path: component.value.comparator
 - :type: code
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/quantity-comparator

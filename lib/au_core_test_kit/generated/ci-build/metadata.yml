@@ -506,6 +506,12 @@
       :fixed_value: http://unitsofmeasure.org
     - :path: component:SystolicBP.value[x].code
       :fixed_value: mm[Hg]
+    - :path: component:SystolicBP.value[x]:valueQuantity.value
+    - :path: component:SystolicBP.value[x]:valueQuantity.unit
+    - :path: component:SystolicBP.value[x]:valueQuantity.system
+      :fixed_value: http://unitsofmeasure.org
+    - :path: component:SystolicBP.value[x]:valueQuantity.code
+      :fixed_value: mm[Hg]
     - :path: component:SystolicBP.dataAbsentReason
     - :path: component:DiastolicBP.code
     - :path: component:DiastolicBP.value[x]
@@ -514,6 +520,12 @@
     - :path: component:DiastolicBP.value[x].system
       :fixed_value: http://unitsofmeasure.org
     - :path: component:DiastolicBP.value[x].code
+      :fixed_value: mm[Hg]
+    - :path: component:DiastolicBP.value[x]:valueQuantity.value
+    - :path: component:DiastolicBP.value[x]:valueQuantity.unit
+    - :path: component:DiastolicBP.value[x]:valueQuantity.system
+      :fixed_value: http://unitsofmeasure.org
+    - :path: component:DiastolicBP.value[x]:valueQuantity.code
       :fixed_value: mm[Hg]
     - :path: component:DiastolicBP.dataAbsentReason
   :mandatory_elements:
@@ -542,6 +554,14 @@
     :strength: required
     :system: http://hl7.org/fhir/ValueSet/observation-status
     :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+    :path: component.value.comparator
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/quantity-comparator
+    :path: component.value.comparator
   - :type: code
     :strength: required
     :system: http://hl7.org/fhir/ValueSet/quantity-comparator
@@ -1905,6 +1925,66 @@
       :discriminator:
         :type: type
         :code: Quantity
+    - :slice_id: Observation.value[x]:valueCodeableConcept
+      :slice_name: valueCodeableConcept
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: CodeableConcept
+    - :slice_id: Observation.value[x]:valueString
+      :slice_name: valueString
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: String
+    - :slice_id: Observation.value[x]:valueBoolean
+      :slice_name: valueBoolean
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Boolean
+    - :slice_id: Observation.value[x]:valueInteger
+      :slice_name: valueInteger
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Integer
+    - :slice_id: Observation.value[x]:valueRange
+      :slice_name: valueRange
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Range
+    - :slice_id: Observation.value[x]:valueRatio
+      :slice_name: valueRatio
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Ratio
+    - :slice_id: Observation.value[x]:valueSampledData
+      :slice_name: valueSampledData
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: SampledData
+    - :slice_id: Observation.value[x]:valueTime
+      :slice_name: valueTime
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Time
+    - :slice_id: Observation.value[x]:valueDateTime
+      :slice_name: valueDateTime
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: DateTime
+    - :slice_id: Observation.value[x]:valuePeriod
+      :slice_name: valuePeriod
+      :path: value[x]
+      :discriminator:
+        :type: type
+        :code: Period
     - :slice_id: Observation.category:VSCat
       :slice_name: VSCat
       :path: category
