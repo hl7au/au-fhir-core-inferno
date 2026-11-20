@@ -4,6 +4,8 @@ suite_id: au_core_v300_ballot1
 groups:
   - au_core_v030_ballot_capability_statement
   - au_core_v300_ballot1_patient
+  - au_core_v300_ballot1_bodyheight
+  - au_core_v300_ballot1_medication_request
 inputs:
   patient_ids: wang-li, howe-deangelo
 expected:
@@ -36,6 +38,53 @@ expected:
   au_core_v300_ballot1_patient_read_test: pass
   au_core_v300_ballot1_patient_validation_test: fail # the canned error for howe-deangelo
   au_core_v300_ballot1_patient_must_support_test: skip # the two patients lack some Must Support elements; the test skips, never fails
+  au_core_v300_ballot1_bodyheight_patient_code_search_test: pass
+  au_core_v300_ballot1_bodyheight_category_search_test: pass
+  au_core_v300_ballot1_bodyheight_code_search_test: pass
+  au_core_v300_ballot1_bodyheight_date_search_test: pass
+  au_core_v300_ballot1_bodyheight_status_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_category_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_category_date_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_category_status_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_code_date_search_test: pass
+  au_core_v300_ballot1_bodyheight_code_multiple_or_search_test: pass
+  au_core_v300_ballot1_bodyheight_status_multiple_or_search_test: pass
+  au_core_v300_ballot1_bodyheight_date_multiple_and_search_test: pass
+  au_core_v300_ballot1_bodyheight_patient_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_bodyheight_patient_ihi_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_bodyheight_patient_medicare_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_bodyheight_patient_dva_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_bodyheight_read_test: pass
+  au_core_v300_ballot1_bodyheight_validation_test: pass # its canned issue is one the suite filters out
+  au_core_v300_ballot1_bodyheight_must_support_test: pass
+  au_core_v300_ballot1_bodyheight_reference_resolution_test: pass
+  au_core_v300_ballot1_medication_request_patient_search_test: pass
+  au_core_v300_ballot1_medication_request__id_search_test: pass
+  au_core_v300_ballot1_medication_request_authoredon_search_test: pass
+  au_core_v300_ballot1_medication_request_intent_search_test: pass
+  au_core_v300_ballot1_medication_request_status_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_intent_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_intent_status_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_status_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_intent_authoredon_search_test: pass
+  au_core_v300_ballot1_medication_request_intent_multiple_or_search_test: skip
+  au_core_v300_ballot1_medication_request_status_multiple_or_search_test: pass
+  au_core_v300_ballot1_medication_request_authoredon_multiple_and_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_medication_request_patient_ihi_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_medication_request_patient_medicare_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_medication_request_patient_dva_chain_search_test: fail # chain searches read Patients from the Patient group's scratch, which a separately run group starts without
+  au_core_v300_ballot1_medication_request_read_test: pass
+  au_core_v300_ballot1_medication_request_patient_include_patient_search_test: pass
+  au_core_v300_ballot1_medication_request__id_include__id_search_test: skip # reaptan contains its Medication, so nothing to include
+  au_core_v300_ballot1_medication_request_patient_intent_include_patient_intent_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_intent_status_include_patient_intent_status_search_test: pass
+  au_core_v300_ballot1_medication_request_patient_intent_authoredon_include_patient_intent_authoredon_search_test: skip
+  au_core_v300_ballot1_medication_request_validation_test: pass
+  au_core_v300_ballot1_medication_request_medication_validation_test: pass
+  au_core_v300_ballot1_medication_request_must_support_test: skip
+  au_core_v300_ballot1_medication_request_reference_resolution_test: pass
 server:
   fhir:
     sources:
@@ -102,10 +151,184 @@ server:
         response: { select: "Bundle.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0' and value = '8003608000311621').exists())" }
       - request: { path: /Patient, query: { identifier: 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734|22421441' } }
         response: { select: "Bundle.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734' and value = '22421441').exists())" }
+      # Bodyheight (Observation), for wang-li's bodyheight-1. Dates are matched on effectiveDateTime,
+      # which every IG vital sign uses.
+      - request: { path: /Observation, query: { patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(subject.reference = 'Patient/howe-deangelo')" }
+      - request: { method: POST, path: /Observation/_search, body: { code: "8302-2", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { method: POST, path: /Observation/_search, body: { code: "50373000", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists())" }
+      - request: { path: /Observation, query: { code: "50373000" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists())" }
+      - request: { path: /Observation, query: { code: "50373000", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2,50373000" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2' or code = '50373000').exists())" }
+      - request: { path: /Observation, query: { category: vital-signs } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists())" }
+      - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists())" }
+      - request: { path: /Observation, query: { status: final } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'final'))" }
+      - request: { path: /Observation, query: { status: "final,amended" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'final' or status = 'amended'))" }
+      - request: { path: /Observation, query: { status: "registered,preliminary" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'registered' or status = 'preliminary'))" }
+      - request: { path: /Observation, query: { status: "corrected,cancelled" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'corrected' or status = 'cancelled'))" }
+      - request: { path: /Observation, query: { status: "entered-in-error,unknown" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'entered-in-error' or status = 'unknown'))" }
+      - request: { path: /Observation, query: { date: "gt2016-07-01T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime > @2016-07-01T00:00:00+00:00)" }
+      - request: { path: /Observation, query: { date: "ge2016-07-01T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime >= @2016-07-01T00:00:00+00:00)" }
+      - request: { path: /Observation, query: { date: "lt2016-07-03T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime < @2016-07-03T00:00:00+00:00)" }
+      - request: { path: /Observation, query: { date: "le2016-07-03T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime <= @2016-07-03T00:00:00+00:00)" }
+      - request: { path: /Observation, query: { date: ["ge1950-01-01T00:00:00.000Z", "le2050-01-01T23:59:59.999Z"] } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime >= @1950-01-01T00:00:00.000Z and effectiveDateTime <= @2050-01-01T23:59:59.999Z)" }
+      - request: { path: /Observation, query: { date: ["gt1950-01-01T00:00:00.000Z", "lt2050-01-01T23:59:59.999Z"] } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(effectiveDateTime > @1950-01-01T00:00:00.000Z and effectiveDateTime < @2050-01-01T23:59:59.999Z)" }
+      - request: { path: /Observation, query: { code: "8302-2", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", patient: Patient/wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "ge1950-01-01T00:00:00.000Z", patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime >= @1950-01-01T00:00:00.000Z and subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /Observation, query: { code: "50373000", patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /Observation, query: { code: "50373000", date: "ge1950-01-01T00:00:00.000Z", patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and effectiveDateTime >= @1950-01-01T00:00:00.000Z and subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /Observation, query: { category: vital-signs, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: vital-signs, patient: wang-li, status: final } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and subject.reference = 'Patient/wang-li' and (status = 'final'))" }
+      - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", patient: wang-li, status: final } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and subject.reference = 'Patient/wang-li' and (status = 'final'))" }
+      - request: { path: /Observation, query: { category: vital-signs, date: "gt2016-07-01T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and effectiveDateTime > @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", date: "gt2016-07-01T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and effectiveDateTime > @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: vital-signs, date: "ge2016-07-01T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and effectiveDateTime >= @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: vital-signs, date: "lt2016-07-03T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and effectiveDateTime < @2016-07-03T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { category: vital-signs, date: "le2016-07-03T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and effectiveDateTime <= @2016-07-03T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "gt2016-07-01T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime > @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "ge2016-07-01T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime >= @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "lt2016-07-03T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime < @2016-07-03T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "le2016-07-03T00:00:00+00:00", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime <= @2016-07-03T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "8302-2", date: "ge1950-01-01T00:00:00.000Z", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '8302-2').exists() and effectiveDateTime >= @1950-01-01T00:00:00.000Z and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /Observation, query: { code: "50373000", date: "ge1950-01-01T00:00:00.000Z", patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(code.coding.where(code = '50373000').exists() and effectiveDateTime >= @1950-01-01T00:00:00.000Z and subject.reference = 'Patient/wang-li')" }
+      # MedicationRequest, for wang-li's reaptan (contained Medication) and simvastatin
+      # (Medication/simvastatin, which _include=MedicationRequest:medication adds).
+      - request: { path: /MedicationRequest, query: { patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li')" }
+      - request: { method: POST, path: /MedicationRequest/_search, body: { patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { patient: Patient/wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { patient: howe-deangelo } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/howe-deangelo')" }
+      - request: { path: /MedicationRequest, query: { _id: reaptan } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(id = 'reaptan')" }
+      - request: { path: /MedicationRequest, query: { intent: order } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order'))" }
+      - request: { path: /MedicationRequest, query: { status: active } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'active'))" }
+      - request: { path: /MedicationRequest, query: { status: "active,on-hold" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'active' or status = 'on-hold'))" }
+      - request: { path: /MedicationRequest, query: { status: "cancelled,completed" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'cancelled' or status = 'completed'))" }
+      - request: { path: /MedicationRequest, query: { status: "entered-in-error,stopped" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'entered-in-error' or status = 'stopped'))" }
+      - request: { path: /MedicationRequest, query: { status: "draft,unknown" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'draft' or status = 'unknown'))" }
+      - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15'))" }
+      - request: { path: /MedicationRequest, query: { authoredon: "gt2018-07-14T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @2018-07-14T00:00:00+00:00)" }
+      - request: { path: /MedicationRequest, query: { authoredon: "ge2018-07-14T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn >= @2018-07-14T00:00:00+00:00)" }
+      - request: { path: /MedicationRequest, query: { authoredon: "lt2018-07-16T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn < @2018-07-16T00:00:00+00:00)" }
+      - request: { path: /MedicationRequest, query: { authoredon: "le2018-07-16T00:00:00+00:00" } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn <= @2018-07-16T00:00:00+00:00)" }
+      - request: { path: /MedicationRequest, query: { authoredon: [ge1950-01-01, le2050-01-01] } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn >= @1950-01-01 and authoredOn <= @2050-01-01)" }
+      - request: { path: /MedicationRequest, query: { authoredon: [gt1950-01-01, lt2050-01-01] } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @1950-01-01 and authoredOn < @2050-01-01)" }
+      - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { patient: wang-li, status: active } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li' and (status = 'active'))" }
+      - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, status: active } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active'))" }
+      - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { authoredon: "gt2018-07-14T00:00:00+00:00", intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @2018-07-14T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { authoredon: "ge2018-07-14T00:00:00+00:00", intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn >= @2018-07-14T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { authoredon: "lt2018-07-16T00:00:00+00:00", intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn < @2018-07-16T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { authoredon: "le2018-07-16T00:00:00+00:00", intent: order, patient: wang-li } }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn <= @2018-07-16T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+      - request: { path: /MedicationRequest, query: { patient: wang-li, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li').medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { _id: reaptan, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(id = 'reaptan')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(id = 'reaptan').medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li').medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, status: active, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active'))"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active')).medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: wang-li, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li').medicationReference.reference)"
+      - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: howe-deangelo, _include: "MedicationRequest:medication" } }
+        response:
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo').medicationReference.reference)"
   validator:
     pairs:
       - { profile: CapabilityStatement, resource: CapabilityStatement/au-core-responder, issues: [] }
       - { profile: au-core-patient|3.0.0-ballot1, resource: Patient/wang-li, issues: [] }
+      # Reference resolution validates the referenced Patient against the unversioned profile.
+      - { profile: au-core-patient, resource: Patient/wang-li, issues: [] }
+      # A message the suite's validator filters drop, so the bodyheight validation still passes.
+      - profile: au-core-bodyheight|3.0.0-ballot1
+        resource: Observation/bodyheight-1
+        issues:
+          - { level: ERROR, location: Observation.code, message: "The value provided ('json') was not found in the value set 'MimeType'" }
+      - { profile: au-core-medicationrequest|3.0.0-ballot1, resource: MedicationRequest/reaptan, issues: [] }
+      - { profile: au-core-medicationrequest|3.0.0-ballot1, resource: MedicationRequest/simvastatin, issues: [] }
+      - { profile: au-core-medication|3.0.0-ballot1, resource: Medication/simvastatin, issues: [] }
       # The expected validation failure: a canned error for the second patient.
       - profile: au-core-patient|3.0.0-ballot1
         resource: Patient/howe-deangelo
