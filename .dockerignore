@@ -20,3 +20,6 @@ Dockerfile
 /.github
 /log
 /tmp
+
+# Local download for regenerating the ci-build suite
+lib/au_core_test_kit/igs/ci-build.tgz

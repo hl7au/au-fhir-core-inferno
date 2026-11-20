@@ -1,10 +1,29 @@
 name: Automated Quality Control
-on: push
+on:
+  push:
+  # Lets the Refresh CI Build Suite workflow run these checks on its pull request.
+  workflow_dispatch:
 jobs:
   Spec:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      statuses: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      STATUS_CONTEXT: Automated Quality Control
     steps:
-      - uses: actions/checkout@v2
+      # A check run from a workflow_dispatch run is recorded on the commit but left out of
+      # its status check rollup, so it never shows on the pull request. A commit status does
+      # show, so a dispatched run reports itself as one.
+      - name: Report pending on the commit
+        if: github.event_name == 'workflow_dispatch'
+        run: >-
+          gh api "repos/${{ github.repository }}/statuses/${{ github.sha }}"
+          -f state=pending -f context="$STATUS_CONTEXT"
+          -f target_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          -f description="Running"
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Setup environment
@@ -13,3 +32,15 @@ jobs:
         run: make rubocop
       - name: Run Spec
         run: make tests
+      - name: Report the result on the commit
+        if: always() && github.event_name == 'workflow_dispatch'
+        run: |
+          case "${{ job.status }}" in
+            success) state=success ;;
+            failure) state=failure ;;
+            *) state=error ;;
+          esac
+          gh api "repos/${{ github.repository }}/statuses/${{ github.sha }}" \
+            -f state="$state" -f context="$STATUS_CONTEXT" \
+            -f target_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            -f description="${{ job.status }}"

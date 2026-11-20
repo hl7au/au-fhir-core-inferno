@@ -24,3 +24,6 @@ package_archive_bundle.json
 
 
 .terraform
+
+# Downloaded by rake au_core:ci_build:download; the config records its version and date
+/lib/au_core_test_kit/igs/ci-build.tgz

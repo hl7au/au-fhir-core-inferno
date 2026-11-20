@@ -1,0 +1,108 @@
+name: Refresh CI Build Suite
+
+# Regenerates the ci-build suite when the AU Core CI build on build.fhir.org changes, by
+# comparing the date in its package.manifest.json with the one recorded in
+# config.ci-build.json, and opens or updates an automated-pr with the result. Only the
+# ci-build suite is regenerated; released suites are untouched.
+on:
+  schedule:
+    # Daily at 19:00 UTC, early morning in eastern Australia.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate even when the CI build date is unchanged
+        type: boolean
+        default: false
+
+permissions:
+  actions: write
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-ci-build-suite
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    # ubuntu-latest is now 26.04, for which no Ruby 3.3.6 build exists. Return to
+    # ubuntu-latest once the kit has moved to a Ruby that has one (3.3.12 or later).
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      # Lets the failure issue step find the repository even when the checkout failed.
+      GH_REPO: ${{ github.repository }}
+      FAILURE_ISSUE_TITLE: CI build refresh failing
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install libpq for the pg gem
+        run: sudo apt-get update && sudo apt-get install -y libpq-dev
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Regenerate the ci-build suite if the CI build changed
+        id: refresh
+        run: bundle exec rake "au_core:ci_build:refresh[${{ inputs.force && 'force' || '' }}]"
+
+      - name: Open or update the pull request
+        id: pull-request
+        if: steps.refresh.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: automated/refresh-ci-build-suite
+          base: master
+          delete-branch: true
+          add-paths: |
+            config.ci-build.json
+            lib/au_core_test_kit/generated/ci-build
+          commit-message: Regenerate the ci-build suite from AU Core ${{ steps.refresh.outputs.version }} dated ${{ steps.refresh.outputs.date }}
+          title: Regenerate the ci-build suite from the AU Core CI build
+          body: |
+            Regenerates `lib/au_core_test_kit/generated/ci-build` from the AU Core CI build
+            (https://build.fhir.org/ig/hl7au/au-fhir-core/), package version
+            `${{ steps.refresh.outputs.version }}` dated `${{ steps.refresh.outputs.date }}`.
+
+            Only the ci-build suite changes, and it is loaded only where
+            `INFERNO_CI_BUILD_SUITES=true`. Test ids can change with a regeneration, so ci-build
+            sessions started before this lands may stop rendering.
+
+            Opened by the Refresh CI Build Suite workflow; a later CI build updates this PR.
+          labels: automated-pr
+
+      # A push made with GITHUB_TOKEN triggers no workflows, so Quality Control would not run
+      # on the pull request by itself. A workflow_dispatch is exempt from that rule, and the
+      # dispatched run posts its result as a commit status, which the pull request shows.
+      - name: Run Quality Control on the pull request
+        if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
+        run: gh workflow run quality-control.yaml --ref "${{ steps.pull-request.outputs.pull-request-branch }}"
+
+      # A failing scheduled run is silent, so keep one issue open while the refresh fails and
+      # close it on the next success.
+      - name: Open or update the failure issue
+        if: failure()
+        run: |
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          issue=$(gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" --json number,title \
+            --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[0].number // empty")
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "Failed again: $run_url"
+          else
+            gh issue create --title "$FAILURE_ISSUE_TITLE" \
+              --body "The Refresh CI Build Suite workflow failed, so the ci-build suite is no longer following the AU Core CI build. Run: $run_url. This issue closes itself on the next successful run."
+          fi
+
+      - name: Close the failure issue
+        if: success()
+        run: |
+          gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" --json number,title \
+            --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[].number" |
+            while read -r issue; do
+              gh issue close "$issue" --comment "The refresh succeeded again."
+            done
