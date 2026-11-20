@@ -84,6 +84,36 @@ jobs:
         if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
         run: gh workflow run quality-control.yaml --ref "${{ steps.pull-request.outputs.pull-request-branch }}"
 
+      # Ruled 2026-11-20: a refresh pull request merges itself once Quality Control passes on
+      # it. The dispatched run reports as the "Automated Quality Control" commit status on the
+      # pull request's head, so wait for that status on that exact commit. A failure or a
+      # timeout fails this job, which opens the failure issue below.
+      - name: Merge the pull request once Quality Control passes
+        if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
+        env:
+          PR_NUMBER: ${{ steps.pull-request.outputs.pull-request-number }}
+          HEAD_SHA: ${{ steps.pull-request.outputs.pull-request-head-sha }}
+        run: |
+          state=pending
+          for _ in $(seq 1 60); do
+            state=$(gh api "repos/$GH_REPO/commits/$HEAD_SHA/status" \
+              --jq '[.statuses[] | select(.context == "Automated Quality Control") | .state] | first // "pending"')
+            if [ "$state" != pending ]; then break; fi
+            sleep 30
+          done
+          if [ "$state" != success ]; then
+            echo "::error::Automated Quality Control on $HEAD_SHA is $state, so #$PR_NUMBER was not merged"
+            exit 1
+          fi
+          gh pr merge "$PR_NUMBER" --squash --match-head-commit "$HEAD_SHA" --delete-branch
+
+      # A merge made with GITHUB_TOKEN starts no push workflows, so master would get no
+      # Quality Control run for the merged commit, and Build and Release, which follows that
+      # run, would not build its image. Dispatch it on master instead.
+      - name: Run Quality Control on master after the merge
+        if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
+        run: gh workflow run quality-control.yaml --ref master
+
       # A failing scheduled run is silent, so keep one issue open while the refresh fails and
       # close it on the next success.
       - name: Open or update the failure issue
