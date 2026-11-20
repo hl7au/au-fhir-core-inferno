@@ -27,9 +27,7 @@ concurrency:
 
 jobs:
   refresh:
-    # ubuntu-latest is now 26.04, for which no Ruby 3.3.6 build exists. Return to
-    # ubuntu-latest once the kit has moved to a Ruby that has one (3.3.12 or later).
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
       # Lets the failure issue step find the repository even when the checkout failed.
