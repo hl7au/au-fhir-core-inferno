@@ -174,7 +174,7 @@ server:
       - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs" } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists())" }
       - request: { path: /Observation, query: { status: final } }
-        response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'final'))" }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(status = 'final')" }
       - request: { path: /Observation, query: { status: "final,amended" } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where((status = 'final' or status = 'amended'))" }
       - request: { path: /Observation, query: { status: "registered,preliminary" } }
@@ -216,9 +216,9 @@ server:
       - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", patient: wang-li } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and subject.reference = 'Patient/wang-li')" }
       - request: { path: /Observation, query: { category: vital-signs, patient: wang-li, status: final } }
-        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and subject.reference = 'Patient/wang-li' and (status = 'final'))" }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and subject.reference = 'Patient/wang-li' and status = 'final')" }
       - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", patient: wang-li, status: final } }
-        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and subject.reference = 'Patient/wang-li' and (status = 'final'))" }
+        response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where((system = 'http://terminology.hl7.org/CodeSystem/observation-category' and code = 'vital-signs')).exists() and subject.reference = 'Patient/wang-li' and status = 'final')" }
       - request: { path: /Observation, query: { category: vital-signs, date: "gt2016-07-01T00:00:00+00:00", patient: wang-li } }
         response: { select: "Bundle.entry.resource.ofType(Observation).where(category.coding.where(code = 'vital-signs').exists() and effectiveDateTime > @2016-07-01T00:00:00+00:00 and subject.reference = 'Patient/wang-li')" }
       - request: { path: /Observation, query: { category: "http://terminology.hl7.org/CodeSystem/observation-category|vital-signs", date: "gt2016-07-01T00:00:00+00:00", patient: wang-li } }
@@ -254,9 +254,9 @@ server:
       - request: { path: /MedicationRequest, query: { _id: reaptan } }
         response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(id = 'reaptan')" }
       - request: { path: /MedicationRequest, query: { intent: order } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order'))" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(intent = 'order')" }
       - request: { path: /MedicationRequest, query: { status: active } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'active'))" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(status = 'active')" }
       - request: { path: /MedicationRequest, query: { status: "active,on-hold" } }
         response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((status = 'active' or status = 'on-hold'))" }
       - request: { path: /MedicationRequest, query: { status: "cancelled,completed" } }
@@ -280,21 +280,21 @@ server:
       - request: { path: /MedicationRequest, query: { authoredon: [gt1950-01-01, lt2050-01-01] } }
         response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @1950-01-01 and authoredOn < @2050-01-01)" }
       - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { patient: wang-li, status: active } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li' and (status = 'active'))" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li' and status = 'active')" }
       - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, status: active } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active'))" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li' and status = 'active')" }
       - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { authoredon: "gt2018-07-14T00:00:00+00:00", intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @2018-07-14T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn > @2018-07-14T00:00:00+00:00 and intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { authoredon: "ge2018-07-14T00:00:00+00:00", intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn >= @2018-07-14T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn >= @2018-07-14T00:00:00+00:00 and intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { authoredon: "lt2018-07-16T00:00:00+00:00", intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn < @2018-07-16T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn < @2018-07-16T00:00:00+00:00 and intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { authoredon: "le2018-07-16T00:00:00+00:00", intent: order, patient: wang-li } }
-        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn <= @2018-07-16T00:00:00+00:00 and (intent = 'order') and subject.reference = 'Patient/wang-li')" }
+        response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn <= @2018-07-16T00:00:00+00:00 and intent = 'order' and subject.reference = 'Patient/wang-li')" }
       - request: { path: /MedicationRequest, query: { patient: wang-li, _include: "MedicationRequest:medication" } }
         response:
           select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference = 'Patient/wang-li')"
@@ -305,20 +305,20 @@ server:
           include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(id = 'reaptan').medicationReference.reference)"
       - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, _include: "MedicationRequest:medication" } }
         response:
-          select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li')"
-          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li').medicationReference.reference)"
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li').medicationReference.reference)"
       - request: { path: /MedicationRequest, query: { intent: order, patient: wang-li, status: active, _include: "MedicationRequest:medication" } }
         response:
-          select: "Bundle.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active'))"
-          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where((intent = 'order') and subject.reference = 'Patient/wang-li' and (status = 'active')).medicationReference.reference)"
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li' and status = 'active')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(intent = 'order' and subject.reference = 'Patient/wang-li' and status = 'active').medicationReference.reference)"
       - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: wang-li, _include: "MedicationRequest:medication" } }
         response:
-          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li')"
-          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/wang-li').medicationReference.reference)"
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and intent = 'order' and subject.reference = 'Patient/wang-li')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and intent = 'order' and subject.reference = 'Patient/wang-li').medicationReference.reference)"
       - request: { path: /MedicationRequest, query: { authoredon: "2018-07-15", intent: order, patient: howe-deangelo, _include: "MedicationRequest:medication" } }
         response:
-          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo')"
-          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and (intent = 'order') and subject.reference = 'Patient/howe-deangelo').medicationReference.reference)"
+          select: "Bundle.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and intent = 'order' and subject.reference = 'Patient/howe-deangelo')"
+          include: "Bundle.entry.resource.ofType(Medication).where(('Medication/' + id) in %resource.entry.resource.ofType(MedicationRequest).where(authoredOn.toString().startsWith('2018-07-15') and intent = 'order' and subject.reference = 'Patient/howe-deangelo').medicationReference.reference)"
       - request: { path: /MedicationRequest, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734|22421441" } }
         response: { select: "Bundle.entry.resource.ofType(MedicationRequest).where(subject.reference.replace('Patient/', '') in %resource.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734' and value = '22421441').exists()).id)" }
       - request: { path: /MedicationRequest, query: { "patient:Patient.identifier": "http://ns.electronichealth.net.au/id/hi/ihi/1.0|8003608000311621" } }
