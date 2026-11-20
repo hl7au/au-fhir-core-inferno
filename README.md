@@ -50,6 +50,64 @@ When you change the source code of the generator and create a pull request, you 
 Once the code review is done, a person who merged the changes SHALL run the generator and update generated tests.
 It may be a direct commit to the master branch. 
 
+## Tests
+
+`make tests` runs every spec in Docker. The specs check the kit in three layers.
+
+| Layer | What it checks | Run it on its own |
+|---|---|---|
+| Suite Rules | Each generated suite against its IG package and config: a group for every CapabilityStatement resource with an interaction, a read and search test for every interaction and search parameter, the validator's IG version, and the FHIRPath Lab wiring. | `docker compose run --rm -e APP_ENV=test inferno bundle exec rspec spec/au_core` |
+| Regeneration drift | The committed suites under `lib/au_core_test_kit/generated` equal a fresh `make generate`. | `make generate`, then `git status lib/au_core_test_kit/generated` must show no change |
+| Scenarios | Each shipped suite runs against [fhir_stub_server](https://github.com/projkov/fhir_stub_server), which stands in for both the FHIR server and the validator. Every test must get its expected result. | `docker compose run --rm -e APP_ENV=test inferno bundle exec rspec spec/integration/scenarios_spec.rb` |
+
+### Scenarios
+
+A Scenario is one `spec/fixtures/stub_server/<name>/scenario.yml`. `spec/integration/scenarios_spec.rb` runs each Scenario twice, in the rspec process and through `inferno execute`. Each run fails when:
+
+- the Stub gets a request it has no answer for;
+- the validator is called with a different context than `expected_context`;
+- any test's result differs from `expected`;
+- the two runs disagree.
+
+The file has these keys:
+
+| Key | Meaning |
+|---|---|
+| `suite_id` | The suite to run, e.g. `au_core_v300_ballot1`. |
+| `groups` | Ids of the suite's groups to run, in order. They run as one test run, so a later group sees what earlier ones saved, as in a whole-suite run. List the Patient group before groups whose chained searches use its patients. |
+| `inputs` | Suite inputs other than `url`, which each run sets to the Stub. |
+| `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. Each suite's Scenario has at least one expected `fail`, so the Scenario proves it can catch one. |
+| `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs` and `expected_context`. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
+
+`.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. The TLS test is therefore expected to `omit`.
+
+### When a generator or kit change alters a request
+
+An unmatched request fails the run on purpose: that is how a changed request gets noticed. The failure lists one line per request the Stub could not answer, with the nearest Pair, how the request differs from it, and the request to paste:
+
+```text
+Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[6]: birthdate expected ["gt1975-05-02"], got nil; request: {"path":"/Patient","query":{"family":"Wang"}}
+```
+
+1. Decide whether the kit meant to send that request. If it didn't, fix the kit, not the Scenario.
+2. If it did, paste the JSON after `request:` into `server.fhir.pairs` as a new Pair. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
+
+   ```yaml
+   - request: {"path":"/Patient","query":{"family":"Wang"}}
+     response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang')).exists())" }
+   ```
+
+   Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`.
+3. Rerun until every request is answered. Then update `expected` for any test whose result changed on purpose.
+
+To point Inferno's UI at one Scenario while debugging:
+
+```bash
+bundle exec fhir-stub-server spec/fixtures/stub_server/<name>/scenario.yml
+```
+
+It prints the FHIR and validator base URLs and logs every request it can't answer. Start Inferno with `FHIR_RESOURCE_VALIDATOR_URL` set to the validator URL if the Stub should answer validation too.
+
 ## Release management
 When we would like to issue a new release, you need to update the application version in this file https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/version.rb
 Then you need to create a tag for this version. The tag name should start with `v` and then contain a numeric version like this `v0.0.1`
