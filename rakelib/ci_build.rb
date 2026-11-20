@@ -195,11 +195,12 @@ module AUCoreTestKit
       raise Error, "CI build version is #{candidate.inspect}; expected a version ending in #{CI_BUILD_VERSION_SUFFIX}."
     end
 
-    # Downloads the package when it is missing. One downloaded earlier may be older than the
-    # one the config records, e.g. after pulling a refresh, and generating from it would
-    # silently regress the suite.
+    # Generating never downloads, so it never changes which CI build the config says the
+    # suite tracks; download and refresh do that. A package downloaded earlier may also be
+    # older than the one the config records, e.g. after pulling a refresh, and generating
+    # from it would silently regress the suite.
     def ensure_package!
-      return download unless File.exist?(package_path)
+      raise Error, "#{package_path} is missing; run rake au_core:ci_build:download first." unless File.exist?(package_path)
 
       package = package_json(File.binread(package_path))
       return if package.values_at('version', 'date') == [version, recorded_date]

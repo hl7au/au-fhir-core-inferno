@@ -193,6 +193,11 @@ RSpec.describe AUCoreTestKit::CIBuild do
       expect(ci_build.refresh { raise 'should not generate' }).to be(false)
     end
 
+    it 'refuses to generate without a downloaded package, leaving the config untouched' do
+      expect { ci_build.generate }.to raise_error(described_class::Error, /is missing/)
+      expect(ci_build.config).to eq(config)
+    end
+
     it 'refuses to generate from a downloaded package older than the recorded one' do
       FileUtils.mkdir_p(File.dirname(ci_build.package_path))
       File.binwrite(ci_build.package_path,
