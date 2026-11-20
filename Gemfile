@@ -8,6 +8,9 @@ gemspec
 
 group :development, :test do
   gem 'debug'
+  # Switch to '~> 0.1' once 0.1.0 is on RubyGems.
+  gem 'fhir_stub_server', github: 'projkov/fhir_stub_server', ref: '73bcf2b'
+  gem 'puma'
 end
 
 gem 'inferno_suite_generator', github: 'hl7au/inferno_suite_generator', branch: 'main'

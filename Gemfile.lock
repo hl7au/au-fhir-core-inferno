@@ -17,6 +17,14 @@ GIT
       inferno_core (= 1.4.4)
       jsonpath (~> 1.1, >= 1.1.5)
 
+GIT
+  remote: https://github.com/projkov/fhir_stub_server.git
+  revision: 73bcf2bb6ea1ce6a0694e82aca22d0bdd51961d5
+  ref: 73bcf2b
+  specs:
+    fhir_stub_server (0.1.0)
+      fhirpath-rb (~> 0.1)
+
 PATH
   remote: .
   specs:
@@ -479,8 +487,10 @@ DEPENDENCIES
   database_cleaner-sequel (~> 1.8)
   debug
   factory_bot (~> 6.1)
+  fhir_stub_server!
   inferno_suite_generator!
   pg (~> 1.5)
+  puma
   rspec (~> 3.10)
   rubocop (~> 1.63.2)
   rubocop-erb (~> 0.3.0)
@@ -550,6 +560,7 @@ CHECKSUMS
   fhir_dstu2_models (1.2.0) sha256=efb8be21a0caef112ebc90a55762bacde1cbd457e13567895579c79dbcb1b16f
   fhir_models (5.1.0) sha256=5139aadcc372648847d648b2415911c4a2c053e57b3f02d2637ec6e3bdb2013f
   fhir_stu3_models (3.2.0) sha256=10479490abad0c67b4d9cc8e37a8bc9e7e943a9e7e75270ebb14bf3ef9ab43ab
+  fhir_stub_server (0.1.0)
   fhirpath-rb (0.1.7) sha256=74571c9031419e42bbbade8c07138e8dcce433e192fed481271a717b27a1bdf0
   hanami-controller (2.0.0) sha256=73102e86bcdd4f3e65f0c103ffa31fed6b2c8c95f9e10c71055273a78ac10ec2
   hanami-router (2.0.0) sha256=e5b261933fdf04aa06d456dd4f5e61e0dc760201c7b55b80c2d6f18a2d9adbcd
