@@ -8,13 +8,13 @@ GIT
 
 GIT
   remote: https://github.com/hl7au/inferno_suite_generator.git
-  revision: ce03f930fff7e28eedfab8934da0f624266fc653
+  revision: 9aff974c4f6f58a744ca4b750db61ffb1fbcd02d
   branch: main
   specs:
     inferno_suite_generator (0.1.0)
       deep_merge (~> 1.2, >= 1.2.2)
       fhirpath-rb (>= 0.1.7)
-      inferno_core (>= 1.0.6)
+      inferno_core (= 1.4.4)
       jsonpath (~> 1.1, >= 1.1.5)
 
 PATH
@@ -663,7 +663,7 @@ CHECKSUMS
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
 
 RUBY VERSION
-  ruby 3.3.6
+  ruby 3.3.12
 
 BUNDLED WITH
   4.0.18

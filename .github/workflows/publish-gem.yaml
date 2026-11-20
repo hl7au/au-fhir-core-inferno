@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Set up Ruby 3.3.6
+      - name: Set up Ruby 3.3.12
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.6
+          ruby-version: 3.3.12
       # Guard against version drift: a release tag must match lib/.../version.rb so we
       # never publish (or tag) a version that doesn't match the code.
       - name: Verify tag matches gem version
