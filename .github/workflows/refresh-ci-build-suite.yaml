@@ -16,6 +16,7 @@ on:
         default: false
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -42,24 +43,11 @@ jobs:
         id: refresh
         run: bundle exec rake "au_core:ci_build:refresh[${{ inputs.force && 'force' || '' }}]"
 
-      # A pull request opened with GITHUB_TOKEN triggers no workflows, so Quality Control would
-      # not run on it. The hl7au kit automation app's token does trigger them. Until the app is
-      # configured (org variable and secret below), the step is skipped and GITHUB_TOKEN is used.
-      - name: Create a GitHub App token
-        id: app-token
-        if: steps.refresh.outputs.changed == 'true' && vars.KIT_AUTOMATION_APP_CLIENT_ID != ''
-        uses: actions/create-github-app-token@v3
-        with:
-          client-id: ${{ vars.KIT_AUTOMATION_APP_CLIENT_ID }}
-          private-key: ${{ secrets.KIT_AUTOMATION_APP_PRIVATE_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-
       - name: Open or update the pull request
+        id: pull-request
         if: steps.refresh.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ steps.app-token.outputs.token || github.token }}
           branch: automated/refresh-ci-build-suite
           base: master
           delete-branch: true
@@ -79,3 +67,12 @@ jobs:
 
             Opened by the Refresh CI Build Suite workflow; a later CI build updates this PR.
           labels: automated-pr
+
+      # A push made with GITHUB_TOKEN triggers no workflows, so Quality Control would not run
+      # on the pull request by itself. A workflow_dispatch is exempt from that rule, and a run
+      # dispatched on the branch reports its checks on the pull request's head commit.
+      - name: Run Quality Control on the pull request
+        if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run quality-control.yaml --ref "${{ steps.pull-request.outputs.pull-request-branch }}"

@@ -1,5 +1,8 @@
 name: Automated Quality Control
-on: push
+on:
+  push:
+  # Lets the Refresh CI Build Suite workflow run these checks on its pull request.
+  workflow_dispatch:
 jobs:
   Spec:
     runs-on: ubuntu-latest
