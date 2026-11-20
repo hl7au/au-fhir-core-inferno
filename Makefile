@@ -28,7 +28,7 @@ generate_local:
 	rubocop -A $(kit_path)
 
 generate_ci_build:
-	$(compose) $(inferno) $(ber) "$(gen)[ci-build]"
+	$(compose) $(inferno) $(ber) "au_core:ci_build:refresh[force]"
 
 summary: build
 	$(compose) $(inferno) ruby $(sum_script)

@@ -44,7 +44,7 @@ If you visit http://hl7.org.au/fhir/core/history.html and notice that there is a
 
 The [Refresh CI Build Suite](https://github.com/hl7au/au-fhir-core-inferno/actions/workflows/refresh-ci-build-suite.yaml) workflow runs daily and on demand. It compares the date in the CI build's `package.manifest.json` with the one recorded in `config.ci-build.json` and, when it has changed, regenerates only the ci-build suite and opens or updates a pull request labelled `automated-pr`. It then starts Automated Quality Control on that pull request's branch, because a pull request opened by a workflow does not trigger checks by itself. Regeneration can change test ids, so ci-build sessions started before a refresh may stop rendering.
 
-To refresh it locally, run `bundle exec rake "au_core:ci_build:refresh[force]"` (or `make generate_ci_build` to regenerate without checking for a newer CI build).
+To refresh it locally, run `bundle exec rake "au_core:ci_build:refresh[force]"` (`make generate_ci_build` runs the same thing in Docker).
 
 ## Development workflow
 This repository contains both the source code of the tests generator and the generated tests themselves.
