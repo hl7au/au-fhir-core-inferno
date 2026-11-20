@@ -10,6 +10,39 @@ RSpec.describe AUCoreTestKit::CIBuild do
   ci_build_suite_id = described_class::SUITE_ID
   # Captured when the spec files load, before any example requires the suite itself.
   registered_at_boot = Inferno::Repositories::TestSuites.new.find(ci_build_suite_id).present?
+  # The generated suite lives only on the ci-build branch (and in the refresh job that
+  # maintains it); master carries the tooling without it.
+  suite_generated = File.exist?(File.join(repo_root, described_class::OUTPUT_DIR, described_class::SUITE_FILE))
+  suite_absent = "the ci-build suite is not generated in this tree; it lives on the ci-build branch (#{described_class::OUTPUT_DIR})"
+  suite_present = "the ci-build suite is generated in this tree (#{described_class::OUTPUT_DIR})"
+
+  # Boots Inferno in a child process with INFERNO_CI_BUILD_SUITES=true, as a deployment that
+  # opts in would, and reports what it registered under the ci-build suite id.
+  boot_script = <<~RUBY
+    require 'json'
+    require 'inferno/config/application'
+    require 'inferno/utils/migration'
+    Inferno::Utils::Migration.new.run
+    require 'inferno'
+    Inferno::Application.finalize!
+    suite = Inferno::Repositories::TestSuites.new.find('#{ci_build_suite_id}')
+    puts JSON.generate(
+      id: suite&.id,
+      title: suite&.title,
+      description: suite&.description,
+      igs: suite&.fhir_validators&.values&.flatten&.flat_map(&:igs),
+      snomed_editions: suite&.fhir_validators&.values&.flatten&.map { |v| v.validation_context.definition[:snomedCT] }
+    )
+  RUBY
+  boot_with_flag = lambda do
+    output, status = Open3.capture2e(
+      { 'APP_ENV' => 'test', 'INFERNO_CI_BUILD_SUITES' => 'true' },
+      RbConfig.ruby, '-e', boot_script, chdir: repo_root
+    )
+    raise "Booting Inferno with INFERNO_CI_BUILD_SUITES=true failed:\n#{output}" unless status.success?
+
+    JSON.parse(output.lines.last)
+  end
 
   let(:config) { JSON.parse(File.read(File.join(repo_root, described_class::CONFIG_FILE))) }
 
@@ -33,34 +66,15 @@ RSpec.describe AUCoreTestKit::CIBuild do
       expect(registered_at_boot).to be(false)
     end
 
-    context 'when INFERNO_CI_BUILD_SUITES=true' do
-      # Boots Inferno in a child process with the flag set, as a deployment that opts in
-      # would, and reports what it registered.
-      boot_script = <<~RUBY
-        require 'json'
-        require 'inferno/config/application'
-        require 'inferno/utils/migration'
-        Inferno::Utils::Migration.new.run
-        require 'inferno'
-        Inferno::Application.finalize!
-        suite = Inferno::Repositories::TestSuites.new.find('#{ci_build_suite_id}')
-        puts JSON.generate(
-          id: suite&.id,
-          title: suite&.title,
-          description: suite&.description,
-          igs: suite&.fhir_validators&.values&.flatten&.flat_map(&:igs),
-          snomed_editions: suite&.fhir_validators&.values&.flatten&.map { |v| v.validation_context.definition[:snomedCT] }
-        )
-      RUBY
+    context 'when INFERNO_CI_BUILD_SUITES=true and the suite is absent', skip: (suite_present if suite_generated) do
+      it 'boots cleanly and registers no ci-build suite' do
+        expect(boot_with_flag.call['id']).to be_nil
+      end
+    end
 
+    context 'when INFERNO_CI_BUILD_SUITES=true', skip: (suite_absent unless suite_generated) do
       before(:context) do
-        output, status = Open3.capture2e(
-          { 'APP_ENV' => 'test', 'INFERNO_CI_BUILD_SUITES' => 'true' },
-          RbConfig.ruby, '-e', boot_script, chdir: repo_root
-        )
-        raise "Booting Inferno with INFERNO_CI_BUILD_SUITES=true failed:\n#{output}" unless status.success?
-
-        @suite = JSON.parse(output.lines.last)
+        @suite = boot_with_flag.call if suite_generated
       end
 
       it 'registers the suite under the fixed id, whatever the CI build version' do
@@ -86,7 +100,7 @@ RSpec.describe AUCoreTestKit::CIBuild do
     end
   end
 
-  describe 'generated runnable ids' do
+  describe 'generated runnable ids', skip: (suite_absent unless suite_generated) do
     it 'carry no CI build version, so they survive a version bump' do
       versioned = Dir.glob(File.join(repo_root, described_class::OUTPUT_DIR, '**', '*.{rb,yml}')).select do |file|
         File.read(file).match?(/au_core_v\d+\w*_ci_build|AUCoreV\d+\w*_CI_BUILD/)
