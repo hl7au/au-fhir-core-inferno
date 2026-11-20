@@ -1,0 +1,23 @@
+# Paths are relative to this file. The `server:` block is fhir_stub_server's config: see
+# "Working with LLM agents" in its README before changing it.
+suite_id: au_core_v300_ballot1
+groups:
+  - au_core_v030_ballot_capability_statement
+inputs: {}
+expected:
+  standalone_auth_tls: omit # INFERNO_DISABLE_TLS_TEST in .env.test
+  au_core_conformance_support: pass
+  au_core_fhir_version: pass
+  au_core_json_support: pass
+  au_core_xml_support: pass
+  au_core_profile_support: pass
+server:
+  fhir:
+    sources:
+      - package: ../../../../lib/au_core_test_kit/igs/3.0.0-ballot1.tgz
+  validator:
+    pairs:
+      - { profile: CapabilityStatement, resource: CapabilityStatement/au-core-responder, issues: [] }
+    expected_context:
+      igs: ['hl7.fhir.au.core#3.0.0-ballot1']
+      snomedCT: au
