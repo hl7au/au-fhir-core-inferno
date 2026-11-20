@@ -15,7 +15,8 @@ RSpec.describe 'Scenarios against fhir_stub_server' do
         FHIRStubServer::WebMockAdapter.install(stub, fhir_base_url: Scenario::FHIR_BASE_URL,
                                                      validator_base_url: ENV.fetch('FHIR_RESOURCE_VALIDATOR_URL'))
         inputs = scenario.inputs_with(Scenario::FHIR_BASE_URL).transform_keys(&:to_sym)
-        scenario.groups_in(suite).each { |group| run(group, inputs) }
+        # inferno_core's `run` rejects an input the group doesn't declare.
+        scenario.groups_in(suite).each { |group| run(group, inputs.slice(*group.available_inputs.keys)) }
         Scenario::Run.new(stub, results_by_short_id)
       end
 
