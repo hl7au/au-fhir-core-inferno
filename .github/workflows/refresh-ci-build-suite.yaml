@@ -32,6 +32,8 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       GH_TOKEN: ${{ github.token }}
+      # Lets the failure issue step find the repository even when the checkout failed.
+      GH_REPO: ${{ github.repository }}
       FAILURE_ISSUE_TITLE: CI build refresh failing
     steps:
       - name: Checkout repository
@@ -75,8 +77,8 @@ jobs:
           labels: automated-pr
 
       # A push made with GITHUB_TOKEN triggers no workflows, so Quality Control would not run
-      # on the pull request by itself. A workflow_dispatch is exempt from that rule, and a run
-      # dispatched on the branch reports its checks on the pull request's head commit.
+      # on the pull request by itself. A workflow_dispatch is exempt from that rule, and the
+      # dispatched run posts its result as a commit status, which the pull request shows.
       - name: Run Quality Control on the pull request
         if: contains(fromJSON('["created", "updated"]'), steps.pull-request.outputs.pull-request-operation)
         run: gh workflow run quality-control.yaml --ref "${{ steps.pull-request.outputs.pull-request-branch }}"
