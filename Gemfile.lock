@@ -19,8 +19,8 @@ GIT
 
 GIT
   remote: https://github.com/projkov/fhir_stub_server.git
-  revision: 73bcf2bb6ea1ce6a0694e82aca22d0bdd51961d5
-  ref: 73bcf2b
+  revision: ee062c3cd181e482ae497f1f3bca95e0a7aa10c9
+  ref: ee062c3
   specs:
     fhir_stub_server (0.1.0)
       fhirpath-rb (~> 0.1)
