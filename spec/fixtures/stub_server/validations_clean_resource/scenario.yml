@@ -1,0 +1,21 @@
+# The `server:` block is fhir_stub_server's config: see "Working with LLM agents" in its
+# README before changing it. The validations suite talks only to the validator.
+suite_id: validations
+groups:
+  - Group01 # the suite's one group, 'Validation of any FHIR resource'
+inputs:
+  # The validator is stubbed, so only resourceType, id and meta.profile matter.
+  resource_json: '{"resourceType":"Patient","id":"wang-li","meta":{"profile":["http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient"]}}'
+expected:
+  validation_test: pass
+server:
+  validator:
+    pairs:
+      # The suite validates against meta.profile at its configured version, 1.0.0-ballot.
+      - profile: au-core-patient|1.0.0-ballot
+        resource: Patient/wang-li
+        issues: []
+    expected_context:
+      igs: ['hl7.fhir.au.core#1.0.0-ballot']
+      snomedCT: au
+      noEcosystem: true
