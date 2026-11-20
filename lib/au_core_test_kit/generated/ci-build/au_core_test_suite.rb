@@ -5,6 +5,7 @@ require 'inferno/dsl/oauth_credentials'
 require 'inferno_suite_generator/utils/helpers'
 require 'inferno_suite_generator/utils/fhirpath_lab_message_linker'
 require 'inferno_suite_generator/utils/resource_keeper_endpoints'
+require 'inferno_suite_generator/utils/validation_message_overrides'
 require_relative '../../version'
 require_relative '../../custom_groups/v0.3.0-ballot/capability_statement_group'
 require_relative '../../custom_groups/missing_data_group'
@@ -70,6 +71,8 @@ module AUCoreTestKit
 
       VERSION_SPECIFIC_MESSAGE_FILTERS = [].freeze
 
+      VALIDATION_MESSAGE_OVERRIDES = [].freeze
+
       FHIRPATHLAB_URL = 'https://fhirpath-lab.com/FhirPath'
 
       suite_endpoint :get, '/resources/:session_id/:resource_type/:resource_id',
@@ -84,6 +87,9 @@ module AUCoreTestKit
       end
 
       fhir_resource_validator do
+        extend InfernoSuiteGenerator::ValidationMessageOverrides
+        message_overrides VALIDATION_MESSAGE_OVERRIDES
+
         igs 'hl7.fhir.au.core#current'
         message_filters = [
           "The value provided ('xml') was not found in the value set 'MimeType'",

@@ -21,6 +21,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -307,6 +309,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -643,6 +647,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -925,6 +931,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -1216,6 +1224,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -1498,6 +1508,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -1777,6 +1789,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -2114,6 +2128,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -2393,6 +2409,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -2652,6 +2670,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :expectation: SHALL
@@ -2891,6 +2911,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -3028,6 +3050,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -3279,6 +3303,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -3495,6 +3521,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -3768,6 +3796,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4008,6 +4038,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4279,6 +4311,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4405,6 +4439,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4513,6 +4549,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4701,6 +4739,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -4841,6 +4881,8 @@
   :interactions:
   - :code: read
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches: []
   :search_definitions: {}
@@ -4881,6 +4923,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -5088,6 +5132,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -5384,6 +5430,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -5590,6 +5638,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -5700,6 +5750,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -5950,6 +6002,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -6040,6 +6094,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -6218,6 +6274,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
@@ -6448,6 +6506,8 @@
     :expectation: SHALL
   - :code: search-type
     :expectation: SHALL
+  :update_create: false
+  :update_create_expectation: MAY
   :operations: []
   :searches:
   - :names:
