@@ -2,6 +2,9 @@ require:
   - rubocop-erb
 AllCops:
   Exclude:
+    # Listing Exclude here replaces RuboCop's default, which skips vendor/; gems that
+    # ruby/setup-ruby installs under vendor/bundle must not be inspected.
+    - 'vendor/**/*'
     - 'lib/au_core_test_kit/search_test.rb'
     - 'lib/au_core_test_kit/reference_resolution_test.rb'
     - 'lib/au_core_test_kit/generator/must_support_metadata_extractor.rb'
