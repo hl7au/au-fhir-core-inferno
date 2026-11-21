@@ -1,0 +1,65 @@
+# Patient searches for wang-li and howe-deangelo, shared by every AU Core Scenario through
+# `- from:` in its fhir.pairs. A change here applies to all of them; a Pair one suite needs
+# differently goes in that Scenario, above its `from:` entry, so it answers first.
+
+# Each search is answered with its own criterion over every IG Patient, not a fixed id.
+# Birthdate searches drop ronny-irvine first: its birthDate is only a data-absent-reason
+# extension, which fhirpath-rb 0.1.7 can't compare with a date.
+# _id: the first search, by GET for each patient and by POST for the first.
+- request: { path: /Patient, query: { _id: wang-li } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(id = 'wang-li')" }
+- request: { method: POST, path: /Patient/_search, body: { _id: wang-li } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(id = 'wang-li')" }
+- request: { path: /Patient, query: { _id: howe-deangelo } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(id = 'howe-deangelo')" }
+# Single parameters, with values taken from wang-li.
+- request: { path: /Patient, query: { family: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang')).exists())" }
+- request: { path: /Patient, query: { gender: male } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(gender = 'male')" }
+- request: { path: /Patient, query: { indigenous-status: "4" } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(extension.where(url = 'http://hl7.org.au/fhir/StructureDefinition/indigenous-status').valueCoding.where(code = '4').exists())" }
+- request: { path: /Patient, query: { name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+# Birthdate with each comparator.
+- request: { path: /Patient, query: { birthdate: gt1975-05-02 } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate > @1975-05-02)" }
+- request: { path: /Patient, query: { birthdate: ge1975-05-02 } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate >= @1975-05-02)" }
+- request: { path: /Patient, query: { birthdate: lt1975-05-04 } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate < @1975-05-04)" }
+- request: { path: /Patient, query: { birthdate: le1975-05-04 } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate <= @1975-05-04)" }
+# Parameter combinations.
+- request: { path: /Patient, query: { birthdate: gt1975-05-02, family: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate > @1975-05-02 and name.where(family.lower().startsWith('wang')).exists())" }
+- request: { path: /Patient, query: { birthdate: gt1975-05-02, name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate > @1975-05-02 and name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+- request: { path: /Patient, query: { family: Wang, gender: male } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang')).exists() and gender = 'male')" }
+- request: { path: /Patient, query: { gender: male, name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(gender = 'male' and name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+- request: { path: /Patient, query: { birthdate: ge1975-05-02, family: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate >= @1975-05-02 and name.where(family.lower().startsWith('wang')).exists())" }
+- request: { path: /Patient, query: { birthdate: ge1975-05-02, name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate >= @1975-05-02 and name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+- request: { path: /Patient, query: { birthdate: lt1975-05-04, family: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate < @1975-05-04 and name.where(family.lower().startsWith('wang')).exists())" }
+- request: { path: /Patient, query: { birthdate: lt1975-05-04, name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate < @1975-05-04 and name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+- request: { path: /Patient, query: { birthdate: le1975-05-04, family: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate <= @1975-05-04 and name.where(family.lower().startsWith('wang')).exists())" }
+- request: { path: /Patient, query: { birthdate: le1975-05-04, name: Wang } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate <= @1975-05-04 and name.where(family.lower().startsWith('wang') or given.where(lower().startsWith('wang')).exists()).exists())" }
+# Birthdate twice (multiple AND).
+- request: { path: /Patient, query: { birthdate: [ge1950-01-01, le2050-01-01] } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate >= @1950-01-01 and birthDate <= @2050-01-01)" }
+- request: { path: /Patient, query: { birthdate: [gt1950-01-01, lt2050-01-01] } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(birthDate.extension.empty()).where(birthDate > @1950-01-01 and birthDate < @2050-01-01)" }
+# Identifier as a value and as system|value.
+- request: { path: /Patient, query: { identifier: "22421441" } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(identifier.where(value = '22421441').exists())" }
+- request: { path: /Patient, query: { identifier: "http://ns.electronichealth.net.au/id/hi/ihi/1.0|8003608000311621" } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0' and value = '8003608000311621').exists())" }
+- request: { path: /Patient, query: { identifier: "http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734|22421441" } }
+  response: { select: "Bundle.entry.resource.ofType(Patient).where(identifier.where(system = 'http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734' and value = '22421441').exists())" }

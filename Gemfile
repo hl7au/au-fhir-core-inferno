@@ -9,7 +9,7 @@ gemspec
 group :development, :test do
   gem 'debug'
   # Switch to '~> 0.1' once 0.1.0 is on RubyGems.
-  gem 'fhir_stub_server', github: 'projkov/fhir_stub_server', ref: 'ee062c3'
+  gem 'fhir_stub_server', github: 'projkov/fhir_stub_server', ref: '1778419'
   gem 'puma'
 end
 

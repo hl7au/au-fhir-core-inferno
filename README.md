@@ -79,6 +79,8 @@ The file has these keys:
 | `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. Each suite's Scenario has at least one expected `fail`, so the Scenario proves it can catch one. |
 | `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs` and `expected_context`. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
 
+Pairs that several Scenarios need live in `spec/fixtures/stub_server/_shared/`, and a Scenario includes them with `- from: ../_shared/<file>.yml` in its `pairs`. Every AU Core Scenario includes `au_core_patient_searches.yml`, so a change there applies to all four. Validator Pairs stay in each Scenario, because they name the IG version (`au-core-patient|<version>`).
+
 `.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. The TLS test is therefore expected to `omit`.
 
 ### When a generator or kit change alters a request
@@ -86,11 +88,11 @@ The file has these keys:
 An unmatched request fails the run on purpose: that is how a changed request gets noticed. The failure lists one line per request the Stub could not answer, with the nearest Pair, how the request differs from it, and the request to paste:
 
 ```text
-Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[6]: birthdate expected ["gt1975-05-02"], got nil; request: {"path":"/Patient","query":{"family":"Wang"}}
+Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[0] (../_shared/au_core_patient_searches.yml[10]): birthdate expected ["gt1975-05-02"], got nil; request: {"path":"/Patient","query":{"family":"Wang"}}
 ```
 
 1. Decide whether the kit meant to send that request. If it didn't, fix the kit, not the Scenario.
-2. If it did, paste the JSON after `request:` into `server.fhir.pairs` as a new Pair. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
+2. If it did, paste the JSON after `request:` as a new Pair: into the shared file when the nearest Pair is there and the change holds for every suite that includes it, otherwise into the Scenario's `server.fhir.pairs`, above its `from:` entry, so it answers first. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
 
    ```yaml
    - request: {"path":"/Patient","query":{"family":"Wang"}}
