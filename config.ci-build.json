@@ -8,7 +8,7 @@
   "ci_build": {
     "package_url": "https://build.fhir.org/ig/hl7au/au-fhir-core/package.tgz",
     "manifest_url": "https://build.fhir.org/ig/hl7au/au-fhir-core/package.manifest.json",
-    "package_date": "20261119004940"
+    "package_date": "20261125014801"
   },
   "configs": {
     "generic": {
