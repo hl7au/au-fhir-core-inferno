@@ -10,6 +10,8 @@ RSpec.describe 'Scenarios against fhir_stub_server' do
 
       let(:suite_id) { scenario.suite_id }
 
+      after { FHIRStubServer::WebMockAdapter.uninstall }
+
       def run_in_process(scenario)
         stub = scenario.stub
         FHIRStubServer::WebMockAdapter.install(stub, fhir_base_url: Scenario::FHIR_BASE_URL,
@@ -28,17 +30,16 @@ RSpec.describe 'Scenarios against fhir_stub_server' do
 
       def expect_expected_results(run, scenario)
         aggregate_failures do
-          expect(run.unmatched_report).to be_empty, run.unmatched_report
-          expect(run.context_mismatch_report).to be_empty, run.context_mismatch_report
+          run.stub_reports.each { |report| expect(report).to be_empty, report }
           expect(run.results).to eq(scenario.expected)
         end
       end
 
-      it 'gets the expected results in process, with every request answered' do
+      it 'gets the expected results in process, with every request answered and every Pair used' do
         expect_expected_results(run_in_process(scenario), scenario)
       end
 
-      it 'gets the expected results through inferno execute, with every request answered' do
+      it 'gets the expected results through inferno execute, with every request answered and every Pair used' do
         expect_expected_results(scenario.execute_run, scenario)
       end
 

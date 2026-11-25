@@ -15,8 +15,15 @@ class Scenario
 
   # What one run left behind: the Stub with its reports, and each test's result by short id.
   Run = Struct.new(:stub, :results) do
-    def unmatched_report
-      stub.unmatched_report
+    # Unmatched requests, unused Pairs, empty selects and validator context mismatches: one
+    # report each, empty when the run had none.
+    def stub_reports
+      [stub.unmatched_report, stub.unused_pairs_report, empty_selects_report, context_mismatch_report]
+    end
+
+    # Each select or include that found nothing at build time, but for Pairs marked expect_empty.
+    def empty_selects_report
+      stub.empty_selects.map { |empty| "Empty #{empty[:pair]}: #{empty[:expression]}" }.join("\n")
     end
 
     def context_mismatch_report

@@ -65,6 +65,8 @@ It may be a direct commit to the master branch.
 A Scenario is one `spec/fixtures/stub_server/<name>/scenario.yml`. `spec/integration/scenarios_spec.rb` runs each Scenario twice, in the rspec process and through `inferno execute`. Each run fails when:
 
 - the Stub gets a request it has no answer for;
+- a Pair is never used, because no test sends its request any more;
+- a `select` or `include` finds nothing in the IG examples, unless its response says `expect_empty: true`;
 - the validator is called with a different context than `expected_context`;
 - any test's result differs from `expected`;
 - the two runs disagree.
@@ -99,8 +101,9 @@ Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[0] (../_shared/au_co
      response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang')).exists())" }
    ```
 
-   Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`.
+   Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`. When the search is meant to find nothing in the IG examples (a patient with no Observations, a status no example has), add `expect_empty: true` to the response; otherwise an empty `select` fails the run as a likely typo.
 3. Rerun until every request is answered. Then update `expected` for any test whose result changed on purpose.
+4. A Pair that no request uses fails the run with an `Unused fhir.pairs[...]` line. Remove it, or fix it when the kit still sends that request in another form (an `Unmatched` line then names it as the nearest Pair). Remove a Pair from the shared file only when no Scenario uses it.
 
 To point Inferno's UI at one Scenario while debugging:
 
@@ -108,7 +111,7 @@ To point Inferno's UI at one Scenario while debugging:
 bundle exec fhir-stub-server spec/fixtures/stub_server/<name>/scenario.yml
 ```
 
-It prints the FHIR and validator base URLs and logs every request it can't answer. Start Inferno with `FHIR_RESOURCE_VALIDATOR_URL` set to the validator URL if the Stub should answer validation too.
+It prints the FHIR and validator base URLs, logs every request it can't answer and, on shutdown, the Pairs nothing used. Start Inferno with `FHIR_RESOURCE_VALIDATOR_URL` set to the validator URL if the Stub should answer validation too.
 
 ## Release management
 When we would like to issue a new release, you need to update the application version in this file https://github.com/hl7au/au-fhir-core-inferno/blob/master/lib/au_core_test_kit/version.rb
