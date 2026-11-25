@@ -81,7 +81,9 @@ The file has these keys:
 | `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. Each suite's Scenario has at least one expected `fail`, so the Scenario proves it can catch one. |
 | `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs` and `expected_context`. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
 
-Pairs that several Scenarios need live in `spec/fixtures/stub_server/_shared/`, and a Scenario includes them with `- from: ../_shared/<file>.yml` in its `pairs`. Every AU Core Scenario includes `au_core_patient_searches.yml`, so a change there applies to all four. Validator Pairs stay in each Scenario, because they name the IG version (`au-core-patient|<version>`).
+Pairs that several Scenarios need live in `spec/fixtures/stub_server/_shared/`, and a Scenario includes them with `- from: ../_shared/<file>.yml` in its `pairs`. The four AU Core Scenarios named after their suite include `au_core_patient_searches.yml`, so a change there applies to all of them.
+
+`au_core_v300_ballot1_full` lists every group and test of the v3.0.0-ballot1 suite, each expected to pass, with no Pairs yet. It fails until they are added: its unmatched report is the list of Pairs to write. Validator Pairs stay in each Scenario, because they name the IG version (`au-core-patient|<version>`).
 
 `.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. The TLS test is therefore expected to `omit`.
 
