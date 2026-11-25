@@ -58,11 +58,11 @@ It may be a direct commit to the master branch.
 |---|---|---|
 | Suite Rules | Each generated suite against its IG package and config: a group for every CapabilityStatement resource with an interaction, a read and search test for every interaction and search parameter, the validator's IG version, and the FHIRPath Lab wiring. | `docker compose run --rm -e APP_ENV=test inferno bundle exec rspec spec/au_core` |
 | Regeneration drift | The committed suites under `lib/au_core_test_kit/generated` equal a fresh `make generate`. | `make generate`, then `git status lib/au_core_test_kit/generated` must show no change |
-| Scenarios | Each shipped suite runs against [fhir_stub_server](https://github.com/projkov/fhir_stub_server), which stands in for both the FHIR server and the validator. Every test must get its expected result. | `docker compose run --rm -e APP_ENV=test inferno bundle exec rspec spec/integration/scenarios_spec.rb` |
+| Scenarios | The v3.0.0-ballot1 Patient group runs against [fhir_stub_server](https://github.com/projkov/fhir_stub_server), which stands in for both the FHIR server and the validator. Every test must get its expected result. | `docker compose run --rm -e APP_ENV=test inferno bundle exec rspec spec/integration/scenarios_spec.rb` |
 
 ### Scenarios
 
-A Scenario is one `spec/fixtures/stub_server/<name>/scenario.yml`. `spec/integration/scenarios_spec.rb` runs each Scenario twice, in the rspec process and through `inferno execute`. Each run fails when:
+A Scenario is one `spec/fixtures/stub_server/<name>/scenario.yml`. The kit has one, `au_core_v300_ballot1`, covering the suite's Patient group. `spec/integration/scenarios_spec.rb` runs each Scenario twice, in the rspec process and through `inferno execute`. Each run fails when:
 
 - the Stub gets a request it has no answer for;
 - a Pair is never used, because no test sends its request any more;
@@ -78,25 +78,23 @@ The file has these keys:
 | `suite_id` | The suite to run, e.g. `au_core_v300_ballot1`. |
 | `groups` | Ids of the suite's groups to run, in order. They run as one test run, so a later group sees what earlier ones saved, as in a whole-suite run. List the Patient group before groups whose chained searches use its patients. |
 | `inputs` | Suite inputs other than `url`, which each run sets to the Stub. |
-| `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. Each suite's Scenario has at least one expected `fail`, so the Scenario proves it can catch one. |
+| `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. A Scenario has at least one expected `fail`, so it proves it can catch one. |
 | `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs` and `expected_context`. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
 
-Pairs that several Scenarios need live in `spec/fixtures/stub_server/_shared/`, and a Scenario includes them with `- from: ../_shared/<file>.yml` in its `pairs`. The four AU Core Scenarios named after their suite include `au_core_patient_searches.yml`, so a change there applies to all of them.
+When several Scenarios need the same Pairs, move them to a file in `spec/fixtures/stub_server/_shared/` and include it with `- from: ../_shared/<file>.yml` in each Scenario's `pairs`.
 
-`au_core_v300_ballot1_full` lists every group and test of the v3.0.0-ballot1 suite, each expected to pass, with no Pairs yet. It fails until they are added: its unmatched report is the list of Pairs to write. Validator Pairs stay in each Scenario, because they name the IG version (`au-core-patient|<version>`).
-
-`.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. The TLS test is therefore expected to `omit`.
+`.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. A Scenario that runs the CapabilityStatement group therefore expects the TLS test to `omit`.
 
 ### When a generator or kit change alters a request
 
 An unmatched request fails the run on purpose: that is how a changed request gets noticed. The failure lists one line per request the Stub could not answer, with the nearest Pair, how the request differs from it, and the request to paste:
 
 ```text
-Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[0] (../_shared/au_core_patient_searches.yml[10]): birthdate expected ["gt1975-05-02"], got nil; request: {"path":"/Patient","query":{"family":"Wang"}}
+Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[11]: birthdate expected ["gt1975-05-02"], got nil; request: {"path":"/Patient","query":{"family":"Wang"}}
 ```
 
 1. Decide whether the kit meant to send that request. If it didn't, fix the kit, not the Scenario.
-2. If it did, paste the JSON after `request:` as a new Pair: into the shared file when the nearest Pair is there and the change holds for every suite that includes it, otherwise into the Scenario's `server.fhir.pairs`, above its `from:` entry, so it answers first. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
+2. If it did, paste the JSON after `request:` as a new Pair into the Scenario's `server.fhir.pairs`. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
 
    ```yaml
    - request: {"path":"/Patient","query":{"family":"Wang"}}
@@ -105,7 +103,7 @@ Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[0] (../_shared/au_co
 
    Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`. When the search is meant to find nothing in the IG examples (a patient with no Observations, a status no example has), add `expect_empty: true` to the response; otherwise an empty `select` fails the run as a likely typo.
 3. Rerun until every request is answered. Then update `expected` for any test whose result changed on purpose.
-4. A Pair that no request uses fails the run with an `Unused fhir.pairs[...]` line. Remove it, or fix it when the kit still sends that request in another form (an `Unmatched` line then names it as the nearest Pair). Remove a Pair from the shared file only when no Scenario uses it.
+4. A Pair that no request uses fails the run with an `Unused fhir.pairs[...]` line. Remove it, or fix it when the kit still sends that request in another form (an `Unmatched` line then names it as the nearest Pair).
 
 To point Inferno's UI at one Scenario while debugging:
 
