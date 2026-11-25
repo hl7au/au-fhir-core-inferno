@@ -1,0 +1,164 @@
+name: Refresh CI Build Suite
+
+# Keeps the ci-build suite in step with the AU Core CI build on build.fhir.org. The suite
+# lives only on the long-lived ci-build branch, never on master: it changes whenever the CI
+# build does, and master (and every gem built from it) should carry only the tooling that
+# generates it. Each run merges master into ci-build, so generator and tooling changes reach
+# the branch, regenerates the suite when master or the CI build changed (the CI build by
+# comparing the date in its package.manifest.json with the one recorded in the branch's
+# config.ci-build.json), tests the result, and pushes the branch only if the tests pass.
+on:
+  schedule:
+    # Daily at 19:00 UTC, early morning in eastern Australia.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate even when the CI build date is unchanged
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: refresh-ci-build-suite
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      # Lets the failure issue step find the repository even when the checkout failed.
+      GH_REPO: ${{ github.repository }}
+      FAILURE_ISSUE_TITLE: CI build refresh failing
+      # Assigned so GitHub notifies a person; a failure nobody watches went unnoticed for a month.
+      FAILURE_ISSUE_ASSIGNEE: KyleOps
+      CI_BUILD_BRANCH: ci-build
+      CI_BUILD_SUITE_DIR: lib/au_core_test_kit/generated/ci-build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          ref: master
+          # The merge below needs the history of both master and the ci-build branch.
+          fetch-depth: 0
+
+      - name: Configure the git identity
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      # Consumers pin the kit to a commit on the ci-build branch (a Gemfile.lock records the
+      # sha), so the branch only ever moves forward: master is merged in, never rebased onto,
+      # and nothing here force-pushes. A merge conflict fails the job, which raises the
+      # failure issue for a person to resolve.
+      - name: Prepare the ci-build branch
+        id: branch
+        run: |
+          # ls-remote exits 2 when the branch does not exist; any other failure stops the job
+          # rather than being mistaken for a first run.
+          status=0
+          git ls-remote --exit-code --heads origin "$CI_BUILD_BRANCH" > /dev/null || status=$?
+          case "$status" in
+            0)
+              git fetch origin "+refs/heads/$CI_BUILD_BRANCH:refs/remotes/origin/$CI_BUILD_BRANCH"
+              git checkout -B "$CI_BUILD_BRANCH" "origin/$CI_BUILD_BRANCH"
+              before=$(git rev-parse HEAD)
+              git merge --no-edit origin/master
+              if [ "$(git rev-parse HEAD)" = "$before" ]; then merged=false; else merged=true; fi
+              ;;
+            2)
+              # First run: the branch starts from master and the suite is generated below.
+              git checkout -b "$CI_BUILD_BRANCH"
+              merged=true
+              ;;
+            *)
+              echo "git ls-remote failed with status $status" >&2
+              exit "$status"
+              ;;
+          esac
+          echo "merged=$merged" >> "$GITHUB_OUTPUT"
+
+      - name: Install libpq for the pg gem
+        run: sudo apt-get update && sudo apt-get install -y libpq-dev
+
+      # After the branch is prepared, so .ruby-version and Gemfile.lock come from the merged tree.
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      # New master commits can change the generator or the tooling, so they force a
+      # regeneration even when the CI build is unchanged; otherwise the rake task regenerates
+      # only when the CI build's date differs from the recorded one.
+      - name: Regenerate the ci-build suite
+        id: refresh
+        env:
+          FORCE: ${{ inputs.force }}
+          MERGED: ${{ steps.branch.outputs.merged }}
+        run: |
+          if [ "$FORCE" = true ] || [ "$MERGED" = true ] || [ ! -d "$CI_BUILD_SUITE_DIR" ]; then
+            bundle exec rake "au_core:ci_build:refresh[force]"
+          else
+            bundle exec rake au_core:ci_build:refresh
+          fi
+
+      # Tested before anything is pushed, so the ci-build branch is always green for whoever
+      # pins it. A push made with GITHUB_TOKEN triggers no workflows, so these checks are the
+      # only ones the branch gets. The suite-level specs boot Inferno with the flag set.
+      - name: Run RuboCop
+        if: steps.refresh.outputs.changed == 'true' || steps.branch.outputs.merged == 'true'
+        run: bundle exec rubocop
+
+      - name: Run RSpec
+        if: steps.refresh.outputs.changed == 'true' || steps.branch.outputs.merged == 'true'
+        env:
+          APP_ENV: test
+          INFERNO_CI_BUILD_SUITES: 'true'
+        run: bundle exec rspec
+
+      # Stages only the suite and its config: setup-ruby installs gems under vendor/bundle,
+      # which must never be committed. -A stages files the regeneration removed.
+      - name: Push the ci-build branch
+        env:
+          VERSION: ${{ steps.refresh.outputs.version }}
+          DATE: ${{ steps.refresh.outputs.date }}
+        run: |
+          git add -A -- config.ci-build.json "$CI_BUILD_SUITE_DIR"
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate the ci-build suite from AU Core $VERSION dated $DATE"
+          fi
+          published=$(git rev-parse --verify --quiet "refs/remotes/origin/$CI_BUILD_BRANCH" || true)
+          if [ "$(git rev-parse HEAD)" = "$published" ]; then
+            echo "The ci-build branch is already up to date; nothing to push."
+          else
+            # A plain push: it also publishes a merge of master with no regeneration diff.
+            git push origin "$CI_BUILD_BRANCH"
+          fi
+
+      # A failing scheduled run is silent, so keep one issue open while the refresh fails and
+      # close it on the next success.
+      - name: Open or update the failure issue
+        if: failure()
+        run: |
+          run_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          issue=$(gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" --json number,title \
+            --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[0].number // empty")
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "Failed again: $run_url"
+          else
+            gh issue create --title "$FAILURE_ISSUE_TITLE" --assignee "$FAILURE_ISSUE_ASSIGNEE" \
+              --body "The Refresh CI Build Suite workflow failed, so the ci-build suite is no longer following the AU Core CI build. Run: $run_url. This issue closes itself on the next successful run."
+          fi
+
+      - name: Close the failure issue
+        if: success()
+        run: |
+          gh issue list --state open --search "in:title \"$FAILURE_ISSUE_TITLE\"" --json number,title \
+            --jq "map(select(.title == \"$FAILURE_ISSUE_TITLE\")) | .[].number" |
+            while read -r issue; do
+              gh issue close "$issue" --comment "The refresh succeeded again."
+            done

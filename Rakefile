@@ -20,15 +20,21 @@ namespace :db do
 end
 
 namespace :au_core do
-  desc 'Generate every suite, each in its own process'
-  task :generate do
-    require_relative 'lib/au_core_test_kit/suite_configs'
-    generator_script = 'require "inferno_suite_generator"; InfernoSuiteGenerator::Generator.generate(ARGV)'
+  desc 'Generate tests (default config.300-ballot1.json; pass a config name, e.g. rake "au_core:generate[ci-build]")'
+  task :generate, [:config] do |_task, args|
+    if args[:config] == 'ci-build'
+      # The ci-build suite tracks the AU Core CI build; see rakelib/ci_build.rb.
+      require_relative 'rakelib/ci_build'
+      AUCoreTestKit::CIBuild.new.generate
+      sh 'bundle', 'exec', 'rubocop', '-A', '--format', 'quiet', AUCoreTestKit::CIBuild::OUTPUT_DIR
+      next
+    end
 
-    # The generator's GeneratorConfigKeeper shares one hash across configs, so a second
-    # config generated in the same process would inherit the first one's settings.
-    AUCoreTestKit::SuiteConfigs::VERSIONS.each do |version_file|
-      ruby '-e', generator_script, AUCoreTestKit::SuiteConfigs::BASIC, version_file
+    require 'inferno_suite_generator'
+    basic_config_file = './config.basic.json'
+    config_files = args[:config] ? ["./config.#{args[:config]}.json"] : ['./config.300-ballot1.json']
+    config_files.each do |config_file|
+      InfernoSuiteGenerator::Generator.generate([basic_config_file, config_file])
     end
   end
 end

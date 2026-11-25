@@ -38,6 +38,22 @@ If you visit http://hl7.org.au/fhir/core/history.html and notice that there is a
 4. If there are any new test groups, they will be added to the project automatically;
 5. If there are any changes, the action will create a pull request.
 
+### The CI build suite
+
+The kit can also carry a suite that tracks the AU Core CI build at https://build.fhir.org/ig/hl7au/au-fhir-core/ rather than a released version. That suite lives only on the [`ci-build` branch](https://github.com/hl7au/au-fhir-core-inferno/tree/ci-build), in `lib/au_core_test_kit/generated/ci-build`. Master, and gems built from it, carry the tooling that generates it (`config.ci-build.json`, `rakelib/ci_build.rb` and the `au_core:ci_build` rake tasks) but no CI build suite.
+
+The [Refresh CI Build Suite](https://github.com/hl7au/au-fhir-core-inferno/actions/workflows/refresh-ci-build-suite.yaml) workflow maintains the branch. It runs daily and on demand: it merges master into `ci-build`, regenerates the suite when the CI build has changed (the date in its `package.manifest.json` differs from the one recorded in the branch's `config.ci-build.json`) or the merge brought in new master commits, runs RuboCop and RSpec, and pushes the branch only if they pass. The branch is never rebased or force-pushed, so a commit pinned from it stays reachable. A failing run keeps one issue titled "CI build refresh failing" open, and the next successful run closes it.
+
+To use the suite, take the kit from the `ci-build` branch and set `INFERNO_CI_BUILD_SUITES=true`; without the flag, or on master, the suite is not loaded, so environments such as production never show it:
+
+```ruby
+gem 'au_core_test_kit', github: 'hl7au/au-fhir-core-inferno', branch: 'ci-build'
+```
+
+The suite id is always `au_core_ci_build`, so sessions and links survive a CI version bump, while its title shows the IG package version (for example `AU Core v3.0.0-ci-build`), never a version ahead of the IG. A regeneration replaces the suite in place, and it can change test ids, so ci-build sessions started before a refresh may stop rendering. The suite validates against `hl7.fhir.au.core#current`; after a deployment picks up a new suite, restart its validator so it reloads that package from build.fhir.org.
+
+To regenerate it locally, run `bundle exec rake "au_core:ci_build:refresh[force]"` (`make generate_ci_build` runs the same thing in Docker). On master that is for inspection only: do not commit the generated directory or the updated `config.ci-build.json` there, because the suite belongs on the `ci-build` branch.
+
 ## Development workflow
 This repository contains both the source code of the tests generator and the generated tests themselves.
 Even a small change in the generator source causes a huge amount of changes in the generated tests.

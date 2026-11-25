@@ -1,15 +1,10 @@
 name: Automated Quality Control
-# build-and-release.yaml runs after this workflow completes on master, so the
-# name and the push trigger on master must stay.
-on:
-  pull_request:
-  push:
-    branches: [master]
+on: push
 jobs:
   Spec:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Setup environment

@@ -11,7 +11,7 @@ gen = au_core:generate
 kit_path = lib/au_core_test_kit/
 generated_path = $(kit_path)generated/
 
-.PHONY: setup generate new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
+.PHONY: setup generate generate_ci_build summary new_release tests run pull build up stop down rubocop migrate clean_generated ig_download
 
 setup: pull build migrate
 
@@ -25,7 +25,13 @@ generate_local:
 	$(ber) $(gen)
 	rubocop -A $(kit_path)
 
-new_release: build ig_download generate
+generate_ci_build:
+	$(compose) $(inferno) $(ber) "au_core:ci_build:refresh[force]"
+
+summary: build
+	$(compose) $(inferno) ruby $(sum_script)
+
+new_release: build ig_download generate summary
 
 tests:
 	$(compose) run -e APP_ENV=test inferno bundle exec rspec
