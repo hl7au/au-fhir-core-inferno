@@ -1,0 +1,15 @@
+# Values for the ${name}s in scenario.yml's Pairs, taken from the IG example patients the Patient
+# group searches with. Strings only, so numbers and dates are quoted.
+
+# The patient_ids input, in order: every search but _id uses the first one's values.
+patient_id: wang-li
+second_patient_id: howe-deangelo
+family: Wang
+gender: male
+indigenous_status: '4'
+# The first patient's birthDate minus and plus one day, as the comparator searches send them.
+day_before_birthdate: '1975-05-02'
+day_after_birthdate: '1975-05-04'
+identifier: '22421441'
+mrn_system: http://ns.electronichealth.net.au/id/hpio-scoped/medicalrecord/1.0/8003626566699734
+ihi: '8003608000311621'

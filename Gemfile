@@ -8,7 +8,7 @@ gemspec
 
 group :development, :test do
   gem 'debug'
-  gem 'fhir_stub_server', '~> 0.1'
+  gem 'fhir_stub_server', '~> 0.2'
   gem 'puma'
 end
 

@@ -95,9 +95,11 @@ The file has these keys:
 | `groups` | Ids of the suite's groups to run, in order. They run as one test run, so a later group sees what earlier ones saved, as in a whole-suite run. List the Patient group before groups whose chained searches use its patients. |
 | `inputs` | Suite inputs other than `url`, which each run sets to the Stub. |
 | `expected` | Every test's short id (its id without the group prefix) with `pass`, `fail`, `skip`, `omit` or `error`. A Scenario has at least one expected `fail`, so it proves it can catch one. |
-| `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs` and `expected_context`. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
+| `server` | The Stub's config: Demo Data `sources` (the kit's `lib/au_core_test_kit/igs/*.tgz`), FHIR `pairs`, validator `pairs`, `expected_context` and the `dictionary` file. The format is in the gem's [README](https://github.com/projkov/fhir_stub_server#config). Its "Working with LLM agents" section covers the update loop. |
 
-When several Scenarios need the same Pairs, move them to a file in `spec/fixtures/stub_server/_shared/` and include it with `- from: ../_shared/<file>.yml` in each Scenario's `pairs`.
+The Pairs write the searched patients' values (id, family, birthdate bounds, identifiers) as `${name}`, defined once in the Scenario's `dictionary.yml`. To search with another patient, change its values there. A `${name}` the dictionary doesn't define fails the Stub's build.
+
+When several Scenarios need the same Pairs, move them to a file in `spec/fixtures/stub_server/_shared/` and include it with `- from: ../_shared/<file>.yml` in each Scenario's `pairs`. Each Scenario's `dictionary.yml` then supplies its own values for the shared Pairs.
 
 `.env.test` points the validator at the Stub (`FHIR_RESOURCE_VALIDATOR_URL`). It also turns the TLS test off (`INFERNO_DISABLE_TLS_TEST`), because that test opens a real TLS connection, which no Stub can answer. A Scenario that runs the CapabilityStatement group therefore expects the TLS test to `omit`.
 
@@ -113,11 +115,11 @@ Unmatched fhir GET /Patient?family=Wang; nearest fhir.pairs[11]: birthdate expec
 2. If it did, paste the JSON after `request:` as a new Pair into the Scenario's `server.fhir.pairs`. Then write a response that states the search's criterion in FHIRPath over the IG examples, rather than naming one resource:
 
    ```yaml
-   - request: {"path":"/Patient","query":{"family":"Wang"}}
-     response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('wang')).exists())" }
+   - request: {"path":"/Patient","query":{"family":"${family}"}}
+     response: { select: "Bundle.entry.resource.ofType(Patient).where(name.where(family.lower().startsWith('${family}'.lower())).exists())" }
    ```
 
-   Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`. When the search is meant to find nothing in the IG examples (a patient with no Observations, a status no example has), add `expect_empty: true` to the response; otherwise an empty `select` fails the run as a likely typo.
+   The pasted request holds the patient's actual values: replace each one that is in `dictionary.yml` with its `${name}`, as above. Quote dates and numbers in the YAML (`birthdate: '1975-05-03'`). A validator miss ends with `pair: {...}` instead: paste it into `server.validator.pairs` and add `issues`. When the search is meant to find nothing in the IG examples (a patient with no Observations, a status no example has), add `expect_empty: true` to the response; otherwise an empty `select` fails the run as a likely typo.
 3. Rerun until every request is answered. Then update `expected` for any test whose result changed on purpose.
 4. A Pair that no request uses fails the run with an `Unused fhir.pairs[...]` line. Remove it, or fix it when the kit still sends that request in another form (an `Unmatched` line then names it as the nearest Pair).
 
