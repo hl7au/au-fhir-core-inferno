@@ -1,0 +1,9 @@
+# Inputs shared by every Scenario; each suite gets only the ones it declares.
+# Ids are examples in every IG package whose suite declares the input. `url` is set by the runner.
+patient_ids: wang-li, howe-deangelo
+practitioner_ids: bobrester-bob, sallie-sutherland
+practitioner_role_ids: bobrester-bob-gp, cardiologist-sallie-sutherland
+organization_ids: bobrester-medical-center, murrabit-hospital
+location_ids: bobrester-medical-center, murrabit-hospital
+healthcare_service_ids: murrabit-crisis-hotline, physiotherapy
+endpoint_ids: bobrester-fhir-rest, mh-audiology-smd, murrabit-hospital-hl7-v2-mllp
