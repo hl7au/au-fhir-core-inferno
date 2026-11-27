@@ -1,0 +1,20 @@
+inputs:
+  patient_ids: banks-mia-leanne
+server:
+  fhir:
+    sources:
+      - bundle: broken-patient.json
+    pairs:
+      - request: { path: /Patient, query: { identifier: 'http://ns.electronichealth.net.au/id/hi/ihi/1.0|8003608833357361' } }
+        response: { body_file: empty-searchset.json }
+  validator:
+    pairs:
+      - profile: http://hl7.org.au/fhir/core/StructureDefinition/au-core-patient
+        resource: { resourceType: Patient, id: broken }
+        issues: [{ severity: error, code: invalid, details: { text: Deliberately invalid } }]
+expected:
+  au_core_v300_ballot1-au_core_v300_ballot1_fhir_api-au_core_v300_ballot1_patient-au_core_v300_ballot1_patient_validation_test: fail
+  au_core_v300_ballot1-au_core_v300_ballot1_fhir_api-au_core_v300_ballot1_patient-au_core_v300_ballot1_patient_read_test: pass
+known_gaps:
+  - request: { path: /Observation, query: { patient: wang-li, category: [laboratory, vital-signs] } }
+    reason: The kit asks for two categories at once and no Demo Data answers it.
