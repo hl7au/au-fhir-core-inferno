@@ -8,6 +8,7 @@ gemspec
 
 group :development, :test do
   gem 'debug'
+  gem 'fhir_stub_server', '~> 0.2'
 end
 
 gem 'inferno_suite_generator', github: 'hl7au/inferno_suite_generator', branch: 'main'
